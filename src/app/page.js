@@ -1,65 +1,249 @@
-import Image from "next/image";
+"use client";
+
+import React from 'react';
+import { useCalculator } from '@/hooks/useCalculator';
+import InputSlider from '@/components/InputSlider';
+import ResultSection from '@/components/ResultSection';
+import { Calculator, Mail, Info, HelpCircle, ChevronDown } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "SIP & DCA Calculator with Step Up, Inflation & Lump Sum",
+      "description": "The world's most complete SIP / Dollar Cost Averaging calculator — combine monthly SIP, annual step-up, lump sum investment and inflation adjustment with real-time charts. Free for everyone.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "featureList": [
+        "Monthly SIP calculation",
+        "Annual Step-Up SIP",
+        "Lump Sum + SIP combined returns",
+        "Inflation-adjusted returns",
+        "Real-time interactive charts",
+        "Pie chart and line chart toggle"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Step-Up SIP calculator?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A Step-Up SIP calculator lets you increase your monthly SIP amount by a fixed percentage every year, simulating salary hikes. It shows the compound effect of increasing investments over time." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does inflation affect SIP returns?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Inflation reduces the purchasing power of your future corpus. Our inflation-adjusted SIP calculator shows you what your maturity amount is worth in today's rupees, giving you a realistic financial picture." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I combine a lump sum with monthly SIP?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our calculator lets you enter an initial lump sum investment alongside your monthly SIP, and computes the combined future value with step-up and inflation adjustments — all in real time." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is better: SIP or Lump Sum?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Both strategies have merit. SIP offers rupee-cost averaging over market cycles, while lump sum benefits from early compounding. Our calculator lets you combine both and see the effect instantly." }
+        }
+      ]
+    }
+  ]
+};
+
+const HOW_TO_STEPS = [
+  { step: "1", title: "Set your Monthly Investment Amount", desc: "Enter how much you plan to invest every month. Use the slider or type directly. Even small amounts create significant wealth over long periods." },
+  { step: "2", title: "Choose your Time Period", desc: "Select how many years you plan to stay invested. Longer durations dramatically increase returns due to the power of compounding." },
+  { step: "3", title: "Enter the Expected Return Rate", desc: "Equity markets have historically returned 10–15% p.a. over long periods globally. Adjust based on your asset class and market." },
+  { step: "4", title: "Add an Initial Lump Sum (optional)", desc: "If you have a one-time amount to invest alongside your monthly SIP, enter it here. It compounds at the same rate from day one." },
+  { step: "5", title: "Set your Annual Step-Up", desc: "A step-up increases your monthly investment by a fixed % each year — perfect for anyone whose income grows annually." },
+  { step: "6", title: "Factor in Inflation", desc: "Set an expected inflation rate to see the real purchasing power of your future corpus. The yellow bar shows your inflation-adjusted value." },
+];
+
+const FAQS = [
+  {
+    q: "What is a SIP (Systematic Investment Plan)?",
+    a: "A SIP is a method of investing a fixed amount in a mutual fund at regular intervals (usually monthly). It enforces discipline, averages out market volatility, and leverages compounding to build long-term wealth."
+  },
+  {
+    q: "What is a Step-Up SIP and why does it matter?",
+    a: "A Step-Up SIP (also called Top-Up SIP) increases your monthly investment by a fixed percentage every year. For example, if you start with ₹10,000/month and step up 10% annually, you invest ₹11,000 in year 2, ₹12,100 in year 3, etc. This mirrors natural income growth and significantly boosts your final corpus."
+  },
+  {
+    q: "Why should I use inflation-adjusted returns?",
+    a: "₹1 Crore in 30 years is NOT the same as ₹1 Crore today. Inflation erodes purchasing power. Our inflation-adjusted figure shows you what your future corpus is worth in today's money — so you can plan realistically."
+  },
+  {
+    q: "How is the inflation-adjusted value calculated?",
+    a: "Real Value = Nominal FV ÷ (1 + Inflation Rate)ⁿ, where n is the number of years. For example, ₹3 Crore after 30 years at 4% inflation is worth about ₹93 Lakh in today's money."
+  },
+  {
+    q: "What makes this calculator different from other SIP calculators?",
+    a: "Most calculators handle only one variable at a time. This is the only free calculator that combines all four: monthly SIP + annual step-up + lump sum + inflation — on one page, updating in real time as you move the sliders."
+  },
+  {
+    q: "Can investors outside India use this calculator?",
+    a: "Absolutely. The underlying concept — investing a fixed amount monthly, increasing it annually, and adjusting for inflation — is universal. International investors know this as Dollar Cost Averaging (DCA) or a recurring investment plan. Simply enter your currency equivalent amounts. The math is identical worldwide."
+  },
+  {
+    q: "Is this calculator useful for NRI investors?",
+    a: "Yes. NRIs (Non-Resident Indians) can invest in mutual funds through NRE or NRO accounts. This calculator is perfect for NRIs planning their SIP investments from the US, UK, Canada, UAE, Singapore, or Australia."
+  },
+  {
+    q: "What is Dollar Cost Averaging (DCA) and how does it relate to SIP?",
+    a: "Dollar Cost Averaging (DCA) is the global equivalent of SIP. You invest a fixed amount at regular intervals regardless of market price. When markets are down you buy more units, when up you buy fewer — automatically averaging your cost. This calculator works as a full-featured DCA calculator: enter your monthly amount, expected return, step-up, and inflation."
+  },
+  {
+    q: "Are the results guaranteed?",
+    a: "No. This calculator provides illustrative projections based on assumed constant return rates. Actual investment returns vary with market conditions and are not guaranteed. Past performance does not guarantee future results. Please consult a qualified financial advisor before investing."
+  },
+  {
+    q: "What return rate should I use?",
+    a: "Equity markets have historically returned ~10–12% p.a. over long periods. The S&P 500 has averaged ~10% annually over decades. Emerging market equities may return higher with more volatility. Bonds and debt instruments typically return 5–8%. Use 10–12% as a conservative baseline for equity. Past performance does not guarantee future results."
+  }
+];
 
 export default function Home() {
+  const { state, setters, results } = useCalculator();
+  const [openFaq, setOpenFaq] = React.useState(null);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+    <>
+      {/* JSON-LD Structured Data for Google rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* ── CALCULATOR ── */}
+      <main className="min-h-screen p-2 md:p-4 lg:p-4 flex flex-col items-center justify-center">
+        <div className="max-w-6xl w-full mx-auto">
+          {/* Header */}
+          <div className="flex items-center justify-center mb-4 lg:mb-6">
+            <div className="bg-[#8b5cf6] p-2 rounded-xl mr-3 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
+              <Calculator className="w-6 h-6 text-white" />
+            </div>
+            <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white text-center">
+              <span className="text-gradient">SIP Calculator</span>{" "}with Step Up, Inflation &amp; Lump Sum
+            </h1>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
+            {/* Input Section */}
+            <div className="lg:col-span-6 xl:col-span-5 glass-panel p-5 lg:p-6 relative">
+              <InputSlider label="Monthly SIP Amount" value={state.monthlySip} onChange={setters.setMonthlySip} min={500} max={1000000} step={500} prefix="₹" />
+              <InputSlider label="Time Period" value={state.timePeriod} onChange={setters.setTimePeriod} min={1} max={50} step={1} suffix="Yr" />
+              <InputSlider label="Expected Return Rate (p.a)" value={state.returnRate} onChange={setters.setReturnRate} min={1} max={30} step={0.1} suffix="%" />
+              <InputSlider label="Initial Investment (Lump sum)" value={state.initialInvestment} onChange={setters.setInitialInvestment} min={0} max={10000000} step={1000} prefix="₹" />
+              <InputSlider label="Annual Step Up" value={state.stepUp} onChange={setters.setStepUp} min={0} max={50} step={1} suffix="%" />
+              <InputSlider label="Expected Inflation Rate" value={state.inflationRate} onChange={setters.setInflationRate} min={0} max={15} step={0.1} suffix="%" />
+            </div>
+
+            {/* Result Section */}
+            <div className="lg:col-span-6 xl:col-span-7 h-full lg:sticky lg:top-8">
+              <ResultSection results={results} />
+            </div>
+          </div>
         </div>
       </main>
-    </div>
+
+      {/* ── BELOW THE FOLD ── */}
+      <div className="max-w-4xl w-full mx-auto px-4 pb-16 space-y-16">
+
+        {/* ── HOW TO USE ── */}
+        <section id="how-to-use" aria-label="How to use the SIP calculator">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[#a78bfa]" />
+            </div>
+            <h2 className="text-2xl font-bold text-white">How to Use This Calculator</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {HOW_TO_STEPS.map(({ step, title, desc }) => (
+              <div key={step} className="glass-panel p-5 flex gap-4">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#8b5cf6] bg-opacity-30 border border-[#8b5cf6] flex items-center justify-center text-[#c4b5fd] font-bold text-sm">
+                  {step}
+                </div>
+                <div>
+                  <p className="text-white font-semibold mb-1 text-sm">{title}</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Disclaimer */}
+          <p className="mt-6 text-[11px] text-gray-500 leading-relaxed border border-gray-700 rounded-lg px-4 py-3">
+            ⚠️ <strong className="text-gray-400">Disclaimer:</strong> This calculator provides illustrative projections only. Actual investment returns are subject to market risk and may be higher or lower. Past performance does not guarantee future results. Please read all relevant fund documents carefully and consult a qualified financial advisor before investing.
+          </p>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section id="faq" aria-label="Frequently Asked Questions">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
+              <HelpCircle className="w-5 h-5 text-[#a78bfa]" />
+            </div>
+            <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+          </div>
+          <div className="space-y-3">
+            {FAQS.map(({ q, a }, i) => (
+              <div key={i} className="glass-panel overflow-hidden">
+                <button
+                  className="w-full flex items-center justify-between p-4 text-left group"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  id={`faq-${i}`}
+                  aria-expanded={openFaq === i}
+                >
+                  <span className="text-white font-medium text-sm pr-4">{q}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-[#a78bfa] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openFaq === i && (
+                  <div className="px-4 pb-4 text-gray-400 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">
+                    {a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── ABOUT ── */}
+        <section id="about" aria-label="About the creator">
+          <div className="glass-panel p-8 text-center relative overflow-hidden">
+            {/* Background glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(139,92,246,0.08)] to-transparent pointer-events-none" />
+
+            <div className="relative z-10">
+              <div className="w-16 h-16 rounded-full bg-[#8b5cf6] bg-opacity-20 border-2 border-[#8b5cf6] flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-[#c4b5fd]">
+                RP
+              </div>
+              <h2 className="text-xl font-bold text-white mb-1">Built by <span className="text-gradient">Rajat Pande</span></h2>
+              <p className="text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
+                Built to fill a gap — one free calculator combining SIP, step-up, lump sum, and inflation adjustment on a single page, updating in real time.
+              </p>
+              <a
+                href="mailto:panderajat27@gmail.com"
+                className="inline-flex items-center gap-2 bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] hover:bg-opacity-30 transition-all text-[#c4b5fd] px-5 py-2.5 rounded-xl text-sm font-medium"
+              >
+                <Mail className="w-4 h-4" />
+                panderajat27@gmail.com
+              </a>
+              <p className="text-gray-600 text-xs mt-4">
+                For business queries, collaborations, or feedback
+              </p>
+              <p className="text-gray-700 text-xs mt-2">
+                © {new Date().getFullYear()} Rajat Pande
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </>
   );
 }
