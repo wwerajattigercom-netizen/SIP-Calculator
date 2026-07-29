@@ -46,7 +46,7 @@ export const metadata = {
     "NRI SIP calculator",
     "SIP calculator for NRI",
   ],
-  authors: [{ name: "Rajat Pande" }],
+  authors: [{ name: "Rajat" }],
   robots: "index, follow",
   openGraph: {
     title: "SIP & DCA Calculator with Step Up, Inflation & Lump Sum",

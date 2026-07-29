@@ -219,25 +219,25 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(139,92,246,0.08)] to-transparent pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="w-16 h-16 rounded-full bg-[#8b5cf6] bg-opacity-20 border-2 border-[#8b5cf6] flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-[#c4b5fd]">
-                RP
+              <div className="w-12 h-12 rounded-full bg-[#8b5cf6] bg-opacity-20 border-2 border-[#8b5cf6] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-[#c4b5fd]">
+                R
               </div>
-              <h2 className="text-xl font-bold text-white mb-1">Built by <span className="text-gradient">Rajat Pande</span></h2>
+              <h2 className="text-xs font-semibold text-gray-400 mb-1">Built by <span className="text-gradient font-bold text-sm">Rajat</span></h2>
               <p className="text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
                 Built to fill a gap — one free calculator combining SIP, step-up, lump sum, and inflation adjustment on a single page, updating in real time.
               </p>
               <a
-                href="mailto:panderajat27@gmail.com"
-                className="inline-flex items-center gap-2 bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] hover:bg-opacity-30 transition-all text-[#c4b5fd] px-5 py-2.5 rounded-xl text-sm font-medium"
+                href="mailto:businesswebsitestudio@gmail.com"
+                className="inline-flex items-center gap-2 bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] hover:bg-opacity-30 transition-all text-[#c4b5fd] px-5 py-2.5 rounded-xl text-xs font-medium"
               >
                 <Mail className="w-4 h-4" />
-                panderajat27@gmail.com
+                businesswebsitestudio@gmail.com
               </a>
-              <p className="text-gray-600 text-xs mt-4">
+              <p className="text-gray-600 text-[10px] mt-4">
                 For business queries, collaborations, or feedback
               </p>
-              <p className="text-gray-700 text-xs mt-2">
-                © {new Date().getFullYear()} Rajat Pande
+              <p className="text-gray-700 text-[10px] mt-2">
+                © {new Date().getFullYear()} Rajat
               </p>
             </div>
           </div>

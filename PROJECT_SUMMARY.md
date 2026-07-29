@@ -21,7 +21,7 @@ This document serves as your complete record of what we built, the engineering d
 *   **100% Zoom Fit:** Aggressive layout optimization using compact padding (`p-2`), small text metrics, and side-by-side positioning so that the entire calculator remains visible on a standard laptop screen without vertical scrolling.
 *   **"In Words" Formatting (`formatters.js`):** Integrated a real-time currency-to-words translator for the slider outputs and result cards so users don't have to count zeros to understand their inputs.
 *   **The Milestones Table:** Designed a scrollable, real-time table within the chart panel. It ranks milestones from "Slowest" (first Crore) to "Fastest" (latest Crore), showing compounding speed progression.
-*   **Professional About & Contact:** Replaced standard footers with a polished, commercial-facing bio block with direct email (`panderajat27@gmail.com`) for business enquiries.
+*   **Professional About & Contact:** Replaced standard footers with a polished, commercial-facing bio block with direct email (`businesswebsitestudio@gmail.com`) for business enquiries.
 
 ---
 
