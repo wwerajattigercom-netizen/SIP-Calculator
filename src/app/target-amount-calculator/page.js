@@ -2,31 +2,31 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useReverseCalculator } from '@/hooks/useReverseCalculator';
+import { useTimeToGoalCalculator } from '@/hooks/useTimeToGoalCalculator';
 import InputSlider from '@/components/InputSlider';
-import TargetResultSection from '@/components/TargetResultSection';
+import TimeToGoalDisplay from '@/components/TimeToGoalDisplay';
+import YearlyGrowthTable from '@/components/YearlyGrowthTable';
 import CalculatorTabs from '@/components/CalculatorTabs';
-import { Target, Mail, Info, HelpCircle, ChevronDown, ArrowRight, Calculator, Zap } from 'lucide-react';
+import { Target, Mail, Info, HelpCircle, ChevronDown, ArrowRight, Calculator } from 'lucide-react';
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebApplication",
-      "name": "Goal Based SIP Calculator — How Much SIP to Reach ₹1 Crore?",
-      "description": "Calculate the exact monthly SIP required to reach any financial goal (₹1 Crore, retirement, education fund). Includes step-up SIP, lump sum, and inflation adjustment. Free reverse SIP calculator online.",
+      "name": "Goal Based SIP Calculator — How Long to Reach ₹1 Crore?",
+      "description": "Find out exactly how long your monthly SIP will take to reach ₹1 Crore or any financial goal. Includes step-up SIP, lump sum, and inflation. Free goal-based SIP duration calculator.",
       "url": "https://stepupcalculator.com/target-amount-calculator",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
       "featureList": [
-        "Reverse SIP calculation",
-        "Goal based SIP planning",
-        "Required monthly SIP finder",
-        "Annual step-up SIP inclusion",
-        "Lump sum consideration",
-        "Inflation-adjusted goal planning",
-        "Works for ₹1 Crore, ₹5 Crore, retirement goals"
+        "Time to reach financial goal",
+        "Goal based SIP duration calculator",
+        "How long to reach 1 crore SIP",
+        "Step-up SIP goal timeline",
+        "Year-by-year wealth growth table",
+        "Inflation-adjusted goal planning"
       ]
     },
     {
@@ -34,74 +34,58 @@ const jsonLd = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How much SIP is required to reach ₹1 Crore?",
+          "name": "How long does it take ₹10,000/month SIP to reach ₹1 Crore?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "To reach ₹1 Crore in 10 years at 12% annual return with no step-up, you need approximately ₹43,000/month SIP. In 15 years, ₹18,000/month. In 20 years, ₹8,500/month. Adding a 10% annual step-up dramatically reduces the required starting SIP — for 15 years with 10% step-up, you only need ₹11,000/month. Use the calculator above to get the exact figure for your inputs."
+            "text": "At 12% annual return with no step-up, a ₹10,000/month SIP takes approximately 20 years to reach ₹1 Crore. With a 10% annual step-up, the same starting SIP reaches ₹1 Crore in about 16-17 years. Adding a lump sum further reduces the time. Use the calculator above for exact results based on your specific inputs."
           }
         },
         {
           "@type": "Question",
-          "name": "What is a Goal Based SIP Calculator?",
+          "name": "How much SIP is required to reach ₹1 Crore in 10 years?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A Goal Based SIP Calculator (also called a Reverse SIP Calculator) works backwards from your target — instead of asking 'what will my SIP grow to?', it asks 'how much SIP do I need to reach my goal?'. Enter your target amount (e.g. ₹1 Crore), time period, and expected return, and the calculator tells you the exact monthly SIP to start investing."
+            "text": "To reach ₹1 Crore in 10 years at 12% annual return with no step-up, you need approximately ₹43,000/month SIP. With a 10% annual step-up, the required starting SIP drops to about ₹30,000/month. Use the calculator on this page — enter ₹1 Crore as target and slide the monthly SIP to see how the duration changes in real time."
           }
         },
         {
           "@type": "Question",
-          "name": "How does Step-Up SIP reduce the required monthly investment?",
+          "name": "How does step-up SIP reduce the time to reach my goal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A Step-Up SIP increases your monthly contribution by a fixed percentage every year (e.g. 10% annually). When you commit to increasing your SIP annually (as your income grows), the total amount you contribute in later years is much higher, so your required starting SIP today is significantly lower. This aligns perfectly with typical career income growth."
+            "text": "A step-up SIP increases your monthly contribution by a fixed % every year (e.g. 10% annually). Higher contributions in later years contribute significantly more to the corpus, helping you reach your financial goal months or even years earlier than a flat SIP. The compounding effect on higher contributions in later years is disproportionately powerful."
           }
         },
         {
           "@type": "Question",
-          "name": "Can I include a lump sum in my goal planning?",
+          "name": "How does a lump sum shorten the time to reach my goal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. If you already have savings (a lump sum) that you can invest now — say ₹5 Lakh or ₹10 Lakh — the calculator uses it as an initial investment that compounds from day one. This significantly reduces the monthly SIP needed to reach your goal, since the lump sum grows on its own alongside your SIP contributions."
+            "text": "An initial lump sum compounds from Day 1. For example, ₹5 Lakh invested at 12% grows to ₹16 Lakh in 10 years and ₹27 Lakh in 15 years — entirely on its own. This head-start significantly reduces the number of months your SIP needs to cover, shortening the overall time to reach your goal."
           }
         },
         {
           "@type": "Question",
-          "name": "How does inflation affect my financial goal?",
+          "name": "What does 'Goal not reachable in 50 years' mean?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Inflation reduces purchasing power. If your goal is ₹1 Crore in 15 years, it will only have the buying power of approximately ₹48 Lakh in today's money (at 5% inflation). The inflation-adjusted figure shown in the calculator tells you what your target goal is actually worth in today's rupees — helping you plan more accurately for retirement or education goals."
+            "text": "This means your current monthly SIP is too low relative to the target goal at the given return rate. To fix it: increase your monthly SIP amount, add a lump sum, raise the expected return rate, increase the annual step-up %, or lower the target goal. The calculator simulates up to 50 years."
           }
         },
         {
           "@type": "Question",
-          "name": "What expected return rate should I use for planning?",
+          "name": "What is the year-by-year table showing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Indian equity mutual funds have historically returned 12–15% annually over 10+ year periods. For conservative planning, use 10–12%. For large-cap index funds, 11–12% is reasonable. Balanced/hybrid funds typically deliver 9–11%. For debt funds, use 6–8%. Always use a conservative estimate when planning for important financial goals like retirement or a child's education."
+            "text": "The year-by-year table shows how your investment portfolio grows each year — breaking it into Total Invested (what you put in), Gains Earned (returns from market), and Portfolio Value. The row where your goal amount is first reached is highlighted in purple. A progress bar in each row shows how close you are to the target."
           }
         },
         {
           "@type": "Question",
-          "name": "How much SIP is needed for ₹1 Crore in 10, 15, and 20 years?",
+          "name": "How much time does it take to reach 1 crore through SIP with step-up?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "At 12% annual return with no step-up: ₹1 Crore in 10 years requires ≈₹43,000/month; in 15 years ≈₹18,000/month; in 20 years ≈₹8,500/month. With 10% annual step-up: in 10 years ≈₹30,000/month; in 15 years ≈₹11,000/month; in 20 years ≈₹4,500/month. Use the calculator above for exact figures based on your specific inputs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is ₹1 Crore enough for retirement?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "₹1 Crore sounds large, but due to inflation, ₹1 Crore in 20 years has the purchasing power of only ₹37–45 Lakh in today's money (at 4–5% inflation). For a comfortable retirement, financial planners suggest a corpus of ₹3–5 Crore or more, depending on your lifestyle. Use the inflation-adjusted result in the calculator to plan your real goal in today's rupees."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the difference between a regular SIP calculator and this goal based calculator?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A regular SIP calculator tells you how much your investment will grow (forward calculation). A goal based SIP calculator works in reverse — you tell it your target and it tells you how much to invest each month (reverse calculation). This calculator uses a binary search algorithm to find the exact SIP amount even when complex parameters like step-up and lump sum are involved."
+            "text": "At 12% annual return: ₹5,000/month SIP with 15% step-up reaches ₹1 Crore in about 19 years. ₹10,000/month SIP with 10% step-up reaches ₹1 Crore in about 17 years. ₹20,000/month SIP with 10% step-up reaches ₹1 Crore in about 14 years. Use the real-time calculator above to see the exact duration for your specific inputs."
           }
         }
       ]
@@ -109,64 +93,44 @@ const jsonLd = {
   ]
 };
 
-// Quick Reference Table Data
-const QUICK_REFERENCE = [
-  { years: 10, flat: "₹43,000", stepup10: "₹30,000" },
-  { years: 15, flat: "₹18,000", stepup10: "₹11,000" },
-  { years: 20, flat: "₹8,500",  stepup10: "₹4,500"  },
-  { years: 25, flat: "₹4,000",  stepup10: "₹1,900"  },
-];
-
 const HOW_TO_STEPS = [
-  { step: "1", title: "Set your Target Amount (Goal)", desc: "Enter the final corpus you want to achieve. Default is ₹1 Crore (₹1,00,00,000). The label below shows the amount in words so large numbers are easy to read." },
-  { step: "2", title: "Choose your Time Period", desc: "How many years do you have to achieve this goal? Longer periods dramatically reduce the required monthly SIP due to compounding." },
-  { step: "3", title: "Enter Expected Annual Return", desc: "Equity mutual funds have historically returned 10–12% in India. Use a conservative rate like 10–12% for long-term goals." },
-  { step: "4", title: "Add an Initial Lump Sum (optional)", desc: "If you already have savings you can deploy now, enter it here. A lump sum significantly reduces the required monthly SIP — it compounds from Day 1." },
-  { step: "5", title: "Set Annual Step-Up %", desc: "Planning to increase your SIP every year as your income grows? Even a 10% annual step-up massively reduces your starting required SIP today." },
-  { step: "6", title: "Factor in Inflation", desc: "See what your target goal is worth in today's purchasing power. Use 5–6% for India. This helps you plan realistic, inflation-proof goals." },
+  { step: "1", title: "Set your Target Goal Amount", desc: "Enter the corpus you want to build — e.g. ₹1 Crore. The label shows the amount in words so large numbers are easy to understand." },
+  { step: "2", title: "Enter your Monthly SIP Amount", desc: "How much can you invest every month? Slide this to instantly see how the required time changes. This is the key driver of the result." },
+  { step: "3", title: "Set Expected Annual Return", desc: "Equity mutual funds historically return 10–12% in India. Use a conservative rate for long-term goals." },
+  { step: "4", title: "Add an Initial Lump Sum (optional)", desc: "Any existing savings you can deploy now? A lump sum gives a powerful head start — it compounds from Day 1 and reduces time to goal." },
+  { step: "5", title: "Set Annual Step-Up %", desc: "Planning to increase your SIP every year as your income grows? Even a 10% annual step-up saves several years off your timeline." },
+  { step: "6", title: "Adjust Inflation Rate", desc: "See what your goal is actually worth in today's purchasing power. Essential for realistic retirement and education planning." },
 ];
 
 const FAQS = [
   {
-    q: "How much SIP is required to reach ₹1 Crore?",
-    a: "At 12% annual return: ₹1 Crore in 10 years needs ≈₹43,000/month; in 15 years ≈₹18,000/month; in 20 years ≈₹8,500/month. Adding a 10% annual step-up reduces these to ≈₹30,000, ₹11,000, and ₹4,500 respectively. Enter your specific numbers above for exact results."
+    q: "How long does ₹10,000/month SIP take to reach ₹1 Crore?",
+    a: "At 12% annual return with no step-up: ≈20 years. With 10% annual step-up: ≈17 years. Adding a ₹5 Lakh lump sum at start: ≈15 years. Slide the inputs above to see your exact result instantly."
   },
   {
-    q: "What is a Goal Based SIP Calculator and how does it work?",
-    a: "A Goal Based SIP Calculator (also called a Reverse SIP Calculator) works backward — you input your target amount and it calculates the exact monthly SIP to invest. This calculator uses a precise binary search algorithm to find the required SIP even when step-up and lump sum are configured, guaranteeing 100% accuracy."
+    q: "How much SIP do I need to reach ₹1 Crore in 10 years?",
+    a: "At 12% return with no step-up, you need ≈₹43,000/month. With 10% annual step-up, the starting SIP drops to ≈₹30,000/month. Set Target = ₹1 Crore and Time to Goal will tell you the exact duration for any SIP amount you choose."
   },
   {
-    q: "How does Step-Up SIP lower my required monthly investment?",
-    a: "When you commit to increasing your SIP each year (e.g. 10% annually, matching salary hikes), you're agreeing to invest much more in future years. Since future contributions are factored in, the starting SIP you need today is significantly lower — sometimes 30–50% less than a flat SIP."
+    q: "Why does adding step-up reduce the time to reach the goal?",
+    a: "A step-up SIP increases your monthly contribution by a fixed % every year. This means in years 5–10–15, you're investing significantly more per month. These larger later-year contributions compound powerfully and help you cross your target much faster."
   },
   {
-    q: "How does adding a Lump Sum affect the required SIP?",
-    a: "An initial lump sum compounds from Day 1. ₹5 Lakh invested today at 12% becomes ~₹27 Lakh in 15 years — that's ₹27 Lakh you don't need to build through monthly SIPs. The larger your lump sum, the lower your required monthly SIP to reach the same goal."
+    q: "What does the circular arc on the right represent?",
+    a: "The glowing arc fills based on how quickly you're reaching your goal (shorter = more filled for 30 year scale). It turns green for goals reachable in under 10 years, purple for 10–20 years, and amber for over 20 years. The centre shows years + months."
   },
   {
-    q: "What if my required SIP shows ₹0?",
-    a: "This means your initial lump sum alone will grow to exceed your target goal within the given time period, at the stated return rate. No monthly SIP contributions are needed — your existing investment will do the work."
+    q: "What is the year-by-year table below?",
+    a: "The table shows how your corpus grows each year — Total Invested (what you put in), Gains Earned (returns), and Portfolio Value. The year your goal is first reached is highlighted in purple with a 'GOAL REACHED' badge. A progress bar in each row shows your progress toward the target."
   },
   {
-    q: "What is a realistic return rate to use for planning?",
-    a: "Indian equity mutual funds have historically returned 12–15% over 10+ years. Use 10–12% for conservative equity planning, 6–8% for debt funds, and 9–11% for balanced/hybrid funds. Always plan conservatively for critical goals like retirement."
-  },
-  {
-    q: "Is ₹1 Crore enough for retirement in India?",
-    a: "Due to inflation, ₹1 Crore in 20 years has the purchasing power of only ₹37–45 Lakh in today's money (at 4–5% inflation). Financial planners suggest ₹3–5 Crore minimum for a comfortable retirement. Use the 'Inflation Adjusted' figure to understand your goal's real value."
-  },
-  {
-    q: "Can NRI investors use this calculator?",
-    a: "Absolutely. NRIs investing in Indian mutual funds through NRE or NRO accounts can use this calculator to plan their SIP goals in INR. International investors can also use it for DCA (Dollar Cost Averaging) goal planning — the math is identical worldwide, just enter your currency amounts."
-  },
-  {
-    q: "How is this different from a regular SIP calculator?",
-    a: "A regular SIP calculator answers: 'I invest ₹X/month — what will it become?' This goal based calculator answers: 'I want ₹X Crore — how much should I invest per month?' Two sides of the same coin, both crucial for financial planning."
+    q: "Is this calculator different from the SIP Calculator on the home page?",
+    a: "Yes. The SIP Calculator on the home page answers: 'I invest ₹X/month — what will it grow to?' This calculator answers: 'I invest ₹X/month — how long will it take to reach my goal?' Two perspectives, equally important for financial planning."
   },
 ];
 
 export default function TargetCalculatorPage() {
-  const { state, setters, results } = useReverseCalculator();
+  const { state, setters, results } = useTimeToGoalCalculator();
   const [openFaq, setOpenFaq] = React.useState(null);
 
   return (
@@ -180,34 +144,81 @@ export default function TargetCalculatorPage() {
       <main className="min-h-screen p-2 md:p-4 lg:p-4 flex flex-col items-center justify-center">
         <div className="max-w-6xl w-full mx-auto">
 
-          {/* Tab Navigation — Backlink to main page */}
+          {/* Tab Navigation */}
           <CalculatorTabs />
 
           {/* Header */}
-          <div className="flex items-center justify-center mb-2 lg:mb-4">
+          <div className="flex items-center justify-center mb-2 lg:mb-3">
             <div className="bg-[#8b5cf6] p-2 rounded-xl mr-3 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
               <Target className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white text-center">
-              <span className="text-gradient">Goal Based SIP</span> Calculator
+              <span className="text-gradient">Time to Goal</span> SIP Calculator
             </h1>
           </div>
 
-          {/* SEO-rich subtitle */}
-          <p className="text-center text-gray-400 text-sm mb-6 max-w-xl mx-auto">
-            How much SIP do you need to reach <strong className="text-white">₹1 Crore</strong>? Enter your goal, time, and return — get the exact required monthly SIP instantly.
+          {/* SEO subtitle */}
+          <p className="text-center text-gray-400 text-sm mb-5 max-w-xl mx-auto">
+            Enter your monthly SIP & target goal — see <strong className="text-white">exactly how many years</strong> it takes to reach ₹1 Crore or any amount.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
-            {/* Input Section */}
+            {/* ── INPUT PANEL ── */}
             <div className="lg:col-span-6 xl:col-span-5 glass-panel p-5 lg:p-6 relative">
-              {/* Target Amount slider — max 1000 Crore = 10,000,000,000 */}
-              <InputSlider label="Target Goal Amount" value={state.targetAmount} onChange={setters.setTargetAmount} min={100000} max={10000000000} step={100000} prefix="₹" />
-              <InputSlider label="Time Period" value={state.timePeriod} onChange={setters.setTimePeriod} min={1} max={50} step={1} suffix="Yr" />
-              <InputSlider label="Expected Return Rate (p.a.)" value={state.returnRate} onChange={setters.setReturnRate} min={1} max={30} step={0.1} suffix="%" />
-              <InputSlider label="Initial Lump Sum (optional)" value={state.initialInvestment} onChange={setters.setInitialInvestment} min={0} max={100000000} step={10000} prefix="₹" />
-              <InputSlider label="Annual Step-Up %" value={state.stepUp} onChange={setters.setStepUp} min={0} max={50} step={1} suffix="%" />
-              <InputSlider label="Expected Inflation Rate" value={state.inflationRate} onChange={setters.setInflationRate} min={0} max={15} step={0.1} suffix="%" />
+              <InputSlider
+                label="Target Goal Amount"
+                value={state.targetAmount}
+                onChange={setters.setTargetAmount}
+                min={100000}
+                max={10000000000}
+                step={100000}
+                prefix="₹"
+              />
+              <InputSlider
+                label="Monthly SIP Amount"
+                value={state.monthlySip}
+                onChange={setters.setMonthlySip}
+                min={500}
+                max={5000000}
+                step={500}
+                prefix="₹"
+              />
+              <InputSlider
+                label="Expected Return Rate (p.a.)"
+                value={state.returnRate}
+                onChange={setters.setReturnRate}
+                min={1}
+                max={30}
+                step={0.1}
+                suffix="%"
+              />
+              <InputSlider
+                label="Initial Lump Sum (optional)"
+                value={state.initialInvestment}
+                onChange={setters.setInitialInvestment}
+                min={0}
+                max={100000000}
+                step={10000}
+                prefix="₹"
+              />
+              <InputSlider
+                label="Annual Step-Up %"
+                value={state.stepUp}
+                onChange={setters.setStepUp}
+                min={0}
+                max={50}
+                step={1}
+                suffix="%"
+              />
+              <InputSlider
+                label="Expected Inflation Rate"
+                value={state.inflationRate}
+                onChange={setters.setInflationRate}
+                min={0}
+                max={15}
+                step={0.1}
+                suffix="%"
+              />
 
               {/* Internal backlink to main calculator */}
               <div className="mt-4 pt-4 border-t border-white border-opacity-10">
@@ -218,69 +229,37 @@ export default function TargetCalculatorPage() {
                   id="link-sip-calculator"
                 >
                   <Calculator className="w-3.5 h-3.5" />
-                  <span>SIP & Step-Up Calculator with Inflation</span>
+                  <span>SIP & Step-Up Calculator — See how your SIP grows</span>
                   <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </div>
             </div>
 
-            {/* Result Section */}
+            {/* ── RESULT: Time Display ── */}
             <div className="lg:col-span-6 xl:col-span-7 h-full lg:sticky lg:top-8">
-              <TargetResultSection results={results} />
+              <TimeToGoalDisplay results={results} />
             </div>
           </div>
         </div>
       </main>
 
-      {/* ── BELOW THE FOLD — SEO Content ── */}
-      <div className="max-w-4xl w-full mx-auto px-4 pb-16 space-y-16">
+      {/* ── BELOW THE FOLD ── */}
+      <div className="max-w-6xl w-full mx-auto px-4 pb-16 space-y-10">
 
-        {/* ── QUICK REFERENCE TABLE ── */}
-        <section id="quick-reference" aria-label="SIP required for 1 Crore">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
-              <Zap className="w-5 h-5 text-[#a78bfa]" />
-            </div>
-            <h2 className="text-2xl font-bold text-white">Monthly SIP Required to Reach ₹1 Crore</h2>
-          </div>
-          <p className="text-gray-400 text-sm mb-4">
-            At <strong className="text-white">12% annual return</strong>. "With 10% Step-Up" means you increase your SIP by 10% every year.
-          </p>
-          <div className="glass-panel overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-[rgba(139,92,246,0.15)] border-b border-white border-opacity-10">
-                  <th className="text-left text-[#c4b5fd] font-semibold py-3 px-4">Time Period</th>
-                  <th className="text-center text-[#c4b5fd] font-semibold py-3 px-4">Flat SIP (No Step-Up)</th>
-                  <th className="text-center text-green-400 font-semibold py-3 px-4">With 10% Annual Step-Up</th>
-                </tr>
-              </thead>
-              <tbody>
-                {QUICK_REFERENCE.map(({ years, flat, stepup10 }, i) => (
-                  <tr key={years} className={`border-b border-white border-opacity-5 ${i % 2 === 0 ? 'bg-[rgba(255,255,255,0.02)]' : ''}`}>
-                    <td className="py-3 px-4 text-white font-medium">{years} Years</td>
-                    <td className="py-3 px-4 text-center text-gray-300">{flat}/month</td>
-                    <td className="py-3 px-4 text-center text-green-400 font-semibold">{stepup10}/month</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p className="text-gray-500 text-xs px-4 py-3">* Approximate values. Use the calculator above for your exact required SIP.</p>
-          </div>
-          {/* Strong internal backlink */}
-          <div className="mt-4 glass-panel p-4 bg-[rgba(139,92,246,0.05)]">
-            <p className="text-gray-400 text-sm">
-              Want to see how a specific SIP grows over time?{" "}
-              <Link href="/" className="text-[#a78bfa] hover:text-white font-semibold underline underline-offset-2 transition-colors" id="link-sip-forward">
-                Use our SIP Calculator with Step Up & Inflation →
-              </Link>
-            </p>
-          </div>
-        </section>
+        {/* ── YEAR-BY-YEAR TABLE ── */}
+        {results.reachable && (
+          <section id="yearly-growth" aria-label="Year by year wealth growth table">
+            <YearlyGrowthTable
+              yearlyData={results.yearlyData}
+              targetAmount={state.targetAmount}
+              goalTotalMonths={results.totalMonths}
+            />
+          </section>
+        )}
 
         {/* ── HOW TO USE ── */}
         <section id="how-to-use" aria-label="How to use the goal based SIP calculator">
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6">
             <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
               <Info className="w-5 h-5 text-[#a78bfa]" />
             </div>
@@ -305,8 +284,8 @@ export default function TargetCalculatorPage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section id="faq" aria-label="Frequently Asked Questions about Goal Based SIP">
-          <div className="flex items-center gap-3 mb-8">
+        <section id="faq" aria-label="Frequently Asked Questions about time to reach goal SIP">
+          <div className="flex items-center gap-3 mb-6">
             <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
               <HelpCircle className="w-5 h-5 text-[#a78bfa]" />
             </div>
@@ -336,7 +315,7 @@ export default function TargetCalculatorPage() {
           </div>
         </section>
 
-        {/* ── CTA BACKLINKS — Like reference site ── */}
+        {/* ── CTA BACKLINKS ── */}
         <section id="related-calculators" aria-label="Related financial calculators">
           <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(139,92,246,0.1)] to-[rgba(59,130,246,0.08)]">
             <h2 className="text-lg font-bold text-white mb-4 text-center">Related Tools</h2>
@@ -350,15 +329,14 @@ export default function TargetCalculatorPage() {
                   <Calculator className="w-4 h-4 text-[#a78bfa]" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">SIP + Step Up Calculator</p>
-                  <p className="text-gray-500 text-xs">See how much your monthly SIP grows</p>
+                  <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">Step-Up SIP Calculator</p>
+                  <p className="text-gray-500 text-xs">See how much your monthly SIP grows over time</p>
                 </div>
                 <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#a78bfa] ml-auto flex-shrink-0 transition-colors" />
               </Link>
-
-              <div className="flex items-center gap-3 glass-panel p-4 opacity-60 rounded-xl">
+              <div className="flex items-center gap-3 glass-panel p-4 opacity-50 rounded-xl">
                 <div className="bg-[rgba(59,130,246,0.2)] border border-[rgba(59,130,246,0.3)] p-2 rounded-lg flex-shrink-0">
-                  <Zap className="w-4 h-4 text-blue-400" />
+                  <Target className="w-4 h-4 text-blue-400" />
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">CAGR / Returns Calculator</p>
@@ -379,7 +357,7 @@ export default function TargetCalculatorPage() {
               </div>
               <h2 className="text-xs font-semibold text-gray-400 mb-1">Built by <span className="text-gradient font-bold text-sm">Rajat</span></h2>
               <p className="text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
-                A free, no-nonsense tool for Indian investors — combining goal-based planning with step-up SIP, lump sum, and inflation in one place.
+                A free tool built for Indian investors — goal-based SIP planning with step-up, lump sum, and inflation in one place.
               </p>
               <a
                 href="mailto:businesswebsitestudio@gmail.com"
@@ -388,12 +366,8 @@ export default function TargetCalculatorPage() {
                 <Mail className="w-4 h-4" />
                 businesswebsitestudio@gmail.com
               </a>
-              <p className="text-gray-600 text-[10px] mt-4">
-                For business queries, collaborations, or feedback
-              </p>
-              <p className="text-gray-700 text-[10px] mt-2">
-                © {new Date().getFullYear()} Rajat
-              </p>
+              <p className="text-gray-600 text-[10px] mt-4">For business queries, collaborations, or feedback</p>
+              <p className="text-gray-700 text-[10px] mt-2">© {new Date().getFullYear()} Rajat</p>
             </div>
           </div>
         </section>
