@@ -1,28 +1,32 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { useCalculator } from '@/hooks/useCalculator';
 import InputSlider from '@/components/InputSlider';
 import ResultSection from '@/components/ResultSection';
-import { Calculator, Mail, Info, HelpCircle, ChevronDown } from 'lucide-react';
+import { Calculator, Mail, Info, HelpCircle, ChevronDown, Target, ArrowRight } from 'lucide-react';
+import CalculatorTabs from '@/components/CalculatorTabs';
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebApplication",
-      "name": "SIP & DCA Calculator with Step Up, Inflation & Lump Sum",
-      "description": "The world's most complete SIP / Dollar Cost Averaging calculator — combine monthly SIP, annual step-up, lump sum investment and inflation adjustment with real-time charts. Free for everyone.",
+      "name": "SIP Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",
+      "description": "Free SIP calculator with step-up & inflation. Calculate monthly SIP returns, add lump sum, apply annual step-up and inflation adjustment — real-time. Works for India and globally (DCA / RSP / AIP).",
+      "url": "https://stepupcalculator.com",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
       "featureList": [
         "Monthly SIP calculation",
-        "Annual Step-Up SIP",
+        "Annual Step-Up SIP calculator",
         "Lump Sum + SIP combined returns",
         "Inflation-adjusted returns",
+        "Goal based SIP calculator",
         "Real-time interactive charts",
-        "Pie chart and line chart toggle"
+        "₹1 Crore milestone tracker"
       ]
     },
     {
@@ -31,22 +35,32 @@ const jsonLd = {
         {
           "@type": "Question",
           "name": "What is a Step-Up SIP calculator?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A Step-Up SIP calculator lets you increase your monthly SIP amount by a fixed percentage every year, simulating salary hikes. It shows the compound effect of increasing investments over time." }
+          "acceptedAnswer": { "@type": "Answer", "text": "A Step-Up SIP calculator lets you increase your monthly SIP by a fixed percentage every year — simulating annual salary hikes. For example, starting ₹10,000/month with 10% annual step-up means ₹11,000 in year 2, ₹12,100 in year 3, etc. It shows the massive compound effect of increasing investments over time." }
         },
         {
           "@type": "Question",
           "name": "How does inflation affect SIP returns?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Inflation reduces the purchasing power of your future corpus. Our inflation-adjusted SIP calculator shows you what your maturity amount is worth in today's rupees, giving you a realistic financial picture." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Inflation reduces the purchasing power of your future corpus. ₹1 Crore in 20 years is NOT the same as ₹1 Crore today. Our inflation-adjusted SIP calculator shows what your maturity amount is worth in today's rupees, giving you a realistic financial picture for retirement and goal planning." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much will ₹10,000/month SIP grow in 20 years?",
+          "acceptedAnswer": { "@type": "Answer", "text": "At 12% annual return with no step-up: ₹10,000/month SIP for 20 years grows to approximately ₹99.9 Lakh (≈₹1 Crore). With 10% annual step-up, the same starting SIP grows to approximately ₹2.5 Crore in 20 years. Use the calculator to see your exact results." }
         },
         {
           "@type": "Question",
           "name": "Can I combine a lump sum with monthly SIP?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our calculator lets you enter an initial lump sum investment alongside your monthly SIP, and computes the combined future value with step-up and inflation adjustments — all in real time." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our calculator lets you enter an initial lump sum investment alongside your monthly SIP, and computes the combined future value with step-up and inflation adjustments — all in real time. ₹5 Lakh lump sum at 12% for 20 years becomes ~₹48 Lakh on its own." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know when I will reach ₹1 Crore with my SIP?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The ₹1 Crore Milestone Table on this calculator (the '₹1Cr Table' tab on the chart) shows exactly when your investment will cross each crore milestone — ₹1 Crore, ₹2 Crore, ₹3 Crore, etc. — and how much faster each crore arrives thanks to compounding." }
         },
         {
           "@type": "Question",
           "name": "Which is better: SIP or Lump Sum?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Both strategies have merit. SIP offers rupee-cost averaging over market cycles, while lump sum benefits from early compounding. Our calculator lets you combine both and see the effect instantly." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Both strategies have merit. SIP offers rupee-cost averaging over market cycles while eliminating market timing risk. Lump sum benefits from maximum early compounding. This calculator lets you combine both — invest a lump sum today and continue monthly SIP with step-up." }
         }
       ]
     }
@@ -120,6 +134,10 @@ export default function Home() {
       {/* ── CALCULATOR ── */}
       <main className="min-h-screen p-2 md:p-4 lg:p-4 flex flex-col items-center justify-center">
         <div className="max-w-6xl w-full mx-auto">
+          
+          {/* Add Calculator Tabs Navigation */}
+          <CalculatorTabs />
+
           {/* Header */}
           <div className="flex items-center justify-center mb-4 lg:mb-6">
             <div className="bg-[#8b5cf6] p-2 rounded-xl mr-3 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
@@ -139,6 +157,20 @@ export default function Home() {
               <InputSlider label="Initial Investment (Lump sum)" value={state.initialInvestment} onChange={setters.setInitialInvestment} min={0} max={10000000} step={1000} prefix="₹" />
               <InputSlider label="Annual Step Up" value={state.stepUp} onChange={setters.setStepUp} min={0} max={50} step={1} suffix="%" />
               <InputSlider label="Expected Inflation Rate" value={state.inflationRate} onChange={setters.setInflationRate} min={0} max={15} step={0.1} suffix="%" />
+
+              {/* Internal backlink to goal calculator */}
+              <div className="mt-4 pt-4 border-t border-white border-opacity-10">
+                <p className="text-gray-500 text-xs mb-2">Also try:</p>
+                <Link
+                  href="/target-amount-calculator"
+                  className="flex items-center gap-2 text-[#a78bfa] text-xs hover:text-white transition-colors group"
+                  id="link-goal-sip-calculator"
+                >
+                  <Target className="w-3.5 h-3.5" />
+                  <span>Goal Based SIP Calculator — How much SIP to reach ₹1 Crore?</span>
+                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </div>
             </div>
 
             {/* Result Section */}

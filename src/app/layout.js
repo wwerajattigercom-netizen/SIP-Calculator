@@ -12,56 +12,64 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "SIP & DCA Calculator with Step Up, Inflation & Lump Sum | Free Tool",
-  description: "Free SIP / Dollar Cost Averaging calculator with step-up, inflation adjustment & lump sum — all in one place. Calculate investment returns online instantly. Works for any currency, any market.",
+  title: "SIP Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",
+  description: "Free SIP calculator with step-up & inflation. Calculate monthly SIP returns, add lump sum, apply annual step-up and inflation adjustment — all in real time. Works for India and globally (DCA / RSP / AIP).",
   keywords: [
-    // SIP terms (used globally for systematic investing)
+    // Primary high-volume
     "SIP calculator",
+    "step up SIP calculator",
     "SIP calculator with step up",
     "SIP calculator with inflation",
-    "step up SIP calculator",
     "SIP calculator with lump sum",
+    "SIP calculator online free",
+    "mutual fund SIP calculator",
+    "best SIP calculator India",
+    "SIP return calculator",
+    "monthly SIP calculator",
+    // Goal / 1 Crore — high intent
+    "SIP to reach 1 crore",
+    "how much SIP for 1 crore",
+    "1 crore SIP calculator",
+    "SIP amount for 1 crore in 10 years",
+    "SIP amount for 1 crore in 20 years",
+    "how to reach 1 crore with SIP",
+    // Advanced combinations
     "SIP calculator with step up and inflation",
     "SIP calculator with lump sum and step up",
     "inflation adjusted SIP calculator",
-    "mutual fund SIP calculator",
-    "SIP step up calculator online free",
-    "SIP calculator with annual increment",
+    "SIP with annual increment calculator",
     "top up SIP calculator",
-    "best SIP calculator",
-    "SIP returns calculator with inflation",
-    "monthly SIP returns calculator",
-    // Global DCA / investment terms
+    "step up SIP returns calculator",
+    // Global DCA terms
     "dollar cost averaging calculator",
-    "DCA calculator with inflation",
     "DCA calculator with step up",
-    "recurring investment calculator",
-    "monthly investment calculator with inflation",
+    "DCA calculator with inflation",
+    "recurring investment calculator with step up",
     "systematic investment plan calculator",
-    "regular investment calculator with step up",
     "compound investment calculator monthly",
-    "investment growth calculator with inflation",
-    "DCA calculator with inflation adjustment",
-    // NRI / diaspora
+    // NRI
     "NRI SIP calculator",
-    "SIP calculator for NRI",
+    "SIP calculator for NRI investors",
+    "SIP calculator for US NRI",
+    "SIP calculator India online",
   ],
   authors: [{ name: "Rajat" }],
   robots: "index, follow",
   openGraph: {
-    title: "SIP & DCA Calculator with Step Up, Inflation & Lump Sum",
-    description: "The only free calculator combining SIP/DCA + Step Up + Lump Sum + Inflation in real time. Works for any currency, any market.",
+    title: "SIP Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",
+    description: "Free SIP calculator with step-up, lump sum, inflation adjustment — all in one page, real-time sliders. Works globally for SIP / DCA / RSP / AIP investors.",
     type: "website",
-    locale: "en",
-    siteName: "SIP & DCA Calculator",
+    url: "https://stepupcalculator.com",
+    locale: "en_IN",
+    siteName: "Step Up SIP Calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SIP & DCA Calculator with Step Up, Inflation & Lump Sum",
-    description: "Free online SIP / DCA calculator. Add step-up, lump sum & inflation. Works for any currency worldwide.",
+    title: "SIP Calculator with Step Up, Inflation & Lump Sum",
+    description: "Free online SIP calculator with step-up, lump sum & inflation. Calculate how much your SIP will grow or what SIP you need. Works for India & worldwide.",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://stepupcalculator.com",
   },
 };
 
