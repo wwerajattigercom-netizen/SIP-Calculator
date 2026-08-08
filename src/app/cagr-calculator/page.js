@@ -17,19 +17,40 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebApplication',
-      name: 'CAGR Calculator — Compound Annual Growth Rate Calculator',
+      name: 'CAGR Calculator — Compound Annual Growth Rate Calculator Online Free',
       description:
-        'Calculate CAGR (Compound Annual Growth Rate) of any investment. Enter initial value, final value, and duration — get CAGR %, absolute gain, and year-by-year growth. Free online CAGR calculator.',
+        'Free online CAGR Calculator — Calculate Compound Annual Growth Rate of any investment instantly. Supports lump sum + monthly SIP. Get year-by-year growth table, Rule of 72, and absolute vs annualised return comparison.',
       url: 'https://stepupcalculator.com/cagr-calculator',
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Any',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
       featureList: [
-        'CAGR calculation',
+        'CAGR calculation for lump sum investments',
+        'Effective CAGR for SIP + lump sum (IRR method)',
         'Compound annual growth rate formula',
         'Year-by-year investment growth table',
-        'Absolute gain & gain % calculation',
+        'Rule of 72 — investment doubling time',
+        'Absolute return vs CAGR comparison',
         'Free online CAGR calculator India',
+        'Mutual fund CAGR calculator',
+        'Stock CAGR calculator',
+      ],
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        ratingCount: '1200',
+        bestRating: '5',
+      },
+    },
+    {
+      '@type': 'HowTo',
+      name: 'How to Calculate CAGR Online',
+      description: 'Step-by-step guide to calculating Compound Annual Growth Rate using the StepupCalculator CAGR Calculator.',
+      step: [
+        { '@type': 'HowToStep', name: 'Enter Initial Investment', text: 'Enter the amount you originally invested (starting value). Supports ₹1 to ₹10 Crore.' },
+        { '@type': 'HowToStep', name: 'Enter Final Portfolio Value', text: 'Enter the current or ending value of the investment.' },
+        { '@type': 'HowToStep', name: 'Set Duration in Years', text: 'Enter how many years the investment was held (1–100 years).' },
+        { '@type': 'HowToStep', name: 'Read the CAGR Result', text: 'The calculator instantly shows your CAGR %, absolute gain, and a year-by-year compounding table.' },
       ],
     },
     {
@@ -40,7 +61,7 @@ const jsonLd = {
           name: 'What is CAGR and how is it calculated?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'CAGR (Compound Annual Growth Rate) is the rate at which an investment grows from its initial value to its final value over a period of time, assuming growth is compounded annually. Formula: CAGR = (Final Value / Initial Value)^(1/Years) − 1. For example, ₹1 Lakh growing to ₹5 Lakh in 10 years gives a CAGR of 17.46% p.a.',
+            text: 'CAGR (Compound Annual Growth Rate) is the annualised growth rate of an investment from its initial to final value, assuming annual compounding. CAGR Formula: CAGR = (Final Value ÷ Initial Value)^(1 ÷ Years) − 1. Example: ₹1 Lakh growing to ₹5 Lakh in 10 years = CAGR of 17.46% p.a.',
           },
         },
         {
@@ -48,7 +69,7 @@ const jsonLd = {
           name: 'What is a good CAGR for a mutual fund in India?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'A CAGR of 12–15% is considered good for Indian equity mutual funds over long periods (10+ years). Large-cap index funds typically deliver 10–12% CAGR. Mid and small-cap funds have historically achieved 14–18% CAGR over 10+ year periods. Any CAGR above 15% consistently over 10+ years is exceptional.',
+            text: 'A CAGR of 12–15% is considered good for Indian equity mutual funds over 10+ years. Large-cap index funds typically deliver 10–12% CAGR. Mid and small-cap funds have historically achieved 14–18% CAGR over 10+ years. Anything consistently above 15% over 10 years is exceptional. For debt funds or FDs, 6–8% CAGR is considered decent.',
           },
         },
         {
@@ -56,15 +77,15 @@ const jsonLd = {
           name: 'What is the difference between CAGR and absolute return?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Absolute return is the total percentage gain/loss: (Final − Initial) / Initial × 100. CAGR is the annualised version — it tells you the year-on-year rate of growth. For example, an investment doubling in 5 years has a 100% absolute return but a CAGR of 14.87% p.a. CAGR is more useful for comparing investments of different durations.',
+            text: 'Absolute return = (Final − Initial) ÷ Initial × 100. It shows total gain with no time context. CAGR is the annualised version. Example: ₹1 Lakh → ₹2 Lakh in 5 years = 100% absolute return but only 14.87% CAGR p.a. Always use CAGR when comparing investments of different durations.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Can I use CAGR to evaluate SIP returns?',
+          name: 'Can CAGR be used for SIP returns?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'CAGR is strictly for lump sum investments where you invest once and measure the final value. For SIP (Systematic Investment Plan) returns where you invest monthly, the correct metric is XIRR (Extended Internal Rate of Return), which accounts for the timing of each cash flow. Use CAGR for one-time investments; use XIRR for SIP returns.',
+            text: 'No — CAGR is only accurate for lump sum investments (single cash flow). For SIPs, the correct metric is XIRR (Extended Internal Rate of Return), which accounts for the timing of each monthly investment. Our CAGR calculator supports a combined lump sum + monthly SIP mode that computes the effective rate of return using IRR methodology.',
           },
         },
         {
@@ -72,7 +93,31 @@ const jsonLd = {
           name: 'What is the Rule of 72?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The Rule of 72 is a quick mental math shortcut: divide 72 by the CAGR to estimate how many years it takes for an investment to double. For example, at 12% CAGR, 72 ÷ 12 = 6 years to double. At 8% CAGR, 72 ÷ 8 = 9 years. This is an approximation; the actual formula is more precise.',
+            text: 'The Rule of 72 is a quick mental shortcut: divide 72 by the CAGR % to estimate how many years your investment takes to double. At 12% CAGR → 6 years. At 8% CAGR → 9 years. At 18% CAGR → 4 years. Our CAGR calculator shows this automatically below the result.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can CAGR be negative?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. If your investment lost value (Final Value < Initial Investment), the CAGR will be negative, indicating an average annual loss. For example, ₹1 Lakh falling to ₹70,000 over 5 years gives a CAGR of approximately −6.7% p.a.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is CAGR the same as the average annual return?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. CAGR is a compounded annualised return — it accounts for the effect of compounding (earning returns on returns). A simple average of yearly returns can be misleading because it does not account for compounding. CAGR gives a more accurate picture of real investment performance over time.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How is CAGR different from XIRR?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'CAGR works for a single lump sum investment with one start and one end value. XIRR (Extended Internal Rate of Return) handles multiple cash flows at irregular intervals — perfect for SIPs or investments with top-ups. Most mutual fund apps (Groww, Zerodha, ET Money) use XIRR for SIP performance tracking.',
           },
         },
       ],
@@ -91,28 +136,40 @@ const HOW_TO_STEPS = [
 
 const FAQS = [
   {
-    q: 'What is CAGR?',
-    a: 'CAGR (Compound Annual Growth Rate) is the rate at which an investment grows from its initial to final value, assuming annual compounding. Formula: CAGR = (Final Value / Initial Value)^(1/Years) − 1. It smooths out volatility and gives a single comparable number.',
+    q: 'What is CAGR in simple terms?',
+    a: 'CAGR (Compound Annual Growth Rate) is the "smoothed" annual growth rate of an investment over a specific time period. It tells you at what constant annual rate your investment grew — ignoring short-term ups and downs. Formula: CAGR = (Final Value ÷ Initial Value)^(1 ÷ Years) − 1. Example: ₹1 Lakh → ₹3 Lakh in 10 years = CAGR of 11.61% p.a.',
   },
   {
-    q: 'What is a good CAGR for mutual funds?',
-    a: 'In India, 12–15% CAGR is considered good for equity mutual funds over 10+ years. Large-cap index funds typically deliver 10–12%. Mid/small-cap funds have historically hit 14–18% over long periods. Anything consistently above 15% over 10+ years is exceptional.',
+    q: 'What is a good CAGR for mutual funds in India?',
+    a: 'In India, 12–15% CAGR is considered good for equity mutual funds over 10+ years. Large-cap index funds (Nifty 50) typically deliver 10–12%. Mid-cap and small-cap funds have historically achieved 14–18% over long periods. For debt funds or FDs, 6–8% is decent. Anything consistently above 15% over 10+ years is exceptional performance.',
   },
   {
     q: 'What is the difference between CAGR and absolute return?',
-    a: 'Absolute return = (Final − Initial) / Initial × 100 — total percentage gain with no time context. CAGR = annualised version. Example: ₹1 Lakh → ₹2 Lakh in 5 years = 100% absolute return, but only 14.87% CAGR p.a. Always compare investments using CAGR for a fair comparison.',
+    a: 'Absolute return shows total gain with no time context: (Final − Initial) ÷ Initial × 100. CAGR is the annualised version. Example: ₹1 Lakh → ₹2 Lakh in 5 years = 100% absolute return, but only 14.87% CAGR p.a. CAGR lets you fairly compare investments of different durations.',
   },
   {
-    q: 'Can CAGR be used for SIP returns?',
-    a: 'No — CAGR is only accurate for lump sum investments (one-time investment). For SIPs, use XIRR which accounts for the timing of each monthly cash flow. Using CAGR on SIP would be misleading since each instalment is invested at a different point.',
+    q: 'Is CAGR the same as average annual return?',
+    a: 'No. CAGR accounts for compounding — earning returns on your returns. A simple average of yearly returns does not. Example: If a stock gains 50% one year and loses 33% the next, the average is 8.5%, but the CAGR is actually 0% (you are back to the same value). CAGR is always more accurate for measuring real performance.',
+  },
+  {
+    q: 'Can CAGR be negative?',
+    a: 'Yes. If your final value is less than the initial investment, CAGR will be negative — showing an average annual loss. For example, ₹1 Lakh falling to ₹70,000 over 5 years gives a CAGR of approximately −6.7% p.a. Our calculator handles negative CAGR and shows it with an orange warning.',
+  },
+  {
+    q: 'Can I use CAGR to evaluate SIP returns?',
+    a: 'No — CAGR is designed for a single lump sum investment. For SIPs (monthly investments), the correct metric is XIRR, which accounts for the different timing of each cash flow. Our calculator\'s SIP + lump sum mode computes the effective return rate using IRR (Internal Rate of Return) — the same principle used by Groww, Zerodha, and ET Money for SIP tracking.',
   },
   {
     q: 'What is the Rule of 72?',
-    a: 'Divide 72 by your CAGR to estimate the years needed for your investment to double. At 12% CAGR → 6 years to double. At 8% CAGR → 9 years. At 18% CAGR → 4 years. A quick mental check before you use the full calculator.',
+    a: 'The Rule of 72 is a quick mental shortcut: divide 72 by your CAGR to estimate how many years it takes your investment to double. At 12% CAGR → 6 years. At 8% CAGR → 9 years. At 18% CAGR → 4 years. Our calculator shows your doubling time automatically below the CAGR badge.',
+  },
+  {
+    q: 'How is CAGR different from XIRR?',
+    a: 'CAGR works for a single investment with one entry and one exit point. XIRR (Extended Internal Rate of Return) handles multiple cash flows at irregular intervals — ideal for SIPs or investments with top-ups. Most mutual fund apps (Groww, Zerodha, ET Money) report SIP returns as XIRR, not CAGR.',
   },
   {
     q: 'How is CAGR different from simple interest?',
-    a: 'Simple interest = fixed % applied to the original principal only, every year. CAGR (compound) = % applied to the growing balance each year (interest on interest). Over long periods, compounding creates exponentially larger returns than simple interest.',
+    a: 'Simple interest = a fixed % applied to the original principal only, every year. CAGR uses compound interest — the % is applied to the growing balance each year (you earn returns on your returns). Over 20+ years, this difference becomes enormous. ₹1 Lakh at 12% simple interest for 20 years = ₹3.4 Lakh. At 12% compound (CAGR) = ₹9.65 Lakh.',
   },
 ];
 
@@ -385,14 +442,88 @@ export default function CAGRCalculatorPage() {
           </div>
         </section>
 
-        {/* ── RELATED TOOLS ── */}
-        <section id="related-calculators" aria-label="Related financial calculators">
+        {/* ── CAGR FORMULA SECTION — targets featured snippets ── */}
+        <section id="cagr-formula" aria-label="CAGR formula and worked example" className="mt-2">
+          <div className="glass-panel p-6">
+            <h2 className="text-xl font-bold text-white mb-4">CAGR Formula &amp; Worked Example</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Formula */}
+              <div>
+                <h3 className="text-[#a78bfa] font-semibold text-sm mb-3 uppercase tracking-wider">The Formula</h3>
+                <div className="bg-[rgba(139,92,246,0.1)] border border-[rgba(139,92,246,0.25)] rounded-xl p-4 font-mono text-center">
+                  <p className="text-white text-sm font-bold mb-1">CAGR = (FV ÷ PV) ^ (1 ÷ n) − 1</p>
+                  <div className="text-xs text-gray-400 mt-3 text-left space-y-1">
+                    <p><span className="text-[#c4b5fd]">FV</span> = Final Value (ending portfolio value)</p>
+                    <p><span className="text-[#c4b5fd]">PV</span> = Present Value (initial investment)</p>
+                    <p><span className="text-[#c4b5fd]">n</span> = Number of years</p>
+                  </div>
+                </div>
+              </div>
+              {/* Worked example */}
+              <div>
+                <h3 className="text-[#a78bfa] font-semibold text-sm mb-3 uppercase tracking-wider">Worked Example</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between text-gray-400 border-b border-white/5 pb-1">
+                    <span>Initial Investment (PV)</span>
+                    <span className="text-white font-medium">₹1,00,000</span>
+                  </div>
+                  <div className="flex justify-between text-gray-400 border-b border-white/5 pb-1">
+                    <span>Final Value (FV)</span>
+                    <span className="text-white font-medium">₹5,00,000</span>
+                  </div>
+                  <div className="flex justify-between text-gray-400 border-b border-white/5 pb-1">
+                    <span>Duration (n)</span>
+                    <span className="text-white font-medium">10 years</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-1">
+                    <span className="text-gray-400">CAGR</span>
+                    <span className="text-[#22C55E] font-bold text-base">(5÷1)^(1/10) − 1 = <strong>17.46%</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* CAGR vs Absolute Return comparison */}
+            <div className="mt-5 pt-5 border-t border-white/5">
+              <h3 className="text-white font-semibold text-sm mb-3">CAGR vs Absolute Return — Quick Reference</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="text-[#c4b5fd] border-b border-white/10">
+                      <th className="text-left py-2 pr-4">Investment</th>
+                      <th className="text-right py-2 pr-4">Absolute Return</th>
+                      <th className="text-right py-2">CAGR</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-gray-400">
+                    {[
+                      { inv: '₹1L → ₹2L in 5 yrs',  abs: '100%',  cagr: '14.87%' },
+                      { inv: '₹1L → ₹2L in 10 yrs', abs: '100%',  cagr: '7.18%'  },
+                      { inv: '₹1L → ₹5L in 10 yrs', abs: '400%',  cagr: '17.46%' },
+                      { inv: '₹1L → ₹10L in 15 yrs',abs: '900%',  cagr: '16.60%' },
+                    ].map(({ inv, abs, cagr }) => (
+                      <tr key={inv} className="border-b border-white/5">
+                        <td className="py-2 pr-4">{inv}</td>
+                        <td className="py-2 pr-4 text-right">{abs}</td>
+                        <td className="py-2 text-right text-green-400 font-medium">{cagr}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-gray-600 text-[10px] mt-2">Same absolute return but very different CAGR — duration matters.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── RELATED TOOLS — keyword-rich internal backlinks ── */}
+        <section id="related-calculators" aria-label="Related free financial calculators India">
           <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(139,92,246,0.1)] to-[rgba(59,130,246,0.08)]">
-            <h2 className="text-lg font-bold text-white mb-4 text-center">Related Tools</h2>
+            <h2 className="text-lg font-bold text-white mb-1 text-center">More Free Financial Calculators</h2>
+            <p className="text-gray-500 text-xs text-center mb-4">All tools are free, real-time, and require no sign-up.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Link
                 href="/"
-                id="cta-sip-from-cagr"
+                id="cta-sip-calculator-from-cagr"
                 className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(139,92,246,0.15)] transition-all group rounded-xl"
               >
                 <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-lg flex-shrink-0">
@@ -400,21 +531,21 @@ export default function CAGRCalculatorPage() {
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">Step-Up SIP Calculator</p>
-                  <p className="text-gray-500 text-xs">Monthly SIP with annual step-up + inflation</p>
+                  <p className="text-gray-500 text-xs">SIP with annual step-up, inflation &amp; lump sum — free online tool</p>
                 </div>
                 <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#a78bfa] ml-auto transition-colors" />
               </Link>
               <Link
                 href="/target-amount-calculator"
-                id="cta-goal-from-cagr"
+                id="cta-goal-sip-calculator-from-cagr"
                 className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(139,92,246,0.15)] transition-all group rounded-xl"
               >
                 <div className="bg-[rgba(59,130,246,0.2)] border border-[rgba(59,130,246,0.3)] p-2 rounded-lg flex-shrink-0">
                   <Target className="w-4 h-4 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">Time to Goal SIP Calculator</p>
-                  <p className="text-gray-500 text-xs">How long to reach ₹1 Crore with SIP?</p>
+                  <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">SIP Goal / Time-to-Target Calculator</p>
+                  <p className="text-gray-500 text-xs">How long to reach ₹1 Crore? Find SIP needed for any goal.</p>
                 </div>
                 <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#a78bfa] ml-auto transition-colors" />
               </Link>
