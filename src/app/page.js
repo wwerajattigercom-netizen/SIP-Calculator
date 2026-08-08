@@ -132,7 +132,7 @@ export default function Home() {
       />
 
       {/* ── CALCULATOR ── */}
-      <main className="min-h-screen p-2 md:p-4 lg:p-4 flex flex-col items-center justify-center">
+      <main className="py-6 px-2 md:px-4 flex flex-col items-center">
         <div className="max-w-6xl w-full mx-auto">
           
           {/* Add Calculator Tabs Navigation */}
