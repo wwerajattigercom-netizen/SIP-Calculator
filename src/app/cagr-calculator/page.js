@@ -156,21 +156,31 @@ export default function CAGRCalculatorPage() {
             <div className="lg:col-span-6 xl:col-span-5 glass-panel p-5 lg:p-6 relative">
 
               <InputSlider
-                label="Initial Investment"
+                label="Initial Investment (Lump Sum)"
                 value={state.initialInvestment}
                 onChange={setters.setInitialInvestment}
-                min={1000}
-                max={100000000}   // ₹10 Crore
+                min={0}
+                max={100000000}
                 step={1000}
                 prefix="₹"
               />
 
               <InputSlider
-                label="Final Value"
+                label="Monthly SIP Amount (optional)"
+                value={state.monthlySip}
+                onChange={setters.setMonthlySip}
+                min={0}
+                max={500000}
+                step={500}
+                prefix="₹"
+              />
+
+              <InputSlider
+                label="Final Portfolio Value"
                 value={state.finalValue}
                 onChange={setters.setFinalValue}
                 min={1000}
-                max={1000000000}  // ₹100 Crore — they can manually type anything
+                max={1000000000}
                 step={1000}
                 prefix="₹"
               />
@@ -235,10 +245,12 @@ export default function CAGRCalculatorPage() {
         <section id="yearly-table" aria-label="Year by year compounding growth">
           <div className="glass-panel overflow-hidden">
             <div className="px-5 py-4 border-b border-white border-opacity-10">
-              <h2 className="text-white font-bold text-base">Year-by-Year Compounding at {cagrPct}% CAGR</h2>
+              <h2 className="text-white font-bold text-base">Year-by-Year Growth at {cagrPct}% Effective Rate</h2>
               <p className="text-gray-500 text-xs mt-0.5">
-                How {formatCurrency(state.initialInvestment)} ({formatToShortWords(state.initialInvestment)}) compounds to{' '}
-                {formatCurrency(state.finalValue)} ({formatToShortWords(state.finalValue)}) over {state.duration} years
+                {state.monthlySip > 0
+                  ? `Lump sum ${formatCurrency(state.initialInvestment)} + SIP ${formatCurrency(state.monthlySip)}/mo → target ${formatCurrency(state.finalValue)} over ${state.duration} years`
+                  : `How ${formatCurrency(state.initialInvestment)} (${formatToShortWords(state.initialInvestment)}) compounds to ${formatCurrency(state.finalValue)} (${formatToShortWords(state.finalValue)}) over ${state.duration} years`
+                }
               </p>
             </div>
 
@@ -247,12 +259,13 @@ export default function CAGRCalculatorPage() {
                 <thead>
                   <tr className="bg-[rgba(139,92,246,0.12)] border-b border-white border-opacity-10">
                     <th className="text-left   text-[#c4b5fd] font-semibold py-3 px-4">Year</th>
+                    <th className="text-right  text-gray-400  font-semibold py-3 px-3">Total Invested</th>
                     <th className="text-right  text-green-400 font-semibold py-3 px-3">Gain Earned</th>
                     <th className="text-right  text-[#c4b5fd] font-semibold py-3 px-4">Portfolio Value</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {yearlyData.map(({ year, value, gainAbs }, i) => {
+                  {yearlyData.map(({ year, value, invested, gainAbs }, i) => {
                     const progress = Math.min(100, (value / state.finalValue) * 100);
                     const isLast   = year === state.duration;
                     return (
@@ -277,23 +290,24 @@ export default function CAGRCalculatorPage() {
                               </span>
                             )}
                           </div>
-                          {/* Progress bar */}
                           <div className="mt-1 w-full h-1 bg-white bg-opacity-10 rounded-full overflow-hidden">
                             <div
                               className="h-full rounded-full transition-all duration-500"
                               style={{
                                 width:      `${progress}%`,
-                                background: isLast
-                                  ? '#8b5cf6'
-                                  : 'linear-gradient(90deg, #3B82F6, #8b5cf6)',
+                                background: isLast ? '#8b5cf6' : 'linear-gradient(90deg, #3B82F6, #8b5cf6)',
                               }}
                             />
                           </div>
                         </td>
+                        <td className="py-2.5 px-3 text-right text-gray-400">
+                          <div>{formatCurrency(invested)}</div>
+                          <div className="text-[9px] text-gray-600 mt-0.5">{formatToShortWords(invested)}</div>
+                        </td>
                         <td className="py-2.5 px-3 text-right text-green-400">
-                          {gainAbs > 0 ? `+${formatCurrency(gainAbs)}` : '—'}
-                          {gainAbs > 0 && (
-                            <div className="text-[9px] text-green-800 mt-0.5">{formatToShortWords(gainAbs)}</div>
+                          {gainAbs > 0 ? `+${formatCurrency(gainAbs)}` : gainAbs < 0 ? formatCurrency(gainAbs) : '—'}
+                          {gainAbs !== 0 && (
+                            <div className="text-[9px] text-green-800 mt-0.5">{formatToShortWords(Math.abs(gainAbs))}</div>
                           )}
                         </td>
                         <td className="py-2.5 px-4 text-right">
