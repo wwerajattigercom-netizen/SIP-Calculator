@@ -9,6 +9,7 @@ export default function sitemap() {
     { url: `${base}/lumpsum-calculator`,      lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
     { url: `${base}/about`,                   lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${base}/disclaimer`,              lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${base}/blog`,                    lastModified: now, changeFrequency: 'weekly',  priority: 0.8 },
     { url: `${base}/blog/sip-to-reach-1-crore`,           lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/blog/cagr-vs-xirr-vs-absolute-return`,lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
   ];

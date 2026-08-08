@@ -19,7 +19,8 @@ export default function Header() {
 
         {/* Right side — nav links + tagline */}
         <div className="flex items-center gap-4">
-          <nav className="hidden sm:flex items-center gap-3">
+          <nav className="hidden sm:flex items-center gap-4">
+            <Link href="/blog" className="text-gray-400 hover:text-[#a78bfa] text-xs font-medium transition-colors">Guides</Link>
             <Link href="/about" className="text-gray-500 hover:text-[#a78bfa] text-xs transition-colors">About</Link>
             <Link href="/disclaimer" className="text-gray-500 hover:text-[#a78bfa] text-xs transition-colors">Disclaimer</Link>
           </nav>
