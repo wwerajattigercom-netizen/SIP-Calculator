@@ -33,11 +33,20 @@ export const metadata = {
     url: "https://stepupcalculator.com",
     locale: "en_IN",
     siteName: "StepupCalculator",
+    images: [
+      {
+        url: "https://stepupcalculator.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "StepupCalculator — Free SIP, CAGR & Goal Calculator",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SIP Calculator with Step Up, Inflation & Lump Sum",
     description: "Free online SIP calculator with step-up, lump sum & inflation. Works for India & worldwide.",
+    images: ["https://stepupcalculator.com/og-image.jpg"],
   },
   alternates: { canonical: "https://stepupcalculator.com" },
 };

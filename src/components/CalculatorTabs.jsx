@@ -3,12 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Target, Calculator, TrendingUp } from 'lucide-react';
+import { Target, Calculator, TrendingUp, Layers } from 'lucide-react';
 
 const TABS = [
-  { href: '/',                        label: 'SIP Calculator', Icon: Calculator },
-  { href: '/target-amount-calculator', label: 'Time to Goal',   Icon: Target     },
-  { href: '/cagr-calculator',          label: 'CAGR',           Icon: TrendingUp  },
+  { href: '/',                        label: 'SIP',      Icon: Calculator  },
+  { href: '/lumpsum-calculator',       label: 'Lumpsum',  Icon: Layers      },
+  { href: '/target-amount-calculator', label: 'Goal',     Icon: Target      },
+  { href: '/cagr-calculator',          label: 'CAGR',     Icon: TrendingUp  },
 ];
 
 export default function CalculatorTabs() {
@@ -16,7 +17,7 @@ export default function CalculatorTabs() {
 
   return (
     <div className="flex justify-center mb-6">
-      <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-xl bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.1)]">
+      <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-2xl bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.1)]">
         {TABS.map(({ href, label, Icon }) => {
           const active = pathname === href;
           return (

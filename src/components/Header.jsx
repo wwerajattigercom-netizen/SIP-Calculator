@@ -17,8 +17,14 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Optional right-side tagline */}
-        <span className="site-header-tag">Free · No Sign-up · Real-time</span>
+        {/* Right side — nav links + tagline */}
+        <div className="flex items-center gap-4">
+          <nav className="hidden sm:flex items-center gap-3">
+            <Link href="/about" className="text-gray-500 hover:text-[#a78bfa] text-xs transition-colors">About</Link>
+            <Link href="/disclaimer" className="text-gray-500 hover:text-[#a78bfa] text-xs transition-colors">Disclaimer</Link>
+          </nav>
+          <span className="site-header-tag">Free · No Sign-up · Real-time</span>
+        </div>
       </div>
     </header>
   );
