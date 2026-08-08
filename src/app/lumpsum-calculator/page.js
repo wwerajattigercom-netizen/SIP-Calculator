@@ -2,14 +2,17 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { TrendingUp, Info, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Layers } from 'lucide-react';
+import { TrendingUp, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Layers, Coins } from 'lucide-react';
 import InputSlider from '@/components/InputSlider';
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Breadcrumb from '@/components/Breadcrumb';
-import { Doughnut } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut, Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS, ArcElement, Tooltip, Legend,
+  CategoryScale, LinearScale, PointElement, LineElement, Title,
+} from 'chart.js';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, Title);
 
 // ─── helpers ────────────────────────────────────────────────
 const fmt = (v) =>
@@ -123,35 +126,60 @@ export default function LumpsumCalculatorPage() {
   const [rate, setRate]           = useState(12);
   const [years, setYears]         = useState(10);
   const [openFaq, setOpenFaq]     = useState(null);
+  const [chartTab, setChartTab]   = useState('pie');
+
+  const fmtINR = (v) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
 
   // Calculate
-  const { futureValue, gain, gainPct, wealthMultiple, yearlyData, rule72 } = useMemo(() => {
+  const { futureValue, gain, yearlyData, rule72 } = useMemo(() => {
     const r = rate / 100;
     const fv = principal * Math.pow(1 + r, years);
     const g  = fv - principal;
-    const gp = (g / principal) * 100;
-    const wm = fv / principal;
     const r72 = r > 0 ? (72 / rate).toFixed(1) : '∞';
     const data = Array.from({ length: years }, (_, i) => ({
       year: i + 1,
+      invested: principal,
       value: principal * Math.pow(1 + r, i + 1),
     }));
-    return { futureValue: fv, gain: g, gainPct: gp, wealthMultiple: wm, yearlyData: data, rule72: r72 };
+    return { futureValue: fv, gain: g, yearlyData: data, rule72: r72 };
   }, [principal, rate, years]);
 
-  // Chart
-  const chartData = {
-    labels: ['Principal', 'Gains'],
+  // ── Pie chart (same colours as SIP tab) ──
+  const pieData = {
+    labels: ['Invested Amount', 'Est. Returns'],
     datasets: [{
       data: [principal, gain],
-      backgroundColor: ['rgba(59,130,246,0.85)', 'rgba(34,197,94,0.85)'],
-      borderColor: ['rgba(59,130,246,0.3)', 'rgba(34,197,94,0.3)'],
-      borderWidth: 2,
-      hoverOffset: 6,
+      backgroundColor: ['#3B82F6', '#22C55E'],
+      borderColor: ['#0f111a', '#0f111a'],
+      borderWidth: 4,
+      hoverOffset: 4,
     }],
   };
+  const pieOptions = {
+    responsive: true, maintainAspectRatio: false, cutout: '75%',
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${fmtINR(ctx.raw)}` } },
+    },
+  };
 
-  const cagrBadgeColor = rate >= 15 ? 'text-[#22C55E]' : rate >= 8 ? 'text-[#a78bfa]' : 'text-amber-400';
+  // ── Line chart ──
+  const lineData = {
+    labels: yearlyData.map(d => `Yr ${d.year}`),
+    datasets: [
+      { label: 'Invested', data: yearlyData.map(d => d.invested), borderColor: '#3B82F6', backgroundColor: '#3B82F6', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
+      { label: 'Wealth Value', data: yearlyData.map(d => d.value), borderColor: '#22C55E', backgroundColor: '#22C55E', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
+    ],
+  };
+  const lineOptions = {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ₹${ctx.raw.toLocaleString('en-IN')}` } } },
+    scales: {
+      x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#e2e8f0', maxTicksLimit: 6 } },
+      y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#e2e8f0', callback: (v) => `₹${(v/100000).toFixed(1)}L` } },
+    },
+  };
 
   return (
     <>
@@ -197,84 +225,77 @@ export default function LumpsumCalculatorPage() {
               </div>
             </div>
 
-            {/* Results */}
-            <div className="lg:col-span-7 space-y-4">
+            {/* Results — same design as SIP tab */}
+            <div className="lg:col-span-7">
+              <div className="glass-panel p-5 lg:p-6 flex flex-col h-full relative overflow-hidden">
 
-              {/* Summary cards */}
-              <div className="glass-panel p-5">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-                  {[
-                    { label: 'Future Value', value: toLabel(futureValue), color: 'text-white' },
-                    { label: 'Total Gain', value: toLabel(gain), color: 'text-[#22C55E]' },
-                    { label: 'Absolute Return', value: `${gainPct.toFixed(1)}%`, color: 'text-[#22C55E]' },
-                    { label: 'Wealth Multiple', value: `${wealthMultiple.toFixed(2)}x`, color: cagrBadgeColor },
-                  ].map(({ label, value, color }) => (
-                    <div key={label} className="bg-[rgba(255,255,255,0.03)] border border-white/5 rounded-xl p-3 text-center">
-                      <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">{label}</p>
-                      <p className={`font-bold text-base ${color}`}>{value}</p>
-                    </div>
+                {/* Decorative glow — matches SIP tab */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#8b5cf6] rounded-full mix-blend-screen filter blur-[100px] opacity-20 pointer-events-none" />
+
+                {/* Chart tab strip */}
+                <div className="flex bg-[rgba(255,255,255,0.05)] p-1 rounded-lg mb-3 w-full max-w-[240px] mx-auto relative z-10">
+                  {[{ key: 'pie', label: 'Pie Chart' }, { key: 'line', label: 'Line Chart' }].map(({ key, label }) => (
+                    <button
+                      key={key}
+                      onClick={() => setChartTab(key)}
+                      className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
+                        chartTab === key ? 'bg-[#8b5cf6] text-white shadow-lg' : 'text-gray-400 hover:text-white'
+                      }`}
+                    >{label}</button>
                   ))}
                 </div>
 
-                {/* Rule of 72 */}
-                <div className="flex items-center gap-2 text-xs text-gray-500 bg-[rgba(139,92,246,0.08)] border border-[rgba(139,92,246,0.15)] rounded-lg px-3 py-2 mb-5">
-                  <TrendingUp className="w-3.5 h-3.5 text-[#a78bfa]" />
-                  <span>At <strong className="text-white">{rate}%</strong>, your investment doubles every <strong className="text-[#a78bfa]">{rule72} years</strong> (Rule of 72)</span>
-                </div>
-
-                {/* Chart */}
-                <div className="flex flex-col sm:flex-row items-center gap-6">
-                  <div className="w-40 h-40 flex-shrink-0 mx-auto">
-                    <Doughnut data={chartData} options={{ cutout: '70%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => ` ${toLabel(ctx.raw)}` } } } }} />
-                  </div>
-                  <div className="flex flex-col gap-2 text-sm w-full">
-                    {[
-                      { dot: 'bg-[#3B82F6]', label: 'Principal Invested', val: toLabel(principal) },
-                      { dot: 'bg-[#22C55E]', label: 'Total Gains', val: toLabel(gain) },
-                    ].map(({ dot, label, val }) => (
-                      <div key={label} className="flex items-center justify-between gap-3">
-                        <span className="flex items-center gap-2 text-gray-400">
-                          <span className={`w-2.5 h-2.5 rounded-full ${dot} flex-shrink-0`} />
-                          {label}
-                        </span>
-                        <span className="text-white font-semibold">{val}</span>
+                {/* Chart area */}
+                <div className="relative flex-1 min-h-[220px] flex justify-center items-center overflow-hidden relative z-10 mb-4">
+                  {chartTab === 'pie' && (
+                    <>
+                      <Doughnut data={pieData} options={pieOptions} />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                        <span className="text-xs text-gray-400">Future Value</span>
+                        <span className="text-lg md:text-xl font-bold text-white">{fmtINR(futureValue)}</span>
+                        <span className="text-[10px] text-[#c4b5fd]">{toLabel(futureValue)}</span>
                       </div>
-                    ))}
-                    <div className="border-t border-white/5 pt-2 flex justify-between">
-                      <span className="text-gray-400">Future Value</span>
-                      <span className="text-white font-bold">{toLabel(futureValue)}</span>
+                    </>
+                  )}
+                  {chartTab === 'line' && (
+                    <Line data={lineData} options={lineOptions} />
+                  )}
+                </div>
+
+                {/* Breakdown cards — same as SIP tab */}
+                <div className="grid grid-cols-3 gap-2 relative z-10">
+                  <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] rounded-lg p-2 flex flex-col justify-center shadow-[0_0_15px_rgba(139,92,246,0.15)]">
+                    <div className="flex items-center text-[#d8b4fe] text-[10px] mb-0.5 font-medium">
+                      <Coins className="w-3 h-3 mr-1" />Future Value
                     </div>
+                    <div className="text-sm font-extrabold text-white">{fmtINR(futureValue)}</div>
+                    <div className="text-[9px] text-[#c4b5fd] mt-0.5 tracking-wide">{toLabel(futureValue)}</div>
+                  </div>
+
+                  <div className="bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.2)] rounded-lg p-2 flex flex-col justify-center">
+                    <div className="flex items-center text-gray-400 text-[10px] mb-0.5">
+                      <div className="w-2 h-2 rounded-full bg-[#3B82F6] mr-1.5" />Invested
+                    </div>
+                    <div className="text-sm font-bold text-white">{fmtINR(principal)}</div>
+                    <div className="text-[9px] text-gray-400 mt-0.5 tracking-wide">{toLabel(principal)}</div>
+                  </div>
+
+                  <div className="bg-[rgba(34,197,94,0.1)] border border-[rgba(34,197,94,0.2)] rounded-lg p-2 flex flex-col justify-center">
+                    <div className="flex items-center text-gray-400 text-[10px] mb-0.5">
+                      <div className="w-2 h-2 rounded-full bg-[#22C55E] mr-1.5" />Earned
+                    </div>
+                    <div className="text-sm font-bold text-white">+{fmtINR(gain)}</div>
+                    <div className="text-[9px] text-gray-400 mt-0.5 tracking-wide">{toLabel(gain)}</div>
+                  </div>
+
+                  {/* Rule of 72 — full width strip */}
+                  <div className="col-span-3 mt-1 bg-[rgba(139,92,246,0.12)] border border-[rgba(139,92,246,0.25)] rounded-lg px-3 py-2 flex items-center gap-2">
+                    <TrendingUp className="w-3.5 h-3.5 text-[#a78bfa] flex-shrink-0" />
+                    <span className="text-[10px] text-gray-400">At <strong className="text-white">{rate}%</strong>, doubles every <strong className="text-[#a78bfa]">{rule72} yrs</strong> · Wealth multiple: <strong className="text-white">{(futureValue/principal).toFixed(2)}×</strong></span>
                   </div>
                 </div>
-              </div>
 
-              {/* Year-by-year table */}
-              <div className="glass-panel p-5">
-                <h2 className="text-base font-bold text-white mb-3">Year-by-Year Growth</h2>
-                <div className="overflow-x-auto max-h-64 overflow-y-auto">
-                  <table className="w-full text-xs">
-                    <thead className="sticky top-0 bg-[#0f111a]">
-                      <tr className="text-[#c4b5fd] border-b border-white/10">
-                        <th className="text-left py-2 pr-3">Year</th>
-                        <th className="text-right py-2 pr-3">Value</th>
-                        <th className="text-right py-2 pr-3">Gain</th>
-                        <th className="text-right py-2">× Multiple</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-gray-400">
-                      {yearlyData.map(({ year, value }) => (
-                        <tr key={year} className="border-b border-white/5 hover:bg-white/5">
-                          <td className="py-1.5 pr-3">{year}</td>
-                          <td className="py-1.5 pr-3 text-right text-white">{toLabel(value)}</td>
-                          <td className="py-1.5 pr-3 text-right text-[#22C55E]">{toLabel(value - principal)}</td>
-                          <td className="py-1.5 text-right text-[#a78bfa]">{(value / principal).toFixed(2)}x</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
               </div>
-
             </div>
           </div>
 
