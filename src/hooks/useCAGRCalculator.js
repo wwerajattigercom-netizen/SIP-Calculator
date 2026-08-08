@@ -3,12 +3,15 @@ import { useState, useMemo } from 'react';
 /**
  * useCAGRCalculator
  *
+ * Uses the SAME monthly-rate convention as useCalculator.js (the main SIP page):
+ *   monthly_rate  = annual_rate / 12            (APR, not EAR)
+ *   SIP formula   = add SIP first, THEN compound (annuity-due)
+ *
  * Without SIP:  CAGR = (FinalValue / InitialInvestment)^(1/years) - 1
- * With SIP:     Solves for effective annual rate r such that:
- *                 InitialInvestment × (1+r/12)^(n×12)
- *               + monthlySip × [(1+r/12)^(n×12) - 1] / (r/12)
- *               = FinalValue
- *               Uses binary search (50 iterations → precision of ~0.000001%)
+ * With SIP:     Binary-search for monthly rate rm such that
+ *                  lumpsum × (1+rm)^n  +  sip × (1+rm) × [(1+rm)^n − 1] / rm  =  FinalValue
+ *               then display as APR: cagrPct = rm × 12 × 100
+ *               (this matches the "Expected Return %" input on the SIP page)
  */
 export function useCAGRCalculator() {
   const [initialInvestment, setInitialInvestment] = useState(100000);   // ₹1 Lakh
@@ -23,66 +26,75 @@ export function useCAGRCalculator() {
     const sip   = Math.max(0, monthlySip);
     const n     = yrs * 12; // total months
 
-    // Total amount invested (lump sum + all SIP)
+    // Total invested (lump sum + all SIP payments)
     const totalSIPContributions = sip * n;
     const totalInvested         = init + totalSIPContributions;
 
-    // Absolute gain
     const absoluteGain = final - totalInvested;
     const gainPct      = parseFloat(((absoluteGain / totalInvested) * 100).toFixed(2));
 
-    let cagr;
+    let monthlyRate; // the rm we'll solve for
 
     if (sip === 0) {
-      // Simple lump-sum CAGR
-      cagr = Math.pow(final / init, 1 / yrs) - 1;
+      // ── Lump-sum only: standard CAGR formula ──────────────────────
+      // CAGR (annual) = (FV/PV)^(1/years) - 1
+      const annualCAGR = Math.pow(final / init, 1 / yrs) - 1;
+      // Convert to equivalent monthly rate for the table
+      monthlyRate = annualCAGR / 12; // keep as APR monthly
     } else {
-      /**
-       * Binary search for effective monthly rate r_m such that:
-       * init × (1+r_m)^n  +  sip × [(1+r_m)^n - 1] / r_m  =  final
-       *
-       * Annual CAGR = (1 + r_m)^12 - 1
-       */
+      // ── SIP (+ optional lump sum): binary search ──────────────────
+      //
+      // Formula matches useCalculator.js exactly:
+      //   Each month: balance += SIP; balance *= (1 + rm);
+      // Closed form (annuity-due):
+      //   FV = init × (1+rm)^n  +  sip × (1+rm) × [(1+rm)^n − 1] / rm
+      //
       const portfolioAtRate = (rm) => {
-        if (Math.abs(rm) < 1e-9) {
-          // r ≈ 0: SIP FV = sip × n
-          return init + sip * n;
-        }
-        const compounded = Math.pow(1 + rm, n);
-        return init * compounded + sip * (compounded - 1) / rm;
+        if (Math.abs(rm) < 1e-10) return init + sip * n; // r → 0 limit
+        const comp = Math.pow(1 + rm, n);
+        // annuity-due: sip is added BEFORE each monthly compounding
+        return init * comp + sip * (1 + rm) * (comp - 1) / rm;
       };
 
-      let low  = -0.99 / 12; // allow negative rates
-      let high = 5.0   / 12; // 500% annual max
+      let low = -0.99 / 12;
+      let high = 5.0  / 12;   // allow up to ~500% p.a.
       let rm   = 0;
 
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 200; i++) {
         rm = (low + high) / 2;
-        const fv = portfolioAtRate(rm);
-        if (fv < final) {
+        if (portfolioAtRate(rm) < final) {
           low = rm;
         } else {
           high = rm;
         }
       }
 
-      // Convert monthly rate → annual CAGR
-      cagr = Math.pow(1 + rm, 12) - 1;
+      monthlyRate = rm;
     }
 
-    const cagrPct = parseFloat((cagr * 100).toFixed(2));
+    // ── Display as APR (matches how the SIP Calculator takes input) ──
+    // APR = monthly_rate × 12
+    // This way, if you use the same return rate in both calculators, the numbers agree.
+    const cagrAPR = monthlyRate * 12;
+    const cagrPct = parseFloat((cagrAPR * 100).toFixed(2));
 
-    // Year-by-year projection at the computed monthly rate
-    const rm     = Math.pow(1 + cagr, 1 / 12) - 1;
+    // Keep the internal CAGR as annual for the year-by-year table
+    const cagr = cagrAPR; // we store APR as our "cagr"
+
+    // ── Year-by-year table using annuity-due formula at monthlyRate ──
     const yearlyData = [];
     for (let y = 0; y <= yrs; y++) {
-      const months      = y * 12;
+      const months = y * 12;
       let portfolioVal;
-      if (Math.abs(rm) < 1e-9) {
+      if (Math.abs(monthlyRate) < 1e-10) {
         portfolioVal = init + sip * months;
       } else {
-        const comp   = Math.pow(1 + rm, months);
-        portfolioVal = init * comp + (sip > 0 ? sip * (comp - 1) / rm : 0);
+        const comp = Math.pow(1 + monthlyRate, months);
+        if (sip > 0) {
+          portfolioVal = init * comp + sip * (1 + monthlyRate) * (comp - 1) / monthlyRate;
+        } else {
+          portfolioVal = init * comp;
+        }
       }
       const invested = init + sip * months;
       yearlyData.push({
