@@ -1,9 +1,61 @@
 "use client";
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
+  {
+    href: '/blog/sip-based-on-salary',
+    tag: 'SIP Planning',
+    tagColor: 'text-[#a78bfa] bg-[rgba(139,92,246,0.12)] border-[rgba(139,92,246,0.25)]',
+    title: 'How Much SIP Should I Do Based on My Salary?',
+    excerpt:
+      'Use the 50-30-20 budgeting rule to find your ideal SIP amount. Interactive calculator shows Conservative (10%), Moderate (20%), and Aggressive (30%) plans with 20-year projections.',
+    readTime: '5 min read',
+    cta: 'Try Calculator',
+    icon: <Wallet className="w-5 h-5 text-[#a78bfa]" />,
+    highlight: 'Interactive',
+    highlightColor: 'text-[#a78bfa]',
+  },
+  {
+    href: '/blog/retirement-sip-calculator',
+    tag: 'Retirement',
+    tagColor: 'text-blue-400 bg-[rgba(59,130,246,0.10)] border-[rgba(59,130,246,0.25)]',
+    title: 'How Much SIP Do I Need to Retire in India?',
+    excerpt:
+      'Enter your age, expenses, and retirement target — get the exact monthly SIP needed. See the devastating cost of delaying by just 5 years.',
+    readTime: '6 min read',
+    cta: 'Try Calculator',
+    icon: <Shield className="w-5 h-5 text-blue-400" />,
+    highlight: 'Interactive',
+    highlightColor: 'text-blue-400',
+  },
+  {
+    href: '/blog/sip-vs-lumpsum',
+    tag: 'Comparison',
+    tagColor: 'text-yellow-400 bg-[rgba(234,179,8,0.10)] border-[rgba(234,179,8,0.25)]',
+    title: 'SIP vs Lump Sum — Which Is Better? Interactive Comparison',
+    excerpt:
+      'Compare SIP and Lumpsum returns under Bull, Bear, and Volatile market scenarios. See which strategy wins — and by how much — with real-time charts.',
+    readTime: '5 min read',
+    cta: 'Compare Now',
+    icon: <BarChart3 className="w-5 h-5 text-yellow-400" />,
+    highlight: 'Interactive',
+    highlightColor: 'text-yellow-400',
+  },
+  {
+    href: '/blog/sip-to-beat-inflation',
+    tag: 'Inflation',
+    tagColor: 'text-orange-400 bg-[rgba(249,115,22,0.10)] border-[rgba(249,115,22,0.25)]',
+    title: 'How Much SIP to Beat Inflation? Real vs Nominal Returns',
+    excerpt:
+      'See how inflation erodes your SIP returns. Dual-chart comparison of nominal vs real value, purchasing power erosion callout, and year-by-year breakdown.',
+    readTime: '5 min read',
+    cta: 'Try Calculator',
+    icon: <Flame className="w-5 h-5 text-orange-400" />,
+    highlight: 'Interactive',
+    highlightColor: 'text-orange-400',
+  },
   {
     href: '/blog/sip-to-reach-1-crore',
     tag: 'SIP Planning',
@@ -58,8 +110,8 @@ export default function BlogIndexPage() {
                 Investment <span className="text-gradient">Guides</span>
               </h1>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
-                Free, jargon-free guides for Indian investors — SIP planning, CAGR explained, 
-                how to reach ₹1 Crore, and more. Written by Rajat.
+                Free, jargon-free guides with interactive calculators for Indian investors — SIP planning,
+                retirement, inflation, market scenarios, and more. Written by Rajat.
               </p>
             </div>
           </div>
