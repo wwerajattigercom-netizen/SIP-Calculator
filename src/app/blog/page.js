@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
@@ -68,6 +68,45 @@ const ARTICLES = [
     icon: <Calculator className="w-5 h-5 text-[#a78bfa]" />,
     highlight: '₹1 Crore Goal',
     highlightColor: 'text-[#a78bfa]',
+  },
+  {
+    href: '/blog/sip-for-child-education',
+    tag: 'Goal Planning',
+    tagColor: 'text-[#14B8A6] bg-[rgba(20,184,166,0.10)] border-[rgba(20,184,166,0.25)]',
+    title: 'SIP for Child Education — Education Goal Calculator India',
+    excerpt:
+      'Education inflation in India runs at 10%+ per year. Find exactly how much SIP you need to fund your child\'s engineering, medical, or MBA degree — before the cost doubles.',
+    readTime: '5 min read',
+    cta: 'Try Calculator',
+    icon: <GraduationCap className="w-5 h-5 text-[#14B8A6]" />,
+    highlight: 'Interactive',
+    highlightColor: 'text-[#14B8A6]',
+  },
+  {
+    href: '/blog/sip-for-house-down-payment',
+    tag: 'Goal Planning',
+    tagColor: 'text-[#14B8A6] bg-[rgba(20,184,166,0.10)] border-[rgba(20,184,166,0.25)]',
+    title: 'SIP for House Down Payment — Save for Your Dream Home',
+    excerpt:
+      'Property prices rise 7%+ annually. See the future cost of that ₹80L flat, the down payment you need to save, and the exact monthly SIP to get there — with city-wise reference.',
+    readTime: '5 min read',
+    cta: 'Try Calculator',
+    icon: <Home className="w-5 h-5 text-[#14B8A6]" />,
+    highlight: 'Interactive',
+    highlightColor: 'text-[#14B8A6]',
+  },
+  {
+    href: '/blog/sip-during-market-crash',
+    tag: 'Market Strategy',
+    tagColor: 'text-[#EF4444] bg-[rgba(239,68,68,0.10)] border-[rgba(239,68,68,0.25)]',
+    title: 'SIP During Market Crash — Should You Stop or Continue?',
+    excerpt:
+      'Interactive crash simulator. See exactly how much wealth you lose by pausing SIP during a 40% market fall — and why rupee-cost averaging makes crashes the best time to invest.',
+    readTime: '6 min read',
+    cta: 'Run Simulation',
+    icon: <Zap className="w-5 h-5 text-[#EF4444]" />,
+    highlight: 'Simulator',
+    highlightColor: 'text-[#EF4444]',
   },
   {
     href: '/blog/cagr-vs-xirr-vs-absolute-return',
