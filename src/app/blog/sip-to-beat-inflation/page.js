@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Calculator, ArrowRight, TrendingDown, HelpCircle, ShieldAlert } from 'lucide-react';
+import { ArrowRight, TrendingDown, HelpCircle, ShieldAlert, CheckCircle2, XCircle, Info } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 import InputSlider from '@/components/InputSlider';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -37,19 +37,21 @@ export default function SipBeatInflationPage() {
   const results = useMemo(() => {
     const months = duration * 12;
     const monthlyRate = returnRate / 100 / 12;
-    
+
     // Nominal Future Value (Annuity-due)
     const nominalFV = sipAmount * (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate)) * (1 + monthlyRate);
-    
-    // Real Future Value
+
+    // Real Future Value (deflated by inflation)
     const realFV = nominalFV / Math.pow(1 + inflationRate / 100, duration);
-    
+
     // Total Invested
     const totalInvested = sipAmount * months;
-    
-    // Real Return Rate (Formula: (1+R)/(1+I) - 1)
+
+    // Real Return Rate (Fisher equation: (1+R)/(1+I) - 1)
     const realReturnRate = (((1 + returnRate / 100) / (1 + inflationRate / 100)) - 1) * 100;
-    
+    const isBeating = returnRate > inflationRate;
+    const margin = returnRate - inflationRate; // simple margin for display
+
     return {
       nominalFV,
       realFV,
@@ -58,10 +60,11 @@ export default function SipBeatInflationPage() {
       nominalGains: nominalFV - totalInvested,
       realGains: realFV - totalInvested,
       realReturnRate,
+      isBeating,
+      margin,
     };
   }, [sipAmount, duration, returnRate, inflationRate]);
 
-  // Chart configs
   const doughnutOptions = {
     cutout: '75%',
     plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1F2937' } },
@@ -74,8 +77,15 @@ export default function SipBeatInflationPage() {
   };
 
   const realChartData = {
-    labels: ['Total Invested', 'Real Gains'],
-    datasets: [{ data: [results.totalInvested, Math.max(0, results.realGains)], backgroundColor: ['#22C55E', '#86efac'] }]
+    labels: ['Total Invested', 'Real Gains', 'Inflation Loss'],
+    datasets: [{
+      data: [
+        results.totalInvested,
+        Math.max(0, results.realGains),
+        results.powerLost,
+      ],
+      backgroundColor: ['#22C55E', '#86efac', '#EF4444'],
+    }]
   };
 
   return (
@@ -83,7 +93,7 @@ export default function SipBeatInflationPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-4xl w-full mx-auto space-y-8">
-          
+
           <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'SIP to Beat Inflation' }]} />
 
           {/* Hero */}
@@ -95,7 +105,7 @@ export default function SipBeatInflationPage() {
                 How to Use SIP to Beat <span className="text-gradient">Inflation</span>
               </h1>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Inflation is the silent wealth killer. A 12% return is actually only ~5.6% if inflation is 6%. 
+                Inflation is the silent wealth killer. A 12% return is actually only ~5.6% if inflation is 6%.
                 Use this calculator to uncover the <strong className="text-white">real purchasing power</strong> of your future wealth.
               </p>
             </div>
@@ -103,6 +113,7 @@ export default function SipBeatInflationPage() {
 
           {/* Calculator Section */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {/* Inputs */}
             <div className="md:col-span-5 space-y-6">
               <div className="glass-panel p-6">
                 <h3 className="text-white font-bold mb-4">Calculator Inputs</h3>
@@ -117,7 +128,7 @@ export default function SipBeatInflationPage() {
                     formatFn={(v) => `₹${v.toLocaleString('en-IN')}`}
                   />
                   <InputSlider
-                    label="Duration (Years)"
+                    label="Investment Duration"
                     value={duration}
                     min={1}
                     max={40}
@@ -126,7 +137,7 @@ export default function SipBeatInflationPage() {
                     formatFn={(v) => `${v} Yr`}
                   />
                   <InputSlider
-                    label="Expected Return Rate"
+                    label="Expected Return Rate (p.a.)"
                     value={returnRate}
                     min={1}
                     max={30}
@@ -135,7 +146,7 @@ export default function SipBeatInflationPage() {
                     formatFn={(v) => `${v}%`}
                   />
                   <InputSlider
-                    label="Expected Inflation Rate"
+                    label="Expected Inflation Rate (p.a.)"
                     value={inflationRate}
                     min={1}
                     max={15}
@@ -147,55 +158,93 @@ export default function SipBeatInflationPage() {
               </div>
             </div>
 
-            <div className="md:col-span-7 space-y-6">
-              <div className="glass-panel p-6">
-                
-                {/* Badges */}
-                <div className="flex gap-4 mb-6">
-                  <div className="flex-1 bg-[rgba(239,68,68,0.05)] border border-[#EF4444]/20 p-4 rounded-2xl text-center">
-                    <p className="text-gray-400 text-xs mb-1">Real Return Rate</p>
-                    <p className="text-[#EF4444] text-xl font-bold">{results.realReturnRate.toFixed(2)}%</p>
+            {/* Results */}
+            <div className="md:col-span-7 space-y-4">
+              <div className="glass-panel p-6 space-y-5">
+
+                {/* ── Status badge: Are you beating inflation? ── */}
+                <div className={`flex items-start gap-4 p-4 rounded-2xl border ${results.isBeating ? 'border-[#22C55E]/30 bg-[rgba(34,197,94,0.06)]' : 'border-[#EF4444]/30 bg-[rgba(239,68,68,0.06)]'}`}>
+                  <div className={`flex-shrink-0 mt-0.5 ${results.isBeating ? 'text-[#22C55E]' : 'text-[#EF4444]'}`}>
+                    {results.isBeating
+                      ? <CheckCircle2 className="w-6 h-6" />
+                      : <XCircle className="w-6 h-6" />}
                   </div>
-                  <div className="flex-1 bg-[rgba(34,197,94,0.05)] border border-[#22C55E]/20 p-4 rounded-2xl text-center">
-                    <p className="text-gray-400 text-xs mb-1">To Beat Inflation</p>
-                    <p className="text-[#22C55E] text-xl font-bold">&gt; {inflationRate}%</p>
+                  <div>
+                    <p className={`font-bold text-sm ${results.isBeating ? 'text-[#22C55E]' : 'text-[#EF4444]'}`}>
+                      {results.isBeating
+                        ? `✅ Your SIP is beating inflation by ${results.margin.toFixed(1)}%`
+                        : `❌ Your SIP is NOT beating inflation (${Math.abs(results.margin).toFixed(1)}% short)`}
+                    </p>
+                    <p className="text-gray-400 text-xs mt-1 leading-relaxed">
+                      {results.isBeating
+                        ? `Your ${returnRate}% return beats ${inflationRate}% inflation. Real (inflation-adjusted) return: ${results.realReturnRate.toFixed(2)}% per year — your wealth is genuinely growing.`
+                        : `Your ${returnRate}% return is below ${inflationRate}% inflation. You are losing purchasing power every year. Consider switching to equity mutual funds targeting 10–12%.`}
+                    </p>
                   </div>
                 </div>
 
-                {/* Callout */}
-                <div className="bg-[rgba(255,255,255,0.03)] border border-white/5 rounded-xl p-4 mb-6 text-center">
-                  <p className="text-sm text-gray-300">
-                    Your <strong className="text-white">{formatToShortWords(results.nominalFV)}</strong> corpus in {duration} years will only have the purchasing power of <strong className="text-[#EF4444]">{formatToShortWords(results.realFV)}</strong> in today's money.
+                {/* ── Quick summary row ── */}
+                <div className="grid grid-cols-3 gap-3 text-center">
+                  <div className="bg-[rgba(255,255,255,0.03)] border border-white/5 rounded-xl p-3">
+                    <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Total Invested</p>
+                    <p className="text-white font-bold text-sm">{formatToShortWords(results.totalInvested)}</p>
+                  </div>
+                  <div className="bg-[rgba(139,92,246,0.08)] border border-[#8b5cf6]/20 rounded-xl p-3">
+                    <p className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">Nominal Corpus</p>
+                    <p className="text-[#a78bfa] font-bold text-sm">{formatToShortWords(results.nominalFV)}</p>
+                    <p className="text-[10px] text-gray-500 mt-0.5">Bank statement value</p>
+                  </div>
+                  <div className="bg-[rgba(34,197,94,0.07)] border border-[#22C55E]/20 rounded-xl p-3">
+                    <p className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">Real Corpus</p>
+                    <p className="text-[#22C55E] font-bold text-sm">{formatToShortWords(results.realFV)}</p>
+                    <p className="text-[10px] text-gray-500 mt-0.5">Buying power today</p>
+                  </div>
+                </div>
+
+                {/* ── Inflation erosion callout ── */}
+                <div className="flex items-start gap-2 bg-[rgba(255,255,255,0.02)] border border-white/5 rounded-xl p-4">
+                  <Info className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    Inflation will erode <strong className="text-[#EF4444]">{formatToShortWords(results.powerLost)}</strong> of your corpus&apos;s buying power over {duration} years. Your {formatToShortWords(results.nominalFV)} will feel like {formatToShortWords(results.realFV)} in today&apos;s money.
                   </p>
                 </div>
 
-                {/* Charts */}
+                {/* ── Doughnut charts ── */}
                 <div className="flex justify-around items-center pt-2">
-                  <div className="relative w-32 h-32 flex flex-col items-center">
-                    <Doughnut data={nominalChartData} options={doughnutOptions} />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                      <span className="text-gray-400 text-[10px]">Nominal</span>
-                      <span className="text-white font-bold text-sm">{formatToShortWords(results.nominalFV)}</span>
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="relative w-28 h-28">
+                      <Doughnut data={nominalChartData} options={doughnutOptions} />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                        <span className="text-gray-400 text-[9px]">Nominal</span>
+                        <span className="text-white font-bold text-xs">{formatToShortWords(results.nominalFV)}</span>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="hidden sm:block text-gray-500">
-                    <TrendingDown className="w-6 h-6 mx-auto text-[#EF4444]" />
-                    <span className="text-[10px] block mt-1 uppercase tracking-wider">Inflation</span>
+                    <div className="flex flex-col gap-1 text-[10px] text-gray-400">
+                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#8b5cf6] inline-block" /> Invested</span>
+                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#a78bfa] inline-block" /> Gains</span>
+                    </div>
                   </div>
 
-                  <div className="relative w-32 h-32 flex flex-col items-center">
-                    <Doughnut data={realChartData} options={doughnutOptions} />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                      <span className="text-gray-400 text-[10px]">Real Value</span>
-                      <span className="text-white font-bold text-sm">{formatToShortWords(results.realFV)}</span>
+                  <div className="hidden sm:flex flex-col items-center text-gray-500">
+                    <TrendingDown className="w-6 h-6 mx-auto text-[#EF4444]" />
+                    <span className="text-[10px] block mt-1 uppercase tracking-wider">Inflation</span>
+                    <span className="text-[9px] text-[#EF4444] font-bold">−{formatToShortWords(results.powerLost)}</span>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="relative w-28 h-28">
+                      <Doughnut data={realChartData} options={doughnutOptions} />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                        <span className="text-gray-400 text-[9px]">Real Value</span>
+                        <span className="text-[#22C55E] font-bold text-xs">{formatToShortWords(results.realFV)}</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-1 text-[10px] text-gray-400">
+                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#22C55E] inline-block" /> Invested</span>
+                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#86efac] inline-block" /> Real Gains</span>
+                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#EF4444] inline-block" /> Power Lost</span>
                     </div>
                   </div>
-                </div>
-                
-                <div className="flex justify-around mt-4 text-xs text-gray-400">
-                  <div className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#8b5cf6]"></span> Invested: {formatToShortWords(results.totalInvested)}</div>
-                  <div className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#EF4444]"></span> Power Lost: {formatToShortWords(results.powerLost)}</div>
                 </div>
 
               </div>
@@ -207,7 +256,9 @@ export default function SipBeatInflationPage() {
             <div>
               <h2 className="text-xl font-bold text-white mb-3">What Is Real Return?</h2>
               <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                <strong>Nominal Return</strong> is the raw percentage your investment grows. <strong>Real Return</strong> is what remains after subtracting inflation. If a savings account gives you 4% return and inflation is 6%, your real return is actually negative. You are losing purchasing power over time.
+                <strong>Nominal Return</strong> is the raw percentage your investment grows — the number you see on your account statement.
+                <strong> Real Return</strong> is what remains after subtracting inflation. It represents the true increase in your purchasing power.
+                If a savings account gives you 4% return and inflation is 6%, your real return is actually <em>negative</em>. You are silently losing wealth.
               </p>
             </div>
             <div>
@@ -215,13 +266,15 @@ export default function SipBeatInflationPage() {
                 <ShieldAlert className="w-5 h-5 text-amber-500" /> Why 12% Return ≠ 12% Gain
               </h2>
               <p className="text-gray-400 text-sm leading-relaxed">
-                A 12% return on equity mutual funds looks great on paper. But with an average inflation of 6%, the cost of living doubles roughly every 12 years. Thus, a significant chunk of your returns just goes towards maintaining your current standard of living, leaving you with a true wealth creation rate of ~5.6%.
+                A 12% equity mutual fund return looks great. But at 6% inflation, your real (Fisher-adjusted) return is only <strong className="text-white">~5.66%</strong>.
+                The rest is just your money keeping pace with rising prices — not true wealth creation. This is why parking money in low-yield instruments is financially dangerous.
               </p>
             </div>
             <div>
               <h2 className="text-xl font-bold text-white mb-3">How to Choose a SIP to Beat Inflation</h2>
               <p className="text-gray-400 text-sm leading-relaxed">
-                To truly build wealth, you need an asset class that consistently beats inflation. Historically, Equities (via Mutual Fund SIPs) have delivered 10-15% returns, beating inflation comfortably. Fixed Deposits or traditional insurance policies often struggle to beat inflation post-taxes.
+                To truly build wealth, you need an asset class that consistently beats inflation. Equity mutual funds (via SIP) have historically delivered 10–15% returns —
+                comfortably ahead of India&apos;s 5–7% inflation. Fixed deposits and traditional insurance policies often fail to beat inflation after tax.
               </p>
             </div>
           </div>
@@ -251,8 +304,8 @@ export default function SipBeatInflationPage() {
               <Link href="/cagr-calculator" className="inline-flex items-center gap-2 border border-[#8b5cf6]/40 text-[#a78bfa] hover:border-[#8b5cf6] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 CAGR Calculator
               </Link>
-              <Link href="/retirement-calculator" className="inline-flex items-center gap-2 border border-[#8b5cf6]/40 text-[#a78bfa] hover:border-[#8b5cf6] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
-                Retirement Guide
+              <Link href="/blog/retirement-sip-calculator" className="inline-flex items-center gap-2 border border-[#8b5cf6]/40 text-[#a78bfa] hover:border-[#8b5cf6] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                Retirement SIP Guide
               </Link>
             </div>
             <p className="text-xs text-gray-500 mt-6">Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related documents carefully.</p>

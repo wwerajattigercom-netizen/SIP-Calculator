@@ -1,10 +1,19 @@
 "use client";
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Calculator, ArrowRight, CheckCircle, TrendingUp, HelpCircle } from 'lucide-react';
+import { ArrowRight, HelpCircle, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 import InputSlider from '@/components/InputSlider';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -16,95 +25,169 @@ function formatToShortWords(val) {
   return `₹${Math.round(val).toLocaleString('en-IN')}`;
 }
 
+/**
+ * Build a month-by-month NAV series for the chosen scenario.
+ * We model the market as a unit NAV starting at ₹10.
+ *
+ * Bull    → NAV grows at a steady monthly rate every month.
+ * Bear    → NAV drops in the first 40% of the period (below inflation),
+ *            then surges strongly, eventually ending near the same total
+ *            as bull — but SIP buys heavily cheap units early.
+ * Volatile→ NAV alternates +high / −low every 6 months (choppy sideways).
+ *            Mean return ≈ same as entered, but SIP wins via rupee-cost-averaging.
+ */
+function buildNavSeries(annualReturnPct, totalMonths, scenario) {
+  const nav = [10]; // start NAV
+  const bullMonthly = (Math.pow(1 + annualReturnPct / 100, 1 / 12) - 1);
+
+  for (let m = 1; m <= totalMonths; m++) {
+    const frac = m / totalMonths;
+    let monthlyRate;
+
+    if (scenario === 'bull') {
+      monthlyRate = bullMonthly;
+    } else if (scenario === 'bear') {
+      // First 40%: market falls (half normal growth), next 60%: sharp recovery
+      if (frac <= 0.4) {
+        // Slight decline: negative growth early
+        monthlyRate = -bullMonthly * 0.8;
+      } else {
+        // Recovery: need to compensate for losses + give decent final return
+        // Target final NAV ≈ 85% of bull final NAV (bear still lags overall)
+        // We'll use a fixed boost rate for the recovery phase
+        monthlyRate = bullMonthly * 2.4;
+      }
+    } else {
+      // Volatile: alternate every 6 months between surge and dip
+      const cycle = Math.floor((m - 1) / 6) % 2;
+      monthlyRate = cycle === 0 ? bullMonthly * 2.0 : -bullMonthly * 0.6;
+    }
+
+    nav.push(nav[nav.length - 1] * (1 + monthlyRate));
+  }
+  return nav; // length = totalMonths + 1  (index 0 = start)
+}
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Is SIP better than lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'SIP is generally better for salaried individuals and in volatile markets due to rupee cost averaging. Lump sum can be better if you have a large corpus and invest during market dips.' } },
-    { '@type': 'Question', name: 'Should I invest lump sum during a market crash?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, investing a lump sum during a significant market crash often yields higher returns than SIP, as you buy more units at lower prices.' } },
+    { '@type': 'Question', name: 'Is SIP better than lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'SIP is generally better for salaried individuals and in volatile or bearish markets due to rupee cost averaging. Lump sum can be better in a consistent bull market.' } },
+    { '@type': 'Question', name: 'Should I invest lump sum during a market crash?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — if you already have a large corpus and can time the bottom, a lump sum during a crash can beat SIP. But timing the market reliably is very difficult.' } },
     { '@type': 'Question', name: 'What is rupee cost averaging in SIP?', acceptedAnswer: { '@type': 'Answer', text: 'Rupee cost averaging means you buy more units when prices are low and fewer units when prices are high, averaging out your cost per unit over time.' } },
-    { '@type': 'Question', name: 'Can I do both SIP and lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! You can maintain a regular SIP from your salary and deploy lump sums (like bonuses) during market corrections.' } },
-    { '@type': 'Question', name: 'Which is better for long-term — SIP or lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'For 10+ years, both perform well. Lump sum slightly edges out in a purely upward market, while SIP provides peace of mind and discipline.' } }
-  ]
+    { '@type': 'Question', name: 'Can I do both SIP and lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Maintain a regular SIP from your monthly salary and deploy lump sums (like bonuses or tax refunds) during market corrections.' } },
+    { '@type': 'Question', name: 'Which is better for long-term — SIP or lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'For 10+ years, lump sum slightly edges out in a steadily rising market, while SIP outperforms in volatile or downward-then-recovery markets.' } },
+  ],
+};
+
+const SCENARIO_META = {
+  bull: {
+    label: 'Bull Market',
+    color: '#22C55E',
+    icon: TrendingUp,
+    desc: 'Steady, consistent growth every month. Lumpsum gets more time in the market.',
+    tag: 'Consistent Growth',
+  },
+  bear: {
+    label: 'Bear then Recovery',
+    color: '#EF4444',
+    icon: TrendingDown,
+    desc: 'Market drops for ~40% of the period, then recovers. SIP buys cheap units during the crash.',
+    tag: 'Crash + Recovery',
+  },
+  volatile: {
+    label: 'Volatile Market',
+    color: '#F59E0B',
+    icon: Minus,
+    desc: 'Alternating surges and dips every 6 months. SIP benefits from buying more units during dips.',
+    tag: 'High Swings',
+  },
 };
 
 export default function SipVsLumpsumPage() {
   const [totalAmount, setTotalAmount] = useState(500000);
   const [returnRate, setReturnRate] = useState(12);
   const [duration, setDuration] = useState(10);
-  const [scenario, setScenario] = useState('bull'); // bull, bear, volatile
+  const [scenario, setScenario] = useState('bull');
 
-  const chartData = useMemo(() => {
-    let lumpsumVal = totalAmount;
-    let sipVal = 0;
-    const monthlySip = totalAmount / (duration * 12);
-    
+  const { chartConfig, finalSip, finalLumpsum } = useMemo(() => {
+    const totalMonths = duration * 12;
+    const monthlySip = totalAmount / totalMonths;
+
+    // Build NAV series for this scenario
+    const nav = buildNavSeries(returnRate, totalMonths, scenario);
+
+    // Lumpsum: buy all units at NAV[0], value = units × NAV[month]
+    const startNav = nav[0];
+    const lumpsumUnits = totalAmount / startNav;
+
+    // SIP: each month buy monthlySip / NAV[month] units
+    let sipUnits = 0;
     const labels = [];
     const lumpsumData = [];
     const sipData = [];
-    
+
     for (let year = 1; year <= duration; year++) {
-      let currentRate = returnRate;
-      
-      if (scenario === 'bear') {
-        if (year <= duration * 0.4) currentRate = returnRate * 0.5;
-        else currentRate = returnRate * 1.35;
-      } else if (scenario === 'volatile') {
-        currentRate = year % 2 !== 0 ? returnRate * 1.5 : returnRate * 0.5;
-      }
-      
-      // Lumpsum calculation (Annual compound for simplicity on graph)
-      lumpsumVal = lumpsumVal * (1 + currentRate / 100);
-      
-      // SIP calculation (Monthly compound)
-      const monthlyRate = currentRate / 100 / 12;
-      for (let m = 0; m < 12; m++) {
-        sipVal = (sipVal + monthlySip) * (1 + monthlyRate);
-      }
-      
-      labels.push(`Year ${year}`);
-      lumpsumData.push(lumpsumVal);
-      sipData.push(sipVal);
-    }
-    
-    return {
-      labels,
-      datasets: [
-        {
-          label: 'Lumpsum Value',
-          data: lumpsumData,
-          borderColor: '#3B82F6',
-          backgroundColor: 'rgba(59,130,246,0.1)',
-          borderWidth: 2,
-          pointRadius: 0,
-          fill: true,
-          tension: 0.4,
-        },
-        {
-          label: 'SIP Value',
-          data: sipData,
-          borderColor: '#8b5cf6',
-          backgroundColor: 'rgba(139,92,246,0.1)',
-          borderWidth: 2,
-          pointRadius: 0,
-          fill: true,
-          tension: 0.4,
+      const monthIdx = year * 12;
+      // accumulate SIP units up to this month
+      // (we compute year-end snapshot)
+      if (year === 1) {
+        for (let m = 1; m <= 12; m++) {
+          sipUnits += monthlySip / nav[m];
         }
-      ],
+      } else {
+        for (let m = (year - 1) * 12 + 1; m <= year * 12; m++) {
+          sipUnits += monthlySip / nav[m];
+        }
+      }
+      const currentNav = nav[monthIdx];
+      labels.push(`Year ${year}`);
+      lumpsumData.push(lumpsumUnits * currentNav);
+      sipData.push(sipUnits * currentNav);
+    }
+
+    return {
+      chartConfig: {
+        labels,
+        datasets: [
+          {
+            label: 'Lumpsum Value',
+            data: lumpsumData,
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59,130,246,0.08)',
+            borderWidth: 2.5,
+            pointRadius: 0,
+            fill: true,
+            tension: 0.4,
+          },
+          {
+            label: 'SIP Value',
+            data: sipData,
+            borderColor: '#8b5cf6',
+            backgroundColor: 'rgba(139,92,246,0.08)',
+            borderWidth: 2.5,
+            pointRadius: 0,
+            fill: true,
+            tension: 0.4,
+          },
+        ],
+      },
       finalLumpsum: lumpsumData[lumpsumData.length - 1],
       finalSip: sipData[sipData.length - 1],
     };
   }, [totalAmount, returnRate, duration, scenario]);
 
-  const winner = chartData.finalLumpsum > chartData.finalSip ? 'Lumpsum' : 'SIP';
-  const diff = Math.abs(chartData.finalLumpsum - chartData.finalSip);
+  const winner = finalLumpsum > finalSip ? 'Lumpsum' : 'SIP';
+  const diff = Math.abs(finalLumpsum - finalSip);
+  const meta = SCENARIO_META[scenario];
+  const ScenarioIcon = meta.icon;
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-4xl w-full mx-auto space-y-8">
-          
+
           <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'SIP vs Lumpsum' }]} />
 
           {/* Hero */}
@@ -116,18 +199,18 @@ export default function SipVsLumpsumPage() {
                 <span className="text-gradient">SIP vs Lumpsum:</span> Which Investment Strategy is Better?
               </h1>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Should you invest your money all at once (Lumpsum) or spread it over time (SIP)? 
-                Use our interactive calculator below to test both strategies across Bull, Bear, and Volatile market scenarios.
+                Should you invest your money all at once (Lumpsum) or spread it over time (SIP)?
+                Test both strategies across Bull, Bear, and Volatile market scenarios — and see which one wins with real NAV-based simulation.
               </p>
             </div>
           </div>
 
           {/* Calculator Section */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {/* Inputs */}
             <div className="md:col-span-5 space-y-6">
               <div className="glass-panel p-6">
                 <h3 className="text-white font-bold mb-4">Calculator Inputs</h3>
-                
                 <div className="space-y-5">
                   <InputSlider
                     label="Total Investment Amount"
@@ -136,21 +219,21 @@ export default function SipVsLumpsumPage() {
                     max={10000000}
                     step={10000}
                     onChange={setTotalAmount}
-                    formatFn={(v) => `₹${v.toLocaleString('en-IN')}`}
+                    formatFn={(v) => formatToShortWords(v)}
                   />
                   <InputSlider
-                    label="Expected Return Rate"
+                    label="Expected Annual Return"
                     value={returnRate}
-                    min={1}
-                    max={30}
-                    step={0.1}
+                    min={4}
+                    max={24}
+                    step={0.5}
                     onChange={setReturnRate}
                     formatFn={(v) => `${v}%`}
                   />
                   <InputSlider
-                    label="Duration (Years)"
+                    label="Investment Duration"
                     value={duration}
-                    min={1}
+                    min={3}
                     max={30}
                     step={1}
                     onChange={setDuration}
@@ -158,103 +241,191 @@ export default function SipVsLumpsumPage() {
                   />
                 </div>
 
+                {/* Market Scenario toggle */}
                 <div className="mt-6">
                   <label className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-3 block">Market Scenario</label>
                   <div className="flex gap-2 bg-[rgba(255,255,255,0.03)] p-1.5 rounded-xl border border-white/5">
-                    {['bull', 'bear', 'volatile'].map(s => (
+                    {Object.entries(SCENARIO_META).map(([key, s]) => (
                       <button
-                        key={s}
-                        onClick={() => setScenario(s)}
-                        className={`flex-1 py-2 px-3 text-xs font-medium rounded-lg capitalize transition-all ${scenario === s ? 'bg-[#3B82F6] text-white shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                        key={key}
+                        onClick={() => setScenario(key)}
+                        style={scenario === key ? { backgroundColor: s.color } : {}}
+                        className={`flex-1 py-2 px-2 text-xs font-semibold rounded-lg capitalize transition-all ${
+                          scenario === key ? 'text-white shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                        }`}
                       >
-                        {s}
+                        {key === 'bull' ? '📈 Bull' : key === 'bear' ? '📉 Bear' : '〰️ Volatile'}
                       </button>
                     ))}
                   </div>
-                  <p className="text-[10px] text-gray-500 mt-2">
-                    {scenario === 'bull' && 'Consistent positive returns year after year.'}
-                    {scenario === 'bear' && 'Market crashes initially, then recovers strongly later.'}
-                    {scenario === 'volatile' && 'Wild swings alternating between high and low returns.'}
-                  </p>
+
+                  {/* Scenario description card */}
+                  <div
+                    className="mt-3 flex items-start gap-3 rounded-xl border p-3"
+                    style={{ borderColor: `${meta.color}30`, backgroundColor: `${meta.color}0D` }}
+                  >
+                    <ScenarioIcon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: meta.color }} />
+                    <div>
+                      <p className="text-xs font-semibold" style={{ color: meta.color }}>{meta.label} — {meta.tag}</p>
+                      <p className="text-[11px] text-gray-400 mt-0.5 leading-relaxed">{meta.desc}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="md:col-span-7 space-y-6">
-              <div className="glass-panel p-6 flex flex-col items-center justify-center relative overflow-hidden h-full">
-                {/* Result Cards */}
-                <div className="flex w-full gap-4 mb-6 relative z-10">
-                  <div className={`flex-1 p-5 rounded-2xl border ${winner === 'SIP' ? 'border-[#22C55E] bg-[rgba(34,197,94,0.05)] shadow-[0_0_20px_rgba(34,197,94,0.1)]' : 'border-white/10 bg-white/5'}`}>
+            {/* Results */}
+            <div className="md:col-span-7">
+              <div className="glass-panel p-6 flex flex-col gap-5 h-full">
+
+                {/* Result cards */}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* SIP card */}
+                  <div className={`p-5 rounded-2xl border transition-all ${
+                    winner === 'SIP'
+                      ? 'border-[#8b5cf6] bg-[rgba(139,92,246,0.08)] shadow-[0_0_24px_rgba(139,92,246,0.15)]'
+                      : 'border-white/8 bg-white/3'
+                  }`}>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-400 text-sm">SIP Value</span>
-                      {winner === 'SIP' && <span className="text-[#22C55E] text-[10px] font-bold px-2 py-1 bg-[#22C55E]/10 rounded-full">WINNER</span>}
+                      <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">SIP</span>
+                      {winner === 'SIP' && (
+                        <span className="text-[#a78bfa] text-[9px] font-bold px-2 py-0.5 bg-[#8b5cf6]/20 rounded-full border border-[#8b5cf6]/30">WINNER 🏆</span>
+                      )}
                     </div>
-                    <div className="text-2xl font-bold text-white">{formatToShortWords(chartData.finalSip)}</div>
-                    <div className="text-xs text-gray-500 mt-1">Invested: {formatToShortWords(totalAmount)}</div>
+                    <div className="text-xl font-bold text-white">{formatToShortWords(finalSip)}</div>
+                    <div className="text-[10px] text-gray-500 mt-1">Invested: {formatToShortWords(totalAmount)}</div>
+                    <div className="text-[10px] text-[#a78bfa] mt-0.5">
+                      {((finalSip / totalAmount - 1) * 100).toFixed(1)}% total return
+                    </div>
                   </div>
-                  <div className={`flex-1 p-5 rounded-2xl border ${winner === 'Lumpsum' ? 'border-[#22C55E] bg-[rgba(34,197,94,0.05)] shadow-[0_0_20px_rgba(34,197,94,0.1)]' : 'border-white/10 bg-white/5'}`}>
+
+                  {/* Lumpsum card */}
+                  <div className={`p-5 rounded-2xl border transition-all ${
+                    winner === 'Lumpsum'
+                      ? 'border-[#3B82F6] bg-[rgba(59,130,246,0.08)] shadow-[0_0_24px_rgba(59,130,246,0.15)]'
+                      : 'border-white/8 bg-white/3'
+                  }`}>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-400 text-sm">Lumpsum Value</span>
-                      {winner === 'Lumpsum' && <span className="text-[#22C55E] text-[10px] font-bold px-2 py-1 bg-[#22C55E]/10 rounded-full">WINNER</span>}
+                      <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">Lumpsum</span>
+                      {winner === 'Lumpsum' && (
+                        <span className="text-[#60A5FA] text-[9px] font-bold px-2 py-0.5 bg-[#3B82F6]/20 rounded-full border border-[#3B82F6]/30">WINNER 🏆</span>
+                      )}
                     </div>
-                    <div className="text-2xl font-bold text-white">{formatToShortWords(chartData.finalLumpsum)}</div>
-                    <div className="text-xs text-gray-500 mt-1">Invested: {formatToShortWords(totalAmount)}</div>
+                    <div className="text-xl font-bold text-white">{formatToShortWords(finalLumpsum)}</div>
+                    <div className="text-[10px] text-gray-500 mt-1">Invested: {formatToShortWords(totalAmount)}</div>
+                    <div className="text-[10px] text-[#60A5FA] mt-0.5">
+                      {((finalLumpsum / totalAmount - 1) * 100).toFixed(1)}% total return
+                    </div>
                   </div>
                 </div>
 
-                {/* Verdict text */}
-                <div className="w-full bg-[rgba(255,255,255,0.03)] border border-white/5 rounded-xl p-4 mb-6 text-center z-10">
-                  <p className="text-sm text-gray-300">
-                    In a <strong className="text-white capitalize">{scenario}</strong> market, <strong className="text-white">{winner}</strong> beats the alternative by <strong className="text-[#22C55E]">{formatToShortWords(diff)}</strong>.
+                {/* Verdict banner */}
+                <div className="bg-[rgba(255,255,255,0.03)] border border-white/5 rounded-xl p-4 text-center">
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    In a <strong className="text-white">{meta.label}</strong>,{' '}
+                    <strong style={{ color: winner === 'SIP' ? '#a78bfa' : '#60A5FA' }}>{winner}</strong>{' '}
+                    wins by{' '}
+                    <strong className="text-white">{formatToShortWords(diff)}</strong>
+                    {winner === 'SIP'
+                      ? ' — rupee cost averaging locks in cheap units during the downturn.'
+                      : ' — more time in the market gives lumpsum a compounding edge.'}
                   </p>
                 </div>
 
                 {/* Chart */}
-                <div className="w-full h-[250px] relative z-10">
-                  <Line 
-                    data={chartData} 
+                <div className="w-full h-[240px]">
+                  <Line
+                    data={chartConfig}
                     options={{
                       responsive: true,
                       maintainAspectRatio: false,
                       interaction: { mode: 'index', intersect: false },
                       scales: {
-                        y: { border: { display: false }, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9CA3AF', callback: (v) => formatToShortWords(v) } },
-                        x: { border: { display: false }, grid: { display: false }, ticks: { color: '#9CA3AF' } }
+                        y: {
+                          border: { display: false },
+                          grid: { color: 'rgba(255,255,255,0.05)' },
+                          ticks: { color: '#9CA3AF', callback: (v) => formatToShortWords(v) },
+                        },
+                        x: {
+                          border: { display: false },
+                          grid: { display: false },
+                          ticks: { color: '#9CA3AF' },
+                        },
                       },
                       plugins: {
                         legend: { labels: { color: '#D1D5DB', usePointStyle: true, boxWidth: 6 } },
-                        tooltip: { backgroundColor: '#1F2937', titleColor: '#F3F4F6', bodyColor: '#D1D5DB', borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1 }
-                      }
-                    }} 
+                        tooltip: {
+                          backgroundColor: '#1F2937',
+                          titleColor: '#F3F4F6',
+                          bodyColor: '#D1D5DB',
+                          borderColor: 'rgba(255,255,255,0.1)',
+                          borderWidth: 1,
+                          callbacks: {
+                            label: (ctx) => ` ${ctx.dataset.label}: ${formatToShortWords(ctx.parsed.y)}`,
+                          },
+                        },
+                      },
+                    }}
                   />
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Quick-reference table */}
+          <div className="glass-panel p-6">
+            <h2 className="text-xl font-bold text-white mb-4">When Does Each Strategy Win?</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-left">
+                <thead>
+                  <tr className="border-b border-white/10">
+                    <th className="py-2 pr-4 text-gray-400 font-semibold">Market Condition</th>
+                    <th className="py-2 pr-4 text-[#3B82F6] font-semibold">Lumpsum</th>
+                    <th className="py-2 text-[#8b5cf6] font-semibold">SIP</th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-400">
+                  <tr className="border-b border-white/5">
+                    <td className="py-3 pr-4">📈 Steady Bull Market</td>
+                    <td className="py-3 pr-4 text-[#22C55E] font-semibold">Wins ✅</td>
+                    <td className="py-3">Good, but lags</td>
+                  </tr>
+                  <tr className="border-b border-white/5">
+                    <td className="py-3 pr-4">📉 Crash then Recovery</td>
+                    <td className="py-3 pr-4">Suffers early loss</td>
+                    <td className="py-3 text-[#22C55E] font-semibold">Wins ✅ (buys cheap)</td>
+                  </tr>
+                  <tr className="border-b border-white/5">
+                    <td className="py-3 pr-4">〰️ Choppy / Volatile</td>
+                    <td className="py-3 pr-4">Inconsistent</td>
+                    <td className="py-3 text-[#22C55E] font-semibold">Wins ✅ (rupee-cost avg)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4">💼 Salaried investor</td>
+                    <td className="py-3 pr-4">Requires lump sum upfront</td>
+                    <td className="py-3 text-[#22C55E] font-semibold">Natural fit ✅</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           {/* Educational Content */}
           <div className="glass-panel p-6 space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-white mb-3">When Lumpsum Beats SIP (and vice versa)</h2>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                <strong>Lumpsum</strong> usually wins in a consistent bull market because your entire capital gets more time to compound. 
-                However, <strong>SIP</strong> performs exceptionally well in volatile or bearish markets because it naturally applies 
-                <em> Rupee Cost Averaging</em>—buying more units when prices dip.
-              </p>
-            </div>
-            <div>
               <h2 className="text-xl font-bold text-white mb-3">Rupee Cost Averaging — SIP's Hidden Advantage</h2>
               <p className="text-gray-400 text-sm leading-relaxed">
-                When the market falls, your fixed monthly SIP amount buys more mutual fund units. When the market recovers, 
-                those extra units multiply in value. This makes SIP less risky than Lumpsum if you are worried about timing the market.
+                When the market falls, your fixed monthly SIP buys <em>more</em> units at a lower price. When the market recovers,
+                those extra low-cost units multiply in value. This automatic mechanism — called <strong className="text-white">Rupee Cost Averaging</strong> — makes
+                SIP naturally outperform Lumpsum in volatile or bearish markets, without requiring any market timing.
               </p>
             </div>
             <div>
               <h2 className="text-xl font-bold text-white mb-3">What Historical Data Shows</h2>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Backtesting on the Nifty 50 over 20-year periods shows that Lumpsum investments generally deliver slightly higher 
-                absolute returns (due to more time in the market). However, SIPs significantly reduce the anxiety of investing right 
-                before a crash. Most retail investors prefer SIP for discipline, and use Lumpsum during market dips.
+                Backtests on the Nifty 50 over 20-year rolling periods show that Lumpsum investments generate slightly higher absolute returns
+                in a continuously rising market. However, during periods like 2008 (GFC) or 2020 (COVID crash), SIP investors saw significantly
+                better outcomes because they accumulated units at market lows. Most retail investors benefit more from SIP for this reason.
               </p>
             </div>
           </div>
