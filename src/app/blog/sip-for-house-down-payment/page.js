@@ -152,6 +152,27 @@ export default function SipForHousePage() {
                   />
                 </div>
               </div>
+
+              {/* How to Use */}
+              <div className="glass-panel p-5 border border-white/5">
+                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
+                  <Home className="w-4 h-4 text-[#14B8A6]" /> How to Use This Calculator
+                </h3>
+                <ol className="space-y-2.5">
+                  {[
+                    { step: '1', text: 'Enter the current price of the property you want to buy.' },
+                    { step: '2', text: 'Set how much you expect property prices to rise each year (typically 6–8% in India).' },
+                    { step: '3', text: 'Set how many years before you plan to buy.' },
+                    { step: '4', text: 'Choose your down payment % — 20% is the sweet spot for most home loans.' },
+                    { step: '5', text: 'Start the SIP shown and increase it 10% every year to reach your goal comfortably.' },
+                  ].map(({ step, text }) => (
+                    <li key={step} className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#14B8A6]/20 border border-[#14B8A6]/40 text-[#14B8A6] text-[10px] font-bold flex items-center justify-center mt-0.5">{step}</span>
+                      <span className="text-gray-400 text-xs leading-relaxed">{text}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </div>
 
             {/* Results */}
@@ -188,8 +209,8 @@ export default function SipForHousePage() {
                 {/* Property Timeline Visual */}
                 <div className="mb-6">
                   <div className="flex justify-between text-xs text-gray-400 mb-2">
-                    <span>Today's Price: {fmt(currentPrice)}</span>
-                    <span>In {yearsToBuy} Years</span>
+                    <span>Today&apos;s Price: {fmt(currentPrice)}</span>
+                    <span className="text-[#14B8A6] font-semibold">In {yearsToBuy} Yrs · {fmt(results.futurePrice)}</span>
                   </div>
                   <div className="h-3 w-full bg-[rgba(255,255,255,0.05)] rounded-full overflow-hidden relative border border-white/5">
                      <div 
