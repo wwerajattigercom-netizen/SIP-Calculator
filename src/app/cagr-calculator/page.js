@@ -194,17 +194,15 @@ export default function CAGRCalculatorPage() {
 
           {/* Header */}
           <div className="flex items-center justify-center mb-2 lg:mb-3">
-            <div className="bg-[#8b5cf6] p-2 rounded-xl mr-3 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
-              <TrendingUp className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white text-center">
-              <span className="text-gradient">CAGR</span> Calculator
+            
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937]">
+              CAGR  Calculator
             </h1>
           </div>
 
-          <p className="text-center text-gray-400 text-sm mb-5 max-w-xl mx-auto">
+          <p className="text-center text-gray-500 text-sm mb-5 max-w-3xl mx-auto">
             Enter your initial investment, final value, and duration to instantly calculate the{' '}
-            <strong className="text-white">Compound Annual Growth Rate</strong>.
+            <strong className="text-[#1F2937]">Compound Annual Growth Rate</strong>.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
@@ -253,11 +251,11 @@ export default function CAGRCalculatorPage() {
               />
 
               {/* Quick Rule of 72 hint */}
-              <div className="mt-4 glass-panel px-4 py-3 bg-[rgba(139,92,246,0.06)] border-[rgba(139,92,246,0.2)]">
-                <p className="text-[11px] text-[#a78bfa] font-semibold mb-0.5">Rule of 72 — Quick Doubling Check</p>
-                <p className="text-gray-400 text-[11px] leading-relaxed">
-                  At <strong className="text-white">{cagrPct}% CAGR</strong>, your money doubles every{' '}
-                  <strong className="text-white">
+              <div className="mt-4 glass-panel px-4 py-3 bg-[rgba(27,58,92,0.06)] border-[rgba(27,58,92,0.2)]">
+                <p className="text-[11px] text-[#1B3A5C] font-semibold mb-0.5">Rule of 72 — Quick Doubling Check</p>
+                <p className="text-gray-500 text-[11px] leading-relaxed">
+                  At <strong className="text-[#1F2937]">{cagrPct}% CAGR</strong>, your money doubles every{' '}
+                  <strong className="text-[#1F2937]">
                     {cagrPct > 0 ? (72 / cagrPct).toFixed(1) : '—'} years
                   </strong>.
                 </p>
@@ -268,7 +266,7 @@ export default function CAGRCalculatorPage() {
                 <p className="text-gray-500 text-xs mb-1">Also try:</p>
                 <Link
                   href="/"
-                  className="flex items-center gap-2 text-[#a78bfa] text-xs hover:text-white transition-colors group"
+                  className="flex items-center gap-2 text-[#1B3A5C] text-xs hover:text-[#1F2937] transition-colors group"
                   id="link-sip-from-cagr"
                 >
                   <Calculator className="w-3.5 h-3.5" />
@@ -277,7 +275,7 @@ export default function CAGRCalculatorPage() {
                 </Link>
                 <Link
                   href="/target-amount-calculator"
-                  className="flex items-center gap-2 text-[#a78bfa] text-xs hover:text-white transition-colors group"
+                  className="flex items-center gap-2 text-[#1B3A5C] text-xs hover:text-[#1F2937] transition-colors group"
                   id="link-goal-from-cagr"
                 >
                   <Target className="w-3.5 h-3.5" />
@@ -302,7 +300,7 @@ export default function CAGRCalculatorPage() {
         <section id="yearly-table" aria-label="Year by year compounding growth">
           <div className="glass-panel overflow-hidden">
             <div className="px-5 py-4 border-b border-white border-opacity-10">
-              <h2 className="text-white font-bold text-base">Year-by-Year Growth at {cagrPct}% Effective Rate</h2>
+              <h2 className="text-[#1F2937] font-bold text-base">Year-by-Year Growth at {cagrPct}% Effective Rate</h2>
               <p className="text-gray-500 text-xs mt-0.5">
                 {state.monthlySip > 0
                   ? `Lump sum ${formatCurrency(state.initialInvestment)} + SIP ${formatCurrency(state.monthlySip)}/mo → target ${formatCurrency(state.finalValue)} over ${state.duration} years`
@@ -314,11 +312,11 @@ export default function CAGRCalculatorPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-xs min-w-[400px]">
                 <thead>
-                  <tr className="bg-[rgba(139,92,246,0.12)] border-b border-white border-opacity-10">
-                    <th className="text-left   text-[#c4b5fd] font-semibold py-3 px-4">Year</th>
-                    <th className="text-right  text-gray-400  font-semibold py-3 px-3">Total Invested</th>
-                    <th className="text-right  text-green-400 font-semibold py-3 px-3">Gain Earned</th>
-                    <th className="text-right  text-[#c4b5fd] font-semibold py-3 px-4">Portfolio Value</th>
+                  <tr className="bg-[rgba(27,58,92,0.12)] border-b border-white border-opacity-10">
+                    <th className="text-left   text-[#6B7280] font-semibold py-3 px-4">Year</th>
+                    <th className="text-right  text-gray-500  font-semibold py-3 px-3">Total Invested</th>
+                    <th className="text-right  text-[#0D9488] font-semibold py-3 px-3">Gain Earned</th>
+                    <th className="text-right  text-[#6B7280] font-semibold py-3 px-4">Portfolio Value</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -330,19 +328,19 @@ export default function CAGRCalculatorPage() {
                         key={year}
                         className={`border-b border-white border-opacity-5 transition-colors ${
                           isLast
-                            ? 'bg-[rgba(139,92,246,0.18)]'
+                            ? 'bg-[rgba(27,58,92,0.18)]'
                             : i % 2 === 0
-                            ? 'bg-[rgba(255,255,255,0.015)]'
+                            ? 'bg-[rgba(0,0,0,0.03)]'
                             : ''
                         }`}
                       >
                         <td className="py-2.5 px-4">
                           <div className="flex items-center gap-2">
-                            <span className={`font-semibold ${isLast ? 'text-[#a78bfa]' : 'text-gray-300'}`}>
+                            <span className={`font-semibold ${isLast ? 'text-[#1B3A5C]' : 'text-gray-600'}`}>
                               {year === 0 ? 'Start' : `Year ${year}`}
                             </span>
                             {isLast && (
-                              <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#8b5cf6] text-white">
+                              <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#1B3A5C] text-white">
                                 Final
                               </span>
                             )}
@@ -352,26 +350,26 @@ export default function CAGRCalculatorPage() {
                               className="h-full rounded-full transition-all duration-500"
                               style={{
                                 width:      `${progress}%`,
-                                background: isLast ? '#8b5cf6' : 'linear-gradient(90deg, #3B82F6, #8b5cf6)',
+                                background: isLast ? '#1B3A5C' : 'linear-gradient(90deg, #1B3A5C, #1B3A5C)',
                               }}
                             />
                           </div>
                         </td>
-                        <td className="py-2.5 px-3 text-right text-gray-400">
+                        <td className="py-2.5 px-3 text-right text-gray-500">
                           <div>{formatCurrency(invested)}</div>
                           <div className="text-[9px] text-gray-600 mt-0.5">{formatToShortWords(invested)}</div>
                         </td>
-                        <td className="py-2.5 px-3 text-right text-green-400">
+                        <td className="py-2.5 px-3 text-right text-[#0D9488]">
                           {gainAbs > 0 ? `+${formatCurrency(gainAbs)}` : gainAbs < 0 ? formatCurrency(gainAbs) : '—'}
                           {gainAbs !== 0 && (
                             <div className="text-[9px] text-green-800 mt-0.5">{formatToShortWords(Math.abs(gainAbs))}</div>
                           )}
                         </td>
                         <td className="py-2.5 px-4 text-right">
-                          <div className={`font-bold ${isLast ? 'text-[#a78bfa]' : 'text-white'}`}>
+                          <div className={`font-bold ${isLast ? 'text-[#1B3A5C]' : 'text-white'}`}>
                             {formatCurrency(value)}
                           </div>
-                          <div className={`text-[9px] mt-0.5 ${isLast ? 'text-[#c4b5fd]' : 'text-gray-500'}`}>
+                          <div className={`text-[9px] mt-0.5 ${isLast ? 'text-[#6B7280]' : 'text-gray-500'}`}>
                             {formatToShortWords(value)}
                           </div>
                         </td>
@@ -390,20 +388,20 @@ export default function CAGRCalculatorPage() {
         {/* ── HOW TO USE ── */}
         <section id="how-to-use" aria-label="How to use the CAGR calculator">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
-              <Info className="w-5 h-5 text-[#a78bfa]" />
+            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[#1B3A5C]" />
             </div>
-            <h2 className="text-2xl font-bold text-white">How to Use This Calculator</h2>
+            <h2 className="text-2xl font-bold text-[#1F2937]">How to Use This Calculator</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {HOW_TO_STEPS.map(({ step, title, desc }) => (
               <div key={step} className="glass-panel p-5 flex gap-4">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#8b5cf6] bg-opacity-30 border border-[#8b5cf6] flex items-center justify-center text-[#c4b5fd] font-bold text-sm">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white shadow-sm font-bold text-sm">
                   {step}
                 </div>
                 <div>
-                  <p className="text-white font-semibold mb-1 text-sm">{title}</p>
-                  <p className="text-gray-400 text-xs leading-relaxed">{desc}</p>
+                  <p className="text-[#1F2937] font-semibold mb-1 text-sm">{title}</p>
+                  <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
                 </div>
               </div>
             ))}
@@ -413,10 +411,10 @@ export default function CAGRCalculatorPage() {
         {/* ── FAQ ── */}
         <section id="faq" aria-label="Frequently Asked Questions about CAGR">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
-              <HelpCircle className="w-5 h-5 text-[#a78bfa]" />
+            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
+              <HelpCircle className="w-5 h-5 text-[#1B3A5C]" />
             </div>
-            <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
           </div>
           <div className="space-y-3">
             {FAQS.map(({ q, a }, i) => (
@@ -427,13 +425,13 @@ export default function CAGRCalculatorPage() {
                   id={`cagr-faq-${i}`}
                   aria-expanded={openFaq === i}
                 >
-                  <span className="text-white font-medium text-sm pr-4">{q}</span>
+                  <span className="text-[#1F2937] font-medium text-sm pr-4">{q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#a78bfa] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
+                    className={`w-4 h-4 text-[#1B3A5C] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
                   />
                 </button>
                 {openFaq === i && (
-                  <div className="px-4 pb-4 text-gray-400 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">
+                  <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">
                     {a}
                   </div>
                 )}
@@ -445,66 +443,66 @@ export default function CAGRCalculatorPage() {
         {/* ── CAGR FORMULA SECTION — targets featured snippets ── */}
         <section id="cagr-formula" aria-label="CAGR formula and worked example" className="mt-2">
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-white mb-4">CAGR Formula &amp; Worked Example</h2>
+            <h2 className="text-xl font-bold text-[#1F2937] mb-4">CAGR Formula &amp; Worked Example</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Formula */}
               <div>
-                <h3 className="text-[#a78bfa] font-semibold text-sm mb-3 uppercase tracking-wider">The Formula</h3>
-                <div className="bg-[rgba(139,92,246,0.1)] border border-[rgba(139,92,246,0.25)] rounded-xl p-4 font-mono text-center">
-                  <p className="text-white text-sm font-bold mb-1">CAGR = (FV ÷ PV) ^ (1 ÷ n) − 1</p>
-                  <div className="text-xs text-gray-400 mt-3 text-left space-y-1">
-                    <p><span className="text-[#c4b5fd]">FV</span> = Final Value (ending portfolio value)</p>
-                    <p><span className="text-[#c4b5fd]">PV</span> = Present Value (initial investment)</p>
-                    <p><span className="text-[#c4b5fd]">n</span> = Number of years</p>
+                <h3 className="text-[#1B3A5C] font-semibold text-sm mb-3 uppercase tracking-wider">The Formula</h3>
+                <div className="bg-[rgba(27,58,92,0.1)] border border-[rgba(27,58,92,0.25)] rounded-xl p-4 font-mono text-center">
+                  <p className="text-[#1F2937] text-sm font-bold mb-1">CAGR = (FV ÷ PV) ^ (1 ÷ n) − 1</p>
+                  <div className="text-xs text-gray-500 mt-3 text-left space-y-1">
+                    <p><span className="text-[#6B7280]">FV</span> = Final Value (ending portfolio value)</p>
+                    <p><span className="text-[#6B7280]">PV</span> = Present Value (initial investment)</p>
+                    <p><span className="text-[#6B7280]">n</span> = Number of years</p>
                   </div>
                 </div>
               </div>
               {/* Worked example */}
               <div>
-                <h3 className="text-[#a78bfa] font-semibold text-sm mb-3 uppercase tracking-wider">Worked Example</h3>
+                <h3 className="text-[#1B3A5C] font-semibold text-sm mb-3 uppercase tracking-wider">Worked Example</h3>
                 <div className="space-y-2 text-sm">
-                  <div className="flex justify-between text-gray-400 border-b border-white/5 pb-1">
+                  <div className="flex justify-between text-gray-500 border-b border-[#E8E4DF] pb-1">
                     <span>Initial Investment (PV)</span>
-                    <span className="text-white font-medium">₹1,00,000</span>
+                    <span className="text-[#1F2937] font-medium">₹1,00,000</span>
                   </div>
-                  <div className="flex justify-between text-gray-400 border-b border-white/5 pb-1">
+                  <div className="flex justify-between text-gray-500 border-b border-[#E8E4DF] pb-1">
                     <span>Final Value (FV)</span>
-                    <span className="text-white font-medium">₹5,00,000</span>
+                    <span className="text-[#1F2937] font-medium">₹5,00,000</span>
                   </div>
-                  <div className="flex justify-between text-gray-400 border-b border-white/5 pb-1">
+                  <div className="flex justify-between text-gray-500 border-b border-[#E8E4DF] pb-1">
                     <span>Duration (n)</span>
-                    <span className="text-white font-medium">10 years</span>
+                    <span className="text-[#1F2937] font-medium">10 years</span>
                   </div>
                   <div className="flex justify-between items-center pt-1">
-                    <span className="text-gray-400">CAGR</span>
-                    <span className="text-[#22C55E] font-bold text-base">(5÷1)^(1/10) − 1 = <strong>17.46%</strong></span>
+                    <span className="text-gray-500">CAGR</span>
+                    <span className="text-[#0D9488] font-bold text-base">(5÷1)^(1/10) − 1 = <strong>17.46%</strong></span>
                   </div>
                 </div>
               </div>
             </div>
             {/* CAGR vs Absolute Return comparison */}
-            <div className="mt-5 pt-5 border-t border-white/5">
-              <h3 className="text-white font-semibold text-sm mb-3">CAGR vs Absolute Return — Quick Reference</h3>
+            <div className="mt-5 pt-5 border-t border-[#E8E4DF]">
+              <h3 className="text-[#1F2937] font-semibold text-sm mb-3">CAGR vs Absolute Return — Quick Reference</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
-                    <tr className="text-[#c4b5fd] border-b border-white/10">
+                    <tr className="text-[#6B7280] border-b border-black/5">
                       <th className="text-left py-2 pr-4">Investment</th>
                       <th className="text-right py-2 pr-4">Absolute Return</th>
                       <th className="text-right py-2">CAGR</th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-400">
+                  <tbody className="text-gray-500">
                     {[
                       { inv: '₹1L → ₹2L in 5 yrs',  abs: '100%',  cagr: '14.87%' },
                       { inv: '₹1L → ₹2L in 10 yrs', abs: '100%',  cagr: '7.18%'  },
                       { inv: '₹1L → ₹5L in 10 yrs', abs: '400%',  cagr: '17.46%' },
                       { inv: '₹1L → ₹10L in 15 yrs',abs: '900%',  cagr: '16.60%' },
                     ].map(({ inv, abs, cagr }) => (
-                      <tr key={inv} className="border-b border-white/5">
+                      <tr key={inv} className="border-b border-[#E8E4DF]">
                         <td className="py-2 pr-4">{inv}</td>
                         <td className="py-2 pr-4 text-right">{abs}</td>
-                        <td className="py-2 text-right text-green-400 font-medium">{cagr}</td>
+                        <td className="py-2 text-right text-[#0D9488] font-medium">{cagr}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -517,37 +515,37 @@ export default function CAGRCalculatorPage() {
 
         {/* ── RELATED TOOLS — keyword-rich internal backlinks ── */}
         <section id="related-calculators" aria-label="Related free financial calculators India">
-          <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(139,92,246,0.1)] to-[rgba(59,130,246,0.08)]">
-            <h2 className="text-lg font-bold text-white mb-1 text-center">More Free Financial Calculators</h2>
+          <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
+            <h2 className="text-lg font-bold text-[#1F2937] mb-1 text-center">More Free Financial Calculators</h2>
             <p className="text-gray-500 text-xs text-center mb-4">All tools are free, real-time, and require no sign-up.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Link
                 href="/"
                 id="cta-sip-calculator-from-cagr"
-                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(139,92,246,0.15)] transition-all group rounded-xl"
+                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
               >
-                <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-lg flex-shrink-0">
-                  <Calculator className="w-4 h-4 text-[#a78bfa]" />
+                <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-lg flex-shrink-0">
+                  <Calculator className="w-4 h-4 text-[#1B3A5C]" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">Step-Up SIP Calculator</p>
+                  <p className="text-[#1F2937] font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">Step-Up SIP Calculator</p>
                   <p className="text-gray-500 text-xs">SIP with annual step-up, inflation &amp; lump sum — free online tool</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#a78bfa] ml-auto transition-colors" />
+                <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#1B3A5C] ml-auto transition-colors" />
               </Link>
               <Link
                 href="/target-amount-calculator"
                 id="cta-goal-sip-calculator-from-cagr"
-                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(139,92,246,0.15)] transition-all group rounded-xl"
+                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
               >
-                <div className="bg-[rgba(59,130,246,0.2)] border border-[rgba(59,130,246,0.3)] p-2 rounded-lg flex-shrink-0">
-                  <Target className="w-4 h-4 text-blue-400" />
+                <div className="bg-[rgba(27,58,92,0.2)] border border-[rgba(27,58,92,0.3)] p-2 rounded-lg flex-shrink-0">
+                  <Target className="w-4 h-4 text-[#1B3A5C]" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">SIP Goal / Time-to-Target Calculator</p>
+                  <p className="text-[#1F2937] font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">SIP Goal / Time-to-Target Calculator</p>
                   <p className="text-gray-500 text-xs">How long to reach ₹1 Crore? Find SIP needed for any goal.</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#a78bfa] ml-auto transition-colors" />
+                <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#1B3A5C] ml-auto transition-colors" />
               </Link>
             </div>
           </div>
@@ -556,20 +554,20 @@ export default function CAGRCalculatorPage() {
         {/* ── ABOUT ── */}
         <section id="about" aria-label="About the creator">
           <div className="glass-panel p-8 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(139,92,246,0.08)] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.08)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <div className="w-12 h-12 rounded-full bg-[#8b5cf6] bg-opacity-20 border-2 border-[#8b5cf6] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-[#c4b5fd]">
+              <div className="w-12 h-12 rounded-full bg-[#1B3A5C] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-white shadow-sm">
                 R
               </div>
-              <h2 className="text-xs font-semibold text-gray-400 mb-1">
-                Built by <span className="text-gradient font-bold text-sm">Rajat</span>
+              <h2 className="text-xs font-semibold text-gray-500 mb-1">
+                Built by <span className="text-[#1B3A5C] font-bold text-sm">Rajat</span>
               </h2>
-              <p className="text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
+              <p className="text-gray-500 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
                 Free financial calculators for Indian investors — SIP, Step-Up, Goal Planning, and CAGR, all in one place.
               </p>
               <a
                 href="mailto:businesswebsitestudio@gmail.com"
-                className="inline-flex items-center gap-2 bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] hover:bg-opacity-30 transition-all text-[#c4b5fd] px-5 py-2.5 rounded-xl text-xs font-medium"
+                className="inline-flex items-center gap-2 bg-[#1B3A5C] text-white hover:bg-[#112740] transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
               >
                 <Mail className="w-4 h-4" />
                 businesswebsitestudio@gmail.com

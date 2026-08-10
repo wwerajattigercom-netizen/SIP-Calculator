@@ -105,21 +105,21 @@ const jsonLd = {
 const SCENARIO_META = {
   bull: {
     label: 'Bull Market',
-    color: '#22C55E',
+    color: '#0D9488',
     icon: TrendingUp,
     desc: 'Steady, consistent growth every month. Lumpsum gets more time in the market.',
     tag: 'Consistent Growth',
   },
   bear: {
     label: 'Bear then Recovery',
-    color: '#EF4444',
+    color: '#991B1B',
     icon: TrendingDown,
     desc: 'Market drops for ~40% of the period, then recovers. SIP buys cheap units during the crash.',
     tag: 'Crash + Recovery',
   },
   volatile: {
     label: 'Volatile Market',
-    color: '#F59E0B',
+    color: '#059669',
     icon: Minus,
     desc: 'Alternating surges and dips every 6 months. SIP benefits from buying more units during dips.',
     tag: 'High Swings',
@@ -175,21 +175,21 @@ export default function SipVsLumpsumPage() {
           {
             label: 'Lumpsum Value',
             data: lumpsumData,
-            borderColor: '#3B82F6',
-            backgroundColor: 'rgba(59,130,246,0.08)',
+            borderColor: '#1B3A5C',
+            backgroundColor: 'rgba(27,58,92,0.08)',
             borderWidth: 2.5,
             pointRadius: 0,
-            fill: true,
+            fill: false,
             tension: 0.4,
           },
           {
             label: 'SIP Value',
             data: sipData,
-            borderColor: '#8b5cf6',
-            backgroundColor: 'rgba(139,92,246,0.08)',
+            borderColor: '#1B3A5C',
+            backgroundColor: 'rgba(27,58,92,0.08)',
             borderWidth: 2.5,
             pointRadius: 0,
-            fill: true,
+            fill: false,
             tension: 0.4,
           },
         ],
@@ -214,13 +214,13 @@ export default function SipVsLumpsumPage() {
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(59,130,246,0.1)] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.1)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-[10px] uppercase tracking-widest text-[#3B82F6] font-semibold mb-3 block">Comparison · Investing Strategy</span>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-white leading-tight mb-3">
-                <span className="text-gradient">SIP vs Lumpsum:</span> Which Investment Strategy is Better?
+              <span className="text-[10px] uppercase tracking-widest text-[#1B3A5C] font-semibold mb-3 block">Comparison · Investing Strategy</span>
+              <h1 className="text-2xl md:text-3xl font-extrabold text-[#1F2937] leading-tight mb-3">
+                SIP vs Lumpsum:  Which Investment Strategy is Better?
               </h1>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-500 text-sm leading-relaxed">
                 Should you invest your money all at once (Lumpsum) or spread it over time (SIP)?
                 Test both strategies across Bull, Bear, and Volatile market scenarios — and see which one wins with real NAV-based simulation.
               </p>
@@ -232,7 +232,7 @@ export default function SipVsLumpsumPage() {
             {/* Inputs */}
             <div className="md:col-span-5 space-y-6">
               <div className="glass-panel p-6">
-                <h3 className="text-white font-bold mb-4">Calculator Inputs</h3>
+                <h3 className="text-[#1F2937] font-bold mb-4">Calculator Inputs</h3>
                 <div className="space-y-5">
                   <InputSlider
                     label="Total Investment Amount"
@@ -265,15 +265,15 @@ export default function SipVsLumpsumPage() {
 
                 {/* Market Scenario toggle */}
                 <div className="mt-6">
-                  <label className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-3 block">Market Scenario</label>
-                  <div className="flex gap-2 bg-[rgba(255,255,255,0.03)] p-1.5 rounded-xl border border-white/5">
+                  <label className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-3 block">Market Scenario</label>
+                  <div className="flex gap-2 bg-white p-1.5 rounded-xl border border-[#E8E4DF]">
                     {Object.entries(SCENARIO_META).map(([key, s]) => (
                       <button
                         key={key}
                         onClick={() => setScenario(key)}
                         style={scenario === key ? { backgroundColor: s.color } : {}}
                         className={`flex-1 py-2 px-2 text-xs font-semibold rounded-lg capitalize transition-all ${
-                          scenario === key ? 'text-white shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                          scenario === key ? 'text-[#1F2937] shadow-lg' : 'text-gray-500 hover:text-[#1F2937] hover:bg-black/5'
                         }`}
                       >
                         {key === 'bull' ? '📈 Bull' : key === 'bear' ? '📉 Bear' : '〰️ Volatile'}
@@ -289,7 +289,7 @@ export default function SipVsLumpsumPage() {
                     <ScenarioIcon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: meta.color }} />
                     <div>
                       <p className="text-xs font-semibold" style={{ color: meta.color }}>{meta.label} — {meta.tag}</p>
-                      <p className="text-[11px] text-gray-400 mt-0.5 leading-relaxed">{meta.desc}</p>
+                      <p className="text-[11px] text-gray-500 mt-0.5 leading-relaxed">{meta.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -305,18 +305,18 @@ export default function SipVsLumpsumPage() {
                   {/* SIP card */}
                   <div className={`p-5 rounded-2xl border transition-all ${
                     winner === 'SIP'
-                      ? 'border-[#8b5cf6] bg-[rgba(139,92,246,0.08)] shadow-[0_0_24px_rgba(139,92,246,0.15)]'
+                      ? 'border-[#1B3A5C] bg-[rgba(27,58,92,0.08)] shadow-[0_0_24px_rgba(27,58,92,0.15)]'
                       : 'border-white/8 bg-white/3'
                   }`}>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">SIP</span>
+                      <span className="text-gray-500 text-xs font-semibold uppercase tracking-wider">SIP</span>
                       {winner === 'SIP' && (
-                        <span className="text-[#a78bfa] text-[9px] font-bold px-2 py-0.5 bg-[#8b5cf6]/20 rounded-full border border-[#8b5cf6]/30">WINNER 🏆</span>
+                        <span className="text-[#1B3A5C] text-[9px] font-bold px-2 py-0.5 bg-[#1B3A5C]/20 rounded-full border border-[#1B3A5C]/30">WINNER 🏆</span>
                       )}
                     </div>
-                    <div className="text-xl font-bold text-white">{formatToShortWords(finalSip)}</div>
+                    <div className="text-xl font-bold text-[#1F2937]">{formatToShortWords(finalSip)}</div>
                     <div className="text-[10px] text-gray-500 mt-1">Invested: {formatToShortWords(totalAmount)}</div>
-                    <div className="text-[10px] text-[#a78bfa] mt-0.5">
+                    <div className="text-[10px] text-[#1B3A5C] mt-0.5">
                       {((finalSip / totalAmount - 1) * 100).toFixed(1)}% total return
                     </div>
                   </div>
@@ -324,16 +324,16 @@ export default function SipVsLumpsumPage() {
                   {/* Lumpsum card */}
                   <div className={`p-5 rounded-2xl border transition-all ${
                     winner === 'Lumpsum'
-                      ? 'border-[#3B82F6] bg-[rgba(59,130,246,0.08)] shadow-[0_0_24px_rgba(59,130,246,0.15)]'
+                      ? 'border-[#1B3A5C] bg-[rgba(27,58,92,0.08)] shadow-[0_0_24px_rgba(27,58,92,0.15)]'
                       : 'border-white/8 bg-white/3'
                   }`}>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">Lumpsum</span>
+                      <span className="text-gray-500 text-xs font-semibold uppercase tracking-wider">Lumpsum</span>
                       {winner === 'Lumpsum' && (
-                        <span className="text-[#60A5FA] text-[9px] font-bold px-2 py-0.5 bg-[#3B82F6]/20 rounded-full border border-[#3B82F6]/30">WINNER 🏆</span>
+                        <span className="text-[#60A5FA] text-[9px] font-bold px-2 py-0.5 bg-[#1B3A5C]/20 rounded-full border border-[#1B3A5C]/30">WINNER 🏆</span>
                       )}
                     </div>
-                    <div className="text-xl font-bold text-white">{formatToShortWords(finalLumpsum)}</div>
+                    <div className="text-xl font-bold text-[#1F2937]">{formatToShortWords(finalLumpsum)}</div>
                     <div className="text-[10px] text-gray-500 mt-1">Invested: {formatToShortWords(totalAmount)}</div>
                     <div className="text-[10px] text-[#60A5FA] mt-0.5">
                       {((finalLumpsum / totalAmount - 1) * 100).toFixed(1)}% total return
@@ -342,12 +342,12 @@ export default function SipVsLumpsumPage() {
                 </div>
 
                 {/* Verdict banner */}
-                <div className="bg-[rgba(255,255,255,0.03)] border border-white/5 rounded-xl p-4 text-center">
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    In a <strong className="text-white">{meta.label}</strong>,{' '}
-                    <strong style={{ color: winner === 'SIP' ? '#a78bfa' : '#60A5FA' }}>{winner}</strong>{' '}
+                <div className="bg-white border border-[#E8E4DF] rounded-xl p-4 text-center">
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    In a <strong className="text-[#1F2937]">{meta.label}</strong>,{' '}
+                    <strong style={{ color: winner === 'SIP' ? '#1B3A5C' : '#60A5FA' }}>{winner}</strong>{' '}
                     wins by{' '}
-                    <strong className="text-white">{formatToShortWords(diff)}</strong>
+                    <strong className="text-[#1F2937]">{formatToShortWords(diff)}</strong>
                     {winner === 'SIP'
                       ? ' — rupee cost averaging locks in cheap units during the downturn.'
                       : ' — more time in the market gives lumpsum a compounding edge.'}
@@ -365,7 +365,7 @@ export default function SipVsLumpsumPage() {
                       scales: {
                         y: {
                           border: { display: false },
-                          grid: { color: 'rgba(255,255,255,0.05)' },
+                          grid: { color: 'rgba(0,0,0,0.03)' },
                           ticks: { color: '#9CA3AF', callback: (v) => formatToShortWords(v) },
                         },
                         x: {
@@ -380,7 +380,7 @@ export default function SipVsLumpsumPage() {
                           backgroundColor: '#1F2937',
                           titleColor: '#F3F4F6',
                           bodyColor: '#D1D5DB',
-                          borderColor: 'rgba(255,255,255,0.1)',
+                          borderColor: 'rgba(0,0,0,0.05)',
                           borderWidth: 1,
                           callbacks: {
                             label: (ctx) => ` ${ctx.dataset.label}: ${formatToShortWords(ctx.parsed.y)}`,
@@ -396,36 +396,36 @@ export default function SipVsLumpsumPage() {
 
           {/* Quick-reference table */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-white mb-4">When Does Each Strategy Win?</h2>
+            <h2 className="text-xl font-bold text-[#1F2937] mb-4">When Does Each Strategy Win?</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
                 <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="py-2 pr-4 text-gray-400 font-semibold">Market Condition</th>
-                    <th className="py-2 pr-4 text-[#3B82F6] font-semibold">Lumpsum</th>
-                    <th className="py-2 text-[#8b5cf6] font-semibold">SIP</th>
+                  <tr className="border-b border-black/5">
+                    <th className="py-2 pr-4 text-gray-500 font-semibold">Market Condition</th>
+                    <th className="py-2 pr-4 text-[#1B3A5C] font-semibold">Lumpsum</th>
+                    <th className="py-2 text-[#1B3A5C] font-semibold">SIP</th>
                   </tr>
                 </thead>
-                <tbody className="text-gray-400">
-                  <tr className="border-b border-white/5">
+                <tbody className="text-gray-500">
+                  <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">📈 Steady Bull Market</td>
-                    <td className="py-3 pr-4 text-[#22C55E] font-semibold">Wins ✅</td>
+                    <td className="py-3 pr-4 text-[#0D9488] font-semibold">Wins ✅</td>
                     <td className="py-3">Good, but lags</td>
                   </tr>
-                  <tr className="border-b border-white/5">
+                  <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">📉 Crash then Recovery</td>
                     <td className="py-3 pr-4">Suffers early loss</td>
-                    <td className="py-3 text-[#22C55E] font-semibold">Wins ✅ (buys cheap)</td>
+                    <td className="py-3 text-[#0D9488] font-semibold">Wins ✅ (buys cheap)</td>
                   </tr>
-                  <tr className="border-b border-white/5">
+                  <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">〰️ Choppy / Volatile</td>
                     <td className="py-3 pr-4">Inconsistent</td>
-                    <td className="py-3 text-[#22C55E] font-semibold">Wins ✅ (rupee-cost avg)</td>
+                    <td className="py-3 text-[#0D9488] font-semibold">Wins ✅ (rupee-cost avg)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">💼 Salaried investor</td>
                     <td className="py-3 pr-4">Requires lump sum upfront</td>
-                    <td className="py-3 text-[#22C55E] font-semibold">Natural fit ✅</td>
+                    <td className="py-3 text-[#0D9488] font-semibold">Natural fit ✅</td>
                   </tr>
                 </tbody>
               </table>
@@ -435,16 +435,16 @@ export default function SipVsLumpsumPage() {
           {/* Educational Content */}
           <div className="glass-panel p-6 space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-white mb-3">Rupee Cost Averaging — SIP's Hidden Advantage</h2>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <h2 className="text-xl font-bold text-[#1F2937] mb-3">Rupee Cost Averaging — SIP's Hidden Advantage</h2>
+              <p className="text-gray-500 text-sm leading-relaxed">
                 When the market falls, your fixed monthly SIP buys <em>more</em> units at a lower price. When the market recovers,
-                those extra low-cost units multiply in value. This automatic mechanism — called <strong className="text-white">Rupee Cost Averaging</strong> — makes
+                those extra low-cost units multiply in value. This automatic mechanism — called <strong className="text-[#1F2937]">Rupee Cost Averaging</strong> — makes
                 SIP naturally outperform Lumpsum in volatile or bearish markets, without requiring any market timing.
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-white mb-3">What Historical Data Shows</h2>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <h2 className="text-xl font-bold text-[#1F2937] mb-3">What Historical Data Shows</h2>
+              <p className="text-gray-500 text-sm leading-relaxed">
                 Backtests on the Nifty 50 over 20-year rolling periods show that Lumpsum investments generate slightly higher absolute returns
                 in a continuously rising market. However, during periods like 2008 (GFC) or 2020 (COVID crash), SIP investors saw significantly
                 better outcomes because they accumulated units at market lows. Most retail investors benefit more from SIP for this reason.
@@ -454,30 +454,30 @@ export default function SipVsLumpsumPage() {
 
           {/* FAQs */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Frequently Asked Questions</h2>
             <div className="space-y-4">
               {jsonLd.mainEntity.map((faq, i) => (
-                <div key={i} className="border-b border-white/5 pb-4 last:border-0 last:pb-0">
-                  <h3 className="text-white font-medium text-sm flex items-start gap-2">
-                    <HelpCircle className="w-4 h-4 text-[#3B82F6] flex-shrink-0 mt-0.5" /> {faq.name}
+                <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
+                  <h3 className="text-[#1F2937] font-medium text-sm flex items-start gap-2">
+                    <HelpCircle className="w-4 h-4 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
                   </h3>
-                  <p className="text-gray-400 text-sm mt-2 ml-6">{faq.acceptedAnswer.text}</p>
+                  <p className="text-gray-500 text-sm mt-2 ml-6">{faq.acceptedAnswer.text}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Cross Links */}
-          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(59,130,246,0.1)] to-[rgba(139,92,246,0.08)]">
-            <h2 className="text-lg font-bold text-white mb-4">Explore More Calculators</h2>
+          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
+            <h2 className="text-lg font-bold text-[#1F2937] mb-4">Explore More Calculators</h2>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/" className="inline-flex items-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 SIP Calculator <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/lumpsum-calculator" className="inline-flex items-center gap-2 border border-[#3B82F6]/40 text-[#60A5FA] hover:border-[#3B82F6] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/lumpsum-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 Lumpsum Calculator
               </Link>
-              <Link href="/cagr-calculator" className="inline-flex items-center gap-2 border border-[#3B82F6]/40 text-[#60A5FA] hover:border-[#3B82F6] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/cagr-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 CAGR Calculator
               </Link>
             </div>

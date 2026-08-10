@@ -8,16 +8,16 @@ import InputSlider from '@/components/InputSlider';
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border-b border-white/10 last:border-0 py-4">
+    <div className="border-b border-black/5 last:border-0 py-4">
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center text-left focus:outline-none"
       >
-        <h3 className="text-white font-medium text-sm md:text-base">{question}</h3>
-        {isOpen ? <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />}
+        <h3 className="text-[#1F2937] font-medium text-sm md:text-base">{question}</h3>
+        {isOpen ? <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />}
       </button>
       {isOpen && (
-        <div className="mt-3 text-sm text-gray-400 leading-relaxed">
+        <div className="mt-3 text-sm text-gray-500 leading-relaxed">
           {answer}
         </div>
       )}
@@ -134,13 +134,13 @@ export default function RetirementSipCalculatorPage() {
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(34,197,94,0.1)] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(13,148,136,0.1)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-[10px] uppercase tracking-widest text-[#22C55E] font-semibold mb-3 block">Interactive Tool</span>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-white leading-tight mb-3">
-                <span className="text-gradient">Retirement</span> SIP Calculator
+              <span className="text-[10px] uppercase tracking-widest text-[#0D9488] font-semibold mb-3 block">Interactive Tool</span>
+              <h1 className="text-2xl md:text-3xl font-extrabold text-[#1F2937] leading-tight mb-3">
+                Retirement  SIP Calculator
               </h1>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-500 text-sm leading-relaxed">
                 Find out exactly how much you need to invest every month to maintain your current lifestyle after retirement. We factor in inflation, returns, and the time you have left.
               </p>
             </div>
@@ -148,7 +148,7 @@ export default function RetirementSipCalculatorPage() {
 
           {/* Interactive Calculator Section */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-white mb-6">Plan Your Retirement</h2>
+            <h2 className="text-xl font-bold text-[#1F2937] mb-6">Plan Your Retirement</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <InputSlider
@@ -173,14 +173,14 @@ export default function RetirementSipCalculatorPage() {
 
             {/* Visual Age Timeline Bar */}
             <div className="mb-8">
-              <div className="flex justify-between text-xs text-gray-400 mb-2">
+              <div className="flex justify-between text-xs text-gray-500 mb-2">
                 <span>Current Age: {currentAge}</span>
                 <span>{yearsToRetire} Years to Invest</span>
                 <span>Retirement Age: {retirementAge}</span>
               </div>
-              <div className="h-3 w-full bg-[rgba(255,255,255,0.1)] rounded-full overflow-hidden">
+              <div className="h-3 w-full bg-[rgba(0,0,0,0.05)] rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-gradient-to-r from-[#3B82F6] to-[#22C55E]"
+                  className="h-full bg-gradient-to-r from-[#1B3A5C] to-[#0D9488]"
                   style={{ width: '100%' }}
                 ></div>
               </div>
@@ -219,58 +219,58 @@ export default function RetirementSipCalculatorPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl p-4 text-center">
-                <div className="text-xs text-gray-400 uppercase tracking-wide font-semibold mb-1">Required Corpus</div>
-                <div className="text-2xl font-bold text-white">{formatToShortWords(requiredCorpus)}</div>
+              <div className="bg-white border border-black/5 rounded-xl p-4 text-center">
+                <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">Required Corpus</div>
+                <div className="text-2xl font-bold text-[#1F2937]">{formatToShortWords(requiredCorpus)}</div>
                 <div className="text-[10px] text-gray-500 mt-2">Based on 25x future annual expenses</div>
               </div>
               
-              <div className="bg-[rgba(34,197,94,0.1)] border border-[#22C55E]/30 rounded-xl p-4 text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#22C55E] text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg uppercase">Start Now</div>
-                <div className="text-xs text-[#22C55E] uppercase tracking-wide font-semibold mb-1">Required Monthly SIP</div>
-                <div className="text-2xl font-bold text-white">₹{Math.round(requiredSipNow).toLocaleString('en-IN')}</div>
-                <div className="text-[10px] text-gray-400 mt-2">Invest for {yearsToRetire} years</div>
+              <div className="bg-[rgba(196,153,60,0.1)] border border-[#0D9488]/30 rounded-xl p-4 text-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-[#0D9488] text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg uppercase">Start Now</div>
+                <div className="text-xs text-[#0D9488] uppercase tracking-wide font-semibold mb-1">Required Monthly SIP</div>
+                <div className="text-2xl font-bold text-[#1F2937]">₹{Math.round(requiredSipNow).toLocaleString('en-IN')}</div>
+                <div className="text-[10px] text-gray-500 mt-2">Invest for {yearsToRetire} years</div>
               </div>
 
-              <div className="bg-[rgba(239,68,68,0.1)] border border-red-500/30 rounded-xl p-4 text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-red-500 text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg uppercase">Delay 5 Yrs</div>
-                <div className="text-xs text-red-400 uppercase tracking-wide font-semibold mb-1">Cost of Delay</div>
-                <div className="text-2xl font-bold text-white">₹{Math.round(requiredSipDelayed).toLocaleString('en-IN')}</div>
-                <div className="text-[10px] text-gray-400 mt-2">Invest for {yearsToRetireDelayed} years</div>
+              <div className="bg-[rgba(153,27,27,0.1)] border border-red-800/30 rounded-xl p-4 text-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-red-800 text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg uppercase">Delay 5 Yrs</div>
+                <div className="text-xs text-red-700 uppercase tracking-wide font-semibold mb-1">Cost of Delay</div>
+                <div className="text-2xl font-bold text-[#1F2937]">₹{Math.round(requiredSipDelayed).toLocaleString('en-IN')}</div>
+                <div className="text-[10px] text-gray-500 mt-2">Invest for {yearsToRetireDelayed} years</div>
               </div>
             </div>
             
-            <div className="mt-4 flex items-center justify-center gap-2 text-sm text-gray-400">
-              <Clock className="w-4 h-4 text-amber-400" />
+            <div className="mt-4 flex items-center justify-center gap-2 text-sm text-gray-500">
+              <Clock className="w-4 h-4 text-[#059669]" />
               <span>Delaying your SIP by just 5 years means investing <strong>₹{Math.round(requiredSipDelayed - requiredSipNow).toLocaleString('en-IN')} more</strong> every month!</span>
             </div>
           </div>
 
           {/* Educational Content */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-white mb-4">The 4% Rule — Why 25× Annual Expenses?</h2>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <h2 className="text-xl font-bold text-[#1F2937] mb-4">The 4% Rule — Why 25× Annual Expenses?</h2>
+            <p className="text-gray-500 text-sm leading-relaxed mb-4">
               The calculator aims for a retirement corpus that is 25 times your expected annual expenses at retirement. This is based on the famous <strong>4% Rule</strong> (or Safe Withdrawal Rate).
             </p>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-500 text-sm leading-relaxed">
               If you withdraw 4% of your total retirement corpus in your first year of retirement, and adjust that amount for inflation in subsequent years, your money is highly likely to last for a 30-year retirement period without running out, assuming a balanced portfolio. (25 × 4% = 100%).
             </p>
           </div>
 
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Inflation: The Silent Wealth Destroyer</h2>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Inflation: The Silent Wealth Destroyer</h2>
+            <p className="text-gray-500 text-sm leading-relaxed mb-4">
               Why does your required corpus look so huge? It's because of inflation. Over decades, the cost of living rises significantly.
             </p>
-            <div className="bg-[rgba(255,255,255,0.03)] border border-white/5 rounded-xl p-4 text-sm text-gray-300">
+            <div className="bg-white border border-[#E8E4DF] rounded-xl p-4 text-sm text-gray-600">
               At a {inflationRate}% inflation rate, your current monthly expense of <strong>₹{monthlyExpenses.toLocaleString('en-IN')}</strong> will grow to <strong>₹{Math.round(futureMonthlyExpenses).toLocaleString('en-IN')}</strong> by the time you retire in {yearsToRetire} years. Your corpus must be large enough to support those inflated future expenses!
             </div>
           </div>
 
           {/* FAQ */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <HelpCircle className="w-5 h-5 text-[#22C55E]" /> Frequently Asked Questions
+            <h2 className="text-xl font-bold text-[#1F2937] mb-4 flex items-center gap-2">
+              <HelpCircle className="w-5 h-5 text-[#0D9488]" /> Frequently Asked Questions
             </h2>
             <div className="flex flex-col">
               {faqSchema.mainEntity.map((item, index) => (
@@ -280,14 +280,14 @@ export default function RetirementSipCalculatorPage() {
           </div>
 
           {/* CTA & Links */}
-          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(34,197,94,0.1)] to-[rgba(139,92,246,0.08)]">
-            <h2 className="text-lg font-bold text-white mb-2">Want to Reach Your Goal Faster?</h2>
-            <p className="text-gray-400 text-sm mb-4">Explore Step-up SIPs to start with a lower amount and increase it annually.</p>
+          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(13,148,136,0.1)] to-[rgba(27,58,92,0.08)]">
+            <h2 className="text-lg font-bold text-[#1F2937] mb-2">Want to Reach Your Goal Faster?</h2>
+            <p className="text-gray-500 text-sm mb-4">Explore Step-up SIPs to start with a lower amount and increase it annually.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/" className="inline-flex items-center gap-2 bg-[#22C55E] hover:bg-[#16A34A] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm">
                 <Calculator className="w-4 h-4" /> Step-Up SIP Calculator <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/blog/sip-to-reach-1-crore" className="inline-flex items-center gap-2 border border-[#22C55E]/40 text-[#4ADE80] hover:border-[#22C55E] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/blog/sip-to-reach-1-crore" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 How to reach ₹1 Crore <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -295,7 +295,7 @@ export default function RetirementSipCalculatorPage() {
 
           <div className="text-center text-xs text-gray-500">
             <p>For educational purposes only. Consult a financial advisor before investing.</p>
-            <Link href="/disclaimer" className="text-[#22C55E] hover:underline">Read Disclaimer</Link>
+            <Link href="/disclaimer" className="text-[#0D9488] hover:underline">Read Disclaimer</Link>
           </div>
 
         </article>

@@ -4,14 +4,14 @@
    Design Tokens
 ───────────────────────────────────────────── */
 :root {
-  --background:   #0f111a;
-  --foreground:   #e2e8f0;
-  --panel-bg:     rgba(255, 255, 255, 0.03);
-  --panel-border: rgba(255, 255, 255, 0.08);
-  --color-invested: #3B82F6;
-  --color-returns:  #22C55E;
-  --color-loss:     #F97316;
-  --color-accent:   #8b5cf6;
+  --background:   #f8f2ea;
+  --foreground:   #1F2937;
+  --panel-bg:     #FFFFFF;
+  --panel-border: transparent;
+  --color-invested: #C4993C;
+  --color-returns:  #0D9488;
+  --color-loss:     #991B1B;
+  --color-accent:   #1B3A5C;
   --header-h:       52px;
 }
 
@@ -59,11 +59,9 @@ body {
   z-index: 50;
   width: 100%;
   height: var(--header-h);
-  background: rgba(15, 17, 26, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
-  box-shadow: 0 1px 24px rgba(0,0,0,0.4);
+  background: #FFFFFF;
+  border-bottom: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.03);
 }
 
 .site-header-inner {
@@ -87,33 +85,25 @@ body {
 }
 
 .site-logo-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  box-shadow: 0 0 12px rgba(139,92,246,0.45);
-  flex-shrink: 0;
+  display: none;
 }
 
 .site-logo-text {
-  font-size: clamp(14px, 1.4vw, 18px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #fff;
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 700;
+  color: #1B3A5C;
   white-space: nowrap;
 }
 
 .site-logo-accent {
-  color: #a78bfa;
+  color: #1B3A5C;
 }
 
 .site-header-tag {
-  font-size: clamp(10px, 0.85vw, 12px);
-  color: rgba(255,255,255,0.28);
+  font-size: 11px;
+  font-weight: 500;
+  color: #6B7280;
   white-space: nowrap;
   display: none;
 }
@@ -127,11 +117,9 @@ body {
 ───────────────────────────────────────────── */
 .glass-panel {
   background: var(--panel-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--panel-border);
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   min-width: 0;   /* critical: prevents flex children from overflowing */
 }
 

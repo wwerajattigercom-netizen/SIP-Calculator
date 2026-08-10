@@ -149,8 +149,8 @@ export default function LumpsumCalculatorPage() {
     labels: ['Invested Amount', 'Est. Returns'],
     datasets: [{
       data: [principal, gain],
-      backgroundColor: ['#3B82F6', '#22C55E'],
-      borderColor: ['#0f111a', '#0f111a'],
+      backgroundColor: ['#1B3A5C', '#C4993C'],
+      borderColor: ['#FFFFFF', '#FFFFFF'],
       borderWidth: 4,
       hoverOffset: 4,
     }],
@@ -167,8 +167,8 @@ export default function LumpsumCalculatorPage() {
   const lineData = {
     labels: yearlyData.map(d => `Yr ${d.year}`),
     datasets: [
-      { label: 'Invested', data: yearlyData.map(d => d.invested), borderColor: '#3B82F6', backgroundColor: '#3B82F6', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
-      { label: 'Wealth Value', data: yearlyData.map(d => d.value), borderColor: '#22C55E', backgroundColor: '#22C55E', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
+      { label: 'Invested', data: yearlyData.map(d => d.invested), borderColor: '#1B3A5C', backgroundColor: '#1B3A5C', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
+      { label: 'Wealth Value', data: yearlyData.map(d => d.value), borderColor: '#C4993C', backgroundColor: '#C4993C', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
     ],
   };
   const lineOptions = {
@@ -176,8 +176,8 @@ export default function LumpsumCalculatorPage() {
     interaction: { mode: 'index', intersect: false },
     plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ₹${ctx.raw.toLocaleString('en-IN')}` } } },
     scales: {
-      x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#e2e8f0', maxTicksLimit: 6 } },
-      y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#e2e8f0', callback: (v) => `₹${(v/100000).toFixed(1)}L` } },
+      x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#e2e8f0', maxTicksLimit: 6 } },
+      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#e2e8f0', callback: (v) => `₹${(v/100000).toFixed(1)}L` } },
     },
   };
 
@@ -192,12 +192,10 @@ export default function LumpsumCalculatorPage() {
           <Breadcrumb items={[{ label: 'Lumpsum Calculator' }]} />
 
           {/* Page heading */}
-          <div className="flex items-center justify-center mb-4 lg:mb-6">
-            <div className="bg-[#8b5cf6] p-2 rounded-xl mr-3 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
-              <Layers className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white text-center">
-              <span className="text-gradient">Lumpsum Calculator</span>{' '}— One-Time Investment Returns
+          <div className="flex items-center justify-start mb-6 mt-4">
+            
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937]">
+              Lumpsum Calculator {' '}— One-Time Investment Returns
             </h1>
           </div>
 
@@ -217,9 +215,9 @@ export default function LumpsumCalculatorPage() {
                   { label: 'Duration', val: `${years} years` },
                   { label: 'Return rate', val: `${rate}% p.a.` },
                 ].map(({ label, val }) => (
-                  <div key={label} className="flex justify-between border-b border-white/5 pb-1">
+                  <div key={label} className="flex justify-between border-b border-[#E8E4DF] pb-1">
                     <span>{label}</span>
-                    <span className="text-gray-300 font-medium">{val}</span>
+                    <span className="text-gray-600 font-medium">{val}</span>
                   </div>
                 ))}
               </div>
@@ -230,16 +228,16 @@ export default function LumpsumCalculatorPage() {
               <div className="glass-panel p-5 lg:p-6 flex flex-col h-full relative overflow-hidden">
 
                 {/* Decorative glow — matches SIP tab */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#8b5cf6] rounded-full mix-blend-screen filter blur-[100px] opacity-20 pointer-events-none" />
+                
 
                 {/* Chart tab strip */}
-                <div className="flex bg-[rgba(255,255,255,0.05)] p-1 rounded-lg mb-3 w-full max-w-[240px] mx-auto relative z-10">
+                <div className="flex bg-[rgba(0,0,0,0.03)] p-1 rounded-lg mb-3 w-full max-w-[240px] mx-auto relative z-10">
                   {[{ key: 'pie', label: 'Pie Chart' }, { key: 'line', label: 'Line Chart' }].map(({ key, label }) => (
                     <button
                       key={key}
                       onClick={() => setChartTab(key)}
                       className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
-                        chartTab === key ? 'bg-[#8b5cf6] text-white shadow-lg' : 'text-gray-400 hover:text-white'
+                        chartTab === key ? 'bg-[#1B3A5C] text-white shadow-lg' : 'text-gray-500 hover:text-[#1F2937]'
                       }`}
                     >{label}</button>
                   ))}
@@ -251,9 +249,9 @@ export default function LumpsumCalculatorPage() {
                     <>
                       <Doughnut data={pieData} options={pieOptions} />
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                        <span className="text-xs text-gray-400">Future Value</span>
-                        <span className="text-lg md:text-xl font-bold text-white">{fmtINR(futureValue)}</span>
-                        <span className="text-[10px] text-[#c4b5fd]">{toLabel(futureValue)}</span>
+                        <span className="text-xs text-gray-500">Future Value</span>
+                        <span className="text-lg md:text-xl font-bold text-[#1F2937]">{fmtINR(futureValue)}</span>
+                        <span className="text-[10px] text-[#6B7280]">{toLabel(futureValue)}</span>
                       </div>
                     </>
                   )}
@@ -264,34 +262,33 @@ export default function LumpsumCalculatorPage() {
 
                 {/* Breakdown cards — same as SIP tab */}
                 <div className="grid grid-cols-3 gap-2 relative z-10">
-                  <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] rounded-lg p-2 flex flex-col justify-center shadow-[0_0_15px_rgba(139,92,246,0.15)]">
-                    <div className="flex items-center text-[#d8b4fe] text-[10px] mb-0.5 font-medium">
+                  <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
+                    <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold font-medium">
                       <Coins className="w-3 h-3 mr-1" />Future Value
                     </div>
-                    <div className="text-sm font-extrabold text-white">{fmtINR(futureValue)}</div>
-                    <div className="text-[9px] text-[#c4b5fd] mt-0.5 tracking-wide">{toLabel(futureValue)}</div>
+                    <div className="text-sm font-extrabold text-[#1F2937]">{fmtINR(futureValue)}</div>
+                    <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{toLabel(futureValue)}</div>
                   </div>
 
-                  <div className="bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.2)] rounded-lg p-2 flex flex-col justify-center">
-                    <div className="flex items-center text-gray-400 text-[10px] mb-0.5">
-                      <div className="w-2 h-2 rounded-full bg-[#3B82F6] mr-1.5" />Invested
-                    </div>
-                    <div className="text-sm font-bold text-white">{fmtINR(principal)}</div>
-                    <div className="text-[9px] text-gray-400 mt-0.5 tracking-wide">{toLabel(principal)}</div>
+                  <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
+                    <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold">
+                      <div className="w-2 h-2 rounded-full bg-[#1B3A5C] mr-1.5" />Invested</div>
+          <div className="text-sm font-extrabold text-[#1B3A5C]">
+                  {fmtINR(principal)}</div>
+                    <div className="text-[9px] text-gray-500 mt-0.5 tracking-wide">{toLabel(principal)}</div>
                   </div>
 
-                  <div className="bg-[rgba(34,197,94,0.1)] border border-[rgba(34,197,94,0.2)] rounded-lg p-2 flex flex-col justify-center">
-                    <div className="flex items-center text-gray-400 text-[10px] mb-0.5">
-                      <div className="w-2 h-2 rounded-full bg-[#22C55E] mr-1.5" />Earned
-                    </div>
-                    <div className="text-sm font-bold text-white">+{fmtINR(gain)}</div>
-                    <div className="text-[9px] text-gray-400 mt-0.5 tracking-wide">{toLabel(gain)}</div>
+                  <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
+                    <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold">
+                      <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Earned</div>
+          <div className="text-sm font-extrabold text-[#059669]">+{fmtINR(gain)}</div>
+                    <div className="text-[9px] text-gray-500 mt-0.5 tracking-wide">{toLabel(gain)}</div>
                   </div>
 
                   {/* Rule of 72 — full width strip */}
-                  <div className="col-span-3 mt-1 bg-[rgba(139,92,246,0.12)] border border-[rgba(139,92,246,0.25)] rounded-lg px-3 py-2 flex items-center gap-2">
-                    <TrendingUp className="w-3.5 h-3.5 text-[#a78bfa] flex-shrink-0" />
-                    <span className="text-[10px] text-gray-400">At <strong className="text-white">{rate}%</strong>, doubles every <strong className="text-[#a78bfa]">{rule72} yrs</strong> · Wealth multiple: <strong className="text-white">{(futureValue/principal).toFixed(2)}×</strong></span>
+                  <div className="col-span-3 mt-1 bg-[#f8f2ea] rounded-lg px-3 py-2 flex items-center gap-2">
+                    <TrendingUp className="w-3.5 h-3.5 text-[#1B3A5C] flex-shrink-0" />
+                    <span className="text-[10px] text-gray-500">At <strong className="text-[#1F2937]">{rate}%</strong>, doubles every <strong className="text-[#1B3A5C]">{rule72} yrs</strong> · Wealth multiple: <strong className="text-[#1F2937]">{(futureValue/principal).toFixed(2)}×</strong></span>
                   </div>
                 </div>
 
@@ -302,10 +299,10 @@ export default function LumpsumCalculatorPage() {
           {/* ── FAQ ── */}
           <section id="faq" aria-label="Lumpsum calculator frequently asked questions" className="mt-8">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
-                <HelpCircle className="w-5 h-5 text-[#a78bfa]" />
+              <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
+                <HelpCircle className="w-5 h-5 text-[#1B3A5C]" />
               </div>
-              <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
               {FAQS.map(({ q, a }, i) => (
@@ -316,11 +313,11 @@ export default function LumpsumCalculatorPage() {
                     id={`lumpsum-faq-${i}`}
                     aria-expanded={openFaq === i}
                   >
-                    <span className="text-white font-medium text-sm pr-4">{q}</span>
-                    <ChevronDown className={`w-4 h-4 text-[#a78bfa] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
+                    <span className="text-[#1F2937] font-medium text-sm pr-4">{q}</span>
+                    <ChevronDown className={`w-4 h-4 text-[#1B3A5C] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
                   </button>
                   {openFaq === i && (
-                    <div className="px-4 pb-4 text-gray-400 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">{a}</div>
+                    <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">{a}</div>
                   )}
                 </div>
               ))}
@@ -329,22 +326,22 @@ export default function LumpsumCalculatorPage() {
 
           {/* ── Related Tools ── */}
           <section id="related-calculators" aria-label="Related free financial calculators" className="mt-8 mb-6">
-            <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(139,92,246,0.1)] to-[rgba(59,130,246,0.08)]">
-              <h2 className="text-lg font-bold text-white mb-1 text-center">More Free Financial Calculators</h2>
+            <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
+              <h2 className="text-lg font-bold text-[#1F2937] mb-1 text-center">More Free Financial Calculators</h2>
               <p className="text-gray-500 text-xs text-center mb-4">All tools free, real-time, no sign-up.</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { href: '/', icon: <Calculator className="w-4 h-4 text-[#a78bfa]" />, label: 'Step-Up SIP Calculator', desc: 'Monthly SIP with step-up & inflation' },
-                  { href: '/target-amount-calculator', icon: <Target className="w-4 h-4 text-blue-400" />, label: 'SIP Goal Calculator', desc: 'Time to reach ₹1 Crore with SIP' },
-                  { href: '/cagr-calculator', icon: <TrendingUp className="w-4 h-4 text-green-400" />, label: 'CAGR Calculator', desc: 'Compound annual growth rate calculator' },
+                  { href: '/', icon: <Calculator className="w-4 h-4 text-[#1B3A5C]" />, label: 'Step-Up SIP Calculator', desc: 'Monthly SIP with step-up & inflation' },
+                  { href: '/target-amount-calculator', icon: <Target className="w-4 h-4 text-[#1B3A5C]" />, label: 'SIP Goal Calculator', desc: 'Time to reach ₹1 Crore with SIP' },
+                  { href: '/cagr-calculator', icon: <TrendingUp className="w-4 h-4 text-[#0D9488]" />, label: 'CAGR Calculator', desc: 'Compound annual growth rate calculator' },
                 ].map(({ href, icon, label, desc }) => (
-                  <Link key={href} href={href} className="flex items-start gap-3 glass-panel p-4 hover:bg-[rgba(139,92,246,0.15)] transition-all group rounded-xl">
-                    <div className="bg-[rgba(139,92,246,0.15)] p-2 rounded-lg flex-shrink-0">{icon}</div>
+                  <Link key={href} href={href} className="flex items-start gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+                    <div className="bg-[rgba(27,58,92,0.15)] p-2 rounded-lg flex-shrink-0">{icon}</div>
                     <div>
-                      <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">{label}</p>
+                      <p className="text-[#1F2937] font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">{label}</p>
                       <p className="text-gray-500 text-xs">{desc}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#a78bfa] ml-auto transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#1B3A5C] ml-auto transition-colors flex-shrink-0" />
                   </Link>
                 ))}
               </div>

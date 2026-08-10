@@ -149,17 +149,15 @@ export default function TargetCalculatorPage() {
 
           {/* Header */}
           <div className="flex items-center justify-center mb-2 lg:mb-3">
-            <div className="bg-[#8b5cf6] p-2 rounded-xl mr-3 shadow-[0_0_15px_rgba(139,92,246,0.4)]">
-              <Target className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white text-center">
-              <span className="text-gradient">Time to Goal</span> SIP Calculator
+            
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937]">
+              Time to Goal  SIP Calculator
             </h1>
           </div>
 
           {/* SEO subtitle */}
-          <p className="text-center text-gray-400 text-sm mb-5 max-w-xl mx-auto">
-            Enter your monthly SIP & target goal — see <strong className="text-white">exactly how many years</strong> it takes to reach ₹1 Crore or any amount.
+          <p className="text-center text-gray-500 text-sm mb-5 max-w-3xl mx-auto">
+            Enter your monthly SIP & target goal — see <strong className="text-[#1F2937]">exactly how many years</strong> it takes to reach ₹1 Crore or any amount.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
@@ -225,7 +223,7 @@ export default function TargetCalculatorPage() {
                 <p className="text-gray-500 text-xs mb-2">Also try:</p>
                 <Link
                   href="/"
-                  className="flex items-center gap-2 text-[#a78bfa] text-xs hover:text-white transition-colors group"
+                  className="flex items-center gap-2 text-[#1B3A5C] text-xs hover:text-[#1F2937] transition-colors group"
                   id="link-sip-calculator"
                 >
                   <Calculator className="w-3.5 h-3.5" />
@@ -260,36 +258,36 @@ export default function TargetCalculatorPage() {
         {/* ── HOW TO USE ── */}
         <section id="how-to-use" aria-label="How to use the goal based SIP calculator">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
-              <Info className="w-5 h-5 text-[#a78bfa]" />
+            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[#1B3A5C]" />
             </div>
-            <h2 className="text-2xl font-bold text-white">How to Use This Calculator</h2>
+            <h2 className="text-2xl font-bold text-[#1F2937]">How to Use This Calculator</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {HOW_TO_STEPS.map(({ step, title, desc }) => (
               <div key={step} className="glass-panel p-5 flex gap-4">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#8b5cf6] bg-opacity-30 border border-[#8b5cf6] flex items-center justify-center text-[#c4b5fd] font-bold text-sm">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white shadow-sm font-bold text-sm">
                   {step}
                 </div>
                 <div>
-                  <p className="text-white font-semibold mb-1 text-sm">{title}</p>
-                  <p className="text-gray-400 text-xs leading-relaxed">{desc}</p>
+                  <p className="text-[#1F2937] font-semibold mb-1 text-sm">{title}</p>
+                  <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
                 </div>
               </div>
             ))}
           </div>
           <p className="mt-6 text-[11px] text-gray-500 leading-relaxed border border-gray-700 rounded-lg px-4 py-3">
-            ⚠️ <strong className="text-gray-400">Disclaimer:</strong> This calculator provides illustrative projections only. Actual mutual fund returns are subject to market risk and are not guaranteed. Please consult a SEBI-registered financial advisor before making investment decisions.
+            ⚠️ <strong className="text-gray-500">Disclaimer:</strong> This calculator provides illustrative projections only. Actual mutual fund returns are subject to market risk and are not guaranteed. Please consult a SEBI-registered financial advisor before making investment decisions.
           </p>
         </section>
 
         {/* ── FAQ ── */}
         <section id="faq" aria-label="Frequently Asked Questions about time to reach goal SIP">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-xl">
-              <HelpCircle className="w-5 h-5 text-[#a78bfa]" />
+            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
+              <HelpCircle className="w-5 h-5 text-[#1B3A5C]" />
             </div>
-            <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
           </div>
           <div className="space-y-3">
             {FAQS.map(({ q, a }, i) => (
@@ -300,13 +298,13 @@ export default function TargetCalculatorPage() {
                   id={`goal-faq-${i}`}
                   aria-expanded={openFaq === i}
                 >
-                  <span className="text-white font-medium text-sm pr-4">{q}</span>
+                  <span className="text-[#1F2937] font-medium text-sm pr-4">{q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#a78bfa] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
+                    className={`w-4 h-4 text-[#1B3A5C] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
                   />
                 </button>
                 {openFaq === i && (
-                  <div className="px-4 pb-4 text-gray-400 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">
+                  <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">
                     {a}
                   </div>
                 )}
@@ -317,29 +315,29 @@ export default function TargetCalculatorPage() {
 
         {/* ── CTA BACKLINKS ── */}
         <section id="related-calculators" aria-label="Related financial calculators">
-          <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(139,92,246,0.1)] to-[rgba(59,130,246,0.08)]">
-            <h2 className="text-lg font-bold text-white mb-4 text-center">Related Tools</h2>
+          <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
+            <h2 className="text-lg font-bold text-[#1F2937] mb-4 text-center">Related Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Link
                 href="/"
                 id="cta-sip-calculator"
-                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(139,92,246,0.15)] transition-all group rounded-xl"
+                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
               >
-                <div className="bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] p-2 rounded-lg flex-shrink-0">
-                  <Calculator className="w-4 h-4 text-[#a78bfa]" />
+                <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-lg flex-shrink-0">
+                  <Calculator className="w-4 h-4 text-[#1B3A5C]" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm group-hover:text-[#a78bfa] transition-colors">Step-Up SIP Calculator</p>
+                  <p className="text-[#1F2937] font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">Step-Up SIP Calculator</p>
                   <p className="text-gray-500 text-xs">See how much your monthly SIP grows over time</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#a78bfa] ml-auto flex-shrink-0 transition-colors" />
+                <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#1B3A5C] ml-auto flex-shrink-0 transition-colors" />
               </Link>
               <div className="flex items-center gap-3 glass-panel p-4 opacity-50 rounded-xl">
-                <div className="bg-[rgba(59,130,246,0.2)] border border-[rgba(59,130,246,0.3)] p-2 rounded-lg flex-shrink-0">
-                  <Target className="w-4 h-4 text-blue-400" />
+                <div className="bg-[rgba(27,58,92,0.2)] border border-[rgba(27,58,92,0.3)] p-2 rounded-lg flex-shrink-0">
+                  <Target className="w-4 h-4 text-[#1B3A5C]" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm">CAGR / Returns Calculator</p>
+                  <p className="text-[#1F2937] font-semibold text-sm">CAGR / Returns Calculator</p>
                   <p className="text-gray-500 text-xs">Coming soon</p>
                 </div>
               </div>
@@ -350,18 +348,18 @@ export default function TargetCalculatorPage() {
         {/* ── ABOUT ── */}
         <section id="about" aria-label="About the creator">
           <div className="glass-panel p-8 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(139,92,246,0.08)] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.08)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <div className="w-12 h-12 rounded-full bg-[#8b5cf6] bg-opacity-20 border-2 border-[#8b5cf6] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-[#c4b5fd]">
+              <div className="w-12 h-12 rounded-full bg-[#1B3A5C] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-white shadow-sm">
                 R
               </div>
-              <h2 className="text-xs font-semibold text-gray-400 mb-1">Built by <span className="text-gradient font-bold text-sm">Rajat</span></h2>
-              <p className="text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
+              <h2 className="text-xs font-semibold text-gray-500 mb-1">Built by <span className="text-[#1B3A5C] font-bold text-sm">Rajat</span></h2>
+              <p className="text-gray-500 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
                 A free tool built for Indian investors — goal-based SIP planning with step-up, lump sum, and inflation in one place.
               </p>
               <a
                 href="mailto:businesswebsitestudio@gmail.com"
-                className="inline-flex items-center gap-2 bg-[#8b5cf6] bg-opacity-20 border border-[#8b5cf6] hover:bg-opacity-30 transition-all text-[#c4b5fd] px-5 py-2.5 rounded-xl text-xs font-medium"
+                className="inline-flex items-center gap-2 bg-[#1B3A5C] text-white hover:bg-[#112740] transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
               >
                 <Mail className="w-4 h-4" />
                 businesswebsitestudio@gmail.com

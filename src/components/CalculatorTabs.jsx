@@ -17,7 +17,7 @@ export default function CalculatorTabs() {
 
   return (
     <div className="flex justify-center mb-6">
-      <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-2xl bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.1)]">
+      <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-2xl bg-white border-[rgba(0,0,0,0.05)]">
         {TABS.map(({ href, label, Icon }) => {
           const active = pathname === href;
           return (
@@ -26,8 +26,8 @@ export default function CalculatorTabs() {
               href={href}
               className={`flex-1 flex items-center justify-center py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 active
-                  ? 'bg-[#8b5cf6] text-white shadow-[0_0_15px_rgba(139,92,246,0.3)]'
-                  : 'text-gray-400 hover:text-white hover:bg-[rgba(255,255,255,0.05)]'
+                  ? 'bg-[#1B3A5C] text-white shadow-md'
+                  : 'text-[#6B7280] hover:text-[#1F2937] hover:bg-[rgba(27,58,92,0.05)]'
               }`}
             >
               <Icon className="w-3.5 h-3.5 mr-1.5 flex-shrink-0" />

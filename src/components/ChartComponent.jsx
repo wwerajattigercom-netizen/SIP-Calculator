@@ -28,18 +28,18 @@ ChartJS.register(
 
 // Speed badge color: fastest = most green, slowest = most red/orange
 function speedColor(idx, total) {
-  if (idx === 0) return { bg: 'rgba(249,115,22,0.15)', border: 'rgba(249,115,22,0.4)', text: '#fb923c' };
-  if (idx === total - 1) return { bg: 'rgba(34,197,94,0.15)', border: 'rgba(34,197,94,0.4)', text: '#4ade80' };
-  return { bg: 'rgba(139,92,246,0.15)', border: 'rgba(139,92,246,0.4)', text: '#a78bfa' };
+  if (idx === 0) return { bg: 'rgba(196,153,60,0.15)', border: 'rgba(196,153,60,0.4)', text: '#fb923c' };
+  if (idx === total - 1) return { bg: 'rgba(13,148,136,0.15)', border: 'rgba(13,148,136,0.4)', text: '#4ade80' };
+  return { bg: 'rgba(27,58,92,0.15)', border: 'rgba(27,58,92,0.4)', text: '#1B3A5C' };
 }
 
 export default function ChartComponent({ results }) {
   const [chartType, setChartType] = useState('pie'); // 'pie' | 'line' | 'milestones'
 
-  const colorInvested = '#3B82F6';
-  const colorReturns = '#22C55E';
-  const colorGrid = 'rgba(255, 255, 255, 0.1)';
-  const colorText = '#e2e8f0';
+  const colorInvested = '#1B3A5C';
+  const colorReturns = '#C4993C';
+  const colorGrid = 'rgba(0,0,0,0.05)';
+  const colorText = '#6B7280';
 
   const pieData = {
     labels: ['Invested Amount', 'Est. Returns'],
@@ -47,7 +47,7 @@ export default function ChartComponent({ results }) {
       {
         data: [results.totalInvested, results.amountEarned],
         backgroundColor: [colorInvested, colorReturns],
-        borderColor: ['#0f111a', '#0f111a'],
+        borderColor: ['#FFFFFF', '#FFFFFF'],
         borderWidth: 4,
         hoverOffset: 4,
       },
@@ -133,7 +133,7 @@ export default function ChartComponent({ results }) {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       {/* Tab bar */}
-      <div className="flex bg-[rgba(255,255,255,0.05)] p-1 rounded-lg mb-2 w-full max-w-[320px]">
+      <div className="flex bg-[rgba(0,0,0,0.03)] p-1 rounded-lg mb-2 w-full max-w-[320px]">
         {[
           { key: 'pie', label: 'Pie Chart' },
           { key: 'line', label: 'Line Chart' },
@@ -143,8 +143,8 @@ export default function ChartComponent({ results }) {
             key={key}
             className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
               chartType === key
-                ? 'bg-[#8b5cf6] text-white shadow-lg'
-                : 'text-gray-400 hover:text-white'
+                ? 'bg-[#1B3A5C] text-white shadow-lg'
+                : 'text-gray-500 hover:text-[#1F2937]'
             }`}
             onClick={() => setChartType(key)}
           >
@@ -160,8 +160,8 @@ export default function ChartComponent({ results }) {
           <>
             <Doughnut data={pieData} options={pieOptions} />
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-xs text-gray-400">Total Value</span>
-              <span className="text-lg md:text-xl font-bold text-white">
+              <span className="text-xs text-gray-500 font-medium">Total Value</span>
+              <span className="text-lg md:text-xl font-bold text-[#1F2937]">
                 ₹{results.actualAmount.toLocaleString('en-IN')}
               </span>
             </div>
@@ -182,14 +182,14 @@ export default function ChartComponent({ results }) {
             ) : (
               <>
                 {/* Header */}
-                <p className="text-[10px] text-gray-400 text-center mb-2 flex-shrink-0">
-                  Each crore arrives <span className="text-[#a78bfa] font-semibold">faster</span> — the compounding acceleration effect.
+                <p className="text-[10px] text-gray-500 text-center mb-2 flex-shrink-0">
+                  Each crore arrives <span className="text-[#1B3A5C] font-semibold">faster</span> — the compounding acceleration effect.
                 </p>
 
                 {/* Scrollable table wrapper */}
                 <div className="flex-1 overflow-y-auto min-h-0 rounded-lg border border-white border-opacity-5">
                   <table className="w-full text-xs border-collapse">
-                    <thead className="sticky top-0 bg-[#0f111a] z-10">
+                    <thead className="sticky top-0 bg-[#F8F6F3] z-10">
                       <tr className="border-b border-white border-opacity-10">
                         <th className="text-left text-gray-500 font-medium py-2 pr-2 pl-2">Milestone</th>
                         <th className="text-center text-gray-500 font-medium py-2 px-2">Reached At</th>
@@ -215,10 +215,10 @@ export default function ChartComponent({ results }) {
                                 >
                                   {m.crore}
                                 </div>
-                                <span className="text-white font-semibold">₹{m.crore} Cr</span>
+                                <span className="text-[#1F2937] font-semibold">₹{m.crore} Cr</span>
                               </div>
                             </td>
-                            <td className="py-2 px-2 text-center text-gray-300">Yr {m.yearReached.toFixed(1)}</td>
+                            <td className="py-2 px-2 text-center text-gray-600">Yr {m.yearReached.toFixed(1)}</td>
                             <td className="py-2 px-2 text-center">
                               <span
                                 className="px-2 py-0.5 rounded-full text-[10px] font-semibold"
@@ -229,15 +229,15 @@ export default function ChartComponent({ results }) {
                             </td>
                             <td className="py-2 pl-2 pr-2 text-right">
                               {isSlowest && milestones.length > 1 && (
-                                <span className="text-[9px] text-orange-400 font-medium">Slowest</span>
+                                <span className="text-[9px] text-[#059669] font-medium">Slowest</span>
                               )}
                               {isFastest && (
-                                <span className="text-[9px] text-green-400 font-medium flex items-center justify-end gap-0.5">
+                                <span className="text-[9px] text-[#0D9488] font-medium flex items-center justify-end gap-0.5">
                                   <Zap className="w-2.5 h-2.5" />Fastest
                                 </span>
                               )}
                               {!isSlowest && !isFastest && (
-                                <span className="text-[9px] text-[#a78bfa]">
+                                <span className="text-[9px] text-[#1B3A5C]">
                                   {i === 1 ? '2× faster' : `${i + 1}× faster`}
                                 </span>
                               )}

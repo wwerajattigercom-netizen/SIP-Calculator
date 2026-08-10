@@ -32,13 +32,13 @@ export default function Breadcrumb({ items }) {
             {item.href ? (
               <Link
                 href={item.href}
-                className="hover:text-[#a78bfa] transition-colors flex items-center gap-1"
+                className="hover:text-[#1B3A5C] transition-colors flex items-center gap-1"
               >
                 {i === 0 && <Home className="w-3 h-3" />}
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-400">{item.label}</span>
+              <span className="text-gray-500">{item.label}</span>
             )}
           </span>
         ))}
