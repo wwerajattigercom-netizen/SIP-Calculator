@@ -112,7 +112,7 @@ export default function InputSlider({
       {formattedLabel && (
         <div className="flex justify-end mb-2">
           <span className="text-[11px] text-[#a78bfa] font-semibold tracking-wide">
-            = {formattedLabel}
+            {formattedLabel}
           </span>
         </div>
       )}
