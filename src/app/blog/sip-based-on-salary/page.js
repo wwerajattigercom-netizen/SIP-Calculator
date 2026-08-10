@@ -176,8 +176,7 @@ export default function SipBasedOnSalaryPage() {
                 max={1000000}
                 step={1000}
                 onChange={setSalary}
-                formatValue={(v) => `₹${v.toLocaleString('en-IN')}`}
-                suffix=""
+                formatFn={(v) => formatToShortWords(v)}
               />
             </div>
 

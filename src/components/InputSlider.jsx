@@ -12,10 +12,18 @@ export default function InputSlider({
   step = 1,
   prefix = "",
   suffix = "",
+  // formatFn / formatValue: optional function(value) => string
+  // When provided, shows a human-readable label (e.g. "₹10.00 L") below
+  // the numeric input box. Supports both prop names for compatibility.
+  formatFn,
+  formatValue,
 }) {
   const [inputValue, setInputValue] = useState(value.toString());
   const trackRef   = useRef(null);
   const isDragging = useRef(false);
+
+  // Resolve whichever alias was passed
+  const displayFn = formatFn || formatValue;
 
   // Sync input box when external value changes
   useEffect(() => {
@@ -73,18 +81,20 @@ export default function InputSlider({
 
   const percentage = ((value - min) / (max - min)) * 100;
 
+  // The formatted human-readable label (e.g. "₹10.00 L", "12%", "10 Yr")
+  // shown below the input box. Falls back to the ₹ short-word hint if no
+  // formatFn is given but prefix is ₹.
+  const formattedLabel = displayFn
+    ? displayFn(value)
+    : prefix === '₹'
+      ? formatToShortWords(value)
+      : null;
+
   return (
     <div className="mb-7 w-full">
       {/* Label + number box */}
-      <div className="flex justify-between items-center mb-3">
-        <div className="flex flex-col">
-          <label className="text-gray-300 font-medium">{label}</label>
-          {prefix === '₹' && (
-            <span className="text-[11px] text-[#a78bfa] font-medium mt-0.5 tracking-wide">
-              {formatToShortWords(value)}
-            </span>
-          )}
-        </div>
+      <div className="flex justify-between items-center mb-1">
+        <label className="text-gray-300 font-medium">{label}</label>
         <div className="flex items-center glass-panel px-3 py-1 bg-[rgba(255,255,255,0.05)] border-[rgba(255,255,255,0.1)] rounded-lg focus-within:border-[#8b5cf6] transition-all">
           {prefix && <span className="text-gray-400 mr-1">{prefix}</span>}
           <input
@@ -97,6 +107,15 @@ export default function InputSlider({
           {suffix && <span className="text-gray-400 ml-1">{suffix}</span>}
         </div>
       </div>
+
+      {/* Human-readable formatted value shown below */}
+      {formattedLabel && (
+        <div className="flex justify-end mb-2">
+          <span className="text-[11px] text-[#a78bfa] font-semibold tracking-wide">
+            = {formattedLabel}
+          </span>
+        </div>
+      )}
 
       {/*
         ── SLIDER TRACK ──

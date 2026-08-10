@@ -194,8 +194,7 @@ export default function RetirementSipCalculatorPage() {
                 max={500000}
                 step={1000}
                 onChange={setMonthlyExpenses}
-                formatValue={(v) => `₹${v.toLocaleString('en-IN')}`}
-                suffix=""
+                formatFn={(v) => formatToShortWords(v)}
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <InputSlider

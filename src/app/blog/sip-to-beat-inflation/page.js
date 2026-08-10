@@ -125,7 +125,7 @@ export default function SipBeatInflationPage() {
                     max={500000}
                     step={500}
                     onChange={setSipAmount}
-                    formatFn={(v) => `₹${v.toLocaleString('en-IN')}`}
+                    formatFn={(v) => formatToShortWords(v)}
                   />
                   <InputSlider
                     label="Investment Duration"
