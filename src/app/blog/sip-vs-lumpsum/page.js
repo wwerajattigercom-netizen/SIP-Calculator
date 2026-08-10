@@ -27,45 +27,67 @@ function formatToShortWords(val) {
 
 /**
  * Build a month-by-month NAV series for the chosen scenario.
- * We model the market as a unit NAV starting at ₹10.
+ * NAV starts at ₹10.
  *
- * Bull    → NAV grows at a steady monthly rate every month.
- * Bear    → NAV drops in the first 40% of the period (below inflation),
- *            then surges strongly, eventually ending near the same total
- *            as bull — but SIP buys heavily cheap units early.
- * Volatile→ NAV alternates +high / −low every 6 months (choppy sideways).
- *            Mean return ≈ same as entered, but SIP wins via rupee-cost-averaging.
+ * Bull     → Steady growth every month at the entered return rate.
+ * Bear     → NAV drops a TRUE 40% from peak over the first 40% of the
+ *             period (crash rate computed exactly as 0.60^(1/crashMonths)−1),
+ *             then grows at a back-solved recovery rate to reach ~85% of the
+ *             bull final NAV. This means on the chart the lumpsum value
+ *             visibly falls below the invested amount during the crash.
+ * Volatile → Alternates between high-growth and mild-decline 6-month cycles.
+ *             The average return is close to the entered rate, but the
+ *             NAV swings create opportunities for rupee-cost averaging.
  */
 function buildNavSeries(annualReturnPct, totalMonths, scenario) {
-  const nav = [10]; // start NAV
-  const bullMonthly = (Math.pow(1 + annualReturnPct / 100, 1 / 12) - 1);
+  const startNav = 10;
+  const nav = [startNav];
+  const bullMonthly = Math.pow(1 + annualReturnPct / 100, 1 / 12) - 1;
 
-  for (let m = 1; m <= totalMonths; m++) {
-    const frac = m / totalMonths;
-    let monthlyRate;
-
-    if (scenario === 'bull') {
-      monthlyRate = bullMonthly;
-    } else if (scenario === 'bear') {
-      // First 40%: market falls (half normal growth), next 60%: sharp recovery
-      if (frac <= 0.4) {
-        // Slight decline: negative growth early
-        monthlyRate = -bullMonthly * 0.8;
-      } else {
-        // Recovery: need to compensate for losses + give decent final return
-        // Target final NAV ≈ 85% of bull final NAV (bear still lags overall)
-        // We'll use a fixed boost rate for the recovery phase
-        monthlyRate = bullMonthly * 2.4;
-      }
-    } else {
-      // Volatile: alternate every 6 months between surge and dip
-      const cycle = Math.floor((m - 1) / 6) % 2;
-      monthlyRate = cycle === 0 ? bullMonthly * 2.0 : -bullMonthly * 0.6;
+  if (scenario === 'bull') {
+    for (let m = 1; m <= totalMonths; m++) {
+      nav.push(nav[nav.length - 1] * (1 + bullMonthly));
     }
 
-    nav.push(nav[nav.length - 1] * (1 + monthlyRate));
+  } else if (scenario === 'bear') {
+    // ── Crash phase: first 40% of total period ──────────────────────
+    const crashMonths    = Math.round(totalMonths * 0.4);
+    const recoveryMonths = totalMonths - crashMonths;
+
+    // Exact monthly rate that produces a cumulative −40% drop:
+    // (1 + crashRate)^crashMonths = 0.60  →  crashRate = 0.60^(1/crashMonths) − 1
+    const DROP = 0.40; // 40% peak-to-trough drop
+    const crashRate = Math.pow(1 - DROP, 1 / crashMonths) - 1; // negative
+
+    // NAV at crash bottom
+    const bottomNav = startNav * Math.pow(1 + crashRate, crashMonths);
+
+    // ── Recovery phase: back-solve rate to reach target final NAV ───
+    // Target ≈ 85% of what a pure bull run would achieve (bear still lags)
+    const bullFinalNav    = startNav * Math.pow(1 + bullMonthly, totalMonths);
+    const targetFinalNav  = bullFinalNav * 0.85;
+    // (1 + recoveryRate)^recoveryMonths = targetFinalNav / bottomNav
+    const recoveryRate = Math.pow(targetFinalNav / bottomNav, 1 / recoveryMonths) - 1;
+
+    for (let m = 1; m <= totalMonths; m++) {
+      const prev = nav[nav.length - 1];
+      nav.push(prev * (1 + (m <= crashMonths ? crashRate : recoveryRate)));
+    }
+
+  } else {
+    // ── Volatile: alternate 6-month surge / 6-month dip cycles ──────
+    // Surge rate is high, dip rate is mildly negative.
+    // Net geometric mean stays close to bullMonthly.
+    const surgeRate = bullMonthly * 2.2;                // ~high months
+    const dipRate   = -(bullMonthly * 0.55);            // ~mild decline months
+    for (let m = 1; m <= totalMonths; m++) {
+      const prev  = nav[nav.length - 1];
+      const cycle = Math.floor((m - 1) / 6) % 2;      // 0 = surge, 1 = dip
+      nav.push(prev * (1 + (cycle === 0 ? surgeRate : dipRate)));
+    }
   }
-  return nav; // length = totalMonths + 1  (index 0 = start)
+
+  return nav; // length = totalMonths + 1  (index 0 = starting NAV)
 }
 
 const jsonLd = {
