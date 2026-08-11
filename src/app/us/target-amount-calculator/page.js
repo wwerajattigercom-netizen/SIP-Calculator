@@ -223,7 +223,7 @@ export default function TargetCalculatorPage() {
                 <Link
                   href="/us/dca-calculator"
                   className="flex items-center gap-2 text-[var(--color-accent)] text-xs hover:text-foreground transition-colors group"
-                  id="link-sip-calculator"
+                  id="link-dca-calculator"
                 >
                   <Calculator className="w-3.5 h-3.5" />
                   <span>DCA & Step-Up Calculator — See how your DCA grows</span>
@@ -319,7 +319,7 @@ export default function TargetCalculatorPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Link
                 href="/us/dca-calculator"
-                id="cta-sip-calculator"
+                id="cta-dca-calculator"
                 className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
               >
                 <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">

@@ -77,7 +77,7 @@ const jsonLd = {
           name: 'What is a good return for a lumpsum investment in India?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Nifty 50 index has delivered approximately 12–14% CAGR over 15–20 year periods. Large-cap equity mutual funds typically deliver 10–13% CAGR. Mid and small-cap funds have historically provided 14–18% over long periods. FDs and debt funds offer 6–8% CAGR.',
+            text: 'Nifty 50 index has delivered approximately 12–14% CAGR over 15–20 year periods. Large-cap equity mutual funds typically deliver 10–13% CAGR. Mid and small-cap funds have historically provided 14–18% over long periods. CDs and debt funds offer 6–8% CAGR.',
           },
         },
         {
@@ -108,7 +108,7 @@ const FAQS = [
   },
   {
     q: 'What is a good return on lumpsum investment in India?',
-    a: 'Nifty 50 index has delivered ~12–14% CAGR over 15–20 year periods. Large-cap equity funds: 10–13%. Mid/small-cap: 14–18% historically. Debt funds: 6–8%. FDs: 6–7.5%. Use 10–12% as a conservative assumption for equity lumpsum in India.',
+    a: 'Nifty 50 index has delivered ~12–14% CAGR over 15–20 year periods. Large-cap equity funds: 10–13%. Mid/small-cap: 14–18% historically. Debt funds: 6–8%. CDs: 6–7.5%. Use 10–12% as a conservative assumption for equity lumpsum in India.',
   },
   {
     q: 'How much does $1 Hundred Thousand grow in 10 years at 12%?',

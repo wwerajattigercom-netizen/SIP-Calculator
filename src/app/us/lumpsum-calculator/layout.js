@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Lumpsum Calculator — Calculate Lump Sum Investment Returns Online Free | StepupCalculator',
   description:
-    'Free Lumpsum Calculator — calculate the future value of a one-time lump sum investment. Enter investment amount, expected return rate & duration. See year-by-year growth, gain, and wealth multiple. Ideal for mutual fund, FD & stock investment planning.',
+    'Free Lumpsum Calculator — calculate the future value of a one-time lump sum investment. Enter investment amount, expected return rate & duration. See year-by-year growth, gain, and wealth multiple. Ideal for mutual fund, CD & stock investment planning.',
   keywords: [
     'lumpsum calculator', 'lump sum calculator India', 'lumpsum investment calculator',
     'lumpsum calculator online free', 'lumpsum mutual fund calculator',

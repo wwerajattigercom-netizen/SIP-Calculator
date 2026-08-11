@@ -309,10 +309,10 @@ export default function SipForHousePage() {
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">2. DCA vs RD for Down Payment</h2>
+              <h2 className="text-xl font-bold text-foreground mb-3">2. DCA vs HYSA for Down Payment</h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                If your time horizon is less than 3 years, a Bank Recurring Deposit (RD) or Liquid Fund is safer. However, if you plan to buy after 5-7 years, 
-                an Equity DCA (10-12% expected return) will help you combat the 5-8% annual property price appreciation much better than a 6% RD.
+                If your time horizon is less than 3 years, a Bank Recurring Deposit (HYSA) or Liquid Fund is safer. However, if you plan to buy after 5-7 years, 
+                an Equity DCA (10-12% expected return) will help you combat the 5-8% annual property price appreciation much better than a 6% HYSA.
               </p>
             </div>
             <div>

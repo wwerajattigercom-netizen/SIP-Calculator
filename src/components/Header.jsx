@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <header className="site-header relative z-[100] dark:bg-background dark:border-b dark:border-white/10">
       <div className="site-header-inner flex justify-between items-center w-full">
-        <Link href="/" className="site-logo" aria-label="StepupCalculator Home">
+        <Link href={isUS ? "/us/dca-calculator" : "/"} className="site-logo" aria-label="StepupCalculator Home">
           <span className="site-logo-text dark:text-[#E5E7EB]">
             StepupCalculator
           </span>
@@ -54,7 +54,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <nav className="hidden sm:flex items-center gap-6">
             <Link href={isUS ? "/us/dca-calculator" : "/"} className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-sm font-semibold transition-colors">Home</Link>
-            <Link href="/about" className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-sm font-semibold transition-colors">About Us</Link>
+            <Link href={isUS ? "/us/about" : "/about"} className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-sm font-semibold transition-colors">About Us</Link>
           </nav>
           
           <button
@@ -94,8 +94,8 @@ export default function Header() {
       {/* Mobile Nav Dropdown */}
       {isOpen && (
         <div className="sm:hidden absolute top-full left-0 w-full bg-background border-b border-black/10 shadow-xl flex flex-col py-3 px-4 gap-4 animate-in slide-in-from-top-2">
-          <Link href="/" onClick={() => setIsOpen(false)} className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-base font-semibold block px-2 py-1">Home</Link>
-          <Link href="/about" onClick={() => setIsOpen(false)} className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-base font-semibold block px-2 py-1">About Us</Link>
+          <Link href={isUS ? "/us/dca-calculator" : "/"} onClick={() => setIsOpen(false)} className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-base font-semibold block px-2 py-1">Home</Link>
+          <Link href={isUS ? "/us/about" : "/about"} onClick={() => setIsOpen(false)} className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-base font-semibold block px-2 py-1">About Us</Link>
         </div>
       )}
     </header>

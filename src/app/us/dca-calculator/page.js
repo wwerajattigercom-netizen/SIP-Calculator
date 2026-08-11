@@ -167,7 +167,7 @@ export default function Home() {
                 <Link
                   href="/us/target-amount-calculator"
                   className="flex items-center gap-2 text-[var(--color-accent)] text-xs hover:text-foreground transition-colors group"
-                  id="link-goal-sip-calculator"
+                  id="link-goal-dca-calculator"
                 >
                   <Target className="w-3.5 h-3.5" />
                   <span>Goal Based DCA Calculator — How much DCA to reach $1 Million?</span>

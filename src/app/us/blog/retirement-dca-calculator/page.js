@@ -73,8 +73,8 @@ export default function RetirementSipCalculatorPage() {
     description: 'Calculate the exact DCA amount needed for your retirement in India factoring in inflation and expected returns.',
     author: { '@type': 'Person', name: 'StepupCalculator' },
     publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com/us' },
-    url: 'https://stepupcalculator.com/us/blog/retirement-sip-calculator',
-    mainEntityOfPage: 'https://stepupcalculator.com/us/blog/retirement-sip-calculator',
+    url: 'https://stepupcalculator.com/us/blog/retirement-dca-calculator',
+    mainEntityOfPage: 'https://stepupcalculator.com/us/blog/retirement-dca-calculator',
   };
 
   const faqSchema = {

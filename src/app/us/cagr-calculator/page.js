@@ -70,7 +70,7 @@ const jsonLd = {
           name: 'What is a good CAGR for a mutual fund in India?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'A CAGR of 12–15% is considered good for Indian equity mutual funds over 10+ years. Large-cap index funds typically deliver 10–12% CAGR. Mid and small-cap funds have historically achieved 14–18% CAGR over 10+ years. Anything consistently above 15% over 10 years is exceptional. For debt funds or FDs, 6–8% CAGR is considered decent.',
+            text: 'A CAGR of 12–15% is considered good for Indian equity mutual funds over 10+ years. Large-cap index funds typically deliver 10–12% CAGR. Mid and small-cap funds have historically achieved 14–18% CAGR over 10+ years. Anything consistently above 15% over 10 years is exceptional. For debt funds or CDs, 6–8% CAGR is considered decent.',
           },
         },
         {
@@ -142,7 +142,7 @@ const FAQS = [
   },
   {
     q: 'What is a good CAGR for mutual funds in India?',
-    a: 'In India, 12–15% CAGR is considered good for equity mutual funds over 10+ years. Large-cap index funds (Nifty 50) typically deliver 10–12%. Mid-cap and small-cap funds have historically achieved 14–18% over long periods. For debt funds or FDs, 6–8% is decent. Anything consistently above 15% over 10+ years is exceptional performance.',
+    a: 'In India, 12–15% CAGR is considered good for equity mutual funds over 10+ years. Large-cap index funds (Nifty 50) typically deliver 10–12%. Mid-cap and small-cap funds have historically achieved 14–18% over long periods. For debt funds or CDs, 6–8% is decent. Anything consistently above 15% over 10+ years is exceptional performance.',
   },
   {
     q: 'What is the difference between CAGR and absolute return?',
@@ -266,7 +266,7 @@ export default function CAGRCalculatorPage() {
                 <Link
                   href="/us/dca-calculator"
                   className="flex items-center gap-2 text-[var(--color-accent)] text-xs hover:text-foreground transition-colors group"
-                  id="link-sip-from-cagr"
+                  id="link-dca-from-cagr"
                 >
                   <Calculator className="w-3.5 h-3.5" />
                   <span>DCA + Step-Up Calculator — grow wealth month by month</span>
@@ -520,7 +520,7 @@ export default function CAGRCalculatorPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Link
                 href="/us/dca-calculator"
-                id="cta-sip-calculator-from-cagr"
+                id="cta-dca-calculator-from-cagr"
                 className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
               >
                 <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
@@ -534,7 +534,7 @@ export default function CAGRCalculatorPage() {
               </Link>
               <Link
                 href="/us/target-amount-calculator"
-                id="cta-goal-sip-calculator-from-cagr"
+                id="cta-goal-dca-calculator-from-cagr"
                 className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
               >
                 <div className="bg-[rgba(27,58,92,0.2)] border border-[rgba(27,58,92,0.3)] p-2 rounded-lg flex-shrink-0">

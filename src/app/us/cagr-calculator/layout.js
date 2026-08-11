@@ -2,7 +2,7 @@ export const metadata = {
   // ── Title: Primary keyword first + brand (matches Groww's pattern) ──
   title: 'CAGR Calculator - Calculate Compound Annual Growth Rate Online | StepupCalculator',
   description:
-    'Free CAGR Calculator — calculate Compound Annual Growth Rate of any investment instantly. Enter initial value, final value & duration. See year-by-year growth, Rule of 72, and absolute returns. Works for mutual funds, stocks, FDs & DCAs.',
+    'Free CAGR Calculator — calculate Compound Annual Growth Rate of any investment instantly. Enter initial value, final value & duration. See year-by-year growth, Rule of 72, and absolute returns. Works for mutual funds, stocks, CDs & DCAs.',
 
   keywords: [
     // ── Tier 1: High-volume primary (10k–50k/mo) ──
@@ -27,7 +27,7 @@ export const metadata = {
     // ── Tier 3: Long-tail low-competition (1k–5k/mo) ──
     'CAGR calculator with DCA',
     'CAGR vs absolute return calculator',
-    'CAGR calculator for FD',
+    'CAGR calculator for CD',
     'what is a good CAGR for mutual funds India',
     'how to calculate CAGR for DCA',
     'lump sum investment CAGR calculator',

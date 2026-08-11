@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Target, Calculator, TrendingUp, Layers, Wallet, Clock, BookOpen } from 'lucide-react';
+import { useRegion } from '../context/RegionContext';
 
 const TABS = [
   { href: '/',                        label: 'SIP',      Icon: Calculator  },
@@ -16,17 +17,28 @@ const TABS = [
 
 export default function CalculatorTabs() {
   const pathname = usePathname();
+  const { isUS, terms } = useRegion();
 
   return (
     <div className="flex justify-center mb-6 w-full overflow-hidden">
       <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-4xl bg-white dark:bg-[var(--panel-bg)] border-black/5 dark:border-white/10 overflow-x-auto hide-scrollbar gap-1">
         {TABS.map(({ href, label, Icon }) => {
+          // If in US, prefix the href, except for root '/' which becomes '/us/dca-calculator'
+          let finalHref = href;
+          if (isUS) {
+            finalHref = href === '/' ? '/us/dca-calculator' : `/us${href}`;
+          }
+
+          // Dynamic label for SIP -> DCA
+          const finalLabel = label === 'SIP' ? terms.sip.toUpperCase() : label;
+
           // Highlight the Guides tab for all /blog/... routes
-          const active = href === '/blog' ? pathname.startsWith('/blog') : pathname === href;
+          const active = href === '/blog' ? pathname.startsWith(isUS ? '/us/blog' : '/blog') : pathname === finalHref;
+          
           return (
             <Link
-              key={href}
-              href={href}
+              key={finalHref}
+              href={finalHref}
               className={`flex-1 min-w-[105px] sm:min-w-[110px] flex flex-nowrap items-center justify-center py-2 px-2 sm:px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 active
                   ? 'bg-[var(--color-accent)] text-white shadow-md'
@@ -34,7 +46,7 @@ export default function CalculatorTabs() {
               }`}
             >
               <Icon className="w-3.5 h-3.5 mr-1 flex-shrink-0" />
-              <span className="whitespace-nowrap">{label}</span>
+              <span className="whitespace-nowrap">{finalLabel}</span>
             </Link>
           );
         })}

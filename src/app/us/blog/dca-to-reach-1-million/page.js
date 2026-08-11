@@ -13,9 +13,9 @@ const TABLE_DATA = [
 ];
 
 const STEPUP_DATA = [
-  { label: 'Regular DCA (no step-up)', sip: 43000, total: '1.03 Cr', invested: '51.6 L', gain: '51.4 L' },
-  { label: '5% annual step-up DCA',    sip: 32000, total: '1.01 Cr', invested: '48.3 L', gain: '52.7 L' },
-  { label: '10% annual step-up DCA',   sip: 24000, total: '1.01 Cr', invested: '45.8 L', gain: '55.2 L' },
+  { label: 'Regular DCA (no step-up)', dca: 43000, total: '1.03 Cr', invested: '51.6 L', gain: '51.4 L' },
+  { label: '5% annual step-up DCA',    dca: 32000, total: '1.01 Cr', invested: '48.3 L', gain: '52.7 L' },
+  { label: '10% annual step-up DCA',   dca: 24000, total: '1.01 Cr', invested: '45.8 L', gain: '55.2 L' },
 ];
 
 const jsonLd = {
@@ -25,8 +25,8 @@ const jsonLd = {
   description: 'Exact DCA amounts needed to reach $1 Million at different return rates and tenures, with step-up DCA comparison and free calculator.',
   author: { '@type': 'Person', name: 'Rajat' },
   publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com/us' },
-  url: 'https://stepupcalculator.com/us/blog/sip-to-reach-1-crore',
-  mainEntityOfPage: 'https://stepupcalculator.com/us/blog/sip-to-reach-1-crore',
+  url: 'https://stepupcalculator.com/us/blog/dca-to-reach-1-crore',
+  mainEntityOfPage: 'https://stepupcalculator.com/us/blog/dca-to-reach-1-crore',
 };
 
 function fmt(v) { return `$${v.toLocaleString('en-US')}`; }
@@ -65,13 +65,13 @@ export default function SipTo1CrorePage() {
             </h2>
             <div className="grid grid-cols-3 gap-3 text-center">
               {[
-                { label: '10 Years', sip: '$43,000/mo' },
-                { label: '15 Years', sip: '$16,800/mo' },
-                { label: '20 Years', sip: '$8,000/mo'  },
-              ].map(({ label, sip }) => (
+                { label: '10 Years', dca: '$43,000/mo' },
+                { label: '15 Years', dca: '$16,800/mo' },
+                { label: '20 Years', dca: '$8,000/mo'  },
+              ].map(({ label, dca }) => (
                 <div key={label} className="bg-[rgba(27,58,92,0.1)] rounded-xl p-3">
                   <p className="text-gray-500 dark:text-gray-400 text-xs mb-1">{label}</p>
-                  <p className="text-foreground font-bold text-sm">{sip}</p>
+                  <p className="text-foreground font-bold text-sm">{dca}</p>
                 </div>
               ))}
             </div>
@@ -116,11 +116,11 @@ export default function SipTo1CrorePage() {
               Below is a comparison for a <strong className="text-foreground">12% return, 10-year</strong> target of $1 Million:
             </p>
             <div className="space-y-3">
-              {STEPUP_DATA.map(({ label, sip, total, invested, gain }) => (
+              {STEPUP_DATA.map(({ label, dca, total, invested, gain }) => (
                 <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-2 p-4 rounded-xl bg-white border border-[#E8E4DF]">
                   <p className="text-foreground text-sm font-medium sm:w-52 flex-shrink-0">{label}</p>
                   <div className="flex gap-4 text-xs flex-wrap">
-                    <span className="text-gray-500 dark:text-gray-400">Starting DCA: <span className="text-[var(--color-accent)] font-bold">{fmt(sip)}/mo</span></span>
+                    <span className="text-gray-500 dark:text-gray-400">Starting DCA: <span className="text-[var(--color-accent)] font-bold">{fmt(dca)}/mo</span></span>
                     <span className="text-gray-500 dark:text-gray-400">Final corpus: <span className="text-foreground font-bold">{total}</span></span>
                     <span className="text-gray-500 dark:text-gray-400">Total invested: <span className="text-[var(--color-accent)]">{invested}</span></span>
                   </div>

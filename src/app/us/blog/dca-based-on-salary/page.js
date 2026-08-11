@@ -57,10 +57,10 @@ export default function SipBasedOnSalaryPage() {
   const moderateSip = salary * 0.20;
   const aggressiveSip = salary * 0.30;
 
-  const calculateCorpus = (sip, years, rate) => {
+  const calculateCorpus = (dca, years, rate) => {
     const monthlyRate = rate / 100 / 12;
     const months = years * 12;
-    const futureValue = sip * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+    const futureValue = dca * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
     return futureValue;
   };
 
@@ -75,11 +75,11 @@ export default function SipBasedOnSalaryPage() {
     return `$${value.toFixed(0)}`;
   };
 
-  const getTopPercentile = (sip) => {
-    if (sip > 50000) return 'Top 5%';
-    if (sip > 25000) return 'Top 10%';
-    if (sip > 10000) return 'Top 25%';
-    if (sip > 5000) return 'Top 40%';
+  const getTopPercentile = (dca) => {
+    if (dca > 50000) return 'Top 5%';
+    if (dca > 25000) return 'Top 10%';
+    if (dca > 10000) return 'Top 25%';
+    if (dca > 5000) return 'Top 40%';
     return 'Top 60%';
   };
 
@@ -90,8 +90,8 @@ export default function SipBasedOnSalaryPage() {
     description: 'Calculate how much DCA you should do based on your salary using the 50-30-20 rule.',
     author: { '@type': 'Person', name: 'StepupCalculator' },
     publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com/us' },
-    url: 'https://stepupcalculator.com/us/blog/sip-based-on-salary',
-    mainEntityOfPage: 'https://stepupcalculator.com/us/blog/sip-based-on-salary',
+    url: 'https://stepupcalculator.com/us/blog/dca-based-on-salary',
+    mainEntityOfPage: 'https://stepupcalculator.com/us/blog/dca-based-on-salary',
   };
 
   const faqSchema = {

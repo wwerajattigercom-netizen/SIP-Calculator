@@ -33,7 +33,7 @@ const jsonLd = {
     { '@type': 'Question', name: 'What is education inflation in India?', acceptedAnswer: { '@type': 'Answer', text: 'Education inflation in India is typically 10-12%, significantly higher than regular retail inflation (CPI) which hovers around 5-6%.' } },
     { '@type': 'Question', name: 'Should I buy a child plan or do DCA for education?', acceptedAnswer: { '@type': 'Answer', text: 'Equity Mutual Fund SIPs are generally better than traditional child plans as they offer higher returns (10-14%) to beat education inflation, whereas child plans often yield only 5-6%.' } },
     { '@type': 'Question', name: 'How much should I save for IIT/NIT education?', acceptedAnswer: { '@type': 'Answer', text: 'A 4-year B.Tech at an IIT currently costs $10-12 Lakhs. In 15 years, at 10% inflation, it will cost around $40-50 Lakhs. Plan your SIPs accordingly.' } },
-    { '@type': 'Question', name: 'Can I use PPF instead of DCA for child education?', acceptedAnswer: { '@type': 'Answer', text: 'PPF is safe and tax-free but offers ~7.1% returns, which fails to beat 10% education inflation. It is best used for the debt portion of your portfolio, not the primary growth engine.' } },
+    { '@type': 'Question', name: 'Can I use 401(k) instead of DCA for child education?', acceptedAnswer: { '@type': 'Answer', text: '401(k) is safe and tax-free but offers ~7.1% returns, which fails to beat 10% education inflation. It is best used for the debt portion of your portfolio, not the primary growth engine.' } },
   ],
 };
 
@@ -350,7 +350,7 @@ export default function SipForChildEducationPage() {
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 • <strong>10+ Years Away:</strong> Flexi-cap or Large & Mid-cap funds for high growth.<br/>
                 • <strong>5-10 Years Away:</strong> Aggressive Hybrid funds for balanced risk.<br/>
-                • <strong>Less than 3 Years Away:</strong> Move money to Debt funds or FDs to protect the capital from market crashes right before fees are due.
+                • <strong>Less than 3 Years Away:</strong> Move money to Debt funds or CDs to protect the capital from market crashes right before fees are due.
               </p>
             </div>
           </div>
@@ -377,7 +377,7 @@ export default function SipForChildEducationPage() {
               <Link href="/us/dca-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 Main DCA Calculator <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/blog/retirement-sip-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/blog/retirement-dca-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 Retirement Guide
               </Link>
             </div>
