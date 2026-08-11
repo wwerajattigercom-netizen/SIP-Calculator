@@ -28,10 +28,10 @@ export default function ResultSection({ results }) {
             Total Value
           </div>
           <div className="text-sm font-extrabold text-foreground">
-            {formatCurrency(, locale, currencyCode)}
+            {formatCurrency(results.actualAmount, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(, isUS)}
+            {formatToShortWords(results.actualAmount, isUS)}
           </div>
         </div>
 
@@ -41,10 +41,10 @@ export default function ResultSection({ results }) {
             Invested
           </div>
           <div className="text-sm font-extrabold text-[var(--color-accent)]">
-            {formatCurrency(, locale, currencyCode)}
+            {formatCurrency(results.totalInvested, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(, isUS)}
+            {formatToShortWords(results.totalInvested, isUS)}
           </div>
         </div>
 
@@ -54,10 +54,10 @@ export default function ResultSection({ results }) {
             Earned
           </div>
           <div className="text-sm font-extrabold text-[var(--color-returns)]">
-            +{formatCurrency(, locale, currencyCode)}
+            +{formatCurrency(results.wealthGained, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(, isUS)}
+            {formatToShortWords(results.wealthGained, isUS)}
           </div>
         </div>
 
@@ -70,10 +70,10 @@ export default function ResultSection({ results }) {
             </div>
             <div className="text-right">
               <div className="text-sm font-extrabold text-foreground">
-                {formatCurrency(, locale, currencyCode)}
+                {formatCurrency(results.inflationAdjustedAmount, locale, currencyCode)}
               </div>
               <div className="text-[9px] text-foreground opacity-70 tracking-wide">
-                {formatToShortWords(, isUS)}
+                {formatToShortWords(results.inflationAdjustedAmount, isUS)}
               </div>
             </div>
           </div>
