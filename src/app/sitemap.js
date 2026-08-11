@@ -7,6 +7,8 @@ export default function sitemap() {
     { url: `${base}/target-amount-calculator`,lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
     { url: `${base}/cagr-calculator`,         lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
     { url: `${base}/lumpsum-calculator`,      lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${base}/swp-calculator`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
+    { url: `${base}/cost-of-delay-calculator`,lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
     { url: `${base}/about`,                   lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${base}/disclaimer`,              lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${base}/blog`,                    lastModified: now, changeFrequency: 'weekly',  priority: 0.8 },

@@ -128,6 +128,8 @@ const CALCULATORS = [
   { href: '/lumpsum-calculator',       icon: <Layers     className="w-4 h-4 text-[#059669]" />, label: 'Lumpsum Calculator',       desc: 'One-time investment future value'        },
   { href: '/target-amount-calculator', icon: <Target     className="w-4 h-4 text-[#1B3A5C]"  />, label: 'SIP Goal Calculator',      desc: 'Time to reach ₹1 Crore'                 },
   { href: '/cagr-calculator',          icon: <TrendingUp className="w-4 h-4 text-[#0D9488]" />, label: 'CAGR Calculator',          desc: 'Compound annual growth rate'             },
+  { href: '/swp-calculator',           icon: <Wallet     className="w-4 h-4 text-[#1B3A5C]" />, label: 'SWP Calculator',           desc: 'Monthly withdrawal planning'             },
+  { href: '/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[#991B1B]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
 ];
 
 export default function BlogIndexPage() {

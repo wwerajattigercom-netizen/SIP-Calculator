@@ -3,13 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Target, Calculator, TrendingUp, Layers } from 'lucide-react';
+import { Target, Calculator, TrendingUp, Layers, Wallet, Clock } from 'lucide-react';
 
 const TABS = [
   { href: '/',                        label: 'SIP',      Icon: Calculator  },
   { href: '/lumpsum-calculator',       label: 'Lumpsum',  Icon: Layers      },
   { href: '/target-amount-calculator', label: 'Goal',     Icon: Target      },
   { href: '/cagr-calculator',          label: 'CAGR',     Icon: TrendingUp  },
+  { href: '/swp-calculator',           label: 'SWP',      Icon: Wallet      },
+  { href: '/cost-of-delay-calculator', label: 'Delay Cost', Icon: Clock     },
 ];
 
 export default function CalculatorTabs() {
