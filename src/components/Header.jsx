@@ -27,13 +27,16 @@ export default function Header() {
 
   const toggleRegion = () => {
     if (isUS) {
-      // Switch to IN: remove '/us' prefix or go to home
+      // Switch to IN: remove '/us' prefix, change dca to sip
       let newPath = pathname.replace(/^\/us(\/|$)/, '/');
+      newPath = newPath.replace(/dca/g, 'sip').replace(/million/g, 'crore');
       if (pathname === '/us/dca-calculator') newPath = '/';
       router.push(newPath);
     } else {
-      // Switch to US
+      // Switch to US: add '/us' prefix, change sip to dca
       let newPath = `/us${pathname === '/' ? '/dca-calculator' : pathname}`;
+      newPath = newPath.replace(/sip/g, 'dca').replace(/crore/g, 'million');
+      if (pathname === '/goal-based-sip-calculator') newPath = '/us/goal-based-dca-calculator';
       router.push(newPath);
     }
   };
