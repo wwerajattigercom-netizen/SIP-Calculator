@@ -162,7 +162,7 @@ const CALCULATORS = [
 export default function BlogIndexPage() {
   return (
     <main className="py-8 px-2 md:px-4 flex flex-col items-center">
-      <div className="max-w-4xl w-full mx-auto space-y-8">
+      <div className="max-w-6xl w-full mx-auto space-y-8">
 
         <CalculatorTabs />
         <Breadcrumb items={[{ label: 'Guides' }]} />
@@ -187,50 +187,57 @@ export default function BlogIndexPage() {
         </div>
 
         {/* Articles */}
-        <div className="space-y-4">
-          <h2 className="text-lg font-bold text-[#1F2937] px-1">All Guides</h2>
-          {ARTICLES.map(({ href, tag, tagColor, title, excerpt, readTime, cta, icon, highlight, highlightColor }) => (
-            <Link
-              key={href}
-              href={href}
-              className="block glass-panel p-6 hover:bg-[rgba(27,58,92,0.06)] hover:border-[rgba(27,58,92,0.25)] border border-[#E8E4DF] transition-all group rounded-2xl"
-            >
-              <div className="flex items-start gap-4">
-                {/* Icon */}
-                <div className="bg-[rgba(0,0,0,0.03)] p-2.5 rounded-xl flex-shrink-0 group-hover:bg-[rgba(27,58,92,0.15)] transition-colors">
-                  {icon}
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  {/* Tag + read time */}
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border ${tagColor}`}>
-                      {tag}
-                    </span>
-                    <span className="text-gray-600 text-[10px] flex items-center gap-1">
-                      <Clock className="w-3 h-3" />{readTime}
-                    </span>
-                    <span className={`text-[10px] font-semibold ml-auto ${highlightColor}`}>{highlight}</span>
+        <div className="w-full">
+          <h2 className="text-xl font-bold text-[#1F2937] px-1 mb-4">All Guides</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+            {ARTICLES.map(({ href, tag, tagColor, title, excerpt, readTime, cta, icon, highlight, highlightColor }) => (
+              <Link
+                key={href}
+                href={href}
+                className="block glass-panel p-5 hover:bg-[rgba(27,58,92,0.02)] hover:border-[rgba(27,58,92,0.25)] border border-[#E8E4DF] transition-all group rounded-2xl h-full"
+              >
+                <div className="flex flex-col h-full items-start gap-4">
+                  {/* Icon & Meta */}
+                  <div className="flex w-full items-start justify-between">
+                    <div className="bg-[rgba(0,0,0,0.03)] p-2.5 rounded-xl flex-shrink-0 group-hover:bg-[rgba(27,58,92,0.1)] transition-colors">
+                      {icon}
+                    </div>
+                    <div className="flex flex-col items-end gap-1 text-right">
+                      <span className={`text-[9px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border ${tagColor}`}>
+                        {tag}
+                      </span>
+                      {highlight && (
+                        <span className={`text-[10px] font-semibold ${highlightColor}`}>{highlight}</span>
+                      )}
+                    </div>
                   </div>
 
-                  {/* Title */}
-                  <h2 className="text-[#1F2937] font-bold text-base leading-snug mb-2 group-hover:text-[#6B7280] transition-colors">
-                    {title}
-                  </h2>
+                  <div className="flex-1 flex flex-col w-full min-w-0">
+                    <div className="flex items-center gap-1 mb-2 text-gray-500 text-[10px]">
+                      <Clock className="w-3 h-3" />{readTime}
+                    </div>
 
-                  {/* Excerpt */}
-                  <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-3">
-                    {excerpt}
-                  </p>
+                    {/* Title */}
+                    <h2 className="text-[#1F2937] font-bold text-base leading-snug mb-2 group-hover:text-[#1B3A5C] transition-colors">
+                      {title}
+                    </h2>
 
-                  {/* CTA */}
-                  <span className="inline-flex items-center gap-1.5 text-[#1B3A5C] text-xs font-semibold group-hover:gap-2.5 transition-all">
-                    {cta} <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+                    {/* Excerpt */}
+                    <p className="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-4">
+                      {excerpt}
+                    </p>
+
+                    {/* CTA */}
+                    <div className="mt-auto pt-4 border-t border-gray-100">
+                      <span className="inline-flex items-center gap-1.5 text-[#1B3A5C] text-xs font-semibold group-hover:gap-2.5 transition-all">
+                        {cta} <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Divider */}
