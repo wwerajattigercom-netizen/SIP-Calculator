@@ -14,7 +14,12 @@ export const metadata = {
     locale: 'en_IN',
     images: [{ url: 'https://stepupcalculator.com/og-image.jpg', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-vs-lumpsum' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-vs-lumpsum',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/sip-vs-lumpsum',
+      'en-US': 'https://stepupcalculator.com/us/blog/dca-vs-lumpsum',
+      'x-default': 'https://stepupcalculator.com/blog/sip-vs-lumpsum'
+    } },
 };
 
 export default function Layout({ children }) {

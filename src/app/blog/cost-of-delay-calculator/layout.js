@@ -9,7 +9,12 @@ export const metadata = {
     type: 'website',
     locale: 'en_IN',
   },
-  alternates: { canonical: 'https://stepupcalculator.com/cost-of-delay-calculator' },
+  alternates: { canonical: 'https://stepupcalculator.com/cost-of-delay-calculator',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/cost-of-delay-calculator',
+      'en-US': 'https://stepupcalculator.com/us/cost-of-delay-calculator',
+      'x-default': 'https://stepupcalculator.com/cost-of-delay-calculator'
+    } },
 };
 
 export default function Layout({ children }) { return children; }

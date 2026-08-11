@@ -3,11 +3,11 @@
 import React from 'react';
 import ChartComponent from './ChartComponent';
 import { TrendingUp, ShieldAlert, Coins } from 'lucide-react';
-import { formatToShortWords } from '../utils/formatters';
+import { formatCurrency, formatToShortWords } from '../utils/formatters';
+import { useRegion } from '../context/RegionContext';
 
 export default function ResultSection({ results }) {
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-IN', {
+  const { locale, currencyCode, isUS } = useRegion();
 
   return (
     <div className="glass-panel p-4 lg:p-5 flex flex-col h-full relative overflow-hidden">
@@ -28,10 +28,10 @@ export default function ResultSection({ results }) {
             Total Value
           </div>
           <div className="text-sm font-extrabold text-foreground">
-            {formatCurrency(results.actualAmount)}
+            {formatCurrency(, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(results.actualAmount)}
+            {formatToShortWords(, isUS)}
           </div>
         </div>
 
@@ -41,10 +41,10 @@ export default function ResultSection({ results }) {
             Invested
           </div>
           <div className="text-sm font-extrabold text-[var(--color-accent)]">
-            {formatCurrency(results.totalInvested)}
+            {formatCurrency(, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(results.totalInvested)}
+            {formatToShortWords(, isUS)}
           </div>
         </div>
 
@@ -54,10 +54,10 @@ export default function ResultSection({ results }) {
             Earned
           </div>
           <div className="text-sm font-extrabold text-[var(--color-returns)]">
-            +{formatCurrency(results.amountEarned)}
+            +{formatCurrency(, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(results.amountEarned)}
+            {formatToShortWords(, isUS)}
           </div>
         </div>
 
@@ -70,10 +70,10 @@ export default function ResultSection({ results }) {
             </div>
             <div className="text-right">
               <div className="text-sm font-extrabold text-foreground">
-                {formatCurrency(results.inflationAdjustedAmount)}
+                {formatCurrency(, locale, currencyCode)}
               </div>
               <div className="text-[9px] text-foreground opacity-70 tracking-wide">
-                {formatToShortWords(results.inflationAdjustedAmount)}
+                {formatToShortWords(, isUS)}
               </div>
             </div>
           </div>

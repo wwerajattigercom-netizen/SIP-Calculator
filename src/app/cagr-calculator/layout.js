@@ -67,6 +67,11 @@ export const metadata = {
 
   alternates: {
     canonical: 'https://stepupcalculator.com/cagr-calculator',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/cagr-calculator',
+      'en-US': 'https://stepupcalculator.com/us/cagr-calculator',
+      'x-default': 'https://stepupcalculator.com/cagr-calculator'
+    },
   },
 };
 

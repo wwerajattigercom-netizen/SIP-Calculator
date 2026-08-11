@@ -12,6 +12,11 @@ export const metadata = {
     locale: 'en_IN',
     images: [{ url: 'https://stepupcalculator.com/og-image.jpg', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-for-house-down-payment' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-for-house-down-payment',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/sip-for-house-down-payment',
+      'en-US': 'https://stepupcalculator.com/us/blog/dca-for-house-down-payment',
+      'x-default': 'https://stepupcalculator.com/blog/sip-for-house-down-payment'
+    } },
 };
 export default function Layout({ children }) { return children; }

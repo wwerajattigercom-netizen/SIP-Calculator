@@ -4,14 +4,14 @@ import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { TrendingUp, Coins, Zap, AlertTriangle } from 'lucide-react';
-import { formatToShortWords } from '../utils/formatters';
+import { formatCurrency, formatToShortWords } from '../utils/formatters';
+import { useRegion } from '../context/RegionContext';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const fmt = (v) =>
-  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
-
 export default function CAGRResultSection({ results }) {
+  const { locale, currencyCode, isUS } = useRegion();
+  const fmt = (v) => formatCurrency(v, locale, currencyCode);
   const {
     cagr, cagrPct, absoluteGain, gainPct,
     totalInvested, initialInvestment, monthlySip,
@@ -98,7 +98,7 @@ export default function CAGRResultSection({ results }) {
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
             <span className="text-[10px] text-gray-500 dark:text-gray-400">Final Value</span>
             <span className="text-base font-extrabold text-foreground leading-tight">{fmt(finalValue)}</span>
-            <span className="text-[9px] text-[#6B7280]">{formatToShortWords(finalValue)}</span>
+            <span className="text-[9px] text-[#6B7280]">{formatToShortWords(finalValue, isUS)}</span>
           </div>
         </div>
 
@@ -126,7 +126,7 @@ export default function CAGRResultSection({ results }) {
             {isNegativeGain ? '' : '+'}{fmt(absoluteGain)}
           </div>
           <div className={`text-[9px] mt-0.5 tracking-wide ${isNegativeGain ? 'text-orange-500' : 'text-[#6B7280]'}`}>
-            {formatToShortWords(Math.abs(absoluteGain))}
+            {formatToShortWords(Math.abs(absoluteGain), isUS)}
           </div>
         </div>
 
@@ -137,7 +137,7 @@ export default function CAGRResultSection({ results }) {
             Invested
           </div>
           <div className="text-sm font-extrabold text-[var(--color-accent)]">{fmt(totalInvested)}</div>
-          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(totalInvested)}</div>
+          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(totalInvested, isUS)}</div>
         </div>
 
         {/* Duration */}
@@ -159,7 +159,7 @@ export default function CAGRResultSection({ results }) {
             </div>
             <div className="text-right">
               <div className="text-sm font-bold text-foreground">{fmt(sipContributions)}</div>
-              <div className="text-[9px] text-[#6B7280]">{formatToShortWords(sipContributions)}</div>
+              <div className="text-[9px] text-[#6B7280]">{formatToShortWords(sipContributions, isUS)}</div>
             </div>
           </div>
         )}

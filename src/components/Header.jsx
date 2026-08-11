@@ -3,11 +3,17 @@ import Link from 'next/link';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
+import { usePathname, useRouter } from 'next/navigation';
+import { Globe } from 'lucide-react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname() || '/';
+  const router = useRouter();
+  
+  const isUS = pathname.startsWith('/us');
 
   useEffect(() => {
     setMounted(true);
@@ -17,6 +23,19 @@ export default function Header() {
 
   const toggleTheme = () => {
     setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  };
+
+  const toggleRegion = () => {
+    if (isUS) {
+      // Switch to IN: remove '/us' prefix or go to home
+      let newPath = pathname.replace(/^\/us(\/|$)/, '/');
+      if (pathname === '/us/dca-calculator') newPath = '/';
+      router.push(newPath);
+    } else {
+      // Switch to US
+      let newPath = `/us${pathname === '/' ? '/dca-calculator' : pathname}`;
+      router.push(newPath);
+    }
   };
 
   return (
@@ -31,9 +50,18 @@ export default function Header() {
         {/* Right side — Desktop nav links and theme toggle */}
         <div className="flex items-center gap-4">
           <nav className="hidden sm:flex items-center gap-6">
-            <Link href="/" className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-sm font-semibold transition-colors">Home</Link>
+            <Link href={isUS ? "/us/dca-calculator" : "/"} className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-sm font-semibold transition-colors">Home</Link>
             <Link href="/about" className="text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-sm font-semibold transition-colors">About Us</Link>
           </nav>
+          
+          <button
+            onClick={toggleRegion}
+            className="flex items-center gap-1.5 px-2 py-1 rounded-lg border border-black/10 dark:border-white/10 text-xs font-semibold text-foreground hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+            aria-label="Toggle Region"
+          >
+            <Globe className="w-4 h-4 text-[var(--color-accent)]" />
+            {isUS ? 'US' : 'IN'}
+          </button>
           
           {mounted && (
             <button

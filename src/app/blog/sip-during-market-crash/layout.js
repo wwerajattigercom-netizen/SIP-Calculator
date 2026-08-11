@@ -12,6 +12,11 @@ export const metadata = {
     locale: 'en_IN',
     images: [{ url: 'https://stepupcalculator.com/og-image.jpg', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-during-market-crash' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-during-market-crash',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/sip-during-market-crash',
+      'en-US': 'https://stepupcalculator.com/us/blog/dca-during-market-crash',
+      'x-default': 'https://stepupcalculator.com/blog/sip-during-market-crash'
+    } },
 };
 export default function Layout({ children }) { return children; }

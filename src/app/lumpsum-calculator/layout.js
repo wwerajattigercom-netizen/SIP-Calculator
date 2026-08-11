@@ -30,7 +30,12 @@ export const metadata = {
     description: 'Calculate future value of any lump sum investment. Free, real-time, no sign-up.',
     images: ['https://stepupcalculator.com/og-image.jpg'],
   },
-  alternates: { canonical: 'https://stepupcalculator.com/lumpsum-calculator' },
+  alternates: { canonical: 'https://stepupcalculator.com/lumpsum-calculator',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/lumpsum-calculator',
+      'en-US': 'https://stepupcalculator.com/us/lumpsum-calculator',
+      'x-default': 'https://stepupcalculator.com/lumpsum-calculator'
+    } },
 };
 
 export default function LumpsumLayout({ children }) {

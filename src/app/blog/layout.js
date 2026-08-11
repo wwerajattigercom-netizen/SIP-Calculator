@@ -7,7 +7,12 @@ export const metadata = {
     'cagr explained', 'investment articles india', 'sip tips india',
     'how to reach 1 crore', 'mutual fund returns explained',
   ],
-  alternates: { canonical: 'https://stepupcalculator.com/blog' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog',
+      'en-US': 'https://stepupcalculator.com/us/blog',
+      'x-default': 'https://stepupcalculator.com/blog'
+    } },
   openGraph: {
     title: 'Investment Guides — StepupCalculator',
     description: 'Free investment guides for Indian investors — SIP, CAGR, mutual funds explained simply.',

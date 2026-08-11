@@ -18,6 +18,11 @@ export const metadata = {
     locale: 'en_IN',
     images: [{ url: 'https://stepupcalculator.com/og-image.jpg', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-to-reach-1-crore' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-to-reach-1-crore',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/sip-to-reach-1-crore',
+      'en-US': 'https://stepupcalculator.com/us/blog/dca-to-reach-1-million',
+      'x-default': 'https://stepupcalculator.com/blog/sip-to-reach-1-crore'
+    } },
 };
 export default function BlogLayout({ children }) { return children; }

@@ -3,16 +3,11 @@
 import React from 'react';
 import ChartComponent from './ChartComponent';
 import { ShieldAlert, Target } from 'lucide-react';
-import { formatToShortWords } from '../utils/formatters';
+import { formatCurrency, formatToShortWords } from '../utils/formatters';
+import { useRegion } from '../context/RegionContext';
 
 export default function TargetResultSection({ results }) {
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 0
-    }).format(amount);
-  };
+  const { locale, currencyCode, isUS } = useRegion();
 
   return (
     <div className="glass-panel p-4 lg:p-5 flex flex-col h-full relative overflow-hidden">
@@ -32,10 +27,10 @@ export default function TargetResultSection({ results }) {
             Required SIP/mo
           </div>
           <div className="text-sm font-extrabold text-foreground">
-            {formatCurrency(results.requiredSip)}
+            {formatCurrency(results.requiredSip, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">
-            {formatToShortWords(results.requiredSip)}
+            {formatToShortWords(results.requiredSip, isUS)}
           </div>
         </div>
 
@@ -45,10 +40,10 @@ export default function TargetResultSection({ results }) {
             Target Amount
           </div>
           <div className="text-sm font-extrabold text-black">
-            {formatCurrency(results.actualAmount)}
+            {formatCurrency(results.actualAmount, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(results.actualAmount)}
+            {formatToShortWords(results.actualAmount, isUS)}
           </div>
         </div>
 
@@ -58,10 +53,10 @@ export default function TargetResultSection({ results }) {
             Earned
           </div>
           <div className="text-sm font-extrabold text-[#059669]">
-            +{formatCurrency(results.amountEarned)}
+            +{formatCurrency(results.amountEarned, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(results.amountEarned)}
+            {formatToShortWords(results.amountEarned, isUS)}
           </div>
         </div>
 
@@ -74,10 +69,10 @@ export default function TargetResultSection({ results }) {
             </div>
             <div className="text-right">
               <div className="text-sm font-extrabold text-foreground">
-                {formatCurrency(results.inflationAdjustedAmount)}
+                {formatCurrency(results.inflationAdjustedAmount, locale, currencyCode)}
               </div>
               <div className="text-[9px] text-foreground opacity-70 tracking-wide">
-                {formatToShortWords(results.inflationAdjustedAmount)}
+                {formatToShortWords(results.inflationAdjustedAmount, isUS)}
               </div>
             </div>
           </div>

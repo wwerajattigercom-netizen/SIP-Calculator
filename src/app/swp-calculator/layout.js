@@ -9,7 +9,12 @@ export const metadata = {
     type: 'website',
     locale: 'en_IN',
   },
-  alternates: { canonical: 'https://stepupcalculator.com/swp-calculator' },
+  alternates: { canonical: 'https://stepupcalculator.com/swp-calculator',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/swp-calculator',
+      'en-US': 'https://stepupcalculator.com/us/swp-calculator',
+      'x-default': 'https://stepupcalculator.com/swp-calculator'
+    } },
 };
 
 export default function Layout({ children }) { return children; }

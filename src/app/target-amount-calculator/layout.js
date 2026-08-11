@@ -48,7 +48,12 @@ export const metadata = {
     description: "Free reverse SIP calculator. Enter your goal (₹1 Crore etc.) and get the exact required monthly SIP — with step-up and lump sum considered.",
   },
   alternates: {
-    canonical: "https://stepupcalculator.com/goal-based-sip-calculator",
+    canonical: 'https://stepupcalculator.com/goal-based-sip-calculator',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/goal-based-sip-calculator',
+      'en-US': 'https://stepupcalculator.com/us/goal-based-dca-calculator',
+      'x-default': 'https://stepupcalculator.com/goal-based-sip-calculator'
+    },
   },
 };
 

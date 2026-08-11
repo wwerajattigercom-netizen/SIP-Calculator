@@ -19,6 +19,11 @@ export const metadata = {
     locale: 'en_IN',
     images: [{ url: 'https://stepupcalculator.com/og-image.jpg', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://stepupcalculator.com/blog/cagr-vs-xirr-vs-absolute-return' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog/cagr-vs-xirr-vs-absolute-return',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/cagr-vs-xirr-vs-absolute-return',
+      'en-US': 'https://stepupcalculator.com/us/blog/cagr-vs-xirr-vs-absolute-return',
+      'x-default': 'https://stepupcalculator.com/blog/cagr-vs-xirr-vs-absolute-return'
+    } },
 };
 export default function BlogLayout2({ children }) { return children; }

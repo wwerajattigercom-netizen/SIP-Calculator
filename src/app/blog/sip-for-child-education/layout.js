@@ -12,6 +12,11 @@ export const metadata = {
     locale: 'en_IN',
     images: [{ url: 'https://stepupcalculator.com/og-image.jpg', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-for-child-education' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-for-child-education',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/sip-for-child-education',
+      'en-US': 'https://stepupcalculator.com/us/blog/dca-for-child-education',
+      'x-default': 'https://stepupcalculator.com/blog/sip-for-child-education'
+    } },
 };
 export default function Layout({ children }) { return children; }

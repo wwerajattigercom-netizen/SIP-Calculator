@@ -2,7 +2,7 @@ import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
-
+import { RegionProvider } from "@/context/RegionContext";
 const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,6 +14,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://stepupcalculator.com"),
   title: "SIP Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",
   description: "Free SIP calculator with step-up & inflation. Calculate monthly SIP returns, add lump sum, apply annual step-up and inflation adjustment — all in real time. Works for India and globally (DCA / RSP / AIP).",
   keywords: [
@@ -54,7 +55,12 @@ export const metadata = {
     description: "Free online SIP calculator with step-up, lump sum & inflation. Works for India & worldwide.",
     images: ["https://stepupcalculator.com/og-image.jpg"],
   },
-  alternates: { canonical: "https://stepupcalculator.com" },
+  alternates: { canonical: 'https://stepupcalculator.com',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com',
+      'en-US': 'https://stepupcalculator.com/us/dca-calculator',
+      'x-default': 'https://stepupcalculator.com'
+    } },
 };
 
 export default function RootLayout({ children }) {
@@ -62,13 +68,15 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning className={`${geist.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          {/* ── Sticky branded header ── */}
-          <Header />
+          <RegionProvider>
+            {/* ── Sticky branded header ── */}
+            <Header />
 
-          {/* ── Page content, centred & max-width constrained ── */}
-          <div className="page-wrapper">
-            {children}
-          </div>
+            {/* ── Page content, centred & max-width constrained ── */}
+            <div className="page-wrapper">
+              {children}
+            </div>
+          </RegionProvider>
         </ThemeProvider>
       </body>
     </html>

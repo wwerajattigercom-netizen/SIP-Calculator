@@ -27,7 +27,8 @@ ChartJS.register(
 );
 
 import { useTheme } from 'next-themes';
-
+import { useRegion } from '../context/RegionContext';
+import { formatCurrency, formatToShortWords } from '../utils/formatters';
 // Speed badge color: fastest = most green, slowest = most red/orange
 function speedColor(idx, total, isDark) {
   if (idx === 0) return { bg: isDark ? 'rgba(196,153,60,0.2)' : 'rgba(196,153,60,0.15)', border: 'rgba(196,153,60,0.4)', text: '#fb923c' };
@@ -39,6 +40,7 @@ export default function ChartComponent({ results }) {
   const [chartType, setChartType] = useState('pie'); // 'pie' | 'line' | 'milestones'
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { locale, currencyCode, currencySymbol, terms, isUS } = useRegion();
   
   React.useEffect(() => setMounted(true), []);
   const currentTheme = theme === 'system' ? systemTheme : theme;
@@ -74,9 +76,7 @@ export default function ChartComponent({ results }) {
             let label = context.label || '';
             if (label) label += ': ';
             if (context.raw !== null) {
-              label += new Intl.NumberFormat('en-IN', {
-                style: 'currency', currency: 'INR', maximumFractionDigits: 0
-              }).format(context.raw);
+              label += formatCurrency(context.raw, locale, currencyCode);
             }
             return label;
           }
@@ -117,7 +117,7 @@ export default function ChartComponent({ results }) {
       legend: { display: false },
       tooltip: {
         callbacks: {
-          label: (context) => `${context.dataset.label}: ₹${context.raw.toLocaleString('en-IN')}`
+          label: (context) => `${context.dataset.label}: ${formatCurrency(context.raw, locale, currencyCode)}`
         }
       }
     },
@@ -130,7 +130,7 @@ export default function ChartComponent({ results }) {
         grid: { color: colorGrid, drawBorder: false },
         ticks: {
           color: colorText,
-          callback: (value) => `₹${(value / 100000).toFixed(1)}L`
+          callback: (value) => formatToShortWords(value, isUS)
         }
       }
     }
@@ -145,7 +145,7 @@ export default function ChartComponent({ results }) {
         {[
           { key: 'pie', label: 'Pie Chart' },
           { key: 'line', label: 'Line Chart' },
-          { key: 'milestones', label: '₹1Cr Table' },
+          { key: 'milestones', label: `${currencySymbol}1${terms.crore.charAt(0)} Table` },
         ].map(({ key, label }) => (
           <button
             key={key}
@@ -170,7 +170,7 @@ export default function ChartComponent({ results }) {
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
               <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">Total Value</span>
               <span className="text-lg md:text-xl font-bold text-foreground">
-                ₹{results.actualAmount.toLocaleString('en-IN')}
+                {formatCurrency(results.actualAmount, locale, currencyCode)}
               </span>
             </div>
           </>
@@ -223,7 +223,7 @@ export default function ChartComponent({ results }) {
                                 >
                                   {m.crore}
                                 </div>
-                                <span className="text-foreground font-semibold">₹{m.crore} Cr</span>
+                                <span className="text-foreground font-semibold">{currencySymbol}{m.crore} {terms.crore.charAt(0)}</span>
                               </div>
                             </td>
                             <td className="py-2 px-2 text-center text-gray-600 dark:text-gray-400">Yr {m.yearReached.toFixed(1)}</td>

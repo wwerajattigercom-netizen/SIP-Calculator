@@ -9,7 +9,12 @@ export const metadata = {
     type: 'website',
     locale: 'en_IN',
   },
-  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-vs-fd-ppf-rd' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-vs-fd-ppf-rd',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/sip-vs-fd-ppf-rd',
+      'en-US': 'https://stepupcalculator.com/us/blog/dca-vs-fd-ppf-rd',
+      'x-default': 'https://stepupcalculator.com/blog/sip-vs-fd-ppf-rd'
+    } },
 };
 
 export default function Layout({ children }) {

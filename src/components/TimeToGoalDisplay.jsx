@@ -1,11 +1,9 @@
 "use client";
 
 import React from 'react';
-import { formatToShortWords } from '../utils/formatters';
+import { formatCurrency, formatToShortWords } from '../utils/formatters';
 import { AlertTriangle, ShieldAlert, Coins } from 'lucide-react';
-
-const formatCurrency = (v) =>
-  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
+import { useRegion } from '../context/RegionContext';
 
 /**
  * Creative Time-to-Goal display.
@@ -13,6 +11,7 @@ const formatCurrency = (v) =>
  * Replaces the Pie/Line/Milestones chart on the goal calculator page.
  */
 export default function TimeToGoalDisplay({ results }) {
+  const { locale, currencyCode, isUS } = useRegion();
   const { reachable, years, months, totalInvestedAtGoal, balanceAtGoal, gainsAtGoal, inflationAdjustedGoal } = results;
 
   if (!reachable) {
@@ -114,24 +113,24 @@ export default function TimeToGoalDisplay({ results }) {
           <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold font-medium">
             <Coins className="w-3 h-3 mr-1" />Goal Corpus
           </div>
-          <div className="text-sm font-extrabold text-black">{formatCurrency(balanceAtGoal)}</div>
-          <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{formatToShortWords(balanceAtGoal)}</div>
+          <div className="text-sm font-extrabold text-black">{formatCurrency(balanceAtGoal, locale, currencyCode)}</div>
+          <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{formatToShortWords(balanceAtGoal, isUS)}</div>
         </div>
 
         <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
           <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
             <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mr-1.5" />Invested
           </div>
-          <div className="text-sm font-extrabold text-[var(--color-accent)]">{formatCurrency(totalInvestedAtGoal)}</div>
-          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(totalInvestedAtGoal)}</div>
+          <div className="text-sm font-extrabold text-[var(--color-accent)]">{formatCurrency(totalInvestedAtGoal, locale, currencyCode)}</div>
+          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(totalInvestedAtGoal, isUS)}</div>
         </div>
 
         <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
           <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
             <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Earned
           </div>
-          <div className="text-sm font-extrabold text-[#059669]">+{formatCurrency(gainsAtGoal)}</div>
-          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(gainsAtGoal)}</div>
+          <div className="text-sm font-extrabold text-[#059669]">+{formatCurrency(gainsAtGoal, locale, currencyCode)}</div>
+          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(gainsAtGoal, isUS)}</div>
         </div>
 
         {/* Inflation adjusted — full width yellow strip */}
@@ -142,8 +141,8 @@ export default function TimeToGoalDisplay({ results }) {
               <span className="text-foreground text-[10px] font-semibold tracking-wide">Goal in Today's Value (Inflation)</span>
             </div>
             <div className="text-right">
-              <div className="text-sm font-extrabold text-foreground">{formatCurrency(inflationAdjustedGoal)}</div>
-              <div className="text-[9px] text-foreground opacity-70 tracking-wide">{formatToShortWords(inflationAdjustedGoal)}</div>
+              <div className="text-sm font-extrabold text-foreground">{formatCurrency(inflationAdjustedGoal, locale, currencyCode)}</div>
+              <div className="text-[9px] text-foreground opacity-70 tracking-wide">{formatToShortWords(inflationAdjustedGoal, isUS)}</div>
             </div>
           </div>
         )}

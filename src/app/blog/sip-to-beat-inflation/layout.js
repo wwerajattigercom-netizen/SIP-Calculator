@@ -14,7 +14,12 @@ export const metadata = {
     locale: 'en_IN',
     images: [{ url: 'https://stepupcalculator.com/og-image.jpg', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-to-beat-inflation' },
+  alternates: { canonical: 'https://stepupcalculator.com/blog/sip-to-beat-inflation',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/sip-to-beat-inflation',
+      'en-US': 'https://stepupcalculator.com/us/blog/dca-to-beat-inflation',
+      'x-default': 'https://stepupcalculator.com/blog/sip-to-beat-inflation'
+    } },
 };
 
 export default function Layout({ children }) {

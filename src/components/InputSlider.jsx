@@ -95,8 +95,8 @@ export default function InputSlider({
   // formatFn is given but prefix is ₹.
   const formattedLabel = displayFn
     ? displayFn(localValue)
-    : prefix === '₹'
-      ? formatToShortWords(localValue)
+    : (prefix === '₹' || prefix === '$')
+      ? formatToShortWords(localValue, prefix === '$')
       : null;
 
   return (

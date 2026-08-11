@@ -1,10 +1,8 @@
 "use client";
 
 import React from 'react';
-import { formatToShortWords } from '../utils/formatters';
-
-const formatCurrency = (v) =>
-  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
+import { formatCurrency, formatToShortWords } from '../utils/formatters';
+import { useRegion } from '../context/RegionContext';
 
 /**
  * YearlyGrowthTable
@@ -12,6 +10,7 @@ const formatCurrency = (v) =>
  * Highlights the year the goal is reached.
  */
 export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalMonths }) {
+  const { locale, currencyCode, isUS, currencySymbol } = useRegion();
   if (!yearlyData || yearlyData.length === 0) return null;
 
   const goalYear = goalTotalMonths ? Math.ceil(goalTotalMonths / 12) : null;
@@ -20,7 +19,7 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
     <div className="glass-panel overflow-hidden">
       <div className="px-5 py-4 border-b border-black/5 dark:border-white/10">
         <h2 className="text-foreground font-bold text-base">Year-by-Year Wealth Growth</h2>
-        <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">How your portfolio compounds toward ₹{formatToShortWords(targetAmount)}</p>
+        <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">How your portfolio compounds toward {currencySymbol}{formatToShortWords(targetAmount, isUS)}</p>
       </div>
 
       <div className="overflow-x-auto">
@@ -77,19 +76,19 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
                     </div>
                   </td>
                   <td className="py-2.5 px-3 text-right text-gray-500 dark:text-gray-400">
-                    <div>{formatCurrency(invested)}</div>
-                    <div className="text-[9px] text-gray-600 dark:text-gray-400 mt-0.5">{formatToShortWords(invested)}</div>
+                    <div>{formatCurrency(invested, locale, currencyCode)}</div>
+                    <div className="text-[9px] text-gray-600 dark:text-gray-400 mt-0.5">{formatToShortWords(invested, isUS)}</div>
                   </td>
                   <td className="py-2.5 px-3 text-right text-[#0D9488]">
-                    <div>+{formatCurrency(gains)}</div>
-                    <div className="text-[9px] text-green-800 mt-0.5">{formatToShortWords(gains)}</div>
+                    <div>+{formatCurrency(gains, locale, currencyCode)}</div>
+                    <div className="text-[9px] text-green-800 mt-0.5">{formatToShortWords(gains, isUS)}</div>
                   </td>
                   <td className="py-2.5 px-4 text-right">
                     <div className={`font-bold ${isGoalYear ? 'text-[var(--color-accent)]' : 'text-white'}`}>
-                      {formatCurrency(balance)}
+                      {formatCurrency(balance, locale, currencyCode)}
                     </div>
                     <div className={`text-[9px] mt-0.5 ${isGoalYear ? 'text-[#6B7280]' : 'text-gray-500 dark:text-gray-400'}`}>
-                      {formatToShortWords(balance)}
+                      {formatToShortWords(balance, isUS)}
                     </div>
                   </td>
                 </tr>
