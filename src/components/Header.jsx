@@ -27,7 +27,6 @@ export default function Header() {
         {/* Right side — Desktop nav links */}
         <nav className="hidden sm:flex items-center gap-6">
           <Link href="/" className="text-[#1F2937] hover:text-[#1B3A5C] text-sm font-semibold transition-colors">Home</Link>
-          <Link href="/blog" className="text-[#1F2937] hover:text-[#1B3A5C] text-sm font-semibold transition-colors">Guides</Link>
           <Link href="/about" className="text-[#1F2937] hover:text-[#1B3A5C] text-sm font-semibold transition-colors">About Us</Link>
         </nav>
       </div>
@@ -36,7 +35,6 @@ export default function Header() {
       {isOpen && (
         <div className="sm:hidden absolute top-full left-0 w-full bg-[#f8f2ea] border-b border-black/10 shadow-xl flex flex-col py-3 px-4 gap-4 animate-in slide-in-from-top-2">
           <Link href="/" onClick={() => setIsOpen(false)} className="text-[#1F2937] hover:text-[#1B3A5C] text-base font-semibold block px-2 py-1">Home</Link>
-          <Link href="/blog" onClick={() => setIsOpen(false)} className="text-[#1F2937] hover:text-[#1B3A5C] text-base font-semibold block px-2 py-1">Guides</Link>
           <Link href="/about" onClick={() => setIsOpen(false)} className="text-[#1F2937] hover:text-[#1B3A5C] text-base font-semibold block px-2 py-1">About Us</Link>
         </div>
       )}

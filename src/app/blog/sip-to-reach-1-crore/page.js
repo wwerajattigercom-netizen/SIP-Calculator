@@ -1,4 +1,5 @@
 "use client";
+import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
 import { Calculator, ArrowRight, TrendingUp, CheckCircle, AlertTriangle } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -37,6 +38,7 @@ export default function SipTo1CrorePage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-3xl w-full mx-auto space-y-8">
 
+          <CalculatorTabs />
           <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'SIP to ₹1 Crore' }]} />
 
           {/* Hero */}

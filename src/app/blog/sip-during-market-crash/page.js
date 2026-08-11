@@ -1,4 +1,5 @@
 "use client";
+import CalculatorTabs from '@/components/CalculatorTabs';
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowRight, HelpCircle, AlertTriangle, TrendingUp, TrendingDown, Info } from 'lucide-react';
@@ -189,6 +190,7 @@ export default function SipDuringCrashPage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-4xl w-full mx-auto space-y-8">
 
+          <CalculatorTabs />
           <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'SIP During Market Crash' }]} />
 
           {/* Hero */}

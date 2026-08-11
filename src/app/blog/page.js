@@ -1,4 +1,5 @@
 "use client";
+import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
 import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -137,6 +138,7 @@ export default function BlogIndexPage() {
     <main className="py-8 px-2 md:px-4 flex flex-col items-center">
       <div className="max-w-4xl w-full mx-auto space-y-8">
 
+        <CalculatorTabs />
         <Breadcrumb items={[{ label: 'Guides' }]} />
 
         {/* Hero */}

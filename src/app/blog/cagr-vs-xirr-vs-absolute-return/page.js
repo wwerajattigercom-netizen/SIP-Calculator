@@ -1,4 +1,5 @@
 "use client";
+import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
 import { TrendingUp, ArrowRight, CheckCircle, AlertTriangle } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -53,6 +54,7 @@ export default function CAGRvsXIRRPage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-3xl w-full mx-auto space-y-8">
 
+          <CalculatorTabs />
           <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'CAGR vs XIRR vs Absolute Return' }]} />
 
           {/* Hero */}
