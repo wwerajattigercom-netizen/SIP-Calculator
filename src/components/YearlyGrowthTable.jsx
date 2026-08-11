@@ -18,17 +18,17 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
 
   return (
     <div className="glass-panel overflow-hidden">
-      <div className="px-5 py-4 border-b border-white border-opacity-10">
-        <h2 className="text-[#1F2937] font-bold text-base">Year-by-Year Wealth Growth</h2>
-        <p className="text-gray-500 text-xs mt-0.5">How your portfolio compounds toward ₹{formatToShortWords(targetAmount)}</p>
+      <div className="px-5 py-4 border-b border-black/5 dark:border-white/10">
+        <h2 className="text-foreground font-bold text-base">Year-by-Year Wealth Growth</h2>
+        <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">How your portfolio compounds toward ₹{formatToShortWords(targetAmount)}</p>
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full text-xs min-w-[480px]">
           <thead>
-            <tr className="bg-[rgba(27,58,92,0.12)] border-b border-white border-opacity-10">
+            <tr className="bg-[rgba(27,58,92,0.12)] border-b border-black/5 dark:border-white/10">
               <th className="text-left text-[#6B7280] font-semibold py-3 px-4">Year</th>
-              <th className="text-right text-gray-500 font-semibold py-3 px-3">Total Invested</th>
+              <th className="text-right text-gray-500 dark:text-gray-400 font-semibold py-3 px-3">Total Invested</th>
               <th className="text-right text-[#0D9488] font-semibold py-3 px-3">Gains Earned</th>
               <th className="text-right text-[#6B7280] font-semibold py-3 px-4">Portfolio Value</th>
             </tr>
@@ -42,7 +42,7 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
               return (
                 <tr
                   key={year}
-                  className={`border-b border-white border-opacity-5 transition-colors ${
+                  className={`border-b border-black/5 dark:border-white/10 transition-colors ${
                     isGoalYear
                       ? 'bg-[rgba(27,58,92,0.2)] border-[rgba(27,58,92,0.4)]'
                       : i % 2 === 0
@@ -52,11 +52,11 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
                 >
                   <td className="py-2.5 px-4">
                     <div className="flex items-center gap-2">
-                      <span className={`font-semibold ${isGoalYear ? 'text-[#1B3A5C]' : 'text-gray-600'}`}>
+                      <span className={`font-semibold ${isGoalYear ? 'text-[var(--color-accent)]' : 'text-gray-600 dark:text-gray-400'}`}>
                         Year {year}
                       </span>
                       {isGoalYear && (
-                        <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#1B3A5C] text-white">
+                        <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[var(--color-accent)] text-white">
                           🎯 GOAL REACHED
                         </span>
                       )}
@@ -76,19 +76,19 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
                       />
                     </div>
                   </td>
-                  <td className="py-2.5 px-3 text-right text-gray-500">
+                  <td className="py-2.5 px-3 text-right text-gray-500 dark:text-gray-400">
                     <div>{formatCurrency(invested)}</div>
-                    <div className="text-[9px] text-gray-600 mt-0.5">{formatToShortWords(invested)}</div>
+                    <div className="text-[9px] text-gray-600 dark:text-gray-400 mt-0.5">{formatToShortWords(invested)}</div>
                   </td>
                   <td className="py-2.5 px-3 text-right text-[#0D9488]">
                     <div>+{formatCurrency(gains)}</div>
                     <div className="text-[9px] text-green-800 mt-0.5">{formatToShortWords(gains)}</div>
                   </td>
                   <td className="py-2.5 px-4 text-right">
-                    <div className={`font-bold ${isGoalYear ? 'text-[#1B3A5C]' : 'text-white'}`}>
+                    <div className={`font-bold ${isGoalYear ? 'text-[var(--color-accent)]' : 'text-white'}`}>
                       {formatCurrency(balance)}
                     </div>
-                    <div className={`text-[9px] mt-0.5 ${isGoalYear ? 'text-[#6B7280]' : 'text-gray-500'}`}>
+                    <div className={`text-[9px] mt-0.5 ${isGoalYear ? 'text-[#6B7280]' : 'text-gray-500 dark:text-gray-400'}`}>
                       {formatToShortWords(balance)}
                     </div>
                   </td>
@@ -99,7 +99,7 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
         </table>
       </div>
 
-      <div className="px-4 py-3 text-gray-600 text-[10px] border-t border-white border-opacity-5">
+      <div className="px-4 py-3 text-gray-600 dark:text-gray-400 text-[10px] border-t border-black/5 dark:border-white/10">
         ⚠️ Projections are illustrative only. Actual returns vary with market conditions.
       </div>
     </div>

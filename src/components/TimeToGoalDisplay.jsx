@@ -17,11 +17,11 @@ export default function TimeToGoalDisplay({ results }) {
 
   if (!reachable) {
     return (
-      <div className="glass-panel p-5 lg:p-6 flex flex-col items-center justify-center min-h-[320px] relative overflow-hidden">
+      <div className="glass-panel p-4 lg:p-5 flex flex-col items-center justify-center min-h-[320px] relative overflow-hidden">
         
         <AlertTriangle className="w-12 h-12 text-[#059669] mb-4" />
         <p className="text-[#059669] font-bold text-base text-center mb-2">Goal not reachable in 50 years</p>
-        <p className="text-gray-500 text-xs text-center max-w-xs leading-relaxed">
+        <p className="text-gray-500 dark:text-gray-400 text-xs text-center max-w-xs leading-relaxed">
           Increase your monthly SIP, add a lump sum, raise the step-up %, or lower your target goal to see a realistic timeline.
         </p>
       </div>
@@ -45,13 +45,13 @@ export default function TimeToGoalDisplay({ results }) {
   const startAngle = -90; // start at top
 
   return (
-    <div className="glass-panel p-5 lg:p-6 flex flex-col h-full relative overflow-hidden">
+    <div className="glass-panel p-4 lg:p-5 flex flex-col h-full relative overflow-hidden">
       {/* Decorative Glow */}
       
 
       {/* ── HERO: Circular time display ── */}
       <div className="flex flex-col items-center justify-center mb-4 relative z-10">
-        <p className="text-gray-500 text-xs font-medium mb-3 tracking-widest uppercase">Time to reach your goal</p>
+        <p className="text-gray-500 dark:text-gray-400 text-xs font-medium mb-3 tracking-widest uppercase">Time to reach your goal</p>
 
         <div className="relative w-[200px] h-[200px] flex-shrink-0">
           {/* SVG Circular arc */}
@@ -80,20 +80,20 @@ export default function TimeToGoalDisplay({ results }) {
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             {years > 0 && (
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-black text-[#1F2937] leading-none">{years}</span>
-                <span className="text-sm text-gray-500 font-medium">yr</span>
+                <span className="text-4xl font-black text-foreground leading-none">{years}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">yr</span>
               </div>
             )}
             {months > 0 && (
               <div className="flex items-baseline gap-1 mt-0.5">
                 <span className="text-2xl font-bold leading-none" style={{ color: arcColor }}>{months}</span>
-                <span className="text-xs text-gray-500 font-medium">mo</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">mo</span>
               </div>
             )}
             {years === 0 && months > 0 && (
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-black text-[#1F2937] leading-none">{months}</span>
-                <span className="text-sm text-gray-500 font-medium">mo</span>
+                <span className="text-4xl font-black text-foreground leading-none">{months}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">mo</span>
               </div>
             )}
           </div>
@@ -110,28 +110,28 @@ export default function TimeToGoalDisplay({ results }) {
 
       {/* ── STATS BREAKDOWN ── */}
       <div className="grid grid-cols-3 gap-2 relative z-10">
-        <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-          <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold font-medium">
+        <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+          <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold font-medium">
             <Coins className="w-3 h-3 mr-1" />Goal Corpus
           </div>
           <div className="text-sm font-extrabold text-black">{formatCurrency(balanceAtGoal)}</div>
           <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{formatToShortWords(balanceAtGoal)}</div>
         </div>
 
-        <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-          <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold">
-            <div className="w-2 h-2 rounded-full bg-[#1B3A5C] mr-1.5" />Invested
+        <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+          <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
+            <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mr-1.5" />Invested
           </div>
-          <div className="text-sm font-extrabold text-[#1B3A5C]">{formatCurrency(totalInvestedAtGoal)}</div>
-          <div className="text-[9px] text-gray-500 mt-0.5 tracking-wide">{formatToShortWords(totalInvestedAtGoal)}</div>
+          <div className="text-sm font-extrabold text-[var(--color-accent)]">{formatCurrency(totalInvestedAtGoal)}</div>
+          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(totalInvestedAtGoal)}</div>
         </div>
 
-        <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-          <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold">
+        <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+          <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
             <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Earned
           </div>
           <div className="text-sm font-extrabold text-[#059669]">+{formatCurrency(gainsAtGoal)}</div>
-          <div className="text-[9px] text-gray-500 mt-0.5 tracking-wide">{formatToShortWords(gainsAtGoal)}</div>
+          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(gainsAtGoal)}</div>
         </div>
 
         {/* Inflation adjusted — full width yellow strip */}
@@ -139,11 +139,11 @@ export default function TimeToGoalDisplay({ results }) {
           <div className="col-span-3 mt-1 bg-[rgba(196,153,60,0.2)] border border-[rgba(196,153,60,0.5)] rounded-lg px-3 py-2 flex items-center justify-between">
             <div className="flex items-center gap-1.5">
               <ShieldAlert className="w-3.5 h-3.5 text-white flex-shrink-0" />
-              <span className="text-[#1F2937] text-[10px] font-semibold tracking-wide">Goal in Today's Value (Inflation)</span>
+              <span className="text-foreground text-[10px] font-semibold tracking-wide">Goal in Today's Value (Inflation)</span>
             </div>
             <div className="text-right">
-              <div className="text-sm font-extrabold text-[#1F2937]">{formatCurrency(inflationAdjustedGoal)}</div>
-              <div className="text-[9px] text-[#1F2937] opacity-70 tracking-wide">{formatToShortWords(inflationAdjustedGoal)}</div>
+              <div className="text-sm font-extrabold text-foreground">{formatCurrency(inflationAdjustedGoal)}</div>
+              <div className="text-[9px] text-foreground opacity-70 tracking-wide">{formatToShortWords(inflationAdjustedGoal)}</div>
             </div>
           </div>
         )}

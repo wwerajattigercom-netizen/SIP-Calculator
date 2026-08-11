@@ -34,28 +34,28 @@ const ARTICLES = [
   {
     href: '/blog/sip-based-on-salary',
     tag: 'SIP Planning',
-    tagColor: 'text-[#1B3A5C] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
+    tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much SIP Should I Do Based on My Salary?',
     excerpt:
       'Use the 50-30-20 budgeting rule to find your ideal SIP amount. Interactive calculator shows Conservative (10%), Moderate (20%), and Aggressive (30%) plans with 20-year projections.',
     readTime: '5 min read',
     cta: 'Try Calculator',
-    icon: <Wallet className="w-5 h-5 text-[#1B3A5C]" />,
+    icon: <Wallet className="w-5 h-5 text-[var(--color-accent)]" />,
     highlight: 'Interactive',
-    highlightColor: 'text-[#1B3A5C]',
+    highlightColor: 'text-[var(--color-accent)]',
   },
   {
     href: '/blog/retirement-sip-calculator',
     tag: 'Retirement',
-    tagColor: 'text-[#1B3A5C] bg-[rgba(27,58,92,0.1)] border-[rgba(27,58,92,0.25)]',
+    tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.1)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much SIP Do I Need to Retire in India?',
     excerpt:
       'Enter your age, expenses, and retirement target — get the exact monthly SIP needed. See the devastating cost of delaying by just 5 years.',
     readTime: '6 min read',
     cta: 'Try Calculator',
-    icon: <Shield className="w-5 h-5 text-[#1B3A5C]" />,
+    icon: <Shield className="w-5 h-5 text-[var(--color-accent)]" />,
     highlight: 'Interactive',
-    highlightColor: 'text-[#1B3A5C]',
+    highlightColor: 'text-[var(--color-accent)]',
   },
   {
     href: '/blog/sip-vs-lumpsum',
@@ -86,41 +86,41 @@ const ARTICLES = [
   {
     href: '/blog/sip-to-reach-1-crore',
     tag: 'SIP Planning',
-    tagColor: 'text-[#1B3A5C] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
+    tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much SIP to Reach ₹1 Crore in 10, 15 & 20 Years?',
     excerpt:
       'Get the exact monthly SIP amount you need at 10%, 12%, and 15% annual returns across different time horizons. Includes step-up SIP comparison showing how you can start with 44% less.',
     readTime: '4 min read',
     cta: 'Read Guide',
-    icon: <Calculator className="w-5 h-5 text-[#1B3A5C]" />,
+    icon: <Calculator className="w-5 h-5 text-[var(--color-accent)]" />,
     highlight: '₹1 Crore Goal',
-    highlightColor: 'text-[#1B3A5C]',
+    highlightColor: 'text-[var(--color-accent)]',
   },
   {
     href: '/blog/sip-for-child-education',
     tag: 'Goal Planning',
-    tagColor: 'text-[#1B3A5C] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
+    tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'SIP for Child Education — Education Goal Calculator India',
     excerpt:
       'Education inflation in India runs at 10%+ per year. Find exactly how much SIP you need to fund your child\'s engineering, medical, or MBA degree — before the cost doubles.',
     readTime: '5 min read',
     cta: 'Try Calculator',
-    icon: <GraduationCap className="w-5 h-5 text-[#1B3A5C]" />,
+    icon: <GraduationCap className="w-5 h-5 text-[var(--color-accent)]" />,
     highlight: 'Interactive',
-    highlightColor: 'text-[#1B3A5C]',
+    highlightColor: 'text-[var(--color-accent)]',
   },
   {
     href: '/blog/sip-for-house-down-payment',
     tag: 'Goal Planning',
-    tagColor: 'text-[#1B3A5C] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
+    tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'SIP for House Down Payment — Save for Your Dream Home',
     excerpt:
       'Property prices rise 7%+ annually. See the future cost of that ₹80L flat, the down payment you need to save, and the exact monthly SIP to get there — with city-wise reference.',
     readTime: '5 min read',
     cta: 'Try Calculator',
-    icon: <Home className="w-5 h-5 text-[#1B3A5C]" />,
+    icon: <Home className="w-5 h-5 text-[var(--color-accent)]" />,
     highlight: 'Interactive',
-    highlightColor: 'text-[#1B3A5C]',
+    highlightColor: 'text-[var(--color-accent)]',
   },
   {
     href: '/blog/sip-during-market-crash',
@@ -144,18 +144,18 @@ const ARTICLES = [
       'When Groww shows "XIRR" and a fund shows "CAGR", are they the same? No — and the confusion costs investors bad decisions. This guide explains each clearly with worked examples.',
     readTime: '5 min read',
     cta: 'Read Guide',
-    icon: <TrendingUp className="w-5 h-5 text-[#1B3A5C]" />,
+    icon: <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />,
     highlight: 'CAGR vs XIRR',
     highlightColor: 'text-[#C4993C]',
   },
 ];
 
 const CALCULATORS = [
-  { href: '/',                        icon: <Calculator className="w-4 h-4 text-[#1B3A5C]" />, label: 'Step-Up SIP Calculator',  desc: 'SIP with step-up, lump sum & inflation' },
+  { href: '/',                        icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Step-Up SIP Calculator',  desc: 'SIP with step-up, lump sum & inflation' },
   { href: '/lumpsum-calculator',       icon: <Layers     className="w-4 h-4 text-[#059669]" />, label: 'Lumpsum Calculator',       desc: 'One-time investment future value'        },
-  { href: '/target-amount-calculator', icon: <Target     className="w-4 h-4 text-[#1B3A5C]"  />, label: 'SIP Goal Calculator',      desc: 'Time to reach ₹1 Crore'                 },
-  { href: '/cagr-calculator',          icon: <TrendingUp className="w-4 h-4 text-[#1B3A5C]" />, label: 'CAGR Calculator',          desc: 'Compound annual growth rate'             },
-  { href: '/swp-calculator',           icon: <Wallet     className="w-4 h-4 text-[#1B3A5C]" />, label: 'SWP Calculator',           desc: 'Monthly withdrawal planning'             },
+  { href: '/target-amount-calculator', icon: <Target     className="w-4 h-4 text-[var(--color-accent)]"  />, label: 'SIP Goal Calculator',      desc: 'Time to reach ₹1 Crore'                 },
+  { href: '/cagr-calculator',          icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'CAGR Calculator',          desc: 'Compound annual growth rate'             },
+  { href: '/swp-calculator',           icon: <Wallet     className="w-4 h-4 text-[var(--color-accent)]" />, label: 'SWP Calculator',           desc: 'Monthly withdrawal planning'             },
   { href: '/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[#991B1B]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
 ];
 
@@ -171,14 +171,14 @@ export default function BlogIndexPage() {
         <div className="glass-panel p-7 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.1)] to-transparent pointer-events-none" />
           <div className="relative z-10 flex items-start gap-4">
-            <div className="bg-[rgba(27,58,92,0.2)] border border-[#1B3A5C] p-3 rounded-2xl flex-shrink-0">
-              <BookOpen className="w-6 h-6 text-[#1B3A5C]" />
+            <div className="bg-[rgba(27,58,92,0.2)] border border-[var(--color-accent)] p-3 rounded-2xl flex-shrink-0">
+              <BookOpen className="w-6 h-6 text-[var(--color-accent)]" />
             </div>
             <div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-[#1F2937] mb-2">
+              <h1 className="text-2xl md:text-3xl font-extrabold text-foreground mb-2">
                 Investment Guides 
               </h1>
-              <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xl">
                 Free, jargon-free guides with interactive calculators for Indian investors — SIP planning,
                 retirement, inflation, market scenarios, and more. Written by Rajat.
               </p>
@@ -188,7 +188,7 @@ export default function BlogIndexPage() {
 
         {/* Articles */}
         <div className="w-full">
-          <h2 className="text-xl font-bold text-[#1F2937] px-1 mb-4">All Guides</h2>
+          <h2 className="text-xl font-bold text-foreground px-1 mb-4">All Guides</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {ARTICLES.map(({ href, tag, tagColor, title, excerpt, readTime, cta, icon, highlight, highlightColor }) => (
               <Link
@@ -213,23 +213,23 @@ export default function BlogIndexPage() {
                   </div>
 
                   <div className="flex-1 flex flex-col w-full min-w-0">
-                    <div className="flex items-center gap-1 mb-2 text-gray-500 text-[10px]">
+                    <div className="flex items-center gap-1 mb-2 text-gray-500 dark:text-gray-400 text-[10px]">
                       <Clock className="w-3 h-3" />{readTime}
                     </div>
 
                     {/* Title */}
-                    <h2 className="text-[#1F2937] font-bold text-base leading-snug mb-2 group-hover:text-[#1B3A5C] transition-colors">
+                    <h2 className="text-foreground font-bold text-base leading-snug mb-2 group-hover:text-[var(--color-accent)] transition-colors">
                       {title}
                     </h2>
 
                     {/* Excerpt */}
-                    <p className="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-4">
+                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed line-clamp-3 mb-4">
                       {excerpt}
                     </p>
 
                     {/* CTA */}
                     <div className="mt-auto pt-4 border-t border-gray-100">
-                      <span className="inline-flex items-center gap-1.5 text-[#1B3A5C] text-xs font-semibold group-hover:gap-2.5 transition-all">
+                      <span className="inline-flex items-center gap-1.5 text-[var(--color-accent)] text-xs font-semibold group-hover:gap-2.5 transition-all">
                         {cta} <ArrowRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
@@ -243,13 +243,13 @@ export default function BlogIndexPage() {
         {/* Divider */}
         <div className="flex items-center gap-3">
           <div className="flex-1 h-px bg-black/5" />
-          <span className="text-gray-600 text-xs">Free Calculators</span>
+          <span className="text-gray-600 dark:text-gray-400 text-xs">Free Calculators</span>
           <div className="flex-1 h-px bg-black/5" />
         </div>
 
         {/* Calculator cards */}
         <div>
-          <h2 className="text-lg font-bold text-[#1F2937] mb-3 px-1">Try Our Free Calculators</h2>
+          <h2 className="text-lg font-bold text-foreground mb-3 px-1">Try Our Free Calculators</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {CALCULATORS.map(({ href, icon, label, desc }) => (
               <Link
@@ -261,10 +261,10 @@ export default function BlogIndexPage() {
                   {icon}
                 </div>
                 <div className="flex-1">
-                  <p className="text-[#1F2937] font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">{label}</p>
-                  <p className="text-gray-500 text-xs">{desc}</p>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">{label}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">{desc}</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#1B3A5C] transition-colors flex-shrink-0" />
+                <ArrowRight className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-[var(--color-accent)] transition-colors flex-shrink-0" />
               </Link>
             ))}
           </div>

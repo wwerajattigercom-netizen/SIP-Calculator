@@ -198,10 +198,10 @@ export default function SipDuringCrashPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(153,27,27,0.1)] to-transparent pointer-events-none" />
             <div className="relative z-10">
               <span className="text-[10px] uppercase tracking-widest text-[#991B1B] font-semibold mb-3 block">Simulation · Wealth Strategy</span>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-[#1F2937] leading-tight mb-3">
+              <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight mb-3">
                 SIP During Market Crash:  Should You Stop or Continue?
               </h1>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 When the market bleeds, most investors panic and stop their SIPs. But what happens if you don't?
                 Use this interactive NAV-based simulator to see the massive wealth you lose by pausing your SIP during a downturn.
               </p>
@@ -213,7 +213,7 @@ export default function SipDuringCrashPage() {
             {/* Inputs */}
             <div className="md:col-span-5 space-y-6">
               <div className="glass-panel p-6">
-                <h3 className="text-[#1F2937] font-bold mb-4">Investment Details</h3>
+                <h3 className="text-foreground font-bold mb-4">Investment Details</h3>
                 <div className="space-y-5">
                   <InputSlider
                     label="Monthly SIP Amount"
@@ -238,7 +238,7 @@ export default function SipDuringCrashPage() {
 
               <div className="glass-panel p-6 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[rgba(196,153,60,0.05)] to-transparent pointer-events-none" />
-                <h3 className="text-[#1F2937] font-bold mb-4 relative z-10 flex items-center gap-2">
+                <h3 className="text-foreground font-bold mb-4 relative z-10 flex items-center gap-2">
                   <TrendingDown className="w-4 h-4 text-[#059669]" /> Crash Scenario
                 </h3>
                 <div className="space-y-5 relative z-10">
@@ -300,25 +300,25 @@ export default function SipDuringCrashPage() {
                 {/* Result cards (2x2 grid) */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   {/* Continued SIP */}
-                  <div className="p-4 rounded-2xl border border-[#1B3A5C] bg-[rgba(27,58,92,0.08)] shadow-sm">
-                    <div className="text-gray-500 text-[10px] font-semibold uppercase tracking-wider mb-1">Final Value (Continued)</div>
-                    <div className="text-xl font-bold text-[#1F2937]">{fmt(finalA)}</div>
+                  <div className="p-4 rounded-2xl border border-[var(--color-accent)] bg-[rgba(27,58,92,0.08)] shadow-sm">
+                    <div className="text-gray-500 dark:text-gray-400 text-[10px] font-semibold uppercase tracking-wider mb-1">Final Value (Continued)</div>
+                    <div className="text-xl font-bold text-foreground">{fmt(finalA)}</div>
                   </div>
                   {/* Stopped SIP */}
                   <div className="p-4 rounded-2xl border border-black/5 bg-black/5">
-                    <div className="text-gray-500 text-[10px] font-semibold uppercase tracking-wider mb-1">Final Value (Stopped)</div>
-                    <div className="text-xl font-bold text-gray-600">{fmt(finalB)}</div>
+                    <div className="text-gray-500 dark:text-gray-400 text-[10px] font-semibold uppercase tracking-wider mb-1">Final Value (Stopped)</div>
+                    <div className="text-xl font-bold text-gray-600 dark:text-gray-400">{fmt(finalB)}</div>
                   </div>
                   
                   {/* Extra Wealth */}
                   <div className="p-4 rounded-2xl border border-[#991B1B]/30 bg-[#991B1B]/10">
                     <div className="text-[#991B1B] text-[10px] font-semibold uppercase tracking-wider mb-1">Wealth Lost By Stopping</div>
-                    <div className="text-xl font-bold text-[#1F2937]">{fmt(diff)}</div>
+                    <div className="text-xl font-bold text-foreground">{fmt(diff)}</div>
                   </div>
                   {/* Missed Investment */}
                   <div className="p-4 rounded-2xl border border-[#059669]/30 bg-[#059669]/10">
                     <div className="text-[#059669] text-[10px] font-semibold uppercase tracking-wider mb-1">Idle Cash (Uninvested)</div>
-                    <div className="text-xl font-bold text-[#1F2937]">{fmt(missedAmount)} <span className="text-xs font-normal text-gray-500">over {missedMonths} mo</span></div>
+                    <div className="text-xl font-bold text-foreground">{fmt(missedAmount)} <span className="text-xs font-normal text-gray-500 dark:text-gray-400">over {missedMonths} mo</span></div>
                   </div>
                 </div>
 
@@ -326,8 +326,8 @@ export default function SipDuringCrashPage() {
                 <div className="mb-6 bg-gradient-to-r from-[rgba(196,153,60,0.15)] to-[rgba(196,153,60,0.05)] border border-[#059669]/30 rounded-xl p-4 flex items-start gap-3">
                   <AlertTriangle className="w-5 h-5 text-[#059669] flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-sm font-bold text-[#1F2937] mb-1">The Magic of Continuing</h4>
-                    <p className="text-xs text-gray-600 leading-relaxed">
+                    <h4 className="text-sm font-bold text-foreground mb-1">The Magic of Continuing</h4>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                       At the crash bottom, your SIP buys units at <strong>{fmt(crashBottomNav)}</strong> NAV instead of the pre-crash peak of <strong>{fmt(crashStartNav)}</strong> NAV. 
                       You get <strong>{navRatio}x more units</strong> for the exact same ₹{monthlySip} monthly investment. When the market recovers, those extra units cause your wealth to explode.
                     </p>
@@ -335,7 +335,7 @@ export default function SipDuringCrashPage() {
                 </div>
 
                 {/* Wealth Chart */}
-                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Portfolio Value Over Time</h4>
+                <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Portfolio Value Over Time</h4>
                 <div className="w-full h-[220px] mb-6">
                   <Line
                     data={chartConfig}
@@ -371,7 +371,7 @@ export default function SipDuringCrashPage() {
                 </div>
 
                 {/* NAV Chart */}
-                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Market NAV Curve</h4>
+                <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Market NAV Curve</h4>
                 <div className="w-full h-[140px] opacity-80">
                   <Line
                     data={navChartConfig}
@@ -410,42 +410,42 @@ export default function SipDuringCrashPage() {
 
           {/* Historical crash reference table */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Real Historical Crashes & SIP Outcomes</h2>
+            <h2 className="text-xl font-bold text-foreground mb-4">Real Historical Crashes & SIP Outcomes</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
                 <thead>
                   <tr className="border-b border-black/5">
-                    <th className="py-2 pr-4 text-gray-500 font-semibold">Crash Event</th>
-                    <th className="py-2 pr-4 text-gray-500 font-semibold">Year</th>
+                    <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Crash Event</th>
+                    <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Year</th>
                     <th className="py-2 pr-4 text-[#991B1B] font-semibold">Nifty Drop</th>
-                    <th className="py-2 pr-4 text-gray-500 font-semibold">Recovery Time</th>
-                    <th className="py-2 text-[#1B3A5C] font-semibold">SIP Outcome</th>
+                    <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Recovery Time</th>
+                    <th className="py-2 text-[var(--color-accent)] font-semibold">SIP Outcome</th>
                   </tr>
                 </thead>
-                <tbody className="text-gray-500">
+                <tbody className="text-gray-500 dark:text-gray-400">
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 text-[#1F2937]">Dot-com bust</td>
+                    <td className="py-3 pr-4 text-foreground">Dot-com bust</td>
                     <td className="py-3 pr-4">2000-01</td>
                     <td className="py-3 pr-4 text-[#991B1B] font-semibold">−56%</td>
                     <td className="py-3 pr-4">~3 years</td>
                     <td className="py-3">SIP investors 2.5× wealthier than those who stopped</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 text-[#1F2937]">Global Financial Crisis</td>
+                    <td className="py-3 pr-4 text-foreground">Global Financial Crisis</td>
                     <td className="py-3 pr-4">2008-09</td>
                     <td className="py-3 pr-4 text-[#991B1B] font-semibold">−60%</td>
                     <td className="py-3 pr-4">~18 months</td>
                     <td className="py-3">SIP investors recovered 6 months faster than lumpsum</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 text-[#1F2937]">COVID-19 Crash</td>
+                    <td className="py-3 pr-4 text-foreground">COVID-19 Crash</td>
                     <td className="py-3 pr-4">2020</td>
                     <td className="py-3 pr-4 text-[#991B1B] font-semibold">−38%</td>
                     <td className="py-3 pr-4">~5 months</td>
                     <td className="py-3">SIP investors reached all-time high portfolio values within 9 months</td>
                   </tr>
                   <tr>
-                    <td className="py-3 pr-4 text-[#1F2937]">Russia-Ukraine War</td>
+                    <td className="py-3 pr-4 text-foreground">Russia-Ukraine War</td>
                     <td className="py-3 pr-4">2022</td>
                     <td className="py-3 pr-4 text-[#991B1B] font-semibold">−17%</td>
                     <td className="py-3 pr-4">~4 months</td>
@@ -459,14 +459,14 @@ export default function SipDuringCrashPage() {
           {/* Educational Content */}
           <div className="glass-panel p-6 space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-[#1F2937] mb-3 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                 <AlertTriangle className="w-5 h-5 text-[#991B1B]" /> Why Stopping SIP During a Crash is the Worst Mistake
               </h2>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
                 When the stock market crashes, the natural human instinct is to stop investing to "prevent further losses". 
                 However, a SIP does not lock in your losses — it simply buys units at the current market price.
               </p>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 By stopping your SIP during a crash, you miss out on accumulating mutual fund units at their lowest possible price. 
                 When the market eventually rebounds (which it historically always has), the investors who continued their SIPs 
                 see explosive growth because they hold significantly more units bought at discount prices.
@@ -474,8 +474,8 @@ export default function SipDuringCrashPage() {
             </div>
             
             <div>
-              <h2 className="text-xl font-bold text-[#1F2937] mb-3">Time in the Market {">"} Timing the Market</h2>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <h2 className="text-xl font-bold text-foreground mb-3">Time in the Market {">"} Timing the Market</h2>
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 Nobody can accurately predict when a crash will hit the exact bottom. If you stop your SIP and try to wait 
                 for the "perfect time" to re-enter, you will likely miss the sharpest recovery days, which account for the majority 
                 of long-term market returns. The best strategy is automation: let your SIP run regardless of market news.
@@ -485,14 +485,14 @@ export default function SipDuringCrashPage() {
 
           {/* FAQs */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
             <div className="space-y-4">
               {jsonLd.mainEntity.map((faq, i) => (
                 <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
-                  <h3 className="text-[#1F2937] font-medium text-sm flex items-start gap-2">
-                    <HelpCircle className="w-4 h-4 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                  <h3 className="text-foreground font-medium text-sm flex items-start gap-2">
+                    <HelpCircle className="w-4 h-4 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
                   </h3>
-                  <p className="text-gray-500 text-sm mt-2 ml-6">{faq.acceptedAnswer.text}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-6">{faq.acceptedAnswer.text}</p>
                 </div>
               ))}
             </div>
@@ -500,19 +500,19 @@ export default function SipDuringCrashPage() {
 
           {/* Cross Links */}
           <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(153,27,27,0.1)] to-[rgba(27,58,92,0.08)]">
-            <h2 className="text-lg font-bold text-[#1F2937] mb-4">Explore More Strategies</h2>
+            <h2 className="text-lg font-bold text-foreground mb-4">Explore More Strategies</h2>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/blog/sip-vs-lumpsum" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/blog/sip-vs-lumpsum" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 SIP vs Lumpsum <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 SIP Calculator
               </Link>
-              <Link href="/retirement-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/retirement-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 Retirement Calculator
               </Link>
             </div>
-            <p className="text-xs text-gray-500 mt-6">Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related documents carefully.</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-6">Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related documents carefully.</p>
           </div>
 
         </article>

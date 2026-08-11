@@ -46,12 +46,12 @@ export default function DisclaimerPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.08)] to-transparent pointer-events-none" />
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-3">
-              <div className="bg-[rgba(27,58,92,0.2)] border border-[#1B3A5C] p-2.5 rounded-xl">
-                <Shield className="w-6 h-6 text-[#1B3A5C]" />
+              <div className="bg-[rgba(27,58,92,0.2)] border border-[var(--color-accent)] p-2.5 rounded-xl">
+                <Shield className="w-6 h-6 text-[var(--color-accent)]" />
               </div>
-              <h1 className="text-2xl font-extrabold text-[#1F2937]">Disclaimer &amp; Formula Methodology</h1>
+              <h1 className="text-2xl font-extrabold text-foreground">Disclaimer &amp; Formula Methodology</h1>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
               StepupCalculator is committed to transparency. This page documents exactly which
               mathematical formulas each calculator uses, the industry standard they follow,
               and the financial disclaimer that applies to all results.
@@ -63,11 +63,11 @@ export default function DisclaimerPage() {
         <div className="glass-panel p-6">
           <div className="flex items-start gap-3 mb-4">
             <AlertTriangle className="w-5 h-5 text-[#059669] flex-shrink-0 mt-0.5" />
-            <h2 className="text-xl font-bold text-[#1F2937]">Financial Disclaimer</h2>
+            <h2 className="text-xl font-bold text-foreground">Financial Disclaimer</h2>
           </div>
-          <div className="space-y-3 text-sm text-gray-500 leading-relaxed">
+          <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
             <p>
-              All calculators on StepupCalculator.com are provided for <strong className="text-[#1F2937]">
+              All calculators on StepupCalculator.com are provided for <strong className="text-foreground">
               educational and illustrative purposes only</strong>. They do not constitute financial
               advice, investment recommendations, or any form of professional financial consultation.
             </p>
@@ -81,7 +81,7 @@ export default function DisclaimerPage() {
               adviser or certified financial planner who can assess your individual financial situation,
               risk tolerance, and goals.
             </p>
-            <p className="text-gray-500 text-xs">
+            <p className="text-gray-500 dark:text-gray-400 text-xs">
               StepupCalculator.com is not affiliated with SEBI, AMFI, any mutual fund house, bank,
               brokerage, or financial institution.
             </p>
@@ -90,8 +90,8 @@ export default function DisclaimerPage() {
 
         {/* Formula Methodology Table */}
         <div className="glass-panel p-6">
-          <h2 className="text-xl font-bold text-[#1F2937] mb-2">Formula Methodology</h2>
-          <p className="text-gray-500 text-xs mb-5 leading-relaxed">
+          <h2 className="text-xl font-bold text-foreground mb-2">Formula Methodology</h2>
+          <p className="text-gray-500 dark:text-gray-400 text-xs mb-5 leading-relaxed">
             Different calculators across the internet (Groww, SBI Securities, ET Money) may produce
             slightly different results for the same inputs. This is because they use different
             formula conventions — APR vs EAR, beginning-of-month vs end-of-month SIP timing.
@@ -100,22 +100,22 @@ export default function DisclaimerPage() {
           <div className="space-y-4">
             {METHODOLOGY.map(({ tool, convention, timing, standard, note }) => (
               <div key={tool} className="p-4 rounded-xl bg-white border border-[#E8E4DF]">
-                <p className="text-[#1F2937] font-semibold text-sm mb-2">{tool}</p>
+                <p className="text-foreground font-semibold text-sm mb-2">{tool}</p>
                 <div className="space-y-1 text-xs">
                   <div className="flex gap-2">
-                    <span className="text-gray-500 w-28 flex-shrink-0">Rate convention:</span>
-                    <span className="text-gray-600">{convention}</span>
+                    <span className="text-gray-500 dark:text-gray-400 w-28 flex-shrink-0">Rate convention:</span>
+                    <span className="text-gray-600 dark:text-gray-400">{convention}</span>
                   </div>
                   <div className="flex gap-2">
-                    <span className="text-gray-500 w-28 flex-shrink-0">SIP timing:</span>
-                    <span className="text-gray-600">{timing}</span>
+                    <span className="text-gray-500 dark:text-gray-400 w-28 flex-shrink-0">SIP timing:</span>
+                    <span className="text-gray-600 dark:text-gray-400">{timing}</span>
                   </div>
                   <div className="flex gap-2">
-                    <span className="text-gray-500 w-28 flex-shrink-0">Standard:</span>
+                    <span className="text-gray-500 dark:text-gray-400 w-28 flex-shrink-0">Standard:</span>
                     <span className="text-[#0D9488]">{standard}</span>
                   </div>
                   <div className="flex gap-2 pt-1 border-t border-[#E8E4DF] mt-1">
-                    <span className="text-gray-600">{note}</span>
+                    <span className="text-gray-600 dark:text-gray-400">{note}</span>
                   </div>
                 </div>
               </div>
@@ -125,11 +125,11 @@ export default function DisclaimerPage() {
 
         {/* Why results differ from other calculators */}
         <div className="glass-panel p-6">
-          <h2 className="text-xl font-bold text-[#1F2937] mb-3">Why Do Results Differ Across Calculators?</h2>
-          <div className="space-y-3 text-sm text-gray-500 leading-relaxed">
+          <h2 className="text-xl font-bold text-foreground mb-3">Why Do Results Differ Across Calculators?</h2>
+          <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
             <p>
               If you enter the same inputs on Groww, SBI Securities, and StepupCalculator, you may
-              get slightly different final values. This is <strong className="text-[#1F2937]">not an error</strong> —
+              get slightly different final values. This is <strong className="text-foreground">not an error</strong> —
               it is a consequence of different mathematical conventions:
             </p>
             <ul className="space-y-2 pl-4">
@@ -139,13 +139,13 @@ export default function DisclaimerPage() {
                 'Rounding: Monthly rounding of intermediate values accumulates over 10–30 years.',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <CheckCircle className="w-3.5 h-3.5 text-[#1B3A5C] flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-3.5 h-3.5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             <p>
-              StepupCalculator uses <strong className="text-[#1F2937]">APR + beginning-of-month SIP</strong>,
+              StepupCalculator uses <strong className="text-foreground">APR + beginning-of-month SIP</strong>,
               which is the convention used by SEBI/AMFI for Indian mutual fund SIP illustrations and
               is the most common standard in the Indian financial industry.
             </p>
@@ -154,7 +154,7 @@ export default function DisclaimerPage() {
 
         {/* Navigation */}
         <div className="glass-panel p-5 bg-gradient-to-r from-[rgba(27,58,92,0.08)] to-transparent">
-          <p className="text-gray-500 text-sm mb-3 text-center">Try our free calculators</p>
+          <p className="text-gray-500 dark:text-gray-400 text-sm mb-3 text-center">Try our free calculators</p>
           <div className="flex flex-wrap justify-center gap-3">
             {[
               { href: '/', label: 'SIP Calculator', icon: <Calculator className="w-3.5 h-3.5" /> },
@@ -164,7 +164,7 @@ export default function DisclaimerPage() {
               <Link
                 key={href}
                 href={href}
-                className="inline-flex items-center gap-1.5 text-[#1B3A5C] hover:text-[#1F2937] border border-[#1B3A5C]/30 hover:border-[#1B3A5C] px-4 py-2 rounded-lg text-xs font-medium transition-all"
+                className="inline-flex items-center gap-1.5 text-[var(--color-accent)] hover:text-foreground border border-[var(--color-accent)]/30 hover:border-[var(--color-accent)] px-4 py-2 rounded-lg text-xs font-medium transition-all"
               >
                 {icon}{label}<ArrowRight className="w-3 h-3" />
               </Link>

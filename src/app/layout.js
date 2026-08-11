@@ -1,6 +1,7 @@
 import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -58,15 +59,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geist.variable} ${playfair.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        {/* ── Sticky branded header ── */}
-        <Header />
+    <html lang="en" suppressHydrationWarning className={`${geist.variable} ${playfair.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          {/* ── Sticky branded header ── */}
+          <Header />
 
-        {/* ── Page content, centred & max-width constrained ── */}
-        <div className="page-wrapper">
-          {children}
-        </div>
+          {/* ── Page content, centred & max-width constrained ── */}
+          <div className="page-wrapper">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

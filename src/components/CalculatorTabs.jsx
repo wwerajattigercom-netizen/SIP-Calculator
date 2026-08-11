@@ -19,7 +19,7 @@ export default function CalculatorTabs() {
 
   return (
     <div className="flex justify-center mb-6 w-full overflow-hidden">
-      <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-4xl bg-white border-[rgba(0,0,0,0.05)] overflow-x-auto hide-scrollbar gap-1">
+      <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-4xl bg-white dark:bg-[var(--panel-bg)] border-black/5 dark:border-white/10 overflow-x-auto hide-scrollbar gap-1">
         {TABS.map(({ href, label, Icon }) => {
           // Highlight the Guides tab for all /blog/... routes
           const active = href === '/blog' ? pathname.startsWith('/blog') : pathname === href;
@@ -29,8 +29,8 @@ export default function CalculatorTabs() {
               href={href}
               className={`flex-1 min-w-[105px] sm:min-w-[110px] flex flex-nowrap items-center justify-center py-2 px-2 sm:px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 active
-                  ? 'bg-[#1B3A5C] text-white shadow-md'
-                  : 'text-[#6B7280] hover:text-[#1F2937] hover:bg-[rgba(27,58,92,0.05)]'
+                  ? 'bg-[var(--color-accent)] text-white shadow-md'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5'
               }`}
             >
               <Icon className="w-3.5 h-3.5 mr-1 flex-shrink-0" />

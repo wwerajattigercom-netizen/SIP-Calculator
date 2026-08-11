@@ -143,17 +143,17 @@ export default function Home() {
 
           {/* Header */}
           <div className="flex flex-col mb-6 mt-4">
-            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-foreground mb-2">
               SIP Calculator with Step Up, Inflation & Lump Sum
             </h1>
-            <p className="text-gray-600 max-w-3xl">
+            <p className="text-gray-600 dark:text-gray-400 max-w-3xl">
               Calculate the future value of your SIP investments with advanced options like step-up and inflation adjustments.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
             {/* Input Section */}
-            <div className="lg:col-span-6 xl:col-span-5 glass-panel p-5 lg:p-6 relative">
+            <div className="lg:col-span-6 xl:col-span-5 glass-panel p-4 lg:p-5 relative">
               <InputSlider label="Monthly SIP Amount" value={state.monthlySip} onChange={setters.setMonthlySip} min={500} max={1000000} step={500} prefix="₹" />
               <InputSlider label="Time Period" value={state.timePeriod} onChange={setters.setTimePeriod} min={1} max={50} step={1} suffix="Yr" />
               <InputSlider label="Expected Return Rate (p.a)" value={state.returnRate} onChange={setters.setReturnRate} min={1} max={25} step={0.1} suffix="%" />
@@ -162,11 +162,11 @@ export default function Home() {
               <InputSlider label="Expected Inflation Rate" value={state.inflationRate} onChange={setters.setInflationRate} min={0} max={15} step={0.1} suffix="%" />
 
               {/* Internal backlink to goal calculator */}
-              <div className="mt-4 pt-4 border-t border-white border-opacity-10">
-                <p className="text-gray-500 text-xs mb-2">Also try:</p>
+              <div className="mt-4 pt-4 border-t border-black/5 dark:border-white/10">
+                <p className="text-gray-500 dark:text-gray-400 text-xs mb-2">Also try:</p>
                 <Link
                   href="/target-amount-calculator"
-                  className="flex items-center gap-2 text-[#1B3A5C] text-xs hover:text-[#1F2937] transition-colors group"
+                  className="flex items-center gap-2 text-[var(--color-accent)] text-xs hover:text-foreground transition-colors group"
                   id="link-goal-sip-calculator"
                 >
                   <Target className="w-3.5 h-3.5" />
@@ -190,38 +190,38 @@ export default function Home() {
         {/* ── HOW TO USE ── */}
         <section id="how-to-use" aria-label="How to use the SIP calculator">
           <div className="flex items-center gap-3 mb-8">
-            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
-              <Info className="w-5 h-5 text-[#1B3A5C]" />
+            <div className="bg-[var(--color-accent)] bg-opacity-20 dark:bg-opacity-10 border border-[var(--color-accent)] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[var(--color-accent)]" />
             </div>
-            <h2 className="text-2xl font-bold text-[#1F2937]">How to Use This Calculator</h2>
+            <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {HOW_TO_STEPS.map(({ step, title, desc }) => (
               <div key={step} className="glass-panel p-5 flex gap-4">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
                   {step}
                 </div>
                 <div>
-                  <p className="text-[#1F2937] font-semibold mb-1 text-sm">{title}</p>
-                  <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
+                  <p className="text-foreground font-semibold mb-1 text-sm">{title}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">{desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Disclaimer */}
-          <p className="mt-6 text-[11px] text-gray-500 leading-relaxed border border-gray-700 rounded-lg px-4 py-3">
-            ⚠️ <strong className="text-gray-500">Disclaimer:</strong> This calculator provides illustrative projections only. Actual investment returns are subject to market risk and may be higher or lower. Past performance does not guarantee future results. Please read all relevant fund documents carefully and consult a qualified financial advisor before investing.
+          <p className="mt-6 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed border border-black/10 dark:border-white/10 rounded-lg px-4 py-3">
+            ⚠️ <strong className="text-gray-500 dark:text-gray-400">Disclaimer:</strong> This calculator provides illustrative projections only. Actual investment returns are subject to market risk and may be higher or lower. Past performance does not guarantee future results. Please read all relevant fund documents carefully and consult a qualified financial advisor before investing.
           </p>
         </section>
 
         {/* ── FAQ ── */}
         <section id="faq" aria-label="Frequently Asked Questions">
           <div className="flex items-center gap-3 mb-8">
-            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
-              <HelpCircle className="w-5 h-5 text-[#1B3A5C]" />
+            <div className="bg-[var(--color-accent)] bg-opacity-20 dark:bg-opacity-10 border border-[var(--color-accent)] p-2 rounded-xl">
+              <HelpCircle className="w-5 h-5 text-[var(--color-accent)]" />
             </div>
-            <h2 className="text-2xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
           </div>
           <div className="space-y-3">
             {FAQS.map(({ q, a }, i) => (
@@ -232,13 +232,13 @@ export default function Home() {
                   id={`faq-${i}`}
                   aria-expanded={openFaq === i}
                 >
-                  <span className="text-[#1F2937] font-medium text-sm pr-4">{q}</span>
+                  <span className="text-foreground font-medium text-sm pr-4">{q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#1B3A5C] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
+                    className={`w-4 h-4 text-[var(--color-accent)] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
                   />
                 </button>
                 {openFaq === i && (
-                  <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">
+                  <div className="px-4 pb-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed border-t border-black/5 dark:border-white/10 pt-3">
                     {a}
                   </div>
                 )}
@@ -251,27 +251,27 @@ export default function Home() {
         <section id="about" aria-label="About the creator">
           <div className="glass-panel p-8 text-center relative overflow-hidden">
             {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.08)] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)] to-transparent opacity-10 pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="w-12 h-12 rounded-full bg-[#1B3A5C] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-white shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-[var(--color-accent)] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-white shadow-sm">
                 R
               </div>
-              <h2 className="text-xs font-semibold text-gray-500 mb-1">Built by <span className="text-[#1B3A5C] font-bold text-sm">Rajat</span></h2>
-              <p className="text-gray-500 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
+              <h2 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Built by <span className="text-[var(--color-accent)] font-bold text-sm">Rajat</span></h2>
+              <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
                 Built to fill a gap — one free calculator combining SIP, step-up, lump sum, and inflation adjustment on a single page, updating in real time.
               </p>
               <a
                 href="mailto:businesswebsitestudio@gmail.com"
-                className="inline-flex items-center gap-2 bg-[#1B3A5C] text-white hover:bg-[#112740] transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
+                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white hover:opacity-90 transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
               >
                 <Mail className="w-4 h-4" />
                 businesswebsitestudio@gmail.com
               </a>
-              <p className="text-gray-600 text-[10px] mt-4">
+              <p className="text-gray-600 dark:text-gray-400 text-[10px] mt-4">
                 For business queries, collaborations, or feedback
               </p>
-              <p className="text-gray-700 text-[10px] mt-2">
+              <p className="text-gray-500 dark:text-gray-500 dark:text-gray-400 text-[10px] mt-2">
                 © {new Date().getFullYear()} Rajat
               </p>
             </div>

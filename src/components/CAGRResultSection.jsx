@@ -62,13 +62,13 @@ export default function CAGRResultSection({ results }) {
   };
 
   return (
-    <div className="glass-panel p-5 lg:p-6 flex flex-col h-full relative overflow-hidden">
+    <div className="glass-panel p-4 lg:p-5 flex flex-col h-full relative overflow-hidden">
       {/* Glow */}
       
 
       {/* ── CAGR hero badge ── */}
       <div className="flex flex-col items-center mb-4 relative z-10">
-        <p className="text-gray-500 text-[10px] tracking-widest uppercase mb-2">
+        <p className="text-gray-500 dark:text-gray-400 text-[10px] tracking-widest uppercase mb-2">
           {monthlySip > 0 ? 'Effective CAGR (Lump Sum + SIP)' : 'CAGR'}
         </p>
         <div
@@ -96,8 +96,8 @@ export default function CAGRResultSection({ results }) {
           <Doughnut data={pieData} options={pieOptions} />
           {/* Centre label */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-            <span className="text-[10px] text-gray-500">Final Value</span>
-            <span className="text-base font-extrabold text-[#1F2937] leading-tight">{fmt(finalValue)}</span>
+            <span className="text-[10px] text-gray-500 dark:text-gray-400">Final Value</span>
+            <span className="text-base font-extrabold text-foreground leading-tight">{fmt(finalValue)}</span>
             <span className="text-[9px] text-[#6B7280]">{formatToShortWords(finalValue)}</span>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function CAGRResultSection({ results }) {
           {pieLabels.map((label, i) => (
             <div key={label} className="flex items-center gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: pieColors[i] }} />
-              <span className="text-gray-500">{label}</span>
+              <span className="text-gray-500 dark:text-gray-400">{label}</span>
             </div>
           ))}
         </div>
@@ -117,8 +117,8 @@ export default function CAGRResultSection({ results }) {
       <div className="grid grid-cols-3 gap-2 relative z-10">
 
         {/* Gain */}
-        <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-          <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold font-medium">
+        <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+          <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold font-medium">
             <Zap className="w-3 h-3 mr-1" />
             Gain ({gainPct}%)
           </div>
@@ -131,34 +131,34 @@ export default function CAGRResultSection({ results }) {
         </div>
 
         {/* Total Invested */}
-        <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-          <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold">
-            <div className="w-2 h-2 rounded-full bg-[#1B3A5C] mr-1.5" />
+        <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+          <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
+            <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mr-1.5" />
             Invested
           </div>
-          <div className="text-sm font-extrabold text-[#1B3A5C]">{fmt(totalInvested)}</div>
-          <div className="text-[9px] text-gray-500 mt-0.5 tracking-wide">{formatToShortWords(totalInvested)}</div>
+          <div className="text-sm font-extrabold text-[var(--color-accent)]">{fmt(totalInvested)}</div>
+          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(totalInvested)}</div>
         </div>
 
         {/* Duration */}
-        <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-          <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold">
+        <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+          <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
             <Coins className="w-3 h-3 mr-1" />
             Duration
           </div>
-          <div className="text-sm font-bold text-[#1F2937]">{duration} Yr</div>
-          <div className="text-[9px] text-gray-500 mt-0.5 tracking-wide">{duration * 12} months</div>
+          <div className="text-sm font-bold text-foreground">{duration} Yr</div>
+          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{duration * 12} months</div>
         </div>
 
         {/* SIP total strip — only when SIP is set */}
         {monthlySip > 0 && (
           <div className="col-span-3 mt-1 bg-[rgba(167,139,250,0.1)] border border-[rgba(167,139,250,0.3)] rounded-lg px-3 py-2 flex items-center justify-between">
             <div>
-              <p className="text-[#1B3A5C] text-[10px] font-semibold">Monthly SIP Contribution</p>
-              <p className="text-gray-500 text-[9px]">{fmt(monthlySip)}/mo × {duration * 12} months</p>
+              <p className="text-[var(--color-accent)] text-[10px] font-semibold">Monthly SIP Contribution</p>
+              <p className="text-gray-500 dark:text-gray-400 text-[9px]">{fmt(monthlySip)}/mo × {duration * 12} months</p>
             </div>
             <div className="text-right">
-              <div className="text-sm font-bold text-[#1F2937]">{fmt(sipContributions)}</div>
+              <div className="text-sm font-bold text-foreground">{fmt(sipContributions)}</div>
               <div className="text-[9px] text-[#6B7280]">{formatToShortWords(sipContributions)}</div>
             </div>
           </div>

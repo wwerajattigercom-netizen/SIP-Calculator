@@ -26,20 +26,28 @@ ChartJS.register(
   Title
 );
 
+import { useTheme } from 'next-themes';
+
 // Speed badge color: fastest = most green, slowest = most red/orange
-function speedColor(idx, total) {
-  if (idx === 0) return { bg: 'rgba(196,153,60,0.15)', border: 'rgba(196,153,60,0.4)', text: '#fb923c' };
-  if (idx === total - 1) return { bg: 'rgba(13,148,136,0.15)', border: 'rgba(13,148,136,0.4)', text: '#4ade80' };
-  return { bg: 'rgba(27,58,92,0.15)', border: 'rgba(27,58,92,0.4)', text: '#1B3A5C' };
+function speedColor(idx, total, isDark) {
+  if (idx === 0) return { bg: isDark ? 'rgba(196,153,60,0.2)' : 'rgba(196,153,60,0.15)', border: 'rgba(196,153,60,0.4)', text: '#fb923c' };
+  if (idx === total - 1) return { bg: isDark ? 'rgba(16,185,129,0.2)' : 'rgba(13,148,136,0.15)', border: 'rgba(13,148,136,0.4)', text: '#4ade80' };
+  return { bg: isDark ? 'rgba(59,130,246,0.2)' : 'rgba(27,58,92,0.15)', border: isDark ? 'rgba(59,130,246,0.4)' : 'rgba(27,58,92,0.4)', text: isDark ? '#60A5FA' : '#1B3A5C' };
 }
 
 export default function ChartComponent({ results }) {
   const [chartType, setChartType] = useState('pie'); // 'pie' | 'line' | 'milestones'
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  React.useEffect(() => setMounted(true), []);
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+  const isDark = mounted && currentTheme === 'dark';
 
-  const colorInvested = '#1B3A5C';
+  const colorInvested = isDark ? '#3B82F6' : '#1B3A5C';
   const colorReturns = '#C4993C';
-  const colorGrid = 'rgba(0,0,0,0.05)';
-  const colorText = '#6B7280';
+  const colorGrid = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
+  const colorText = isDark ? '#9CA3AF' : '#6B7280';
 
   const pieData = {
     labels: ['Invested Amount', 'Est. Returns'],
@@ -47,7 +55,7 @@ export default function ChartComponent({ results }) {
       {
         data: [results.totalInvested, results.amountEarned],
         backgroundColor: [colorInvested, colorReturns],
-        borderColor: ['#FFFFFF', '#FFFFFF'],
+        borderColor: isDark ? ['#242427', '#242427'] : ['#FFFFFF', '#FFFFFF'],
         borderWidth: 4,
         hoverOffset: 4,
       },
@@ -133,7 +141,7 @@ export default function ChartComponent({ results }) {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       {/* Tab bar */}
-      <div className="flex bg-[rgba(0,0,0,0.03)] p-1 rounded-lg mb-2 w-full max-w-[320px]">
+      <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-lg mb-2 w-full max-w-[320px]">
         {[
           { key: 'pie', label: 'Pie Chart' },
           { key: 'line', label: 'Line Chart' },
@@ -143,8 +151,8 @@ export default function ChartComponent({ results }) {
             key={key}
             className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
               chartType === key
-                ? 'bg-[#1B3A5C] text-white shadow-lg'
-                : 'text-gray-500 hover:text-[#1F2937]'
+                ? 'bg-[var(--color-accent)] text-white shadow-lg'
+                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'
             }`}
             onClick={() => setChartType(key)}
           >
@@ -154,14 +162,14 @@ export default function ChartComponent({ results }) {
       </div>
 
       {/* Content area */}
-      <div className="relative w-full flex-1 min-h-[220px] flex justify-center items-center overflow-hidden">
+      <div className="relative w-full flex-1 min-h-[180px] flex justify-center items-center overflow-hidden">
 
         {chartType === 'pie' && (
           <>
             <Doughnut data={pieData} options={pieOptions} />
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-xs text-gray-500 font-medium">Total Value</span>
-              <span className="text-lg md:text-xl font-bold text-[#1F2937]">
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">Total Value</span>
+              <span className="text-lg md:text-xl font-bold text-foreground">
                 ₹{results.actualAmount.toLocaleString('en-IN')}
               </span>
             </div>
@@ -175,37 +183,37 @@ export default function ChartComponent({ results }) {
         {chartType === 'milestones' && (
           <div className="w-full h-full absolute inset-0 flex flex-col px-1 py-1">
             {milestones.length === 0 ? (
-              <div className="flex flex-col items-center justify-center h-full text-center text-gray-500 text-sm">
-                <Zap className="w-8 h-8 mb-2 text-gray-600" />
+              <div className="flex flex-col items-center justify-center h-full text-center text-gray-500 dark:text-gray-400 text-sm">
+                <Zap className="w-8 h-8 mb-2 text-gray-600 dark:text-gray-400" />
                 <p>Increase the time period or SIP amount<br />to see crore milestones.</p>
               </div>
             ) : (
               <>
                 {/* Header */}
-                <p className="text-[10px] text-gray-500 text-center mb-2 flex-shrink-0">
-                  Each crore arrives <span className="text-[#1B3A5C] font-semibold">faster</span> — the compounding acceleration effect.
+                <p className="text-[10px] text-gray-500 dark:text-gray-400 text-center mb-2 flex-shrink-0">
+                  Each crore arrives <span className="text-[var(--color-accent)] font-semibold">faster</span> — the compounding acceleration effect.
                 </p>
 
                 {/* Scrollable table wrapper */}
-                <div className="flex-1 overflow-y-auto min-h-0 rounded-lg border border-white border-opacity-5">
+                <div className="flex-1 overflow-y-auto min-h-0 rounded-lg border border-black/5 dark:border-white/10">
                   <table className="w-full text-xs border-collapse">
-                    <thead className="sticky top-0 bg-[#F8F6F3] z-10">
-                      <tr className="border-b border-white border-opacity-10">
-                        <th className="text-left text-gray-500 font-medium py-2 pr-2 pl-2">Milestone</th>
-                        <th className="text-center text-gray-500 font-medium py-2 px-2">Reached At</th>
-                        <th className="text-center text-gray-500 font-medium py-2 px-2">Time Taken</th>
-                        <th className="text-right text-gray-500 font-medium py-2 pl-2 pr-2">Pace</th>
+                    <thead className="sticky top-0 bg-[var(--background)] z-10">
+                      <tr className="border-b border-black/5 dark:border-white/10">
+                        <th className="text-left text-gray-500 dark:text-gray-400 font-medium py-2 pr-2 pl-2">Milestone</th>
+                        <th className="text-center text-gray-500 dark:text-gray-400 font-medium py-2 px-2">Reached At</th>
+                        <th className="text-center text-gray-500 dark:text-gray-400 font-medium py-2 px-2">Time Taken</th>
+                        <th className="text-right text-gray-500 dark:text-gray-400 font-medium py-2 pl-2 pr-2">Pace</th>
                       </tr>
                     </thead>
                     <tbody>
                       {milestones.map((m, i) => {
-                        const colors = speedColor(i, milestones.length);
+                        const colors = speedColor(i, milestones.length, isDark);
                         const isFastest = i === milestones.length - 1 && milestones.length > 1;
                         const isSlowest = i === 0;
                         return (
                           <tr
                             key={i}
-                            className="border-b border-white border-opacity-5 hover:bg-white hover:bg-opacity-5 transition-colors"
+                            className="border-b border-black/5 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                           >
                             <td className="py-2 pr-2 pl-2">
                               <div className="flex items-center gap-1.5">
@@ -215,10 +223,10 @@ export default function ChartComponent({ results }) {
                                 >
                                   {m.crore}
                                 </div>
-                                <span className="text-[#1F2937] font-semibold">₹{m.crore} Cr</span>
+                                <span className="text-foreground font-semibold">₹{m.crore} Cr</span>
                               </div>
                             </td>
-                            <td className="py-2 px-2 text-center text-gray-600">Yr {m.yearReached.toFixed(1)}</td>
+                            <td className="py-2 px-2 text-center text-gray-600 dark:text-gray-400">Yr {m.yearReached.toFixed(1)}</td>
                             <td className="py-2 px-2 text-center">
                               <span
                                 className="px-2 py-0.5 rounded-full text-[10px] font-semibold"
@@ -229,15 +237,15 @@ export default function ChartComponent({ results }) {
                             </td>
                             <td className="py-2 pl-2 pr-2 text-right">
                               {isSlowest && milestones.length > 1 && (
-                                <span className="text-[9px] text-[#059669] font-medium">Slowest</span>
+                                <span className="text-[9px] text-[var(--color-returns)] font-medium">Slowest</span>
                               )}
                               {isFastest && (
-                                <span className="text-[9px] text-[#0D9488] font-medium flex items-center justify-end gap-0.5">
+                                <span className="text-[9px] text-[var(--color-returns)] font-medium flex items-center justify-end gap-0.5">
                                   <Zap className="w-2.5 h-2.5" />Fastest
                                 </span>
                               )}
                               {!isSlowest && !isFastest && (
-                                <span className="text-[9px] text-[#1B3A5C]">
+                                <span className="text-[9px] text-[var(--color-accent)]">
                                   {i === 1 ? '2× faster' : `${i + 1}× faster`}
                                 </span>
                               )}

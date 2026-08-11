@@ -241,10 +241,10 @@ export default function CostOfDelayCalculatorPage() {
 
           {/* Page heading */}
           <div className="flex flex-col mb-6 mt-4">
-            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-foreground mb-2">
               Cost of Delay Calculator — See What Waiting Costs You
             </h1>
-            <p className="text-gray-600 max-w-3xl">
+            <p className="text-gray-600 dark:text-gray-400 max-w-3xl">
               Discover the devastating impact of delaying your SIP investments. See how much wealth you lose by waiting and find out exactly how much extra you'll need to invest to catch up.
             </p>
           </div>
@@ -260,14 +260,14 @@ export default function CostOfDelayCalculatorPage() {
               <InputSlider label="Delay Period" value={delay} onChange={setDelay} min={1} max={15} step={1} suffix="Yr" />
 
               {/* Summary Labels */}
-              <div className="mt-5 space-y-2 text-xs text-gray-500">
+              <div className="mt-5 space-y-2 text-xs text-gray-500 dark:text-gray-400">
                 <div className="flex justify-between border-b border-[#E8E4DF] pb-1">
                   <span>Start Now Horizon</span>
-                  <span className="text-gray-600 font-medium">{years} years</span>
+                  <span className="text-gray-600 dark:text-gray-400 font-medium">{years} years</span>
                 </div>
                 <div className="flex justify-between border-b border-[#E8E4DF] pb-1">
                   <span>Start Late Horizon</span>
-                  <span className="text-gray-600 font-medium">{Math.max(0, years - delay)} years</span>
+                  <span className="text-gray-600 dark:text-gray-400 font-medium">{Math.max(0, years - delay)} years</span>
                 </div>
               </div>
             </div>
@@ -282,8 +282,8 @@ export default function CostOfDelayCalculatorPage() {
                   <div className="flex items-center text-green-700 font-semibold mb-2">
                     <TrendingUp className="w-5 h-5 mr-2" /> Start Now
                   </div>
-                  <div className="text-sm text-gray-600 mb-1">Final Corpus</div>
-                  <div className="text-3xl font-extrabold text-[#1F2937]">{toLabel(fvStartNow)}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Final Corpus</div>
+                  <div className="text-3xl font-extrabold text-foreground">{toLabel(fvStartNow)}</div>
                 </div>
 
                 {/* Start Late Card */}
@@ -291,8 +291,8 @@ export default function CostOfDelayCalculatorPage() {
                   <div className="flex items-center text-[#991B1B] font-semibold mb-2">
                     <Clock className="w-5 h-5 mr-2" /> Start {delay} Years Late
                   </div>
-                  <div className="text-sm text-gray-600 mb-1">Final Corpus</div>
-                  <div className="text-3xl font-extrabold text-[#1B3A5C]">{toLabel(fvStartLate)}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Final Corpus</div>
+                  <div className="text-3xl font-extrabold text-[var(--color-accent)]">{toLabel(fvStartLate)}</div>
                 </div>
               </div>
 
@@ -302,15 +302,15 @@ export default function CostOfDelayCalculatorPage() {
                   <AlertTriangle className="w-6 h-6 text-[#991B1B] mr-2" />
                   <h3 className="text-lg font-bold text-[#991B1B]">Cost of Delay</h3>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">You lose <strong className="text-[#991B1B]">{wealthLostPct.toFixed(1)}%</strong> of your potential wealth.</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">You lose <strong className="text-[#991B1B]">{wealthLostPct.toFixed(1)}%</strong> of your potential wealth.</p>
                 <div className="text-4xl md:text-5xl font-extrabold text-[#991B1B] drop-shadow-sm mb-4">
                   {toLabel(costOfDelay)}
                 </div>
-                <div className="bg-[#f8f2ea] rounded-lg p-3 inline-block">
-                  <p className="text-sm text-gray-700">
+                <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3 inline-block">
+                  <p className="text-sm text-gray-500 dark:text-gray-500">
                     To catch up, you'd need to invest <strong className="text-[#059669]">₹{Math.round(extraSIP + monthlySIP).toLocaleString('en-IN')}</strong>/month instead.
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                     That's an extra <strong className="text-[#059669]">₹{Math.round(extraSIP).toLocaleString('en-IN')}</strong> every month!
                   </p>
                 </div>
@@ -322,7 +322,7 @@ export default function CostOfDelayCalculatorPage() {
           {/* ── Chart Section ── */}
           <div className="mt-8 glass-panel p-5 lg:p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-[#1F2937]">Wealth Trajectory Comparison</h3>
+              <h3 className="text-xl font-bold text-foreground">Wealth Trajectory Comparison</h3>
               {/* Chart tab strip */}
               <div className="flex bg-[rgba(0,0,0,0.03)] p-1 rounded-lg w-48">
                 {[{ key: 'bar', label: 'Bar' }, { key: 'line', label: 'Line' }].map(({ key, label }) => (
@@ -330,7 +330,7 @@ export default function CostOfDelayCalculatorPage() {
                     key={key}
                     onClick={() => setChartTab(key)}
                     className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
-                      chartTab === key ? 'bg-[#1B3A5C] text-white shadow-lg' : 'text-gray-500 hover:text-[#1F2937]'
+                      chartTab === key ? 'bg-[var(--color-accent)] text-white shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-foreground'
                     }`}
                   >
                     {label}
@@ -346,20 +346,20 @@ export default function CostOfDelayCalculatorPage() {
 
             {/* Stat Cards Row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
-              <div className="bg-[#f8f2ea] rounded-lg p-3">
-                <div className="text-xs text-gray-500 mb-1">Start Now Corpus</div>
-                <div className="text-lg font-bold text-[#1F2937]">{toLabel(fvStartNow)}</div>
+              <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3">
+                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Start Now Corpus</div>
+                <div className="text-lg font-bold text-foreground">{toLabel(fvStartNow)}</div>
               </div>
-              <div className="bg-[#f8f2ea] rounded-lg p-3">
-                <div className="text-xs text-gray-500 mb-1">Start Late Corpus</div>
-                <div className="text-lg font-bold text-[#1B3A5C]">{toLabel(fvStartLate)}</div>
+              <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3">
+                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Start Late Corpus</div>
+                <div className="text-lg font-bold text-[var(--color-accent)]">{toLabel(fvStartLate)}</div>
               </div>
-              <div className="bg-[#f8f2ea] rounded-lg p-3">
-                <div className="text-xs text-gray-500 mb-1">Wealth Lost</div>
+              <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3">
+                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Wealth Lost</div>
                 <div className="text-lg font-bold text-[#991B1B]">{toLabel(costOfDelay)}</div>
               </div>
-              <div className="bg-[#f8f2ea] rounded-lg p-3">
-                <div className="text-xs text-gray-500 mb-1">Extra SIP Needed</div>
+              <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3">
+                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Extra SIP Needed</div>
                 <div className="text-lg font-bold text-[#059669]">+{fmtINR(extraSIP)}/mo</div>
               </div>
             </div>
@@ -368,10 +368,10 @@ export default function CostOfDelayCalculatorPage() {
           {/* ── FAQ ── */}
           <section id="faq" aria-label="Cost of delay frequently asked questions" className="mt-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
-                <HelpCircle className="w-5 h-5 text-[#1B3A5C]" />
+              <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
+                <HelpCircle className="w-5 h-5 text-[var(--color-accent)]" />
               </div>
-              <h2 className="text-2xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
               {FAQS.map(({ q, a }, i) => (
@@ -382,11 +382,11 @@ export default function CostOfDelayCalculatorPage() {
                     id={`delay-faq-${i}`}
                     aria-expanded={openFaq === i}
                   >
-                    <span className="text-[#1F2937] font-medium text-sm pr-4">{q}</span>
-                    <ChevronDown className={`w-4 h-4 text-[#1B3A5C] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
+                    <span className="text-foreground font-medium text-sm pr-4">{q}</span>
+                    <ChevronDown className={`w-4 h-4 text-[var(--color-accent)] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
                   </button>
                   {openFaq === i && (
-                    <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">{a}</div>
+                    <div className="px-4 pb-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed border-t border-black/5 dark:border-white/10 pt-3">{a}</div>
                   )}
                 </div>
               ))}
@@ -396,21 +396,21 @@ export default function CostOfDelayCalculatorPage() {
           {/* ── Related Tools ── */}
           <section id="related-calculators" aria-label="Related free financial calculators" className="mt-8 mb-6">
             <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
-              <h2 className="text-lg font-bold text-[#1F2937] mb-1 text-center">More Free Financial Calculators</h2>
-              <p className="text-gray-500 text-xs text-center mb-4">All tools free, real-time, no sign-up.</p>
+              <h2 className="text-lg font-bold text-foreground mb-1 text-center">More Free Financial Calculators</h2>
+              <p className="text-gray-500 dark:text-gray-400 text-xs text-center mb-4">All tools free, real-time, no sign-up.</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { href: '/', icon: <Calculator className="w-4 h-4 text-[#1B3A5C]" />, label: 'Step-Up SIP Calculator', desc: 'Monthly SIP with step-up & inflation' },
-                  { href: '/target-amount-calculator', icon: <Target className="w-4 h-4 text-[#1B3A5C]" />, label: 'SIP Goal Calculator', desc: 'Time to reach ₹1 Crore with SIP' },
-                  { href: '/lumpsum-calculator', icon: <TrendingUp className="w-4 h-4 text-[#1B3A5C]" />, label: 'Lumpsum Calculator', desc: 'One-time investment returns' },
+                  { href: '/', icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Step-Up SIP Calculator', desc: 'Monthly SIP with step-up & inflation' },
+                  { href: '/target-amount-calculator', icon: <Target className="w-4 h-4 text-[var(--color-accent)]" />, label: 'SIP Goal Calculator', desc: 'Time to reach ₹1 Crore with SIP' },
+                  { href: '/lumpsum-calculator', icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Lumpsum Calculator', desc: 'One-time investment returns' },
                 ].map(({ href, icon, label, desc }) => (
                   <Link key={href} href={href} className="flex items-start gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
                     <div className="bg-[rgba(27,58,92,0.15)] p-2 rounded-lg flex-shrink-0">{icon}</div>
                     <div>
-                      <p className="text-[#1F2937] font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">{label}</p>
-                      <p className="text-gray-500 text-xs">{desc}</p>
+                      <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">{label}</p>
+                      <p className="text-gray-500 dark:text-gray-400 text-xs">{desc}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#1B3A5C] ml-auto transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-[var(--color-accent)] ml-auto transition-colors flex-shrink-0" />
                   </Link>
                 ))}
               </div>

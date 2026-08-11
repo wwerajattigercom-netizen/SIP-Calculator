@@ -125,11 +125,11 @@ export default function SipForChildEducationPage() {
           <div className="glass-panel p-7 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.1)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-[10px] uppercase tracking-widest text-[#1B3A5C] font-semibold mb-3 block">Goal Planning · Education</span>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-[#1F2937] leading-tight mb-3">
+              <span className="text-[10px] uppercase tracking-widest text-[var(--color-accent)] font-semibold mb-3 block">Goal Planning · Education</span>
+              <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight mb-3">
                 SIP for Child Education  Calculator
               </h1>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 Education costs in India are rising at 10-12% every year. Use this calculator to find out exactly how much monthly SIP you need to secure your child&apos;s college fund.
               </p>
             </div>
@@ -140,7 +140,7 @@ export default function SipForChildEducationPage() {
             <AlertTriangle className="w-8 h-8 text-amber-500 flex-shrink-0" />
             <div>
               <h3 className="text-amber-500 font-bold text-lg mb-1">The Reality of Education Inflation</h3>
-              <p className="text-[#1F2937] text-sm leading-relaxed">
+              <p className="text-foreground text-sm leading-relaxed">
                 A course that costs <strong className="text-[#059669]">{fmt(todayCost)}</strong> today will cost <strong className="text-[#059669] text-lg">{fmt(results.futureCost)}</strong> in {results.years} years (assuming {educationInflation}% inflation). Start planning now.
               </p>
             </div>
@@ -151,7 +151,7 @@ export default function SipForChildEducationPage() {
             {/* Inputs */}
             <div className="md:col-span-5 space-y-6">
               <div className="glass-panel p-6">
-                <h3 className="text-[#1F2937] font-bold mb-4">Goal Details</h3>
+                <h3 className="text-foreground font-bold mb-4">Goal Details</h3>
                 <div className="space-y-5">
                   <InputSlider
                     label="Child's Current Age"
@@ -212,26 +212,26 @@ export default function SipForChildEducationPage() {
             <div className="md:col-span-7 space-y-4">
               <div className="glass-panel p-6">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                  <div className="bg-[#f8f2ea] border border-black/5 rounded-xl p-4 text-center">
-                    <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Target Corpus (Future Cost)</p>
-                    <p className="text-[#1F2937] font-bold text-xl">{fmt(results.futureCost)}</p>
+                  <div className="bg-black/5 dark:bg-white/5 border border-black/5 rounded-xl p-4 text-center">
+                    <p className="text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1">Target Corpus (Future Cost)</p>
+                    <p className="text-foreground font-bold text-xl">{fmt(results.futureCost)}</p>
                   </div>
-                  <div className="bg-[rgba(27,58,92,0.15)] border border-[#1B3A5C]/40 rounded-xl p-4 text-center shadow-[0_0_20px_rgba(27,58,92,0.1)]">
-                    <p className="text-gray-600 text-[10px] uppercase tracking-wider mb-1 font-semibold">Monthly SIP Needed</p>
-                    <p className="text-[#1B3A5C] font-extrabold text-2xl">{fmt(results.requiredSip)}</p>
+                  <div className="bg-[rgba(27,58,92,0.15)] border border-[var(--color-accent)]/40 rounded-xl p-4 text-center shadow-[0_0_20px_rgba(27,58,92,0.1)]">
+                    <p className="text-gray-600 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1 font-semibold">Monthly SIP Needed</p>
+                    <p className="text-[var(--color-accent)] font-extrabold text-2xl">{fmt(results.requiredSip)}</p>
                   </div>
-                  <div className="bg-[rgba(27,58,92,0.05)] border border-[#1B3A5C]/20 rounded-xl p-4 text-center">
-                    <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Total Invested</p>
-                    <p className="text-[#1B3A5C] font-bold text-xl">{fmt(results.totalInvested)}</p>
+                  <div className="bg-[rgba(27,58,92,0.05)] border border-[var(--color-accent)]/20 rounded-xl p-4 text-center">
+                    <p className="text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1">Total Invested</p>
+                    <p className="text-[var(--color-accent)] font-bold text-xl">{fmt(results.totalInvested)}</p>
                     <p className="text-[10px] text-[#059669] mt-1">Gains: {fmt(results.estimatedGains)}</p>
                   </div>
                 </div>
 
                 {/* Timeline */}
                 <div className="mb-6 relative pt-4 pb-2">
-                  <div className="flex justify-between text-xs text-gray-500 mb-2">
+                  <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
                     <span>Now (Age {currentAge})</span>
-                    <span className="font-semibold text-[#1F2937]">{results.years} Years to Grow</span>
+                    <span className="font-semibold text-foreground">{results.years} Years to Grow</span>
                     <span>College (Age {targetAge})</span>
                   </div>
                   <div className="h-2 w-full bg-white rounded-full overflow-hidden flex">
@@ -244,12 +244,12 @@ export default function SipForChildEducationPage() {
                 {/* Step-up Alternative */}
                 <div className="bg-white border border-[#E8E4DF] rounded-xl p-4 flex items-center justify-between">
                   <div>
-                    <h4 className="text-[#1F2937] text-sm font-semibold flex items-center gap-2"><TrendingUp className="w-4 h-4 text-[#1B3A5C]" /> Too high? Use 10% Step-Up SIP</h4>
-                    <p className="text-gray-500 text-xs mt-1">Start lower and increase your SIP by 10% every year.</p>
+                    <h4 className="text-foreground text-sm font-semibold flex items-center gap-2"><TrendingUp className="w-4 h-4 text-[var(--color-accent)]" /> Too high? Use 10% Step-Up SIP</h4>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">Start lower and increase your SIP by 10% every year.</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-lg font-bold text-[#1B3A5C]">{fmt(results.initialStepUpSip)}</p>
-                    <p className="text-[9px] text-gray-500 uppercase tracking-widest">Starting SIP</p>
+                    <p className="text-lg font-bold text-[var(--color-accent)]">{fmt(results.initialStepUpSip)}</p>
+                    <p className="text-[9px] text-gray-500 dark:text-gray-400 uppercase tracking-widest">Starting SIP</p>
                   </div>
                 </div>
               </div>
@@ -277,48 +277,48 @@ export default function SipForChildEducationPage() {
 
           {/* Reference Table */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Approximate SIP Needed for Different Courses</h2>
-            <p className="text-sm text-gray-500 mb-4">Assuming 15 years to goal, 10% education inflation, and 12% expected SIP returns.</p>
+            <h2 className="text-xl font-bold text-foreground mb-4">Approximate SIP Needed for Different Courses</h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Assuming 15 years to goal, 10% education inflation, and 12% expected SIP returns.</p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
                 <thead>
                   <tr className="border-b border-black/5">
-                    <th className="py-3 pr-4 text-gray-500 font-semibold">Course</th>
-                    <th className="py-3 pr-4 text-gray-500 font-semibold">Today's Cost</th>
-                    <th className="py-3 pr-4 text-[#1F2937] font-semibold">In 15 Years (10% Infl)</th>
-                    <th className="py-3 text-[#1B3A5C] font-semibold">SIP Needed (12% return)</th>
+                    <th className="py-3 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Course</th>
+                    <th className="py-3 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Today's Cost</th>
+                    <th className="py-3 pr-4 text-foreground font-semibold">In 15 Years (10% Infl)</th>
+                    <th className="py-3 text-[var(--color-accent)] font-semibold">SIP Needed (12% return)</th>
                   </tr>
                 </thead>
-                <tbody className="text-gray-600">
+                <tbody className="text-gray-600 dark:text-gray-400">
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-[#1F2937]">Engineering (Govt)</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Engineering (Govt)</td>
                     <td className="py-3 pr-4">₹5 Lakhs</td>
                     <td className="py-3 pr-4">₹20.9 Lakhs</td>
-                    <td className="py-3 font-semibold text-[#1B3A5C]">₹5,700/mo</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">₹5,700/mo</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-[#1F2937]">Engineering (Private)</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Engineering (Private)</td>
                     <td className="py-3 pr-4">₹20 Lakhs</td>
                     <td className="py-3 pr-4">₹83.5 Lakhs</td>
-                    <td className="py-3 font-semibold text-[#1B3A5C]">₹22,700/mo</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">₹22,700/mo</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-[#1F2937]">Medical (MBBS)</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Medical (MBBS)</td>
                     <td className="py-3 pr-4">₹50 Lakhs</td>
                     <td className="py-3 pr-4">₹2.09 Crores</td>
-                    <td className="py-3 font-semibold text-[#1B3A5C]">₹56,700/mo</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">₹56,700/mo</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-[#1F2937]">MBA (Top IIM)</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">MBA (Top IIM)</td>
                     <td className="py-3 pr-4">₹30 Lakhs</td>
                     <td className="py-3 pr-4">₹1.25 Crores</td>
-                    <td className="py-3 font-semibold text-[#1B3A5C]">₹34,000/mo</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">₹34,000/mo</td>
                   </tr>
                   <tr>
-                    <td className="py-3 pr-4 font-medium text-[#1F2937]">B.Tech + MBA Abroad</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">B.Tech + MBA Abroad</td>
                     <td className="py-3 pr-4">₹80 Lakhs</td>
                     <td className="py-3 pr-4">₹3.34 Crores</td>
-                    <td className="py-3 font-semibold text-[#1B3A5C]">₹90,800/mo</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">₹90,800/mo</td>
                   </tr>
                 </tbody>
               </table>
@@ -328,14 +328,14 @@ export default function SipForChildEducationPage() {
           {/* Educational Content */}
           <div className="glass-panel p-6 space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-[#1F2937] mb-3">1. Why Education Inflation in India is 10%+</h2>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <h2 className="text-xl font-bold text-foreground mb-3">1. Why Education Inflation in India is 10%+</h2>
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 While standard consumer inflation (CPI) in India fluctuates around 5-6%, education costs rise much faster. Increased infrastructure costs, faculty salaries, and demand for premium education push fees up by 10-12% annually. A ₹10 Lakh degree today will likely cost over ₹40 Lakhs in 15 years.
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-[#1F2937] mb-3">2. When to Start? The Cost of Delay</h2>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <h2 className="text-xl font-bold text-foreground mb-3">2. When to Start? The Cost of Delay</h2>
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 Starting early is the single most important factor. If your target is ₹1 Crore for college at age 18:
                 <br/><br/>
                 • Start at age 0 (18 yrs to invest): ~₹13,000/month<br/>
@@ -346,8 +346,8 @@ export default function SipForChildEducationPage() {
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-[#1F2937] mb-3">3. Best Mutual Fund Categories for Education</h2>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <h2 className="text-xl font-bold text-foreground mb-3">3. Best Mutual Fund Categories for Education</h2>
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 • <strong>10+ Years Away:</strong> Flexi-cap or Large & Mid-cap funds for high growth.<br/>
                 • <strong>5-10 Years Away:</strong> Aggressive Hybrid funds for balanced risk.<br/>
                 • <strong>Less than 3 Years Away:</strong> Move money to Debt funds or FDs to protect the capital from market crashes right before fees are due.
@@ -357,14 +357,14 @@ export default function SipForChildEducationPage() {
 
           {/* FAQs */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
             <div className="space-y-4">
               {jsonLd.mainEntity.map((faq, i) => (
                 <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
-                  <h3 className="text-[#1F2937] font-medium text-sm flex items-start gap-2">
-                    <HelpCircle className="w-4 h-4 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                  <h3 className="text-foreground font-medium text-sm flex items-start gap-2">
+                    <HelpCircle className="w-4 h-4 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
                   </h3>
-                  <p className="text-gray-500 text-sm mt-2 ml-6">{faq.acceptedAnswer.text}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-6">{faq.acceptedAnswer.text}</p>
                 </div>
               ))}
             </div>
@@ -372,12 +372,12 @@ export default function SipForChildEducationPage() {
 
           {/* Cross Links */}
           <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)]">
-            <h2 className="text-lg font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
+            <h2 className="text-lg font-bold text-foreground mb-4">Explore More Tools</h2>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 Main SIP Calculator <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/blog/retirement-sip-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/blog/retirement-sip-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 Retirement Guide
               </Link>
             </div>

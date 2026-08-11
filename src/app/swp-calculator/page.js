@@ -219,10 +219,10 @@ export default function SWPCalculatorPage() {
 
           {/* Page heading */}
           <div className="flex flex-col mb-6 mt-4">
-            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-foreground mb-2">
               SWP Calculator — Systematic Withdrawal Plan
             </h1>
-            <p className="text-gray-600 max-w-3xl">
+            <p className="text-gray-600 dark:text-gray-400 max-w-3xl">
               Plan your monthly withdrawals from your mutual fund corpus. Calculate how much you can withdraw and how long your investment will last.
             </p>
           </div>
@@ -231,14 +231,14 @@ export default function SWPCalculatorPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
 
             {/* Inputs */}
-            <div className="lg:col-span-5 glass-panel p-5 lg:p-6">
+            <div className="lg:col-span-5 glass-panel p-4 lg:p-5">
               <InputSlider label="Total Corpus" value={corpus} onChange={setCorpus} min={500000} max={1000000000} step={10000} prefix="₹" />
               <InputSlider label="Monthly Withdrawal" value={monthlyWithdrawal} onChange={setMonthlyWithdrawal} min={5000} max={1000000} step={1000} prefix="₹" />
               <InputSlider label="Expected Return Rate" value={rate} onChange={setRate} min={4} max={18} step={0.1} suffix="%" />
               <InputSlider label="Withdrawal Duration" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yr" />
 
               {/* Labels */}
-              <div className="mt-5 space-y-2 text-xs text-gray-500">
+              <div className="mt-5 space-y-2 text-xs text-gray-500 dark:text-gray-400">
                 {[
                   { label: 'Corpus', val: toLabel(corpus) },
                   { label: 'Withdrawal', val: `${fmtINR(monthlyWithdrawal)}/mo` },
@@ -247,7 +247,7 @@ export default function SWPCalculatorPage() {
                 ].map(({ label, val }) => (
                   <div key={label} className="flex justify-between border-b border-[#E8E4DF] pb-1">
                     <span>{label}</span>
-                    <span className="text-gray-600 font-medium">{val}</span>
+                    <span className="text-gray-600 dark:text-gray-400 font-medium">{val}</span>
                   </div>
                 ))}
               </div>
@@ -255,7 +255,7 @@ export default function SWPCalculatorPage() {
 
             {/* Results */}
             <div className="lg:col-span-7">
-              <div className="glass-panel p-5 lg:p-6 flex flex-col h-full relative overflow-hidden">
+              <div className="glass-panel p-4 lg:p-5 flex flex-col h-full relative overflow-hidden">
 
                 {/* Chart tab strip */}
                 <div className="flex bg-[rgba(0,0,0,0.03)] p-1 rounded-lg mb-3 w-full max-w-[240px] mx-auto relative z-10">
@@ -264,20 +264,20 @@ export default function SWPCalculatorPage() {
                       key={key}
                       onClick={() => setChartTab(key)}
                       className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
-                        chartTab === key ? 'bg-[#1B3A5C] text-white shadow-lg' : 'text-gray-500 hover:text-[#1F2937]'
+                        chartTab === key ? 'bg-[var(--color-accent)] text-white shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-foreground'
                       }`}
                     >{label}</button>
                   ))}
                 </div>
 
                 {/* Chart area */}
-                <div className="relative flex-1 min-h-[220px] flex justify-center items-center overflow-hidden relative z-10 mb-4">
+                <div className="relative flex-1 min-h-[180px] flex justify-center items-center overflow-hidden relative z-10 mb-4">
                   {chartTab === 'pie' && (
                     <>
                       <Doughnut data={pieData} options={pieOptions} />
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                        <span className="text-xs text-gray-500">Total Withdrawn</span>
-                        <span className="text-lg md:text-xl font-bold text-[#1F2937]">{fmtINR(totalWithdrawn)}</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">Total Withdrawn</span>
+                        <span className="text-lg md:text-xl font-bold text-foreground">{fmtINR(totalWithdrawn)}</span>
                         <span className="text-[10px] text-[#6B7280]">{toLabel(totalWithdrawn)}</span>
                       </div>
                     </>
@@ -289,38 +289,38 @@ export default function SWPCalculatorPage() {
 
                 {/* Breakdown cards */}
                 <div className="grid grid-cols-3 gap-2 relative z-10">
-                  <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-                    <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold font-medium">
+                  <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+                    <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold font-medium">
                       <Coins className="w-3 h-3 mr-1" />Total Withdrawn
                     </div>
-                    <div className="text-sm font-extrabold text-[#1F2937]">{fmtINR(totalWithdrawn)}</div>
+                    <div className="text-sm font-extrabold text-foreground">{fmtINR(totalWithdrawn)}</div>
                     <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{toLabel(totalWithdrawn)}</div>
                   </div>
 
-                  <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-                    <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold">
+                  <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+                    <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
                       <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Rem. Corpus</div>
-                    <div className="text-sm font-extrabold text-[#1B3A5C]">
+                    <div className="text-sm font-extrabold text-[var(--color-accent)]">
                       {fmtINR(finalRemaining)}</div>
-                    <div className="text-[9px] text-gray-500 mt-0.5 tracking-wide">{toLabel(finalRemaining)}</div>
+                    <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{toLabel(finalRemaining)}</div>
                   </div>
 
-                  <div className="bg-[#f8f2ea] rounded-lg p-2 flex flex-col justify-center">
-                    <div className="flex items-center text-[#1F2937] text-[11px] mb-0.5 font-semibold">
+                  <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
+                    <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
                       <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Returns</div>
                     <div className={`text-sm font-extrabold ${totalReturns >= 0 ? 'text-[#059669]' : 'text-[#991B1B]'}`}>
                       {totalReturns >= 0 ? '+' : ''}{fmtINR(totalReturns)}</div>
-                    <div className="text-[9px] text-gray-500 mt-0.5 tracking-wide">{toLabel(totalReturns)}</div>
+                    <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{toLabel(totalReturns)}</div>
                   </div>
 
                   {/* Longevity Indicator */}
-                  <div className="col-span-3 mt-1 bg-[#f8f2ea] rounded-lg px-3 py-2 flex items-center gap-2">
+                  <div className="col-span-3 mt-1 bg-black/5 dark:bg-white/5 rounded-lg px-3 py-2 flex items-center gap-2">
                     {depletedMonthTotal ? (
                       <AlertCircle className="w-3.5 h-3.5 text-[#991B1B] flex-shrink-0" />
                     ) : (
-                      <TrendingUp className="w-3.5 h-3.5 text-[#1B3A5C] flex-shrink-0" />
+                      <TrendingUp className="w-3.5 h-3.5 text-[var(--color-accent)] flex-shrink-0" />
                     )}
-                    <span className={`text-[11px] font-medium ${depletedMonthTotal ? 'text-[#991B1B]' : 'text-[#1F2937]'}`}>
+                    <span className={`text-[11px] font-medium ${depletedMonthTotal ? 'text-[#991B1B]' : 'text-foreground'}`}>
                       {longevityMessage}
                     </span>
                   </div>
@@ -333,10 +333,10 @@ export default function SWPCalculatorPage() {
           {/* ── FAQ ── */}
           <section id="faq" aria-label="SWP calculator frequently asked questions" className="mt-8">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
-                <HelpCircle className="w-5 h-5 text-[#1B3A5C]" />
+              <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
+                <HelpCircle className="w-5 h-5 text-[var(--color-accent)]" />
               </div>
-              <h2 className="text-2xl font-bold text-[#1F2937]">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
               {FAQS.map(({ q, a }, i) => (
@@ -347,11 +347,11 @@ export default function SWPCalculatorPage() {
                     id={`swp-faq-${i}`}
                     aria-expanded={openFaq === i}
                   >
-                    <span className="text-[#1F2937] font-medium text-sm pr-4">{q}</span>
-                    <ChevronDown className={`w-4 h-4 text-[#1B3A5C] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
+                    <span className="text-foreground font-medium text-sm pr-4">{q}</span>
+                    <ChevronDown className={`w-4 h-4 text-[var(--color-accent)] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
                   </button>
                   {openFaq === i && (
-                    <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t border-white border-opacity-10 pt-3">{a}</div>
+                    <div className="px-4 pb-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed border-t border-black/5 dark:border-white/10 pt-3">{a}</div>
                   )}
                 </div>
               ))}
@@ -361,21 +361,21 @@ export default function SWPCalculatorPage() {
           {/* ── Related Tools ── */}
           <section id="related-calculators" aria-label="Related free financial calculators" className="mt-8 mb-6">
             <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
-              <h2 className="text-lg font-bold text-[#1F2937] mb-1 text-center">More Free Financial Calculators</h2>
-              <p className="text-gray-500 text-xs text-center mb-4">All tools free, real-time, no sign-up.</p>
+              <h2 className="text-lg font-bold text-foreground mb-1 text-center">More Free Financial Calculators</h2>
+              <p className="text-gray-500 dark:text-gray-400 text-xs text-center mb-4">All tools free, real-time, no sign-up.</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { href: '/lumpsum-calculator', icon: <Calculator className="w-4 h-4 text-[#1B3A5C]" />, label: 'Lumpsum Calculator', desc: 'One-time investment returns' },
-                  { href: '/', icon: <Calculator className="w-4 h-4 text-[#1B3A5C]" />, label: 'SIP Calculator', desc: 'Monthly SIP returns' },
-                  { href: '/cagr-calculator', icon: <TrendingUp className="w-4 h-4 text-[#1B3A5C]" />, label: 'CAGR Calculator', desc: 'Compound annual growth rate' },
+                  { href: '/lumpsum-calculator', icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Lumpsum Calculator', desc: 'One-time investment returns' },
+                  { href: '/', icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'SIP Calculator', desc: 'Monthly SIP returns' },
+                  { href: '/cagr-calculator', icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'CAGR Calculator', desc: 'Compound annual growth rate' },
                 ].map(({ href, icon, label, desc }) => (
                   <Link key={href} href={href} className="flex items-start gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
                     <div className="bg-[rgba(27,58,92,0.15)] p-2 rounded-lg flex-shrink-0">{icon}</div>
                     <div>
-                      <p className="text-[#1F2937] font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">{label}</p>
-                      <p className="text-gray-500 text-xs">{desc}</p>
+                      <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">{label}</p>
+                      <p className="text-gray-500 dark:text-gray-400 text-xs">{desc}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-[#1B3A5C] ml-auto transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-[var(--color-accent)] ml-auto transition-colors flex-shrink-0" />
                   </Link>
                 ))}
               </div>

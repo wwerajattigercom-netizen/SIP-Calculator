@@ -100,27 +100,27 @@ export default function InputSlider({
       : null;
 
   return (
-    <div className="mb-7 w-full">
+    <div className="mb-4 w-full">
       {/* Label + number box */}
       <div className="flex justify-between items-center mb-1">
-        <label className="text-gray-600 font-medium">{label}</label>
-        <div className="flex items-center glass-panel px-3 py-1 bg-[rgba(0,0,0,0.03)] border-[rgba(0,0,0,0.05)] rounded-lg focus-within:border-[#1B3A5C] transition-all">
-          {prefix && <span className="text-gray-500 mr-1">{prefix}</span>}
+        <label className="text-gray-600 dark:text-gray-400 font-medium">{label}</label>
+        <div className="flex items-center glass-panel px-3 py-1 bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/10 rounded-lg focus-within:border-[var(--color-accent)] transition-all">
+          {prefix && <span className="text-gray-500 dark:text-gray-400 mr-1">{prefix}</span>}
           <input
             type="text"
             value={inputValue}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            className="w-20 bg-transparent text-right text-[#1F2937] font-bold outline-none"
+            className="w-20 bg-transparent text-right text-foreground font-bold outline-none"
           />
-          {suffix && <span className="text-gray-500 ml-1">{suffix}</span>}
+          {suffix && <span className="text-gray-500 dark:text-gray-400 ml-1">{suffix}</span>}
         </div>
       </div>
 
       {/* Human-readable formatted value shown below */}
       {formattedLabel && (
         <div className="flex justify-end mb-2">
-          <span className="text-[11px] text-[#1B3A5C] font-semibold tracking-wide">
+          <span className="text-[11px] text-[var(--color-accent)] font-semibold tracking-wide">
             {formattedLabel}
           </span>
         </div>
@@ -145,15 +145,15 @@ export default function InputSlider({
         aria-valuenow={localValue}
       >
         {/* Background track */}
-        <div className="relative w-full h-1.5 bg-[#E5E7EB] rounded-full">
+        <div className="relative w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full">
           {/* Filled portion */}
           <div
-            className="absolute top-0 left-0 h-full bg-[#1B3A5C] rounded-full pointer-events-none"
+            className="absolute top-0 left-0 h-full bg-[var(--color-accent)] rounded-full pointer-events-none"
             style={{ width: `${percentage}%` }}
           />
           {/* Thumb */}
           <div
-            className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 bg-[#1B3A5C] rounded-full pointer-events-none shadow-[0_2px_4px_rgba(27,58,92,0.3)] transition-shadow"
+            className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 bg-[var(--color-accent)] rounded-full pointer-events-none shadow-[0_2px_4px_rgba(27,58,92,0.3)] dark:shadow-none transition-shadow"
             style={{ left: `${percentage}%` }}
           />
         </div>

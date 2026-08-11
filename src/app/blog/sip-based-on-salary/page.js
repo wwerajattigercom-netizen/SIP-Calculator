@@ -37,11 +37,11 @@ const FAQItem = ({ question, answer }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center text-left focus:outline-none"
       >
-        <h3 className="text-[#1F2937] font-medium text-sm md:text-base">{question}</h3>
-        {isOpen ? <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />}
+        <h3 className="text-foreground font-medium text-sm md:text-base">{question}</h3>
+        {isOpen ? <ChevronUp className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />}
       </button>
       {isOpen && (
-        <div className="mt-3 text-sm text-gray-500 leading-relaxed">
+        <div className="mt-3 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
           {answer}
         </div>
       )}
@@ -155,11 +155,11 @@ export default function SipBasedOnSalaryPage() {
           <div className="glass-panel p-7 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.1)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-[10px] uppercase tracking-widest text-[#1B3A5C] font-semibold mb-3 block">Interactive Guide</span>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-[#1F2937] leading-tight mb-3">
+              <span className="text-[10px] uppercase tracking-widest text-[var(--color-accent)] font-semibold mb-3 block">Interactive Guide</span>
+              <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight mb-3">
                 How Much SIP  Should You Do Based on Your Salary?
               </h1>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 Discover the ideal SIP amount for your income level using the famous 50-30-20 rule. 
                 Use our interactive calculator to see how much wealth you can build over 20 years.
               </p>
@@ -168,7 +168,7 @@ export default function SipBasedOnSalaryPage() {
 
           {/* Interactive Calculator Section */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-6">Salary to SIP Calculator</h2>
+            <h2 className="text-xl font-bold text-foreground mb-6">Salary to SIP Calculator</h2>
             
             <div className="mb-8">
               <InputSlider
@@ -183,83 +183,83 @@ export default function SipBasedOnSalaryPage() {
             </div>
 
             <div className="bg-[rgba(27,58,92,0.08)] border border-[rgba(27,58,92,0.2)] rounded-xl p-5 mb-6 text-center">
-              <h3 className="text-[#1B3A5C] font-semibold text-sm mb-1">Personalised Recommendation (50-30-20 Rule)</h3>
-              <div className="text-3xl font-bold text-[#1F2937] mb-2">{formatToShortWords(moderateSip)}<span className="text-lg text-gray-500">/mo</span></div>
-              <p className="text-gray-500 text-xs">Based on allocating 20% of your income to savings and investments.</p>
+              <h3 className="text-[var(--color-accent)] font-semibold text-sm mb-1">Personalised Recommendation (50-30-20 Rule)</h3>
+              <div className="text-3xl font-bold text-foreground mb-2">{formatToShortWords(moderateSip)}<span className="text-lg text-gray-500 dark:text-gray-400">/mo</span></div>
+              <p className="text-gray-500 dark:text-gray-400 text-xs">Based on allocating 20% of your income to savings and investments.</p>
               
               <div className="mt-4 inline-flex items-center gap-2 bg-[rgba(0,0,0,0.03)] px-4 py-2 rounded-full text-sm">
-                <TrendingUp className="w-4 h-4 text-[#1B3A5C]" />
-                <span className="text-gray-600">Your SIP is in the <strong className="text-[#1F2937]">{getTopPercentile(moderateSip)}</strong> of Indian investors</span>
+                <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />
+                <span className="text-gray-600 dark:text-gray-400">Your SIP is in the <strong className="text-foreground">{getTopPercentile(moderateSip)}</strong> of Indian investors</span>
               </div>
             </div>
 
-            <h3 className="text-lg font-semibold text-[#1F2937] mb-4">Investment Strategies & 20-Year Projections</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Investment Strategies & 20-Year Projections</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white border border-black/5 rounded-xl p-4">
-                <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">Conservative (10%)</div>
-                <div className="text-xl font-bold text-[#1F2937] mb-1">₹{conservativeSip.toLocaleString('en-IN')}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold mb-1">Conservative (10%)</div>
+                <div className="text-xl font-bold text-foreground mb-1">₹{conservativeSip.toLocaleString('en-IN')}</div>
                 <div className="h-px bg-black/5 my-3"></div>
-                <div className="text-[10px] text-gray-500 mb-1">Corpus after 20 yrs @12%</div>
-                <div className="text-lg font-bold text-[#1F2937]">{formatToShortWords(conservativeCorpus)}</div>
+                <div className="text-[10px] text-gray-500 dark:text-gray-400 mb-1">Corpus after 20 yrs @12%</div>
+                <div className="text-lg font-bold text-foreground">{formatToShortWords(conservativeCorpus)}</div>
               </div>
               
-              <div className="bg-[rgba(27,58,92,0.1)] border border-[#1B3A5C]/30 rounded-xl p-4 relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#1B3A5C] text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg uppercase">Recommended</div>
-                <div className="text-xs text-[#1B3A5C] uppercase tracking-wide font-semibold mb-1">Moderate (20%)</div>
-                <div className="text-xl font-bold text-[#1F2937] mb-1">₹{moderateSip.toLocaleString('en-IN')}</div>
+              <div className="bg-[rgba(27,58,92,0.1)] border border-[var(--color-accent)]/30 rounded-xl p-4 relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-[var(--color-accent)] text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg uppercase">Recommended</div>
+                <div className="text-xs text-[var(--color-accent)] uppercase tracking-wide font-semibold mb-1">Moderate (20%)</div>
+                <div className="text-xl font-bold text-foreground mb-1">₹{moderateSip.toLocaleString('en-IN')}</div>
                 <div className="h-px bg-black/5 my-3"></div>
-                <div className="text-[10px] text-gray-500 mb-1">Corpus after 20 yrs @12%</div>
-                <div className="text-lg font-bold text-[#1F2937]">{formatToShortWords(moderateCorpus)}</div>
+                <div className="text-[10px] text-gray-500 dark:text-gray-400 mb-1">Corpus after 20 yrs @12%</div>
+                <div className="text-lg font-bold text-foreground">{formatToShortWords(moderateCorpus)}</div>
               </div>
 
               <div className="bg-white border border-black/5 rounded-xl p-4">
-                <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">Aggressive (30%)</div>
-                <div className="text-xl font-bold text-[#1F2937] mb-1">₹{aggressiveSip.toLocaleString('en-IN')}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold mb-1">Aggressive (30%)</div>
+                <div className="text-xl font-bold text-foreground mb-1">₹{aggressiveSip.toLocaleString('en-IN')}</div>
                 <div className="h-px bg-black/5 my-3"></div>
-                <div className="text-[10px] text-gray-500 mb-1">Corpus after 20 yrs @12%</div>
-                <div className="text-lg font-bold text-[#1F2937]">{formatToShortWords(aggressiveCorpus)}</div>
+                <div className="text-[10px] text-gray-500 dark:text-gray-400 mb-1">Corpus after 20 yrs @12%</div>
+                <div className="text-lg font-bold text-foreground">{formatToShortWords(aggressiveCorpus)}</div>
               </div>
             </div>
           </div>
 
           {/* Educational Content */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4">The 50-30-20 Rule Explained for SIP</h2>
-            <p className="text-gray-500 text-sm leading-relaxed mb-4">
+            <h2 className="text-xl font-bold text-foreground mb-4">The 50-30-20 Rule Explained for SIP</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
               Popularized by Senator Elizabeth Warren, the 50-30-20 rule is a simple and effective budgeting method to manage your finances:
             </p>
             <ul className="space-y-3 mb-6">
-              <li className="flex items-start gap-3 text-sm text-gray-600">
-                <div className="mt-0.5 bg-[#1B3A5C]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[#1B3A5C]" /></div>
-                <div><strong className="text-[#1F2937]">50% Needs:</strong> Essential living expenses (rent, groceries, utilities, EMIs).</div>
+              <li className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <div className="mt-0.5 bg-[var(--color-accent)]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[var(--color-accent)]" /></div>
+                <div><strong className="text-foreground">50% Needs:</strong> Essential living expenses (rent, groceries, utilities, EMIs).</div>
               </li>
-              <li className="flex items-start gap-3 text-sm text-gray-600">
-                <div className="mt-0.5 bg-[#1B3A5C]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[#1B3A5C]" /></div>
-                <div><strong className="text-[#1F2937]">30% Wants:</strong> Discretionary spending (dining out, entertainment, shopping).</div>
+              <li className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <div className="mt-0.5 bg-[var(--color-accent)]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[var(--color-accent)]" /></div>
+                <div><strong className="text-foreground">30% Wants:</strong> Discretionary spending (dining out, entertainment, shopping).</div>
               </li>
-              <li className="flex items-start gap-3 text-sm text-gray-600">
-                <div className="mt-0.5 bg-[#1B3A5C]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[#1B3A5C]" /></div>
-                <div><strong className="text-[#1F2937]">20% Savings & Investments:</strong> Your SIPs, emergency fund, and debt repayment.</div>
+              <li className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <div className="mt-0.5 bg-[var(--color-accent)]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[var(--color-accent)]" /></div>
+                <div><strong className="text-foreground">20% Savings & Investments:</strong> Your SIPs, emergency fund, and debt repayment.</div>
               </li>
             </ul>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
               Dedicating 20% of your salary specifically to investments like equity mutual funds through SIP ensures you are consistently building wealth without compromising your current lifestyle.
             </p>
           </div>
 
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4">How Much SIP by Salary Bracket</h2>
+            <h2 className="text-xl font-bold text-foreground mb-4">How Much SIP by Salary Bracket</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-[#1B3A5C] border-b border-black/5 text-xs uppercase tracking-wider">
+                  <tr className="text-[var(--color-accent)] border-b border-black/5 text-xs uppercase tracking-wider">
                     <th className="text-left py-2 pr-4">Monthly Salary</th>
                     <th className="text-right py-2 pr-4">Conservative (10%)</th>
                     <th className="text-right py-2 pr-4">Recommended (20%)</th>
                     <th className="text-right py-2">Aggressive (30%)</th>
                   </tr>
                 </thead>
-                <tbody className="text-gray-600">
+                <tbody className="text-gray-600 dark:text-gray-400">
                   {[
                     { s: 30000, c: 3000, r: 6000, a: 9000 },
                     { s: 50000, c: 5000, r: 10000, a: 15000 },
@@ -270,8 +270,8 @@ export default function SipBasedOnSalaryPage() {
                     <tr key={s} className="border-b border-[#E8E4DF]">
                       <td className="py-2.5 pr-4 font-medium">₹{s.toLocaleString('en-IN')}</td>
                       <td className="py-2.5 pr-4 text-right">₹{c.toLocaleString('en-IN')}</td>
-                      <td className="py-2.5 pr-4 text-right text-[#1B3A5C] font-semibold">₹{r.toLocaleString('en-IN')}</td>
-                      <td className="py-2.5 text-right text-[#1B3A5C]">₹{a.toLocaleString('en-IN')}</td>
+                      <td className="py-2.5 pr-4 text-right text-[var(--color-accent)] font-semibold">₹{r.toLocaleString('en-IN')}</td>
+                      <td className="py-2.5 text-right text-[var(--color-accent)]">₹{a.toLocaleString('en-IN')}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -280,19 +280,19 @@ export default function SipBasedOnSalaryPage() {
           </div>
 
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-3">Why You Should Increase SIP Every Year</h2>
-            <p className="text-gray-500 text-sm leading-relaxed mb-4">
+            <h2 className="text-xl font-bold text-foreground mb-3">Why You Should Increase SIP Every Year</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
               As your salary grows, your investments should grow too. A <strong>Step-up SIP</strong> involves increasing your investment amount annually by a fixed percentage (e.g., 5% or 10%).
             </p>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
               By aligning your SIP increments with your annual salary appraisals, you can reach your financial goals significantly faster and build a much larger corpus to combat inflation, all without feeling a pinch in your monthly budget.
             </p>
           </div>
 
           {/* FAQ */}
           <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4 flex items-center gap-2">
-              <HelpCircle className="w-5 h-5 text-[#1B3A5C]" /> Frequently Asked Questions
+            <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+              <HelpCircle className="w-5 h-5 text-[var(--color-accent)]" /> Frequently Asked Questions
             </h2>
             <div className="flex flex-col">
               {faqSchema.mainEntity.map((item, index) => (
@@ -303,21 +303,21 @@ export default function SipBasedOnSalaryPage() {
 
           {/* CTA & Links */}
           <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
-            <h2 className="text-lg font-bold text-[#1F2937] mb-2">Plan Your Investments</h2>
-            <p className="text-gray-500 text-sm mb-4">Use our advanced calculators to project your wealth with step-up options.</p>
+            <h2 className="text-lg font-bold text-foreground mb-2">Plan Your Investments</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Use our advanced calculators to project your wealth with step-up options.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 <Calculator className="w-4 h-4" /> Full SIP Calculator <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/blog/sip-to-reach-1-crore" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/blog/sip-to-reach-1-crore" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 SIP to reach ₹1 Crore Guide <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
 
-          <div className="text-center text-xs text-gray-500">
+          <div className="text-center text-xs text-gray-500 dark:text-gray-400">
             <p>For educational purposes only. Consult a financial advisor before investing.</p>
-            <Link href="/disclaimer" className="text-[#1B3A5C] hover:underline">Read Disclaimer</Link>
+            <Link href="/disclaimer" className="text-[var(--color-accent)] hover:underline">Read Disclaimer</Link>
           </div>
 
         </article>
