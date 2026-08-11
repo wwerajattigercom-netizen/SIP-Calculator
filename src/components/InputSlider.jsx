@@ -18,6 +18,7 @@ export default function InputSlider({
   formatFn,
   formatValue,
 }) {
+  const [localValue, setLocalValue] = useState(value);
   const [inputValue, setInputValue] = useState(value.toString());
   const trackRef   = useRef(null);
   const isDragging = useRef(false);
@@ -27,7 +28,10 @@ export default function InputSlider({
 
   // Sync input box when external value changes
   useEffect(() => {
-    setInputValue(value.toString());
+    if (!isDragging.current) {
+      setLocalValue(value);
+      setInputValue(value.toString());
+    }
   }, [value]);
 
   // ── Clamp + snap to step ──────────────────────────────────────────
@@ -40,10 +44,10 @@ export default function InputSlider({
   // ── Convert pixel position → value ───────────────────────────────
   const pixelToValue = useCallback((clientX) => {
     const rect = trackRef.current?.getBoundingClientRect();
-    if (!rect) return value;
+    if (!rect) return localValue;
     const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
     return clamp(min + ratio * (max - min));
-  }, [clamp, min, max, value]);
+  }, [clamp, min, max, localValue]);
 
   // ── Pointer events on the track wrapper ──────────────────────────
   const handlePointerDown = useCallback((e) => {
@@ -51,20 +55,25 @@ export default function InputSlider({
     isDragging.current = true;
     trackRef.current?.setPointerCapture(e.pointerId);
     const v = pixelToValue(e.clientX);
+    setLocalValue(v);
     setInputValue(v.toString());
-    onChange(v);
-  }, [pixelToValue, onChange]);
+  }, [pixelToValue]);
 
   const handlePointerMove = useCallback((e) => {
     if (!isDragging.current) return;
     const v = pixelToValue(e.clientX);
+    setLocalValue(v);
+    setInputValue(v.toString());
+  }, [pixelToValue]);
+
+  const handlePointerUp = useCallback((e) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    const v = pixelToValue(e.clientX);
+    setLocalValue(v);
     setInputValue(v.toString());
     onChange(v);
   }, [pixelToValue, onChange]);
-
-  const handlePointerUp = useCallback(() => {
-    isDragging.current = false;
-  }, []);
 
   // ── Text box handlers ─────────────────────────────────────────────
   const handleInputChange = (e) => {
@@ -79,15 +88,15 @@ export default function InputSlider({
     onChange(clamped);
   };
 
-  const percentage = ((value - min) / (max - min)) * 100;
+  const percentage = ((localValue - min) / (max - min)) * 100;
 
   // The formatted human-readable label (e.g. "₹10.00 L", "12%", "10 Yr")
   // shown below the input box. Falls back to the ₹ short-word hint if no
   // formatFn is given but prefix is ₹.
   const formattedLabel = displayFn
-    ? displayFn(value)
+    ? displayFn(localValue)
     : prefix === '₹'
-      ? formatToShortWords(value)
+      ? formatToShortWords(localValue)
       : null;
 
   return (
@@ -133,7 +142,7 @@ export default function InputSlider({
         role="slider"
         aria-valuemin={min}
         aria-valuemax={max}
-        aria-valuenow={value}
+        aria-valuenow={localValue}
       >
         {/* Background track */}
         <div className="relative w-full h-1.5 bg-[#E5E7EB] rounded-full">
