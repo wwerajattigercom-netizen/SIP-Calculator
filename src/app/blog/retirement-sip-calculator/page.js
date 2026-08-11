@@ -134,9 +134,9 @@ export default function RetirementSipCalculatorPage() {
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(13,148,136,0.1)] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-[10px] uppercase tracking-widest text-[#0D9488] font-semibold mb-3 block">Interactive Tool</span>
+              <span className="text-[10px] uppercase tracking-widest text-[#1B3A5C] font-semibold mb-3 block">Interactive Tool</span>
               <h1 className="text-2xl md:text-3xl font-extrabold text-[#1F2937] leading-tight mb-3">
                 Retirement  SIP Calculator
               </h1>
@@ -180,7 +180,7 @@ export default function RetirementSipCalculatorPage() {
               </div>
               <div className="h-3 w-full bg-[rgba(0,0,0,0.05)] rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-gradient-to-r from-[#1B3A5C] to-[#0D9488]"
+                  className="h-full bg-gradient-to-r from-[#1B3A5C] to-[#C4993C]"
                   style={{ width: '100%' }}
                 ></div>
               </div>
@@ -225,9 +225,9 @@ export default function RetirementSipCalculatorPage() {
                 <div className="text-[10px] text-gray-500 mt-2">Based on 25x future annual expenses</div>
               </div>
               
-              <div className="bg-[rgba(196,153,60,0.1)] border border-[#0D9488]/30 rounded-xl p-4 text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#0D9488] text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg uppercase">Start Now</div>
-                <div className="text-xs text-[#0D9488] uppercase tracking-wide font-semibold mb-1">Required Monthly SIP</div>
+              <div className="bg-[rgba(196,153,60,0.1)] border border-[#1B3A5C]/30 rounded-xl p-4 text-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-[#1B3A5C] text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg uppercase">Start Now</div>
+                <div className="text-xs text-[#1B3A5C] uppercase tracking-wide font-semibold mb-1">Required Monthly SIP</div>
                 <div className="text-2xl font-bold text-[#1F2937]">₹{Math.round(requiredSipNow).toLocaleString('en-IN')}</div>
                 <div className="text-[10px] text-gray-500 mt-2">Invest for {yearsToRetire} years</div>
               </div>
@@ -270,7 +270,7 @@ export default function RetirementSipCalculatorPage() {
           {/* FAQ */}
           <div className="glass-panel p-6">
             <h2 className="text-xl font-bold text-[#1F2937] mb-4 flex items-center gap-2">
-              <HelpCircle className="w-5 h-5 text-[#0D9488]" /> Frequently Asked Questions
+              <HelpCircle className="w-5 h-5 text-[#1B3A5C]" /> Frequently Asked Questions
             </h2>
             <div className="flex flex-col">
               {faqSchema.mainEntity.map((item, index) => (
@@ -280,7 +280,7 @@ export default function RetirementSipCalculatorPage() {
           </div>
 
           {/* CTA & Links */}
-          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(13,148,136,0.1)] to-[rgba(27,58,92,0.08)]">
+          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.05)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-[#1F2937] mb-2">Want to Reach Your Goal Faster?</h2>
             <p className="text-gray-500 text-sm mb-4">Explore Step-up SIPs to start with a lower amount and increase it annually.</p>
             <div className="flex flex-wrap justify-center gap-3">
@@ -295,7 +295,7 @@ export default function RetirementSipCalculatorPage() {
 
           <div className="text-center text-xs text-gray-500">
             <p>For educational purposes only. Consult a financial advisor before investing.</p>
-            <Link href="/disclaimer" className="text-[#0D9488] hover:underline">Read Disclaimer</Link>
+            <Link href="/disclaimer" className="text-[#1B3A5C] hover:underline">Read Disclaimer</Link>
           </div>
 
         </article>

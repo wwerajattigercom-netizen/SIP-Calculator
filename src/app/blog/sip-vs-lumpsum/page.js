@@ -105,7 +105,7 @@ const jsonLd = {
 const SCENARIO_META = {
   bull: {
     label: 'Bull Market',
-    color: '#0D9488',
+    color: '#059669',
     icon: TrendingUp,
     desc: 'Steady, consistent growth every month. Lumpsum gets more time in the market.',
     tag: 'Consistent Growth',
@@ -409,23 +409,23 @@ export default function SipVsLumpsumPage() {
                 <tbody className="text-gray-500">
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">📈 Steady Bull Market</td>
-                    <td className="py-3 pr-4 text-[#0D9488] font-semibold">Wins ✅</td>
+                    <td className="py-3 pr-4 text-[#059669] font-semibold">Wins ✅</td>
                     <td className="py-3">Good, but lags</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">📉 Crash then Recovery</td>
                     <td className="py-3 pr-4">Suffers early loss</td>
-                    <td className="py-3 text-[#0D9488] font-semibold">Wins ✅ (buys cheap)</td>
+                    <td className="py-3 text-[#059669] font-semibold">Wins ✅ (buys cheap)</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">〰️ Choppy / Volatile</td>
                     <td className="py-3 pr-4">Inconsistent</td>
-                    <td className="py-3 text-[#0D9488] font-semibold">Wins ✅ (rupee-cost avg)</td>
+                    <td className="py-3 text-[#059669] font-semibold">Wins ✅ (rupee-cost avg)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">💼 Salaried investor</td>
                     <td className="py-3 pr-4">Requires lump sum upfront</td>
-                    <td className="py-3 text-[#0D9488] font-semibold">Natural fit ✅</td>
+                    <td className="py-3 text-[#059669] font-semibold">Natural fit ✅</td>
                   </tr>
                 </tbody>
               </table>

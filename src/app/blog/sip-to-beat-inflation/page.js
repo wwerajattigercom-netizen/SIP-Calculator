@@ -73,7 +73,7 @@ export default function SipBeatInflationPage() {
 
   const nominalChartData = {
     labels: ['Total Invested', 'Nominal Gains'],
-    datasets: [{ data: [results.totalInvested, results.nominalGains], backgroundColor: ['#1B3A5C', '#1B3A5C'] }]
+    datasets: [{ data: [results.totalInvested, results.nominalGains], backgroundColor: ['#1B3A5C', '#C4993C'] }]
   };
 
   const realChartData = {
@@ -84,7 +84,7 @@ export default function SipBeatInflationPage() {
         Math.max(0, results.realGains),
         results.powerLost,
       ],
-      backgroundColor: ['#0D9488', '#86efac', '#991B1B'],
+      backgroundColor: ['#1B3A5C', '#C4993C', '#991B1B'],
     }]
   };
 
@@ -163,14 +163,14 @@ export default function SipBeatInflationPage() {
               <div className="glass-panel p-6 space-y-5">
 
                 {/* ── Status badge: Are you beating inflation? ── */}
-                <div className={`flex items-start gap-4 p-4 rounded-2xl border ${results.isBeating ? 'border-[#0D9488]/30 bg-[rgba(13,148,136,0.06)]' : 'border-[#991B1B]/30 bg-[rgba(153,27,27,0.06)]'}`}>
-                  <div className={`flex-shrink-0 mt-0.5 ${results.isBeating ? 'text-[#0D9488]' : 'text-[#991B1B]'}`}>
+                <div className={`flex items-start gap-4 p-4 rounded-2xl border ${results.isBeating ? 'border-[#1B3A5C]/30 bg-[rgba(27,58,92,0.05)]' : 'border-[#991B1B]/30 bg-[rgba(153,27,27,0.06)]'}`}>
+                  <div className={`flex-shrink-0 mt-0.5 ${results.isBeating ? 'text-[#1B3A5C]' : 'text-[#991B1B]'}`}>
                     {results.isBeating
                       ? <CheckCircle2 className="w-6 h-6" />
                       : <XCircle className="w-6 h-6" />}
                   </div>
                   <div>
-                    <p className={`font-bold text-sm ${results.isBeating ? 'text-[#0D9488]' : 'text-[#991B1B]'}`}>
+                    <p className={`font-bold text-sm ${results.isBeating ? 'text-[#059669]' : 'text-[#991B1B]'}`}>
                       {results.isBeating
                         ? `✅ Your SIP is beating inflation by ${results.margin.toFixed(1)}%`
                         : `❌ Your SIP is NOT beating inflation (${Math.abs(results.margin).toFixed(1)}% short)`}
@@ -194,9 +194,9 @@ export default function SipBeatInflationPage() {
                     <p className="text-[#1B3A5C] font-bold text-sm">{formatToShortWords(results.nominalFV)}</p>
                     <p className="text-[10px] text-gray-500 mt-0.5">Bank statement value</p>
                   </div>
-                  <div className="bg-[rgba(13,148,136,0.07)] border border-[#0D9488]/20 rounded-xl p-3">
+                  <div className="bg-[rgba(27,58,92,0.05)] border border-[#1B3A5C]/20 rounded-xl p-3">
                     <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Real Corpus</p>
-                    <p className="text-[#0D9488] font-bold text-sm">{formatToShortWords(results.realFV)}</p>
+                    <p className="text-[#1F2937] font-bold text-sm">{formatToShortWords(results.realFV)}</p>
                     <p className="text-[10px] text-gray-500 mt-0.5">Buying power today</p>
                   </div>
                 </div>
@@ -236,12 +236,12 @@ export default function SipBeatInflationPage() {
                       <Doughnut data={realChartData} options={doughnutOptions} />
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                         <span className="text-gray-500 text-[9px]">Real Value</span>
-                        <span className="text-[#0D9488] font-bold text-xs">{formatToShortWords(results.realFV)}</span>
+                        <span className="text-[#1F2937] font-bold text-xs">{formatToShortWords(results.realFV)}</span>
                       </div>
                     </div>
                     <div className="flex flex-col gap-1 text-[10px] text-gray-500">
-                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#0D9488] inline-block" /> Invested</span>
-                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#86efac] inline-block" /> Real Gains</span>
+                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#1B3A5C] inline-block" /> Invested</span>
+                      <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#C4993C] inline-block" /> Real Gains</span>
                       <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#991B1B] inline-block" /> Power Lost</span>
                     </div>
                   </div>

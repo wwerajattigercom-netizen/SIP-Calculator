@@ -96,7 +96,7 @@ export default function SipTo1CrorePage() {
                       <td className="py-2.5 pr-4 font-medium">{years} Years</td>
                       <td className="py-2.5 pr-4 text-right">{fmt(r10)}</td>
                       <td className="py-2.5 pr-4 text-right text-[#1B3A5C] font-semibold">{fmt(r12)}</td>
-                      <td className="py-2.5 text-right text-[#0D9488]">{fmt(r15)}</td>
+                      <td className="py-2.5 text-right text-[#1B3A5C]">{fmt(r15)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -118,9 +118,9 @@ export default function SipTo1CrorePage() {
                 <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-2 p-4 rounded-xl bg-white border border-[#E8E4DF]">
                   <p className="text-[#1F2937] text-sm font-medium sm:w-52 flex-shrink-0">{label}</p>
                   <div className="flex gap-4 text-xs flex-wrap">
-                    <span className="text-gray-500">Starting SIP: <span className="text-[#1F2937] font-bold">{fmt(sip)}/mo</span></span>
-                    <span className="text-gray-500">Final corpus: <span className="text-[#0D9488] font-bold">{total}</span></span>
-                    <span className="text-gray-500">Total invested: <span className="text-gray-600">{invested}</span></span>
+                    <span className="text-gray-500">Starting SIP: <span className="text-[#1B3A5C] font-bold">{fmt(sip)}/mo</span></span>
+                    <span className="text-gray-500">Final corpus: <span className="text-[#1F2937] font-bold">{total}</span></span>
+                    <span className="text-gray-500">Total invested: <span className="text-[#1B3A5C]">{invested}</span></span>
                   </div>
                 </div>
               ))}

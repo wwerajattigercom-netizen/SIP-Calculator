@@ -72,28 +72,28 @@ const ARTICLES = [
   {
     href: '/blog/sip-for-child-education',
     tag: 'Goal Planning',
-    tagColor: 'text-[#0D9488] bg-[rgba(20,184,166,0.10)] border-[rgba(20,184,166,0.25)]',
+    tagColor: 'text-[#1B3A5C] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'SIP for Child Education — Education Goal Calculator India',
     excerpt:
       'Education inflation in India runs at 10%+ per year. Find exactly how much SIP you need to fund your child\'s engineering, medical, or MBA degree — before the cost doubles.',
     readTime: '5 min read',
     cta: 'Try Calculator',
-    icon: <GraduationCap className="w-5 h-5 text-[#0D9488]" />,
+    icon: <GraduationCap className="w-5 h-5 text-[#1B3A5C]" />,
     highlight: 'Interactive',
-    highlightColor: 'text-[#0D9488]',
+    highlightColor: 'text-[#1B3A5C]',
   },
   {
     href: '/blog/sip-for-house-down-payment',
     tag: 'Goal Planning',
-    tagColor: 'text-[#0D9488] bg-[rgba(20,184,166,0.10)] border-[rgba(20,184,166,0.25)]',
+    tagColor: 'text-[#1B3A5C] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'SIP for House Down Payment — Save for Your Dream Home',
     excerpt:
       'Property prices rise 7%+ annually. See the future cost of that ₹80L flat, the down payment you need to save, and the exact monthly SIP to get there — with city-wise reference.',
     readTime: '5 min read',
     cta: 'Try Calculator',
-    icon: <Home className="w-5 h-5 text-[#0D9488]" />,
+    icon: <Home className="w-5 h-5 text-[#1B3A5C]" />,
     highlight: 'Interactive',
-    highlightColor: 'text-[#0D9488]',
+    highlightColor: 'text-[#1B3A5C]',
   },
   {
     href: '/blog/sip-during-market-crash',
@@ -111,15 +111,15 @@ const ARTICLES = [
   {
     href: '/blog/cagr-vs-xirr-vs-absolute-return',
     tag: 'Return Metrics',
-    tagColor: 'text-[#0D9488] bg-[rgba(196,153,60,0.1)] border-[rgba(13,148,136,0.25)]',
+    tagColor: 'text-[#C4993C] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'CAGR vs XIRR vs Absolute Return — What\'s the Difference?',
     excerpt:
       'When Groww shows "XIRR" and a fund shows "CAGR", are they the same? No — and the confusion costs investors bad decisions. This guide explains each clearly with worked examples.',
     readTime: '5 min read',
     cta: 'Read Guide',
-    icon: <TrendingUp className="w-5 h-5 text-[#0D9488]" />,
+    icon: <TrendingUp className="w-5 h-5 text-[#1B3A5C]" />,
     highlight: 'CAGR vs XIRR',
-    highlightColor: 'text-[#0D9488]',
+    highlightColor: 'text-[#C4993C]',
   },
 ];
 
@@ -127,7 +127,7 @@ const CALCULATORS = [
   { href: '/',                        icon: <Calculator className="w-4 h-4 text-[#1B3A5C]" />, label: 'Step-Up SIP Calculator',  desc: 'SIP with step-up, lump sum & inflation' },
   { href: '/lumpsum-calculator',       icon: <Layers     className="w-4 h-4 text-[#059669]" />, label: 'Lumpsum Calculator',       desc: 'One-time investment future value'        },
   { href: '/target-amount-calculator', icon: <Target     className="w-4 h-4 text-[#1B3A5C]"  />, label: 'SIP Goal Calculator',      desc: 'Time to reach ₹1 Crore'                 },
-  { href: '/cagr-calculator',          icon: <TrendingUp className="w-4 h-4 text-[#0D9488]" />, label: 'CAGR Calculator',          desc: 'Compound annual growth rate'             },
+  { href: '/cagr-calculator',          icon: <TrendingUp className="w-4 h-4 text-[#1B3A5C]" />, label: 'CAGR Calculator',          desc: 'Compound annual growth rate'             },
   { href: '/swp-calculator',           icon: <Wallet     className="w-4 h-4 text-[#1B3A5C]" />, label: 'SWP Calculator',           desc: 'Monthly withdrawal planning'             },
   { href: '/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[#991B1B]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
 ];

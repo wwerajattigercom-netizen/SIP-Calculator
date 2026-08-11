@@ -309,8 +309,8 @@ export default function SipDuringCrashPage() {
                   </div>
                   
                   {/* Extra Wealth */}
-                  <div className="p-4 rounded-2xl border border-[#0D9488]/30 bg-[#0D9488]/10">
-                    <div className="text-[#0D9488] text-[10px] font-semibold uppercase tracking-wider mb-1">Wealth Lost By Stopping</div>
+                  <div className="p-4 rounded-2xl border border-[#991B1B]/30 bg-[#991B1B]/10">
+                    <div className="text-[#991B1B] text-[10px] font-semibold uppercase tracking-wider mb-1">Wealth Lost By Stopping</div>
                     <div className="text-xl font-bold text-[#1F2937]">{fmt(diff)}</div>
                   </div>
                   {/* Missed Investment */}
@@ -417,7 +417,7 @@ export default function SipDuringCrashPage() {
                     <th className="py-2 pr-4 text-gray-500 font-semibold">Year</th>
                     <th className="py-2 pr-4 text-[#991B1B] font-semibold">Nifty Drop</th>
                     <th className="py-2 pr-4 text-gray-500 font-semibold">Recovery Time</th>
-                    <th className="py-2 text-[#0D9488] font-semibold">SIP Outcome</th>
+                    <th className="py-2 text-[#1B3A5C] font-semibold">SIP Outcome</th>
                   </tr>
                 </thead>
                 <tbody className="text-gray-500">

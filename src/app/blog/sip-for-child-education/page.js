@@ -99,12 +99,12 @@ export default function SipForChildEducationPage() {
           {
             label: 'Total Invested',
             data: investedData,
-            backgroundColor: '#14B8A6',
+            backgroundColor: '#1B3A5C',
           },
           {
             label: 'Estimated Gains',
             data: gainsData,
-            backgroundColor: '#1B3A5C',
+            backgroundColor: '#C4993C',
           }
         ]
       }
@@ -210,18 +210,18 @@ export default function SipForChildEducationPage() {
             <div className="md:col-span-7 space-y-4">
               <div className="glass-panel p-6">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                  <div className="bg-[rgba(20,184,166,0.08)] border border-[#14B8A6]/20 rounded-xl p-4 text-center">
+                  <div className="bg-[#f8f2ea] border border-black/5 rounded-xl p-4 text-center">
                     <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Target Corpus (Future Cost)</p>
-                    <p className="text-[#0D9488] font-bold text-xl">{fmt(results.futureCost)}</p>
+                    <p className="text-[#1F2937] font-bold text-xl">{fmt(results.futureCost)}</p>
                   </div>
                   <div className="bg-[rgba(27,58,92,0.15)] border border-[#1B3A5C]/40 rounded-xl p-4 text-center shadow-[0_0_20px_rgba(27,58,92,0.1)]">
                     <p className="text-gray-600 text-[10px] uppercase tracking-wider mb-1 font-semibold">Monthly SIP Needed</p>
                     <p className="text-[#1B3A5C] font-extrabold text-2xl">{fmt(results.requiredSip)}</p>
                   </div>
-                  <div className="bg-[rgba(13,148,136,0.08)] border border-[#0D9488]/20 rounded-xl p-4 text-center">
+                  <div className="bg-[rgba(27,58,92,0.05)] border border-[#1B3A5C]/20 rounded-xl p-4 text-center">
                     <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Total Invested</p>
-                    <p className="text-[#0D9488] font-bold text-xl">{fmt(results.totalInvested)}</p>
-                    <p className="text-[10px] text-[#0D9488]/70 mt-1">Gains: {fmt(results.estimatedGains)}</p>
+                    <p className="text-[#1B3A5C] font-bold text-xl">{fmt(results.totalInvested)}</p>
+                    <p className="text-[10px] text-[#059669] mt-1">Gains: {fmt(results.estimatedGains)}</p>
                   </div>
                 </div>
 
@@ -233,7 +233,7 @@ export default function SipForChildEducationPage() {
                     <span>College (Age {targetAge})</span>
                   </div>
                   <div className="h-2 w-full bg-white rounded-full overflow-hidden flex">
-                    <div className="h-full bg-gradient-to-r from-[#14B8A6] to-[#1B3A5C] w-full relative">
+                    <div className="h-full bg-gradient-to-r from-[#1B3A5C] to-[#C4993C] w-full relative">
                        <div className="absolute top-0 right-0 h-full w-full bg-[linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.1)_50%,transparent_100%)] animate-[shimmer_2s_infinite]" style={{ backgroundSize: '200% 100%' }}></div>
                     </div>
                   </div>
@@ -283,7 +283,7 @@ export default function SipForChildEducationPage() {
                   <tr className="border-b border-black/5">
                     <th className="py-3 pr-4 text-gray-500 font-semibold">Course</th>
                     <th className="py-3 pr-4 text-gray-500 font-semibold">Today's Cost</th>
-                    <th className="py-3 pr-4 text-[#0D9488] font-semibold">In 15 Years (10% Infl)</th>
+                    <th className="py-3 pr-4 text-[#1F2937] font-semibold">In 15 Years (10% Infl)</th>
                     <th className="py-3 text-[#1B3A5C] font-semibold">SIP Needed (12% return)</th>
                   </tr>
                 </thead>
@@ -369,7 +369,7 @@ export default function SipForChildEducationPage() {
           </div>
 
           {/* Cross Links */}
-          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(20,184,166,0.08)]">
+          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)]">
             <h2 className="text-lg font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">

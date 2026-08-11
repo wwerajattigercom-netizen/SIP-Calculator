@@ -31,7 +31,7 @@ const COMPARISON = [
     bestFor: 'SIP returns, lumpsum + SIP combined, partial withdrawals',
     limitation: 'Requires computation — cannot be done manually easily',
     example: '₹5,000/mo SIP for 5 years → ₹4.2L corpus = ~12.3% XIRR',
-    color: 'text-[#0D9488]',
+    color: 'text-[#C4993C]',
     border: 'border-[rgba(196,153,60,0.2)]',
   },
 ];
@@ -57,11 +57,11 @@ export default function CAGRvsXIRRPage() {
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(13,148,136,0.07)] to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-[10px] uppercase tracking-widest text-[#0D9488] font-semibold mb-3 block">Guide · Return Metrics</span>
+              <span className="text-[10px] uppercase tracking-widest text-[#C4993C] font-semibold mb-3 block">Guide · Return Metrics</span>
               <h1 className="text-2xl md:text-3xl font-extrabold text-[#1F2937] leading-tight mb-3">
-                <span className="text-[#1B3A5C]">CAGR</span> vs <span className="text-[#0D9488]">XIRR</span> vs Absolute Return — What's the Difference?
+                <span className="text-[#1B3A5C]">CAGR</span> vs <span className="text-[#C4993C]">XIRR</span> vs Absolute Return — What's the Difference?
               </h1>
               <p className="text-gray-500 text-sm leading-relaxed">
                 When you look at your mutual fund portfolio on Groww or Zerodha, you see different numbers —
@@ -79,7 +79,7 @@ export default function CAGRvsXIRRPage() {
               {[
                 { metric: 'Absolute Return', when: 'Quick total gain % — no time context', color: 'text-[#059669]' },
                 { metric: 'CAGR',            when: 'Annualised return for lumpsum investments', color: 'text-[#1B3A5C]' },
-                { metric: 'XIRR',            when: 'Annualised return for SIP / multiple cash flows', color: 'text-[#0D9488]' },
+                { metric: 'XIRR',            when: 'Annualised return for SIP / multiple cash flows', color: 'text-[#C4993C]' },
               ].map(({ metric, when, color }) => (
                 <div key={metric} className="flex items-start gap-2">
                   <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${color}`} />
@@ -119,7 +119,7 @@ export default function CAGRvsXIRRPage() {
             <div className="space-y-3 text-sm text-gray-500 leading-relaxed">
               <p>
                 When you view your SIP portfolio on <strong className="text-[#1F2937]">Groww</strong> or <strong className="text-[#1F2937]">Zerodha Coin</strong>,
-                the return percentage shown is <strong className="text-[#0D9488]">XIRR</strong> — not CAGR, not absolute return.
+                the return percentage shown is <strong className="text-[#C4993C]">XIRR</strong> — not CAGR, not absolute return.
                 This is the correct metric for SIP because it accounts for the fact that each monthly instalment
                 was invested at a different time.
               </p>
@@ -169,7 +169,7 @@ export default function CAGRvsXIRRPage() {
           </div>
 
           {/* CTA */}
-          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(13,148,136,0.06)] to-[rgba(27,58,92,0.08)]">
+          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.05)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-[#1F2937] mb-2">Calculate CAGR of Any Investment</h2>
             <p className="text-gray-500 text-sm mb-4">Use our free CAGR Calculator — supports lumpsum and lumpsum+SIP combined mode.</p>
             <div className="flex flex-wrap justify-center gap-3">

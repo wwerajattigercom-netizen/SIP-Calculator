@@ -156,7 +156,7 @@ export default function SipForHousePage() {
               {/* How to Use */}
               <div className="glass-panel p-5 border border-[#E8E4DF]">
                 <h3 className="text-[#1F2937] font-bold text-sm mb-3 flex items-center gap-2">
-                  <Home className="w-4 h-4 text-[#0D9488]" /> How to Use This Calculator
+                  <Home className="w-4 h-4 text-[#1B3A5C]" /> How to Use This Calculator
                 </h3>
                 <ol className="space-y-2.5">
                   {[
@@ -167,7 +167,7 @@ export default function SipForHousePage() {
                     { step: '5', text: 'Start the SIP shown and increase it 10% every year to reach your goal comfortably.' },
                   ].map(({ step, text }) => (
                     <li key={step} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#14B8A6]/20 border border-[#14B8A6]/40 text-[#0D9488] text-[10px] font-bold flex items-center justify-center mt-0.5">{step}</span>
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[rgba(27,58,92,0.05)] border border-[#1B3A5C]/20 text-[#1B3A5C] text-[10px] font-bold flex items-center justify-center mt-0.5">{step}</span>
                       <span className="text-gray-500 text-xs leading-relaxed">{text}</span>
                     </li>
                   ))}
@@ -192,9 +192,9 @@ export default function SipForHousePage() {
                     <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Future Prop. Price</p>
                     <p className="text-[#1F2937] font-bold text-lg">{fmt(results.futurePrice)}</p>
                   </div>
-                  <div className="bg-[rgba(20,184,166,0.1)] border border-[#14B8A6]/30 rounded-xl p-4">
-                    <p className="text-[#0D9488] text-[10px] uppercase tracking-wider mb-1 font-semibold">Down Payment Needed</p>
-                    <p className="text-[#0D9488] font-bold text-lg">{fmt(results.requiredDownPayment)}</p>
+                  <div className="bg-[rgba(27,58,92,0.05)] border border-[#1B3A5C]/20 rounded-xl p-4">
+                    <p className="text-[#1F2937] text-[10px] uppercase tracking-wider mb-1 font-semibold">Down Payment Needed</p>
+                    <p className="text-[#1F2937] font-bold text-lg">{fmt(results.requiredDownPayment)}</p>
                   </div>
                   <div className="bg-white border border-[#E8E4DF] rounded-xl p-4">
                     <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Total SIP Invested</p>
@@ -210,7 +210,7 @@ export default function SipForHousePage() {
                 <div className="mb-6">
                   <div className="flex justify-between text-xs text-gray-500 mb-2">
                     <span>Today&apos;s Price: {fmt(currentPrice)}</span>
-                    <span className="text-[#0D9488] font-semibold">In {yearsToBuy} Yrs · {fmt(results.futurePrice)}</span>
+                    <span className="text-[#1F2937] font-semibold">In {yearsToBuy} Yrs · {fmt(results.futurePrice)}</span>
                   </div>
                   <div className="h-3 w-full bg-[rgba(0,0,0,0.03)] rounded-full overflow-hidden relative border border-[#E8E4DF]">
                      <div 
@@ -218,11 +218,11 @@ export default function SipForHousePage() {
                         style={{ width: `${(currentPrice / results.futurePrice) * 100}%` }}
                      ></div>
                      <div 
-                        className="absolute top-0 right-0 h-full bg-[#14B8A6]/80 rounded-r-full" 
+                        className="absolute top-0 right-0 h-full bg-[#C4993C]/80 rounded-r-full" 
                         style={{ width: `${((results.futurePrice - currentPrice) / results.futurePrice) * 100}%` }}
                      ></div>
                   </div>
-                  <p className="text-center text-[10px] text-gray-500 mt-2">Teal indicates property price appreciation over time</p>
+                  <p className="text-center text-[10px] text-gray-500 mt-2">Gold indicates property price appreciation over time</p>
                 </div>
 
                 {/* Step-up Alternative */}
@@ -251,7 +251,7 @@ export default function SipForHousePage() {
                   <tr className="border-b border-black/5">
                     <th className="py-3 pr-4 text-gray-500 font-semibold">City</th>
                     <th className="py-3 pr-4 text-gray-500 font-semibold">Avg 2BHK Price</th>
-                    <th className="py-3 pr-4 text-[#0D9488] font-semibold">Down Pmt (20%)</th>
+                    <th className="py-3 pr-4 text-[#1F2937] font-semibold">Down Pmt (20%)</th>
                     <th className="py-3 text-[#1B3A5C] font-semibold">SIP Needed / mo</th>
                   </tr>
                 </thead>

@@ -186,7 +186,7 @@ export default function SipBasedOnSalaryPage() {
               <p className="text-gray-500 text-xs">Based on allocating 20% of your income to savings and investments.</p>
               
               <div className="mt-4 inline-flex items-center gap-2 bg-[rgba(0,0,0,0.03)] px-4 py-2 rounded-full text-sm">
-                <TrendingUp className="w-4 h-4 text-[#0D9488]" />
+                <TrendingUp className="w-4 h-4 text-[#1B3A5C]" />
                 <span className="text-gray-600">Your SIP is in the <strong className="text-[#1F2937]">{getTopPercentile(moderateSip)}</strong> of Indian investors</span>
               </div>
             </div>
@@ -198,7 +198,7 @@ export default function SipBasedOnSalaryPage() {
                 <div className="text-xl font-bold text-[#1F2937] mb-1">₹{conservativeSip.toLocaleString('en-IN')}</div>
                 <div className="h-px bg-black/5 my-3"></div>
                 <div className="text-[10px] text-gray-500 mb-1">Corpus after 20 yrs @12%</div>
-                <div className="text-lg font-bold text-[#1B3A5C]">{formatToShortWords(conservativeCorpus)}</div>
+                <div className="text-lg font-bold text-[#1F2937]">{formatToShortWords(conservativeCorpus)}</div>
               </div>
               
               <div className="bg-[rgba(27,58,92,0.1)] border border-[#1B3A5C]/30 rounded-xl p-4 relative overflow-hidden">
@@ -207,7 +207,7 @@ export default function SipBasedOnSalaryPage() {
                 <div className="text-xl font-bold text-[#1F2937] mb-1">₹{moderateSip.toLocaleString('en-IN')}</div>
                 <div className="h-px bg-black/5 my-3"></div>
                 <div className="text-[10px] text-gray-500 mb-1">Corpus after 20 yrs @12%</div>
-                <div className="text-lg font-bold text-[#0D9488]">{formatToShortWords(moderateCorpus)}</div>
+                <div className="text-lg font-bold text-[#1F2937]">{formatToShortWords(moderateCorpus)}</div>
               </div>
 
               <div className="bg-white border border-black/5 rounded-xl p-4">
@@ -215,7 +215,7 @@ export default function SipBasedOnSalaryPage() {
                 <div className="text-xl font-bold text-[#1F2937] mb-1">₹{aggressiveSip.toLocaleString('en-IN')}</div>
                 <div className="h-px bg-black/5 my-3"></div>
                 <div className="text-[10px] text-gray-500 mb-1">Corpus after 20 yrs @12%</div>
-                <div className="text-lg font-bold text-[#1B3A5C]">{formatToShortWords(aggressiveCorpus)}</div>
+                <div className="text-lg font-bold text-[#1F2937]">{formatToShortWords(aggressiveCorpus)}</div>
               </div>
             </div>
           </div>
@@ -236,7 +236,7 @@ export default function SipBasedOnSalaryPage() {
                 <div><strong className="text-[#1F2937]">30% Wants:</strong> Discretionary spending (dining out, entertainment, shopping).</div>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-600">
-                <div className="mt-0.5 bg-[#0D9488]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[#0D9488]" /></div>
+                <div className="mt-0.5 bg-[#1B3A5C]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[#1B3A5C]" /></div>
                 <div><strong className="text-[#1F2937]">20% Savings & Investments:</strong> Your SIPs, emergency fund, and debt repayment.</div>
               </li>
             </ul>
@@ -300,7 +300,7 @@ export default function SipBasedOnSalaryPage() {
           </div>
 
           {/* CTA & Links */}
-          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(13,148,136,0.08)]">
+          <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-[#1F2937] mb-2">Plan Your Investments</h2>
             <p className="text-gray-500 text-sm mb-4">Use our advanced calculators to project your wealth with step-up options.</p>
             <div className="flex flex-wrap justify-center gap-3">
