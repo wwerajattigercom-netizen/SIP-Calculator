@@ -1,0 +1,271 @@
+"use client";
+
+import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
+import { AlertTriangle, TrendingUp, HelpCircle, ChevronDown, ArrowRight, BarChart3, Info, Landmark, ShieldCheck, Wallet } from 'lucide-react';
+import InputSlider from '@/components/InputSlider';
+import CalculatorTabs from '@/components/CalculatorTabs';
+import Breadcrumb from '@/components/Breadcrumb';
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS, Tooltip, Legend,
+  CategoryScale, LinearScale, Title, BarElement
+} from 'chart.js';
+
+ChartJS.register(Tooltip, Legend, CategoryScale, LinearScale, Title, BarElement);
+
+const fmtINR = (v) =>
+  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
+
+function toLabel(v) {
+  if (v >= 1e7) return `₹${(v / 1e7).toFixed(2)} Cr`;
+  if (v >= 1e5) return `₹${(v / 1e5).toFixed(2)} L`;
+  return fmtINR(v);
+}
+
+const FAQItem = ({ q, a }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
+      >
+        <h3 className="font-semibold text-gray-800 pr-4">{q}</h3>
+        <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="p-4 pt-0 text-gray-600 text-sm leading-relaxed border-t border-gray-100 mt-2">
+          {a}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default function SipVsFdPpfRd() {
+  const [monthly, setMonthly] = useState(10000);
+  const [years, setYears] = useState(15);
+  
+  const [sipRate, setSipRate] = useState(12);
+  const [ppfRate, setPpfRate] = useState(7.1);
+  const [rdRate, setRdRate] = useState(7);
+
+  const calculateFV = (P, ratePa, y) => {
+    const r = ratePa / 12 / 100;
+    const n = y * 12;
+    if (r === 0) return P * n;
+    return Math.round(P * (((Math.pow(1 + r, n) - 1) / r) * (1 + r)));
+  };
+
+  const results = useMemo(() => {
+    const totalInvested = monthly * 12 * years;
+    const sipFv = calculateFV(monthly, sipRate, years);
+    const ppfFv = calculateFV(monthly, ppfRate, years);
+    const rdFv = calculateFV(monthly, rdRate, years);
+    
+    return {
+      totalInvested,
+      sipFv,
+      ppfFv,
+      rdFv,
+      sipGains: sipFv - totalInvested,
+      ppfGains: ppfFv - totalInvested,
+      rdGains: rdFv - totalInvested,
+    };
+  }, [monthly, years, sipRate, ppfRate, rdRate]);
+
+  const chartData = {
+    labels: ['Total Invested', 'Bank RD', 'PPF', 'Equity SIP'],
+    datasets: [
+      {
+        label: 'Corpus Value (₹)',
+        data: [results.totalInvested, results.rdFv, results.ppfFv, results.sipFv],
+        backgroundColor: [
+          '#9CA3AF', // Gray for invested
+          '#60A5FA', // Light blue for RD
+          '#C4993C', // Gold for PPF
+          '#1B3A5C', // Navy for SIP
+        ],
+        borderRadius: 6,
+        borderWidth: 0,
+      }
+    ]
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: 'rgba(27,58,92,0.9)',
+        padding: 12,
+        titleFont: { size: 14, family: 'sans-serif' },
+        bodyFont: { size: 14, weight: 'bold', family: 'sans-serif' },
+        callbacks: {
+          label: (ctx) => `Corpus: ${fmtINR(ctx.raw)}`
+        }
+      }
+    },
+    scales: {
+      y: {
+        display: true,
+        min: 0,
+        suggestedMax: Math.max(results.sipFv, results.ppfFv, results.rdFv) * 1.15,
+        ticks: {
+          callback: function(value) { return toLabel(value); }
+        }
+      },
+      x: {
+        grid: { display: false },
+        ticks: { font: { weight: 'bold', size: 12 }, color: '#4B5563' }
+      }
+    },
+    layout: {
+      padding: { top: 20 }
+    }
+  };
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which is better: SIP, PPF, or FD/RD?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on your financial goals. PPF offers tax-free guaranteed returns but has a 15-year lock-in. Bank FDs/RDs are highly liquid and safe but offer lower returns that are fully taxable. Equity SIPs offer the highest potential returns (beating inflation) but come with market risk and require a long-term horizon."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can equity SIP beat PPF and FD?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Historically, over a period of 10 to 15 years, Equity Mutual Fund SIPs have significantly outperformed PPF and Bank FDs, delivering returns between 12% to 15% compared to the 7% guaranteed returns of traditional instruments."
+        }
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      <main className="py-6 px-2 md:px-4 flex flex-col items-center">
+        <div className="max-w-6xl w-full mx-auto">
+          
+          <CalculatorTabs />
+          <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'SIP vs FD vs PPF' }]} />
+
+          <div className="flex flex-col mb-6 mt-4">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
+              SIP vs FD vs PPF Comparison Tool
+            </h1>
+            <p className="text-gray-600 max-w-3xl">
+              Compare the wealth generated by Mutual Fund SIPs against traditional safe investments like PPF and Bank RDs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
+            
+            {/* INPUT PANEL */}
+            <div className="lg:col-span-5 glass-panel p-5 lg:p-6 relative">
+              <InputSlider label="Monthly Investment" value={monthly} onChange={setMonthly} min={500} max={150000} step={500} prefix="₹" />
+              <InputSlider label="Time Horizon" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yr" />
+              
+              <div className="mt-8 mb-4 border-t border-gray-200 pt-6">
+                <h3 className="text-sm font-bold text-[#1B3A5C] mb-4 uppercase tracking-wider flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4" /> Expected Return Rates
+                </h3>
+                <InputSlider label="Equity SIP Rate" value={sipRate} onChange={setSipRate} min={5} max={25} step={0.1} suffix="%" />
+                <InputSlider label="PPF Rate" value={ppfRate} onChange={setPpfRate} min={5} max={10} step={0.1} suffix="%" />
+                <InputSlider label="Bank RD / FD Rate" value={rdRate} onChange={setRdRate} min={3} max={10} step={0.1} suffix="%" />
+              </div>
+            </div>
+
+            {/* CHART PANEL */}
+            <div className="lg:col-span-7 glass-panel p-5 lg:p-6 flex flex-col h-[500px]">
+              <div className="text-center mb-4">
+                <h2 className="text-[#1B3A5C] font-bold text-lg md:text-xl">Final Wealth Corpus Comparison</h2>
+                <p className="text-sm text-gray-500">Over {years} years of monthly investing</p>
+              </div>
+              
+              <div className="flex-1 w-full min-h-0 relative">
+                <Bar data={chartData} options={chartOptions} />
+              </div>
+              
+              {/* Note about SIP outperformance */}
+              <div className="mt-4 bg-[rgba(5,150,105,0.05)] border border-[#059669]/20 p-4 rounded-xl text-center">
+                <p className="text-[#1F2937] text-sm">
+                  By choosing <strong className="text-[#1B3A5C]">Equity SIP</strong> over <strong className="text-[#C4993C]">PPF</strong>, 
+                  you generate an additional <strong className="text-[#059669] text-base">{fmtINR(results.sipFv - results.ppfFv)}</strong> in wealth over {years} years.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* EDUCATIONAL SECTION */}
+          <section className="mt-12 w-full max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold text-[#1F2937] mb-6 flex items-center gap-2">
+              <BarChart3 className="w-6 h-6 text-[#1B3A5C]" />
+              Detailed Comparison Guide
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              <div className="glass-panel p-6 border-t-4 border-[#1B3A5C]">
+                <h3 className="font-bold text-[#1F2937] mb-2 flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-[#1B3A5C]" /> Equity SIP
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• <strong className="text-gray-800">Returns:</strong> Market-linked (High, 12-15%)</li>
+                  <li>• <strong className="text-gray-800">Risk:</strong> High in short term, Low in long term</li>
+                  <li>• <strong className="text-gray-800">Lock-in:</strong> None (unless ELSS which is 3 years)</li>
+                  <li>• <strong className="text-gray-800">Taxation:</strong> 12.5% LTCG on gains above ₹1.25L</li>
+                </ul>
+              </div>
+              
+              <div className="glass-panel p-6 border-t-4 border-[#C4993C]">
+                <h3 className="font-bold text-[#1F2937] mb-2 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-[#C4993C]" /> PPF
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• <strong className="text-gray-800">Returns:</strong> Fixed by Govt (Moderate, ~7.1%)</li>
+                  <li>• <strong className="text-gray-800">Risk:</strong> Zero (Sovereign guarantee)</li>
+                  <li>• <strong className="text-gray-800">Lock-in:</strong> 15 years</li>
+                  <li>• <strong className="text-gray-800">Taxation:</strong> Completely Tax-Free (EEE)</li>
+                </ul>
+              </div>
+              
+              <div className="glass-panel p-6 border-t-4 border-[#60A5FA]">
+                <h3 className="font-bold text-[#1F2937] mb-2 flex items-center gap-2">
+                  <Landmark className="w-5 h-5 text-[#60A5FA]" /> Bank RD
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• <strong className="text-gray-800">Returns:</strong> Fixed by Bank (Low, ~6-7%)</li>
+                  <li>• <strong className="text-gray-800">Risk:</strong> Very Low</li>
+                  <li>• <strong className="text-gray-800">Lock-in:</strong> Flexible (1-10 years)</li>
+                  <li>• <strong className="text-gray-800">Taxation:</strong> Fully taxable at income slab rate</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 className="text-2xl font-bold text-[#1F2937] mb-6 flex items-center gap-2">
+              <HelpCircle className="w-6 h-6 text-[#1B3A5C]" />
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-3 mb-10">
+              {jsonLd.mainEntity.map((faq, i) => (
+                <FAQItem key={i} q={faq.name} a={faq.acceptedAnswer.text} />
+              ))}
+            </div>
+            
+          </section>
+        </div>
+      </main>
+    </>
+  );
+}

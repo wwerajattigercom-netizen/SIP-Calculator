@@ -156,9 +156,9 @@ export default function Home() {
             <div className="lg:col-span-6 xl:col-span-5 glass-panel p-5 lg:p-6 relative">
               <InputSlider label="Monthly SIP Amount" value={state.monthlySip} onChange={setters.setMonthlySip} min={500} max={1000000} step={500} prefix="₹" />
               <InputSlider label="Time Period" value={state.timePeriod} onChange={setters.setTimePeriod} min={1} max={50} step={1} suffix="Yr" />
-              <InputSlider label="Expected Return Rate (p.a)" value={state.returnRate} onChange={setters.setReturnRate} min={1} max={30} step={0.1} suffix="%" />
+              <InputSlider label="Expected Return Rate (p.a)" value={state.returnRate} onChange={setters.setReturnRate} min={1} max={25} step={0.1} suffix="%" />
               <InputSlider label="Initial Investment (Lump sum)" value={state.initialInvestment} onChange={setters.setInitialInvestment} min={0} max={10000000} step={1000} prefix="₹" />
-              <InputSlider label="Annual Step Up" value={state.stepUp} onChange={setters.setStepUp} min={0} max={50} step={1} suffix="%" />
+              <InputSlider label="Annual Step Up" value={state.stepUp} onChange={setters.setStepUp} min={0} max={20} step={1} suffix="%" />
               <InputSlider label="Expected Inflation Rate" value={state.inflationRate} onChange={setters.setInflationRate} min={0} max={15} step={0.1} suffix="%" />
 
               {/* Internal backlink to goal calculator */}
