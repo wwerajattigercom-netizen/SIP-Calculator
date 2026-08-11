@@ -54,10 +54,10 @@ export default function ResultSection({ results }) {
             Earned
           </div>
           <div className="text-sm font-extrabold text-[var(--color-returns)]">
-            +{formatCurrency(results.wealthGained, locale, currencyCode)}
+            +{formatCurrency(results.amountEarned, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
-            {formatToShortWords(results.wealthGained, isUS)}
+            {formatToShortWords(results.amountEarned, isUS)}
           </div>
         </div>
 
