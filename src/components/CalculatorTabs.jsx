@@ -7,10 +7,10 @@ import { Target, Calculator, TrendingUp, Layers, Wallet, Clock, BookOpen } from 
 
 const TABS = [
   { href: '/',                        label: 'SIP',      Icon: Calculator  },
-  { href: '/lumpsum-calculator',       label: 'Lumpsum',  Icon: Layers      },
-  { href: '/target-amount-calculator', label: 'Goal',     Icon: Target      },
-  { href: '/cagr-calculator',          label: 'CAGR',     Icon: TrendingUp  },
   { href: '/swp-calculator',           label: 'SWP',      Icon: Wallet      },
+  { href: '/cagr-calculator',          label: 'CAGR',     Icon: TrendingUp  },
+  { href: '/target-amount-calculator', label: 'Goal',     Icon: Target      },
+  { href: '/lumpsum-calculator',       label: 'Lumpsum',  Icon: Layers      },
   { href: '/blog',                     label: 'Guides',   Icon: BookOpen    },
 ];
 
