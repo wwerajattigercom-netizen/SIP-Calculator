@@ -160,9 +160,173 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 input[type=range]:focus { outline: none; }
 
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   Design Tokens
+───────────────────────────────────────────── */
+:root {
+  --background:   #f8f2ea;
+  --foreground:   #1F2937;
+  --panel-bg:     #FFFFFF;
+  --panel-border: transparent;
+  --color-invested: #C4993C;
+  --color-returns:  #0D9488;
+  --color-loss:     #991B1B;
+  --color-accent:   #1B3A5C;
+  --header-h:       52px;
+}
+
+/* ─────────────────────────────────────────────
+   Base
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;  /* prevent horizontal scroll at any zoom */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* Responsive font scaling: shrinks gracefully when zoomed out */
+  font-size: clamp(13px, 1.1vw, 16px);
+}
+
+/* ─────────────────────────────────────────────
+   Page wrapper — centers & constrains width
+   (same pattern as finology.in / Groww)
+───────────────────────────────────────────── */
+.page-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(12px, 3vw, 32px);
+  flex: 1;
+}
+
+/* ─────────────────────────────────────────────
+   Site Header
+───────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  height: var(--header-h);
+  background: #FFFFFF;
+  border-bottom: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+}
+
+.site-header-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 clamp(12px, 3vw, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Logo / Wordmark ── */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-logo-icon {
+  display: none;
+}
+
+.site-logo-text {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 700;
+  color: #1B3A5C;
+  white-space: nowrap;
+}
+
+.site-logo-accent {
+  color: #1B3A5C;
+}
+
+.site-header-tag {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6B7280;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .site-header-tag { display: block; }
+}
+
+/* ─────────────────────────────────────────────
+   Glassmorphism panel
+───────────────────────────────────────────── */
+.glass-panel {
+  background: var(--panel-bg);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  min-width: 0;   /* critical: prevents flex children from overflowing */
+}
+
+/* ─────────────────────────────────────────────
+   Typography helpers
+───────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─────────────────────────────────────────────
+   Custom range slider (kept for any fallback)
+───────────────────────────────────────────── */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  cursor: pointer;
+  margin-top: -8px;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+}
+input[type=range]:focus { outline: none; }
+
 /* ─────────────────────────────────────────────
    Smooth transitions
 ───────────────────────────────────────────── */
 .transition-all {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

@@ -206,8 +206,8 @@ export default function CostOfDelayCalculatorPage() {
       {
         label: 'Start Late',
         data: yearlyData.map(d => d.startLate),
-        borderColor: '#1B3A5C',
-        backgroundColor: '#1B3A5C',
+        borderColor: '#C4993C',
+        backgroundColor: '#C4993C',
         borderDash: [5, 5],
         tension: 0.4,
         pointRadius: 0,
