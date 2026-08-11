@@ -7,6 +7,7 @@ import InputSlider from '@/components/InputSlider';
 import TimeToGoalDisplay from '@/components/TimeToGoalDisplay';
 import YearlyGrowthTable from '@/components/YearlyGrowthTable';
 import CalculatorTabs from '@/components/CalculatorTabs';
+import Breadcrumb from '@/components/Breadcrumb';
 import { Target, Mail, Info, HelpCircle, ChevronDown, ArrowRight, Calculator } from 'lucide-react';
 
 const jsonLd = {
@@ -146,19 +147,17 @@ export default function TargetCalculatorPage() {
 
           {/* Tab Navigation */}
           <CalculatorTabs />
+          <Breadcrumb items={[{ label: 'Goal Calculator' }]} />
 
           {/* Header */}
-          <div className="flex items-center justify-center mb-2 lg:mb-3">
-            
-            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937]">
-              Time to Goal  SIP Calculator
+          <div className="flex flex-col mb-6 mt-4">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
+              Time to Goal SIP Calculator
             </h1>
+            <p className="text-gray-600 max-w-3xl">
+              Enter your monthly SIP & target goal to see exactly how many years it takes to reach ₹1 Crore or any amount.
+            </p>
           </div>
-
-          {/* SEO subtitle */}
-          <p className="text-center text-gray-500 text-sm mb-5 max-w-3xl mx-auto">
-            Enter your monthly SIP & target goal — see <strong className="text-[#1F2937]">exactly how many years</strong> it takes to reach ₹1 Crore or any amount.
-          </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
             {/* ── INPUT PANEL ── */}

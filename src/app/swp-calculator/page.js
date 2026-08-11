@@ -218,15 +218,14 @@ export default function SWPCalculatorPage() {
           <Breadcrumb items={[{ label: 'SWP Calculator' }]} />
 
           {/* Page heading */}
-          <div className="flex items-center justify-start mb-6 mt-4">
-            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937]">
-              SWP Calculator {' '}— Systematic Withdrawal Plan
+          <div className="flex flex-col mb-6 mt-4">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
+              SWP Calculator — Systematic Withdrawal Plan
             </h1>
+            <p className="text-gray-600 max-w-3xl">
+              Plan your monthly withdrawals from your mutual fund corpus. Calculate how much you can withdraw and how long your investment will last.
+            </p>
           </div>
-
-          <p className="text-gray-600 mb-8 max-w-3xl">
-            Plan your monthly withdrawals from your mutual fund corpus. Calculate how much you can withdraw and how long your investment will last.
-          </p>
 
           {/* ── MAIN GRID ── */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">

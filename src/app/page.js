@@ -6,7 +6,9 @@ import { useCalculator } from '@/hooks/useCalculator';
 import InputSlider from '@/components/InputSlider';
 import ResultSection from '@/components/ResultSection';
 import { Calculator, Mail, Info, HelpCircle, ChevronDown, Target, ArrowRight } from 'lucide-react';
+
 import CalculatorTabs from '@/components/CalculatorTabs';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -137,12 +139,16 @@ export default function Home() {
           
           {/* Add Calculator Tabs Navigation */}
           <CalculatorTabs />
+          <Breadcrumb items={[{ label: 'SIP Calculator' }]} />
 
           {/* Header */}
-          <div className="flex items-center justify-start mb-6 mt-4">
-            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937]">
+          <div className="flex flex-col mb-6 mt-4">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
               SIP Calculator with Step Up, Inflation & Lump Sum
             </h1>
+            <p className="text-gray-600 max-w-3xl">
+              Calculate the future value of your SIP investments with advanced options like step-up and inflation adjustments.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">

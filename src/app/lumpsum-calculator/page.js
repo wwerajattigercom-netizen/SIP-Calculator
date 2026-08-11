@@ -192,11 +192,13 @@ export default function LumpsumCalculatorPage() {
           <Breadcrumb items={[{ label: 'Lumpsum Calculator' }]} />
 
           {/* Page heading */}
-          <div className="flex items-center justify-start mb-6 mt-4">
-            
-            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937]">
-              Lumpsum Calculator {' '}— One-Time Investment Returns
+          <div className="flex flex-col mb-6 mt-4">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
+              Lumpsum Calculator — One-Time Investment Returns
             </h1>
+            <p className="text-gray-600 max-w-3xl">
+              Calculate the future value of your one-time investment with compounding interest.
+            </p>
           </div>
 
           {/* ── MAIN GRID ── */}

@@ -6,6 +6,7 @@ import { useCAGRCalculator } from '@/hooks/useCAGRCalculator';
 import InputSlider from '@/components/InputSlider';
 import CAGRResultSection from '@/components/CAGRResultSection';
 import CalculatorTabs from '@/components/CalculatorTabs';
+import Breadcrumb from '@/components/Breadcrumb';
 import { TrendingUp, Mail, Info, HelpCircle, ChevronDown, ArrowRight, Calculator, Target } from 'lucide-react';
 import { formatToShortWords } from '@/utils/formatters';
 
@@ -191,19 +192,17 @@ export default function CAGRCalculatorPage() {
         <div className="max-w-6xl w-full mx-auto">
 
           <CalculatorTabs />
+          <Breadcrumb items={[{ label: 'CAGR Calculator' }]} />
 
           {/* Header */}
-          <div className="flex items-center justify-center mb-2 lg:mb-3">
-            
-            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937]">
-              CAGR  Calculator
+          <div className="flex flex-col mb-6 mt-4">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-[#1F2937] mb-2">
+              CAGR Calculator
             </h1>
+            <p className="text-gray-600 max-w-3xl">
+              Enter your initial investment, final value, and duration to instantly calculate your Compound Annual Growth Rate.
+            </p>
           </div>
-
-          <p className="text-center text-gray-500 text-sm mb-5 max-w-3xl mx-auto">
-            Enter your initial investment, final value, and duration to instantly calculate the{' '}
-            <strong className="text-[#1F2937]">Compound Annual Growth Rate</strong>.
-          </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
 
