@@ -6,6 +6,19 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/blog/cost-of-delay-calculator',
+    tag: 'Cost of Delay',
+    tagColor: 'text-[#991B1B] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
+    title: 'Cost of Delay Calculator — See What Waiting Costs You',
+    excerpt:
+      'Discover the devastating impact of delaying your SIP investments. See how much wealth you lose by waiting and find out exactly how much extra you\'ll need to invest to catch up.',
+    readTime: '3 min read',
+    cta: 'Try Calculator',
+    icon: <Clock className="w-5 h-5 text-[#991B1B]" />,
+    highlight: 'Interactive',
+    highlightColor: 'text-[#991B1B]',
+  },
+  {
     href: '/blog/sip-based-on-salary',
     tag: 'SIP Planning',
     tagColor: 'text-[#1B3A5C] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',

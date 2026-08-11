@@ -237,7 +237,7 @@ export default function CostOfDelayCalculatorPage() {
       <main className="py-6 px-2 md:px-4 flex flex-col items-center">
         <div className="max-w-6xl w-full mx-auto">
           <CalculatorTabs />
-          <Breadcrumb items={[{ label: 'Cost of Delay Calculator' }]} />
+          <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'Cost of Delay Calculator' }]} />
 
           {/* Page heading */}
           <div className="flex flex-col mb-6 mt-4">

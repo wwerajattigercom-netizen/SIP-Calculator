@@ -216,7 +216,7 @@ export default function SipForHousePage() {
                   </div>
                   <div className="h-3 w-full bg-[rgba(0,0,0,0.03)] rounded-full overflow-hidden relative border border-[#E8E4DF]">
                      <div 
-                        className="absolute top-0 left-0 h-full bg-[#1B3A5C]/50 rounded-full" 
+                        className="absolute top-0 left-0 h-full bg-[#1B3A5C] rounded-full" 
                         style={{ width: `${(currentPrice / results.futurePrice) * 100}%` }}
                      ></div>
                      <div 
@@ -230,11 +230,11 @@ export default function SipForHousePage() {
                 {/* Step-up Alternative */}
                 <div className="bg-[rgba(27,58,92,0.05)] border border-[#1B3A5C]/20 rounded-xl p-4 flex items-center justify-between">
                   <div>
-                    <h4 className="text-white text-sm font-semibold flex items-center gap-2"><TrendingUp className="w-4 h-4 text-[#1B3A5C]" /> 10% Step-Up SIP</h4>
+                    <h4 className="text-[#1F2937] text-sm font-semibold flex items-center gap-2"><TrendingUp className="w-4 h-4 text-[#1B3A5C]" /> 10% Step-Up SIP</h4>
                     <p className="text-gray-500 text-xs mt-1">Increase SIP yearly as salary grows.</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-lg font-bold text-[#60A5FA]">{fmt(results.initialStepUpSip)}</p>
+                    <p className="text-lg font-bold text-[#1B3A5C]">{fmt(results.initialStepUpSip)}</p>
                     <p className="text-[9px] text-gray-500 uppercase tracking-widest">Starting Month</p>
                   </div>
                 </div>
