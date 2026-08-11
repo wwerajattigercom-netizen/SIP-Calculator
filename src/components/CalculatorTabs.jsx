@@ -28,13 +28,13 @@ export default function CalculatorTabs() {
             <Link
               key={href}
               href={href}
-              className={`flex-1 min-w-[90px] sm:min-w-[100px] flex items-center justify-center py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
+              className={`flex-1 min-w-[105px] sm:min-w-[110px] flex flex-nowrap items-center justify-center py-2 px-2 sm:px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 active
                   ? 'bg-[#1B3A5C] text-white shadow-md'
                   : 'text-[#6B7280] hover:text-[#1F2937] hover:bg-[rgba(27,58,92,0.05)]'
               }`}
             >
-              <Icon className="w-3.5 h-3.5 mr-1.5 flex-shrink-0" />
+              <Icon className="w-3.5 h-3.5 mr-1 flex-shrink-0" />
               <span className="whitespace-nowrap">{label}</span>
             </Link>
           );

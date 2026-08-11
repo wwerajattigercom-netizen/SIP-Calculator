@@ -233,8 +233,8 @@ export default function SWPCalculatorPage() {
 
             {/* Inputs */}
             <div className="lg:col-span-5 glass-panel p-5 lg:p-6">
-              <InputSlider label="Total Corpus" value={corpus} onChange={setCorpus} min={500000} max={100000000} step={10000} prefix="₹" />
-              <InputSlider label="Monthly Withdrawal" value={monthlyWithdrawal} onChange={setMonthlyWithdrawal} min={5000} max={500000} step={1000} prefix="₹" />
+              <InputSlider label="Total Corpus" value={corpus} onChange={setCorpus} min={500000} max={1000000000} step={10000} prefix="₹" />
+              <InputSlider label="Monthly Withdrawal" value={monthlyWithdrawal} onChange={setMonthlyWithdrawal} min={5000} max={1000000} step={1000} prefix="₹" />
               <InputSlider label="Expected Return Rate" value={rate} onChange={setRate} min={4} max={18} step={0.1} suffix="%" />
               <InputSlider label="Withdrawal Duration" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yr" />
 

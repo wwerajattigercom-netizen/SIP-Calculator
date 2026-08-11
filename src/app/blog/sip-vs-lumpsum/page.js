@@ -175,8 +175,8 @@ export default function SipVsLumpsumPage() {
           {
             label: 'Lumpsum Value',
             data: lumpsumData,
-            borderColor: '#1B3A5C',
-            backgroundColor: 'rgba(27,58,92,0.08)',
+            borderColor: '#C4993C',
+            backgroundColor: 'rgba(196,153,60,0.08)',
             borderWidth: 2.5,
             pointRadius: 0,
             fill: false,
@@ -324,18 +324,18 @@ export default function SipVsLumpsumPage() {
                   {/* Lumpsum card */}
                   <div className={`p-5 rounded-2xl border transition-all ${
                     winner === 'Lumpsum'
-                      ? 'border-[#1B3A5C] bg-[rgba(27,58,92,0.08)] shadow-[0_0_24px_rgba(27,58,92,0.15)]'
+                      ? 'border-[#C4993C] bg-[rgba(196,153,60,0.08)] shadow-[0_0_24px_rgba(196,153,60,0.15)]'
                       : 'border-white/8 bg-white/3'
                   }`}>
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-500 text-xs font-semibold uppercase tracking-wider">Lumpsum</span>
                       {winner === 'Lumpsum' && (
-                        <span className="text-[#60A5FA] text-[9px] font-bold px-2 py-0.5 bg-[#1B3A5C]/20 rounded-full border border-[#1B3A5C]/30">WINNER 🏆</span>
+                        <span className="text-[#C4993C] text-[9px] font-bold px-2 py-0.5 bg-[#C4993C]/20 rounded-full border border-[#C4993C]/30">WINNER 🏆</span>
                       )}
                     </div>
                     <div className="text-xl font-bold text-[#1F2937]">{formatToShortWords(finalLumpsum)}</div>
                     <div className="text-[10px] text-gray-500 mt-1">Invested: {formatToShortWords(totalAmount)}</div>
-                    <div className="text-[10px] text-[#60A5FA] mt-0.5">
+                    <div className="text-[10px] text-[#C4993C] mt-0.5">
                       {((finalLumpsum / totalAmount - 1) * 100).toFixed(1)}% total return
                     </div>
                   </div>
@@ -345,7 +345,7 @@ export default function SipVsLumpsumPage() {
                 <div className="bg-white border border-[#E8E4DF] rounded-xl p-4 text-center">
                   <p className="text-sm text-gray-600 leading-relaxed">
                     In a <strong className="text-[#1F2937]">{meta.label}</strong>,{' '}
-                    <strong style={{ color: winner === 'SIP' ? '#1B3A5C' : '#60A5FA' }}>{winner}</strong>{' '}
+                    <strong style={{ color: winner === 'SIP' ? '#1B3A5C' : '#C4993C' }}>{winner}</strong>{' '}
                     wins by{' '}
                     <strong className="text-[#1F2937]">{formatToShortWords(diff)}</strong>
                     {winner === 'SIP'
