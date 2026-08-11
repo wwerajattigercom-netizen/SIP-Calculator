@@ -40,7 +40,7 @@ const COMPARISON = [
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'CAGR vs XIRR vs Absolute Return — Complete Guide for Indian Investors',
+  headline: 'CAGR vs XIRR vs Absolute Return — Complete Guide for Global Investors',
   description: 'Understand the difference between CAGR, XIRR, and Absolute Return. Which metric for DCA vs lumpsum? Guide with examples.',
   author: { '@type': 'Person', name: 'Rajat' },
   publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com/us' },

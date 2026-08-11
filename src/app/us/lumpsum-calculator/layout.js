@@ -3,14 +3,14 @@ export const metadata = {
   description:
     'Free Lumpsum Calculator — calculate the future value of a one-time lump sum investment. Enter investment amount, expected return rate & duration. See year-by-year growth, gain, and wealth multiple. Ideal for mutual fund, CD & stock investment planning.',
   keywords: [
-    'lumpsum calculator', 'lump sum calculator India', 'lumpsum investment calculator',
+    'lumpsum calculator', 'lump sum calculator', 'lumpsum investment calculator',
     'lumpsum calculator online free', 'lumpsum mutual fund calculator',
     'lumpsum calculator with returns', 'one time investment calculator',
-    'lumpsum vs DCA calculator', 'future value calculator India',
+    'lumpsum vs DCA calculator', 'future value calculator',
     'lumpsum calculator for mutual funds', 'lumpsum return calculator',
     'lump sum investment return calculator online', 'lumpsum calculator 10 years',
     'lumpsum calculator 20 years', 'lumpsum 1 million calculator',
-    'compound interest calculator India', 'lumpsum calculator with inflation',
+    'compound interest calculator', 'lumpsum calculator with inflation',
   ],
   authors: [{ name: 'Rajat' }],
   robots: 'index, follow',

@@ -30,7 +30,7 @@ const jsonLd = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'How much DCA do I need for my child\'s education?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on the current cost, years to college, and inflation. For a $20 Hundred Thousand course in 15 years at 10% inflation, you need about $22,700/month at 12% returns.' } },
-    { '@type': 'Question', name: 'What is education inflation in India?', acceptedAnswer: { '@type': 'Answer', text: 'Education inflation in India is typically 10-12%, significantly higher than regular retail inflation (CPI) which hovers around 5-6%.' } },
+    { '@type': 'Question', name: 'What is education inflation?', acceptedAnswer: { '@type': 'Answer', text: 'Education inflation is typically 10-12%, significantly higher than regular retail inflation (CPI) which hovers around 5-6%.' } },
     { '@type': 'Question', name: 'Should I buy a child plan or do DCA for education?', acceptedAnswer: { '@type': 'Answer', text: 'Equity Mutual Fund SIPs are generally better than traditional child plans as they offer higher returns (10-14%) to beat education inflation, whereas child plans often yield only 5-6%.' } },
     { '@type': 'Question', name: 'How much should I save for IIT/NIT education?', acceptedAnswer: { '@type': 'Answer', text: 'A 4-year B.Tech at an IIT currently costs $10-12 Lakhs. In 15 years, at 10% inflation, it will cost around $40-50 Lakhs. Plan your SIPs accordingly.' } },
     { '@type': 'Question', name: 'Can I use 401(k) instead of DCA for child education?', acceptedAnswer: { '@type': 'Answer', text: '401(k) is safe and tax-free but offers ~7.1% returns, which fails to beat 10% education inflation. It is best used for the debt portion of your portfolio, not the primary growth engine.' } },
@@ -130,7 +130,7 @@ export default function SipForChildEducationPage() {
                 DCA for Child Education  Calculator
               </h1>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                Education costs in India are rising at 10-12% every year. Use this calculator to find out exactly how much monthly DCA you need to secure your child&apos;s college fund.
+                Education costs globally are rising at 10-12% every year. Use this calculator to find out exactly how much monthly DCA you need to secure your child&apos;s college fund.
               </p>
             </div>
           </div>
@@ -328,9 +328,9 @@ export default function SipForChildEducationPage() {
           {/* Educational Content */}
           <div className="glass-panel p-6 space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">1. Why Education Inflation in India is 10%+</h2>
+              <h2 className="text-xl font-bold text-foreground mb-3">1. Why Education Inflation globally is 10%+</h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                While standard consumer inflation (CPI) in India fluctuates around 5-6%, education costs rise much faster. Increased infrastructure costs, faculty salaries, and demand for premium education push fees up by 10-12% annually. A $10 Hundred Thousand degree today will likely cost over $40 Lakhs in 15 years.
+                While standard consumer inflation (CPI) globally fluctuates around 5-6%, education costs rise much faster. Increased infrastructure costs, faculty salaries, and demand for premium education push fees up by 10-12% annually. A $10 Hundred Thousand degree today will likely cost over $40 Lakhs in 15 years.
               </p>
             </div>
             <div>

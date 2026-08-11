@@ -42,7 +42,7 @@ const jsonLd = {
         'Corpus longevity simulation',
         'Total withdrawn vs Remaining corpus chart',
         'Year-by-year balance tracking',
-        'Free SWP mutual fund calculator India',
+        'Free SWP mutual fund calculator',
       ],
     },
     {

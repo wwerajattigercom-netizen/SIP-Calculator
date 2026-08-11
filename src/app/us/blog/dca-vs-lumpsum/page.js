@@ -447,7 +447,7 @@ export default function SipVsLumpsumPage() {
             <div>
               <h2 className="text-xl font-bold text-foreground mb-3">What Historical Data Shows</h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                Backtests on the Nifty 50 over 20-year rolling periods show that Lumpsum investments generate slightly higher absolute returns
+                Backtests on the S&P 500 over 20-year rolling periods show that Lumpsum investments generate slightly higher absolute returns
                 in a continuously rising market. However, during periods like 2008 (GFC) or 2020 (COVID crash), DCA investors saw significantly
                 better outcomes because they accumulated units at market lows. Most retail investors benefit more from DCA for this reason.
               </p>

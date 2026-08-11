@@ -34,7 +34,7 @@ const VALUES = [
   'No sign-up, no login, no email required',
   'Zero ads — clean, distraction-free interface',
   'Formula methodology is transparent and documented',
-  'Follows SEBI/AMFI standard APR convention for Indian DCA',
+  'Follows SEBI/AMFI standard APR convention for Global DCA',
   'Real-time calculation — results update as you slide',
   'Works on mobile, tablet and desktop at any zoom level',
 ];
@@ -58,7 +58,7 @@ export default function AboutPage() {
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-base max-w-xl mx-auto leading-relaxed">
               Free, accurate, and beautifully designed financial calculators
-              built specifically for Indian investors — with zero clutter.
+              built specifically for Global investors — with zero clutter.
             </p>
           </div>
         </div>

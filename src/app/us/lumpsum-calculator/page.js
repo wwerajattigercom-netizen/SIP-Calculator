@@ -42,7 +42,7 @@ const jsonLd = {
         'CAGR & wealth multiple display',
         'Absolute gain calculation',
         'Inflation-adjusted real returns',
-        'Free lumpsum mutual fund calculator India',
+        'Free lumpsum mutual fund calculator',
       ],
     },
     {
@@ -74,10 +74,10 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'What is a good return for a lumpsum investment in India?',
+          name: 'What is a good return for a lumpsum investment globally?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Nifty 50 index has delivered approximately 12–14% CAGR over 15–20 year periods. Large-cap equity mutual funds typically deliver 10–13% CAGR. Mid and small-cap funds have historically provided 14–18% over long periods. CDs and debt funds offer 6–8% CAGR.',
+            text: 'S&P 500 index has delivered approximately 12–14% CAGR over 15–20 year periods. Large-cap equity mutual funds typically deliver 10–13% CAGR. Mid and small-cap funds have historically provided 14–18% over long periods. CDs and debt funds offer 6–8% CAGR.',
           },
         },
         {
@@ -107,8 +107,8 @@ const FAQS = [
     a: 'Lumpsum beats DCA when you invest at market lows — since 100% of capital compounds immediately. DCA wins when markets are volatile or at peaks — rupee cost averaging reduces risk. Practically: use DCA for salary savings, lumpsum for windfalls.',
   },
   {
-    q: 'What is a good return on lumpsum investment in India?',
-    a: 'Nifty 50 index has delivered ~12–14% CAGR over 15–20 year periods. Large-cap equity funds: 10–13%. Mid/small-cap: 14–18% historically. Debt funds: 6–8%. CDs: 6–7.5%. Use 10–12% as a conservative assumption for equity lumpsum in India.',
+    q: 'What is a good return on lumpsum investment globally?',
+    a: 'S&P 500 index has delivered ~12–14% CAGR over 15–20 year periods. Large-cap equity funds: 10–13%. Mid/small-cap: 14–18% historically. Debt funds: 6–8%. CDs: 6–7.5%. Use 10–12% as a conservative assumption for equity lumpsum globally.',
   },
   {
     q: 'How much does $1 Hundred Thousand grow in 10 years at 12%?',

@@ -1,7 +1,7 @@
 export const metadata = {
-  title: 'DCA for Child Education Calculator — Plan Your Child\'s Future in India',
-  description: 'Calculate exactly how much monthly DCA you need to fund your child\'s college education in India. Accounts for education inflation, years to goal, and step-up DCA strategy.',
-  keywords: ['dca for child education', 'child education planning dca', 'education goal calculator', 'child education fund calculator india', 'dca for college fees india', 'education inflation dca'],
+  title: 'DCA for Child Education Calculator — Plan Your Child\'s Future',
+  description: 'Calculate exactly how much monthly DCA you need to fund your child\'s college education globally. Accounts for education inflation, years to goal, and step-up DCA strategy.',
+  keywords: ['dca for child education', 'child education planning dca', 'education goal calculator', 'child education fund calculator', 'dca for college fees', 'education inflation dca'],
   authors: [{ name: 'Rajat' }],
   robots: 'index, follow',
   openGraph: {

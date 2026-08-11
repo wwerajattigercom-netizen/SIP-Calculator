@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'DCA During Market Crash — Should You Stop or Continue? Simulator',
   description: 'See what happens to your DCA during a market crash vs stopping DCA. Interactive crash simulation shows why continuing DCA during a crash builds massive wealth.',
-  keywords: ['dca during market crash', 'should i stop dca during crash', 'dca in bear market india', 'dca market crash simulator', 'continue dca during market fall', 'dca crash strategy'],
+  keywords: ['dca during market crash', 'should i stop dca during crash', 'dca in bear market', 'dca market crash simulator', 'continue dca during market fall', 'dca crash strategy'],
   authors: [{ name: 'Rajat' }],
   robots: 'index, follow',
   openGraph: {

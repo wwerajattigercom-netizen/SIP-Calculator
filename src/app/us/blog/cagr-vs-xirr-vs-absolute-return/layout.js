@@ -1,18 +1,18 @@
 export const metadata = {
   title: 'CAGR vs XIRR vs Absolute Return — What\'s the Difference? | StepupCalculator',
   description:
-    'Understand the difference between CAGR, XIRR, and Absolute Return for mutual fund investments in India. Which metric should you use for DCA vs lumpsum? Complete guide with examples.',
+    'Understand the difference between CAGR, XIRR, and Absolute Return for mutual fund investments globally. Which metric should you use for DCA vs lumpsum? Complete guide with examples.',
   keywords: [
     'cagr vs xirr', 'cagr vs absolute return', 'xirr vs cagr mutual fund',
     'difference between cagr and xirr', 'what is xirr in mutual fund',
     'cagr vs xirr vs absolute return', 'which is better cagr or xirr',
     'how to calculate xirr for dca', 'mutual fund return calculation',
-    'cagr xirr difference india',
+    'cagr xirr difference',
   ],
   authors: [{ name: 'Rajat' }],
   robots: 'index, follow',
   openGraph: {
-    title: 'CAGR vs XIRR vs Absolute Return — Complete Guide India',
+    title: 'CAGR vs XIRR vs Absolute Return — Complete Guide',
     description: 'Which return metric should you use? CAGR for lumpsum, XIRR for DCA. Complete guide with worked examples.',
     url: 'https://stepupcalculator.com/us/blog/cagr-vs-xirr-vs-absolute-return',
     type: 'article',

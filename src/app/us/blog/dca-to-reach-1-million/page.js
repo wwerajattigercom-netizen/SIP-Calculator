@@ -50,7 +50,7 @@ export default function SipTo1CrorePage() {
                 How Much DCA to Reach $1 Million  in 10, 15 &amp; 20 Years?
               </h1>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                $1 Million (One Million Rupees) is the most common wealth goal for Indian investors.
+                $1 Million is the most common wealth goal for global investors.
                 This guide gives you the exact monthly DCA amount needed at 10%, 12%, and 15%
                 annual returns — and shows how a step-up DCA can cut that amount significantly.
               </p>

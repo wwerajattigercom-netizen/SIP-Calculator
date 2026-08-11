@@ -1,7 +1,7 @@
 export const metadata = {
-  title: 'DCA for House Down Payment Calculator — Save for Your Dream Home in India',
-  description: 'Calculate the monthly DCA needed to save for your house down payment in India. Accounts for property price appreciation, target timeline, and step-up DCA.',
-  keywords: ['dca for house down payment', 'dca for home loan down payment', 'house down payment calculator india', 'dca for buying house india', 'save for house india', 'home down payment dca calculator'],
+  title: 'DCA for House Down Payment Calculator — Save for Your Dream Home',
+  description: 'Calculate the monthly DCA needed to save for your house down payment globally. Accounts for property price appreciation, target timeline, and step-up DCA.',
+  keywords: ['dca for house down payment', 'dca for home loan down payment', 'house down payment calculator', 'dca for buying house', 'save for house', 'home down payment dca calculator'],
   authors: [{ name: 'Rajat' }],
   robots: 'index, follow',
   openGraph: {

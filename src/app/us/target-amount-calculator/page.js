@@ -97,7 +97,7 @@ const jsonLd = {
 const HOW_TO_STEPS = [
   { step: "1", title: "Set your Target Goal Amount", desc: "Enter the corpus you want to build — e.g. $1 Million. The label shows the amount in words so large numbers are easy to understand." },
   { step: "2", title: "Enter your Monthly DCA Amount", desc: "How much can you invest every month? Slide this to instantly see how the required time changes. This is the key driver of the result." },
-  { step: "3", title: "Set Expected Annual Return", desc: "Equity mutual funds historically return 10–12% in India. Use a conservative rate for long-term goals." },
+  { step: "3", title: "Set Expected Annual Return", desc: "Equity mutual funds historically return 10–12% globally. Use a conservative rate for long-term goals." },
   { step: "4", title: "Add an Initial Lump Sum (optional)", desc: "Any existing savings you can deploy now? A lump sum gives a powerful head start — it compounds from Day 1 and reduces time to goal." },
   { step: "5", title: "Set Annual Step-Up %", desc: "Planning to increase your DCA every year as your income grows? Even a 10% annual step-up saves several years off your timeline." },
   { step: "6", title: "Adjust Inflation Rate", desc: "See what your goal is actually worth in today's purchasing power. Essential for realistic retirement and education planning." },
@@ -354,7 +354,7 @@ export default function TargetCalculatorPage() {
               </div>
               <h2 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Built by <span className="text-[var(--color-accent)] font-bold text-sm">Rajat</span></h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
-                A free tool built for Indian investors — goal-based DCA planning with step-up, lump sum, and inflation in one place.
+                A free tool built for Global investors — goal-based DCA planning with step-up, lump sum, and inflation in one place.
               </p>
               <a
                 href="mailto:businesswebsitestudio@gmail.com"

@@ -8,14 +8,14 @@ const METHODOLOGY = [
     tool: 'DCA Calculator (Step-Up)',
     convention: 'APR ÷ 12 = monthly rate',
     timing: 'DCA added at beginning of month, then compounded',
-    standard: 'SEBI / AMFI India standard',
-    note: 'Matches projections used by Indian mutual fund industry for DCA illustrations.',
+    standard: 'SEBI / AMFI standard',
+    note: 'Matches projections used by Global mutual fund industry for DCA illustrations.',
   },
   {
     tool: 'Time-to-Goal / Target Calculator',
     convention: 'APR ÷ 12 = monthly rate',
     timing: 'Same as DCA Calculator — consistent across tools',
-    standard: 'SEBI / AMFI India standard',
+    standard: 'SEBI / AMFI standard',
     note: 'Binary search used to solve for duration when DCA and target are known inputs.',
   },
   {
@@ -146,8 +146,8 @@ export default function DisclaimerPage() {
             </ul>
             <p>
               StepupCalculator uses <strong className="text-foreground">APR + beginning-of-month DCA</strong>,
-              which is the convention used by SEBI/AMFI for Indian mutual fund DCA illustrations and
-              is the most common standard in the Indian financial industry.
+              which is the convention used by SEBI/AMFI for Global mutual fund DCA illustrations and
+              is the most common standard in the Global financial industry.
             </p>
           </div>
         </div>

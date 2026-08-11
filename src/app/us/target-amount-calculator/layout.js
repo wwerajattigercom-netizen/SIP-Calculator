@@ -18,7 +18,7 @@ export const metadata = {
     "how much monthly investment needed for 1 million",
     "DCA amount required for 1 million",
     "DCA to achieve financial goal",
-    "goal based investment calculator India",
+    "goal based investment calculator",
     "how to plan DCA for retirement",
     "target amount DCA calculator",
     "financial goal planner DCA",

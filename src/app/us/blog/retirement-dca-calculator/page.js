@@ -69,8 +69,8 @@ export default function RetirementSipCalculatorPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Retirement DCA Calculator India: How Much to Invest?',
-    description: 'Calculate the exact DCA amount needed for your retirement in India factoring in inflation and expected returns.',
+    headline: 'Retirement DCA Calculator: How Much to Invest?',
+    description: 'Calculate the exact DCA amount needed for your retirement globally factoring in inflation and expected returns.',
     author: { '@type': 'Person', name: 'StepupCalculator' },
     publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com/us' },
     url: 'https://stepupcalculator.com/us/blog/retirement-dca-calculator',
@@ -83,7 +83,7 @@ export default function RetirementSipCalculatorPage() {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'How much corpus do I need to retire in India?',
+        name: 'How much corpus do I need to retire?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'A common thumb rule is to aim for a corpus that is 25 to 30 times your annual expenses at the time of retirement. This ensures you can safely withdraw enough to cover expenses without depleting the principal prematurely.'
@@ -91,7 +91,7 @@ export default function RetirementSipCalculatorPage() {
       },
       {
         '@type': 'Question',
-        name: 'Is $1 Million enough to retire in India?',
+        name: 'Is $1 Million enough to retire?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'It depends on your lifestyle, inflation, and retirement age. For a moderate lifestyle in a non-metro city today, it might suffice for a few years, but with 6% inflation, its purchasing power will halve in about 12 years. Always calculate your specific need.'

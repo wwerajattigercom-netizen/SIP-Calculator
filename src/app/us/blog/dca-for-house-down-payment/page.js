@@ -17,9 +17,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'How much DCA do I need to save for a house down payment?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on your target property price and timeline. If you want a $80L house in 7 years, factoring in 7% property appreciation, you\'ll need roughly $17,000 to $20,000 DCA per month for a 20% down payment.' } },
-    { '@type': 'Question', name: 'How much down payment is required for a home loan in India?', acceptedAnswer: { '@type': 'Answer', text: 'Banks typically require a minimum of 10% to 20% down payment depending on the loan amount. For loans above $75 Lakhs, at least 25% is often mandated by RBI guidelines.' } },
-    { '@type': 'Question', name: 'Should I rent or buy a house in India?', acceptedAnswer: { '@type': 'Answer', text: 'Renting is better for flexibility and when rental yields are low (2-3%). Buying makes sense if you plan to settle in one city for 10+ years and value emotional security.' } },
+    { '@type': 'Question', name: 'How much DCA do I need to save for a house down payment?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on your target property price and timeline. If you want a $1,000,000 house in 7 years, factoring in 7% property appreciation, you\'ll need roughly $17,000 to $20,000 DCA per month for a 20% down payment.' } },
+    { '@type': 'Question', name: 'How much down payment is required for a home loan globally?', acceptedAnswer: { '@type': 'Answer', text: 'Banks typically require a minimum of 10% to 20% down payment depending on the loan amount. For larger loans, at least 25% is often mandated by banking guidelines.' } },
+    { '@type': 'Question', name: 'Should I rent or buy a house globally?', acceptedAnswer: { '@type': 'Answer', text: 'Renting is better for flexibility and when rental yields are low (2-3%). Buying makes sense if you plan to settle in one city for 10+ years and value emotional security.' } },
     { '@type': 'Question', name: 'Can I use DCA returns as a down payment?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, investing in equity mutual funds via DCA is the most effective way to outpace property price appreciation over a 5 to 10-year horizon to accumulate a down payment.' } },
     { '@type': 'Question', name: 'How long should I invest in DCA before buying a house?', acceptedAnswer: { '@type': 'Answer', text: 'Ideally 5 to 7 years. This gives your equity investments enough time to grow and compound, reducing the risk of short-term market volatility.' } },
   ],
@@ -163,7 +163,7 @@ export default function SipForHousePage() {
                 <ol className="space-y-2.5">
                   {[
                     { step: '1', text: 'Enter the current price of the property you want to buy.' },
-                    { step: '2', text: 'Set how much you expect property prices to rise each year (typically 6–8% in India).' },
+                    { step: '2', text: 'Set how much you expect property prices to rise each year (typically 6–8% globally).' },
                     { step: '3', text: 'Set how many years before you plan to buy.' },
                     { step: '4', text: 'Choose your down payment % — 20% is the sweet spot for most home loans.' },
                     { step: '5', text: 'Start the DCA shown and increase it 10% every year to reach your goal comfortably.' },
@@ -259,40 +259,40 @@ export default function SipForHousePage() {
                 </thead>
                 <tbody className="text-gray-600 dark:text-gray-400">
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">Mumbai</td>
-                    <td className="py-3 pr-4">$1.5 Cr</td>
-                    <td className="py-3 pr-4">$30 Lakhs</td>
-                    <td className="py-3 font-semibold text-[#60A5FA]">$24,800</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">New York</td>
+                    <td className="py-3 pr-4">$1,500,000</td>
+                    <td className="py-3 pr-4">$300,000</td>
+                    <td className="py-3 font-semibold text-[#60A5FA]">$2,480</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">Delhi NCR</td>
-                    <td className="py-3 pr-4">$1.2 Cr</td>
-                    <td className="py-3 pr-4">$24 Lakhs</td>
-                    <td className="py-3 font-semibold text-[#60A5FA]">$19,900</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">London</td>
+                    <td className="py-3 pr-4">$1,200,000</td>
+                    <td className="py-3 pr-4">$240,000</td>
+                    <td className="py-3 font-semibold text-[#60A5FA]">$1,990</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">Bangalore</td>
-                    <td className="py-3 pr-4">$90 Lakhs</td>
-                    <td className="py-3 pr-4">$18 Lakhs</td>
-                    <td className="py-3 font-semibold text-[#60A5FA]">$14,900</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Toronto</td>
+                    <td className="py-3 pr-4">$900,000</td>
+                    <td className="py-3 pr-4">$180,000</td>
+                    <td className="py-3 font-semibold text-[#60A5FA]">$1,490</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">Hyderabad</td>
-                    <td className="py-3 pr-4">$75 Lakhs</td>
-                    <td className="py-3 pr-4">$15 Lakhs</td>
-                    <td className="py-3 font-semibold text-[#60A5FA]">$12,400</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Sydney</td>
+                    <td className="py-3 pr-4">$750,000</td>
+                    <td className="py-3 pr-4">$150,000</td>
+                    <td className="py-3 font-semibold text-[#60A5FA]">$1,240</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">Pune</td>
-                    <td className="py-3 pr-4">$70 Lakhs</td>
-                    <td className="py-3 pr-4">$14 Lakhs</td>
-                    <td className="py-3 font-semibold text-[#60A5FA]">$11,600</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Dubai</td>
+                    <td className="py-3 pr-4">$700,000</td>
+                    <td className="py-3 pr-4">$140,000</td>
+                    <td className="py-3 font-semibold text-[#60A5FA]">$1,160</td>
                   </tr>
                   <tr>
-                    <td className="py-3 pr-4 font-medium text-foreground">Chennai</td>
-                    <td className="py-3 pr-4">$65 Lakhs</td>
-                    <td className="py-3 pr-4">$13 Lakhs</td>
-                    <td className="py-3 font-semibold text-[#60A5FA]">$10,800</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Berlin</td>
+                    <td className="py-3 pr-4">$650,000</td>
+                    <td className="py-3 pr-4">$130,000</td>
+                    <td className="py-3 font-semibold text-[#60A5FA]">$1,080</td>
                   </tr>
                 </tbody>
               </table>

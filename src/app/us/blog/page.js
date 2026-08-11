@@ -48,7 +48,7 @@ const ARTICLES = [
     href: '/us/blog/retirement-dca-calculator',
     tag: 'Retirement',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.1)] border-[rgba(27,58,92,0.25)]',
-    title: 'How Much DCA Do I Need to Retire in India?',
+    title: 'How Much DCA Do I Need to Retire?',
     excerpt:
       'Enter your age, expenses, and retirement target — get the exact monthly DCA needed. See the devastating cost of delaying by just 5 years.',
     readTime: '6 min read',
@@ -100,9 +100,9 @@ const ARTICLES = [
     href: '/us/blog/dca-for-child-education',
     tag: 'Goal Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
-    title: 'DCA for Child Education — Education Goal Calculator India',
+    title: 'DCA for Child Education — Education Goal Calculator',
     excerpt:
-      'Education inflation in India runs at 10%+ per year. Find exactly how much DCA you need to fund your child\'s engineering, medical, or MBA degree — before the cost doubles.',
+      'Education inflation runs at 10%+ per year. Find exactly how much DCA you need to fund your child\'s engineering, medical, or MBA degree — before the cost doubles.',
     readTime: '5 min read',
     cta: 'Try Calculator',
     icon: <GraduationCap className="w-5 h-5 text-[var(--color-accent)]" />,
@@ -115,7 +115,7 @@ const ARTICLES = [
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'DCA for House Down Payment — Save for Your Dream Home',
     excerpt:
-      'Property prices rise 7%+ annually. See the future cost of that $80L flat, the down payment you need to save, and the exact monthly DCA to get there — with city-wise reference.',
+      'Property prices rise 7%+ annually. See the future cost of that $1,000,000 house, the down payment you need to save, and the exact monthly DCA to get there — with city-wise reference.',
     readTime: '5 min read',
     cta: 'Try Calculator',
     icon: <Home className="w-5 h-5 text-[var(--color-accent)]" />,
@@ -179,7 +179,7 @@ export default function BlogIndexPage() {
                 Investment Guides 
               </h1>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xl">
-                Free, jargon-free guides with interactive calculators for Indian investors — DCA planning,
+                Free, jargon-free guides with interactive calculators for Global investors — DCA planning,
                 retirement, inflation, market scenarios, and more. Written by Rajat.
               </p>
             </div>

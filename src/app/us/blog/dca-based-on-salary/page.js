@@ -135,7 +135,7 @@ export default function SipBasedOnSalaryPage() {
         name: 'Can I do DCA with $1,000 salary?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Many mutual funds in India allow you to start an DCA with as little as $500 or $1,000 per month. Starting early, even with a small amount, helps build financial discipline and takes advantage of the power of compounding over time.'
+          text: 'Many mutual funds globally allow you to start an DCA with as little as $500 or $1,000 per month. Starting early, even with a small amount, helps build financial discipline and takes advantage of the power of compounding over time.'
         }
       }
     ]
@@ -189,7 +189,7 @@ export default function SipBasedOnSalaryPage() {
               
               <div className="mt-4 inline-flex items-center gap-2 bg-[rgba(0,0,0,0.03)] px-4 py-2 rounded-full text-sm">
                 <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />
-                <span className="text-gray-600 dark:text-gray-400">Your DCA is in the <strong className="text-foreground">{getTopPercentile(moderateSip)}</strong> of Indian investors</span>
+                <span className="text-gray-600 dark:text-gray-400">Your DCA is in the <strong className="text-foreground">{getTopPercentile(moderateSip)}</strong> of Global investors</span>
               </div>
             </div>
 

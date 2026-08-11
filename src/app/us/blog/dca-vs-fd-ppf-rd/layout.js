@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'DCA vs CD vs 401(k) Comparison Tool — Which is Better?',
   description: 'Compare Mutual Fund DCAs against CD, HYSA, and 401(k). Calculate and visualize the wealth generation difference using our interactive comparison tool.',
-  keywords: ['DCA vs CD', 'DCA vs 401(k)', 'mutual fund vs fd', 'DCA vs HYSA', 'investment comparison calculator India'],
+  keywords: ['DCA vs CD', 'DCA vs 401(k)', 'mutual fund vs fd', 'DCA vs HYSA', 'investment comparison calculator'],
   openGraph: {
     title: 'DCA vs CD vs 401(k) Comparison Tool',
     description: 'See the real difference in wealth creation between DCAs, CDs, and 401(k) over 10-20 years.',

@@ -16,7 +16,7 @@ const jsonLd = {
     {
       "@type": "WebApplication",
       "name": "DCA Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",
-      "description": "Free DCA calculator with step-up & inflation. Calculate monthly DCA returns, add lump sum, apply annual step-up and inflation adjustment — real-time. Works for India and globally (DCA / RSP / AIP).",
+      "description": "Free DCA calculator with step-up & inflation. Calculate monthly DCA returns, add lump sum, apply annual step-up and inflation adjustment — real-time. Works globally (DCA / RSP / AIP).",
       "url": "https://stepupcalculator.com/us",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
@@ -100,7 +100,7 @@ const FAQS = [
     a: "Most calculators handle only one variable at a time. This is the only free calculator that combines all four: monthly DCA + annual step-up + lump sum + inflation — on one page, updating in real time as you move the sliders."
   },
   {
-    q: "Can investors outside India use this calculator?",
+    q: "Can investors outside use this calculator?",
     a: "Absolutely. The underlying concept — investing a fixed amount monthly, increasing it annually, and adjusting for inflation — is universal. International investors know this as Dollar Cost Averaging (DCA) or a recurring investment plan. Simply enter your currency equivalent amounts. The math is identical worldwide."
   },
   {

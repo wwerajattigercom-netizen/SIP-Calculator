@@ -22,7 +22,7 @@ const jsonLd = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'What is real return on DCA after inflation?', acceptedAnswer: { '@type': 'Answer', text: 'Real return is the actual growth of your purchasing power. If your DCA gives 12% return and inflation is 6%, your real return is roughly 5.66%.' } },
-    { '@type': 'Question', name: 'Does DCA beat inflation in India?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, equity mutual fund SIPs historically provide 10-15% returns, comfortably beating India\'s historical inflation rate of 5-7%.' } },
+    { '@type': 'Question', name: 'Does DCA beat inflation?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, equity mutual fund SIPs historically provide 10-15% returns, comfortably beating\'s historical inflation rate of 5-7%.' } },
     { '@type': 'Question', name: 'What return rate beats 6% inflation?', acceptedAnswer: { '@type': 'Answer', text: 'Any return rate above 6% beats inflation, but to grow your wealth meaningfully, you should aim for returns of at least 10-12%.' } },
     { '@type': 'Question', name: 'How does inflation reduce my DCA returns?', acceptedAnswer: { '@type': 'Answer', text: 'Inflation doesn\'t reduce the numerical amount of your corpus, but it reduces what you can buy with it in the future.' } },
     { '@type': 'Question', name: 'Should I account for inflation in DCA planning?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. If you need $1 Million in 20 years, inflation means $1 Million then will only buy what $30-40 Lakhs buys today. Always target an inflation-adjusted corpus.' } }
@@ -276,7 +276,7 @@ export default function SipBeatInflationPage() {
               <h2 className="text-xl font-bold text-foreground mb-3">How to Choose a DCA to Beat Inflation</h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 To truly build wealth, you need an asset class that consistently beats inflation. Equity mutual funds (via DCA) have historically delivered 10–15% returns —
-                comfortably ahead of India&apos;s 5–7% inflation. Fixed deposits and traditional insurance policies often fail to beat inflation after tax.
+                comfortably ahead of&apos;s 5–7% inflation. Fixed deposits and traditional insurance policies often fail to beat inflation after tax.
               </p>
             </div>
           </div>

@@ -10,7 +10,7 @@ export const metadata = {
     'CAGR calculator online',
     'CAGR calculator online free',
     'compound annual growth rate calculator',
-    'CAGR calculator India',
+    'CAGR calculator',
 
     // ── Tier 2: Intent variants (5k–15k/mo) ──
     'CAGR formula calculator',
@@ -28,20 +28,20 @@ export const metadata = {
     'CAGR calculator with DCA',
     'CAGR vs absolute return calculator',
     'CAGR calculator for CD',
-    'what is a good CAGR for mutual funds India',
+    'what is a good CAGR for mutual funds',
     'how to calculate CAGR for DCA',
     'lump sum investment CAGR calculator',
     'CAGR calculator year by year',
     'CAGR to future value calculator',
-    'Rule of 72 calculator India',
+    'Rule of 72 calculator',
     'investment doubling time calculator',
-    'XIRR CAGR calculator India',
+    'XIRR CAGR calculator',
     'portfolio CAGR calculator',
 
     // ── Cross-linking / cluster ──
     'step up DCA calculator',
     'DCA goal calculator',
-    'DCA return calculator India',
+    'DCA return calculator',
   ],
 
   authors: [{ name: 'Rajat' }],

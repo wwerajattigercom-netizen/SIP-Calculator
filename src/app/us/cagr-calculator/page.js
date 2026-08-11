@@ -32,7 +32,7 @@ const jsonLd = {
         'Year-by-year investment growth table',
         'Rule of 72 — investment doubling time',
         'Absolute return vs CAGR comparison',
-        'Free online CAGR calculator India',
+        'Free online CAGR calculator',
         'Mutual fund CAGR calculator',
         'Stock CAGR calculator',
       ],
@@ -67,10 +67,10 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'What is a good CAGR for a mutual fund in India?',
+          name: 'What is a good CAGR for a mutual fund globally?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'A CAGR of 12–15% is considered good for Indian equity mutual funds over 10+ years. Large-cap index funds typically deliver 10–12% CAGR. Mid and small-cap funds have historically achieved 14–18% CAGR over 10+ years. Anything consistently above 15% over 10 years is exceptional. For debt funds or CDs, 6–8% CAGR is considered decent.',
+            text: 'A CAGR of 12–15% is considered good for Global equity mutual funds over 10+ years. Large-cap index funds typically deliver 10–12% CAGR. Mid and small-cap funds have historically achieved 14–18% CAGR over 10+ years. Anything consistently above 15% over 10 years is exceptional. For debt funds or CDs, 6–8% CAGR is considered decent.',
           },
         },
         {
@@ -141,8 +141,8 @@ const FAQS = [
     a: 'CAGR (Compound Annual Growth Rate) is the "smoothed" annual growth rate of an investment over a specific time period. It tells you at what constant annual rate your investment grew — ignoring short-term ups and downs. Formula: CAGR = (Final Value ÷ Initial Value)^(1 ÷ Years) − 1. Example: $1 Hundred Thousand → $3 Hundred Thousand in 10 years = CAGR of 11.61% p.a.',
   },
   {
-    q: 'What is a good CAGR for mutual funds in India?',
-    a: 'In India, 12–15% CAGR is considered good for equity mutual funds over 10+ years. Large-cap index funds (Nifty 50) typically deliver 10–12%. Mid-cap and small-cap funds have historically achieved 14–18% over long periods. For debt funds or CDs, 6–8% is decent. Anything consistently above 15% over 10+ years is exceptional performance.',
+    q: 'What is a good CAGR for mutual funds globally?',
+    a: 'Globally, 10–12% CAGR is considered good for equity mutual funds over 10+ years. Large-cap index funds (S&P 500) typically deliver 10–12%. Mid-cap and small-cap funds have historically achieved 14–18% over long periods. For debt funds or CDs, 4–6% is decent. Anything consistently above 15% over 10+ years is exceptional performance.',
   },
   {
     q: 'What is the difference between CAGR and absolute return?',
@@ -513,7 +513,7 @@ export default function CAGRCalculatorPage() {
         </section>
 
         {/* ── RELATED TOOLS — keyword-rich internal backlinks ── */}
-        <section id="related-calculators" aria-label="Related free financial calculators India">
+        <section id="related-calculators" aria-label="Related free financial calculators">
           <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-foreground mb-1 text-center">More Free Financial Calculators</h2>
             <p className="text-gray-500 dark:text-gray-400 text-xs text-center mb-4">All tools are free, real-time, and require no sign-up.</p>
@@ -562,7 +562,7 @@ export default function CAGRCalculatorPage() {
                 Built by <span className="text-[var(--color-accent)] font-bold text-sm">Rajat</span>
               </h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
-                Free financial calculators for Indian investors — DCA, Step-Up, Goal Planning, and CAGR, all in one place.
+                Free financial calculators for Global investors — DCA, Step-Up, Goal Planning, and CAGR, all in one place.
               </p>
               <a
                 href="mailto:businesswebsitestudio@gmail.com"
