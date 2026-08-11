@@ -345,16 +345,16 @@ export default function SipDuringCrashPage() {
                         y: {
                           border: { display: false },
                           grid: { color: 'rgba(0,0,0,0.03)' },
-                          ticks: { color: '#9CA3AF', callback: (v) => fmt(v) },
+                          ticks: { color: '#6B7280', callback: (v) => fmt(v) },
                         },
                         x: {
                           border: { display: false },
                           grid: { display: false },
-                          ticks: { color: '#9CA3AF' },
+                          ticks: { color: '#6B7280' },
                         },
                       },
                       plugins: {
-                        legend: { labels: { color: '#D1D5DB', usePointStyle: true, boxWidth: 6 } },
+                        legend: { labels: { color: '#1F2937', usePointStyle: true, boxWidth: 6 } },
                         tooltip: {
                           backgroundColor: '#1F2937',
                           titleColor: '#F3F4F6',

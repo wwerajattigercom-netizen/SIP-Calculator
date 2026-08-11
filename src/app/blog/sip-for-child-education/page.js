@@ -260,11 +260,11 @@ export default function SipForChildEducationPage() {
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
-                      x: { stacked: true, grid: { display: false }, ticks: { color: '#9CA3AF' } },
-                      y: { stacked: true, grid: { color: 'rgba(0,0,0,0.03)' }, ticks: { color: '#9CA3AF', callback: (v) => fmt(v) }, border: { display: false } },
+                      x: { stacked: true, grid: { display: false }, ticks: { color: '#6B7280' } },
+                      y: { stacked: true, grid: { color: 'rgba(0,0,0,0.03)' }, ticks: { color: '#6B7280', callback: (v) => fmt(v) }, border: { display: false } },
                     },
                     plugins: {
-                      legend: { labels: { color: '#D1D5DB', usePointStyle: true, boxWidth: 6 } },
+                      legend: { labels: { color: '#1F2937', usePointStyle: true, boxWidth: 6 } },
                       tooltip: { backgroundColor: '#1F2937', titleColor: '#F3F4F6', bodyColor: '#D1D5DB', borderColor: 'rgba(0,0,0,0.05)', borderWidth: 1 },
                     },
                   }}
