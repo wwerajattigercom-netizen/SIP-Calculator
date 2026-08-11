@@ -138,7 +138,7 @@ export default function AboutPage() {
           </a>
           <div className="mt-4 pt-4 border-t border-[#E8E4DF]">
             <Link
-              href="/disclaimer"
+              href="/us/disclaimer"
               className="inline-flex items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-[var(--color-accent)] text-xs transition-colors"
             >
               <ExternalLink className="w-3 h-3" />

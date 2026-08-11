@@ -297,7 +297,7 @@ export default function RetirementSipCalculatorPage() {
 
           <div className="text-center text-xs text-gray-500 dark:text-gray-400">
             <p>For educational purposes only. Consult a financial advisor before investing.</p>
-            <Link href="/disclaimer" className="text-[var(--color-accent)] hover:underline">Read Disclaimer</Link>
+            <Link href="/us/disclaimer" className="text-[var(--color-accent)] hover:underline">Read Disclaimer</Link>
           </div>
 
         </article>

@@ -6,7 +6,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
-    href: '/blog/dca-vs-fd-ppf-rd',
+    href: '/us/blog/dca-vs-fd-ppf-rd',
     tag: 'Comparison Tool',
     tagColor: 'text-[#C4993C] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'DCA vs CD vs 401(k) Comparison Tool',
@@ -19,7 +19,7 @@ const ARTICLES = [
     highlightColor: 'text-[#C4993C]',
   },
   {
-    href: '/blog/cost-of-delay-calculator',
+    href: '/us/blog/cost-of-delay-calculator',
     tag: 'Cost of Delay',
     tagColor: 'text-[#991B1B] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
     title: 'Cost of Delay Calculator — See What Waiting Costs You',
@@ -32,7 +32,7 @@ const ARTICLES = [
     highlightColor: 'text-[#991B1B]',
   },
   {
-    href: '/blog/dca-based-on-salary',
+    href: '/us/blog/dca-based-on-salary',
     tag: 'DCA Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much DCA Should I Do Based on My Salary?',
@@ -45,7 +45,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/retirement-dca-calculator',
+    href: '/us/blog/retirement-dca-calculator',
     tag: 'Retirement',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.1)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much DCA Do I Need to Retire in India?',
@@ -58,7 +58,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/dca-vs-lumpsum',
+    href: '/us/blog/dca-vs-lumpsum',
     tag: 'Comparison',
     tagColor: 'text-[#059669] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'DCA vs Lump Sum — Which Is Better? Interactive Comparison',
@@ -71,7 +71,7 @@ const ARTICLES = [
     highlightColor: 'text-[#059669]',
   },
   {
-    href: '/blog/dca-to-beat-inflation',
+    href: '/us/blog/dca-to-beat-inflation',
     tag: 'Inflation',
     tagColor: 'text-[#059669] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'How Much DCA to Beat Inflation? Real vs Nominal Returns',
@@ -84,7 +84,7 @@ const ARTICLES = [
     highlightColor: 'text-[#059669]',
   },
   {
-    href: '/blog/dca-to-reach-1-crore',
+    href: '/us/blog/dca-to-reach-1-million',
     tag: 'DCA Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much DCA to Reach $1 Million in 10, 15 & 20 Years?',
@@ -97,7 +97,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/dca-for-child-education',
+    href: '/us/blog/dca-for-child-education',
     tag: 'Goal Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'DCA for Child Education — Education Goal Calculator India',
@@ -110,7 +110,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/dca-for-house-down-payment',
+    href: '/us/blog/dca-for-house-down-payment',
     tag: 'Goal Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'DCA for House Down Payment — Save for Your Dream Home',
@@ -123,7 +123,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/dca-during-market-crash',
+    href: '/us/blog/dca-during-market-crash',
     tag: 'Market Strategy',
     tagColor: 'text-[#991B1B] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
     title: 'DCA During Market Crash — Should You Stop or Continue?',
@@ -136,7 +136,7 @@ const ARTICLES = [
     highlightColor: 'text-[#991B1B]',
   },
   {
-    href: '/blog/cagr-vs-xirr-vs-absolute-return',
+    href: '/us/blog/cagr-vs-xirr-vs-absolute-return',
     tag: 'Return Metrics',
     tagColor: 'text-[#C4993C] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'CAGR vs XIRR vs Absolute Return — What\'s the Difference?',
@@ -151,12 +151,12 @@ const ARTICLES = [
 ];
 
 const CALCULATORS = [
-  { href: '/',                        icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Step-Up DCA Calculator',  desc: 'DCA with step-up, lump sum & inflation' },
-  { href: '/lumpsum-calculator',       icon: <Layers     className="w-4 h-4 text-[#059669]" />, label: 'Lumpsum Calculator',       desc: 'One-time investment future value'        },
-  { href: '/target-amount-calculator', icon: <Target     className="w-4 h-4 text-[var(--color-accent)]"  />, label: 'DCA Goal Calculator',      desc: 'Time to reach $1 Million'                 },
-  { href: '/cagr-calculator',          icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'CAGR Calculator',          desc: 'Compound annual growth rate'             },
-  { href: '/swp-calculator',           icon: <Wallet     className="w-4 h-4 text-[var(--color-accent)]" />, label: 'SWP Calculator',           desc: 'Monthly withdrawal planning'             },
-  { href: '/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[#991B1B]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
+  { href: '/us/dca-calculator',                        icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Step-Up DCA Calculator',  desc: 'DCA with step-up, lump sum & inflation' },
+  { href: '/us/lumpsum-calculator',       icon: <Layers     className="w-4 h-4 text-[#059669]" />, label: 'Lumpsum Calculator',       desc: 'One-time investment future value'        },
+  { href: '/us/target-amount-calculator', icon: <Target     className="w-4 h-4 text-[var(--color-accent)]"  />, label: 'DCA Goal Calculator',      desc: 'Time to reach $1 Million'                 },
+  { href: '/us/cagr-calculator',          icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'CAGR Calculator',          desc: 'Compound annual growth rate'             },
+  { href: '/us/swp-calculator',           icon: <Wallet     className="w-4 h-4 text-[var(--color-accent)]" />, label: 'SWP Calculator',           desc: 'Monthly withdrawal planning'             },
+  { href: '/us/blog/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[#991B1B]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
 ];
 
 export default function BlogIndexPage() {

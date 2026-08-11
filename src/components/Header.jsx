@@ -28,12 +28,14 @@ export default function Header() {
   const toggleRegion = () => {
     if (isUS) {
       // Switch to IN: remove '/us' prefix, change dca to sip
+      document.cookie = "preferred_region=IN; path=/; max-age=31536000"; // 1 year expiry
       let newPath = pathname.replace(/^\/us(\/|$)/, '/');
       newPath = newPath.replace(/dca/g, 'sip').replace(/million/g, 'crore');
       if (pathname === '/us/dca-calculator') newPath = '/';
       router.push(newPath);
     } else {
       // Switch to US: add '/us' prefix, change sip to dca
+      document.cookie = "preferred_region=US; path=/; max-age=31536000"; // 1 year expiry
       let newPath = `/us${pathname === '/' ? '/dca-calculator' : pathname}`;
       newPath = newPath.replace(/sip/g, 'dca').replace(/crore/g, 'million');
       if (pathname === '/goal-based-sip-calculator') newPath = '/us/goal-based-dca-calculator';

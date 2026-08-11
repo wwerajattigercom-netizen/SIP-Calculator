@@ -165,7 +165,7 @@ export default function CAGRvsXIRRPage() {
               <p>
                 <strong className="text-[#059669]">Disclaimer:</strong> This article is for educational purposes only.
                 Mutual fund investments are subject to market risks. Past returns are not indicative of future performance.
-                <Link href="/disclaimer" className="text-[var(--color-accent)] hover:underline ml-1">Read our methodology →</Link>
+                <Link href="/us/disclaimer" className="text-[var(--color-accent)] hover:underline ml-1">Read our methodology →</Link>
               </p>
             </div>
           </div>

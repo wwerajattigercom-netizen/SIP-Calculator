@@ -156,7 +156,7 @@ export default function SipTo1CrorePage() {
                 <strong className="text-[#059669]">Disclaimer:</strong> These figures assume a constant annual return rate,
                 which real markets do not provide. Actual DCA returns vary year to year. Consult a SEBI-registered
                 financial adviser before making investment decisions.
-                <Link href="/disclaimer" className="text-[var(--color-accent)] hover:underline ml-1">Read our full methodology →</Link>
+                <Link href="/us/disclaimer" className="text-[var(--color-accent)] hover:underline ml-1">Read our full methodology →</Link>
               </p>
             </div>
           </div>
