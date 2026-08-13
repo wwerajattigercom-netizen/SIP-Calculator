@@ -1,48 +1,167 @@
-"use client";
+import Link from 'next/link';
+import { Target, Zap, AlertTriangle, ArrowDownCircle, CheckCircle, HelpCircle, Crosshair } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
-import { ArrowDown, Zap } from 'lucide-react';
+
+export const metadata = {
+  title: "Trigger DCA: How to Automatically Buy the Dip",
+  description: "Want to invest money only when the stock market is crashing? Learn how a Trigger DCA allows you to set automated rules to buy mutual funds at cheaper NAVs.",
+  alternates: {
+    canonical: 'https://stepupcalculator.com/us/blog/trigger-dca',
+  }
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: "Trigger DCA: How to Automatically Buy the Dip",
+  description: "Want to invest money only when the stock market is crashing? Learn how a Trigger DCA allows you to set automated rules to buy mutual funds at cheaper NAVs.",
+  author: { '@type': 'Person', name: 'Rajat' },
+  publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com' },
+  url: 'https://stepupcalculator.com/us/blog/trigger-dca',
+};
 
 export default function TriggerSipPage() {
   return (
-    <main className="py-8 px-4 md:px-8 max-w-4xl mx-auto space-y-8">
-      <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'Trigger DCA Guide' }]} />
-      
-      <div className="glass-panel p-7 relative overflow-hidden">
-        <div className="relative z-10">
-          <span className="text-[10px] uppercase tracking-widest text-[#991B1B] font-semibold mb-3 block">Tactical Strategy</span>
-          <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight mb-3">
-            Trigger DCA: How to Automatically "Buy the Dip"
-          </h1>
-          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-            Want to invest more money only when the stock market is bleeding? A Trigger DCA allows you to set rules for when your money gets invested.
-          </p>
-        </div>
-      </div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <main className="py-8 px-2 md:px-4 flex flex-col items-center">
+        <article className="max-w-3xl w-full mx-auto space-y-8">
+          
+          <Breadcrumb items={[{ label: 'Guides', href: '/us/blog' }, { label: 'Trigger DCA Guide' }]} />
+          
+          {/* Hero Section */}
+          <div className="glass-panel p-8 relative overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)] shadow-sm">
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+            <div className="relative z-10">
+              <span className="text-xs uppercase tracking-widest text-[#991B1B] font-bold mb-4 block">Tactical Strategy</span>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
+                What is a <span className="text-[#991B1B]">Trigger DCA?</span> (How to Buy the Dip)
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                Most investors log into their broker accounts in a panic when the market crashes to manually buy shares. But what if you are in a meeting? A Trigger DCA allows you to set rules in advance so your account automatically buys the dip for you.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
+                  R
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div className="glass-panel p-6 space-y-6">
-        <h2 className="text-xl font-bold text-foreground">1. What is a Trigger DCA?</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-          Instead of investing on a fixed date (like the 5th of every month), a Trigger DCA executes an investment <em>only</em> when a certain condition is met. 
-          <br/><br/>
-          For example: "Invest $500 every time the S&P 500 drops by 2%."
-        </p>
+          {/* What is it */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">What Exactly is a Trigger DCA?</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Instead of investing on a fixed date (like the 5th of every month), a Trigger DCA executes an investment <em>only when a specific market condition is met</em>. It removes the need for you to constantly stare at stock charts.
+            </p>
+            <div className="bg-[rgba(153,27,27,0.02)] border border-[rgba(153,27,27,0.1)] p-5 rounded-xl">
+              <p className="font-mono text-sm text-gray-800 dark:text-gray-200">
+                <strong className="text-[#991B1B]">Real-World Example:</strong><br/><br/>
+                You tell your broker: "Take $1,000 from my bank account and buy the S&P 500 Index Fund <strong>only if the S&P 500 drops by more than 2% in a single day</strong>." <br/><br/>
+                If the market is going up, nothing happens. The moment the market crashes by 2%, your broker automatically executes the buy order at the cheaper price.
+              </p>
+            </div>
+          </div>
 
-        <h2 className="text-xl font-bold text-foreground mt-8">2. Pros and Cons</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <div className="bg-[rgba(5,150,105,0.05)] border border-[#059669]/20 p-4 rounded-xl">
-            <h3 className="text-[#059669] font-bold mb-2 flex items-center gap-2"><Zap className="w-4 h-4"/> Pros</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Guarantees that you buy units at a cheaper NAV, potentially boosting your long-term returns compared to a blind monthly DCA.
+          {/* Why Question (Pros and Cons) */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-foreground">Why Do Investors Use It? (And the Hidden Danger)</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              Human psychology makes it very difficult to hit the "Buy" button when there is blood on the streets and news channels are screaming about a market collapse. A Trigger DCA takes emotion completely out of the equation.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              <div className="glass-panel p-6 border-t-4 border-t-[#059669] bg-[rgba(5,150,105,0.02)]">
+                <h3 className="font-bold text-[#059669] flex items-center gap-2 mb-3">
+                  <CheckCircle className="w-5 h-5" /> The Biggest Advantage
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                  You are mathematically guaranteed to buy units at a cheaper NAV (Net Asset Value). By accumulating more units when prices are depressed, your long-term returns will often beat a blind, date-based monthly DCA.
+                </p>
+              </div>
+              
+              <div className="glass-panel p-6 border-t-4 border-t-[#991B1B] bg-[rgba(153,27,27,0.02)]">
+                <h3 className="font-bold text-[#991B1B] flex items-center gap-2 mb-3">
+                  <AlertTriangle className="w-5 h-5" /> The Hidden Danger (Idle Cash)
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                  In a raging bull market (like 2020-2021), the market might not drop by 2% for several months. Your trigger will not hit, and your cash will sit entirely idle in your bank account, losing value to inflation while the market rallies without you!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* How Question */}
+          <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black">
+            <h2 className="text-2xl font-bold text-foreground mb-4">How Do You Set It Up?</h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+              Not all apps support true Trigger DCAs, but advanced brokerages do. When setting it up, you must configure three exact parameters:
+            </p>
+            
+            <ol className="space-y-5">
+              <li className="flex gap-4">
+                <div className="w-8 h-8 rounded-full bg-[rgba(153,27,27,0.1)] flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-[#991B1B] font-bold text-sm">1</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-foreground">Select the Metric (The "What")</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    Do you want the trigger to be based on an Index falling (e.g. Nifty drops), or the specific Mutual Fund's NAV falling (e.g. Fidelity Contrafund NAV drops)?
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <div className="w-8 h-8 rounded-full bg-[rgba(153,27,27,0.1)] flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-[#991B1B] font-bold text-sm">2</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-foreground">Define the Threshold (The "When")</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    Do you want to buy when it drops by 1%? 2%? 5%? <strong>Pro Tip:</strong> Setting the threshold too high (like 5%) means it might only trigger once a year. A 1% or 2% trigger is much more practical for regular wealth accumulation.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <div className="w-8 h-8 rounded-full bg-[rgba(153,27,27,0.1)] flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-[#991B1B] font-bold text-sm">3</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-foreground">Set the Capital (The "How Much")</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    Allocate the amount. You can say "Invest $500 every time the trigger hits." Make sure you maintain enough balance in your bank account, because if the market is highly volatile, the trigger might hit multiple times in a single week!
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          
+          {/* Pro Strategy Box */}
+          <div className="glass-panel p-6 border-l-4 border-[var(--color-accent)] bg-[rgba(27,58,92,0.02)]">
+            <h3 className="font-bold text-foreground flex items-center gap-2 mb-2">
+              <Crosshair className="w-5 h-5 text-[var(--color-accent)]" /> The "Core & Satellite" Strategy
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+              Because of the "idle cash" danger, financial planners never recommend using a Trigger DCA as your primary investment vehicle. Instead, keep your normal Date-Based DCA running as your <em>Core</em> strategy (say, $1k/month). Then, use a Trigger DCA as your <em>Satellite</em> strategy (say, $500/dip) just to capture extra alpha during market corrections.
             </p>
           </div>
-          <div className="bg-[rgba(153,27,27,0.05)] border border-[#991B1B]/20 p-4 rounded-xl">
-            <h3 className="text-[#991B1B] font-bold mb-2 flex items-center gap-2"><ArrowDown className="w-4 h-4"/> Cons</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              In a raging bull market, your trigger might not hit for months, leaving your cash sitting idle in a bank account while the market rallies without you.
-            </p>
+
+          {/* CTA */}
+          <div className="glass-panel p-8 text-center bg-gradient-to-b from-[rgba(153,27,27,0.05)] to-transparent">
+            <h2 className="text-2xl font-bold text-foreground mb-3">Simulate a Market Crash</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto">Want to see the mathematical impact of buying the dip? Use our simulator to test how your wealth grows if you increase your investments during a crash.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/us/blog/dca-during-market-crash" className="inline-flex items-center justify-center gap-2 bg-[#991B1B] hover:bg-[#7f1d1d] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
+                <ArrowDownCircle className="w-5 h-5" /> Open Crash Simulator
+              </Link>
+            </div>
           </div>
-        </div>
-      </div>
-    </main>
+
+        </article>
+      </main>
+    </>
   );
 }
