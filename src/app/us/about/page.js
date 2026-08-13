@@ -5,25 +5,25 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const TOOLS = [
   {
-    href: '/',
+    href: '/us/dca-calculator',
     icon: <Calculator className="w-5 h-5 text-[var(--color-accent)]" />,
     name: 'DCA Calculator with Step-Up & Inflation',
-    desc: 'Monthly DCA with annual step-up, lump sum, inflation adjustment, and ₹1 Crore milestone tracker.',
+    desc: 'Monthly DCA with annual step-up, lump sum, inflation adjustment, and $1 Million milestone tracker.',
   },
   {
-    href: '/target-amount-calculator',
+    href: '/us/target-amount-calculator',
     icon: <Target className="w-5 h-5 text-[var(--color-accent)]" />,
     name: 'DCA Goal / Time-to-Target Calculator',
-    desc: 'Set your target corpus (e.g., ₹1 Crore) and find how long your DCA will take — or what DCA amount you need.',
+    desc: 'Set your target corpus (e.g., $1 Million) and find how long your DCA will take — or what DCA amount you need.',
   },
   {
-    href: '/cagr-calculator',
+    href: '/us/cagr-calculator',
     icon: <TrendingUp className="w-5 h-5 text-[#0D9488]" />,
     name: 'CAGR Calculator',
     desc: 'Compound Annual Growth Rate calculator for lump sum investments and DCA+lumpsum portfolios. Includes Rule of 72.',
   },
   {
-    href: '/lumpsum-calculator',
+    href: '/us/lumpsum-calculator',
     icon: <Calculator className="w-5 h-5 text-[#059669]" />,
     name: 'Lumpsum Calculator',
     desc: 'Calculate future value of a one-time lump sum investment at a given annual return rate.',

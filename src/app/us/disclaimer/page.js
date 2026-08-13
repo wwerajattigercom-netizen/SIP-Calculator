@@ -157,9 +157,9 @@ export default function DisclaimerPage() {
           <p className="text-gray-500 dark:text-gray-400 text-sm mb-3 text-center">Try our free calculators</p>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              { href: '/', label: 'DCA Calculator', icon: <Calculator className="w-3.5 h-3.5" /> },
-              { href: '/cagr-calculator', label: 'CAGR Calculator', icon: <TrendingUp className="w-3.5 h-3.5" /> },
-              { href: '/target-amount-calculator', label: 'Goal Calculator', icon: <Target className="w-3.5 h-3.5" /> },
+              { href: '/us/dca-calculator', label: 'DCA Calculator', icon: <Calculator className="w-3.5 h-3.5" /> },
+              { href: '/us/cagr-calculator', label: 'CAGR Calculator', icon: <TrendingUp className="w-3.5 h-3.5" /> },
+              { href: '/us/target-amount-calculator', label: 'Goal Calculator', icon: <Target className="w-3.5 h-3.5" /> },
             ].map(({ href, label, icon }) => (
               <Link
                 key={href}
