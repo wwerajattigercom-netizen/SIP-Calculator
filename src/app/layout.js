@@ -1,6 +1,7 @@
 import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { RegionProvider } from "@/context/RegionContext";
 const geist = Geist({
@@ -73,9 +74,12 @@ export default function RootLayout({ children }) {
             <Header />
 
             {/* ── Page content, centred & max-width constrained ── */}
-            <div className="page-wrapper">
+            <div className="page-wrapper flex-grow">
               {children}
             </div>
+
+            {/* ── Global Footer ── */}
+            <Footer />
           </RegionProvider>
         </ThemeProvider>
       </body>

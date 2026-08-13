@@ -12,7 +12,6 @@ const TABS = [
   { href: '/cagr-calculator',          label: 'CAGR',     Icon: TrendingUp  },
   { href: '/target-amount-calculator', label: 'Goal',     Icon: Target      },
   { href: '/lumpsum-calculator',       label: 'Lumpsum',  Icon: Layers      },
-  { href: '/blog',                     label: 'Guides',   Icon: BookOpen    },
 ];
 
 export default function CalculatorTabs() {

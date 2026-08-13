@@ -263,7 +263,24 @@ const CALCULATORS = [
   { href: '/us/blog/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[#991B1B]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
 ];
 
+
+const TOOL_HREFS = [
+  '/us/blog/dca-vs-fd-ppf-rd',
+  '/us/blog/cost-of-delay-calculator',
+  '/us/blog/dca-based-on-salary',
+  '/us/blog/retirement-dca-calculator',
+  '/us/blog/dca-vs-lumpsum',
+  '/us/blog/dca-to-beat-inflation',
+  '/us/blog/dca-during-market-crash',
+  '/us/blog/dca-to-reach-1-million',
+  '/us/blog/dca-for-child-education',
+  '/us/blog/dca-for-house-down-payment'
+];
+
 export default function BlogIndexPage() {
+  const tools = ARTICLES.filter(a => TOOL_HREFS.includes(a.href));
+  const guides = ARTICLES.filter(a => !TOOL_HREFS.includes(a.href));
+  
   return (
     <main className="py-8 px-2 md:px-4 flex flex-col items-center">
       <div className="max-w-6xl w-full mx-auto space-y-8">

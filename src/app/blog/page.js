@@ -263,7 +263,24 @@ const CALCULATORS = [
   { href: '/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[#991B1B]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
 ];
 
+
+const TOOL_HREFS = [
+  '/blog/sip-vs-fd-ppf-rd',
+  '/blog/cost-of-delay-calculator',
+  '/blog/sip-based-on-salary',
+  '/blog/retirement-sip-calculator',
+  '/blog/sip-vs-lumpsum',
+  '/blog/sip-to-beat-inflation',
+  '/blog/sip-during-market-crash',
+  '/blog/sip-to-reach-1-crore',
+  '/blog/sip-for-child-education',
+  '/blog/sip-for-house-down-payment'
+];
+
 export default function BlogIndexPage() {
+  const tools = ARTICLES.filter(a => TOOL_HREFS.includes(a.href));
+  const guides = ARTICLES.filter(a => !TOOL_HREFS.includes(a.href));
+  
   return (
     <main className="py-8 px-2 md:px-4 flex flex-col items-center">
       <div className="max-w-6xl w-full mx-auto space-y-8">
