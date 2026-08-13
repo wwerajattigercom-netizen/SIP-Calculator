@@ -1,7 +1,7 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2 } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
@@ -147,6 +147,38 @@ const ARTICLES = [
     icon: <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />,
     highlight: 'CAGR vs XIRR',
     highlightColor: 'text-[#C4993C]',
+  },
+  {
+    href: '/us/blog/swp-vs-dca',
+    tag: 'Retirement Strategy',
+    tagColor: 'text-[#059669] bg-[rgba(5,150,105,0.1)] border-[rgba(5,150,105,0.25)]',
+    title: 'SWP vs DCA: What\'s the Difference & Who Should Use Each?',
+    excerpt: 'DCA builds your wealth over time, SWP pays you a monthly salary when you retire. Understand the core differences and tax advantages.',
+    readTime: '4 min read',
+    cta: 'Read Guide',
+    icon: <Wallet className="w-5 h-5 text-[#059669]" />,
+    highlight: 'Trending',
+    highlightColor: 'text-[#059669]',
+  },
+  {
+    href: '/us/blog/dca-vs-stp',
+    tag: 'Lump Sum Strategy',
+    tagColor: 'text-[#C4993C] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
+    title: 'DCA vs STP: How to Invest a Lump Sum Safely',
+    excerpt: 'Got a huge bonus or sold a property? Learn how to use a Systematic Transfer Plan (STP) to avoid market timing risks.',
+    readTime: '4 min read',
+    cta: 'Read Guide',
+    icon: <TrendingUp className="w-5 h-5 text-[#C4993C]" />,
+  },
+  {
+    href: '/us/blog/flexi-dca',
+    tag: 'Advanced DCA',
+    tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
+    title: 'What is a Flexi DCA? (And Who Should Use It)',
+    excerpt: 'Freelancer with irregular income? Learn how Flexi DCAs allow you to change your monthly investment amount without breaking discipline.',
+    readTime: '3 min read',
+    cta: 'Read Guide',
+    icon: <Settings2 className="w-5 h-5 text-[var(--color-accent)]" />,
   },
 ];
 
