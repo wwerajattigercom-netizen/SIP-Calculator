@@ -1,7 +1,7 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2 } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
@@ -179,6 +179,48 @@ const ARTICLES = [
     readTime: '3 min read',
     cta: 'Read Guide',
     icon: <Settings2 className="w-5 h-5 text-[var(--color-accent)]" />,
+  },
+  {
+    href: '/us/blog/step-up-dca',
+    tag: 'Wealth Multiplier',
+    tagColor: 'text-[#059669] bg-[rgba(5,150,105,0.1)] border-[rgba(5,150,105,0.25)]',
+    title: 'Step-Up DCA: The Secret to Retiring Early',
+    excerpt: 'Also known as a Top-Up DCA, learn how increasing your DCA by just 10% every year can double your final retirement corpus.',
+    readTime: '3 min read',
+    cta: 'Read Guide',
+    icon: <ArrowUpCircle className="w-5 h-5 text-[#059669]" />,
+  },
+  {
+    href: '/us/blog/trigger-dca',
+    tag: 'Tactical Strategy',
+    tagColor: 'text-[#991B1B] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
+    title: 'Trigger DCA: How to Automatically Buy the Dip',
+    excerpt: 'Want to invest more money only when the stock market crashes? A Trigger DCA allows you to set rules for when your money gets invested.',
+    readTime: '4 min read',
+    cta: 'Read Guide',
+    icon: <Zap className="w-5 h-5 text-[#991B1B]" />,
+  },
+  {
+    href: '/us/blog/dynamic-dca',
+    tag: 'Smart Investing',
+    tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
+    title: 'Dynamic DCA (Market-Linked DCA)',
+    excerpt: 'Dynamic DCA takes the emotion out of investing by using algorithms to decide exactly how much you should invest this month based on valuations.',
+    readTime: '4 min read',
+    cta: 'Read Guide',
+    icon: <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />,
+  },
+  {
+    href: '/us/blog/common-dca-mistakes',
+    tag: 'Mistakes to Avoid',
+    tagColor: 'text-[#991B1B] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
+    title: '7 Common DCA Mistakes to Avoid',
+    excerpt: 'Are you unknowingly destroying your long-term wealth? Avoid these frequent DCA mistakes like pausing during a crash.',
+    readTime: '5 min read',
+    cta: 'Read Guide',
+    icon: <AlertTriangle className="w-5 h-5 text-[#991B1B]" />,
+    highlight: 'Must Read',
+    highlightColor: 'text-[#991B1B]',
   },
 ];
 
