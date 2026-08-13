@@ -1,7 +1,7 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle, Globe } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
@@ -221,6 +221,36 @@ const ARTICLES = [
     icon: <AlertTriangle className="w-5 h-5 text-[#991B1B]" />,
     highlight: 'Must Read',
     highlightColor: 'text-[#991B1B]',
+  },
+  {
+    href: '/blog/types-of-sip',
+    tag: 'Beginner Guide',
+    tagColor: 'text-[#C4993C] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
+    title: '5 Types of SIPs Explained: Regular, Flexi, Perpetual',
+    excerpt: 'Not all SIPs are created equal. Depending on your income stability and strategy, choose a SIP that fits your unique needs.',
+    readTime: '3 min read',
+    cta: 'Read Guide',
+    icon: <Layers className="w-5 h-5 text-[#C4993C]" />,
+  },
+  {
+    href: '/blog/sip-for-nris',
+    tag: 'NRI Guide',
+    tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
+    title: 'SIP for NRIs: A Complete Investing Guide',
+    excerpt: 'Can NRIs invest in Indian Mutual Funds? Learn the FEMA rules, NRE/NRO accounts, and taxation for NRIs investing in India.',
+    readTime: '4 min read',
+    cta: 'Read Guide',
+    icon: <Globe className="w-5 h-5 text-[var(--color-accent)]" />,
+  },
+  {
+    href: '/blog/sip-vs-ulip',
+    tag: 'Insurance vs Investment',
+    tagColor: 'text-[#059669] bg-[rgba(5,150,105,0.1)] border-[rgba(5,150,105,0.25)]',
+    title: 'SIP vs ULIP: Why Mutual Funds Beat Insurance',
+    excerpt: 'Never mix insurance and investment. See why pure mutual fund SIPs easily beat ULIPs over the long term.',
+    readTime: '4 min read',
+    cta: 'Read Guide',
+    icon: <Shield className="w-5 h-5 text-[#059669]" />,
   },
 ];
 
