@@ -1,37 +1,163 @@
-"use client";
+import Link from 'next/link';
+import { Layers, Target, TrendingUp, Zap, Infinity, ArrowRight, ShieldCheck } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
-import { Layers } from 'lucide-react';
 
-export default function TypesSipPage() {
+export const metadata = {
+  title: "5 Types of DCAs Explained: Which One Should You Choose?",
+  description: "Learn about the 5 different types of DCAs available in India: Regular, Step-Up, Flexi, Trigger, and Perpetual DCA. Find out which one matches your investment goals.",
+  alternates: {
+    canonical: 'https://stepupcalculator.com/us/blog/types-of-dca',
+  }
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: "5 Types of DCAs Explained: Which One Should You Choose?",
+  description: "Learn about the 5 different types of DCAs available in India: Regular, Step-Up, Flexi, Trigger, and Perpetual DCA. Find out which one matches your investment goals.",
+  author: { '@type': 'Person', name: 'Rajat' },
+  publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com' },
+  url: 'https://stepupcalculator.com/us/blog/types-of-dca',
+};
+
+export default function TypesOfSipPage() {
   return (
-    <main className="py-8 px-4 md:px-8 max-w-4xl mx-auto space-y-8">
-      <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'Types of DCA' }]} />
-      
-      <div className="glass-panel p-7 relative overflow-hidden">
-        <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight mb-3 flex items-center gap-3">
-          <Layers className="text-[var(--color-accent)] w-8 h-8"/> 5 Types of DCAs Explained
-        </h1>
-        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-          Not all DCAs are created equal. Depending on your income stability and market strategy, you can choose a DCA that fits your unique needs.
-        </p>
-      </div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <main className="py-8 px-2 md:px-4 flex flex-col items-center">
+        <article className="max-w-3xl w-full mx-auto space-y-8">
+          
+          <Breadcrumb items={[{ label: 'Guides', href: '/us/blog' }, { label: 'Types of DCAs' }]} />
+          
+          {/* Hero Section */}
+          <div className="glass-panel p-8 relative overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)] shadow-sm">
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+            <div className="relative z-10">
+              <span className="text-xs uppercase tracking-widest text-[#1B3A5C] font-bold mb-4 block">Foundational Guide</span>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
+                The 5 Types of DCAs: Which Strategy is Best for You?
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                Most beginners only know about the "Regular DCA" where a fixed amount is deducted every month. But modern mutual funds offer 4 advanced variations designed to beat inflation, capitalize on market crashes, and automate wealth building.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
+                  R
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 6 min read</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div className="glass-panel p-6 space-y-6">
-        <h2 className="text-xl font-bold text-foreground">1. Regular DCA</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400">The classic. A fixed amount is deducted from your bank account on a fixed date every month for a fixed tenure (e.g., $500 every 5th of the month for 5 years).</p>
+          <div className="space-y-6">
+            
+            {/* 1. Regular DCA */}
+            <div className="glass-panel p-6 border-l-4 border-l-[#6B7280]">
+              <div className="flex justify-between items-start mb-2">
+                <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-[#6B7280]" /> 1. Regular DCA (The Standard)
+                </h2>
+                <span className="text-xs font-bold px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full">Beginner Friendly</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                This is the plain vanilla option. You invest a fixed amount (e.g., $500) on a fixed date every single month. It enforces discipline and leverages Rupee Cost Averaging across all market conditions.
+              </p>
+              <div className="bg-[rgba(107,114,128,0.05)] p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300">
+                <strong>Best For:</strong> People with a fixed monthly salary who just want to automate their savings and not worry about market timing.
+              </div>
+            </div>
 
-        <h2 className="text-xl font-bold text-foreground">2. Perpetual DCA</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400">Exactly like a Regular DCA, but with no end date. It continues indefinitely until you explicitly send a stop instruction to the fund house.</p>
+            {/* 2. Step-Up DCA */}
+            <div className="glass-panel p-6 border-l-4 border-l-[#059669]">
+              <div className="flex justify-between items-start mb-2">
+                <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-[#059669]" /> 2. Step-Up DCA (Top-Up DCA)
+                </h2>
+                <span className="text-xs font-bold px-3 py-1 bg-[rgba(5,150,105,0.1)] text-[#059669] rounded-full">Highly Recommended</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                This automates an annual increase in your investment. For example, you start with $1,000/month, and tell the Broker to increase it by 10% every year. By Year 2, it becomes $1,100.
+              </p>
+              <div className="bg-[rgba(5,150,105,0.05)] p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300 mb-4">
+                <strong>Best For:</strong> Salaried professionals aiming to combat inflation and scale their investments alongside their yearly appraisals.
+              </div>
+              <Link href="/us/blog/step-up-dca" className="inline-flex items-center text-sm font-semibold text-[#059669] hover:underline">
+                Read the full Step-Up Guide <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
 
-        <h2 className="text-xl font-bold text-foreground">3. Step-Up / Top-Up DCA</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400">Your investment amount automatically increases by a fixed percentage (e.g., 10%) every year. Best for salaried employees.</p>
+            {/* 3. Flexi DCA */}
+            <div className="glass-panel p-6 border-l-4 border-l-[#C4993C]">
+              <div className="flex justify-between items-start mb-2">
+                <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+                  <Layers className="w-5 h-5 text-[#C4993C]" /> 3. Flexi DCA
+                </h2>
+                <span className="text-xs font-bold px-3 py-1 bg-[rgba(196,153,60,0.1)] text-[#C4993C] rounded-full">Advanced</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                A Flexi DCA allows you to change the investment amount every month based on your cash flow. You can set a "minimum" amount to keep the DCA active during lean months, and invest a "maximum" amount during good months.
+              </p>
+              <div className="bg-[rgba(196,153,60,0.05)] p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300 mb-4">
+                <strong>Best For:</strong> Freelancers, business owners, and gig workers who have highly variable monthly incomes.
+              </div>
+              <Link href="/us/blog/flexi-dca" className="inline-flex items-center text-sm font-semibold text-[#C4993C] hover:underline">
+                Read the full Flexi DCA Guide <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
 
-        <h2 className="text-xl font-bold text-foreground">4. Flexi DCA</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400">Allows you to change your monthly installment amount based on your cash flow. Ideal for freelancers and business owners .</p>
+            {/* 4. Trigger DCA */}
+            <div className="glass-panel p-6 border-l-4 border-l-[#991B1B]">
+              <div className="flex justify-between items-start mb-2">
+                <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-[#991B1B]" /> 4. Trigger DCA
+                </h2>
+                <span className="text-xs font-bold px-3 py-1 bg-[rgba(153,27,27,0.1)] text-[#991B1B] rounded-full">Tactical</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                A Trigger DCA does not invest on a fixed date. Instead, it triggers an investment <em>only when a specific market condition is met</em>. For example: "Buy $500 worth of S&P 500 only when the index drops by 2% in a single day."
+              </p>
+              <div className="bg-[rgba(153,27,27,0.05)] p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300 mb-4">
+                <strong>Best For:</strong> Experienced investors who want to automatically "buy the dip" and capitalize on market crashes.
+              </div>
+              <Link href="/us/blog/trigger-dca" className="inline-flex items-center text-sm font-semibold text-[#991B1B] hover:underline">
+                Read the full Trigger DCA Guide <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
 
-        <h2 className="text-xl font-bold text-foreground">5. Trigger DCA</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400">Invests only when a certain market condition is met (e.g., S&P 500 drops by 2%). Best for tactical investors trying to buy the dip.</p>
-      </div>
-    </main>
+            {/* 5. Perpetual DCA */}
+            <div className="glass-panel p-6 border-l-4 border-l-[#1B3A5C]">
+              <div className="flex justify-between items-start mb-2">
+                <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+                  <Infinity className="w-5 h-5 text-[#1B3A5C]" /> 5. Perpetual DCA
+                </h2>
+                <span className="text-xs font-bold px-3 py-1 bg-[rgba(27,58,92,0.1)] text-[#1B3A5C] rounded-full">Standardized</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                When you start an DCA, you can usually set an end date (e.g., 5 years). A Perpetual DCA is simply an DCA where you do not specify an end date. It continues deducting money indefinitely until you log into the platform and manually issue a "Stop DCA" command. (Note: Most DCAs today default to this option, usually mapping the end date to December 2099).
+              </p>
+              <div className="bg-[rgba(27,58,92,0.05)] p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300">
+                <strong>Best For:</strong> Long-term wealth creation where the investor doesn't want the hassle of renewing the mandate every few years.
+              </div>
+            </div>
+
+          </div>
+
+          {/* CTA */}
+          <div className="glass-panel p-8 text-center bg-gradient-to-b from-[rgba(27,58,92,0.05)] to-transparent">
+            <h2 className="text-2xl font-bold text-foreground mb-3">Start Planning Today</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto">No matter which type of DCA you choose, the math of compounding remains the same. Calculate your potential returns using our tool.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/us/dca-calculator" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
+                <Target className="w-5 h-5" /> Open DCA Calculator
+              </Link>
+            </div>
+          </div>
+
+        </article>
+      </main>
+    </>
   );
 }
