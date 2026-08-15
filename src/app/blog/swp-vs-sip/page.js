@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowDownRight, ArrowUpRight, CheckCircle, ShieldAlert, Coins, Banknote, HelpCircle, TrendingUp, Briefcase } from 'lucide-react';
+import { ArrowRight, ArrowDownRight, ArrowUpRight, CheckCircle, ShieldAlert, Coins, Banknote, HelpCircle, TrendingUp, Briefcase, Calculator } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata = {
