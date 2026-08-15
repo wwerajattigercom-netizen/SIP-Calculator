@@ -6,7 +6,7 @@ export const metadata = {
   title: "SWP vs DCA: What's the Difference & Who Should Use Each?",
   description: "DCA builds your wealth during your working years. SWP pays you a monthly salary when you retire. Understand the critical differences, taxation rules, and strategies.",
   alternates: {
-    canonical: 'https://stepupcalculator.com/us/blog/swp-vs-sip',
+    canonical: 'https://stepupcalculator.com/us/blog/swp-vs-dca',
   }
 };
 

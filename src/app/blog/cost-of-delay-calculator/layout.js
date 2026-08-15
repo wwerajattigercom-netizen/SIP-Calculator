@@ -5,15 +5,15 @@ export const metadata = {
   openGraph: {
     title: 'Cost of Delay Calculator — See What Waiting Costs You',
     description: 'Discover how much wealth you lose by delaying your SIP by even 1-5 years. Free calculator with catch-up SIP analysis.',
-    url: 'https://stepupcalculator.com/cost-of-delay-calculator',
+    url: 'https://stepupcalculator.com/blog/cost-of-delay-calculator',
     type: 'website',
     locale: 'en_IN',
   },
-  alternates: { canonical: 'https://stepupcalculator.com/cost-of-delay-calculator',
+  alternates: { canonical: 'https://stepupcalculator.com/blog/cost-of-delay-calculator',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/cost-of-delay-calculator',
-      'en-US': 'https://stepupcalculator.com/us/cost-of-delay-calculator',
-      'x-default': 'https://stepupcalculator.com/cost-of-delay-calculator'
+      'en-IN': 'https://stepupcalculator.com/blog/cost-of-delay-calculator',
+      'en-US': 'https://stepupcalculator.com/us/blog/cost-of-delay-calculator',
+      'x-default': 'https://stepupcalculator.com/blog/cost-of-delay-calculator'
     } },
 };
 

@@ -37,7 +37,7 @@ export const metadata = {
   openGraph: {
     title: "Goal Based SIP Calculator | How Much SIP to Reach ₹1 Crore?",
     description: "Find out exactly how much monthly SIP you need to reach any financial goal — ₹1 Crore, retirement fund, or more. Add step-up SIP, lump sum, and inflation for precision planning.",
-    url: "https://stepupcalculator.com/goal-based-sip-calculator",
+    url: "https://stepupcalculator.com/target-amount-calculator",
     type: "website",
     locale: "en_IN",
     siteName: "Step Up SIP Calculator",
@@ -48,11 +48,11 @@ export const metadata = {
     description: "Free reverse SIP calculator. Enter your goal (₹1 Crore etc.) and get the exact required monthly SIP — with step-up and lump sum considered.",
   },
   alternates: {
-    canonical: 'https://stepupcalculator.com/goal-based-sip-calculator',
+    canonical: 'https://stepupcalculator.com/target-amount-calculator',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/goal-based-sip-calculator',
-      'en-US': 'https://stepupcalculator.com/us/goal-based-dca-calculator',
-      'x-default': 'https://stepupcalculator.com/goal-based-sip-calculator'
+      'en-IN': 'https://stepupcalculator.com/target-amount-calculator',
+      'en-US': 'https://stepupcalculator.com/us/target-amount-calculator',
+      'x-default': 'https://stepupcalculator.com/target-amount-calculator'
     },
   },
 };
