@@ -62,7 +62,7 @@ const jsonLd = {
           name: 'What is CAGR and how is it calculated?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'CAGR (Compound Annual Growth Rate) is the annualised growth rate of an investment from its initial to final value, assuming annual compounding. CAGR Formula: CAGR = (Final Value ÷ Initial Value)^(1 ÷ Years) − 1. Example: $1 Hundred Thousand growing to $5 Hundred Thousand in 10 years = CAGR of 17.46% p.a.',
+            text: 'CAGR (Compound Annual Growth Rate) is the annualised growth rate of an investment from its initial to final value, assuming annual compounding. CAGR Formula: CAGR = (Final Value ÷ Initial Value)^(1 ÷ Years) − 1. Example: $10,000 growing to $50,000 in 10 years = CAGR of 17.46% per year.',
           },
         },
         {
@@ -78,7 +78,7 @@ const jsonLd = {
           name: 'What is the difference between CAGR and absolute return?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Absolute return = (Final − Initial) ÷ Initial × 100. It shows total gain with no time context. CAGR is the annualised version. Example: $1 Hundred Thousand → $2 Hundred Thousand in 5 years = 100% absolute return but only 14.87% CAGR p.a. Always use CAGR when comparing investments of different durations.',
+            text: 'Absolute return = (Final − Initial) ÷ Initial × 100. It shows total gain with no time context. CAGR is the annualised version. Example: $10,000 → $20,000 in 5 years = 100% absolute return but only 14.87% CAGR per year. Always use CAGR when comparing investments of different durations.',
           },
         },
         {
@@ -86,7 +86,7 @@ const jsonLd = {
           name: 'Can CAGR be used for DCA returns?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No — CAGR is only accurate for lump sum investments (single cash flow). For SIPs, the correct metric is XIRR (Extended Internal Rate of Return), which accounts for the timing of each monthly investment. Our CAGR calculator supports a combined lump sum + monthly DCA mode that computes the effective rate of return using IRR methodology.',
+            text: 'No — CAGR is only accurate for lump sum investments (single cash flow). For DCA (monthly investments), the correct metric is XIRR (Extended Internal Rate of Return), which accounts for the timing of each monthly investment. Our CAGR calculator supports a combined lump sum + monthly DCA mode that computes the effective rate of return using IRR methodology.',
           },
         },
         {
@@ -102,7 +102,7 @@ const jsonLd = {
           name: 'Can CAGR be negative?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. If your investment lost value (Final Value < Initial Investment), the CAGR will be negative, indicating an average annual loss. For example, $1 Hundred Thousand falling to $70,000 over 5 years gives a CAGR of approximately −6.7% p.a.',
+            text: 'Yes. If your investment lost value (Final Value < Initial Investment), the CAGR will be negative, indicating an average annual loss. For example, $10,000 falling to $7,000 over 5 years gives a CAGR of approximately −6.7% per year.',
           },
         },
         {
@@ -118,7 +118,7 @@ const jsonLd = {
           name: 'How is CAGR different from XIRR?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'CAGR works for a single lump sum investment with one start and one end value. XIRR (Extended Internal Rate of Return) handles multiple cash flows at irregular intervals — perfect for SIPs or investments with top-ups. Most mutual fund apps (Groww, Zerodha, ET Money) use XIRR for DCA performance tracking.',
+            text: 'CAGR works for a single lump sum investment with one start and one end value. XIRR (Extended Internal Rate of Return) handles multiple cash flows at irregular intervals — perfect for DCA or investments with top-ups. Most brokerage apps (Fidelity, Charles Schwab, Vanguard) use XIRR for DCA performance tracking.',
           },
         },
       ],
@@ -138,7 +138,7 @@ const HOW_TO_STEPS = [
 const FAQS = [
   {
     q: 'What is CAGR in simple terms?',
-    a: 'CAGR (Compound Annual Growth Rate) is the "smoothed" annual growth rate of an investment over a specific time period. It tells you at what constant annual rate your investment grew — ignoring short-term ups and downs. Formula: CAGR = (Final Value ÷ Initial Value)^(1 ÷ Years) − 1. Example: $1 Hundred Thousand → $3 Hundred Thousand in 10 years = CAGR of 11.61% p.a.',
+    a: 'CAGR (Compound Annual Growth Rate) is the "smoothed" annual growth rate of an investment over a specific time period. It tells you at what constant annual rate your investment grew — ignoring short-term ups and downs. Formula: CAGR = (Final Value ÷ Initial Value)^(1 ÷ Years) − 1. Example: $10,000 → $30,000 in 10 years = CAGR of 11.61% per year.',
   },
   {
     q: 'What is a good CAGR for mutual funds globally?',
@@ -146,7 +146,7 @@ const FAQS = [
   },
   {
     q: 'What is the difference between CAGR and absolute return?',
-    a: 'Absolute return shows total gain with no time context: (Final − Initial) ÷ Initial × 100. CAGR is the annualised version. Example: $1 Hundred Thousand → $2 Hundred Thousand in 5 years = 100% absolute return, but only 14.87% CAGR p.a. CAGR lets you fairly compare investments of different durations.',
+    a: 'Absolute return shows total gain with no time context: (Final − Initial) ÷ Initial × 100. CAGR is the annualised version. Example: $10,000 → $20,000 in 5 years = 100% absolute return, but only 14.87% CAGR per year. CAGR lets you fairly compare investments of different durations.',
   },
   {
     q: 'Is CAGR the same as average annual return?',
@@ -154,11 +154,11 @@ const FAQS = [
   },
   {
     q: 'Can CAGR be negative?',
-    a: 'Yes. If your final value is less than the initial investment, CAGR will be negative — showing an average annual loss. For example, $1 Hundred Thousand falling to $70,000 over 5 years gives a CAGR of approximately −6.7% p.a. Our calculator handles negative CAGR and shows it with an orange warning.',
+    a: 'Yes. If your final value is less than the initial investment, CAGR will be negative — showing an average annual loss. For example, $10,000 falling to $7,000 over 5 years gives a CAGR of approximately −6.7% per year. Our calculator handles negative CAGR and shows it with an orange warning.',
   },
   {
     q: 'Can I use CAGR to evaluate DCA returns?',
-    a: 'No — CAGR is designed for a single lump sum investment. For SIPs (monthly investments), the correct metric is XIRR, which accounts for the different timing of each cash flow. Our calculator\'s DCA + lump sum mode computes the effective return rate using IRR (Internal Rate of Return) — the same principle used by Groww, Zerodha, and ET Money for DCA tracking.',
+    a: 'No — CAGR is designed for a single lump sum investment. For DCA (monthly investments), the correct metric is XIRR, which accounts for the different timing of each cash flow. Our calculator\'s DCA + lump sum mode computes the effective return rate using IRR — the same principle used by Fidelity, Vanguard, and Schwab for DCA tracking.',
   },
   {
     q: 'What is the Rule of 72?',
@@ -166,11 +166,11 @@ const FAQS = [
   },
   {
     q: 'How is CAGR different from XIRR?',
-    a: 'CAGR works for a single investment with one entry and one exit point. XIRR (Extended Internal Rate of Return) handles multiple cash flows at irregular intervals — ideal for SIPs or investments with top-ups. Most mutual fund apps (Groww, Zerodha, ET Money) report DCA returns as XIRR, not CAGR.',
+    a: 'CAGR works for a single investment with one entry and one exit point. XIRR (Extended Internal Rate of Return) handles multiple cash flows at irregular intervals — ideal for DCA or investments with top-ups. Most brokerage platforms (Fidelity, Vanguard, Schwab) report DCA returns using IRR methodology.',
   },
   {
     q: 'How is CAGR different from simple interest?',
-    a: 'Simple interest = a fixed % applied to the original principal only, every year. CAGR uses compound interest — the % is applied to the growing balance each year (you earn returns on your returns). Over 20+ years, this difference becomes enormous. $1 Hundred Thousand at 12% simple interest for 20 years = $3.4 Hundred Thousand. At 12% compound (CAGR) = $9.65 Hundred Thousand.',
+    a: 'Simple interest = a fixed % applied to the original principal only, every year. CAGR uses compound interest — the % is applied to the growing balance each year (you earn returns on your returns). Over 20+ years, this difference becomes enormous. $10,000 at 12% simple interest for 20 years = $34,000. At 12% compound (CAGR) = $96,463.',
   },
 ];
 

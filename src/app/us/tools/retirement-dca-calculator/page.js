@@ -30,8 +30,8 @@ export default function RetirementSipCalculatorPage() {
   const [currentAge, setCurrentAge] = useState(25);
   const [retirementAge, setRetirementAge] = useState(60);
   const [monthlyExpenses, setMonthlyExpenses] = useState(4000);
-  const [returnRate, setReturnRate] = useState(12);
-  const [inflationRate, setInflationRate] = useState(6);
+  const [returnRate, setReturnRate] = useState(10);
+  const [inflationRate, setInflationRate] = useState(3);
 
   // Validations & logic
   const yearsToRetire = Math.max(1, retirementAge - currentAge);

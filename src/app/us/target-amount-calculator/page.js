@@ -62,7 +62,7 @@ const jsonLd = {
           "name": "How does a lump sum shorten the time to reach my goal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "An initial lump sum compounds from Day 1. For example, $5 Hundred Thousand invested at 12% grows to $16 Hundred Thousand in 10 years and $27 Hundred Thousand in 15 years — entirely on its own. This head-start significantly reduces the number of months your DCA needs to cover, shortening the overall time to reach your goal."
+            "text": "An initial lump sum compounds from Day 1. For example, $50,000 invested at 12% grows to ~$155,000 in 10 years and ~$274,000 in 15 years — entirely on its own. This head-start significantly reduces the monthly DCA needed and shortens the overall time to reach your goal."
           }
         },
         {
@@ -106,7 +106,7 @@ const HOW_TO_STEPS = [
 const FAQS = [
   {
     q: "How long does $10,000/month DCA take to reach $1 Million?",
-    a: "At 12% annual return with no step-up: ≈20 years. With 10% annual step-up: ≈17 years. Adding a $5 Hundred Thousand lump sum at start: ≈15 years. Slide the inputs above to see your exact result instantly."
+    a: "At 12% annual return with no step-up: ≈20 years. With 10% annual step-up: ≈17 years. Adding a $50,000 lump sum at start: ≈15 years. Slide the inputs above to see your exact result instantly."
   },
   {
     q: "How much DCA do I need to reach $1 Million in 10 years?",

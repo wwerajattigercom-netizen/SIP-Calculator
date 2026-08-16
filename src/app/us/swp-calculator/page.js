@@ -77,7 +77,7 @@ const jsonLd = {
           name: 'What is a safe withdrawal rate for SWP?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'A common rule of thumb is the 4% to 6% annual withdrawal rate. For example, if you have a corpus of $1 Million, withdrawing $4 Hundred Thousand to $6 Hundred Thousand per year ($33k to $50k per month) is generally considered sustainable over long periods, assuming your corpus grows at 9-10% annually.',
+            text: 'A common rule of thumb is the 4% to 6% annual withdrawal rate. For example, if you have a corpus of $1 Million, withdrawing $40,000 to $60,000 per year ($3,300 to $5,000 per month) is generally considered sustainable over long periods, assuming your corpus grows at 9-10% annually.',
           },
         },
         {
@@ -104,11 +104,11 @@ const FAQS = [
   },
   {
     q: 'Is SWP better than Dividend payouts?',
-    a: 'Yes, SWP is generally considered more tax-efficient and reliable than IDCW (Dividend) options. Dividends are taxed according to your income tax slab, and the amount/frequency is not guaranteed. SWP allows you to set the exact amount you need, and only the capital gains portion of the withdrawal is taxed.',
+    a: 'Yes, a Systematic Withdrawal Plan (SWP) is generally considered more tax-efficient and predictable than dividend distributions. Dividends are not guaranteed and are taxed as ordinary income. SWP lets you control the exact amount and timing of withdrawals, and only the capital gains portion is subject to long-term or short-term capital gains tax.',
   },
   {
     q: 'What is a safe withdrawal rate for SWP?',
-    a: 'A common rule of thumb is the 4% to 6% annual withdrawal rate. For example, if you have a corpus of $1 Million, withdrawing $4 Hundred Thousand to $6 Hundred Thousand per year ($33k to $50k per month) is generally considered sustainable over long periods, assuming your corpus grows at 9-10% annually.',
+    a: 'A common rule of thumb is the 4% to 6% annual withdrawal rate. For example, if you have a corpus of $1 Million, withdrawing $40,000 to $60,000 per year ($3,300 to $5,000 per month) is generally considered sustainable over long periods, assuming your corpus grows at 9-10% annually.',
   },
   {
     q: 'What happens if my withdrawal is higher than the returns?',
@@ -118,9 +118,9 @@ const FAQS = [
 
 // ─── Main Page ───────────────────────────────────────────────
 export default function SWPCalculatorPage() {
-  const [corpus, setCorpus] = useState(5000000);
-  const [monthlyWithdrawal, setMonthlyWithdrawal] = useState(30000);
-  const [rate, setRate] = useState(10);
+  const [corpus, setCorpus] = useState(500000);
+  const [monthlyWithdrawal, setMonthlyWithdrawal] = useState(2500);
+  const [rate, setRate] = useState(9);
   const [years, setYears] = useState(20);
   const [openFaq, setOpenFaq] = useState(null);
   const [chartTab, setChartTab] = useState('pie');
@@ -232,9 +232,9 @@ export default function SWPCalculatorPage() {
 
             {/* Inputs */}
             <div className="lg:col-span-5 glass-panel p-4 lg:p-5">
-              <InputSlider label="Total Corpus" value={corpus} onChange={setCorpus} min={500000} max={1000000000} step={10000} prefix="$" />
-              <InputSlider label="Monthly Withdrawal" value={monthlyWithdrawal} onChange={setMonthlyWithdrawal} min={5000} max={1000000} step={1000} prefix="$" />
-              <InputSlider label="Expected Return Rate" value={rate} onChange={setRate} min={4} max={18} step={0.1} suffix="%" />
+              <InputSlider label="Total Corpus" value={corpus} onChange={setCorpus} min={10000} max={5000000} step={5000} prefix="$" />
+              <InputSlider label="Monthly Withdrawal" value={monthlyWithdrawal} onChange={setMonthlyWithdrawal} min={500} max={50000} step={100} prefix="$" />
+              <InputSlider label="Expected Return Rate" value={rate} onChange={setRate} min={4} max={15} step={0.1} suffix="%" />
               <InputSlider label="Withdrawal Duration" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yr" />
 
               {/* Labels */}

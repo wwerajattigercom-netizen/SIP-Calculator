@@ -61,7 +61,7 @@ const jsonLd = {
           name: 'How is lumpsum return calculated?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Lumpsum future value = P × (1 + r)^n, where P = initial investment, r = annual return rate, n = number of years. For example: $1 Hundred Thousand at 12% for 10 years = $1,00,000 × (1.12)^10 = $3,10,585.',
+            text: 'Lumpsum future value = P × (1 + r)^n, where P = initial investment, r = annual return rate, n = number of years. For example: $10,000 at 12% for 10 years = $10,000 × (1.12)^10 = $31,058.',
           },
         },
         {
@@ -69,7 +69,7 @@ const jsonLd = {
           name: 'Is lumpsum better than DCA?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Neither is universally better. Lumpsum investing is better when markets are at a low point, as 100% of your capital compounds from day one. DCA is better when markets are volatile or at highs, as it spreads purchase price over time (rupee cost averaging). Most financial advisers recommend DCA for salaried investors and lumpsum for windfall amounts.',
+            text: 'Neither is universally better. Lumpsum investing is better when markets are at a low point, as 100% of your capital compounds from day one. DCA is better when markets are volatile or at highs, as it spreads purchase price over time (dollar cost averaging). Most financial advisors recommend DCA for salaried investors and lumpsum for windfall amounts.',
           },
         },
         {
@@ -82,10 +82,7 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'How much does $1 Hundred Thousand grow in 10 years at 12%?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: '$1 Hundred Thousand invested as a lumpsum at 12% annual return for 10 years grows to approximately $3,10,585. This is a 3.1x wealth multiple with an absolute gain of $2,10,585 (210% absolute return).',
+            text: '$10,000 invested as a lumpsum at 12% annual return for 10 years grows to approximately $31,058. This is a 3.1x wealth multiple with an absolute gain of $21,058 (210% absolute return).',
           },
         },
       ],
@@ -100,19 +97,19 @@ const FAQS = [
   },
   {
     q: 'How is lumpsum return calculated?',
-    a: 'Future Value = P × (1 + r)^n. Where P = principal, r = annual rate, n = years. Example: $1 Hundred Thousand at 12% p.a. for 10 years = $1,00,000 × (1.12)^10 = $3,10,585. Simple annual compounding.',
+    a: 'Future Value = P × (1 + r)^n. Where P = principal, r = annual rate, n = years. Example: $10,000 at 12% per year for 10 years = $10,000 × (1.12)^10 = $31,058. Simple annual compounding.',
   },
   {
     q: 'Is lumpsum better than DCA?',
-    a: 'Lumpsum beats DCA when you invest at market lows — since 100% of capital compounds immediately. DCA wins when markets are volatile or at peaks — rupee cost averaging reduces risk. Practically: use DCA for salary savings, lumpsum for windfalls.',
+    a: 'Lumpsum beats DCA when you invest at market lows — since 100% of capital compounds immediately. DCA wins when markets are volatile or at peaks — dollar cost averaging reduces risk. Practically: use DCA for salary savings, lumpsum for windfalls.',
   },
   {
     q: 'What is a good return on lumpsum investment globally?',
     a: 'S&P 500 index has delivered ~12–14% CAGR over 15–20 year periods. Large-cap equity funds: 10–13%. Mid/small-cap: 14–18% historically. Debt funds: 6–8%. CDs: 6–7.5%. Use 10–12% as a conservative assumption for equity lumpsum globally.',
   },
   {
-    q: 'How much does $1 Hundred Thousand grow in 10 years at 12%?',
-    a: '$1 Hundred Thousand at 12% p.a. for 10 years = $3,10,585. That\'s a 3.1x wealth multiple, 210% absolute return, and a CAGR of 12%. At 15% it becomes $4,04,556 — showing how even 3% extra rate compounds significantly over time.',
+    q: 'How much does $10,000 grow in 10 years at 12%?',
+    a: '$10,000 at 12% per year for 10 years = $31,058. That\'s a 3.1x wealth multiple, 210% absolute return, and a CAGR of 12%. At 15% it becomes $40,456 — showing how even 3% extra rate compounds significantly over time.',
   },
   {
     q: 'What is the Rule of 72 for lumpsum investments?',

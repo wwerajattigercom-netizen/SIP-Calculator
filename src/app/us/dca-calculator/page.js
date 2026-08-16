@@ -42,27 +42,27 @@ const jsonLd = {
         {
           "@type": "Question",
           "name": "How does inflation affect DCA returns?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Inflation reduces the purchasing power of your future corpus. $1 Million in 20 years is NOT the same as $1 Million today. Our inflation-adjusted DCA calculator shows what your maturity amount is worth in today's rupees, giving you a realistic financial picture for retirement and goal planning." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Inflation reduces the purchasing power of your future corpus. $1 Million in 20 years is NOT the same as $1 Million today. Our inflation-adjusted DCA calculator shows what your maturity amount is worth in today's dollars, giving you a realistic financial picture for retirement and goal planning." }
         },
         {
           "@type": "Question",
           "name": "How much will $10,000/month DCA grow in 20 years?",
-          "acceptedAnswer": { "@type": "Answer", "text": "At 12% annual return with no step-up: $10,000/month DCA for 20 years grows to approximately $99.9 Hundred Thousand (≈$1 Million). With 10% annual step-up, the same starting DCA grows to approximately $2.5 Million in 20 years. Use the calculator to see your exact results." }
+          "acceptedAnswer": { "@type": "Answer", "text": "At 12% annual return with no step-up: $500/month DCA for 20 years grows to approximately $494,000. With 10% annual step-up starting at $500/month, the corpus grows to over $900,000 in 20 years. Use the calculator to see your exact results." }
         },
         {
           "@type": "Question",
           "name": "Can I combine a lump sum with monthly DCA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our calculator lets you enter an initial lump sum investment alongside your monthly DCA, and computes the combined future value with step-up and inflation adjustments — all in real time. $5 Hundred Thousand lump sum at 12% for 20 years becomes ~$48 Hundred Thousand on its own." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our calculator lets you enter an initial lump sum investment alongside your monthly DCA, and computes the combined future value with step-up and inflation adjustments — all in real time. A $50,000 lump sum at 12% for 20 years grows to ~$482,000 on its own, giving your portfolio a powerful head-start." }
         },
         {
           "@type": "Question",
           "name": "How do I know when I will reach $1 Million with my DCA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The $1 Million Milestone Table on this calculator (the '$1Cr Table' tab on the chart) shows exactly when your investment will cross each crore milestone — $1 Million, $2 Million, $3 Million, etc. — and how much faster each crore arrives thanks to compounding." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The $1 Million Milestone Table on this calculator shows exactly when your investment will cross each million-dollar milestone — $1 Million, $2 Million, $3 Million, etc. — and how much faster each milestone arrives thanks to compounding." }
         },
         {
           "@type": "Question",
           "name": "Which is better: DCA or Lump Sum?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Both strategies have merit. DCA offers rupee-cost averaging over market cycles while eliminating market timing risk. Lump sum benefits from maximum early compounding. This calculator lets you combine both — invest a lump sum today and continue monthly DCA with step-up." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Both strategies have merit. DCA offers dollar-cost averaging over market cycles while eliminating market timing risk. Lump sum benefits from maximum early compounding. This calculator lets you combine both — invest a lump sum today and continue monthly DCA with step-up." }
         }
       ]
     }
@@ -81,7 +81,7 @@ const HOW_TO_STEPS = [
 const FAQS = [
   {
     q: "What is a DCA (Dollar Cost Averaging)?",
-    a: "A DCA is a method of investing a fixed amount in a mutual fund at regular intervals (usually monthly). It enforces discipline, averages out market volatility, and leverages compounding to build long-term wealth."
+    a: "DCA (Dollar Cost Averaging) is a method of investing a fixed amount in index funds or ETFs at regular intervals (usually monthly). It enforces discipline, averages out market volatility, and leverages compounding to build long-term wealth."
   },
   {
     q: "What is a Step-Up DCA and why does it matter?",
@@ -93,7 +93,7 @@ const FAQS = [
   },
   {
     q: "How is the inflation-adjusted value calculated?",
-    a: "Real Value = Nominal FV ÷ (1 + Inflation Rate)ⁿ, where n is the number of years. For example, $3 Million after 30 years at 4% inflation is worth about $93 Hundred Thousand in today's money."
+    a: "Real Value = Nominal FV ÷ (1 + Inflation Rate)ⁿ, where n is the number of years. For example, $3 Million after 30 years at 4% inflation is worth about $924,000 in today's dollars."
   },
   {
     q: "What makes this calculator different from other DCA calculators?",
@@ -104,12 +104,12 @@ const FAQS = [
     a: "Absolutely. The underlying concept — investing a fixed amount monthly, increasing it annually, and adjusting for inflation — is universal. International investors know this as Dollar Cost Averaging (DCA) or a recurring investment plan. Simply enter your currency equivalent amounts. The math is identical worldwide."
   },
   {
-    q: "Is this calculator useful for NRI investors?",
-    a: "Yes. NRIs (Non-Resident Indians) can invest in mutual funds through NRE or NRO accounts. This calculator is perfect for NRIs planning their DCA investments from the US, UK, Canada, UAE, Singapore, or Australia."
+    q: "Can international investors use this calculator?",
+    a: "Yes. Dollar Cost Averaging (DCA) is a universal strategy used worldwide — from the US S&P 500 to UK ISAs to Canadian RRSPs. Simply enter your amounts and expected return for your local market. The math is identical worldwide."
   },
   {
-    q: "What is Dollar Cost Averaging (DCA) and how does it relate to DCA?",
-    a: "Dollar Cost Averaging (DCA) is the global equivalent of DCA. You invest a fixed amount at regular intervals regardless of market price. When markets are down you buy more units, when up you buy fewer — automatically averaging your cost. This calculator works as a full-featured DCA calculator: enter your monthly amount, expected return, step-up, and inflation."
+    q: "What is Dollar Cost Averaging (DCA)?",
+    a: "Dollar Cost Averaging (DCA) means investing a fixed dollar amount at regular intervals regardless of market price. When markets are down you buy more shares, when up you buy fewer — automatically averaging your cost. Over decades, this strategy has historically outperformed market timing for most investors."
   },
   {
     q: "Are the results guaranteed?",

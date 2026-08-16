@@ -24,11 +24,11 @@ ChartJS.register(
   Legend
 );
 
-export default function FdVsSipPage() {
-  const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
+export default function SavingsVsDcaPage() {
+  const [monthlyInvestment, setMonthlyInvestment] = useState(500);
   const [years, setYears] = useState(10);
-  const [fdRate, setFdRate] = useState(7);
-  const [dcaRate, setDcaRate] = useState(12);
+  const [fdRate, setFdRate] = useState(4.5);
+  const [dcaRate, setDcaRate] = useState(10);
 
   const calculateFutureValue = (monthly, rate, years) => {
     const months = years * 12;
@@ -177,9 +177,9 @@ export default function FdVsSipPage() {
           <InputSlider
             label="Monthly Investment"
             value={monthlyInvestment}
-            min={500}
-            max={100000}
-            step={500}
+            min={100}
+            max={10000}
+            step={50}
             onChange={setMonthlyInvestment}
             prefix="$"
           />
