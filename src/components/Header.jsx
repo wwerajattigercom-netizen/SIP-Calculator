@@ -31,12 +31,20 @@ export default function Header() {
       let newPath = pathname.replace(/^\/us(\/|$)/, '/');
       newPath = newPath.replace(/dca/g, 'sip').replace(/million/g, 'crore').replace(/expats/g, 'nris');
       if (pathname === '/us/dca-calculator') newPath = '/';
+      // Specific tool mappings (US to IN)
+      if (pathname === '/us/tools/retirement-account-calculator') newPath = '/tools/nps-calculator';
+      if (pathname === '/us/tools/roth-ira-calculator') newPath = '/tools/ppf-calculator';
+      if (pathname === '/us/tools/savings-vs-dca-calculator') newPath = '/tools/fd-vs-sip-calculator';
       router.push(newPath);
     } else {
       document.cookie = "preferred_region=US; path=/; max-age=31536000";
       let newPath = `/us${pathname === '/' ? '/dca-calculator' : pathname}`;
       newPath = newPath.replace(/sip/g, 'dca').replace(/crore/g, 'million').replace(/nris/g, 'expats');
       if (pathname === '/goal-based-sip-calculator') newPath = '/us/goal-based-dca-calculator';
+      // Specific tool mappings (IN to US)
+      if (pathname === '/tools/nps-calculator') newPath = '/us/tools/retirement-account-calculator';
+      if (pathname === '/tools/ppf-calculator') newPath = '/us/tools/roth-ira-calculator';
+      if (pathname === '/tools/fd-vs-sip-calculator') newPath = '/us/tools/savings-vs-dca-calculator';
       router.push(newPath);
     }
   };
