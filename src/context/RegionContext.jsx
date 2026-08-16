@@ -1,24 +1,18 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 
 const RegionContext = createContext();
 
 export function RegionProvider({ children }) {
   const pathname = usePathname();
-  const [region, setRegion] = useState('IN'); // Default to India
 
-  useEffect(() => {
-    // Determine region based on URL path
-    if (pathname && pathname.startsWith('/us')) {
-      setRegion('US');
-    } else {
-      setRegion('IN');
-    }
-  }, [pathname]);
+  // Determine region synchronously — no useEffect/useState flash
+  const isUSPath = pathname && pathname.startsWith('/us');
+  const region = isUSPath ? 'US' : 'IN';
 
-  const value = {
+  const value = useMemo(() => ({
     region,
     isUS: region === 'US',
     currencySymbol: region === 'US' ? '$' : '₹',
@@ -29,9 +23,9 @@ export function RegionProvider({ children }) {
       sipFull: region === 'US' ? 'Dollar Cost Averaging' : 'Systematic Investment Plan',
       lumpsum: region === 'US' ? 'One-time Investment' : 'Lump Sum',
       crore: region === 'US' ? 'Million' : 'Crore',
-      lakh: region === 'US' ? 'Hundred Thousand' : 'Lakh'
+      lakh: region === 'US' ? 'Thousand' : 'Lakh'
     }
-  };
+  }), [region]);
 
   return (
     <RegionContext.Provider value={value}>
