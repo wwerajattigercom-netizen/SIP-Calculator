@@ -20,8 +20,7 @@ import { Line } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function formatToShortWords(val) {
-  if (val >= 1000000) return `$${(val / 1000000).toFixed(2)} Cr`;
-  if (val >= 100000) return `$${(val / 100000).toFixed(2)} L`;
+  if (val >= 1e6) return `$${(val / 1e6).toFixed(2)} M`;
   if (val >= 1000) return `$${(val / 1000).toFixed(2)} K`;
   return `$${Math.round(val).toLocaleString('en-US')}`;
 }
@@ -38,7 +37,7 @@ function formatToShortWords(val) {
  *             visibly falls below the invested amount during the crash.
  * Volatile → Alternates between high-growth and mild-decline 6-month cycles.
  *             The average return is close to the entered rate, but the
- *             NAV swings create opportunities for rupee-cost averaging.
+ *             NAV swings create opportunities for dollar-cost averaging.
  */
 function buildNavSeries(annualReturnPct, totalMonths, scenario) {
   const startNav = 10;
@@ -95,9 +94,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Is DCA better than lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'DCA is generally better for salaried individuals and in volatile or bearish markets due to rupee cost averaging. Lump sum can be better in a consistent bull market.' } },
+    { '@type': 'Question', name: 'Is DCA better than lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'DCA is generally better for salaried individuals and in volatile or bearish markets due to dollar cost averaging. Lump sum can be better in a consistent bull market.' } },
     { '@type': 'Question', name: 'Should I invest lump sum during a market crash?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — if you already have a large corpus and can time the bottom, a lump sum during a crash can beat DCA. But timing the market reliably is very difficult.' } },
-    { '@type': 'Question', name: 'What is rupee cost averaging in DCA?', acceptedAnswer: { '@type': 'Answer', text: 'Rupee cost averaging means you buy more units when prices are low and fewer units when prices are high, averaging out your cost per unit over time.' } },
+    { '@type': 'Question', name: 'What is dollar cost averaging in DCA?', acceptedAnswer: { '@type': 'Answer', text: 'Dollar cost averaging means you buy more units when prices are low and fewer units when prices are high, averaging out your cost per unit over time.' } },
     { '@type': 'Question', name: 'Can I do both DCA and lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Maintain a regular DCA from your monthly salary and deploy lump sums (like bonuses or tax refunds) during market corrections.' } },
     { '@type': 'Question', name: 'Which is better for long-term — DCA or lump sum?', acceptedAnswer: { '@type': 'Answer', text: 'For 10+ years, lump sum slightly edges out in a steadily rising market, while DCA outperforms in volatile or downward-then-recovery markets.' } },
   ],
@@ -351,7 +350,7 @@ export default function SipVsLumpsumPage() {
                     wins by{' '}
                     <strong className="text-foreground">{formatToShortWords(diff)}</strong>
                     {winner === 'DCA'
-                      ? ' — rupee cost averaging locks in cheap units during the downturn.'
+                      ? ' — dollar cost averaging locks in cheap units during the downturn.'
                       : ' — more time in the market gives lumpsum a compounding edge.'}
                   </p>
                 </div>
@@ -422,7 +421,7 @@ export default function SipVsLumpsumPage() {
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">〰️ Choppy / Volatile</td>
                     <td className="py-3 pr-4">Inconsistent</td>
-                    <td className="py-3 text-[#059669] font-semibold">Wins ✅ (rupee-cost avg)</td>
+                    <td className="py-3 text-[#059669] font-semibold">Wins ✅ (dollar-cost avg)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">💼 Salaried investor</td>
@@ -437,10 +436,10 @@ export default function SipVsLumpsumPage() {
           {/* Educational Content */}
           <div className="glass-panel p-6 space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">Rupee Cost Averaging — DCA's Hidden Advantage</h2>
+              <h2 className="text-xl font-bold text-foreground mb-3">Dollar Cost Averaging — DCA&apos;s Hidden Advantage</h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 When the market falls, your fixed monthly DCA buys <em>more</em> units at a lower price. When the market recovers,
-                those extra low-cost units multiply in value. This automatic mechanism — called <strong className="text-foreground">Rupee Cost Averaging</strong> — makes
+                those extra low-cost units multiply in value. This automatic mechanism — called <strong className="text-foreground">Dollar Cost Averaging</strong> — makes
                 DCA naturally outperform Lumpsum in volatile or bearish markets, without requiring any market timing.
               </p>
             </div>
@@ -483,7 +482,7 @@ export default function SipVsLumpsumPage() {
                 CAGR Calculator
               </Link>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-6">Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related documents carefully.</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-6">Disclaimer: All investments involve risk. Past performance does not guarantee future results. Consult a licensed financial advisor before making investment decisions.</p>
           </div>
 
         </article>

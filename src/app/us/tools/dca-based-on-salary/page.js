@@ -102,7 +102,7 @@ export default function SipBasedOnSalaryPage() {
         name: 'How much DCA should I do if my salary is $50,000?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Following the 50-30-20 rule, you should save 20% of your salary. For a $50,000 salary, this means a monthly DCA of $10,000. If you have other investments (like EPF), you can adjust this amount accordingly, but $10,000 is a great starting point for wealth creation.'
+          text: 'Following the 50-30-20 rule, you should save 20% of your salary. For a $50,000 salary, this means a monthly DCA of $10,000. If you have other investments (like a 401(k)), you can adjust this amount accordingly, but $10,000 is a great starting point for wealth creation.'
         }
       },
       {
@@ -110,7 +110,7 @@ export default function SipBasedOnSalaryPage() {
         name: 'What percentage of salary should go to DCA?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Financial experts generally recommend investing at least 20% of your take-home salary into investments like SIPs. If you can afford it, pushing this to 30% (Aggressive investing) can significantly accelerate your path to financial freedom.'
+          text: 'Financial experts generally recommend investing at least 20% of your take-home salary into DCA investments. If you can afford it, pushing this to 30% (Aggressive investing) can significantly accelerate your path to financial freedom.'
         }
       },
       {
@@ -134,7 +134,7 @@ export default function SipBasedOnSalaryPage() {
         name: 'Can I do DCA with $1,000 salary?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Many mutual funds globally allow you to start an DCA with as little as $500 or $1,000 per month. Starting early, even with a small amount, helps build financial discipline and takes advantage of the power of compounding over time.'
+          text: 'Many brokerages allow you to start a DCA with as little as $500 or $1,000 per month. Starting early, even with a small amount, helps build financial discipline and takes advantage of the power of compounding over time.'
         }
       }
     ]
@@ -230,7 +230,7 @@ export default function SipBasedOnSalaryPage() {
             <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
                 <div className="mt-0.5 bg-[var(--color-accent)]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[var(--color-accent)]" /></div>
-                <div><strong className="text-foreground">50% Needs:</strong> Essential living expenses (rent, groceries, utilities, EMIs).</div>
+                <div><strong className="text-foreground">50% Needs:</strong> Essential living expenses (rent, groceries, utilities, loan payments).</div>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
                 <div className="mt-0.5 bg-[var(--color-accent)]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[var(--color-accent)]" /></div>
@@ -238,11 +238,11 @@ export default function SipBasedOnSalaryPage() {
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
                 <div className="mt-0.5 bg-[var(--color-accent)]/20 p-1 rounded"><CheckCircle className="w-4 h-4 text-[var(--color-accent)]" /></div>
-                <div><strong className="text-foreground">20% Savings & Investments:</strong> Your SIPs, emergency fund, and debt repayment.</div>
+                <div><strong className="text-foreground">20% Savings & Investments:</strong> Your DCA investments, emergency fund, and debt repayment.</div>
               </li>
             </ul>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-              Dedicating 20% of your salary specifically to investments like equity mutual funds through DCA ensures you are consistently building wealth without compromising your current lifestyle.
+              Dedicating 20% of your salary specifically to investments like index funds through DCA ensures you are consistently building wealth without compromising your current lifestyle.
             </p>
           </div>
 

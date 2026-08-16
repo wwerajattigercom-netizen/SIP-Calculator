@@ -55,8 +55,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Should I stop my DCA during a market crash?', acceptedAnswer: { '@type': 'Answer', text: 'No, stopping DCA during a market crash is often the worst thing you can do. A crash is when you get mutual fund units at their cheapest, which maximizes your returns when the market eventually recovers.' } },
-    { '@type': 'Question', name: 'What happens to DCA during market crash?', acceptedAnswer: { '@type': 'Answer', text: 'The value of your existing investment will fall, but your ongoing DCA installments will buy more units because the NAV (price per unit) is lower. This is called Rupee Cost Averaging.' } },
+    { '@type': 'Question', name: 'Should I stop my DCA during a market crash?', acceptedAnswer: { '@type': 'Answer', text: 'No, stopping DCA during a market crash is often the worst thing you can do. A crash is when you get ETF shares at their cheapest, which maximizes your returns when the market eventually recovers.' } },
+    { '@type': 'Question', name: 'What happens to DCA during market crash?', acceptedAnswer: { '@type': 'Answer', text: 'The value of your existing investment will fall, but your ongoing DCA installments will buy more units because the NAV (price per unit) is lower. This is called Dollar Cost Averaging.' } },
     { '@type': 'Question', name: 'Is it good to invest lump sum during a market crash?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, if you have spare cash, a market crash is an excellent time to invest a lump sum, provided you have a long-term horizon (5+ years) to wait for the recovery.' } },
     { '@type': 'Question', name: 'How long does a market recovery take globally?', acceptedAnswer: { '@type': 'Answer', text: 'Historically, major crashes (like 2008) took about 18-24 months to recover, while smaller crashes (like 2020) recovered in 5-9 months. The market has always recovered and gone on to hit new highs.' } },
     { '@type': 'Question', name: 'Should I increase my DCA during a market crash?', acceptedAnswer: { '@type': 'Answer', text: 'If your cash flow allows it, increasing your DCA during a crash (also known as step-up DCA) is a powerful strategy to accumulate more units at lower prices.' } },
@@ -416,7 +416,7 @@ export default function SipDuringCrashPage() {
                   <tr className="border-b border-black/5">
                     <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Crash Event</th>
                     <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Year</th>
-                    <th className="py-2 pr-4 text-[#991B1B] font-semibold">Nifty Drop</th>
+                    <th className="py-2 pr-4 text-[#991B1B] font-semibold">S&P 500 Drop</th>
                     <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Recovery Time</th>
                     <th className="py-2 text-[var(--color-accent)] font-semibold">DCA Outcome</th>
                   </tr>
@@ -466,8 +466,8 @@ export default function SipDuringCrashPage() {
                 However, a DCA does not lock in your losses — it simply buys units at the current market price.
               </p>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                By stopping your DCA during a crash, you miss out on accumulating mutual fund units at their lowest possible price. 
-                When the market eventually rebounds (which it historically always has), the investors who continued their SIPs 
+                By stopping your DCA during a crash, you miss out on accumulating ETF shares at their lowest possible price. 
+                When the market eventually rebounds (which it historically always has), the investors who continued their DCA contributions 
                 see explosive growth because they hold significantly more units bought at discount prices.
               </p>
             </div>
@@ -511,7 +511,7 @@ export default function SipDuringCrashPage() {
                 Retirement Calculator
               </Link>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-6">Disclaimer: Mutual fund investments are subject to market risks. Read all scheme related documents carefully.</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-6">Disclaimer: All investments involve risk. Past performance does not guarantee future results. Consult a licensed financial advisor before making investment decisions.</p>
           </div>
 
         </article>

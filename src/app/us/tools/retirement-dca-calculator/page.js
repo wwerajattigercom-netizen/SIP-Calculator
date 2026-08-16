@@ -29,7 +29,7 @@ const FAQItem = ({ question, answer }) => {
 export default function RetirementSipCalculatorPage() {
   const [currentAge, setCurrentAge] = useState(25);
   const [retirementAge, setRetirementAge] = useState(60);
-  const [monthlyExpenses, setMonthlyExpenses] = useState(40000);
+  const [monthlyExpenses, setMonthlyExpenses] = useState(4000);
   const [returnRate, setReturnRate] = useState(12);
   const [inflationRate, setInflationRate] = useState(6);
 
@@ -60,8 +60,7 @@ export default function RetirementSipCalculatorPage() {
   const requiredSipDelayed = calculateSipForCorpus(requiredCorpus, yearsToRetireDelayed, returnRate);
 
   const formatToShortWords = (value) => {
-    if (value >= 1000000) return `$${(value / 1000000).toFixed(2)} Cr`;
-    if (value >= 100000) return `$${(value / 100000).toFixed(2)} L`;
+    if (value >= 1e6) return `$${(value / 1e6).toFixed(2)} M`;
     if (value >= 1000) return `$${(value / 1000).toFixed(0)}k`;
     return `$${value.toFixed(0)}`;
   };
@@ -110,7 +109,7 @@ export default function RetirementSipCalculatorPage() {
         name: 'How does inflation affect retirement planning?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Inflation reduces purchasing power over time. Expenses of $40,000 today might rise to over $1.5 Lakhs in 20 years at a 6% inflation rate. Your retirement corpus must account for these inflated future expenses.'
+          text: 'Inflation reduces purchasing power over time. Expenses of $4,000 today might rise to over $64,000 in 20 years at a 6% inflation rate. Your retirement corpus must account for these inflated future expenses.'
         }
       },
       {
@@ -118,7 +117,7 @@ export default function RetirementSipCalculatorPage() {
         name: 'Should I use DCA or lump sum for retirement?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'For most salaried individuals, a systematic investment plan (DCA) is ideal because it matches monthly income and averages out market volatility (rupee cost averaging). Lump sums can be added whenever you get a bonus or windfall.'
+          text: 'For most salaried individuals, a systematic investment plan (DCA) is ideal because it matches monthly income and averages out market volatility (dollar cost averaging). Lump sums can be added whenever you get a bonus or windfall.'
         }
       }
     ]
@@ -192,9 +191,9 @@ export default function RetirementSipCalculatorPage() {
               <InputSlider
                 label="Monthly Expenses Today"
                 value={monthlyExpenses}
-                min={10000}
-                max={500000}
-                step={1000}
+                min={500}
+                max={50000}
+                step={100}
                 onChange={setMonthlyExpenses}
                 formatFn={(v) => formatToShortWords(v)}
               />
@@ -262,7 +261,7 @@ export default function RetirementSipCalculatorPage() {
           <div className="glass-panel p-6">
             <h2 className="text-xl font-bold text-foreground mb-4">Inflation: The Silent Wealth Destroyer</h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
-              Why does your required corpus look so huge? It's because of inflation. Over decades, the cost of living rises significantly.
+              Why does your required corpus look so huge? It&apos;s because of inflation. Over decades, the cost of living rises significantly.
             </p>
             <div className="bg-white border border-[#E8E4DF] rounded-xl p-4 text-sm text-gray-600 dark:text-gray-400">
               At a {inflationRate}% inflation rate, your current monthly expense of <strong>${monthlyExpenses.toLocaleString('en-US')}</strong> will grow to <strong>${Math.round(futureMonthlyExpenses).toLocaleString('en-US')}</strong> by the time you retire in {yearsToRetire} years. Your corpus must be large enough to support those inflated future expenses!
@@ -284,7 +283,7 @@ export default function RetirementSipCalculatorPage() {
           {/* CTA & Links */}
           <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.05)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-foreground mb-2">Want to Reach Your Goal Faster?</h2>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Explore Step-up SIPs to start with a lower amount and increase it annually.</p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Explore Step-up DCA to start with a lower amount and increase it annually.</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/us/dca-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm">
                 <Calculator className="w-4 h-4" /> Step-Up DCA Calculator <ArrowRight className="w-4 h-4" />
