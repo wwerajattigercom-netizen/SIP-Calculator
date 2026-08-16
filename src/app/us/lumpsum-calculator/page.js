@@ -82,6 +82,9 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
+          name: 'How much does $10,000 grow in 10 years at 12%?',
+          acceptedAnswer: {
+            '@type': 'Answer',
             text: '$10,000 invested as a lumpsum at 12% annual return for 10 years grows to approximately $31,058. This is a 3.1x wealth multiple with an absolute gain of $21,058 (210% absolute return).',
           },
         },

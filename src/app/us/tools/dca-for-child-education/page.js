@@ -320,6 +320,14 @@ export default function SipForChildEducationPage() {
                     <td className="py-3 font-semibold text-[var(--color-accent)]">$2,900/mo</td>
                   </tr>
                 </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="glass-panel p-6">
+            <h2 className="text-xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
               {jsonLd.mainEntity.map((faq, i) => (
                 <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
                   <h3 className="text-foreground font-medium text-sm flex items-start gap-2">

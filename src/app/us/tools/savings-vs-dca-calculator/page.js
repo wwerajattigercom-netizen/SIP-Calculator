@@ -37,7 +37,7 @@ export default function SavingsVsDcaPage() {
     return monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
   };
 
-  const { fdTotal, sipTotal, totalInvested, chartData } = useMemo(() => {
+  const { fdTotal, dcaTotal, totalInvested, chartData } = useMemo(() => {
     const fd = calculateFutureValue(monthlyInvestment, fdRate, years);
     const dca = calculateFutureValue(monthlyInvestment, dcaRate, years);
     const invested = monthlyInvestment * years * 12;
