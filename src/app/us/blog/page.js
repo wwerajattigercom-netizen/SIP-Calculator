@@ -349,10 +349,9 @@ export default function BlogIndexPage() {
                       <Clock className="w-3 h-3" />{readTime}
                     </div>
 
-                    {/* Title with inline number */}
-                    <h2 className="text-foreground font-bold text-base leading-snug mb-2 group-hover:text-[var(--color-accent)] transition-colors flex items-start gap-2">
-                      <span className="text-[var(--color-accent)] opacity-60 font-black text-sm mt-0.5">{index + 1}.</span>
-                      <span>{title}</span>
+                    {/* Title */}
+                    <h2 className="text-foreground font-bold text-base leading-snug mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+                      {title}
                     </h2>
 
                     {/* Excerpt */}
