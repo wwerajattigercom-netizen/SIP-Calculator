@@ -53,7 +53,7 @@ export const metadata = {
       'Calculate CAGR of any investment in seconds. Free online tool — enter initial value, final value & duration. Includes Rule of 72, year-by-year growth, DCA + lump sum support.',
     url: 'https://stepupcalculator.com/us/cagr-calculator',
     type: 'website',
-    locale: 'en_IN',
+    locale: 'en_US',
     siteName: 'StepupCalculator',
   },
 

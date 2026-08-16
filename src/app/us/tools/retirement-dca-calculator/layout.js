@@ -11,13 +11,13 @@ export const metadata = {
     description: 'Find out exactly how much you need to invest monthly for a comfortable retirement. Interactive calculator accounting for inflation.',
     url: 'https://stepupcalculator.com/us/tools/retirement-dca-calculator',
     type: 'article',
-    locale: 'en_IN',
+    locale: 'en_US',
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/tools/retirement-dca-calculator',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/retirement-dca-calculator',
-      'en-US': 'https://stepupcalculator.com/us/blog/retirement-dca-calculator',
-      'x-default': 'https://stepupcalculator.com/blog/retirement-dca-calculator'
+      'en-IN': 'https://stepupcalculator.com/tools/retirement-sip-calculator',
+      'en-US': 'https://stepupcalculator.com/us/tools/retirement-dca-calculator',
+      'x-default': 'https://stepupcalculator.com/tools/retirement-sip-calculator'
     } },
 };
 export default function Layout({ children }) { return children; }

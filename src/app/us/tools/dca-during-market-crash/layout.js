@@ -9,14 +9,14 @@ export const metadata = {
     description: 'Interactive crash simulator shows the wealth difference between continuing vs stopping DCA during a market crash.',
     url: 'https://stepupcalculator.com/us/tools/dca-during-market-crash',
     type: 'article',
-    locale: 'en_IN',
+    locale: 'en_US',
     images: [{ url: 'https://stepupcalculator.com/us/og-image.jpg', width: 1200, height: 630 }],
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/tools/dca-during-market-crash',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/dca-during-market-crash',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-during-market-crash',
-      'x-default': 'https://stepupcalculator.com/blog/dca-during-market-crash'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-during-market-crash',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-during-market-crash',
+      'x-default': 'https://stepupcalculator.com/tools/sip-during-market-crash'
     } },
 };
 export default function Layout({ children }) { return children; }

@@ -15,14 +15,14 @@ export const metadata = {
     description: 'Exact DCA amounts needed for $1 Million in 10, 15, 20 years at different return rates. With step-up DCA comparison.',
     url: 'https://stepupcalculator.com/us/tools/dca-to-reach-1-million',
     type: 'article',
-    locale: 'en_IN',
+    locale: 'en_US',
     images: [{ url: 'https://stepupcalculator.com/us/og-image.jpg', width: 1200, height: 630 }],
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/tools/dca-to-reach-1-million',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/dca-to-reach-1-million',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-to-reach-1-million',
-      'x-default': 'https://stepupcalculator.com/blog/dca-to-reach-1-million'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-to-reach-1-crore',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-to-reach-1-million',
+      'x-default': 'https://stepupcalculator.com/tools/sip-to-reach-1-crore'
     } },
 };
 export default function BlogLayout({ children }) { return children; }

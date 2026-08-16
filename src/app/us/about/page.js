@@ -39,9 +39,31 @@ const VALUES = [
   'Works on mobile, tablet and desktop at any zoom level',
 ];
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://stepupcalculator.com/#organization',
+      name: 'StepupCalculator',
+      url: 'https://stepupcalculator.com',
+      description: 'Free, accurate, and beautifully designed financial calculators built specifically for Global investors.'
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://stepupcalculator.com/#author',
+      name: 'Rajat',
+      jobTitle: 'Software Developer & Personal Finance Expert',
+      url: 'https://stepupcalculator.com/us/about',
+      description: 'Software developer and personal finance enthusiast dedicated to building transparent, accurate financial tools for everyday investors.'
+    }
+  ]
+};
+
 export default function AboutPage() {
   return (
     <main className="py-8 px-2 md:px-4 flex flex-col items-center">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="max-w-3xl w-full mx-auto space-y-8">
 
         <Breadcrumb items={[{ label: 'About' }]} />
@@ -67,27 +89,39 @@ export default function AboutPage() {
         <div className="glass-panel p-6 space-y-4">
           <h2 className="text-xl font-bold text-foreground">Why I Built This</h2>
           <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
-            Most DCA calculators online are either too basic (no step-up, no inflation) or buried
+            Most DCA calculators online are either too basic (no sign of step-up or inflation tracking) or buried
             inside apps that require sign-up. I wanted a single, fast, honest tool that shows the
             real numbers — including how inflation erodes your returns and how a small annual
-            step-up dramatically changes your final corpus.
+            step-up dramatically changes your final corpus over decades.
           </p>
-          <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
-            StepupCalculator is built with full transparency. The formula used for DCA calculations
-            follows the <strong className="text-foreground">SEBI/AMFI standard</strong> — APR-based monthly
-            compounding with DCA invested at the beginning of each month. This matches how Indian
-            mutual fund industry projections are made.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
-            All tools are completely free, open in your browser with no login, and update in real
-            time as you move the sliders.
-          </p>
-          <div className="pt-2 border-t border-[#E8E4DF]">
-            <p className="text-gray-500 dark:text-gray-400 text-sm">
-              Built by <span className="text-foreground font-semibold">Rajat</span> — developer and
-              investor passionate about making financial planning accessible to every Indian.
+          <div className="pt-4 border-t border-[#E8E4DF] mt-6">
+            <h3 className="text-lg font-bold text-foreground mb-2">About the Creator</h3>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              Built by <strong className="text-foreground">Rajat</strong> — a professional software developer and passionate personal finance advocate. Frustrated by the lack of transparent, accurate financial tools available to retail investors, Rajat combined his technical expertise with rigorous financial mathematics to build StepupCalculator. The goal? To make institutional-grade financial planning accessible to everyone, completely free of charge.
             </p>
           </div>
+        </div>
+
+        {/* Editorial Standards */}
+        <div className="glass-panel p-6">
+          <h2 className="text-xl font-bold text-foreground mb-4">Our Editorial & Accuracy Standards</h2>
+          <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm mb-4">
+            We hold ourselves to the highest standards of mathematical accuracy and transparency. When dealing with your money and your life&apos;s savings, &quot;close enough&quot; is not acceptable.
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-2.5 text-gray-500 dark:text-gray-400 text-sm">
+              <CheckCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" />
+              <span><strong>Standardized Mathematics:</strong> The formulas used for our DCA calculations strictly follow standard financial mathematics — utilizing APR-based compounding with investments made at the beginning of each period. This ensures perfect alignment with historical market analysis and institutional projections.</span>
+            </li>
+            <li className="flex items-start gap-2.5 text-gray-500 dark:text-gray-400 text-sm">
+              <CheckCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" />
+              <span><strong>Transparent Methodology:</strong> We do not hide our math behind proprietary black boxes. Our formulas are openly documented and verifiable.</span>
+            </li>
+            <li className="flex items-start gap-2.5 text-gray-500 dark:text-gray-400 text-sm">
+              <CheckCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" />
+              <span><strong>No Conflicts of Interest:</strong> StepupCalculator is independently funded. We do not sell your email, we do not require sign-ups, and our calculator results are never artificially inflated to sell you financial products.</span>
+            </li>
+          </ul>
         </div>
 
         {/* Values */}

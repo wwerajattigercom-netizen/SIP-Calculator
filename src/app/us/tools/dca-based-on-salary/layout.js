@@ -11,13 +11,13 @@ export const metadata = {
     description: 'Calculate your ideal DCA based on your salary using the 50-30-20 rule. Interactive calculator and guide.',
     url: 'https://stepupcalculator.com/us/tools/dca-based-on-salary',
     type: 'article',
-    locale: 'en_IN',
+    locale: 'en_US',
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/tools/dca-based-on-salary',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/dca-based-on-salary',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-based-on-salary',
-      'x-default': 'https://stepupcalculator.com/blog/dca-based-on-salary'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-based-on-salary',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-based-on-salary',
+      'x-default': 'https://stepupcalculator.com/tools/sip-based-on-salary'
     } },
 };
 export default function Layout({ children }) { return children; }

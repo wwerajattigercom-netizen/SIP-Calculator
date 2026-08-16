@@ -211,7 +211,7 @@ export default function SipVsLumpsumPage() {
         <article className="max-w-4xl w-full mx-auto space-y-8">
 
           <CalculatorTabs />
-          <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'DCA vs Lumpsum' }]} />
+          <Breadcrumb items={[{ label: 'Tools', href: '/us' }, { label: 'DCA vs Lumpsum' }]} />
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">

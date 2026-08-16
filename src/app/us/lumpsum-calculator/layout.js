@@ -20,7 +20,7 @@ export const metadata = {
       'Free online lumpsum calculator. Enter your one-time investment, return rate & years. See future value, absolute gain, CAGR & year-by-year compounding table.',
     url: 'https://stepupcalculator.com/us/lumpsum-calculator',
     type: 'website',
-    locale: 'en_IN',
+    locale: 'en_US',
     siteName: 'StepupCalculator',
     images: [{ url: 'https://stepupcalculator.com/us/og-image.jpg', width: 1200, height: 630 }],
   },

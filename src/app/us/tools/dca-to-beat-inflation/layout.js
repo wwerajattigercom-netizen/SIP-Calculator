@@ -11,14 +11,14 @@ export const metadata = {
     description: 'Calculate the real return on your DCA after accounting for inflation. Understand how inflation erodes purchasing power and how to beat it.',
     url: 'https://stepupcalculator.com/us/tools/dca-to-beat-inflation',
     type: 'article',
-    locale: 'en_IN',
+    locale: 'en_US',
     images: [{ url: 'https://stepupcalculator.com/us/og-image.jpg', width: 1200, height: 630 }],
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/tools/dca-to-beat-inflation',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/dca-to-beat-inflation',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-to-beat-inflation',
-      'x-default': 'https://stepupcalculator.com/blog/dca-to-beat-inflation'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-to-beat-inflation',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-to-beat-inflation',
+      'x-default': 'https://stepupcalculator.com/tools/sip-to-beat-inflation'
     } },
 };
 

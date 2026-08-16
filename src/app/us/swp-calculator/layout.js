@@ -7,7 +7,7 @@ export const metadata = {
     description: 'Calculate how much you can withdraw monthly from your mutual fund corpus. Free SWP calculator with corpus longevity analysis.',
     url: 'https://stepupcalculator.com/us/swp-calculator',
     type: 'website',
-    locale: 'en_IN',
+    locale: 'en_US',
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/swp-calculator',
     languages: {

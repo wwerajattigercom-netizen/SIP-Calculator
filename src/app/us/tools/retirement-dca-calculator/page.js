@@ -73,7 +73,7 @@ export default function RetirementSipCalculatorPage() {
     author: { '@type': 'Person', name: 'StepupCalculator' },
     publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com/us' },
     url: 'https://stepupcalculator.com/us/tools/retirement-dca-calculator',
-    mainEntityOfPage: 'https://stepupcalculator.com/us/blog/retirement-dca-calculator',
+    mainEntityOfPage: 'https://stepupcalculator.com/us/tools/retirement-dca-calculator',
   };
 
   const faqSchema = {
@@ -131,7 +131,7 @@ export default function RetirementSipCalculatorPage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-3xl w-full mx-auto space-y-8">
           <CalculatorTabs />
-          <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'Retirement DCA Calculator' }]} />
+          <Breadcrumb items={[{ label: 'Tools', href: '/us' }, { label: 'Retirement DCA Calculator' }]} />
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">
@@ -288,7 +288,7 @@ export default function RetirementSipCalculatorPage() {
               <Link href="/us/dca-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm">
                 <Calculator className="w-4 h-4" /> Step-Up DCA Calculator <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/us/blog/dca-to-reach-1-million" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/us/tools/dca-to-reach-1-million" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 How to reach $1 Million <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

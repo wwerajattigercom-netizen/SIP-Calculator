@@ -83,7 +83,7 @@ export default function SipForHousePage() {
         <article className="max-w-4xl w-full mx-auto space-y-8">
 
           <CalculatorTabs />
-          <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'DCA for House Down Payment' }]} />
+          <Breadcrumb items={[{ label: 'Tools', href: '/us' }, { label: 'DCA for House Down Payment' }]} />
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">

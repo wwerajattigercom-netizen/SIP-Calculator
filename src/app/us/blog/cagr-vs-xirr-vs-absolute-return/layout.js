@@ -16,7 +16,7 @@ export const metadata = {
     description: 'Which return metric should you use? CAGR for lumpsum, XIRR for DCA. Complete guide with worked examples.',
     url: 'https://stepupcalculator.com/us/blog/cagr-vs-xirr-vs-absolute-return',
     type: 'article',
-    locale: 'en_IN',
+    locale: 'en_US',
     images: [{ url: 'https://stepupcalculator.com/us/og-image.jpg', width: 1200, height: 630 }],
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/blog/cagr-vs-xirr-vs-absolute-return',

@@ -9,14 +9,14 @@ export const metadata = {
     description: 'Find the exact DCA to fund your child\'s education. Accounts for 10% education inflation and years to goal.',
     url: 'https://stepupcalculator.com/us/tools/dca-for-child-education',
     type: 'article',
-    locale: 'en_IN',
+    locale: 'en_US',
     images: [{ url: 'https://stepupcalculator.com/us/og-image.jpg', width: 1200, height: 630 }],
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/tools/dca-for-child-education',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/dca-for-child-education',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-for-child-education',
-      'x-default': 'https://stepupcalculator.com/blog/dca-for-child-education'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-for-child-education',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-for-child-education',
+      'x-default': 'https://stepupcalculator.com/tools/sip-for-child-education'
     } },
 };
 export default function Layout({ children }) { return children; }

@@ -7,7 +7,7 @@ export const metadata = {
     description: 'See the real difference in wealth creation between DCAs, CDs, and 401(k) over 10-20 years.',
     url: 'https://stepupcalculator.com/us/blog/dca-vs-fd-ppf-rd',
     type: 'website',
-    locale: 'en_IN',
+    locale: 'en_US',
   },
   alternates: { canonical: 'https://stepupcalculator.com/us/blog/dca-vs-fd-ppf-rd',
     languages: {

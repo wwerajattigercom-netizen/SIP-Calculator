@@ -95,7 +95,7 @@ export default function SipBeatInflationPage() {
         <article className="max-w-4xl w-full mx-auto space-y-8">
 
           <CalculatorTabs />
-          <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'DCA to Beat Inflation' }]} />
+          <Breadcrumb items={[{ label: 'Tools', href: '/us' }, { label: 'DCA to Beat Inflation' }]} />
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">
@@ -305,7 +305,7 @@ export default function SipBeatInflationPage() {
               <Link href="/us/cagr-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 CAGR Calculator
               </Link>
-              <Link href="/us/blog/retirement-dca-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/us/tools/retirement-dca-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                 Retirement DCA Guide
               </Link>
             </div>

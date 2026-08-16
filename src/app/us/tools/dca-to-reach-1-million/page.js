@@ -26,7 +26,7 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'Rajat' },
   publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com/us' },
   url: 'https://stepupcalculator.com/us/tools/dca-to-reach-1-million',
-  mainEntityOfPage: 'https://stepupcalculator.com/us/blog/dca-to-reach-1-million',
+  mainEntityOfPage: 'https://stepupcalculator.com/us/tools/dca-to-reach-1-million',
 };
 
 function fmt(v) { return `$${v.toLocaleString('en-US')}`; }
@@ -39,7 +39,7 @@ export default function DcaTo1MillionPage() {
         <article className="max-w-3xl w-full mx-auto space-y-8">
 
           <CalculatorTabs />
-          <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'DCA to $1 Million' }]} />
+          <Breadcrumb items={[{ label: 'Tools', href: '/us' }, { label: 'DCA to $1 Million' }]} />
 
           {/* Hero */}
           <div className="glass-panel p-7 relative overflow-hidden">
