@@ -317,19 +317,22 @@ export default function BlogIndexPage() {
         <div className="w-full">
           <h2 className="text-xl font-bold text-foreground px-1 mb-4">All Guides</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-            {ARTICLES.map(({ href, tag, tagColor, title, excerpt, readTime, cta, icon, highlight, highlightColor }) => (
+            {ARTICLES.map(({ href, tag, tagColor, title, excerpt, readTime, cta, icon, highlight, highlightColor }, index) => (
               <Link
                 key={href}
                 href={href}
-                className="block glass-panel p-5 hover:bg-[rgba(27,58,92,0.02)] hover:border-[rgba(27,58,92,0.25)] border border-[#E8E4DF] transition-all group rounded-2xl h-full"
+                className="block glass-panel p-5 hover:bg-[rgba(27,58,92,0.02)] hover:border-[rgba(27,58,92,0.25)] border border-[#E8E4DF] transition-all group rounded-2xl h-full relative"
               >
+                <div className="absolute top-4 right-4 text-[10px] font-bold text-gray-400 bg-gray-100/50 dark:bg-gray-800/50 px-1.5 py-0.5 rounded backdrop-blur-sm z-10 border border-black/5 dark:border-white/5">
+                  #{index + 1}
+                </div>
                 <div className="flex flex-col h-full items-start gap-4">
                   {/* Icon & Meta */}
                   <div className="flex w-full items-start justify-between">
                     <div className="bg-[rgba(0,0,0,0.03)] p-2.5 rounded-xl flex-shrink-0 group-hover:bg-[rgba(27,58,92,0.1)] transition-colors">
                       {icon}
                     </div>
-                    <div className="flex flex-col items-end gap-1 text-right">
+                    <div className="flex flex-col items-end gap-1 text-right mt-6">
                       <span className={`text-[9px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border ${tagColor}`}>
                         {tag}
                       </span>
