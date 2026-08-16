@@ -49,13 +49,18 @@ export default function sitemap() {
   const usTools = [
     '/us/tools/cost-of-delay-calculator',
     '/us/tools/dca-based-on-salary',
-    '/us/tools/retirement-dca-calculator',
+    '/us/tools/retirement-account-calculator',
     '/us/tools/dca-vs-lumpsum',
     '/us/tools/dca-to-beat-inflation',
     '/us/tools/dca-for-child-education',
     '/us/tools/dca-for-house-down-payment',
     '/us/tools/dca-during-market-crash',
-    '/us/tools/dca-to-reach-1-million'
+    '/us/tools/dca-to-reach-1-million',
+    '/us/tools/savings-vs-dca-calculator',
+    '/us/tools/fire-calculator',
+    '/us/tools/xirr-calculator',
+    '/us/tools/roth-ira-calculator',
+    '/us/tools/buy-vs-rent-calculator'
   ];
 
   // Indian Guides
