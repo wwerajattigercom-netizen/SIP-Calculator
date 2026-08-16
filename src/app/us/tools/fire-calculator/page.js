@@ -84,13 +84,13 @@ export default function FireCalculatorPage() {
                     <div className="lg:col-span-7 glass-panel p-6 md:p-8 rounded-2xl bg-white shadow-xl">
                         <div className="space-y-6">
                             <InputSlider
-                                label="Annual Expenses (₹)"
+                                label="Annual Expenses ($)"
                                 value={annualExpenses}
                                 onChange={setAnnualExpenses}
                                 min={100000}
                                 max={10000000}
                                 step={10000}
-                                prefix="₹"
+                                prefix="$"
                             />
                             
                             <InputSlider
@@ -132,13 +132,13 @@ export default function FireCalculatorPage() {
                             />
 
                             <InputSlider
-                                label="Current Savings (₹)"
+                                label="Current Savings ($)"
                                 value={currentSavings}
                                 onChange={setCurrentSavings}
                                 min={0}
                                 max={50000000}
                                 step={50000}
-                                prefix="₹"
+                                prefix="$"
                             />
                         </div>
                     </div>

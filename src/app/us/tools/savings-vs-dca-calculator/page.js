@@ -144,10 +144,9 @@ export default function FdVsSipPage() {
         ticks: {
           color: '#6B7280',
           callback: (value) => {
-            if (value >= 10000000) return `₹${(value / 10000000).toFixed(1)}Cr`;
-            if (value >= 100000) return `₹${(value / 100000).toFixed(1)}L`;
-            if (value >= 1000) return `₹${(value / 1000).toFixed(1)}K`;
-            return `₹${value}`;
+            if (value >= 1000000) return `$${(value / 1000000).toFixed(1)}M`;
+            if (value >= 1000) return `$${(value / 1000).toFixed(1)}K`;
+            return `$${value}`;
           },
         },
       },
@@ -182,7 +181,7 @@ export default function FdVsSipPage() {
             max={100000}
             step={500}
             onChange={setMonthlyInvestment}
-            prefix="₹"
+            prefix="$"
           />
 
           <InputSlider

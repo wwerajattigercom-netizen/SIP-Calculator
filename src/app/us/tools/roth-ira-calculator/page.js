@@ -110,7 +110,7 @@ export default function PpfCalculatorPage() {
                 min={500}
                 max={150000}
                 step={500}
-                prefix="₹"
+                prefix="$"
                 colorTheme="navy"
               />
               

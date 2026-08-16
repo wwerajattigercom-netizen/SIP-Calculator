@@ -124,7 +124,7 @@ export default function XirrCalculatorPage() {
               <div className="space-y-4">
                 <div className="grid grid-cols-12 gap-4 text-sm font-medium text-[#6B7280] px-2">
                   <div className="col-span-5 md:col-span-4">Date</div>
-                  <div className="col-span-5 md:col-span-6">Amount (₹)</div>
+                  <div className="col-span-5 md:col-span-6">Amount ($)</div>
                   <div className="col-span-2 text-center">Action</div>
                 </div>
 

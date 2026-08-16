@@ -21,9 +21,8 @@ import { Line } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
 
 function fmt(val) {
-  if (val >= 1000000) return `$${(val / 1000000).toFixed(2)} Cr`;
-  if (val >= 100000) return `$${(val / 100000).toFixed(2)} L`;
-  if (val >= 1000) return `$${(val / 1000).toFixed(2)} K`;
+  if (val >= 1e6) return `$${(val / 1e6).toFixed(2)} M`;
+  if (val >= 1e3) return `$${(val / 1e3).toFixed(2)} K`;
   return `$${Math.round(val).toLocaleString('en-US')}`;
 }
 

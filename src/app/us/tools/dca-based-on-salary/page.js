@@ -69,9 +69,8 @@ export default function SipBasedOnSalaryPage() {
   const aggressiveCorpus = calculateCorpus(aggressiveSip, 20, 12);
 
   const formatToShortWords = (value) => {
-    if (value >= 1000000) return `$${(value / 1000000).toFixed(2)} Cr`;
-    if (value >= 100000) return `$${(value / 100000).toFixed(2)} L`;
-    if (value >= 1000) return `$${(value / 1000).toFixed(0)}k`;
+    if (value >= 1e6) return `$${(value / 1e6).toFixed(2)} M`;
+    if (value >= 1e3) return `$${(value / 1e3).toFixed(0)} K`;
     return `$${value.toFixed(0)}`;
   };
 

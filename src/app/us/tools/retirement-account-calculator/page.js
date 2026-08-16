@@ -127,7 +127,7 @@ export default function NpsCalculatorPage() {
                   max={150000}
                   step={500}
                   onChange={setMonthlyContribution}
-                  prefix="₹"
+                  prefix="$"
                   id="monthly-investment"
                 />
 

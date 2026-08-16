@@ -20,8 +20,8 @@ const fmtUSD = (v) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v);
 
 function toLabel(v) {
-  if (v >= 1e7) return `$${(v / 1e7).toFixed(2)} Cr`;
-  if (v >= 1e5) return `$${(v / 1e5).toFixed(2)} L`;
+  if (v >= 1e6) return `$${(v / 1e6).toFixed(2)} M`;
+  if (v >= 1e3) return `$${(v / 1e3).toFixed(2)} K`;
   return fmtUSD(v);
 }
 
