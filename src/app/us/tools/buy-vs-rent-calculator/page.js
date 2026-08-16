@@ -42,9 +42,9 @@ export default function BuyVsRentPage() {
   const [emi, setEmi] = useState(0);
 
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-IN', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'INR',
+      currency: 'USD',
       maximumFractionDigits: 0
     }).format(Math.round(value));
   };

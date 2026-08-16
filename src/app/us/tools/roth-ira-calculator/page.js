@@ -67,9 +67,9 @@ export default function PpfCalculatorPage() {
               label += ': ';
             }
             if (context.parsed !== null) {
-              label += new Intl.NumberFormat('en-IN', {
+              label += new Intl.NumberFormat('en-US', {
                 style: 'currency',
-                currency: 'INR',
+                currency: 'USD',
                 maximumFractionDigits: 0
               }).format(context.parsed);
             }
@@ -82,9 +82,9 @@ export default function PpfCalculatorPage() {
   };
 
   const formatCurrency = (val) => 
-    new Intl.NumberFormat('en-IN', { 
+    new Intl.NumberFormat('en-US', { 
       style: 'currency', 
-      currency: 'INR', 
+      currency: 'USD', 
       maximumFractionDigits: 0 
     }).format(val);
 

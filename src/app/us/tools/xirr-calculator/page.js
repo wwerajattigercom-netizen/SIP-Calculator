@@ -92,12 +92,12 @@ export default function XirrCalculatorPage() {
     }
   }, [cashFlows]);
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-IN', {
+  const formatCurrency = (val) => {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'INR',
+      currency: 'USD',
       maximumFractionDigits: 0
-    }).format(amount);
+    }).format(Math.round(val));
   };
 
   return (

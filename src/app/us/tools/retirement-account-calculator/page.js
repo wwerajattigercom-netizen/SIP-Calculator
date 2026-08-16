@@ -54,11 +54,11 @@ export default function NpsCalculatorPage() {
   };
 
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-IN', {
+    return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 0,
-    }).format(value);
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }).format(Math.round(value));
   };
 
   const chartData = {
