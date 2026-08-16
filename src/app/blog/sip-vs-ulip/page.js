@@ -1,68 +1,137 @@
 "use client";
 import Breadcrumb from '@/components/Breadcrumb';
+import Link from 'next/link';
+import { Shield, TrendingUp, Lock, Eye, BarChart3, Calculator, AlertTriangle, Scale, CheckCircle2 } from 'lucide-react';
 
 export default function UlipPage() {
   return (
-    <main className="py-8 px-4 md:px-8 max-w-4xl mx-auto space-y-8">
-      <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'SIP vs ULIP' }]} />
-      
-      <div className="glass-panel p-7 relative overflow-hidden">
-        <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight mb-3">
-          SIP vs ULIP: Investment vs Insurance
-        </h1>
-        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-          Never mix insurance and investment. Here is why mutual fund SIPs easily beat ULIPs over the long term.
-        </p>
-      </div>
-
-      <div className="glass-panel p-6 space-y-6">
-        <h2 className="text-xl font-bold text-foreground">1. The Core Difference</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          <strong>SIP:</strong> A pure investment product. 100% of your money goes into the market.<br/>
-          <strong>ULIP:</strong> A hybrid product. A portion of your premium goes toward life insurance (mortality charges), and the rest is invested in the market.
-        </p>
-
-        <h2 className="text-xl font-bold text-foreground">2. Lock-in Period</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          Mutual Fund SIPs (unless they are ELSS tax-savers) have zero lock-in. You can withdraw your money tomorrow. <br/>
-          ULIPs have a strict mandatory 5-year lock-in period in India.
-        </p>
-
-        <h2 className="text-xl font-bold text-foreground mt-8">3. Cost and Transparency</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-          <strong>Mutual Funds:</strong> Very transparent. The only cost is the Total Expense Ratio (TER), usually between 0.5% and 1.5% for active funds, and under 0.2% for index funds. This transparency ensures that you know exactly how much of your money is being invested and how much is being charged for management.<br/>
-          <strong>ULIPs:</strong> Notoriously complex. They include premium allocation charges, mortality charges, fund management charges, policy administration charges, and sometimes surrender charges. These multiple layers of fees dramatically drag down your effective returns, especially in the first five years. Over a 10-20 year period, these hidden and explicit charges can eat up a substantial portion of your wealth, sometimes costing you lakhs of rupees in lost compounding potential compared to a direct mutual fund SIP.
-        </p>
-
-        <h2 className="text-xl font-bold text-foreground mt-8">4. Return on Investment (ROI) and Wealth Creation</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-          <strong>SIPs in Equity Mutual Funds:</strong> Historically, well-managed equity mutual funds in India have delivered 12% to 15% CAGR over long periods (10+ years). Since 100% of your capital is invested directly into the market, the compounding effect is massive. A ₹10,000 monthly SIP can realistically grow to over ₹1 Crore in 20 years. <br/>
-          <strong>ULIPs:</strong> Because a significant portion of the premium is diverted to pay for insurance cover and heavy administrative charges in the initial years, the actual amount invested in the market is much smaller. Consequently, ULIP returns often hover around 6% to 9% CAGR net of charges. When you account for India's historical inflation rate of around 6%, the real returns on ULIPs can be disappointingly low, severely hindering your long-term wealth creation goals.
-        </p>
-
-        <h2 className="text-xl font-bold text-foreground mt-8">5. The "Mix" Fallacy</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-          Insurance agents often sell ULIPs aggressively because they carry high commissions. The sales pitch is usually that you get "the best of both worlds" - a life cover and market-linked returns in a single product. In reality, you get the worst of both: inadequate insurance cover and subpar investment returns. A pure Term Insurance plan provides a massive life cover (e.g., ₹1 Crore cover for a 30-year-old for just ₹10,000-15,000 a year). If you combine a cheap, high-cover Term Plan with a high-return Mutual Fund SIP, you mathematically beat any ULIP on the market by a wide margin.
-        </p>
-
-        <h2 className="text-xl font-bold text-foreground mt-8">6. Flexibility and Switching Options</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-          <strong>SIPs:</strong> Ultimate flexibility. You can pause, stop, increase, or decrease your SIP amount at any time without any penalties. If a particular mutual fund underperforms for a few quarters, you can easily stop the SIP and switch your future investments to a better-performing fund with a few clicks. <br/>
-          <strong>ULIPs:</strong> Highly rigid. If you face a financial crunch and stop paying premiums before the mandatory 5-year lock-in period ends, the policy lapses. Your money is forcibly moved to a "discontinuance fund" which earns a minimum guaranteed interest (usually around 4%), and remains completely locked until the end of the 5th year. Furthermore, switching funds within a ULIP often comes with restrictions or charges after a certain number of free switches.
-        </p>
+    <main className="py-8 px-2 md:px-4 flex flex-col items-center">
+      <article className="max-w-3xl w-full mx-auto space-y-8">
         
-        <h2 className="text-xl font-bold text-foreground mt-8">7. Tax Implications: The EEE Myth</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-          A major selling point of ULIPs is that maturity proceeds are tax-free under Section 10(10D) of the Income Tax Act, provided the annual premium is less than ₹2.5 Lakhs (for policies issued after Feb 2021). Mutual funds, conversely, attract a 12.5% Long-Term Capital Gains (LTCG) tax on equity returns exceeding ₹1.25 Lakhs per year. However, even when factoring in the 12.5% LTCG tax, a mutual fund generating 12-14% CAGR comfortably outperforms a tax-free ULIP generating 7-8% CAGR over a 15 or 20-year horizon. Tax-free underperformance is still underperformance.
-        </p>
-
-        <div className="mt-8 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-          <h3 className="font-bold text-foreground text-lg mb-3">The Final Verdict</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-            The golden rule of personal finance is simple: <strong>Never mix insurance with investment.</strong> For wealth creation, always choose Equity Mutual Fund SIPs. They offer higher returns, lower costs, transparency, and unmatched flexibility. For life protection and securing your family's future, always choose a pure Term Insurance policy. Keep them completely separate. By doing so, you avoid exorbitant commissions and hidden charges, allowing the true power of compounding to build your multi-Crore corpus. Do not let the allure of a "single product solution" compromise your financial future.
-          </p>
+        <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'SIP vs ULIP' }]} />
+        
+        {/* Hero Section */}
+        <div className="glass-panel p-8 relative overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)] shadow-sm">
+          <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+          <div className="relative z-10">
+            <span className="text-xs uppercase tracking-widest text-[#059669] font-bold mb-4 block">Insurance vs Investment</span>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
+              <span className="text-[#1B3A5C]">SIP</span> vs <span className="text-[#991B1B]">ULIP</span>: Which is Better?
+            </h1>
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              Never mix insurance and investment. Insurance agents love to sell ULIPs because of the massive commissions, pitching them as "the best of both worlds." In reality, they are often the worst of both. Here is the mathematical truth of why pure Mutual Fund SIPs easily beat ULIPs over the long term.
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">
+                R
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator · 5 min read</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div className="space-y-8">
+          
+          {/* 1. The Core Difference */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
+              <Scale className="w-6 h-6 text-[#1B3A5C]" /> 1. The Core Difference
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div className="border border-[rgba(27,58,92,0.15)] rounded-xl p-5 bg-[rgba(27,58,92,0.02)]">
+                <h3 className="font-bold text-[#1B3A5C] mb-2 flex items-center gap-2"><TrendingUp className="w-4 h-4"/> Mutual Fund SIP</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  A pure investment product. <strong>100%</strong> of your money goes directly into the stock market to buy units.
+                </p>
+              </div>
+              <div className="border border-[rgba(153,27,27,0.15)] rounded-xl p-5 bg-[rgba(153,27,27,0.02)]">
+                <h3 className="font-bold text-[#991B1B] mb-2 flex items-center gap-2"><Shield className="w-4 h-4"/> ULIP (Unit Linked Insurance Plan)</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  A hybrid product. A portion of your premium goes toward life insurance (mortality charges), and only the <strong>remaining balance</strong> is invested.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Lock-in Period */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
+              <Lock className="w-6 h-6 text-[#C4993C]" /> 2. Liquidity & Lock-in Period
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Emergencies don't wait for lock-in periods to end.
+            </p>
+            <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300 bg-[rgba(196,153,60,0.05)] p-5 rounded-lg border border-[rgba(196,153,60,0.15)]">
+              <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#C4993C] mt-1.5 flex-shrink-0" /> <strong>SIPs:</strong> Zero lock-in (except 3 years for ELSS tax-savers). You can withdraw your money tomorrow if you need it.</li>
+              <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#C4993C] mt-1.5 flex-shrink-0" /> <strong>ULIPs:</strong> A strict mandatory <strong>5-year lock-in</strong> period in India. Even if you surrender the policy early, you cannot touch the money until 5 years are over.</li>
+            </ul>
+          </div>
+
+          {/* 3. Cost & Transparency */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
+              <Eye className="w-6 h-6 text-[#1B3A5C]" /> 3. Cost & Hidden Charges
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <strong>Mutual Funds</strong> are heavily regulated and transparent. The only cost is the Total Expense Ratio (TER), usually between 0.5% and 1.5% for active funds, and under 0.2% for index funds.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <strong>ULIPs</strong> are notoriously complex. They deduct money for:
+            </p>
+            <div className="grid grid-cols-2 gap-2 text-sm text-gray-700 dark:text-gray-300 mb-4">
+              <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">Premium Allocation Charges (can be up to 5-8% in year 1)</div>
+              <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">Mortality Charges (increases as you age)</div>
+              <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">Policy Administration Charges</div>
+              <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">Fund Management Charges</div>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300 text-sm font-semibold">
+              Result: Over 10-20 years, these layered charges eat up lakhs of rupees in compounding potential.
+            </p>
+          </div>
+
+          {/* 4. ROI */}
+          <div className="glass-panel p-8 border-l-4 border-l-[#059669]">
+            <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
+              <BarChart3 className="w-6 h-6 text-[#059669]" /> 4. Wealth Creation & Returns
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <strong>Equity Mutual Funds</strong> have historically delivered 12% to 15% CAGR over long periods. Because 100% of your capital is compounding, a ₹10,000 monthly SIP can realistically grow to over ₹1 Crore in 20 years.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <strong>ULIPs</strong> typically yield 6% to 9% CAGR net of charges. When you account for India's historical inflation rate of ~6%, the real (inflation-adjusted) return on a ULIP is dangerously close to zero.
+            </p>
+          </div>
+
+          {/* 5. The Mix Fallacy Alert */}
+          <div className="bg-[rgba(153,27,27,0.05)] p-6 rounded-2xl border border-[rgba(153,27,27,0.2)] shadow-sm">
+            <h3 className="font-bold text-[#991B1B] text-lg flex items-center gap-2 mb-3">
+              <AlertTriangle className="w-5 h-5" /> The "Mix" Fallacy
+            </h3>
+            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              Agents pitch ULIPs as "the best of both worlds" — you get life cover plus market returns. In reality, you get the worst of both: <strong>inadequate insurance cover</strong> and <strong>subpar returns</strong>. <br/><br/>
+              If you combine a cheap, high-cover Term Plan (e.g., ₹1 Crore cover for just ₹10,000/year) with a high-return Mutual Fund SIP, you mathematically beat any ULIP on the market by a massive margin.
+            </p>
+          </div>
+
+          {/* Final Verdict */}
+          <div className="glass-panel p-8 text-center bg-gradient-to-b from-[rgba(5,150,105,0.05)] to-transparent">
+            <CheckCircle2 className="w-12 h-12 text-[#059669] mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-foreground mb-3">The Final Verdict</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto leading-relaxed">
+              The golden rule of personal finance is simple: <strong>Never mix insurance with investment.</strong> Buy a pure Term Insurance policy for protection, and use pure Mutual Fund SIPs for wealth creation.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/" className="inline-flex items-center justify-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
+                <Calculator className="w-5 h-5" /> See How Fast a SIP Grows
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </article>
     </main>
   );
 }
