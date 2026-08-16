@@ -57,6 +57,10 @@ export default function DynamicSipPage() {
             <h2 className="text-2xl font-bold text-foreground mb-4">How Does a Dynamic DCA Work?</h2>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
               In a regular DCA, you invest exactly $1,000 every month, regardless of whether the market is crashing or hitting all-time highs. A Dynamic DCA, however, fluctuates the investment amount based on market valuations (usually the P/E or P/B ratio).
+              <br/><br/>
+              Think of it as having a highly rational, institutional portfolio manager running your personal 401(k) or IRA. When the stock market is irrationally exuberant and trading at sky-high valuations, the algorithm automatically reduces your monthly contribution. Why buy aggressively when assets are overpriced? Conversely, when the market crashes and everyone else is panicking and selling, the Dynamic DCA algorithm recognizes that assets are on sale. It automatically increases your investment amount, buying more shares at lower prices. This mechanical, rules-based approach guarantees that you adhere to the fundamental rule of wealth creation: buy low and sell high.
+              <br/><br/>
+              Over a 20 or 30-year timeframe, these automated adjustments can add hundreds of thousands of dollars, if not millions, to your final portfolio value. By avoiding the human tendency to chase performance at the top and panic sell at the bottom, Dynamic DCA systematically exploits market volatility. It turns market crashes from terrifying events into highly profitable accumulation phases. The beauty of the system is its complete lack of emotion; the math dictates the action, ensuring you are always positioned optimally regardless of the macroeconomic environment.
             </p>
             <div className="bg-[rgba(27,58,92,0.02)] border border-[rgba(27,58,92,0.1)] p-5 rounded-xl mb-6">
               <p className="font-mono text-sm text-gray-800 dark:text-gray-200">

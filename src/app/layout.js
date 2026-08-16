@@ -56,6 +56,14 @@ export const metadata = {
     description: "Free online SIP calculator with step-up, lump sum & inflation. Works for India & worldwide.",
     images: ["https://stepupcalculator.com/og-image.jpg"],
   },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-IN': '/',
+      'en-US': '/us/dca-calculator',
+      'x-default': '/',
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

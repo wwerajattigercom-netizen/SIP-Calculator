@@ -46,7 +46,7 @@ export default function StepUpSipPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 6 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -176,6 +176,26 @@ export default function StepUpSipPage() {
                 </div>
               </li>
             </ol>
+          </div>
+
+          {/* Comprehensive Analysis for Indian Investors */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Comprehensive Wealth Creation: The Indian Context</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              When we analyze wealth creation in India, the power of Systematic Investment Plans (SIPs) cannot be overstated. The Indian equity market, represented by indices like the Nifty 50 and Sensex, has historically delivered robust long-term returns, often outpacing traditional fixed-income instruments like Fixed Deposits (FDs) or Public Provident Fund (PPF). However, inflation remains a persistent wealth eroder. With retail inflation frequently hovering around 6%, the purchasing power of the Rupee diminishes over time. This makes the Step-Up SIP not just an option, but a necessity for anyone serious about accumulating a multi-Crore corpus.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              By automatically increasing your investment amount—say, from ₹10,000 to ₹11,000 in the second year, and so on—you are effectively forcing your savings rate to keep pace with your income growth. Most salaried professionals in India receive an annual increment. If this increment is absorbed entirely by lifestyle inflation (upgrading to a bigger car, taking more expensive vacations), your financial future remains stagnant. A Step-Up SIP intercepts a portion of this increment before you can spend it, redirecting it towards productive assets. Over a 15 to 20-year horizon, this disciplined approach harnesses the magic of compounding in a profoundly magnified way. The additional capital deployed in the later years buys more units during market dips, leveraging Rupee Cost Averaging to your absolute advantage.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Furthermore, the psychological benefit is immense. Behavioral finance shows that human beings struggle with deferred gratification. By automating the increase, you remove the emotional friction of parting with more money each year. The deduction happens in the background, out of sight and out of mind, while your portfolio steadily climbs towards the ₹1 Crore, ₹2 Crore, or even ₹5 Crore milestone. For long-term goals like a child's higher education or a comfortable retirement, where the target corpus is large, a Step-Up SIP bridges the gap between current affordability and future requirements, making ambitious financial goals deeply attainable.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              It is also crucial to consider the taxation aspect. Equity Mutual Funds in India are subject to Long Term Capital Gains (LTCG) tax, currently at 12.5% for gains exceeding ₹1.25 Lakhs in a financial year. Even after factoring in this tax, the net returns from an equity-based Step-Up SIP overwhelmingly beat inflation-adjusted returns from debt instruments. By starting early and stepping up consistently, you build a tax-efficient, inflation-beating engine of wealth that will serve you and your family for generations. The earlier you start, the more profound the impact of compounding becomes, transforming small, incremental additions into massive, life-changing wealth.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              In conclusion, the Step-Up SIP is the ultimate financial hack for the Indian middle class. It perfectly aligns with the trajectory of human capital growth, where earning potential peaks in the mid-40s and 50s. By aggressively stepping up your investments during these peak earning years, you can secure a golden retirement and leave a lasting legacy. It is a simple, yet extraordinarily powerful tool that every serious investor must incorporate into their financial arsenal.
+            </p>
           </div>
 
           {/* CTA */}

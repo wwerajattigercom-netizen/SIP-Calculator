@@ -149,6 +149,66 @@ export default function TriggerSipPage() {
             </p>
           </div>
 
+          {/* Historical Examples of Trigger DCA Success */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Historical Examples of Trigger DCA Success</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              To truly understand the power of a Trigger DCA, let's look at historical market events where this strategy would have drastically outperformed a standard investment approach.
+            </p>
+            <div className="space-y-6">
+              <div className="bg-[rgba(27,58,92,0.02)] border border-[rgba(27,58,92,0.1)] p-5 rounded-xl">
+                <h3 className="font-bold text-[#1B3A5C] mb-2">The 2008 Financial Crisis</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                  During the Great Recession, the S&P 500 lost roughly 50% of its value over an 18-month period. For an investor utilizing a standard DCA, they continued buying on their fixed dates, which is a sound strategy. However, an investor with a Trigger DCA set to buy heavily on days when the market dropped more than 3% would have accumulated massive numbers of shares at rock-bottom prices. When the market eventually rebounded in the ensuing decade, the Trigger DCA portfolio experienced exponential growth far exceeding the baseline index performance.
+                </p>
+              </div>
+              <div className="bg-[rgba(27,58,92,0.02)] border border-[rgba(27,58,92,0.1)] p-5 rounded-xl">
+                <h3 className="font-bold text-[#1B3A5C] mb-2">The 2020 COVID-19 Flash Crash</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                  In March 2020, global markets experienced one of the fastest crashes in history, followed by an equally swift recovery. Human investors were paralyzed by fear, and many actually sold their holdings at the bottom. A Trigger DCA, immune to human emotion, would have automatically deployed capital on the worst red days of March 2020. Those automated dip buys turned into staggering profits just six months later as the market rallied to new all-time highs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Common Mistakes to Avoid */}
+          <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black border border-[rgba(27,58,92,0.1)]">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Common Mistakes to Avoid with Trigger DCAs</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              While powerful, Trigger DCAs are easily mismanaged. Here are the most common pitfalls investors face when setting them up:
+            </p>
+            <ul className="list-disc pl-5 space-y-3 text-sm text-gray-600 dark:text-gray-300">
+              <li>
+                <strong>Setting the Trigger Threshold Too High:</strong> If you set your trigger to only activate on a 10% market drop, you might wait years for a single execution. Your cash will lose value to inflation while waiting. Stick to smaller, more realistic triggers like 1.5% to 3%.
+              </li>
+              <li>
+                <strong>Running Out of Cash:</strong> In a highly volatile week, a 2% drop trigger might hit three days in a row. If you don't have adequate cash reserves in your linked bank account, the subsequent transactions will fail, or worse, you'll incur overdraft fees.
+              </li>
+              <li>
+                <strong>Abandoning Your Core Strategy:</strong> A Trigger DCA should never replace your standard monthly investments. It is a supplemental tool designed to capture extra returns, not a standalone retirement plan.
+              </li>
+            </ul>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Which brokerages offer Trigger DCAs?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">While native "Trigger DCA" features are more common in international markets, many modern US platforms and robo-advisors are rolling out "Smart Buy" or "Dip Buying" automations. You can also manually simulate this using conditional limit orders on platforms like Fidelity or Interactive Brokers.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Is a Trigger DCA considered market timing?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Yes, it is a systematic form of market timing. However, because it is rules-based and automated, it eliminates the emotional errors typically associated with manual market timing.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Are there tax implications?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Just like any regular investment, purchasing shares via a Trigger DCA in a taxable account does not create a taxable event until you sell those shares. If executed within a 401(k) or IRA, there are no immediate tax consequences.</p>
+              </div>
+            </div>
+          </div>
+
           {/* CTA */}
           <div className="glass-panel p-8 text-center bg-gradient-to-b from-[rgba(153,27,27,0.05)] to-transparent">
             <h2 className="text-2xl font-bold text-foreground mb-3">Simulate a Market Crash</h2>

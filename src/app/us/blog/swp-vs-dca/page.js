@@ -46,7 +46,7 @@ export default function SwpVsSipPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 6 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -168,6 +168,67 @@ export default function SwpVsSipPage() {
               <li><strong>The Bucket Strategy:</strong> Keep 3 years of expenses in safe Debt/Liquid funds. Keep the rest in Equity. Run your SWP from the Debt fund.</li>
               <li><strong>The 4% Rule:</strong> Never set your initial SWP withdrawal rate to more than 4-5% of your total corpus per year.</li>
             </ul>
+          </div>
+
+          {/* Pros and Cons of SWP in Retirement */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Pros and Cons of SWP in Retirement</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              While a Systematic Withdrawal Plan (SWP) is a phenomenal tool for retirees, it is essential to understand both its strengths and its limitations before moving your entire 401(k) or IRA into an SWP strategy.
+            </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-bold text-[#059669] flex items-center gap-2 mb-2">
+                  The Pros
+                </h3>
+                <ul className="list-disc pl-5 space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  <li><strong>Tax Efficiency:</strong> As discussed, you are only taxed on the capital gains portion of your withdrawal, not the principal. This can save you thousands of dollars annually compared to traditional interest-bearing accounts.</li>
+                  <li><strong>Continued Growth:</strong> Unlike an annuity or a savings account, the bulk of your money remains invested in the market, allowing your corpus to outpace inflation even during retirement.</li>
+                  <li><strong>Customizable Income:</strong> You decide exactly how much you need. If your expenses drop, you can lower your SWP payout instantly.</li>
+                  <li><strong>No Lock-In Periods:</strong> Unlike certain annuities or CDs, your money is completely liquid. In case of a massive medical emergency, you can withdraw a larger lump sum at any time.</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-bold text-[#991B1B] flex items-center gap-2 mb-2">
+                  The Cons
+                </h3>
+                <ul className="list-disc pl-5 space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  <li><strong>Market Volatility Risk:</strong> If you withdraw a fixed dollar amount during a severe market downturn, you are selling a higher number of shares to meet that cash requirement, which can permanently deplete your portfolio.</li>
+                  <li><strong>Requires Discipline:</strong> It can be tempting to increase your SWP amount to fund lavish vacations, but doing so could cause you to run out of money prematurely.</li>
+                  <li><strong>No Guaranteed Income:</strong> Unlike Social Security or a fixed annuity, an SWP does not guarantee income for life. If your portfolio goes to zero, your SWP stops.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigating Required Minimum Distributions (RMDs) */}
+          <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black border border-[rgba(27,58,92,0.1)]">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Navigating Required Minimum Distributions (RMDs)</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              In the United States, if your retirement funds are held in a tax-advantaged account like a Traditional 401(k) or Traditional IRA, the IRS requires you to start taking Required Minimum Distributions (RMDs) at a certain age (currently 73, moving to 75). 
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              An SWP can be an excellent way to automate your RMDs. By setting your annual SWP withdrawal amount to match or slightly exceed your RMD requirements, you ensure you never face the hefty IRS penalty (which can be up to 25% of the amount not withdrawn). However, remember that withdrawals from Traditional accounts are taxed as ordinary income, completely changing the tax calculus compared to SWPs executed from taxable brokerage accounts or Roth IRAs.
+            </p>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Can I run a DCA and an SWP at the same time?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">While mechanically possible across different funds, it is highly inefficient and mathematically counterproductive to simultaneously put money into and take money out of the same portfolio.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">What is a safe withdrawal rate for my SWP?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">The widely accepted standard in the US is the 4% Rule. This suggests you can safely withdraw 4% of your starting retirement portfolio value annually, adjusted for inflation, for 30 years without running out of money.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Should my SWP be from an equity or debt fund?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">To minimize the Sequence of Returns Risk, it is highly recommended to run your SWP from a low-volatility bond or debt fund, while keeping the rest of your corpus growing in equity index funds.</p>
+              </div>
+            </div>
           </div>
 
           {/* CTA */}

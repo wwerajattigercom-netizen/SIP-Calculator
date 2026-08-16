@@ -46,7 +46,7 @@ export default function SwpVsSipPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 6 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -168,6 +168,23 @@ export default function SwpVsSipPage() {
               <li><strong>The Bucket Strategy:</strong> Keep 3 years of expenses in safe Debt/Liquid funds. Keep the rest in Equity. Run your SWP from the Debt fund.</li>
               <li><strong>The 4% Rule:</strong> Never set your initial SWP withdrawal rate to more than 4-5% of your total corpus per year.</li>
             </ul>
+          </div>
+
+          {/* Comprehensive Analysis for Indian Retirees */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Mastering the Transition: SIP to SWP in India</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              For decades, the Indian retirement dream was built on a foundation of Fixed Deposits, Provident Funds, and real estate. However, as the Indian economy has modernized and inflation has remained a constant threat (averaging around 6%), these traditional instruments often fail to preserve purchasing power over a 20-30 year retirement period. This is where the strategic combination of SIP (Systematic Investment Plan) and SWP (Systematic Withdrawal Plan) becomes the cornerstone of modern wealth management. While a SIP is your engine for wealth creation during your earning years—leveraging the growth of Indian equities to build a multi-Crore corpus—an SWP is your mechanism for tax-efficient, inflation-adjusted wealth distribution during your golden years.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              The transition from the accumulation phase (SIP) to the withdrawal phase (SWP) is a critical juncture. Many retirees make the mistake of shifting their entire accumulated corpus of, say, ₹2 Crores into a bank FD the day they retire. While this provides a sense of security, the interest earned is fully taxable as per their income slab, and the principal stops growing. Over 15 years, as living expenses double due to inflation, the fixed interest payout remains stagnant, leading to a drastic reduction in the standard of living. An SWP solves this by allowing your corpus to remain invested in growth-oriented mutual funds. Because you are only withdrawing a small percentage (e.g., 4-6% annually), the remaining balance continues to compound, often outpacing the withdrawal rate itself.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Furthermore, the tax efficiency of an SWP in the Indian context is unparalleled. When you execute an SWP, every withdrawal consists of two parts: the principal invested and the capital gains. In India, the withdrawal of principal is entirely tax-free. You only pay Long Term Capital Gains (LTCG) tax on the profit portion of the withdrawal, which is currently taxed at 12.5% only on gains exceeding ₹1.25 Lakhs per financial year. This means a substantial portion of your monthly SWP income is completely legally tax-free, unlike rental income or FD interest which are taxed heavily. This tax arbitrage alone can save an Indian retiree Lakhs of Rupees over their lifetime, money that remains invested and continues to compound.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              To successfully navigate the transition, financial planners in India recommend the 'Bucket Strategy'. This involves keeping 3 to 5 years of estimated living expenses in highly liquid and safe instruments like Liquid Mutual Funds or Arbitrage Funds, and letting the rest of the corpus grow in diversified Equity Funds. Your monthly SWP runs from the safe bucket, ensuring that a sudden market crash (like the one seen in 2020 or 2008) does not force you to sell your equity units at a massive loss. Periodically, when the equity markets are doing well, you book profits and refill the safe bucket. This sophisticated, yet simple approach ensures peace of mind, a steady monthly income, and the long-term preservation and growth of your wealth.
+            </p>
           </div>
 
           {/* CTA */}

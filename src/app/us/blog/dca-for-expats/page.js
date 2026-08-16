@@ -38,7 +38,7 @@ export default function SipForExpatsPage() {
                 DCA for <span className="text-[#C4993C]">Expats</span>: The Complete 2026 Guide
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
-                With the US stock market consistently outperforming global indices, millions of Non-Resident the USns (Expats) want a piece of the action. Investing in US Index Funds from abroad is entirely legal, but the paperwork (KYC, PFIC Rules, and NRE/NRO accounts) can be confusing.
+                With the US stock market consistently outperforming global indices, millions of Non-Resident the USns (Expats) want a piece of the action. Investing in US Index Funds from abroad is entirely legal, but the paperwork (KYC, PFIC Rules, and NRE/NRO accounts) can be confusing. For expats earning in foreign currencies, the allure of US markets and the potential for a million-dollar portfolio is strong. However, navigating the complex web of international tax laws, banking regulations, and brokerage requirements can quickly become overwhelming. Many expats mistakenly believe that they are completely barred from participating in the US financial system while living abroad, or they fear that doing so will result in massive tax penalties. In reality, with the correct setup and a solid understanding of the rules, expats can seamlessly execute a Dollar Cost Averaging (DCA) strategy into US mutual funds or ETFs. This comprehensive guide will walk you through everything you need to know, from setting up the right type of bank accounts to managing your KYC status and understanding how the dreaded PFIC rules might affect your investments. By the time you finish reading, you'll be fully equipped to start building your long-term wealth in the US market, no matter where in the world you currently reside.
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
@@ -46,7 +46,7 @@ export default function SipForExpatsPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 7 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>

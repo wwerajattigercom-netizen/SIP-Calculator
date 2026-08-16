@@ -38,10 +38,10 @@ export default function CalculatorTabs() {
             <Link
               key={finalHref}
               href={finalHref}
-              className={`flex-1 min-w-[105px] sm:min-w-[110px] flex flex-nowrap items-center justify-center py-2 px-2 sm:px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
+              className={`flex-1 min-h-[44px] min-w-[105px] sm:min-w-[110px] flex flex-nowrap items-center justify-center py-2 px-2 sm:px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 active
                   ? 'bg-[var(--color-accent)] text-white shadow-md'
-                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
               }`}
             >
               <Icon className="w-3.5 h-3.5 mr-1 flex-shrink-0" />

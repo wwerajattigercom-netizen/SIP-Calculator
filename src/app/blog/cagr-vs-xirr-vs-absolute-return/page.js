@@ -14,30 +14,30 @@ const COMPARISON = [
   {
     metric: 'Absolute Return',
     formula: '(Final Value − Initial Value) ÷ Initial Value × 100',
-    useFor: 'Quick check — how much profit did I make in total?',
-    bestFor: 'Short-term lumpsum investments (<1 year) or simple P&L checks.',
-    limitation: 'Ignores time entirely. Making 50% in 1 year looks mathematically identical to making 50% in 10 years, which is highly misleading.',
-    example: 'You invest ₹1,00,000 and it becomes ₹1,50,000. Your absolute return is exactly 50%.',
+    useFor: 'Quick check — how much profit did I make in total? For instance, if you invest ₹1 Lakh and it becomes ₹1.5 Lakhs, your absolute return is 50%. This metric is completely unaware of time. It tells you the total wealth generated over the entire period of investment without standardizing it to a per-year basis. It is extremely useful when you just want to look at the absolute numbers in your bank account and feel good or bad about the total ₹ value gained.',
+    bestFor: 'Short-term lumpsum investments (<1 year) or simple P&L checks. If you buy a stock today for ₹1000 and sell it next month for ₹1100, the absolute return is 10%. In short timeframes, annualising returns (CAGR) can lead to absurdly high numbers (like 120% per year) which are misleading. Hence, absolute return is the king of short-term tracking.',
+    limitation: 'Ignores time entirely. Making 50% in 1 year looks mathematically identical to making 50% in 10 years, which is highly misleading. If it takes you 10 years to turn ₹1 Lakh into ₹1.5 Lakhs, that is a terrible investment that probably did not even beat Indian inflation. But the absolute return still proudly says 50%!',
+    example: 'You invest ₹1,00,000 and it becomes ₹1,50,000. Your absolute return is exactly 50%. Whether this took 1 month, 1 year, or 10 years, the absolute return remains 50%. This is why you must never use this to compare two different mutual funds over different timeframes.',
     color: 'text-[#059669]',
     border: 'border-emerald-400/20 bg-emerald-500/5',
   },
   {
     metric: 'CAGR (Compound Annual Growth Rate)',
     formula: '[(Final Value ÷ Initial Value) ^ (1 ÷ Years)] − 1',
-    useFor: 'Annualised return for a single, one-time lump sum investment.',
-    bestFor: 'Comparing the historical performance of two mutual funds over 3, 5, or 10 years.',
-    limitation: 'Cannot handle multiple investments at different times (like a SIP). Assumes you invested once and never added or withdrew money.',
-    example: 'You invest ₹1,00,000 once. After 5 years, it is ₹2,01,135. Your CAGR is exactly 15% p.a.',
+    useFor: 'Annualised return for a single, one-time lump sum investment. CAGR smooths out the extreme volatility of the Indian stock market. It tells you what your consistent annual growth rate would be if the investment grew at a steady, fixed rate every single year. For example, your ₹10 Lakhs growing to ₹2 Crores over 15 years.',
+    bestFor: 'Comparing the historical performance of two mutual funds over 3, 5, or 10 years. Whenever you see mutual fund advertisements claiming a "15% return over 5 years", they are talking about CAGR. It is the gold standard for measuring the performance of a Lumpsum investment.',
+    limitation: 'Cannot handle multiple investments at different times (like a SIP). Assumes you invested once and never added or withdrew money. If you try to calculate the CAGR of your monthly ₹10,000 SIP, the formula will completely break and give you a mathematically wrong, artificially low percentage.',
+    example: 'You invest ₹10,00,000 once. After 5 years, it is ₹20,11,357. Your CAGR is exactly 15% p.a. This means your wealth compounded at an average rate of 15% every single year for 5 years.',
     color: 'text-[var(--color-accent)]',
     border: 'border-blue-400/20 bg-blue-500/5',
   },
   {
     metric: 'XIRR (Extended Internal Rate of Return)',
     formula: 'Iterative calculation (IRR) mapping irregular cash flows to specific dates.',
-    useFor: 'The true annualised return for SIPs, partial withdrawals, or any irregular investing.',
-    bestFor: 'Tracking your actual portfolio performance on apps like Groww or Zerodha Coin.',
-    limitation: 'Requires complex computation (Excel, Google Sheets, or our calculators) — impossible to do manually.',
-    example: 'You invest ₹5,000 every month for 5 years. Total invested is ₹3,00,000. Current value is ₹4,12,432. Your XIRR is ~12.5% p.a.',
+    useFor: 'The true annualised return for SIPs, partial withdrawals, or any irregular investing. This is the only metric that understands the concept of cash flows happening on different dates. When you do a ₹5,000 monthly SIP, every single ₹5,000 tranche spends a different amount of time in the market. XIRR assigns a specific timeframe to each and calculates the aggregate return.',
+    bestFor: 'Tracking your actual portfolio performance on apps like Groww or Zerodha Coin. Since human beings rarely invest just once in their lives, we constantly add money when we get bonuses, or withdraw when we need cash. XIRR perfectly tracks this messy reality of personal finance.',
+    limitation: 'Requires complex computation (Excel, Google Sheets, or our calculators) — impossible to do manually. The formula requires solving a complex polynomial equation which computers can do in milliseconds but humans cannot do on paper.',
+    example: 'You invest ₹10,000 every month for 10 years. Total invested is ₹12,00,000. Current value is ₹23,24,432. Your XIRR is ~12.5% p.a. If you just did a raw CAGR on the total, it would look like you made less, which is mathematically false.',
     color: 'text-[#C4993C]',
     border: 'border-amber-400/20 bg-amber-500/5',
   },
@@ -79,7 +79,7 @@ export default function CAGRvsXIRRPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 7 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>

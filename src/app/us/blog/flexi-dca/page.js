@@ -46,7 +46,7 @@ export default function FlexiSipPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 4 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -57,6 +57,10 @@ export default function FlexiSipPage() {
             <h2 className="text-2xl font-bold text-foreground mb-4">What is a Flexi DCA?</h2>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
               A Flexible DCA (or Flexi DCA) allows you to change your investment amount every month without canceling your mandate. Instead of setting a rigid $1,000 per month, you define a <strong>Minimum Amount</strong> and a <strong>Maximum Amount</strong>.
+              <br/><br/>
+              This flexibility is an absolute game-changer for individuals whose income is not predictable. Think about gig workers, independent contractors, commissioned sales professionals, or small business owners. Traditional DCAs assume a stable, salaried corporate job with a predictable paycheck hitting the bank account on the 1st and 15th of the month. If your cash flow doesn't look like that, a rigid DCA can quickly become a liability, leading to overdraft fees or forced liquidations. A Flexi DCA adapts to your financial reality. 
+              <br/><br/>
+              Moreover, a Flexi DCA is a potent weapon for strategic investing. By giving yourself a wide band (e.g., $500 minimum to $5,000 maximum), you can dynamically adjust your contributions based on your current cash pile and market conditions. When you have a massive month and close a huge deal, you can aggressively fund your brokerage accounts or 401(k), plowing cash into the market. During lean months, you drop down to the minimum to maintain the habit without straining your liquidity. This hybrid approach marries the disciplined automation of traditional Dollar Cost Averaging with the strategic flexibility required for active wealth management. It ensures that you are constantly building your million-dollar portfolio without ever feeling financially suffocated by rigid automated transfers.
             </p>
             <div className="bg-[rgba(27,58,92,0.02)] border border-[rgba(27,58,92,0.1)] p-5 rounded-xl">
               <p className="font-mono text-sm text-gray-800 dark:text-gray-200">

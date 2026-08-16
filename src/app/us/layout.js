@@ -28,11 +28,11 @@ export const metadata = {
     description: "Free online DCA calculator with step-up, lump sum & inflation. Designed for US investors.",
   },
   alternates: { 
-    canonical: 'https://stepupcalculator.com/us/dca-calculator',
+    canonical: '/us/dca-calculator',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/dca-calculator',
-      'en-US': 'https://stepupcalculator.com/us/dca-calculator',
-      'x-default': 'https://stepupcalculator.com/dca-calculator'
+      'en-IN': '/',
+      'en-US': '/us/dca-calculator',
+      'x-default': '/'
     },
   },
 };

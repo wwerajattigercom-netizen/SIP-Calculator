@@ -56,7 +56,7 @@ export default function DynamicSipPage() {
           <div className="glass-panel p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">How Does a Dynamic SIP Work?</h2>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-              In a regular SIP, you invest exactly ₹10,000 every month, regardless of whether the market is crashing or hitting all-time highs. A Dynamic SIP, however, fluctuates the investment amount based on market valuations (usually the P/E or P/B ratio).
+              In a regular SIP, you invest exactly ₹10,000 every month, regardless of whether the market is crashing or hitting all-time highs. A Dynamic SIP, however, fluctuates the investment amount based on market valuations (usually the P/E or P/B ratio). When the Indian markets are euphoric and the Sensex is at an all-time high, a Dynamic SIP will reduce your investment to prevent you from buying expensive units. When there's a market crash and blood on the streets, the Dynamic SIP automatically steps up to buy more units. This creates a powerful long-term compounding machine that can help you reach a goal of ₹2 Crores or ₹5 Crores much faster than a regular, blind SIP. It is one of the most effective strategies for long-term wealth creation in India.
             </p>
             <div className="bg-[rgba(27,58,92,0.02)] border border-[rgba(27,58,92,0.1)] p-5 rounded-xl mb-6">
               <p className="font-mono text-sm text-gray-800 dark:text-gray-200">

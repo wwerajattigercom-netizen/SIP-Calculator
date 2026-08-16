@@ -46,7 +46,7 @@ export default function CommonSipMistakesPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 6 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function CommonSipMistakesPage() {
                 1. Stopping SIPs During a Market Crash
               </h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                This is the deadliest mistake. When the market drops 20%, panic sets in and investors pause their SIPs, thinking they are "protecting" their cash.
+                This is the deadliest mistake. When the market drops 20%, panic sets in and investors pause their SIPs, thinking they are "protecting" their cash. But the reality of Indian stock markets is that massive wealth is created precisely when the Nifty or Sensex crashes. If you are aiming for a corpus of ₹5 Crores over 20 years, continuing your ₹20,000 SIP during a bear market is what will accelerate your journey. Stopping your SIP means you miss out on accumulating units at a massive discount, destroying the very foundation of your long-term compounding strategy. Many investors who stopped their SIPs during the 2020 crash lost out on generating wealth in Crores during the subsequent rally.
               </p>
               <div className="bg-[rgba(153,27,27,0.02)] p-4 rounded-lg border border-[rgba(153,27,27,0.1)] text-sm text-gray-700 dark:text-gray-300">
                 <strong>Why it's fatal:</strong> The entire mathematical foundation of a SIP is <em>Rupee Cost Averaging</em>. You are supposed to accumulate more units when the NAV is cheap. By stopping your SIP during a crash, you are literally refusing to buy items when they are on a 20% discount. 

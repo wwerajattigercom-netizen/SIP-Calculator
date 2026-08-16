@@ -46,7 +46,7 @@ export default function TypesOfSipPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 6 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -143,6 +143,55 @@ export default function TypesOfSipPage() {
               </div>
             </div>
 
+          </div>
+
+          {/* How to Combine These Strategies for Maximum Alpha */}
+          <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black border border-[rgba(27,58,92,0.1)]">
+            <h2 className="text-2xl font-bold text-foreground mb-4">How to Combine These Strategies for Maximum Alpha</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Sophisticated investors rarely rely on just a single DCA type. To optimize portfolio growth while managing risk and cash flow, you can layer these strategies together into a comprehensive wealth-building machine.
+            </p>
+            <div className="space-y-4 text-sm text-gray-600 dark:text-gray-300">
+              <p>
+                <strong>The Foundation (Step-Up DCA):</strong> Your primary retirement vehicle—like your 401(k) or Roth IRA—should utilize a Step-Up DCA. This ensures that your baseline savings rate is constantly fighting inflation and growing alongside your career trajectory. This is the “set it and forget it” portion of your portfolio.
+              </p>
+              <p>
+                <strong>The Tactical Overlay (Trigger DCA):</strong> Keep a pool of liquid cash in a high-yield savings account or money market fund. Connect this account to a Trigger DCA in your taxable brokerage, set to buy an S&P 500 ETF only when the market drops by 2% or more. This allows you to automatically scoop up cheap shares during panic events without disrupting your core strategy.
+              </p>
+              <p>
+                <strong>The Variable Buffer (Flexi DCA):</strong> If you receive quarterly bonuses, RSUs, or run a side hustle, use a Flexi DCA for those variable income streams. Set a low minimum baseline, but dial up the contribution heavily during months when you receive a windfall.
+              </p>
+            </div>
+          </div>
+
+          {/* The Psychology Behind DCA Variations */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">The Psychology Behind the Strategies</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              At its core, Dollar Cost Averaging is a behavioral finance tool designed to protect investors from themselves. Human instinct tells us to buy when the market is euphoric (high) and sell when the market is crashing (low). DCA forces us to do the exact opposite.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              By introducing variations like the Step-Up or Trigger DCA, the financial industry is simply building guardrails against other human flaws—like lifestyle creep (solved by Step-Up) and the fear of catching a falling knife (solved by Trigger). Understanding which psychological traps you are most vulnerable to will help you choose the right DCA variation for your personality.
+            </p>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Which DCA is best for a beginner?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">The Regular DCA or Perpetual DCA is the perfect starting point. The most important step is simply getting your money into the market consistently. Once you are comfortable, upgrading to a Step-Up DCA is highly recommended.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Are all these options available for US investors?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Yes. While terminology might slightly differ (e.g., "Auto-Increase" instead of Step-Up, or "Conditional Orders" instead of Trigger), all major US brokerages like Vanguard, Fidelity, and Schwab offer mechanisms to execute these strategies.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Can I switch my DCA type later?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Absolutely. Your DCA is just an automated instruction. You can cancel a Regular DCA and immediately start a Step-Up DCA on the exact same mutual fund or ETF without any tax consequences or penalties.</p>
+              </div>
+            </div>
           </div>
 
           {/* CTA */}

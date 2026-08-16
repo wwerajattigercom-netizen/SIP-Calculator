@@ -71,7 +71,7 @@ export default function CAGRvsXIRRPage() {
                 <span className="text-[var(--color-accent)]">CAGR</span> vs <span className="text-[#C4993C]">XIRR</span> vs <span className="text-[#059669]">Absolute Return</span>: Which Should You Trust?
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
-                When you open your mutual fund portfolio on platforms like Vanguard, Fidelity, or Charles Schwab, you are bombarded with different percentage numbers. Which one actually represents how much money you made? This guide demystifies financial jargon and shows you exactly how to measure your wealth.
+                When you open your mutual fund portfolio on platforms like Vanguard, Fidelity, or Charles Schwab, you are bombarded with different percentage numbers. Which one actually represents how much money you made? This guide demystifies financial jargon and shows you exactly how to measure your wealth. Navigating the world of investment metrics can be incredibly daunting, especially for those just starting to build their retirement portfolios. The difference between looking at a 15% Absolute Return and a 10% CAGR could mean the difference between thinking you are on track for a comfortable retirement and realizing you might come up short. Many investors falsely assume that any positive percentage is a good sign, without understanding the time value of money. Over decades of investing through Dollar Cost Averaging (DCA) into your 401(k) or brokerage accounts, the compounding effect makes it absolutely critical to measure performance accurately. By the end of this guide, you will have a crystal-clear understanding of when to use CAGR, when XIRR is your best friend, and why Absolute Return should be used sparingly. You will learn to see past the marketing fluff used by mutual funds and focus on the metrics that dictate the true trajectory of your financial freedom. To build a multi-million dollar portfolio, you must first speak the language of wealth.
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
@@ -79,7 +79,7 @@ export default function CAGRvsXIRRPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 7 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>

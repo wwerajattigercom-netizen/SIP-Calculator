@@ -26,19 +26,36 @@ export default function sitemap() {
     { path: '/us/blog', priority: 0.7, freq: 'weekly' },
   ];
 
+  // Interactive Tools (India)
+  const inTools = [
+    '/tools/cost-of-delay-calculator',
+    '/tools/sip-based-on-salary',
+    '/tools/retirement-sip-calculator',
+    '/tools/sip-vs-lumpsum',
+    '/tools/sip-to-beat-inflation',
+    '/tools/sip-for-child-education',
+    '/tools/sip-for-house-down-payment',
+    '/tools/sip-during-market-crash',
+    '/tools/sip-to-reach-1-crore'
+  ];
+
+  // Interactive Tools (US)
+  const usTools = [
+    '/us/tools/cost-of-delay-calculator',
+    '/us/tools/dca-based-on-salary',
+    '/us/tools/retirement-dca-calculator',
+    '/us/tools/dca-vs-lumpsum',
+    '/us/tools/dca-to-beat-inflation',
+    '/us/tools/dca-for-child-education',
+    '/us/tools/dca-for-house-down-payment',
+    '/us/tools/dca-during-market-crash',
+    '/us/tools/dca-to-reach-1-million'
+  ];
+
   // Indian Guides
   const inGuides = [
-    '/blog/cost-of-delay-calculator',
     '/blog/sip-vs-fd-ppf-rd',
-    '/blog/sip-to-reach-1-crore',
     '/blog/cagr-vs-xirr-vs-absolute-return',
-    '/blog/sip-based-on-salary',
-    '/blog/retirement-sip-calculator',
-    '/blog/sip-vs-lumpsum',
-    '/blog/sip-to-beat-inflation',
-    '/blog/sip-for-child-education',
-    '/blog/sip-for-house-down-payment',
-    '/blog/sip-during-market-crash',
     '/blog/swp-vs-sip',
     '/blog/sip-vs-stp',
     '/blog/flexi-sip',
@@ -53,17 +70,8 @@ export default function sitemap() {
 
   // US Guides
   const usGuides = [
-    '/us/blog/cost-of-delay-calculator',
     '/us/blog/dca-vs-fd-ppf-rd',
-    '/us/blog/dca-to-reach-1-million',
     '/us/blog/cagr-vs-xirr-vs-absolute-return',
-    '/us/blog/dca-based-on-salary',
-    '/us/blog/retirement-dca-calculator',
-    '/us/blog/dca-vs-lumpsum',
-    '/us/blog/dca-to-beat-inflation',
-    '/us/blog/dca-for-child-education',
-    '/us/blog/dca-for-house-down-payment',
-    '/us/blog/dca-during-market-crash',
     '/us/blog/swp-vs-dca',
     '/us/blog/dca-vs-stp',
     '/us/blog/flexi-dca',
@@ -83,7 +91,7 @@ export default function sitemap() {
     priority: p.priority
   }));
 
-  const mapGuides = (paths, priority) => paths.map(p => ({
+  const mapItems = (paths, priority) => paths.map(p => ({
     url: `${base}${p}`,
     lastModified: now,
     changeFrequency: 'monthly',
@@ -93,7 +101,9 @@ export default function sitemap() {
   return [
     ...mapCore(corePaths),
     ...mapCore(usCorePaths),
-    ...mapGuides(inGuides, 0.8),
-    ...mapGuides(usGuides, 0.7),
+    ...mapItems(inTools, 0.85),
+    ...mapItems(usTools, 0.75),
+    ...mapItems(inGuides, 0.8),
+    ...mapItems(usGuides, 0.7),
   ];
 }

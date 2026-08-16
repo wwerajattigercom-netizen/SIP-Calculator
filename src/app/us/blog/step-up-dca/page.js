@@ -46,7 +46,7 @@ export default function StepUpSipPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 6 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -176,6 +176,54 @@ export default function StepUpSipPage() {
                 </div>
               </li>
             </ol>
+          </div>
+
+          {/* Real-Life Case Study */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Real-Life Case Study: John's 401(k) Step-Up</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Let’s consider John, a 28-year-old marketing professional who just started a new job. His initial salary allows him to comfortably contribute $500 a month to his 401(k). If John simply maintains this $500 contribution for the next 30 years, assuming an average annual return of 8%, he will have accumulated approximately $745,000 by age 58. While this sounds like a decent sum, inflation will have severely eroded its purchasing power over three decades.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Now, let's see what happens if John utilizes a Step-Up DCA strategy. Instead of keeping his contribution stagnant, John decides to increase his monthly investment by just 10% each year, perfectly aligning with his annual raises and career progression. In year two, he invests $550 a month; in year three, $605 a month, and so forth. By year 30, even assuming he caps his maximum contribution to avoid cash flow issues, his final wealth accumulation balloons to over $1.8 Million. By merely committing a small portion of his future wage increases to his investment account, John has more than doubled his retirement nest egg without ever feeling a pinch in his current lifestyle.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              This case study perfectly illustrates why relying on a flat investment amount is one of the most common mistakes young investors make. A Step-Up strategy bridges the gap between your current financial capacity and your future wealth requirements.
+            </p>
+          </div>
+
+          {/* The Psychology Behind Step-Up DCA */}
+          <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black border border-[rgba(27,58,92,0.1)]">
+            <h2 className="text-2xl font-bold text-foreground mb-4">The Psychology Behind Step-Up DCA</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Investing is often as much about psychology as it is about mathematics. The Step-Up DCA is a powerful psychological tool because it removes the friction of manual decision-making. Human beings are naturally predisposed to lifestyle inflation—as we earn more, we tend to spend more. By automating the increase in your savings rate before the money even hits your checking account, you effectively trick yourself into saving more.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Furthermore, the Step-Up strategy mitigates the emotional pain of parting with your money. Because the increases are incremental and happen concurrently with salary raises, you rarely notice the missing funds. Your take-home pay remains steady or grows slightly, while your wealth accumulation accelerates exponentially in the background. It is the quintessential "set it and forget it" strategy for long-term financial success.
+            </p>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Is a Step-Up DCA better than a regular DCA?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Yes, in almost all circumstances. A regular DCA loses its real value over time due to inflation. A Step-Up DCA ensures your contributions grow in tandem with inflation and your rising income, leading to significantly higher final wealth.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Can I cap the Step-Up amount?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Absolutely. Most brokerages allow you to set a maximum limit. For example, you can set your DCA to increase by 10% annually until the monthly deduction hits $2,500, after which it will stay flat at $2,500.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">What if I face a pay cut or lose my job?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">You can always pause, modify, or cancel a Step-Up DCA mandate at any time without penalties. It is entirely flexible. If you hit a rough patch, simply log into your brokerage and lower the amount.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-1">Does this work for 401(k) accounts?</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Yes! In fact, many modern 401(k) providers offer an "Auto-Increase" feature that does exactly this—automatically boosting your contribution rate by 1% each year until it hits a target percentage.</p>
+              </div>
+            </div>
           </div>
 
           {/* CTA */}

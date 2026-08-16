@@ -46,7 +46,7 @@ export default function TypesOfSipPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 6 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -143,6 +143,23 @@ export default function TypesOfSipPage() {
               </div>
             </div>
 
+          </div>
+
+          {/* The Broader Impact in India */}
+          <div className="glass-panel p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Maximizing Wealth in India: Why the Type of SIP Matters</h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              The evolution of Systematic Investment Plans (SIPs) in India has revolutionized how the middle class approaches wealth creation. Gone are the days when investing meant hoarding gold, buying illiquid real estate, or settling for the meager, fully taxable returns of Fixed Deposits. The democratization of mutual funds has empowered millions of Indians to participate in the growth of the nation's top corporations. However, merely starting an SIP is no longer enough. To truly outpace India's persistent inflation—which consistently erodes the purchasing power of the Rupee at 5-7% annually—investors must be strategic about the *type* of SIP they deploy. Selecting the right SIP variant is like choosing the right gear in a car; it optimizes your journey towards financial independence based on the terrain of your life.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              For a young, salaried professional in a metro city, a Step-Up SIP is non-negotiable. As salaries increase year-on-year, lifestyle creep is a very real threat. A Step-Up SIP automatically absorbs a portion of your annual increment, directing it into equity markets before it can be spent on depreciating liabilities. Over a 20-year horizon, this simple act of increasing your investment by 10% annually can literally double your final corpus compared to a static Regular SIP. It transforms a comfortable retirement into a wealthy, golden retirement, providing a corpus of multiple Crores that can comfortably fund travel, healthcare, and a legacy for the next generation. It is the most powerful anti-inflation tool available to the Indian retail investor.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Conversely, the Indian economy is seeing a massive surge in the gig economy, freelancing, and entrepreneurship. For individuals with variable, unpredictable monthly cash flows, a rigid Regular SIP can cause financial stress during lean months. The Flexi SIP is the perfect antidote, allowing investors to scale down their commitments during tough times while aggressively investing surplus cash during highly profitable months. This flexibility ensures that the compounding machine never completely stops, while also preventing the investor from facing liquidity crunches. When combined with Tactical tools like the Trigger SIP, which automates buying during sudden market crashes, an investor can construct a highly sophisticated, bespoke wealth accumulation engine that adapts seamlessly to both personal circumstances and macroeconomic volatility.
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              Ultimately, the goal of all these SIP strategies is to achieve critical mass—a corpus large enough that its annual returns exceed your living expenses. In the Indian context, where long-term equity returns have historically hovered around 12-14%, building a ₹3 Crore to ₹5 Crore portfolio is entirely achievable for a disciplined investor utilizing these advanced SIP methods. Furthermore, the tax efficiency of equity mutual funds, with Long Term Capital Gains (LTCG) taxed at a flat 12.5% beyond the initial exemption limit, makes this the most lucrative wealth-building avenue available. By understanding and actively choosing the right type of SIP, you take absolute control of your financial destiny, ensuring that every Rupee works as hard as possible to secure your future.
+            </p>
           </div>
 
           {/* CTA */}

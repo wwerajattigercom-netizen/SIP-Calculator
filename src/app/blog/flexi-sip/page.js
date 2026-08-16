@@ -46,7 +46,7 @@ export default function FlexiSipPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 4 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function FlexiSipPage() {
           <div className="glass-panel p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">What is a Flexi SIP?</h2>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-              A Flexible SIP (or Flexi SIP) allows you to change your investment amount every month without canceling your mandate. Instead of setting a rigid ₹10,000 per month, you define a <strong>Minimum Amount</strong> and a <strong>Maximum Amount</strong>.
+              A Flexible SIP (or Flexi SIP) allows you to change your investment amount every month without canceling your mandate. Instead of setting a rigid ₹10,000 per month, you define a <strong>Minimum Amount</strong> and a <strong>Maximum Amount</strong>. If you are aiming for a corpus of ₹5 Crores over 15 years, a Flexi SIP helps you inject lump sums into the market when you receive a massive bonus, without breaking the discipline of a monthly SIP. It allows you to navigate the volatility of the Indian market seamlessly, ensuring that you invest ₹20,000 in a bear market and only ₹5,000 in a bull market, optimizing your journey towards your financial goals.
             </p>
             <div className="bg-[rgba(27,58,92,0.02)] border border-[rgba(27,58,92,0.1)] p-5 rounded-xl">
               <p className="font-mono text-sm text-gray-800 dark:text-gray-200">

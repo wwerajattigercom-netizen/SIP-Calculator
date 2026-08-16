@@ -149,10 +149,10 @@ export default function ChartComponent({ results }) {
         ].map(({ key, label }) => (
           <button
             key={key}
-            className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
+            className={`flex-1 min-h-[44px] py-1.5 rounded-md text-xs font-medium transition-all ${
               chartType === key
                 ? 'bg-[var(--color-accent)] text-white shadow-lg'
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
             }`}
             onClick={() => setChartType(key)}
           >

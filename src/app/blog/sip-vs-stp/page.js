@@ -134,6 +134,29 @@ export default function SipVsStpPage() {
                 </div>
               </div>
             </div>
+
+            {/* Comprehensive STP Strategy */}
+            <div className="glass-panel p-8 mt-8">
+              <h2 className="text-2xl font-bold text-foreground mb-4">
+                Mastering the Systematic Transfer Plan: Advanced Scenarios
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                The Systematic Transfer Plan (STP) is arguably the most sophisticated yet underutilized tool in a retail investor's arsenal. While the basic premise is simple—moving funds from a debt scheme to an equity scheme to mitigate timing risk—the strategic applications are vast. Imagine receiving an inheritance of ₹50 Lakhs. Deploying this entirely into the equity market on a single day exposes you to massive sequential risk. A 10% market correction the very next week wipes out ₹5 Lakhs, which can induce panic and lead to poor decision-making. An STP acts as a psychological and financial shock absorber.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                Let's dive deeper into the mechanics of the Source Fund. The Source Fund is typically a Liquid Fund, Ultra-Short Duration Fund, or an Arbitrage Fund. These funds are designed for capital preservation and offer returns slightly better than a savings account (usually around 6-7% annualized). By parking your lump sum here, your money is not sitting idle; it's actively working, generating a modest yield. More importantly, these debt funds have extremely low volatility, ensuring that the principal amount remains intact for the scheduled transfers. It's a dual-engine strategy: the debt fund provides stability and a base return, while the equity fund captures the high-growth potential.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                A common question is determining the ideal duration for an STP. If you have ₹10 Lakhs, should you transfer it over 6 months, 12 months, or 24 months? The rule of thumb in the Indian context depends on market valuations and the size of the corpus. If the Nifty is trading at historically high P/E (Price-to-Earnings) multiples, a longer STP of 12 to 18 months is prudent, allowing you to catch potential corrections. If the market has recently crashed and valuations are attractive, a shorter 3 to 6-month STP ensures you deploy capital quickly to capture the recovery. For massive amounts (e.g., ₹1 Crore+), spreading the transfers over 12-24 months is generally recommended to maximize Rupee Cost Averaging.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                Tax implications are a crucial factor often overlooked. In India, moving money from the Source Fund (Debt) to the Target Fund (Equity) is treated as a redemption from the debt fund. Consequently, the gains made in the debt fund during that holding period are subject to Short-Term Capital Gains (STCG) tax, which is added to your income and taxed at your applicable slab rate. However, because the holding period is short and the debt fund returns are relatively low, the absolute tax liability is usually negligible compared to the massive benefit of protecting your capital from equity market volatility. It is a small premium paid for peace of mind.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                Beyond risk mitigation, STPs can also be run in reverse (Reverse STP or Systematic Withdrawal Plan - SWP). For retirees who have accumulated a large equity corpus, a Reverse STP moves a fixed amount from Equity to Debt every month, securing the gains and providing a stable income stream while the remaining equity corpus continues to grow. Whether you are entering the market with a windfall or slowly exiting for retirement, mastering the flow of capital between debt and equity is the hallmark of a seasoned investor.
+              </p>
+            </div>
+
           </div>
 
           {/* Tax Warning */}

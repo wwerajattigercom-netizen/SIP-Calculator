@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import ChartComponent from './ChartComponent';
+import dynamic from 'next/dynamic';
+const ChartComponent = dynamic(() => import('./ChartComponent'), { ssr: false });
 import { TrendingUp, ShieldAlert, Coins } from 'lucide-react';
 import { formatCurrency, formatToShortWords } from '../utils/formatters';
 import { useRegion } from '../context/RegionContext';
