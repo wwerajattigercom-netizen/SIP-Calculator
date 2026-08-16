@@ -323,12 +323,12 @@ export default function BlogIndexPage() {
                 href={href}
                 className="block glass-panel p-5 hover:bg-[rgba(27,58,92,0.02)] hover:border-[rgba(27,58,92,0.25)] border border-[#E8E4DF] transition-all group rounded-2xl h-full relative overflow-hidden"
               >
-                {/* Subtle watermark number in background for premium feel */}
-                <div className="absolute -top-4 -right-2 text-[80px] font-black text-black/[0.03] dark:text-white/[0.02] pointer-events-none select-none z-0 transition-transform group-hover:scale-110">
-                  {index + 1}
+                {/* Corner Number Badge */}
+                <div className="absolute top-0 left-0 bg-[var(--color-accent)] text-white text-[10px] font-bold px-3 py-1 rounded-br-xl z-20 shadow-sm">
+                  #{index + 1}
                 </div>
                 
-                <div className="flex flex-col h-full items-start gap-4 relative z-10">
+                <div className="flex flex-col h-full items-start gap-4 relative z-10 pt-1">
                   {/* Icon & Meta */}
                   <div className="flex w-full items-start justify-between">
                     <div className="bg-[rgba(0,0,0,0.03)] p-2.5 rounded-xl flex-shrink-0 group-hover:bg-[rgba(27,58,92,0.1)] transition-colors">
