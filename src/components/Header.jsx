@@ -29,13 +29,13 @@ export default function Header() {
     if (isUS) {
       document.cookie = "preferred_region=IN; path=/; max-age=31536000";
       let newPath = pathname.replace(/^\/us(\/|$)/, '/');
-      newPath = newPath.replace(/dca/g, 'sip').replace(/million/g, 'crore');
+      newPath = newPath.replace(/dca/g, 'sip').replace(/million/g, 'crore').replace(/expats/g, 'nris');
       if (pathname === '/us/dca-calculator') newPath = '/';
       router.push(newPath);
     } else {
       document.cookie = "preferred_region=US; path=/; max-age=31536000";
       let newPath = `/us${pathname === '/' ? '/dca-calculator' : pathname}`;
-      newPath = newPath.replace(/sip/g, 'dca').replace(/crore/g, 'million');
+      newPath = newPath.replace(/sip/g, 'dca').replace(/crore/g, 'million').replace(/nris/g, 'expats');
       if (pathname === '/goal-based-sip-calculator') newPath = '/us/goal-based-dca-calculator';
       router.push(newPath);
     }
