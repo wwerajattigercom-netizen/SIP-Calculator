@@ -79,7 +79,7 @@ export default function CAGRvsXIRRPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Financial Tool Architect · 5 min read</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator · 5 min read</p>
                 </div>
               </div>
             </div>
