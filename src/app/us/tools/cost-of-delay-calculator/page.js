@@ -186,7 +186,7 @@ export default function CostOfDelayCalculatorPage() {
     },
     scales: {
       x: { grid: { display: false } },
-      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: (v) => `$${(v / 100000).toFixed(1)}L` } },
+      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: (v) => v >= 1e6 ? `$${(v/1e6).toFixed(1)}M` : `$${(v/1e3).toFixed(0)}K` } },
     },
   };
 
@@ -226,7 +226,7 @@ export default function CostOfDelayCalculatorPage() {
     },
     scales: {
       x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280', maxTicksLimit: 6 } },
-      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280', callback: (v) => `$${(v / 100000).toFixed(1)}L` } },
+      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280', callback: (v) => v >= 1e6 ? `$${(v/1e6).toFixed(1)}M` : `$${(v/1e3).toFixed(0)}K` } },
     },
   };
 

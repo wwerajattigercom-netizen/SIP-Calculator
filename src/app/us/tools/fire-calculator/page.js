@@ -8,11 +8,11 @@ import InputSlider from '@/components/InputSlider';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function FireCalculatorPage() {
-    const [annualExpenses, setAnnualExpenses] = useState(1200000);
+    const [annualExpenses, setAnnualExpenses] = useState(60000);
     const [swr, setSwr] = useState(4);
     const [currentAge, setCurrentAge] = useState(30);
-    const [retirementAge, setRetirementAge] = useState(45);
-    const [expectedReturn, setExpectedReturn] = useState(12);
+    const [retirementAge, setRetirementAge] = useState(50);
+    const [expectedReturn, setExpectedReturn] = useState(10);
     const [currentSavings, setCurrentSavings] = useState(0);
 
     const [results, setResults] = useState({
@@ -87,9 +87,9 @@ export default function FireCalculatorPage() {
                                 label="Annual Expenses ($)"
                                 value={annualExpenses}
                                 onChange={setAnnualExpenses}
-                                min={100000}
-                                max={10000000}
-                                step={10000}
+                                min={10000}
+                                max={500000}
+                                step={1000}
                                 prefix="$"
                             />
                             
@@ -136,8 +136,8 @@ export default function FireCalculatorPage() {
                                 value={currentSavings}
                                 onChange={setCurrentSavings}
                                 min={0}
-                                max={50000000}
-                                step={50000}
+                                max={5000000}
+                                step={5000}
                                 prefix="$"
                             />
                         </div>

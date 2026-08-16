@@ -7,8 +7,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import InputSlider from '@/components/InputSlider';
 
 function fmt(val) {
-  if (val >= 1000000) return `$${(val / 1000000).toFixed(2)} Cr`;
-  if (val >= 100000) return `$${(val / 100000).toFixed(2)} L`;
+  if (val >= 1e6) return `$${(val / 1e6).toFixed(2)} M`;
   if (val >= 1000) return `$${(val / 1000).toFixed(2)} K`;
   return `$${Math.round(val).toLocaleString('en-US')}`;
 }
@@ -20,7 +19,7 @@ const jsonLd = {
     { '@type': 'Question', name: 'How much DCA do I need to save for a house down payment?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on your target property price and timeline. If you want a $1,000,000 house in 7 years, factoring in 7% property appreciation, you\'ll need roughly $17,000 to $20,000 DCA per month for a 20% down payment.' } },
     { '@type': 'Question', name: 'How much down payment is required for a home loan globally?', acceptedAnswer: { '@type': 'Answer', text: 'Banks typically require a minimum of 10% to 20% down payment depending on the loan amount. For larger loans, at least 25% is often mandated by banking guidelines.' } },
     { '@type': 'Question', name: 'Should I rent or buy a house globally?', acceptedAnswer: { '@type': 'Answer', text: 'Renting is better for flexibility and when rental yields are low (2-3%). Buying makes sense if you plan to settle in one city for 10+ years and value emotional security.' } },
-    { '@type': 'Question', name: 'Can I use DCA returns as a down payment?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, investing in equity mutual funds via DCA is the most effective way to outpace property price appreciation over a 5 to 10-year horizon to accumulate a down payment.' } },
+    { '@type': 'Question', name: 'Can I use DCA returns as a down payment?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, investing in index funds via DCA is the most effective way to outpace property price appreciation over a 5 to 10-year horizon to accumulate a down payment.' } },
     { '@type': 'Question', name: 'How long should I invest in DCA before buying a house?', acceptedAnswer: { '@type': 'Answer', text: 'Ideally 5 to 7 years. This gives your equity investments enough time to grow and compound, reducing the risk of short-term market volatility.' } },
   ],
 };
@@ -36,7 +35,7 @@ function getStepUpFvFactor(years, monthlyRate, stepUpRate) {
 }
 
 export default function SipForHousePage() {
-  const [currentPrice, setCurrentPrice] = useState(8000000);
+  const [currentPrice, setCurrentPrice] = useState(350000);
   const [appreciation, setAppreciation] = useState(7);
   const [yearsToBuy, setYearsToBuy] = useState(7);
   const [downPaymentPct, setDownPaymentPct] = useState(20);
@@ -57,9 +56,9 @@ export default function SipForHousePage() {
 
     const remainingLoan = futurePrice - requiredDownPayment;
     
-    // EMI Calculation (8.5% for 20 years)
-    const rEmi = 8.5 / 100 / 12;
-    const nEmi = 20 * 12;
+    // Mortgage Calculation (6.8% for 30 years)
+    const rEmi = 6.8 / 100 / 12;
+    const nEmi = 30 * 12;
     const emi = remainingLoan * rEmi * Math.pow(1 + rEmi, nEmi) / (Math.pow(1 + rEmi, nEmi) - 1);
 
     const fvFactorStepUp = getStepUpFvFactor(yearsToBuy, monthlyRate, 0.10);
@@ -110,9 +109,9 @@ export default function SipForHousePage() {
                   <InputSlider
                     label="Current Property Price"
                     value={currentPrice}
-                    min={2000000}
-                    max={50000000}
-                    step={500000}
+                    min={100000}
+                    max={2000000}
+                    step={5000}
                     onChange={setCurrentPrice}
                     formatFn={(v) => fmt(v)}
                   />
@@ -203,7 +202,7 @@ export default function SipForHousePage() {
                     <p className="text-foreground font-bold text-lg">{fmt(results.totalInvested)}</p>
                   </div>
                   <div className="bg-[rgba(196,153,60,0.08)] border border-amber-500/20 rounded-xl p-4">
-                    <p className="text-[#059669]/80 text-[10px] uppercase tracking-wider mb-1">Approx EMI (20 Yrs)</p>
+                    <p className="text-[#059669]/80 text-[10px] uppercase tracking-wider mb-1">Est. Monthly Mortgage (30 Yrs)</p>
                     <p className="text-[#059669] font-bold text-lg">{fmt(results.emi)}</p>
                   </div>
                 </div>
@@ -304,22 +303,22 @@ export default function SipForHousePage() {
             <div>
               <h2 className="text-xl font-bold text-foreground mb-3">1. Why 20% Down Payment Matters</h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                Paying a 20% down payment reduces your total loan burden, secures better interest rates from banks, and ensures lower monthly EMIs. 
+                Paying a 20% down payment reduces your total loan burden, secures better interest rates from banks, and ensures lower monthly mortgage payments. 
                 Many banks also have a strict LTV (Loan-to-Value) ratio cap of 80% for larger loan amounts, making 20% the sweet spot.
               </p>
             </div>
             <div>
               <h2 className="text-xl font-bold text-foreground mb-3">2. DCA vs HYSA for Down Payment</h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                If your time horizon is less than 3 years, a Bank Recurring Deposit (HYSA) or Liquid Fund is safer. However, if you plan to buy after 5-7 years, 
+                If your time horizon is less than 3 years, a HYSA or Liquid Fund is safer. However, if you plan to buy after 5-7 years, 
                 an Equity DCA (10-12% expected return) will help you combat the 5-8% annual property price appreciation much better than a 6% HYSA.
               </p>
             </div>
             <div>
               <h2 className="text-xl font-bold text-foreground mb-3">3. How Much Home Loan Can You Get?</h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                A common rule of thumb is that your Home Loan EMI should not exceed 40% of your net monthly take-home salary. 
-                If you earn $1 Hundred Thousand per month, your EMI shouldn't cross $40,000 to maintain financial stability.
+                A common rule of thumb is that your Monthly Mortgage Payment should not exceed 40% of your net monthly take-home salary. 
+                If you earn $8,000 per month, your mortgage payment shouldn't cross $3,200 to maintain financial stability.
               </p>
             </div>
           </div>

@@ -19,9 +19,8 @@ import { Bar } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function fmt(val) {
-  if (val >= 1000000) return `$${(val / 1000000).toFixed(2)} Cr`;
-  if (val >= 100000) return `$${(val / 100000).toFixed(2)} L`;
-  if (val >= 1000) return `$${(val / 1000).toFixed(2)} K`;
+  if (val >= 1e6) return `$${(val / 1e6).toFixed(2)} M`;
+  if (val >= 1e3) return `$${(val / 1e3).toFixed(1)} K`;
   return `$${Math.round(val).toLocaleString('en-US')}`;
 }
 
@@ -29,11 +28,11 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'How much DCA do I need for my child\'s education?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on the current cost, years to college, and inflation. For a $20 Hundred Thousand course in 15 years at 10% inflation, you need about $22,700/month at 12% returns.' } },
-    { '@type': 'Question', name: 'What is education inflation?', acceptedAnswer: { '@type': 'Answer', text: 'Education inflation is typically 10-12%, significantly higher than regular retail inflation (CPI) which hovers around 5-6%.' } },
-    { '@type': 'Question', name: 'Should I buy a child plan or do DCA for education?', acceptedAnswer: { '@type': 'Answer', text: 'Equity Mutual Fund SIPs are generally better than traditional child plans as they offer higher returns (10-14%) to beat education inflation, whereas child plans often yield only 5-6%.' } },
-    { '@type': 'Question', name: 'How much should I save for IIT/NIT education?', acceptedAnswer: { '@type': 'Answer', text: 'A 4-year B.Tech at an IIT currently costs $10-12 Lakhs. In 15 years, at 10% inflation, it will cost around $40-50 Lakhs. Plan your SIPs accordingly.' } },
-    { '@type': 'Question', name: 'Can I use 401(k) instead of DCA for child education?', acceptedAnswer: { '@type': 'Answer', text: '401(k) is safe and tax-free but offers ~7.1% returns, which fails to beat 10% education inflation. It is best used for the debt portion of your portfolio, not the primary growth engine.' } },
+    { '@type': 'Question', name: 'How much do I need to save for my child\'s college education?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on the college type, years until enrollment, and tuition inflation. For a $100,000 program in 15 years at 6% education inflation, you need approximately $1,200/month invested at 10% annual returns.' } },
+    { '@type': 'Question', name: 'What is education inflation?', acceptedAnswer: { '@type': 'Answer', text: 'College tuition in the US has historically risen at about 6-8% annually, roughly double the consumer price index (CPI). This outpaces general inflation and makes starting early critical.' } },
+    { '@type': 'Question', name: 'Should I use a 529 plan or a brokerage DCA for education savings?', acceptedAnswer: { '@type': 'Answer', text: 'A 529 plan offers tax-free growth for education expenses and should be the first priority. A taxable brokerage account via DCA into index funds is a great complement for flexibility if the child does not attend college.' } },
+    { '@type': 'Question', name: 'How much does a 4-year US university degree cost?', acceptedAnswer: { '@type': 'Answer', text: 'A 4-year degree at a public in-state university averages $110,000 total today. Private universities average $240,000. With education inflation, these costs roughly double every 10-12 years, making early saving essential.' } },
+    { '@type': 'Question', name: 'Can I use a Roth IRA for child education savings?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, Roth IRA contributions (not earnings) can be withdrawn penalty-free for qualified education expenses. However, withdrawals may affect financial aid calculations. It is best used as a secondary education savings vehicle after maximizing a 529.' } },
   ],
 };
 
@@ -50,8 +49,8 @@ function getStepUpFvFactor(years, monthlyRate, stepUpRate) {
 export default function SipForChildEducationPage() {
   const [currentAge, setCurrentAge] = useState(3);
   const [targetAge, setTargetAge] = useState(18);
-  const [todayCost, setTodayCost] = useState(2000000);
-  const [educationInflation, setEducationInflation] = useState(10);
+  const [todayCost, setTodayCost] = useState(80000);
+  const [educationInflation, setEducationInflation] = useState(6);
   const [returnRate, setReturnRate] = useState(12);
 
   const results = useMemo(() => {
@@ -180,9 +179,9 @@ export default function SipForChildEducationPage() {
                   <InputSlider
                     label="Today's Cost of Education"
                     value={todayCost}
-                    min={200000}
-                    max={1000000}
-                    step={50000}
+                    min={10000}
+                    max={500000}
+                    step={5000}
                     onChange={setTodayCost}
                     formatFn={(v) => fmt(v)}
                   />
@@ -291,74 +290,36 @@ export default function SipForChildEducationPage() {
                 </thead>
                 <tbody className="text-gray-600 dark:text-gray-400">
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">Engineering (Govt)</td>
-                    <td className="py-3 pr-4">$5 Lakhs</td>
-                    <td className="py-3 pr-4">$20.9 Lakhs</td>
-                    <td className="py-3 font-semibold text-[var(--color-accent)]">$5,700/mo</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Public University (In-State)</td>
+                    <td className="py-3 pr-4">$28,000/yr</td>
+                    <td className="py-3 pr-4">$67,000/yr</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">$800/mo</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">Engineering (Private)</td>
-                    <td className="py-3 pr-4">$20 Lakhs</td>
-                    <td className="py-3 pr-4">$83.5 Lakhs</td>
-                    <td className="py-3 font-semibold text-[var(--color-accent)]">$22,700/mo</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Public University (Out-of-State)</td>
+                    <td className="py-3 pr-4">$45,000/yr</td>
+                    <td className="py-3 pr-4">$108,000/yr</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">$1,300/mo</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">Medical (MBBS)</td>
-                    <td className="py-3 pr-4">$50 Lakhs</td>
-                    <td className="py-3 pr-4">$2.09 Crores</td>
-                    <td className="py-3 font-semibold text-[var(--color-accent)]">$56,700/mo</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Private University</td>
+                    <td className="py-3 pr-4">$60,000/yr</td>
+                    <td className="py-3 pr-4">$144,000/yr</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">$1,700/mo</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
-                    <td className="py-3 pr-4 font-medium text-foreground">MBA (Top IIM)</td>
-                    <td className="py-3 pr-4">$30 Lakhs</td>
-                    <td className="py-3 pr-4">$1.25 Crores</td>
-                    <td className="py-3 font-semibold text-[var(--color-accent)]">$34,000/mo</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">Ivy League / Top 20</td>
+                    <td className="py-3 pr-4">$80,000/yr</td>
+                    <td className="py-3 pr-4">$192,000/yr</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">$2,300/mo</td>
                   </tr>
                   <tr>
-                    <td className="py-3 pr-4 font-medium text-foreground">B.Tech + MBA Abroad</td>
-                    <td className="py-3 pr-4">$80 Lakhs</td>
-                    <td className="py-3 pr-4">$3.34 Crores</td>
-                    <td className="py-3 font-semibold text-[var(--color-accent)]">$90,800/mo</td>
+                    <td className="py-3 pr-4 font-medium text-foreground">MBA (Top 10 Program)</td>
+                    <td className="py-3 pr-4">$100,000/yr</td>
+                    <td className="py-3 pr-4">$240,000/yr</td>
+                    <td className="py-3 font-semibold text-[var(--color-accent)]">$2,900/mo</td>
                   </tr>
                 </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Educational Content */}
-          <div className="glass-panel p-6 space-y-6">
-            <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">1. Why Education Inflation globally is 10%+</h2>
-              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                While standard consumer inflation (CPI) globally fluctuates around 5-6%, education costs rise much faster. Increased infrastructure costs, faculty salaries, and demand for premium education push fees up by 10-12% annually. A $10 Hundred Thousand degree today will likely cost over $40 Lakhs in 15 years.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">2. When to Start? The Cost of Delay</h2>
-              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                Starting early is the single most important factor. If your target is $1 Million for college at age 18:
-                <br/><br/>
-                • Start at age 0 (18 yrs to invest): ~$13,000/month<br/>
-                • Start at age 5 (13 yrs to invest): ~$25,000/month<br/>
-                • Start at age 10 (8 yrs to invest): ~$63,000/month<br/>
-                <br/>
-                Delaying by just 5 years nearly doubles the required DCA.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">3. Best Mutual Fund Categories for Education</h2>
-              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                • <strong>10+ Years Away:</strong> Flexi-cap or Large & Mid-cap funds for high growth.<br/>
-                • <strong>5-10 Years Away:</strong> Aggressive Hybrid funds for balanced risk.<br/>
-                • <strong>Less than 3 Years Away:</strong> Move money to Debt funds or CDs to protect the capital from market crashes right before fees are due.
-              </p>
-            </div>
-          </div>
-
-          {/* FAQs */}
-          <div className="glass-panel p-6">
-            <h2 className="text-xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
               {jsonLd.mainEntity.map((faq, i) => (
                 <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
                   <h3 className="text-foreground font-medium text-sm flex items-start gap-2">

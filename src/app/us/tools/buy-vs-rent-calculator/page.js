@@ -27,14 +27,14 @@ ChartJS.register(
 );
 
 export default function BuyVsRentPage() {
-  const [propertyValue, setPropertyValue] = useState(10000000);
+  const [propertyValue, setPropertyValue] = useState(400000);
   const [downPaymentPercent, setDownPaymentPercent] = useState(20);
-  const [homeLoanRate, setHomeLoanRate] = useState(8.5);
-  const [loanTenure, setLoanTenure] = useState(20);
-  const [propertyAppreciation, setPropertyAppreciation] = useState(5);
-  const [monthlyRent, setMonthlyRent] = useState(25000);
-  const [rentEscalation, setRentEscalation] = useState(5);
-  const [equityReturns, setEquityReturns] = useState(12);
+  const [mortgageRate, setMortgageRate] = useState(6.8);
+  const [loanTerm, setLoanTerm] = useState(30);
+  const [propertyAppreciation, setPropertyAppreciation] = useState(4);
+  const [monthlyRent, setMonthlyRent] = useState(2000);
+  const [rentEscalation, setRentEscalation] = useState(3);
+  const [equityReturns, setEquityReturns] = useState(10);
 
   const [chartData, setChartData] = useState({ labels: [], datasets: [] });
   const [finalBuyNetWorth, setFinalBuyNetWorth] = useState(0);
@@ -54,8 +54,8 @@ export default function BuyVsRentPage() {
   }, [
     propertyValue,
     downPaymentPercent,
-    homeLoanRate,
-    loanTenure,
+    mortgageRate,
+    loanTerm,
     propertyAppreciation,
     monthlyRent,
     rentEscalation,
@@ -65,8 +65,8 @@ export default function BuyVsRentPage() {
   const calculateBuyVsRent = () => {
     const downPayment = (propertyValue * downPaymentPercent) / 100;
     const loanAmount = propertyValue - downPayment;
-    const r = homeLoanRate / 12 / 100;
-    const n = loanTenure * 12;
+    const r = mortgageRate / 12 / 100;
+    const n = loanTerm * 12;
     
     const monthlyEmi = loanAmount * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
     setEmi(monthlyEmi);
@@ -79,7 +79,7 @@ export default function BuyVsRentPage() {
     let currentRent = monthlyRent;
     const equityMonthlyRate = equityReturns / 12 / 100;
 
-    for (let year = 1; year <= loanTenure; year++) {
+    for (let year = 1; year <= loanTerm; year++) {
       labels.push(`Year ${year}`);
       
       // Buy calculation for the year
@@ -181,7 +181,7 @@ export default function BuyVsRentPage() {
           Buy vs Rent Calculator
         </h1>
         <p className="text-[#6B7280] max-w-2xl mx-auto">
-          Compare the financial impact of buying a home on EMI versus renting and investing the difference in an Equity DCA.
+          Compare the true financial impact of buying a home (mortgage) versus renting and investing the difference in the S&P 500. See which builds more wealth over time.
         </p>
       </div>
 
@@ -192,11 +192,11 @@ export default function BuyVsRentPage() {
             <h2 className="text-xl font-bold text-[#1F2937] mb-6">Property Details</h2>
             <div className="space-y-5">
               <InputSlider
-                label="Property Value"
+                label="Home Price"
                 value={propertyValue}
-                min={1000000}
-                max={50000000}
-                step={100000}
+                min={100000}
+                max={2000000}
+                step={5000}
                 onChange={setPropertyValue}
                 formatValue={formatCurrency}
               />
@@ -210,21 +210,21 @@ export default function BuyVsRentPage() {
                 formatValue={(v) => `${v}%`}
               />
               <InputSlider
-                label="Home Loan Rate (%)"
-                value={homeLoanRate}
-                min={5}
-                max={15}
+                label="Mortgage Rate (%)"
+                value={mortgageRate}
+                min={3}
+                max={12}
                 step={0.1}
-                onChange={setHomeLoanRate}
+                onChange={setMortgageRate}
                 formatValue={(v) => `${v}%`}
               />
               <InputSlider
-                label="Loan Tenure (Years)"
-                value={loanTenure}
-                min={5}
+                label="Loan Term (Years)"
+                value={loanTerm}
+                min={10}
                 max={30}
                 step={1}
-                onChange={setLoanTenure}
+                onChange={setLoanTerm}
                 formatValue={(v) => `${v} Yrs`}
               />
               <InputSlider
@@ -245,9 +245,9 @@ export default function BuyVsRentPage() {
               <InputSlider
                 label="Current Monthly Rent"
                 value={monthlyRent}
-                min={5000}
-                max={200000}
-                step={1000}
+                min={500}
+                max={10000}
+                step={100}
                 onChange={setMonthlyRent}
                 formatValue={formatCurrency}
               />
@@ -276,13 +276,13 @@ export default function BuyVsRentPage() {
         {/* Right Column: Results & Chart */}
         <div className="lg:col-span-7 space-y-6">
           <div className="glass-panel p-6 bg-[#f8f2ea] rounded-2xl">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-6">Financial Comparison (After {loanTenure} Years)</h2>
+            <h2 className="text-xl font-bold text-[#1F2937] mb-6">Financial Comparison (After {loanTerm} Years)</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               <div className="bg-white/50 p-4 rounded-xl border border-[#1B3A5C]/10">
                 <p className="text-sm text-[#6B7280] mb-1">Net Worth (Buying)</p>
                 <p className="text-2xl font-bold text-[#1B3A5C]">{formatCurrency(finalBuyNetWorth)}</p>
-                <p className="text-xs text-[#6B7280] mt-2">Monthly EMI: {formatCurrency(emi)}</p>
+                <p className="text-xs text-[#6B7280] mt-2">Monthly Mortgage: {formatCurrency(emi)}</p>
               </div>
               <div className="bg-white/50 p-4 rounded-xl border border-[#C4993C]/20">
                 <p className="text-sm text-[#6B7280] mb-1">Net Worth (Renting)</p>

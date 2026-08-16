@@ -13,9 +13,9 @@ const TABLE_DATA = [
 ];
 
 const STEPUP_DATA = [
-  { label: 'Regular DCA (no step-up)', dca: 43000, total: '1.03 Cr', invested: '51.6 L', gain: '51.4 L' },
-  { label: '5% annual step-up DCA',    dca: 32000, total: '1.01 Cr', invested: '48.3 L', gain: '52.7 L' },
-  { label: '10% annual step-up DCA',   dca: 24000, total: '1.01 Cr', invested: '45.8 L', gain: '55.2 L' },
+  { label: 'Regular DCA (no step-up)', dca: 43000, total: '$1.03 M', invested: '$516 K', gain: '$514 K' },
+  { label: '5% annual step-up DCA',    dca: 32000, total: '$1.01 M', invested: '$483 K', gain: '$527 K' },
+  { label: '10% annual step-up DCA',   dca: 24000, total: '$1.01 M', invested: '$458 K', gain: '$552 K' },
 ];
 
 const jsonLd = {
@@ -25,13 +25,13 @@ const jsonLd = {
   description: 'Exact DCA amounts needed to reach $1 Million at different return rates and tenures, with step-up DCA comparison and free calculator.',
   author: { '@type': 'Person', name: 'Rajat' },
   publisher: { '@type': 'Organization', name: 'StepupCalculator', url: 'https://stepupcalculator.com/us' },
-  url: 'https://stepupcalculator.com/us/tools/dca-to-reach-1-crore',
-  mainEntityOfPage: 'https://stepupcalculator.com/us/blog/dca-to-reach-1-crore',
+  url: 'https://stepupcalculator.com/us/tools/dca-to-reach-1-million',
+  mainEntityOfPage: 'https://stepupcalculator.com/us/blog/dca-to-reach-1-million',
 };
 
 function fmt(v) { return `$${v.toLocaleString('en-US')}`; }
 
-export default function SipTo1CrorePage() {
+export default function DcaTo1MillionPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -154,8 +154,8 @@ export default function SipTo1CrorePage() {
               <AlertTriangle className="w-4 h-4 text-[#059669] flex-shrink-0 mt-0.5" />
               <p>
                 <strong className="text-[#059669]">Disclaimer:</strong> These figures assume a constant annual return rate,
-                which real markets do not provide. Actual DCA returns vary year to year. Consult a SEBI-registered
-                financial adviser before making investment decisions.
+                which real markets do not provide. Actual DCA returns vary year to year. Consult a licensed
+                financial advisor (e.g. a CFP or RIA) before making investment decisions.
                 <Link href="/us/disclaimer" className="text-[var(--color-accent)] hover:underline ml-1">Read our full methodology →</Link>
               </p>
             </div>
@@ -170,7 +170,7 @@ export default function SipTo1CrorePage() {
                 <Calculator className="w-4 h-4" /> Step-Up DCA Calculator <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/us/target-amount-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
-                Time-to-$1Crore Calculator <ArrowRight className="w-4 h-4" />
+                Time-to-$1 Million Calculator <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

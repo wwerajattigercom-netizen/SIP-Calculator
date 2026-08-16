@@ -7,10 +7,10 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function PpfCalculatorPage() {
-  const [yearlyInvestment, setYearlyInvestment] = useState(150000);
-  const [years, setYears] = useState(15);
-  const interestRate = 7.1; // Fixed Roth IRA rate
+export default function RothIraCalculatorPage() {
+  const [yearlyInvestment, setYearlyInvestment] = useState(7000);
+  const [years, setYears] = useState(20);
+  const [annualReturn, setAnnualReturn] = useState(9);
 
   const [results, setResults] = useState({
     invested: 0,
@@ -24,14 +24,14 @@ export default function PpfCalculatorPage() {
     for (let i = 0; i < years; i++) {
       balance += yearlyInvestment;
       invested += yearlyInvestment;
-      balance += balance * (interestRate / 100);
+      balance += balance * (annualReturn / 100);
     }
     setResults({
       invested: invested,
       returns: balance - invested,
       total: balance
     });
-  }, [yearlyInvestment, years]);
+  }, [yearlyInvestment, years, annualReturn]);
 
   const chartData = {
     labels: ['Total Invested', 'Total Returns'],
@@ -94,7 +94,7 @@ export default function PpfCalculatorPage() {
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">Roth IRA Calculator</h1>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            Calculate your maturity amount and returns on your Roth IRA (Roth IRA) investment.
+            See how your Roth IRA contributions grow tax-free over time. Adjust your yearly contribution, time horizon, and expected market returns to plan your retirement.
           </p>
         </div>
 
@@ -104,11 +104,11 @@ export default function PpfCalculatorPage() {
             {/* Input Section */}
             <div className="p-6 md:p-10 space-y-8">
               <InputSlider
-                label="Yearly Investment"
+                label="Yearly Contribution"
                 value={yearlyInvestment}
                 onChange={setYearlyInvestment}
                 min={500}
-                max={150000}
+                max={7000}
                 step={500}
                 prefix="$"
                 colorTheme="navy"
@@ -118,22 +118,23 @@ export default function PpfCalculatorPage() {
                 label="Time Period (Years)"
                 value={years}
                 onChange={setYears}
-                min={15}
-                max={30}
+                min={5}
+                max={40}
                 step={1}
                 suffix=" Yr"
                 colorTheme="navy"
               />
 
-              <div className="bg-[#f8f2ea] p-5 rounded-xl border border-gray-100">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600 font-medium">Interest Rate (Fixed)</span>
-                  <span className="text-[#1F2937] font-semibold text-lg">{interestRate}%</span>
-                </div>
-                <p className="text-xs text-gray-500 mt-2">
-                  Roth IRA interest rates are set by the government and are subject to change. Current rate is ~7.1%.
-                </p>
-              </div>
+              <InputSlider
+                label="Expected Annual Return (%)"
+                value={annualReturn}
+                onChange={setAnnualReturn}
+                min={5}
+                max={15}
+                step={0.5}
+                suffix="%"
+                colorTheme="navy"
+              />
             </div>
 
             {/* Results Section */}
