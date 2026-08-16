@@ -36,7 +36,13 @@ export default function sitemap() {
     '/tools/sip-for-child-education',
     '/tools/sip-for-house-down-payment',
     '/tools/sip-during-market-crash',
-    '/tools/sip-to-reach-1-crore'
+    '/tools/sip-to-reach-1-crore',
+    '/tools/fd-vs-sip-calculator',
+    '/tools/fire-calculator',
+    '/tools/xirr-calculator',
+    '/tools/nps-calculator',
+    '/tools/ppf-calculator',
+    '/tools/buy-vs-rent-calculator'
   ];
 
   // Interactive Tools (US)

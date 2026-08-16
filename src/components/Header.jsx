@@ -47,6 +47,12 @@ export default function Header() {
     { href: isUS ? '/us/cagr-calculator' : '/cagr-calculator', label: 'CAGR Calculator', icon: TrendingUp },
     { href: isUS ? '/us/target-amount-calculator' : '/target-amount-calculator', label: 'Goal Calculator', icon: Target },
     { href: isUS ? '/us/lumpsum-calculator' : '/lumpsum-calculator', label: 'Lumpsum Calculator', icon: Layers },
+    { href: isUS ? '/us/tools/savings-vs-dca-calculator' : '/tools/fd-vs-sip-calculator', label: isUS ? 'Savings vs DCA' : 'FD vs SIP', icon: TrendingUp },
+    { href: isUS ? '/us/tools/fire-calculator' : '/tools/fire-calculator', label: 'FIRE Calculator', icon: Target },
+    { href: isUS ? '/us/tools/xirr-calculator' : '/tools/xirr-calculator', label: 'XIRR Calculator', icon: TrendingUp },
+    { href: isUS ? '/us/tools/retirement-account-calculator' : '/tools/nps-calculator', label: isUS ? '401k/IRA Calculator' : 'NPS Calculator', icon: Wallet },
+    { href: isUS ? '/us/tools/roth-ira-calculator' : '/tools/ppf-calculator', label: isUS ? 'Roth IRA Calculator' : 'PPF Calculator', icon: Wallet },
+    { href: isUS ? '/us/tools/buy-vs-rent-calculator' : '/tools/buy-vs-rent-calculator', label: 'Buy vs Rent', icon: HomeIcon },
   ];
 
   const tools = [
