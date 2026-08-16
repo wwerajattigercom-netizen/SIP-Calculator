@@ -4,8 +4,21 @@ import React, { useState, useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import InputSlider from '@/components/InputSlider';
+import Link from 'next/link';
+import { ArrowRight, HelpCircle } from 'lucide-react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What is the difference between a 401(k) and an IRA?', acceptedAnswer: { '@type': 'Answer', text: 'A 401(k) is an employer-sponsored retirement plan, meaning you can only get one if your employer offers it, and contributions are deducted directly from your paycheck. An IRA (Individual Retirement Account) is an account you open yourself at a brokerage firm.' } },
+    { '@type': 'Question', name: 'What is the contribution limit for a 401(k) in 2024?', acceptedAnswer: { '@type': 'Answer', text: 'For 2024, the employee contribution limit for a 401(k) is $23,000. If you are age 50 or older, you can make an additional catch-up contribution of $7,500.' } },
+    { '@type': 'Question', name: 'What does "employer match" mean?', acceptedAnswer: { '@type': 'Answer', text: 'Many employers offer a match on 401(k) contributions as an employee benefit. For example, they might match 100% of your contributions up to 4% of your salary. This is essentially free money and you should always try to contribute at least enough to get the full match.' } },
+    { '@type': 'Question', name: 'Can I have both a 401(k) and a Traditional IRA?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, you can contribute to both in the same year. However, if you (or your spouse) are covered by a retirement plan at work, your ability to deduct your Traditional IRA contributions on your tax return may be limited based on your income.' } }
+  ]
+};
 
 export default function RetirementAccountCalculatorPage() {
   const [monthlyContribution, setMonthlyContribution] = useState(500);
@@ -104,8 +117,9 @@ export default function RetirementAccountCalculatorPage() {
   };
 
   return (
-    <div className="min-h-screen pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <div className="min-h-screen bg-[#f8f2ea] p-4 md:p-8 font-sans">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="max-w-6xl mx-auto">
         <div className="mb-8 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">401(k) / IRA Retirement Calculator</h1>
           <p className="text-gray-500 max-w-2xl mx-auto">
@@ -221,15 +235,58 @@ export default function RetirementAccountCalculatorPage() {
           </div>
         </div>
 
-        {/* Educational content */}
-        <div className="mt-10 glass-panel p-6 md:p-8 rounded-2xl">
-          <h2 className="text-xl font-bold text-[#1F2937] mb-4">How the 4% Rule Works</h2>
-          <p className="text-gray-500 text-sm leading-relaxed">
-            The 4% Rule (Trinity Study) states that withdrawing 4% of your retirement portfolio annually has historically lasted 30+ years without depleting the principal, assuming a balanced stock/bond portfolio. For a $1 Million nest egg, that means $40,000/year or ~$3,333/month in sustainable income. The 6% rate provides more income but carries greater depletion risk over 30+ years.
-          </p>
-          <p className="text-gray-500 text-sm leading-relaxed mt-3">
-            <strong className="text-[#1B3A5C]">Formula used:</strong> Future Value = Monthly Contribution × [((1 + r)ⁿ − 1) / r] × (1 + r), where r = monthly rate and n = total months invested.
-          </p>
+        {/* SEO Educational Content Section */}
+        <div className="mt-16 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Planning Your Retirement (401k & IRA)</h2>
+            
+            <div className="space-y-6 text-gray-600 leading-relaxed">
+                <p>
+                    Building a secure retirement requires consistent saving and taking advantage of tax-advantaged accounts like <strong>401(k)s and IRAs</strong>. These accounts allow your money to grow either tax-deferred (Traditional) or tax-free (Roth), saving you significant amounts of money over a lifetime of investing.
+                </p>
+
+                <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">The Power of the 4% Rule</h3>
+                <p>
+                    The <strong>4% Rule</strong> (based on the Trinity Study) states that withdrawing 4% of your retirement portfolio annually has historically lasted 30+ years without depleting the principal, assuming a balanced stock/bond portfolio. For a $1 Million nest egg, that means $40,000/year (or ~$3,333/month) in sustainable income. 
+                </p>
+
+                <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">401(k) vs IRA: Which should you fund first?</h3>
+                <p>
+                    A common and highly effective strategy is the <strong>Match-Roth-Max</strong> strategy:
+                </p>
+                <ol className="list-decimal ml-6 space-y-2 mt-2">
+                    <li><strong>Match:</strong> First, contribute enough to your 401(k) to get the full employer match. This is free money and offers a 100% immediate return on investment.</li>
+                    <li><strong>Roth:</strong> Next, max out a Roth IRA (up to the $7,000 limit in 2024). Roth IRAs offer superior flexibility and tax-free growth, and you have access to a wider range of investment options than a typical 401(k).</li>
+                    <li><strong>Max:</strong> Finally, if you still have money to save, go back and max out the rest of your 401(k) up to the $23,000 limit.</li>
+                </ol>
+            </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+            <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+                {jsonLd.mainEntity.map((faq, i) => (
+                    <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
+                        <h3 className="text-foreground font-medium text-base flex items-start gap-2">
+                            <HelpCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                        </h3>
+                        <p className="text-gray-500 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        {/* Cross Links */}
+        <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
+            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/us/tools/roth-ira-calculator" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                    Roth IRA Calculator <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                    Savings vs Investing
+                </Link>
+            </div>
         </div>
       </div>
     </div>

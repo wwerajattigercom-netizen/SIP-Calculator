@@ -14,6 +14,8 @@ import {
   Filler
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import Link from 'next/link';
+import { ArrowRight, HelpCircle } from 'lucide-react';
 
 ChartJS.register(
   CategoryScale,
@@ -25,6 +27,17 @@ ChartJS.register(
   Legend,
   Filler
 );
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Is it always better to buy a house than to rent?', acceptedAnswer: { '@type': 'Answer', text: 'No. The decision depends heavily on how long you plan to stay in the home, the local housing market, and interest rates. Buying involves significant sunk costs (closing costs, maintenance, property taxes, interest) that can outweigh the equity gained if you move within 5-7 years.' } },
+    { '@type': 'Question', name: 'What is the opportunity cost of a down payment?', acceptedAnswer: { '@type': 'Answer', text: 'When you put 20% down on a house, that money is tied up in the home. If you had rented instead and invested that same 20% down payment into an S&P 500 index fund, it would likely compound at 8-10% annually. This lost investment growth is the opportunity cost of buying.' } },
+    { '@type': 'Question', name: 'How do property taxes and maintenance affect the Buy vs Rent calculation?', acceptedAnswer: { '@type': 'Answer', text: 'Property taxes and maintenance are ongoing, unrecoverable costs of homeownership. They typically average 1-2% of the home\'s value annually. In a Buy vs Rent calculation, these costs must be subtracted from the total equity gained to find your true net worth.' } },
+    { '@type': 'Question', name: 'What is the 5% Rule in real estate?', acceptedAnswer: { '@type': 'Answer', text: 'The 5% Rule is a quick rule of thumb for estimating the unrecoverable costs of homeownership. It estimates that property tax (1%), maintenance (1%), and cost of capital/interest (3%) will cost about 5% of the home\'s value each year. If your annual rent is less than 5% of the home\'s value, renting may be better financially.' } }
+  ]
+};
 
 export default function BuyVsRentPage() {
   const [propertyValue, setPropertyValue] = useState(400000);
@@ -175,7 +188,9 @@ export default function BuyVsRentPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
+    <div className="min-h-screen bg-[#f8f2ea] p-4 md:p-8 font-sans">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="max-w-7xl mx-auto">
       <div className="mb-8 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
           Buy vs Rent Calculator
@@ -313,6 +328,60 @@ export default function BuyVsRentPage() {
           </div>
         </div>
       </div>
+
+      {/* SEO Educational Content Section */}
+      <div className="mt-16 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1F2937] mb-6">The Buy vs. Rent Dilemma</h2>
+          
+          <div className="space-y-6 text-gray-600 leading-relaxed">
+              <p>
+                  The phrase <em>&quot;renting is throwing money away&quot;</em> is one of the most pervasive myths in personal finance. In reality, both buying and renting involve throwing money away on <strong>unrecoverable costs</strong>. For renters, the unrecoverable cost is rent. For buyers, the unrecoverable costs are mortgage interest, property taxes, maintenance, HOA fees, and closing costs.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">The Opportunity Cost of Buying</h3>
+              <p>
+                  When you buy a house, you tie up a significant amount of cash in a down payment and closing costs. If you had rented instead, you could have invested that money in the stock market (e.g., an S&P 500 index fund) and earned a historical average return of roughly 10% annually. 
+              </p>
+              <p>
+                  Furthermore, if your monthly mortgage payment (including taxes and insurance) is higher than your monthly rent would have been, a disciplined renter can invest that difference every single month. Over 20 or 30 years, this invested difference can grow into a massive portfolio that rivals or beats the equity built in a home.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">When Buying Makes Sense</h3>
+              <p>
+                  Buying a home generally becomes the superior financial choice if you plan to stay in the home for a long time (typically 7-10 years or more). The longer you stay, the more the amortization schedule shifts in your favor (you pay more principal and less interest), and the more time your home&apos;s value has to appreciate and offset the initial closing costs.
+              </p>
+          </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+          <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+              {jsonLd.mainEntity.map((faq, i) => (
+                  <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
+                      <h3 className="text-foreground font-medium text-base flex items-start gap-2">
+                          <HelpCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                      </h3>
+                      <p className="text-gray-500 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                  </div>
+              ))}
+          </div>
+      </div>
+
+      {/* Cross Links */}
+      <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
+          <h2 className="text-xl font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/us/tools/dca-for-house-down-payment" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                  Down Payment Calculator <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                  Savings vs Investing
+              </Link>
+          </div>
+      </div>
+
+    </div>
     </div>
   );
 }

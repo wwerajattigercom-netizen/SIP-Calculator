@@ -4,8 +4,21 @@ import React, { useState, useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import InputSlider from '@/components/InputSlider';
+import Link from 'next/link';
+import { ArrowRight, HelpCircle } from 'lucide-react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What does FIRE stand for?', acceptedAnswer: { '@type': 'Answer', text: 'FIRE stands for Financial Independence, Retire Early. It is a movement dedicated to extreme savings and investment that allows proponents to retire far earlier than traditional budgets and retirement plans would allow.' } },
+    { '@type': 'Question', name: 'Is the 4% rule still safe?', acceptedAnswer: { '@type': 'Answer', text: 'The 4% rule (based on the Trinity Study) suggests you can safely withdraw 4% of your portfolio in the first year of retirement, adjusted for inflation subsequently, for 30 years. For extreme early retirees (40+ year horizons), many prefer a more conservative 3.25% to 3.5% safe withdrawal rate.' } },
+    { '@type': 'Question', name: 'Do I need to account for taxes in my FIRE number?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. The expenses you input into the FIRE calculator should include estimated taxes you will pay on withdrawals from pre-tax accounts (like a Traditional 401k) or taxable brokerage accounts. Roth IRA withdrawals are tax-free.' } },
+    { '@type': 'Question', name: 'How does inflation affect my FIRE corpus?', acceptedAnswer: { '@type': 'Answer', text: 'The standard FIRE calculation (Expenses / SWR) gives you your target corpus in *today’s dollars*. As you save toward this goal over time, you must increase your target corpus annually to account for inflation, which is why having an expected return rate well above inflation is critical.' } }
+  ]
+};
 
 export default function FireCalculatorPage() {
     const [annualExpenses, setAnnualExpenses] = useState(60000);
@@ -71,6 +84,7 @@ export default function FireCalculatorPage() {
 
     return (
         <div className="min-h-screen bg-[#f8f2ea] p-4 md:p-8 font-sans">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">FIRE Calculator</h1>
@@ -145,7 +159,7 @@ export default function FireCalculatorPage() {
 
                     {/* Results Section */}
                     <div className="lg:col-span-5 space-y-6">
-                        <div className="glass-panel p-6 rounded-2xl bg-[#1B3A5C] text-white shadow-xl">
+                        <div className="p-6 rounded-2xl bg-[#1B3A5C] text-white shadow-xl">
                             <h3 className="text-lg font-medium opacity-90 mb-2">Target FIRE Corpus</h3>
                             <div className="text-4xl font-bold mb-4">{formatCurrency(results.targetCorpus)}</div>
                             <div className="pt-4 border-t border-white/20">
@@ -195,8 +209,61 @@ export default function FireCalculatorPage() {
                             </div>
                         </div>
                     </div>
+
+                {/* SEO Educational Content Section */}
+                <div className="mt-16 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 max-w-4xl mx-auto">
+                    <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Mastering the FIRE Movement</h2>
+                    
+                    <div className="space-y-6 text-gray-600 leading-relaxed">
+                        <p>
+                            <strong>Financial Independence, Retire Early (FIRE)</strong> is more than just a financial goal—it&apos;s a lifestyle shift. By aggressively saving a high percentage of your income (often 50% or more) and investing it in low-cost index funds, you can build a massive portfolio that sustains your living expenses indefinitely.
+                        </p>
+
+                        <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">The Math Behind FIRE: The 4% Rule</h3>
+                        <p>
+                            The foundation of FIRE is the <em>4% Rule</em>, derived from the famous Trinity Study. It states that if you withdraw 4% of your total portfolio value in your first year of retirement, and adjust that amount for inflation each subsequent year, your portfolio is highly likely to last for at least 30 years without running out. 
+                        </p>
+                        <p>
+                            To find your FIRE number, simply divide your annual expenses by your Safe Withdrawal Rate (SWR). For a 4% SWR, this is equivalent to multiplying your annual expenses by 25. If you spend $60,000 a year, you need $1.5 million to retire ($60,000 × 25).
+                        </p>
+
+                        <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">Adjusting for Extreme Early Retirement</h3>
+                        <p>
+                            If you plan to retire in your 30s or 40s, your money needs to last 40 to 50 years, not just 30. Because of this longer time horizon, many FIRE practitioners opt for a more conservative SWR of <strong>3.25% to 3.5%</strong>. This increases the required target corpus but provides a significantly higher margin of safety against prolonged market downturns.
+                        </p>
+                    </div>
                 </div>
+
+                {/* FAQ Section */}
+                <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+                    <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Frequently Asked Questions</h2>
+                    <div className="space-y-4">
+                        {jsonLd.mainEntity.map((faq, i) => (
+                            <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
+                                <h3 className="text-foreground font-medium text-base flex items-start gap-2">
+                                    <HelpCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                                </h3>
+                                <p className="text-gray-500 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Cross Links */}
+                <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
+                    <h2 className="text-xl font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                            Savings vs DCA <ArrowRight className="w-4 h-4" />
+                        </Link>
+                        <Link href="/us/tools/roth-ira-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                            Roth IRA Calculator
+                        </Link>
+                    </div>
+                </div>
+
             </div>
+        </div>
         </div>
     );
 }

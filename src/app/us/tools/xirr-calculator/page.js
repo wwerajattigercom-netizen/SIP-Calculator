@@ -1,9 +1,21 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Plus, Trash2, Calculator, Info } from 'lucide-react';
+import { Plus, Trash2, Calculator, Info, ArrowRight, HelpCircle } from 'lucide-react';
+import Link from 'next/link';
 
 // XIRR Calculation logic
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What is XIRR?', acceptedAnswer: { '@type': 'Answer', text: 'XIRR stands for Extended Internal Rate of Return. It is a metric used to calculate the annualized return of an investment when cash flows (deposits and withdrawals) occur at irregular intervals.' } },
+    { '@type': 'Question', name: 'How is XIRR different from CAGR?', acceptedAnswer: { '@type': 'Answer', text: 'CAGR (Compound Annual Growth Rate) measures the return of a single lump-sum investment over a period of time. XIRR is used when you make multiple investments or withdrawals at different times (like a monthly DCA or SIP). XIRR accounts for the specific dates of every transaction.' } },
+    { '@type': 'Question', name: 'Why are my investments entered as negative numbers?', acceptedAnswer: { '@type': 'Answer', text: 'In financial calculations like XIRR, cash flow direction matters. Money leaving your pocket (investments or deposits) is considered a negative cash flow. Money coming back to you (current valuation or withdrawals) is a positive cash flow.' } },
+    { '@type': 'Question', name: 'What is a good XIRR?', acceptedAnswer: { '@type': 'Answer', text: 'A "good" XIRR depends on the asset class. Historically, a diversified US stock market portfolio (like the S&P 500) has returned roughly 9-10% annualized over the long term. If your portfolio XIRR over 5-10 years is close to or beats that benchmark, you are doing very well.' } }
+  ]
+};
 const xnpv = (rate, cashFlows) => {
   return cashFlows.reduce((acc, curr) => {
     const timeDiff = (curr.date - cashFlows[0].date) / (1000 * 3600 * 24 * 365);
@@ -101,8 +113,9 @@ export default function XirrCalculatorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f2ea] p-4 md:p-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-[#f8f2ea] p-4 md:p-8 font-sans">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] text-center mb-8">Mutual Fund XIRR Calculator</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -213,6 +226,61 @@ export default function XirrCalculatorPage() {
           </div>
         </div>
       </div>
+
+      {/* SEO Educational Content Section */}
+      <div className="mt-16 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Understanding XIRR in Investing</h2>
+          
+          <div className="space-y-6 text-gray-600 leading-relaxed">
+              <p>
+                  When you invest in the stock market, you rarely just drop a lump sum into an account and never touch it again. Most people invest a little bit from every paycheck, make occasional bonus deposits, and sometimes withdraw money for large purchases. Because these cash flows happen at <strong>irregular intervals</strong>, standard return metrics like absolute return or CAGR are wildly inaccurate.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">Why XIRR is the Gold Standard</h3>
+              <p>
+                  <strong>Extended Internal Rate of Return (XIRR)</strong> is the most accurate way to measure the performance of a real-world portfolio. It assigns a specific "weight" to each dollar based on exactly how long that dollar has been invested in the market.
+              </p>
+              <p>
+                  For example, if you invested $1,000 ten years ago, and $1,000 yesterday, your total investment is $2,000. If your portfolio is worth $3,000 today, an absolute return calculation would say you made 50%. But that ignores the fact that half of your money has only been in the market for one day! XIRR solves this by acting like a personalized, time-weighted CAGR.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">How to use this Calculator</h3>
+              <ol className="list-decimal ml-6 space-y-2 mt-2">
+                  <li>Enter all your deposits as <strong>Negative amounts</strong> (money leaving your bank account).</li>
+                  <li>Enter any withdrawals you made as <strong>Positive amounts</strong>.</li>
+                  <li>Add a final row with today&apos;s date and the <strong>current total value</strong> of your portfolio as a Positive amount.</li>
+              </ol>
+          </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+          <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+              {jsonLd.mainEntity.map((faq, i) => (
+                  <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
+                      <h3 className="text-foreground font-medium text-base flex items-start gap-2">
+                          <HelpCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                      </h3>
+                      <p className="text-gray-500 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                  </div>
+              ))}
+          </div>
+      </div>
+
+      {/* Cross Links */}
+      <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
+          <h2 className="text-xl font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/us/blog/cagr-vs-xirr-vs-absolute-return" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                  CAGR vs XIRR Guide <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/us/cagr-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                  CAGR Calculator
+              </Link>
+          </div>
+      </div>
+
     </div>
   );
 }
