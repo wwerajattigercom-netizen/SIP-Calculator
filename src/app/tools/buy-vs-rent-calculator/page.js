@@ -148,7 +148,7 @@ export default function BuyVsRentPage() {
       legend: {
         position: 'top',
         labels: {
-          color: '#1F2937',
+          color: '#8B95A5',
           usePointStyle: true,
           padding: 20
         }
@@ -164,7 +164,7 @@ export default function BuyVsRentPage() {
     scales: {
       y: {
         ticks: {
-          color: '#6B7280',
+          color: '#8B95A5',
           callback: function(value) {
             if (value >= 10000000) return '₹' + (value / 10000000).toFixed(1) + 'Cr';
             if (value >= 100000) return '₹' + (value / 100000).toFixed(1) + 'L';
@@ -172,12 +172,12 @@ export default function BuyVsRentPage() {
           }
         },
         grid: {
-          color: 'rgba(27,58,92,0.05)'
+          color: 'rgba(139,149,165,0.1)'
         }
       },
       x: {
         ticks: {
-          color: '#6B7280',
+          color: '#8B95A5',
           maxTicksLimit: 10
         },
         grid: {

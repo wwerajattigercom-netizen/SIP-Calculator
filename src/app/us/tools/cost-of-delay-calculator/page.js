@@ -225,8 +225,8 @@ export default function CostOfDelayCalculatorPage() {
       tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: $${ctx.raw.toLocaleString('en-US')}` } },
     },
     scales: {
-      x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280', maxTicksLimit: 6 } },
-      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280', callback: (v) => v >= 1e6 ? `$${(v/1e6).toFixed(1)}M` : `$${(v/1e3).toFixed(0)}K` } },
+      x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#8B95A5', maxTicksLimit: 6 } },
+      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#8B95A5', callback: (v) => v >= 1e6 ? `$${(v/1e6).toFixed(1)}M` : `$${(v/1e3).toFixed(0)}K` } },
     },
   };
 

@@ -92,7 +92,7 @@ export default function NpsCalculatorPage() {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#1F2937',
+          color: '#8B95A5',
           usePointStyle: true,
           padding: 20,
           font: {

@@ -346,16 +346,16 @@ export default function SipDuringCrashPage() {
                         y: {
                           border: { display: false },
                           grid: { color: 'rgba(0,0,0,0.03)' },
-                          ticks: { color: '#6B7280', callback: (v) => fmt(v) },
+                          ticks: { color: '#8B95A5', callback: (v) => fmt(v) },
                         },
                         x: {
                           border: { display: false },
                           grid: { display: false },
-                          ticks: { color: '#6B7280' },
+                          ticks: { color: '#8B95A5' },
                         },
                       },
                       plugins: {
-                        legend: { labels: { color: '#1F2937', usePointStyle: true, boxWidth: 6 } },
+                        legend: { labels: { color: '#8B95A5', usePointStyle: true, boxWidth: 6 } },
                         tooltip: {
                           backgroundColor: '#1F2937',
                           titleColor: '#F3F4F6',
@@ -382,7 +382,7 @@ export default function SipDuringCrashPage() {
                         y: {
                           border: { display: false },
                           grid: { color: 'rgba(0,0,0,0.04)' },
-                          ticks: { color: '#6B7280', font: { size: 10 } },
+                          ticks: { color: '#8B95A5', font: { size: 10 } },
                         },
                         x: {
                           border: { display: false },

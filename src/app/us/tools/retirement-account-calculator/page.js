@@ -94,7 +94,7 @@ export default function RetirementAccountCalculatorPage() {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#1F2937',
+          color: '#8B95A5',
           padding: 16,
           font: { family: "'Inter', sans-serif", size: 13 }
         }

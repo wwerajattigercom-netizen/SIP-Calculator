@@ -64,7 +64,7 @@ export default function PpfCalculatorPage() {
       legend: {
         position: 'bottom',
         labels: {
-          color: '#1F2937',
+          color: '#8B95A5',
           padding: 20,
           font: {
             family: "'Inter', sans-serif",

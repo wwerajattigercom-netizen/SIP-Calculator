@@ -367,16 +367,16 @@ export default function SipVsLumpsumPage() {
                         y: {
                           border: { display: false },
                           grid: { color: 'rgba(0,0,0,0.03)' },
-                          ticks: { color: '#6B7280', callback: (v) => formatToShortWords(v) },
+                          ticks: { color: '#8B95A5', callback: (v) => formatToShortWords(v) },
                         },
                         x: {
                           border: { display: false },
                           grid: { display: false },
-                          ticks: { color: '#6B7280' },
+                          ticks: { color: '#8B95A5' },
                         },
                       },
                       plugins: {
-                        legend: { labels: { color: '#1F2937', usePointStyle: true, boxWidth: 6 } },
+                        legend: { labels: { color: '#8B95A5', usePointStyle: true, boxWidth: 6 } },
                         tooltip: {
                           backgroundColor: '#1F2937',
                           titleColor: '#F3F4F6',

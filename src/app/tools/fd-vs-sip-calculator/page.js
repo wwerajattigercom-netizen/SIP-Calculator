@@ -105,7 +105,7 @@ export default function FdVsSipPage() {
       legend: {
         position: 'top',
         labels: {
-          color: '#1F2937',
+          color: '#8B95A5',
           usePointStyle: true,
           boxWidth: 8,
         },
@@ -133,16 +133,16 @@ export default function FdVsSipPage() {
           display: false,
         },
         ticks: {
-          color: '#6B7280',
+          color: '#8B95A5',
           maxTicksLimit: 8,
         },
       },
       y: {
         grid: {
-          color: 'rgba(27,58,92,0.05)',
+          color: 'rgba(139,149,165,0.1)',
         },
         ticks: {
-          color: '#6B7280',
+          color: '#8B95A5',
           callback: (value) => {
             if (value >= 10000000) return `₹${(value / 10000000).toFixed(1)}Cr`;
             if (value >= 100000) return `₹${(value / 100000).toFixed(1)}L`;
