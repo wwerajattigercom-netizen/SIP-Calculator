@@ -149,7 +149,7 @@ export default function LumpsumCalculatorPage() {
     labels: ['Invested Amount', 'Est. Returns'],
     datasets: [{
       data: [principal, gain],
-      backgroundColor: ['#1B3A5C', '#C4993C'],
+      backgroundColor: ['var(--color-accent)', '#C4993C'],
       borderColor: ['transparent', 'transparent'], borderWidth: 0,
       borderWidth: 4,
       hoverOffset: 4,

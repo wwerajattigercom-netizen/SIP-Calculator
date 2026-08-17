@@ -81,7 +81,7 @@ export default function RetirementAccountCalculatorPage() {
     datasets: [
       {
         data: [totalInvested, totalGains > 0 ? totalGains : 0],
-        backgroundColor: ['#1B3A5C', '#C4993C'],
+        backgroundColor: ['var(--color-accent)', '#C4993C'],
         borderWidth: 0,
       },
     ],

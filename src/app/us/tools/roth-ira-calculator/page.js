@@ -51,7 +51,7 @@ export default function RothIraCalculatorPage() {
     datasets: [
       {
         data: [results.invested, results.returns],
-        backgroundColor: ['#1B3A5C', '#C4993C'],
+        backgroundColor: ['var(--color-accent)', '#C4993C'],
         borderWidth: 0,
       },
     ],
