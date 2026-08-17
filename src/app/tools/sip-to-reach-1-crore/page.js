@@ -166,7 +166,7 @@ export default function SipTo1CrorePage() {
             <h2 className="text-lg font-bold text-foreground mb-2">Calculate Your Exact SIP Amount</h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Use our free interactive calculators to get precise projections with step-up, inflation, and lump sum.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 <Calculator className="w-4 h-4" /> Step-Up SIP Calculator <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/target-amount-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">

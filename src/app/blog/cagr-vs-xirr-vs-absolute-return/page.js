@@ -157,7 +157,7 @@ export default function CAGRvsXIRRPage() {
               The most common mistake amateur investors make is comparing the XIRR of their 2-year old SIP against the 10-year CAGR of a mutual fund shown on Google. This is like comparing your marathon pace to a sprinter's 100m dash.
             </p>
             
-            <div className="bg-[rgba(27,58,92,0.05)] border-l-4 border-[#1B3A5C] p-5 rounded-r-xl mb-6">
+            <div className="bg-[rgba(27,58,92,0.05)] border-l-4 border-[var(--color-accent)] p-5 rounded-r-xl mb-6">
               <h3 className="font-bold text-[var(--color-accent)] dark:text-white mb-2">The Timing Problem</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                 CAGR assumes your entire capital was invested on Day 1. But in a SIP, you invest in monthly tranches. 
@@ -217,7 +217,7 @@ export default function CAGRvsXIRRPage() {
             <h2 className="text-2xl font-bold text-foreground mb-3">Calculate True Returns on Your Portfolio</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto">Stop guessing your actual wealth growth. Use our free advanced calculators to measure exact CAGR and project future SIP wealth.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/cagr-calculator" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
+              <Link href="/cagr-calculator" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
                 <TrendingUp className="w-5 h-5" /> Calculate CAGR
               </Link>
               <Link href="/" className="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-accent)]/20 text-[var(--color-accent)] hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white px-6 py-3 rounded-xl font-semibold transition-all">

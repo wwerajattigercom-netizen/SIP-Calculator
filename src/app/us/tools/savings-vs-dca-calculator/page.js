@@ -67,8 +67,8 @@ export default function SavingsVsDcaPage() {
           {
             label: 'DCA Value',
             data: dcaData,
-            borderColor: '#1B3A5C',
-            backgroundColor: '#1B3A5C',
+            borderColor: 'var(--color-accent)',
+            backgroundColor: 'var(--color-accent)',
             borderWidth: 2,
             pointRadius: 0,
             pointHitRadius: 10,
@@ -220,13 +220,13 @@ export default function SavingsVsDcaPage() {
         <div className="lg:col-span-7 space-y-8">
           <div className="glass-panel p-6 sm:p-8 rounded-2xl bg-[var(--background)]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-              <div className="p-4 rounded-xl bg-white/50 border border-[var(--panel-border)]">
+              <div className="p-4 rounded-xl bg-[var(--background)] border border-[var(--panel-border)]">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Total Invested</p>
                 <p className="text-2xl font-bold text-[var(--color-accent)]">
                   {formatCurrency(totalInvested)}
                 </p>
               </div>
-              <div className="p-4 rounded-xl bg-[#1B3A5C] text-white shadow-lg">
+              <div className="p-4 rounded-xl bg-[var(--color-accent)] text-white shadow-lg">
                 <p className="text-sm text-white/80 mb-1">Extra Wealth via DCA</p>
                 <p className="text-2xl font-bold text-white">
                   {formatCurrency(extraWealth)}
@@ -235,7 +235,7 @@ export default function SavingsVsDcaPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-              <div className="p-4 rounded-xl bg-white/50 border border-[var(--panel-border)]">
+              <div className="p-4 rounded-xl bg-[var(--background)] border border-[var(--panel-border)]">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1 flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-[#C4993C]"></span>
                   Savings Total Value
@@ -247,9 +247,9 @@ export default function SavingsVsDcaPage() {
                   +{formatCurrency(fdTotal - totalInvested)} gains
                 </p>
               </div>
-              <div className="p-4 rounded-xl bg-white/50 border border-[var(--panel-border)]">
+              <div className="p-4 rounded-xl bg-[var(--background)] border border-[var(--panel-border)]">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1 flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#1B3A5C]"></span>
+                  <span className="w-3 h-3 rounded-full bg-[var(--color-accent)]"></span>
                   DCA Total Value
                 </p>
                 <p className="text-2xl font-bold text-[var(--foreground)]">

@@ -100,7 +100,7 @@ export default function SipForChildEducationPage() {
           {
             label: 'Total Invested',
             data: investedData,
-            backgroundColor: '#1B3A5C',
+            backgroundColor: 'var(--color-accent)',
           },
           {
             label: 'Estimated Gains',
@@ -388,7 +388,7 @@ export default function SipForChildEducationPage() {
           <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)]">
             <h2 className="text-lg font-bold text-foreground mb-4">Explore More Tools</h2>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 Main SIP Calculator <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/blog/retirement-sip-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">

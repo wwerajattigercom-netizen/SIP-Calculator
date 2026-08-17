@@ -22,7 +22,7 @@ export default function UlipPage() {
               Never mix insurance and investment. Insurance agents love to sell ULIPs because of the massive commissions, pitching them as "the best of both worlds." In reality, they are often the worst of both. Here is the mathematical truth of why pure Mutual Fund SIPs easily beat ULIPs over the long term.
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
                 R
               </div>
               <div>
@@ -124,7 +124,7 @@ export default function UlipPage() {
               The golden rule of personal finance is simple: <strong>Never mix insurance with investment.</strong> Buy a pure Term Insurance policy for protection, and use pure Mutual Fund SIPs for wealth creation.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/" className="inline-flex items-center justify-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
+              <Link href="/" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
                 <Calculator className="w-5 h-5" /> See How Fast a SIP Grows
               </Link>
             </div>

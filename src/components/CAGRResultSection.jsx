@@ -33,8 +33,8 @@ export default function CAGRResultSection({ results }) {
     : [initialInvestment, Math.max(0, absoluteGain)];
 
   const pieColors = monthlySip > 0
-    ? ['#1B3A5C', '#325C8C', '#C4993C']
-    : ['#1B3A5C', '#C4993C'];
+    ? ['var(--color-accent)', '#325C8C', '#C4993C']
+    : ['var(--color-accent)', '#C4993C'];
 
   const pieData = {
     labels: pieLabels,
@@ -74,7 +74,7 @@ export default function CAGRResultSection({ results }) {
         <div
           className="inline-flex items-center gap-2 px-5 py-2 rounded-full font-black text-2xl"
           style={{
-            background: `#FFFFFF`,border: `1.5px solid ${cagrColor}`,color:      cagrColor,
+            background: `var(--panel-bg)`,border: `1.5px solid ${cagrColor}`,color:      cagrColor,
             }}
         >
           <TrendingUp className="w-5 h-5" />

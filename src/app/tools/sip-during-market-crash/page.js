@@ -138,7 +138,7 @@ export default function SipDuringCrashPage() {
           {
             label: 'Continued SIP',
             data: valueAData,
-            borderColor: '#1B3A5C',
+            borderColor: 'var(--color-accent)',
             backgroundColor: 'rgba(27,58,92,0.08)',
             borderWidth: 2.5,
             pointRadius: 0,
@@ -516,7 +516,7 @@ export default function SipDuringCrashPage() {
           <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(153,27,27,0.1)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-foreground mb-4">Explore More Strategies</h2>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/blog/sip-vs-lumpsum" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/blog/sip-vs-lumpsum" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 SIP vs Lumpsum <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">

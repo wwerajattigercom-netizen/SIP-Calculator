@@ -13,6 +13,7 @@
   --color-returns:  #0D9488;
   --color-loss:     #991B1B;
   --color-accent:   #1B3A5C;
+  --color-accent-hover: #112740;
   --header-h:       52px;
 }
 
@@ -25,6 +26,7 @@
   --color-returns:  #10B981;
   --color-loss:     #EF4444;
   --color-accent:   #3B82F6;
+  --color-accent-hover: #2563EB;
   --header-h:       52px;
 }
 

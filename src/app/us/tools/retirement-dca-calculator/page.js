@@ -299,7 +299,7 @@ export default function RetirementSipCalculatorPage() {
             <h2 className="text-lg font-bold text-foreground mb-2">Want to Reach Your Goal Faster?</h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Explore Step-up DCA to start with a lower amount and increase it annually.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/us/dca-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm">
+              <Link href="/us/dca-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm">
                 <Calculator className="w-4 h-4" /> Step-Up DCA Calculator <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/us/tools/dca-to-reach-1-million" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">

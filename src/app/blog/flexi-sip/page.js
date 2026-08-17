@@ -133,7 +133,7 @@ export default function FlexiSipPage() {
             <h2 className="text-2xl font-bold text-foreground mb-3">See the Math Behind the Strategy</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto">Want to know exactly how much wealth you could build by buying the dip during a market crash? Use our crash simulator.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/blog/sip-during-market-crash" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
+              <Link href="/blog/sip-during-market-crash" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
                 <TrendingDown className="w-5 h-5" /> Open Market Crash Simulator
               </Link>
             </div>

@@ -167,8 +167,8 @@ export default function SWPCalculatorPage() {
     labels: ['Total Withdrawn', 'Remaining Corpus'],
     datasets: [{
       data: [totalWithdrawn, finalRemaining],
-      backgroundColor: ['#1B3A5C', '#C4993C'],
-      borderColor: ['#FFFFFF', '#FFFFFF'],
+      backgroundColor: ['var(--color-accent)', '#C4993C'],
+      borderColor: ['transparent', 'transparent'], borderWidth: 0,
       borderWidth: 4,
       hoverOffset: 4,
     }],
@@ -185,7 +185,7 @@ export default function SWPCalculatorPage() {
   const lineData = {
     labels: yearlyData.map(d => `Yr ${d.year}`),
     datasets: [
-      { label: 'Corpus Balance', data: yearlyData.map(d => d.balance), borderColor: '#1B3A5C', backgroundColor: 'transparent', tension: 0.4, pointRadius: 0, pointHitRadius: 10, fill: false },
+      { label: 'Corpus Balance', data: yearlyData.map(d => d.balance), borderColor: 'var(--color-accent)', backgroundColor: 'transparent', tension: 0.4, pointRadius: 0, pointHitRadius: 10, fill: false },
     ],
   };
   const lineOptions = {

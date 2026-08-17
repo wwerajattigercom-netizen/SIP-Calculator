@@ -33,7 +33,7 @@ import { formatCurrency, formatToShortWords } from '../utils/formatters';
 function speedColor(idx, total, isDark) {
   if (idx === 0) return { bg: isDark ? 'rgba(196,153,60,0.2)' : 'rgba(196,153,60,0.15)', border: 'rgba(196,153,60,0.4)', text: '#fb923c' };
   if (idx === total - 1) return { bg: isDark ? 'rgba(16,185,129,0.2)' : 'rgba(13,148,136,0.15)', border: 'rgba(13,148,136,0.4)', text: '#4ade80' };
-  return { bg: isDark ? 'rgba(59,130,246,0.2)' : 'rgba(27,58,92,0.15)', border: isDark ? 'rgba(59,130,246,0.4)' : 'rgba(27,58,92,0.4)', text: isDark ? '#60A5FA' : '#1B3A5C' };
+  return { bg: isDark ? 'rgba(59,130,246,0.2)' : 'rgba(27,58,92,0.15)', border: isDark ? 'rgba(59,130,246,0.4)' : 'rgba(27,58,92,0.4)', text: isDark ? '#60A5FA' : 'var(--color-accent)' };
 }
 
 export default function ChartComponent({ results }) {
@@ -46,7 +46,7 @@ export default function ChartComponent({ results }) {
   const currentTheme = theme === 'system' ? systemTheme : theme;
   const isDark = mounted && currentTheme === 'dark';
 
-  const colorInvested = isDark ? '#3B82F6' : '#1B3A5C';
+  const colorInvested = isDark ? '#3B82F6' : 'var(--color-accent)';
   const colorReturns = '#C4993C';
   const colorGrid = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
   const colorText = isDark ? '#9CA3AF' : '#6B7280';
@@ -57,7 +57,7 @@ export default function ChartComponent({ results }) {
       {
         data: [results.totalInvested, results.amountEarned],
         backgroundColor: [colorInvested, colorReturns],
-        borderColor: isDark ? ['#242427', '#242427'] : ['#FFFFFF', '#FFFFFF'],
+        borderColor: 'transparent', borderWidth: 0,
         borderWidth: 4,
         hoverOffset: 4,
       },

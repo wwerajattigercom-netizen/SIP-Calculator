@@ -67,7 +67,7 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
                         style={{
                           width: `${progress}%`,
                           background: isGoalYear
-                            ? '#1B3A5C'
+                            ? 'var(--color-accent)'
                             : isGoalCrossed
                             ? '#0D9488'
                             : `linear-gradient(90deg, #1B3A5C, #1B3A5C)`,

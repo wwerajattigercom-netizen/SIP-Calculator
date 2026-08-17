@@ -149,8 +149,8 @@ export default function LumpsumCalculatorPage() {
     labels: ['Invested Amount', 'Est. Returns'],
     datasets: [{
       data: [principal, gain],
-      backgroundColor: ['#1B3A5C', '#C4993C'],
-      borderColor: ['#FFFFFF', '#FFFFFF'],
+      backgroundColor: ['var(--color-accent)', '#C4993C'],
+      borderColor: ['transparent', 'transparent'], borderWidth: 0,
       borderWidth: 4,
       hoverOffset: 4,
     }],
@@ -167,7 +167,7 @@ export default function LumpsumCalculatorPage() {
   const lineData = {
     labels: yearlyData.map(d => `Yr ${d.year}`),
     datasets: [
-      { label: 'Invested', data: yearlyData.map(d => d.invested), borderColor: '#1B3A5C', backgroundColor: '#1B3A5C', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
+      { label: 'Invested', data: yearlyData.map(d => d.invested), borderColor: 'var(--color-accent)', backgroundColor: 'var(--color-accent)', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
       { label: 'Wealth Value', data: yearlyData.map(d => d.value), borderColor: '#C4993C', backgroundColor: '#C4993C', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
     ],
   };

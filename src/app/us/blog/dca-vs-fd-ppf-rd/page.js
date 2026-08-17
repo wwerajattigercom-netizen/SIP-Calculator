@@ -26,7 +26,7 @@ function toLabel(v) {
 const FAQItem = ({ q, a }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-gray-200 rounded-lg bg-[var(--panel-bg)] overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <div className="border border-[var(--panel-border)] rounded-lg bg-[var(--panel-bg)] overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
@@ -85,7 +85,7 @@ export default function SipVsFdPpfRd() {
           '#9CA3AF', // Gray for invested
           '#60A5FA', // Light blue for HYSA
           '#C4993C', // Gold for 401(k)
-          '#1B3A5C', // Navy for DCA
+          'var(--color-accent)', // Navy for DCA
         ],
         borderRadius: 6,
         borderWidth: 0,

@@ -185,7 +185,7 @@ export default function SipVsLumpsumPage() {
           {
             label: 'DCA Value',
             data: sipData,
-            borderColor: '#1B3A5C',
+            borderColor: 'var(--color-accent)',
             backgroundColor: 'rgba(27,58,92,0.08)',
             borderWidth: 2.5,
             pointRadius: 0,
@@ -346,7 +346,7 @@ export default function SipVsLumpsumPage() {
                 <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-4 text-center">
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     In a <strong className="text-foreground">{meta.label}</strong>,{' '}
-                    <strong style={{ color: winner === 'DCA' ? '#1B3A5C' : '#C4993C' }}>{winner}</strong>{' '}
+                    <strong style={{ color: winner === 'DCA' ? 'var(--color-accent)' : '#C4993C' }}>{winner}</strong>{' '}
                     wins by{' '}
                     <strong className="text-foreground">{formatToShortWords(diff)}</strong>
                     {winner === 'DCA'
@@ -486,7 +486,7 @@ export default function SipVsLumpsumPage() {
           <div className="glass-panel p-6 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-foreground mb-4">Explore More Calculators</h2>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/us/dca-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/us/dca-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                 DCA Calculator <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/us/lumpsum-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">

@@ -81,7 +81,7 @@ export default function RetirementAccountCalculatorPage() {
     datasets: [
       {
         data: [totalInvested, totalGains > 0 ? totalGains : 0],
-        backgroundColor: ['#1B3A5C', '#C4993C'],
+        backgroundColor: ['var(--color-accent)', '#C4993C'],
         borderWidth: 0,
       },
     ],
@@ -199,7 +199,7 @@ export default function RetirementAccountCalculatorPage() {
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Est. Returns</p>
                     <p className="text-lg font-bold text-[var(--color-returns)]">{formatCurrency(totalGains)}</p>
                   </div>
-                  <div className="bg-[var(--background)] p-4 rounded-xl col-span-2 text-center border border-[#1B3A5C]/10">
+                  <div className="bg-[var(--background)] p-4 rounded-xl col-span-2 text-center border border-[var(--color-accent)]/10">
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Total Nest Egg</p>
                     <p className="text-2xl font-bold text-[var(--foreground)]">{formatCurrency(totalCorpus)}</p>
                   </div>
@@ -289,13 +289,13 @@ export default function RetirementAccountCalculatorPage() {
         </div>
 
         {/* Cross Links */}
-        <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
+        <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[var(--color-accent)]/10">
             <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Explore More Tools</h2>
             <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/us/tools/roth-ira-calculator" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                <Link href="/us/tools/roth-ira-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                     Roth IRA Calculator <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[var(--color-accent)] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                     Savings vs Investing
                 </Link>
             </div>

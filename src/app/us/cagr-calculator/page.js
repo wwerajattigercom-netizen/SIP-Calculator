@@ -349,7 +349,7 @@ export default function CAGRCalculatorPage() {
                               className="h-full rounded-full transition-all duration-500"
                               style={{
                                 width:      `${progress}%`,
-                                background: isLast ? '#1B3A5C' : 'linear-gradient(90deg, #1B3A5C, #1B3A5C)',
+                                background: isLast ? 'var(--color-accent)' : 'linear-gradient(90deg, #1B3A5C, #1B3A5C)',
                               }}
                             />
                           </div>
@@ -566,7 +566,7 @@ export default function CAGRCalculatorPage() {
               </p>
               <a
                 href="mailto:businesswebsitestudio@gmail.com"
-                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white hover:bg-[#112740] transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
+                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
               >
                 <Mail className="w-4 h-4" />
                 businesswebsitestudio@gmail.com

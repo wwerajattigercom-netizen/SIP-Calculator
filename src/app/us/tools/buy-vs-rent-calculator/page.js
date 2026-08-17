@@ -122,8 +122,8 @@ export default function BuyVsRentPage() {
         {
           label: 'Net Worth (Buying)',
           data: buyData,
-          borderColor: '#1B3A5C',
-          backgroundColor: '#1B3A5C',
+          borderColor: 'var(--color-accent)',
+          backgroundColor: 'var(--color-accent)',
           fill: false,
           tension: 0.1,
           pointRadius: 2,
@@ -294,12 +294,12 @@ export default function BuyVsRentPage() {
             <h2 className="text-xl font-bold text-[var(--foreground)] mb-6">Financial Comparison (After {loanTerm} Years)</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="bg-white/50 p-4 rounded-xl border border-[#1B3A5C]/10">
+              <div className="bg-[var(--background)] p-4 rounded-xl border border-[var(--panel-border)]">
                 <p className="text-sm text-[#6B7280] mb-1">Net Worth (Buying)</p>
                 <p className="text-2xl font-bold text-[var(--color-accent)]">{formatCurrency(finalBuyNetWorth)}</p>
                 <p className="text-xs text-[#6B7280] mt-2">Monthly Mortgage: {formatCurrency(emi)}</p>
               </div>
-              <div className="bg-white/50 p-4 rounded-xl border border-[#C4993C]/20">
+              <div className="bg-[var(--background)] p-4 rounded-xl border border-[#C4993C]/30">
                 <p className="text-sm text-[#6B7280] mb-1">Net Worth (Renting)</p>
                 <p className="text-2xl font-bold text-[#C4993C]">{formatCurrency(finalRentNetWorth)}</p>
                 <p className="text-xs text-[#6B7280] mt-2">Initial DCA: {formatCurrency(emi - monthlyRent)}</p>
@@ -308,7 +308,7 @@ export default function BuyVsRentPage() {
 
             <div className="mb-4">
               {finalBuyNetWorth > finalRentNetWorth ? (
-                <div className="bg-[#1B3A5C]/5 p-4 rounded-xl border-l-4 border-[#1B3A5C]">
+                <div className="bg-[var(--color-accent)]/5 p-4 rounded-xl border-l-4 border-[var(--color-accent)]">
                   <p className="text-[var(--foreground)] font-medium">
                     Buying is more profitable by <span className="text-[var(--color-returns)] font-bold">{formatCurrency(finalBuyNetWorth - finalRentNetWorth)}</span>
                   </p>
@@ -381,13 +381,13 @@ export default function BuyVsRentPage() {
       </div>
 
       {/* Cross Links */}
-      <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
+      <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[var(--color-accent)]/10">
           <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Explore More Tools</h2>
           <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/us/tools/dca-for-house-down-payment" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+              <Link href="/us/tools/dca-for-house-down-payment" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                   Down Payment Calculator <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[var(--color-accent)] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+              <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 border border-[var(--color-accent)]/40 text-[var(--color-accent)] hover:border-[var(--color-accent)] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                   Savings vs Investing
               </Link>
           </div>

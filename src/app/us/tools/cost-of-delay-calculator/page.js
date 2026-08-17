@@ -165,7 +165,7 @@ export default function CostOfDelayCalculatorPage() {
       {
         label: 'Start Now',
         data: [fvStartNow],
-        backgroundColor: '#1B3A5C',
+        backgroundColor: 'var(--color-accent)',
         borderRadius: 4,
       },
       {
@@ -196,8 +196,8 @@ export default function CostOfDelayCalculatorPage() {
       {
         label: 'Start Now',
         data: yearlyData.map(d => d.startNow),
-        borderColor: '#1B3A5C',
-        backgroundColor: '#1B3A5C',
+        borderColor: 'var(--color-accent)',
+        backgroundColor: 'var(--color-accent)',
         tension: 0.4,
         pointRadius: 0,
         pointHitRadius: 10,

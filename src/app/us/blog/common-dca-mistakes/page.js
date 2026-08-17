@@ -159,7 +159,7 @@ export default function CommonSipMistakesPage() {
             <h2 className="text-2xl font-bold text-foreground mb-3">Fix Mistake #6: Set a Target</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto">Stop investing blindly. Figure out exactly how much you need to invest per month to reach your financial goals using our Target Amount Calculator.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/us/target-amount-calculator" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
+              <Link href="/us/target-amount-calculator" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
                 <Calculator className="w-5 h-5" /> Open Target Calculator
               </Link>
             </div>

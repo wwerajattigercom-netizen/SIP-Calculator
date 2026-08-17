@@ -147,7 +147,7 @@ export default function SipForExpatsPage() {
             <h2 className="text-2xl font-bold text-foreground mb-3">Model Your Expat Portfolio</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto">See how much wealth you can build in the US while living abroad. Use our DCA calculator to forecast your corpus.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/us/dca-calculator" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[#112740] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
+              <Link href="/us/dca-calculator" className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-md px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95">
                 <Building2 className="w-5 h-5" /> Open DCA Calculator
               </Link>
             </div>

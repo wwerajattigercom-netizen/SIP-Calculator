@@ -83,7 +83,7 @@ export default function SwpVsSipPage() {
             
             <div className="glass-panel p-0 overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)]">
               {/* Phase 1 */}
-              <div className="p-6 md:p-8 border-b border-gray-200 dark:border-gray-800 relative bg-[rgba(27,58,92,0.02)]">
+              <div className="p-6 md:p-8 border-b border-[var(--panel-border)] dark:border-gray-800 relative bg-[rgba(27,58,92,0.02)]">
                 <div className="absolute top-0 right-0 p-4 opacity-10">
                   <Briefcase className="w-24 h-24 text-[var(--color-accent)]" />
                 </div>
