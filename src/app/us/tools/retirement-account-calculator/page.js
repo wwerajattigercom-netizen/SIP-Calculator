@@ -117,12 +117,12 @@ export default function RetirementAccountCalculatorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f2ea] p-4 md:p-8 font-sans">
+    <div className="min-h-screen bg-[var(--background)] p-4 md:p-8 font-sans">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">401(k) / IRA Retirement Calculator</h1>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">401(k) / IRA Retirement Calculator</h1>
+          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             Project your retirement nest egg. See how monthly contributions to a 401(k) or IRA compound over time, and estimate your monthly income in retirement using the 4% Rule.
           </p>
         </div>
@@ -176,8 +176,8 @@ export default function RetirementAccountCalculatorPage() {
                   id="expected-return"
                 />
 
-                <div className="bg-[#f8f2ea] p-4 rounded-xl text-xs text-gray-500 leading-relaxed">
-                  <strong className="text-[#1B3A5C]">2024 IRS Contribution Limits:</strong> 401(k): $23,000/yr ($1,917/mo). With catch-up (50+): $30,500/yr. IRA: $7,000/yr. These limits are not enforced by this calculator — it is for illustrative purposes only.
+                <div className="bg-[var(--background)] p-4 rounded-xl text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                  <strong className="text-[var(--color-accent)]">2024 IRS Contribution Limits:</strong> 401(k): $23,000/yr ($1,917/mo). With catch-up (50+): $30,500/yr. IRA: $7,000/yr. These limits are not enforced by this calculator — it is for illustrative purposes only.
                 </div>
               </div>
             </div>
@@ -186,22 +186,22 @@ export default function RetirementAccountCalculatorPage() {
           {/* Result Section */}
           <div className="w-full lg:w-5/12">
             <div className="glass-panel p-6 md:p-8 rounded-2xl shadow-sm h-full flex flex-col">
-              <h2 className="text-xl font-bold text-[#1F2937] mb-6">Retirement Projection (Age {retirementAge})</h2>
+              <h2 className="text-xl font-bold text-[var(--foreground)] mb-6">Retirement Projection (Age {retirementAge})</h2>
 
               <div className="flex flex-col gap-6 flex-grow">
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-[#f8f2ea] p-4 rounded-xl">
-                    <p className="text-sm text-gray-500 mb-1">Total Contributed</p>
-                    <p className="text-lg font-bold text-[#1B3A5C]">{formatCurrency(totalInvested)}</p>
+                  <div className="bg-[var(--background)] p-4 rounded-xl">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Total Contributed</p>
+                    <p className="text-lg font-bold text-[var(--color-accent)]">{formatCurrency(totalInvested)}</p>
                   </div>
-                  <div className="bg-[#f8f2ea] p-4 rounded-xl">
-                    <p className="text-sm text-gray-500 mb-1">Est. Returns</p>
-                    <p className="text-lg font-bold text-[#059669]">{formatCurrency(totalGains)}</p>
+                  <div className="bg-[var(--background)] p-4 rounded-xl">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Est. Returns</p>
+                    <p className="text-lg font-bold text-[var(--color-returns)]">{formatCurrency(totalGains)}</p>
                   </div>
-                  <div className="bg-[#f8f2ea] p-4 rounded-xl col-span-2 text-center border border-[#1B3A5C]/10">
-                    <p className="text-sm text-gray-500 mb-1">Total Nest Egg</p>
-                    <p className="text-2xl font-bold text-[#1F2937]">{formatCurrency(totalCorpus)}</p>
+                  <div className="bg-[var(--background)] p-4 rounded-xl col-span-2 text-center border border-[#1B3A5C]/10">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Total Nest Egg</p>
+                    <p className="text-2xl font-bold text-[var(--foreground)]">{formatCurrency(totalCorpus)}</p>
                   </div>
                 </div>
 
@@ -212,22 +212,22 @@ export default function RetirementAccountCalculatorPage() {
 
                 {/* Withdrawal Estimates */}
                 <div className="mt-auto space-y-3 pt-4 border-t border-gray-200">
-                  <h3 className="font-semibold text-[#1F2937] text-base">Estimated Monthly Income in Retirement</h3>
+                  <h3 className="font-semibold text-[var(--foreground)] text-base">Estimated Monthly Income in Retirement</h3>
 
-                  <div className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm">
+                  <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm">
                     <div>
-                      <p className="text-sm font-medium text-[#1F2937]">4% Rule (Conservative)</p>
-                      <p className="text-xs text-gray-500">Sustainable withdrawal rate</p>
+                      <p className="text-sm font-medium text-[var(--foreground)]">4% Rule (Conservative)</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Sustainable withdrawal rate</p>
                     </div>
-                    <p className="font-bold text-[#059669] text-lg">{formatCurrency(monthlyIncome4Pct)}<span className="text-xs text-gray-400">/mo</span></p>
+                    <p className="font-bold text-[var(--color-returns)] text-lg">{formatCurrency(monthlyIncome4Pct)}<span className="text-xs text-gray-400">/mo</span></p>
                   </div>
 
-                  <div className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm border border-l-4 border-l-[#1B3A5C]">
+                  <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm border border-l-4 border-l-[#1B3A5C]">
                     <div>
-                      <p className="text-sm font-medium text-[#1B3A5C]">6% Withdrawal (Aggressive)</p>
-                      <p className="text-xs text-gray-500">Higher income, faster depletion</p>
+                      <p className="text-sm font-medium text-[var(--color-accent)]">6% Withdrawal (Aggressive)</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Higher income, faster depletion</p>
                     </div>
-                    <p className="font-bold text-[#1B3A5C] text-lg">{formatCurrency(monthlyIncome6Pct)}<span className="text-xs text-gray-400">/mo</span></p>
+                    <p className="font-bold text-[var(--color-accent)] text-lg">{formatCurrency(monthlyIncome6Pct)}<span className="text-xs text-gray-400">/mo</span></p>
                   </div>
                 </div>
               </div>
@@ -236,20 +236,20 @@ export default function RetirementAccountCalculatorPage() {
         </div>
 
         {/* SEO Educational Content Section */}
-        <div className="mt-16 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Planning Your Retirement (401k & IRA)</h2>
-            
-            <div className="space-y-6 text-gray-600 leading-relaxed">
+      <div className="mt-16 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+          <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Mastering 401(k) and IRA Investing</h2>
+          
+          <div className="space-y-6 text-[#6B7280] leading-relaxed">
                 <p>
                     Building a secure retirement requires consistent saving and taking advantage of tax-advantaged accounts like <strong>401(k)s and IRAs</strong>. These accounts allow your money to grow either tax-deferred (Traditional) or tax-free (Roth), saving you significant amounts of money over a lifetime of investing.
                 </p>
 
-                <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">The Power of the 4% Rule</h3>
+                <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">The Power of the 4% Rule</h3>
                 <p>
                     The <strong>4% Rule</strong> (based on the Trinity Study) states that withdrawing 4% of your retirement portfolio annually has historically lasted 30+ years without depleting the principal, assuming a balanced stock/bond portfolio. For a $1 Million nest egg, that means $40,000/year (or ~$3,333/month) in sustainable income. 
                 </p>
 
-                <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">401(k) vs IRA: Which should you fund first?</h3>
+                <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">401(k) vs IRA: Which should you fund first?</h3>
                 <p>
                     A common and highly effective strategy is the <strong>Match-Roth-Max</strong> strategy:
                 </p>
@@ -261,16 +261,28 @@ export default function RetirementAccountCalculatorPage() {
             </div>
         </div>
 
+        {/* How to Use Section */}
+        <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">How to Use This Calculator</h2>
+        <div className="space-y-4 text-[#6B7280] leading-relaxed">
+        <ol className="list-decimal ml-5 space-y-3">
+        <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+        <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+        <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+        </ol>
+        </div>
+        </div>
+
         {/* FAQ Section */}
         <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
-            <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
                 {jsonLd.mainEntity.map((faq, i) => (
                     <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
                         <h3 className="text-foreground font-medium text-base flex items-start gap-2">
-                            <HelpCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                            <HelpCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
                         </h3>
-                        <p className="text-gray-500 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
                     </div>
                 ))}
             </div>
@@ -278,12 +290,12 @@ export default function RetirementAccountCalculatorPage() {
 
         {/* Cross Links */}
         <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
+            <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Explore More Tools</h2>
             <div className="flex flex-wrap justify-center gap-3">
                 <Link href="/us/tools/roth-ira-calculator" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                     Roth IRA Calculator <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[var(--color-accent)] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                     Savings vs Investing
                 </Link>
             </div>

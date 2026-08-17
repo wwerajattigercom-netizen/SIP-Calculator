@@ -24,7 +24,7 @@ const TOOLS = [
   },
   {
     href: '/us/lumpsum-calculator',
-    icon: <Calculator className="w-5 h-5 text-[#059669]" />,
+    icon: <Calculator className="w-5 h-5 text-[var(--color-returns)]" />,
     name: 'Lumpsum Calculator',
     desc: 'Calculate future value of a one-time lump sum investment at a given annual return rate.',
   },
@@ -110,15 +110,15 @@ export default function AboutPage() {
           </p>
           <ul className="space-y-3">
             <li className="flex items-start gap-2.5 text-gray-500 dark:text-gray-400 text-sm">
-              <CheckCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" />
               <span><strong>Standardized Mathematics:</strong> The formulas used for our DCA calculations strictly follow standard financial mathematics — utilizing APR-based compounding with investments made at the beginning of each period. This ensures perfect alignment with historical market analysis and institutional projections.</span>
             </li>
             <li className="flex items-start gap-2.5 text-gray-500 dark:text-gray-400 text-sm">
-              <CheckCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" />
               <span><strong>Transparent Methodology:</strong> We do not hide our math behind proprietary black boxes. Our formulas are openly documented and verifiable.</span>
             </li>
             <li className="flex items-start gap-2.5 text-gray-500 dark:text-gray-400 text-sm">
-              <CheckCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" />
               <span><strong>No Conflicts of Interest:</strong> StepupCalculator is independently funded. We do not sell your email, we do not require sign-ups, and our calculator results are never artificially inflated to sell you financial products.</span>
             </li>
           </ul>
@@ -145,7 +145,7 @@ export default function AboutPage() {
               <Link
                 key={href}
                 href={href}
-                className="flex items-start gap-3 p-4 rounded-xl bg-white border border-[#E8E4DF] hover:border-[var(--color-accent)]/30 hover:bg-[rgba(27,58,92,0.08)] transition-all group"
+                className="flex items-start gap-3 p-4 rounded-xl bg-[var(--panel-bg)] border border-[#E8E4DF] hover:border-[var(--color-accent)]/30 hover:bg-[rgba(27,58,92,0.08)] transition-all group"
               >
                 <div className="bg-[rgba(27,58,92,0.15)] p-2 rounded-lg flex-shrink-0">{icon}</div>
                 <div>

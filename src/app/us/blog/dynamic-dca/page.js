@@ -33,11 +33,11 @@ export default function DynamicSipPage() {
           <div className="glass-panel p-8 relative overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)] shadow-sm">
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-xs uppercase tracking-widest text-[#1B3A5C] font-bold mb-4 block">Advanced Strategy</span>
+              <span className="text-xs uppercase tracking-widest text-[var(--color-accent)] font-bold mb-4 block">Advanced Strategy</span>
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
-                What is a <span className="text-[#1B3A5C]">Dynamic DCA?</span> (The Smart DCA)
+                What is a <span className="text-[var(--color-accent)]">Dynamic DCA?</span> (The Smart DCA)
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 "Buy low, sell high." It's the oldest rule in investing, but human emotion makes it impossible to execute. A Dynamic DCA (or Smart DCA) hands this job over to an algorithm, automatically shifting your money based on how expensive or cheap the market is.
               </p>
               <div className="flex items-center gap-3">
@@ -55,7 +55,7 @@ export default function DynamicSipPage() {
           {/* Core Concept */}
           <div className="glass-panel p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">How Does a Dynamic DCA Work?</h2>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
               In a regular DCA, you invest exactly $1,000 every month, regardless of whether the market is crashing or hitting all-time highs. A Dynamic DCA, however, fluctuates the investment amount based on market valuations (usually the P/E or P/B ratio).
               <br/><br/>
               Think of it as having a highly rational, institutional portfolio manager running your personal 401(k) or IRA. When the stock market is irrationally exuberant and trading at sky-high valuations, the algorithm automatically reduces your monthly contribution. Why buy aggressively when assets are overpriced? Conversely, when the market crashes and everyone else is panicking and selling, the Dynamic DCA algorithm recognizes that assets are on sale. It automatically increases your investment amount, buying more shares at lower prices. This mechanical, rules-based approach guarantees that you adhere to the fundamental rule of wealth creation: buy low and sell high.
@@ -71,7 +71,7 @@ export default function DynamicSipPage() {
                 • Market is <strong>Undervalued</strong> (Crash): DCA doubles to $2,000.<br/>
               </p>
             </div>
-            <p className="text-sm text-gray-500 italic">
+            <p className="text-sm text-gray-500 dark:text-gray-400 italic">
               *The extra money (when the DCA drops to $500) isn't returned to your bank account. It is usually parked in a safe Money Market Fund, waiting to be deployed when the market crashes.
             </p>
           </div>
@@ -82,10 +82,10 @@ export default function DynamicSipPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="glass-panel p-6 border-t-4 border-t-[#059669]">
-                <h3 className="font-bold text-[#059669] flex items-center gap-2 mb-3">
+                <h3 className="font-bold text-[var(--color-returns)] flex items-center gap-2 mb-3">
                   <Brain className="w-5 h-5" /> Emotionless Investing
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   During a crash, fear takes over. You might be tempted to stop your DCA. The Dynamic algorithm does the exact opposite—it forcefully doubles your investment to buy units at a massive discount, completely bypassing human psychology.
                 </p>
               </div>
@@ -94,7 +94,7 @@ export default function DynamicSipPage() {
                 <h3 className="font-bold text-[var(--color-accent)] flex items-center gap-2 mb-3">
                   <Activity className="w-5 h-5" /> Higher Alpha
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   By accumulating far more units when prices are low, and buying fewer units when prices are dangerously high, Dynamic DCAs mathematically generate higher long-term returns (Alpha) compared to a standard, blind DCA.
                 </p>
               </div>
@@ -104,7 +104,7 @@ export default function DynamicSipPage() {
           {/* How to set it up */}
           <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black">
             <h2 className="text-2xl font-bold text-foreground mb-4">How to Start a Dynamic DCA</h2>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-6">
               Unlike a Step-Up DCA which is a feature of the brokerage platform, a Dynamic DCA is usually a specific feature built <em>directly by the Broker (Mutual Fund House)</em>.
             </p>
             
@@ -138,9 +138,9 @@ export default function DynamicSipPage() {
           {/* The Catch / Warning */}
           <div className="glass-panel p-6 border-l-4 border-[#991B1B] bg-[rgba(153,27,27,0.02)]">
             <h3 className="font-bold text-foreground flex items-center gap-2 mb-2">
-              <AlertCircle className="w-5 h-5 text-[#991B1B]" /> The Catch: Tax Implications
+              <AlertCircle className="w-5 h-5 text-[var(--color-loss)]" /> The Catch: Tax Implications
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
               Because the algorithm shifts your money between an Equity fund and a Liquid/Debt fund behind the scenes, these transactions trigger capital gains taxes. If the algorithm sells Equity to move to Debt during a high market, you may be liable for Short-Term Capital Gains (STCG) tax.
             </p>
           </div>

@@ -267,7 +267,7 @@ export default function SipVsLumpsumPage() {
                 {/* Market Scenario toggle */}
                 <div className="mt-6">
                   <label className="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wider mb-3 block">Market Scenario</label>
-                  <div className="flex gap-2 bg-white p-1.5 rounded-xl border border-[#E8E4DF]">
+                  <div className="flex gap-2 bg-[var(--panel-bg)] p-1.5 rounded-xl border border-[#E8E4DF]">
                     {Object.entries(SCENARIO_META).map(([key, s]) => (
                       <button
                         key={key}
@@ -343,7 +343,7 @@ export default function SipVsLumpsumPage() {
                 </div>
 
                 {/* Verdict banner */}
-                <div className="bg-white border border-[#E8E4DF] rounded-xl p-4 text-center">
+                <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-4 text-center">
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     In a <strong className="text-foreground">{meta.label}</strong>,{' '}
                     <strong style={{ color: winner === 'DCA' ? '#1B3A5C' : '#C4993C' }}>{winner}</strong>{' '}
@@ -410,23 +410,23 @@ export default function SipVsLumpsumPage() {
                 <tbody className="text-gray-500 dark:text-gray-400">
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">📈 Steady Bull Market</td>
-                    <td className="py-3 pr-4 text-[#059669] font-semibold">Wins ✅</td>
+                    <td className="py-3 pr-4 text-[var(--color-returns)] font-semibold">Wins ✅</td>
                     <td className="py-3">Good, but lags</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">📉 Crash then Recovery</td>
                     <td className="py-3 pr-4">Suffers early loss</td>
-                    <td className="py-3 text-[#059669] font-semibold">Wins ✅ (buys cheap)</td>
+                    <td className="py-3 text-[var(--color-returns)] font-semibold">Wins ✅ (buys cheap)</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4">〰️ Choppy / Volatile</td>
                     <td className="py-3 pr-4">Inconsistent</td>
-                    <td className="py-3 text-[#059669] font-semibold">Wins ✅ (dollar-cost avg)</td>
+                    <td className="py-3 text-[var(--color-returns)] font-semibold">Wins ✅ (dollar-cost avg)</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">💼 Salaried investor</td>
                     <td className="py-3 pr-4">Requires lump sum upfront</td>
-                    <td className="py-3 text-[#059669] font-semibold">Natural fit ✅</td>
+                    <td className="py-3 text-[var(--color-returns)] font-semibold">Natural fit ✅</td>
                   </tr>
                 </tbody>
               </table>
@@ -451,6 +451,20 @@ export default function SipVsLumpsumPage() {
                 better outcomes because they accumulated units at market lows. Most retail investors benefit more from DCA for this reason.
               </p>
             </div>
+          </div>
+
+          {/* How to Use */}
+          <div className="glass-panel p-6 mt-8 mb-6">
+          <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg> How to Use This Calculator
+          </h2>
+          <ol className="list-decimal ml-5 space-y-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+          </ol>
           </div>
 
           {/* FAQs */}

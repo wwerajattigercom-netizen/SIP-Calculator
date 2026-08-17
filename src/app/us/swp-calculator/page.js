@@ -308,7 +308,7 @@ export default function SWPCalculatorPage() {
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
                       <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Returns</div>
-                    <div className={`text-sm font-extrabold ${totalReturns >= 0 ? 'text-[#059669]' : 'text-[#991B1B]'}`}>
+                    <div className={`text-sm font-extrabold ${totalReturns >= 0 ? 'text-[var(--color-returns)]' : 'text-[var(--color-loss)]'}`}>
                       {totalReturns >= 0 ? '+' : ''}{fmtUSD(totalReturns)}</div>
                     <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{toLabel(totalReturns)}</div>
                   </div>
@@ -316,11 +316,11 @@ export default function SWPCalculatorPage() {
                   {/* Longevity Indicator */}
                   <div className="col-span-3 mt-1 bg-black/5 dark:bg-white/5 rounded-lg px-3 py-2 flex items-center gap-2">
                     {depletedMonthTotal ? (
-                      <AlertCircle className="w-3.5 h-3.5 text-[#991B1B] flex-shrink-0" />
+                      <AlertCircle className="w-3.5 h-3.5 text-[var(--color-loss)] flex-shrink-0" />
                     ) : (
                       <TrendingUp className="w-3.5 h-3.5 text-[var(--color-accent)] flex-shrink-0" />
                     )}
-                    <span className={`text-[11px] font-medium ${depletedMonthTotal ? 'text-[#991B1B]' : 'text-foreground'}`}>
+                    <span className={`text-[11px] font-medium ${depletedMonthTotal ? 'text-[var(--color-loss)]' : 'text-foreground'}`}>
                       {longevityMessage}
                     </span>
                   </div>
@@ -329,6 +329,25 @@ export default function SWPCalculatorPage() {
               </div>
             </div>
           </div>
+
+          {/* ── How to Use ── */}
+          <section id="how-to-use" aria-label="How to use this calculator" className="mt-8">
+          <div className="flex items-center gap-3 mb-4">
+          <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
+          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          </div>
+          <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
+          </div>
+          <div className="glass-panel p-6">
+          <ol className="list-decimal ml-5 space-y-3 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+          </ol>
+          </div>
+          </section>
 
           {/* ── FAQ ── */}
           <section id="faq" aria-label="SWP calculator frequently asked questions" className="mt-8">

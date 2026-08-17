@@ -163,3 +163,17 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## 8. Utility Scripts (in project root)
 
 Various one-time fix scripts exist in the root (e.g., `fix_blog_themes.js`, `fix_blue_bg.js`). These were used for bulk color updates and can be safely ignored or deleted. They are NOT part of the build pipeline.
+
+---
+
+## 9. Cross-Region Parity (US & India)
+
+> ⚠️ **CRITICAL**: The site has two parallel tool structures: `/tools/*` (India) and `/us/tools/*` (US). 
+
+1. **When asked to implement a change "in the US region or Indian region", the user ALWAYS means both.** Ensure feature parity across both sets of tools.
+2. **Localization Rules**:
+   - Currency: ₹ (India) vs $ (US)
+   - Benchmarks: NIFTY 50 (India) vs S&P 500 (US)
+   - Retirement accounts: PPF/EPF/NPS (India) vs 401(k)/Roth IRA (US)
+3. **SEO Structure Parity**: Both regions MUST have identically structured JSON-LD schemas, FAQs, "How to Use" sections, and educational content. 
+4. **Theme Parity**: Never leave one region with a generic `bg-white` theme while the other uses the beautiful `glass-panel` layout. Both regions must use identical HTML structures and CSS classes for their SEO blocks.

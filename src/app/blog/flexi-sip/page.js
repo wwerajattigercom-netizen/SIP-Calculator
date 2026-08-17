@@ -37,7 +37,7 @@ export default function FlexiSipPage() {
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
                 What is a <span className="text-[var(--color-accent)]">Flexi SIP?</span> (And Who Should Use It)
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 Regular SIPs force you to pay the exact same amount every single month, no matter what. But what if you are a freelancer with variable income? Or what if you want to invest *more* when the stock market crashes? Enter the Flexi SIP.
               </p>
               <div className="flex items-center gap-3">
@@ -55,7 +55,7 @@ export default function FlexiSipPage() {
           {/* What is it */}
           <div className="glass-panel p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">What is a Flexi SIP?</h2>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
               A Flexible SIP (or Flexi SIP) allows you to change your investment amount every month without canceling your mandate. Instead of setting a rigid ₹10,000 per month, you define a <strong>Minimum Amount</strong> and a <strong>Maximum Amount</strong>. If you are aiming for a corpus of ₹5 Crores over 15 years, a Flexi SIP helps you inject lump sums into the market when you receive a massive bonus, without breaking the discipline of a monthly SIP. It allows you to navigate the volatility of the Indian market seamlessly, ensuring that you invest ₹20,000 in a bear market and only ₹5,000 in a bull market, optimizing your journey towards your financial goals.
             </p>
             <div className="bg-[rgba(27,58,92,0.02)] border border-[rgba(27,58,92,0.1)] p-5 rounded-xl">
@@ -71,10 +71,10 @@ export default function FlexiSipPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="glass-panel p-6 border-t-4 border-t-[#059669]">
-                <h3 className="font-bold text-[#059669] flex items-center gap-2 mb-3">
+                <h3 className="font-bold text-[var(--color-returns)] flex items-center gap-2 mb-3">
                   <Briefcase className="w-5 h-5" /> Use Case 1: Freelancers
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   If you run a business or freelance, your income isn't fixed. In a great month, you might earn ₹2 Lakhs and want to invest ₹50,000. In a slow month, you might only afford ₹5,000. Flexi SIP allows you to maintain investing discipline without bouncing your bank mandate during tough months.
                 </p>
               </div>
@@ -83,7 +83,7 @@ export default function FlexiSipPage() {
                 <h3 className="font-bold text-[var(--color-accent)] flex items-center gap-2 mb-3">
                   <TrendingDown className="w-5 h-5" /> Use Case 2: Buying the Dip
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   Advanced investors hate buying units when the stock market is at an all-time high. A Flexi SIP allows you to invest your "Minimum Amount" when markets are expensive, and automatically invest your "Maximum Amount" when markets crash, scoring cheap NAV units.
                 </p>
               </div>
@@ -93,7 +93,7 @@ export default function FlexiSipPage() {
           {/* How does it work */}
           <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black">
             <h2 className="text-2xl font-bold text-foreground mb-4">How Do You Set It Up?</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 mb-6 leading-relaxed">
               Most major AMCs (Asset Management Companies) and broker platforms offer this feature, though they sometimes call it a "Smart SIP" or "Value SIP". Here is the exact mechanics of how it is executed:
             </p>
             

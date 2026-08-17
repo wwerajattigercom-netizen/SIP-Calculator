@@ -37,7 +37,7 @@ export default function FlexiSipPage() {
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
                 What is a <span className="text-[var(--color-accent)]">Flexi DCA?</span> (And Who Should Use It)
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 Regular DCAs force you to pay the exact same amount every single month, no matter what. But what if you are a freelancer with variable income? Or what if you want to invest *more* when the stock market crashes? Enter the Flexi DCA.
               </p>
               <div className="flex items-center gap-3">
@@ -55,7 +55,7 @@ export default function FlexiSipPage() {
           {/* What is it */}
           <div className="glass-panel p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">What is a Flexi DCA?</h2>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
               A Flexible DCA (or Flexi DCA) allows you to change your investment amount every month without canceling your mandate. Instead of setting a rigid $1,000 per month, you define a <strong>Minimum Amount</strong> and a <strong>Maximum Amount</strong>.
               <br/><br/>
               This flexibility is an absolute game-changer for individuals whose income is not predictable. Think about gig workers, independent contractors, commissioned sales professionals, or small business owners. Traditional DCAs assume a stable, salaried corporate job with a predictable paycheck hitting the bank account on the 1st and 15th of the month. If your cash flow doesn't look like that, a rigid DCA can quickly become a liability, leading to overdraft fees or forced liquidations. A Flexi DCA adapts to your financial reality. 
@@ -75,10 +75,10 @@ export default function FlexiSipPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="glass-panel p-6 border-t-4 border-t-[#059669]">
-                <h3 className="font-bold text-[#059669] flex items-center gap-2 mb-3">
+                <h3 className="font-bold text-[var(--color-returns)] flex items-center gap-2 mb-3">
                   <Briefcase className="w-5 h-5" /> Use Case 1: Freelancers
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   If you run a business or freelance, your income isn't fixed. In a great month, you might earn $20,000 and want to invest $5,000. In a slow month, you might only afford $500. Flexi DCA allows you to maintain investing discipline without bouncing your bank mandate during tough months.
                 </p>
               </div>
@@ -87,7 +87,7 @@ export default function FlexiSipPage() {
                 <h3 className="font-bold text-[var(--color-accent)] flex items-center gap-2 mb-3">
                   <TrendingDown className="w-5 h-5" /> Use Case 2: Buying the Dip
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   Advanced investors hate buying units when the stock market is at an all-time high. A Flexi DCA allows you to invest your "Minimum Amount" when markets are expensive, and automatically invest your "Maximum Amount" when markets crash, scoring cheap NAV units.
                 </p>
               </div>
@@ -97,7 +97,7 @@ export default function FlexiSipPage() {
           {/* How does it work */}
           <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black">
             <h2 className="text-2xl font-bold text-foreground mb-4">How Do You Set It Up?</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 mb-6 leading-relaxed">
               Most major Brokerages (like Fidelity or Schwab) and broker platforms offer this feature, though they sometimes call it a "Smart DCA" or "Value Averaging". Here is the exact mechanics of how it is executed:
             </p>
             

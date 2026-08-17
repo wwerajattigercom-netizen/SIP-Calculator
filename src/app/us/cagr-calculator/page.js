@@ -344,7 +344,7 @@ export default function CAGRCalculatorPage() {
                               </span>
                             )}
                           </div>
-                          <div className="mt-1 w-full h-1 bg-white bg-opacity-10 rounded-full overflow-hidden">
+                          <div className="mt-1 w-full h-1 bg-[var(--panel-bg)] bg-opacity-10 rounded-full overflow-hidden">
                             <div
                               className="h-full rounded-full transition-all duration-500"
                               style={{
@@ -572,7 +572,7 @@ export default function CAGRCalculatorPage() {
                 businesswebsitestudio@gmail.com
               </a>
               <p className="text-gray-600 dark:text-gray-400 text-[10px] mt-4">For business queries, collaborations, or feedback</p>
-              <p className="text-gray-500 dark:text-gray-500 text-[10px] mt-2">© {new Date().getFullYear()} Rajat</p>
+              <p className="text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 text-[10px] mt-2">© {new Date().getFullYear()} Rajat</p>
             </div>
           </div>
         </section>

@@ -102,12 +102,12 @@ export default function RothIraCalculatorPage() {
     }).format(val);
 
   return (
-    <div className="min-h-screen bg-[#f8f2ea] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[var(--background)] py-12 px-4 sm:px-6 lg:px-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">Roth IRA Calculator</h1>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+          <h1 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">Roth IRA Calculator</h1>
+          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
             See how your Roth IRA contributions grow tax-free over time. Adjust your yearly contribution, time horizon, and expected market returns to plan your retirement.
           </p>
         </div>
@@ -152,12 +152,12 @@ export default function RothIraCalculatorPage() {
             </div>
 
             {/* Results Section */}
-            <div className="p-6 md:p-10 bg-[#f8f2ea]/50 flex flex-col justify-between">
+            <div className="p-6 md:p-10 bg-[var(--background)]/50 flex flex-col justify-between">
               <div className="space-y-6 mb-8">
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
+                <div className="bg-[var(--panel-bg)] p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
                   <div>
-                    <p className="text-sm text-gray-500 font-medium mb-1">Total Invested</p>
-                    <p className="text-xl md:text-2xl font-bold text-[#1B3A5C]">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mb-1">Total Invested</p>
+                    <p className="text-xl md:text-2xl font-bold text-[var(--color-accent)]">
                       {formatCurrency(results.invested)}
                     </p>
                   </div>
@@ -166,10 +166,10 @@ export default function RothIraCalculatorPage() {
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
+                <div className="bg-[var(--panel-bg)] p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
                   <div>
-                    <p className="text-sm text-gray-500 font-medium mb-1">Est. Returns</p>
-                    <p className="text-xl md:text-2xl font-bold text-[#059669]">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mb-1">Est. Returns</p>
+                    <p className="text-xl md:text-2xl font-bold text-[var(--color-returns)]">
                       {formatCurrency(results.returns)}
                     </p>
                   </div>
@@ -195,20 +195,20 @@ export default function RothIraCalculatorPage() {
         </div>
 
         {/* SEO Educational Content Section */}
-        <div className="mt-16 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Why Use a Roth IRA?</h2>
-            
-            <div className="space-y-6 text-gray-600 leading-relaxed">
+        <div className="mt-16 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+          <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Maximizing Your Roth IRA</h2>
+          
+          <div className="space-y-6 text-[#6B7280] leading-relaxed">
                 <p>
                     A <strong>Roth IRA</strong> (Individual Retirement Account) is one of the most powerful wealth-building tools available to US investors. Its primary advantage is that it allows your investments to compound completely tax-free over time.
                 </p>
 
-                <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">Tax-Free Growth and Withdrawals</h3>
+                <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">Tax-Free Growth and Withdrawals</h3>
                 <p>
                     Unlike a Traditional IRA or a 401(k), where you get a tax break now but pay taxes on withdrawals in retirement, a Roth IRA works in reverse. You fund the account with money you&apos;ve already paid taxes on (after-tax dollars). The trade-off is that <em>all future growth, dividends, and withdrawals in retirement are 100% tax-free.</em>
                 </p>
 
-                <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">The Power of Time</h3>
+                <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">The Power of Time</h3>
                 <p>
                     The Roth IRA is especially beneficial for young investors. Because younger workers are generally in a lower tax bracket now than they will be in retirement, paying taxes upfront is advantageous. More importantly, investing over decades means the vast majority of the account's final balance will consist of investment earnings, not original contributions. Shielding all of that growth from taxes can save you hundreds of thousands of dollars.
                 </p>
@@ -218,16 +218,28 @@ export default function RothIraCalculatorPage() {
             </div>
         </div>
 
+        {/* How to Use Section */}
+        <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">How to Use This Calculator</h2>
+        <div className="space-y-4 text-[#6B7280] leading-relaxed">
+        <ol className="list-decimal ml-5 space-y-3">
+        <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+        <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+        <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+        </ol>
+        </div>
+        </div>
+
         {/* FAQ Section */}
         <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
-            <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
                 {jsonLd.mainEntity.map((faq, i) => (
                     <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
                         <h3 className="text-foreground font-medium text-base flex items-start gap-2">
-                            <HelpCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                            <HelpCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
                         </h3>
-                        <p className="text-gray-500 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
                     </div>
                 ))}
             </div>
@@ -235,12 +247,12 @@ export default function RothIraCalculatorPage() {
 
         {/* Cross Links */}
         <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
+            <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Explore More Tools</h2>
             <div className="flex flex-wrap justify-center gap-3">
                 <Link href="/us/tools/retirement-account-calculator" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                     401k/IRA Calculator <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link href="/us/tools/fire-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                <Link href="/us/tools/fire-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[var(--color-accent)] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                     FIRE Calculator
                 </Link>
             </div>

@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import InputSlider from '@/components/InputSlider';
+import Link from 'next/link';
+import { ArrowRight, HelpCircle } from 'lucide-react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -25,6 +27,17 @@ ChartJS.register(
   Legend,
   Filler
 );
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Is it always better to buy a house than to rent?', acceptedAnswer: { '@type': 'Answer', text: 'No. The decision depends heavily on how long you plan to stay in the home, the local housing market, and interest rates. Buying involves significant sunk costs (closing costs, maintenance, property taxes, interest) that can outweigh the equity gained if you move within 5-7 years.' } },
+    { '@type': 'Question', name: 'What is the opportunity cost of a down payment?', acceptedAnswer: { '@type': 'Answer', text: 'When you put 20% down on a house, that money is tied up in the home. If you had rented instead and invested that same 20% down payment into a NIFTY 50 index fund, it would likely compound at 10-12% annually. This lost investment growth is the opportunity cost of buying.' } },
+    { '@type': 'Question', name: 'How do property taxes and maintenance affect the Buy vs Rent calculation?', acceptedAnswer: { '@type': 'Answer', text: 'Property taxes and maintenance are ongoing, unrecoverable costs of homeownership. They typically average 1-2% of the home\'s value annually. In a Buy vs Rent calculation, these costs must be subtracted from the total equity gained to find your true net worth.' } },
+    { '@type': 'Question', name: 'What is the 5% Rule in real estate?', acceptedAnswer: { '@type': 'Answer', text: 'The 5% Rule is a quick rule of thumb for estimating the unrecoverable costs of homeownership. It estimates that property tax (1%), maintenance (1%), and cost of capital/interest (3%) will cost about 5% of the home\'s value each year. If your annual rent is less than 5% of the home\'s value, renting may be better financially.' } }
+  ]
+};
 
 export default function BuyVsRentPage() {
   const [propertyValue, setPropertyValue] = useState(10000000);
@@ -176,8 +189,9 @@ export default function BuyVsRentPage() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mb-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
           Buy vs Rent Calculator
         </h1>
         <p className="text-[#6B7280] max-w-2xl mx-auto">
@@ -188,8 +202,8 @@ export default function BuyVsRentPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Column: Inputs */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="glass-panel p-6 bg-[#f8f2ea] rounded-2xl">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-6">Property Details</h2>
+          <div className="glass-panel p-6 bg-[var(--background)] rounded-2xl">
+            <h2 className="text-xl font-bold text-[var(--foreground)] mb-6">Property Details</h2>
             <div className="space-y-5">
               <InputSlider
                 label="Property Value"
@@ -239,8 +253,8 @@ export default function BuyVsRentPage() {
             </div>
           </div>
 
-          <div className="glass-panel p-6 bg-[#f8f2ea] rounded-2xl">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-6">Rent & Investment Details</h2>
+          <div className="glass-panel p-6 bg-[var(--background)] rounded-2xl">
+            <h2 className="text-xl font-bold text-[var(--foreground)] mb-6">Rent & Investment Details</h2>
             <div className="space-y-5">
               <InputSlider
                 label="Current Monthly Rent"
@@ -275,13 +289,13 @@ export default function BuyVsRentPage() {
 
         {/* Right Column: Results & Chart */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="glass-panel p-6 bg-[#f8f2ea] rounded-2xl">
-            <h2 className="text-xl font-bold text-[#1F2937] mb-6">Financial Comparison (After {loanTenure} Years)</h2>
+          <div className="glass-panel p-6 bg-[var(--background)] rounded-2xl">
+            <h2 className="text-xl font-bold text-[var(--foreground)] mb-6">Financial Comparison (After {loanTenure} Years)</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               <div className="bg-white/50 p-4 rounded-xl border border-[#1B3A5C]/10">
                 <p className="text-sm text-[#6B7280] mb-1">Net Worth (Buying)</p>
-                <p className="text-2xl font-bold text-[#1B3A5C]">{formatCurrency(finalBuyNetWorth)}</p>
+                <p className="text-2xl font-bold text-[var(--color-accent)]">{formatCurrency(finalBuyNetWorth)}</p>
                 <p className="text-xs text-[#6B7280] mt-2">Monthly EMI: {formatCurrency(emi)}</p>
               </div>
               <div className="bg-white/50 p-4 rounded-xl border border-[#C4993C]/20">
@@ -294,14 +308,14 @@ export default function BuyVsRentPage() {
             <div className="mb-4">
               {finalBuyNetWorth > finalRentNetWorth ? (
                 <div className="bg-[#1B3A5C]/5 p-4 rounded-xl border-l-4 border-[#1B3A5C]">
-                  <p className="text-[#1F2937] font-medium">
-                    Buying is more profitable by <span className="text-[#059669] font-bold">{formatCurrency(finalBuyNetWorth - finalRentNetWorth)}</span>
+                  <p className="text-[var(--foreground)] font-medium">
+                    Buying is more profitable by <span className="text-[var(--color-returns)] font-bold">{formatCurrency(finalBuyNetWorth - finalRentNetWorth)}</span>
                   </p>
                 </div>
               ) : (
                 <div className="bg-[#C4993C]/5 p-4 rounded-xl border-l-4 border-[#C4993C]">
-                  <p className="text-[#1F2937] font-medium">
-                    Renting is more profitable by <span className="text-[#059669] font-bold">{formatCurrency(finalRentNetWorth - finalBuyNetWorth)}</span>
+                  <p className="text-[var(--foreground)] font-medium">
+                    Renting is more profitable by <span className="text-[var(--color-returns)] font-bold">{formatCurrency(finalRentNetWorth - finalBuyNetWorth)}</span>
                   </p>
                 </div>
               )}
@@ -313,6 +327,71 @@ export default function BuyVsRentPage() {
           </div>
         </div>
       </div>
+
+      {/* SEO Educational Content Section */}
+      <div className="mt-16 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+          <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">The Buy vs. Rent Dilemma</h2>
+          
+          <div className="space-y-6 text-[#6B7280] leading-relaxed">
+              <p>
+                  The phrase <em>&quot;renting is throwing money away&quot;</em> is one of the most pervasive myths in personal finance. In reality, both buying and renting involve throwing money away on <strong>unrecoverable costs</strong>. For renters, the unrecoverable cost is rent. For buyers, the unrecoverable costs are mortgage interest, property taxes, maintenance, society fees, and registry costs.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">The Opportunity Cost of Buying</h3>
+              <p>
+                  When you buy a house, you tie up a significant amount of cash in a down payment and closing costs. If you had rented instead, you could have invested that money in the stock market (e.g., via an Equity SIP into a NIFTY 50 index fund) and earned a historical average return of roughly 12% annually. 
+              </p>
+              <p>
+                  Furthermore, if your monthly EMI (including taxes and maintenance) is higher than your monthly rent would have been, a disciplined renter can invest that difference every single month. Over 20 or 30 years, this invested difference can grow into a massive portfolio that rivals or beats the equity built in a home.
+              </p>
+
+              <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">When Buying Makes Sense</h3>
+              <p>
+                  Buying a home generally becomes the superior financial choice if you plan to stay in the home for a long time (typically 7-10 years or more). The longer you stay, the more the amortization schedule shifts in your favor (you pay more principal and less interest), and the more time your home&apos;s value has to appreciate and offset the initial closing costs.
+              </p>
+          </div>
+      </div>
+
+      {/* How to Use Section */}
+      <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+      <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">How to Use This Calculator</h2>
+      <div className="space-y-4 text-[#6B7280] leading-relaxed">
+      <ol className="list-decimal ml-5 space-y-3">
+      <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+      <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+      <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+      </ol>
+      </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+          <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+              {jsonLd.mainEntity.map((faq, i) => (
+                  <div key={i} className="border-b border-[#1B3A5C]/10 pb-4 last:border-0 last:pb-0">
+                      <h3 className="text-[var(--foreground)] font-medium text-base flex items-start gap-2">
+                          <HelpCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
+                      </h3>
+                      <p className="text-[#6B7280] text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                  </div>
+              ))}
+          </div>
+      </div>
+
+      {/* Cross Links */}
+      <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
+          <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Explore More Tools</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/tools/sip-for-house-down-payment" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                  Down Payment SIP <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/tools/fd-vs-sip-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[var(--color-accent)] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                  FD vs SIP
+              </Link>
+          </div>
+      </div>
+
     </div>
   );
 }

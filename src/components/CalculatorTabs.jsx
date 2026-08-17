@@ -20,7 +20,7 @@ export default function CalculatorTabs() {
 
   return (
     <div className="flex justify-center mb-6 w-full overflow-hidden">
-      <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-4xl bg-white dark:bg-[var(--panel-bg)] border-black/5 dark:border-white/10 overflow-x-auto hide-scrollbar gap-1">
+      <div className="glass-panel p-1.5 flex rounded-xl w-full max-w-4xl bg-[var(--panel-bg)] dark:bg-[var(--panel-bg)] border-black/5 dark:border-white/10 overflow-x-auto hide-scrollbar gap-1">
         {TABS.map(({ href, label, Icon }) => {
           // If in US, prefix the href, except for root '/' which becomes '/us/dca-calculator'
           let finalHref = href;

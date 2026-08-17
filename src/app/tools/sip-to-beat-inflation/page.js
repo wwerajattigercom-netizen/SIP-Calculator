@@ -102,7 +102,7 @@ export default function SipBeatInflationPage() {
           <div className="glass-panel p-7 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(153,27,27,0.1)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-[10px] uppercase tracking-widest text-[#991B1B] font-semibold mb-3 block">Guide · Real Returns</span>
+              <span className="text-[10px] uppercase tracking-widest text-[var(--color-loss)] font-semibold mb-3 block">Guide · Real Returns</span>
               <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight mb-3">
                 How to Use SIP to Beat Inflation 
               </h1>
@@ -166,13 +166,13 @@ export default function SipBeatInflationPage() {
 
                 {/* ── Status badge: Are you beating inflation? ── */}
                 <div className={`flex items-start gap-4 p-4 rounded-2xl border ${results.isBeating ? 'border-[var(--color-accent)]/30 bg-[rgba(27,58,92,0.05)]' : 'border-[#991B1B]/30 bg-[rgba(153,27,27,0.06)]'}`}>
-                  <div className={`flex-shrink-0 mt-0.5 ${results.isBeating ? 'text-[var(--color-accent)]' : 'text-[#991B1B]'}`}>
+                  <div className={`flex-shrink-0 mt-0.5 ${results.isBeating ? 'text-[var(--color-accent)]' : 'text-[var(--color-loss)]'}`}>
                     {results.isBeating
                       ? <CheckCircle2 className="w-6 h-6" />
                       : <XCircle className="w-6 h-6" />}
                   </div>
                   <div>
-                    <p className={`font-bold text-sm ${results.isBeating ? 'text-[#059669]' : 'text-[#991B1B]'}`}>
+                    <p className={`font-bold text-sm ${results.isBeating ? 'text-[var(--color-returns)]' : 'text-[var(--color-loss)]'}`}>
                       {results.isBeating
                         ? `✅ Your SIP is beating inflation by ${results.margin.toFixed(1)}%`
                         : `❌ Your SIP is NOT beating inflation (${Math.abs(results.margin).toFixed(1)}% short)`}
@@ -187,7 +187,7 @@ export default function SipBeatInflationPage() {
 
                 {/* ── Quick summary row ── */}
                 <div className="grid grid-cols-3 gap-3 text-center">
-                  <div className="bg-white border border-[#E8E4DF] rounded-xl p-3">
+                  <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-3">
                     <p className="text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1">Total Invested</p>
                     <p className="text-foreground font-bold text-sm">{formatToShortWords(results.totalInvested)}</p>
                   </div>
@@ -205,9 +205,9 @@ export default function SipBeatInflationPage() {
 
                 {/* ── Inflation erosion callout ── */}
                 <div className="flex items-start gap-2 bg-[rgba(0,0,0,0.04)] border border-[#E8E4DF] rounded-xl p-4">
-                  <Info className="w-4 h-4 text-[#059669] flex-shrink-0 mt-0.5" />
+                  <Info className="w-4 h-4 text-[var(--color-returns)] flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Inflation will erode <strong className="text-[#991B1B]">{formatToShortWords(results.powerLost)}</strong> of your corpus&apos;s buying power over {duration} years. Your {formatToShortWords(results.nominalFV)} will feel like {formatToShortWords(results.realFV)} in today&apos;s money.
+                    Inflation will erode <strong className="text-[var(--color-loss)]">{formatToShortWords(results.powerLost)}</strong> of your corpus&apos;s buying power over {duration} years. Your {formatToShortWords(results.nominalFV)} will feel like {formatToShortWords(results.realFV)} in today&apos;s money.
                   </p>
                 </div>
 
@@ -228,9 +228,9 @@ export default function SipBeatInflationPage() {
                   </div>
 
                   <div className="hidden sm:flex flex-col items-center text-gray-500 dark:text-gray-400">
-                    <TrendingDown className="w-6 h-6 mx-auto text-[#991B1B]" />
+                    <TrendingDown className="w-6 h-6 mx-auto text-[var(--color-loss)]" />
                     <span className="text-[10px] block mt-1 uppercase tracking-wider">Inflation</span>
-                    <span className="text-[9px] text-[#991B1B] font-bold">−{formatToShortWords(results.powerLost)}</span>
+                    <span className="text-[9px] text-[var(--color-loss)] font-bold">−{formatToShortWords(results.powerLost)}</span>
                   </div>
 
                   <div className="flex flex-col items-center gap-2">
@@ -281,6 +281,20 @@ export default function SipBeatInflationPage() {
             </div>
           </div>
 
+          {/* How to Use */}
+          <div className="glass-panel p-6 mt-8 mb-6">
+          <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg> How to Use This Calculator
+          </h2>
+          <ol className="list-decimal ml-5 space-y-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+          </ol>
+          </div>
+
           {/* FAQs */}
           <div className="glass-panel p-6">
             <h2 className="text-xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
@@ -288,7 +302,7 @@ export default function SipBeatInflationPage() {
               {jsonLd.mainEntity.map((faq, i) => (
                 <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
                   <h3 className="text-foreground font-medium text-sm flex items-start gap-2">
-                    <HelpCircle className="w-4 h-4 text-[#991B1B] flex-shrink-0 mt-0.5" /> {faq.name}
+                    <HelpCircle className="w-4 h-4 text-[var(--color-loss)] flex-shrink-0 mt-0.5" /> {faq.name}
                   </h3>
                   <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-6">{faq.acceptedAnswer.text}</p>
                 </div>

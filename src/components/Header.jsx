@@ -93,7 +93,7 @@ export default function Header() {
               <button className="flex items-center gap-1 text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-sm font-semibold transition-colors py-4">
                 Calculators <ChevronDown className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform duration-200" />
               </button>
-              <div className="absolute top-[100%] -left-4 w-56 bg-white dark:bg-[#1B2431] border border-black/10 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 flex flex-col p-2">
+              <div className="absolute top-[100%] -left-4 w-56 bg-[var(--panel-bg)] dark:bg-[#1B2431] border border-black/10 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 flex flex-col p-2">
                 {calculators.map((calc) => (
                   <Link key={calc.href} href={calc.href} className="flex items-center gap-3 p-2 rounded-lg hover:bg-[rgba(27,58,92,0.06)] dark:hover:bg-white/5 transition-colors group/link">
                     <calc.icon className="w-4 h-4 text-[var(--color-accent)] group-hover/link:scale-110 transition-transform" />
@@ -108,7 +108,7 @@ export default function Header() {
               <button className="flex items-center gap-1 text-foreground hover:text-[var(--color-accent)] dark:hover:text-[#3B82F6] text-sm font-semibold transition-colors py-4">
                 Tools <ChevronDown className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform duration-200" />
               </button>
-              <div className="absolute top-[100%] -left-12 w-64 bg-white dark:bg-[#1B2431] border border-black/10 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 flex flex-col p-2 max-h-[80vh] overflow-y-auto hide-scrollbar">
+              <div className="absolute top-[100%] -left-12 w-64 bg-[var(--panel-bg)] dark:bg-[#1B2431] border border-black/10 dark:border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 flex flex-col p-2 max-h-[80vh] overflow-y-auto hide-scrollbar">
                 {tools.map((t) => (
                   <Link key={t.href} href={t.href} className="flex items-center gap-3 p-2 rounded-lg hover:bg-[rgba(27,58,92,0.06)] dark:hover:bg-white/5 transition-colors group/link">
                     <t.icon className="w-4 h-4 text-[var(--color-accent)] group-hover/link:scale-110 transition-transform flex-shrink-0" />
@@ -161,7 +161,7 @@ export default function Header() {
 
       {/* Mobile Nav Dropdown */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-[#1B2431] border-b border-black/10 shadow-xl flex flex-col py-3 px-4 gap-2 animate-in slide-in-from-top-2 max-h-[85vh] overflow-y-auto">
+        <div className="md:hidden absolute top-full left-0 w-full bg-[var(--panel-bg)] dark:bg-[#1B2431] border-b border-black/10 shadow-xl flex flex-col py-3 px-4 gap-2 animate-in slide-in-from-top-2 max-h-[85vh] overflow-y-auto">
           
           <div className="px-2 py-1">
             <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-2 block">Calculators</span>

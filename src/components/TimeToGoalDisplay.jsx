@@ -18,8 +18,8 @@ export default function TimeToGoalDisplay({ results }) {
     return (
       <div className="glass-panel p-4 lg:p-5 flex flex-col items-center justify-center min-h-[320px] relative overflow-hidden">
         
-        <AlertTriangle className="w-12 h-12 text-[#059669] mb-4" />
-        <p className="text-[#059669] font-bold text-base text-center mb-2">Goal not reachable in 50 years</p>
+        <AlertTriangle className="w-12 h-12 text-[var(--color-returns)] mb-4" />
+        <p className="text-[var(--color-returns)] font-bold text-base text-center mb-2">Goal not reachable in 50 years</p>
         <p className="text-gray-500 dark:text-gray-400 text-xs text-center max-w-xs leading-relaxed">
           Increase your monthly SIP, add a lump sum, raise the step-up %, or lower your target goal to see a realistic timeline.
         </p>
@@ -129,7 +129,7 @@ export default function TimeToGoalDisplay({ results }) {
           <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
             <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Earned
           </div>
-          <div className="text-sm font-extrabold text-[#059669]">+{formatCurrency(gainsAtGoal, locale, currencyCode)}</div>
+          <div className="text-sm font-extrabold text-[var(--color-returns)]">+{formatCurrency(gainsAtGoal, locale, currencyCode)}</div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(gainsAtGoal, isUS)}</div>
         </div>
 

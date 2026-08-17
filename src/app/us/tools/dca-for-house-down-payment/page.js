@@ -189,7 +189,7 @@ export default function SipForHousePage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-white border border-[#E8E4DF] rounded-xl p-4">
+                  <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-4">
                     <p className="text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1">Future Prop. Price</p>
                     <p className="text-foreground font-bold text-lg">{fmt(results.futurePrice)}</p>
                   </div>
@@ -197,13 +197,13 @@ export default function SipForHousePage() {
                     <p className="text-foreground text-[10px] uppercase tracking-wider mb-1 font-semibold">Down Payment Needed</p>
                     <p className="text-foreground font-bold text-lg">{fmt(results.requiredDownPayment)}</p>
                   </div>
-                  <div className="bg-white border border-[#E8E4DF] rounded-xl p-4">
+                  <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-4">
                     <p className="text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1">Total DCA Invested</p>
                     <p className="text-foreground font-bold text-lg">{fmt(results.totalInvested)}</p>
                   </div>
                   <div className="bg-[rgba(196,153,60,0.08)] border border-amber-500/20 rounded-xl p-4">
-                    <p className="text-[#059669]/80 text-[10px] uppercase tracking-wider mb-1">Est. Monthly Mortgage (30 Yrs)</p>
-                    <p className="text-[#059669] font-bold text-lg">{fmt(results.emi)}</p>
+                    <p className="text-[var(--color-returns)]/80 text-[10px] uppercase tracking-wider mb-1">Est. Monthly Mortgage (30 Yrs)</p>
+                    <p className="text-[var(--color-returns)] font-bold text-lg">{fmt(results.emi)}</p>
                   </div>
                 </div>
 

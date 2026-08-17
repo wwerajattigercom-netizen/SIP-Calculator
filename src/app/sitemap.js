@@ -28,71 +28,72 @@ export default function sitemap() {
 
   // Interactive Tools (India)
   const inTools = [
+    '/tools/buy-vs-rent-calculator',
     '/tools/cost-of-delay-calculator',
-    '/tools/sip-based-on-salary',
-    '/tools/retirement-sip-calculator',
-    '/tools/sip-vs-lumpsum',
-    '/tools/sip-to-beat-inflation',
-    '/tools/sip-for-child-education',
-    '/tools/sip-for-house-down-payment',
-    '/tools/sip-during-market-crash',
-    '/tools/sip-to-reach-1-crore',
     '/tools/fd-vs-sip-calculator',
     '/tools/fire-calculator',
-    '/tools/xirr-calculator',
     '/tools/nps-calculator',
     '/tools/ppf-calculator',
-    '/tools/buy-vs-rent-calculator'
+    '/tools/retirement-sip-calculator',
+    '/tools/sip-based-on-salary',
+    '/tools/sip-during-market-crash',
+    '/tools/sip-for-child-education',
+    '/tools/sip-for-house-down-payment',
+    '/tools/sip-to-beat-inflation',
+    '/tools/sip-to-reach-1-crore',
+    '/tools/sip-vs-lumpsum',
+    '/tools/xirr-calculator'
   ];
 
   // Interactive Tools (US)
   const usTools = [
+    '/us/tools/buy-vs-rent-calculator',
     '/us/tools/cost-of-delay-calculator',
     '/us/tools/dca-based-on-salary',
-    '/us/tools/retirement-account-calculator',
-    '/us/tools/dca-vs-lumpsum',
-    '/us/tools/dca-to-beat-inflation',
+    '/us/tools/dca-during-market-crash',
     '/us/tools/dca-for-child-education',
     '/us/tools/dca-for-house-down-payment',
-    '/us/tools/dca-during-market-crash',
+    '/us/tools/dca-to-beat-inflation',
     '/us/tools/dca-to-reach-1-million',
-    '/us/tools/savings-vs-dca-calculator',
+    '/us/tools/dca-vs-lumpsum',
     '/us/tools/fire-calculator',
-    '/us/tools/xirr-calculator',
+    '/us/tools/retirement-account-calculator',
+    '/us/tools/retirement-dca-calculator',
     '/us/tools/roth-ira-calculator',
-    '/us/tools/buy-vs-rent-calculator'
+    '/us/tools/savings-vs-dca-calculator',
+    '/us/tools/xirr-calculator'
   ];
 
   // Indian Guides
   const inGuides = [
-    '/blog/sip-vs-fd-ppf-rd',
     '/blog/cagr-vs-xirr-vs-absolute-return',
-    '/blog/swp-vs-sip',
-    '/blog/sip-vs-stp',
-    '/blog/flexi-sip',
-    '/blog/step-up-sip',
-    '/blog/trigger-sip',
-    '/blog/dynamic-sip',
     '/blog/common-sip-mistakes',
-    '/blog/types-of-sip',
+    '/blog/dynamic-sip',
+    '/blog/flexi-sip',
     '/blog/sip-for-nris',
-    '/blog/sip-vs-ulip'
+    '/blog/sip-vs-fd-ppf-rd',
+    '/blog/sip-vs-stp',
+    '/blog/sip-vs-ulip',
+    '/blog/step-up-sip',
+    '/blog/swp-vs-sip',
+    '/blog/trigger-sip',
+    '/blog/types-of-sip'
   ];
 
   // US Guides
   const usGuides = [
-    '/us/blog/dca-vs-fd-ppf-rd',
     '/us/blog/cagr-vs-xirr-vs-absolute-return',
-    '/us/blog/swp-vs-dca',
+    '/us/blog/common-dca-mistakes',
+    '/us/blog/dca-for-expats',
+    '/us/blog/dca-vs-fd-ppf-rd',
     '/us/blog/dca-vs-stp',
+    '/us/blog/dca-vs-ulip',
+    '/us/blog/dynamic-dca',
     '/us/blog/flexi-dca',
     '/us/blog/step-up-dca',
+    '/us/blog/swp-vs-dca',
     '/us/blog/trigger-dca',
-    '/us/blog/dynamic-dca',
-    '/us/blog/common-dca-mistakes',
-    '/us/blog/types-of-dca',
-    '/us/blog/dca-for-expats',
-    '/us/blog/dca-vs-ulip'
+    '/us/blog/types-of-dca'
   ];
 
   const mapCore = (paths) => paths.map(p => ({

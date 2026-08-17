@@ -141,7 +141,7 @@ export default function SipForChildEducationPage() {
             <div>
               <h3 className="text-amber-500 font-bold text-lg mb-1">The Reality of Education Inflation</h3>
               <p className="text-foreground text-sm leading-relaxed">
-                A course that costs <strong className="text-[#059669]">{fmt(todayCost)}</strong> today will cost <strong className="text-[#059669] text-lg">{fmt(results.futureCost)}</strong> in {results.years} years (assuming {educationInflation}% inflation). Start planning now.
+                A course that costs <strong className="text-[var(--color-returns)]">{fmt(todayCost)}</strong> today will cost <strong className="text-[var(--color-returns)] text-lg">{fmt(results.futureCost)}</strong> in {results.years} years (assuming {educationInflation}% inflation). Start planning now.
               </p>
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function SipForChildEducationPage() {
                   <div className="bg-[rgba(27,58,92,0.05)] border border-[var(--color-accent)]/20 rounded-xl p-4 text-center">
                     <p className="text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1">Total Invested</p>
                     <p className="text-[var(--color-accent)] font-bold text-xl">{fmt(results.totalInvested)}</p>
-                    <p className="text-[10px] text-[#059669] mt-1">Gains: {fmt(results.estimatedGains)}</p>
+                    <p className="text-[10px] text-[var(--color-returns)] mt-1">Gains: {fmt(results.estimatedGains)}</p>
                   </div>
                 </div>
 
@@ -234,7 +234,7 @@ export default function SipForChildEducationPage() {
                     <span className="font-semibold text-foreground">{results.years} Years to Grow</span>
                     <span>College (Age {targetAge})</span>
                   </div>
-                  <div className="h-2 w-full bg-white rounded-full overflow-hidden flex">
+                  <div className="h-2 w-full bg-[var(--panel-bg)] rounded-full overflow-hidden flex">
                     <div className="h-full bg-gradient-to-r from-[#1B3A5C] to-[#C4993C] w-full relative">
                        <div className="absolute top-0 right-0 h-full w-full bg-[linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.1)_50%,transparent_100%)] animate-[shimmer_2s_infinite]" style={{ backgroundSize: '200% 100%' }}></div>
                     </div>
@@ -242,7 +242,7 @@ export default function SipForChildEducationPage() {
                 </div>
 
                 {/* Step-up Alternative */}
-                <div className="bg-white border border-[#E8E4DF] rounded-xl p-4 flex items-center justify-between">
+                <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-4 flex items-center justify-between">
                   <div>
                     <h4 className="text-foreground text-sm font-semibold flex items-center gap-2"><TrendingUp className="w-4 h-4 text-[var(--color-accent)]" /> Too high? Use 10% Step-Up SIP</h4>
                     <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">Start lower and increase your SIP by 10% every year.</p>
@@ -353,6 +353,20 @@ export default function SipForChildEducationPage() {
                 • <strong>Less than 3 Years Away:</strong> Move money to Debt funds or FDs to protect the capital from market crashes right before fees are due.
               </p>
             </div>
+          </div>
+
+          {/* How to Use */}
+          <div className="glass-panel p-6 mt-8 mb-6">
+          <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg> How to Use This Calculator
+          </h2>
+          <ol className="list-decimal ml-5 space-y-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+          </ol>
           </div>
 
           {/* FAQs */}

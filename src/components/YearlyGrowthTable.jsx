@@ -61,7 +61,7 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
                       )}
                     </div>
                     {/* Progress bar toward goal */}
-                    <div className="mt-1 w-full h-1 bg-white bg-opacity-10 rounded-full overflow-hidden">
+                    <div className="mt-1 w-full h-1 bg-[var(--panel-bg)] bg-opacity-10 rounded-full overflow-hidden">
                       <div
                         className="h-full rounded-full transition-all duration-500"
                         style={{

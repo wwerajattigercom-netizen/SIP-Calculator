@@ -62,7 +62,7 @@ export default function DisclaimerPage() {
         {/* Financial Disclaimer */}
         <div className="glass-panel p-6">
           <div className="flex items-start gap-3 mb-4">
-            <AlertTriangle className="w-5 h-5 text-[#059669] flex-shrink-0 mt-0.5" />
+            <AlertTriangle className="w-5 h-5 text-[var(--color-returns)] flex-shrink-0 mt-0.5" />
             <h2 className="text-xl font-bold text-foreground">Financial Disclaimer</h2>
           </div>
           <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -99,7 +99,7 @@ export default function DisclaimerPage() {
           </p>
           <div className="space-y-4">
             {METHODOLOGY.map(({ tool, convention, timing, standard, note }) => (
-              <div key={tool} className="p-4 rounded-xl bg-white border border-[#E8E4DF]">
+              <div key={tool} className="p-4 rounded-xl bg-[var(--panel-bg)] border border-[#E8E4DF]">
                 <p className="text-foreground font-semibold text-sm mb-2">{tool}</p>
                 <div className="space-y-1 text-xs">
                   <div className="flex gap-2">

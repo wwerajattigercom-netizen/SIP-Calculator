@@ -271,7 +271,7 @@ export default function Home() {
               <p className="text-gray-600 dark:text-gray-400 text-[10px] mt-4">
                 For business queries, collaborations, or feedback
               </p>
-              <p className="text-gray-500 dark:text-gray-500 dark:text-gray-400 text-[10px] mt-2">
+              <p className="text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 text-[10px] mt-2">
                 © {new Date().getFullYear()} Rajat
               </p>
             </div>

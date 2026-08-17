@@ -37,7 +37,7 @@ export default function SipVsStpPage() {
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
                 <span className="text-[var(--color-accent)]">DCA</span> vs <span className="text-[#C4993C]">STP</span>: How to Invest a Massive Bonus Safely
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 You just received a $50,000 bonus, or sold a property. Should you dump it all into the stock market today? No. Enter the Systematic Transfer Plan (STP) — the professional investor's tool for risk-free market entry.
               </p>
               <div className="flex items-center gap-3">
@@ -58,7 +58,7 @@ export default function SipVsStpPage() {
               <CheckCircle className="w-5 h-5 text-[#C4993C]" /> 
               The 10-Second Summary (What is an STP?)
             </h2>
-            <ul className="space-y-3 text-sm md:text-base text-gray-600 dark:text-gray-300">
+            <ul className="space-y-3 text-sm md:text-base text-gray-600 dark:text-gray-400 dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 flex-shrink-0" />
                 <span><strong className="text-[var(--color-accent)]">DCA (Dollar Cost Averaging):</strong> Moves money from your <strong>Bank Account</strong> to a Mutual Fund every month. Good if you have a regular monthly salary.</span>
@@ -73,7 +73,7 @@ export default function SipVsStpPage() {
           {/* Why Question */}
           <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black">
             <h2 className="text-2xl font-bold text-foreground mb-4">Why Do I Need an STP? (The Market Timing Risk)</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 mb-6 leading-relaxed">
               Imagine you have $50,000. You decide to invest it all as a single lump sum into a S&P 500 Index Fund on January 1st. 
               On January 5th, a global crisis occurs, and the market crashes by 20%. Your $50,000 is instantly reduced to $40,000. You have fallen victim to <strong>Market Timing Risk</strong>.
               <br/><br/>
@@ -91,14 +91,14 @@ export default function SipVsStpPage() {
             </p>
             
             <div className="bg-[rgba(153,27,27,0.05)] border-l-4 border-[#991B1B] p-5 rounded-r-xl mb-6">
-              <h3 className="font-bold text-[#991B1B] dark:text-red-400 mb-2 flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> The Lump Sum Dilemma</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+              <h3 className="font-bold text-[var(--color-loss)] dark:text-red-400 mb-2 flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> The Lump Sum Dilemma</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                 If you wait for a crash, inflation eats your cash in the bank. If you invest immediately, you risk a short-term crash destroying your principal.
               </p>
             </div>
             
-            <p className="text-gray-600 dark:text-gray-300 font-semibold mb-2">The STP Solution:</p>
-            <ol className="list-decimal pl-5 space-y-3 text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 font-semibold mb-2">The STP Solution:</p>
+            <ol className="list-decimal pl-5 space-y-3 text-gray-600 dark:text-gray-400 dark:text-gray-300">
               <li>You park the $50,000 in a highly safe <strong>Money Market Fund or Treasury ETF</strong> (which gives 6-7% returns and doesn't crash).</li>
               <li>You instruct the fund house to automatically transfer $5,000 from this safe fund into a risky <strong>Equity Fund</strong> on the 5th of every month.</li>
               <li>You spread your investment over 10 months, successfully averaging out the purchase price (just like a DCA) while earning interest on the uninvested cash!</li>

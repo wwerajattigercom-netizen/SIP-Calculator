@@ -37,7 +37,7 @@ export default function SipForNRIsPage() {
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
                 SIP for <span className="text-[#C4993C]">NRIs</span>: The Complete 2026 Guide
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 With the Indian stock market consistently outperforming global indices, millions of Non-Resident Indians (NRIs) want a piece of the action. Investing in Indian Mutual Funds from abroad is entirely legal, but the paperwork (KYC, FATCA, and NRE/NRO accounts) can be confusing.
               </p>
               <div className="flex items-center gap-3">
@@ -57,24 +57,24 @@ export default function SipForNRIsPage() {
             {/* Step 1: NRE vs NRO */}
             <div className="glass-panel p-8">
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
-                <Landmark className="w-6 h-6 text-[#1B3A5C]" /> 1. The Foundation: NRE vs NRO Accounts
+                <Landmark className="w-6 h-6 text-[var(--color-accent)]" /> 1. The Foundation: NRE vs NRO Accounts
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-6">
                 You cannot invest in Indian mutual funds using a standard domestic savings account or a foreign bank account. You must open an NRI-specific bank account in India. You have two choices:
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="border border-[rgba(27,58,92,0.15)] rounded-xl p-5 bg-[rgba(27,58,92,0.02)]">
-                  <h3 className="font-bold text-[#1B3A5C] mb-2">NRE Account (Repatriable)</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <h3 className="font-bold text-[var(--color-accent)] mb-2">NRE Account (Repatriable)</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300">
                     Used to deposit your foreign income (e.g., Dollars or Dirhams). <br/><br/>
                     <strong>The Superpower:</strong> It is fully repatriable. This means you can invest in an SIP, and when you sell 10 years later, you can transfer the entire principal and profit back to your foreign bank account without any RBI restrictions.
                   </p>
                 </div>
                 
                 <div className="border border-[rgba(27,58,92,0.15)] rounded-xl p-5 bg-[rgba(27,58,92,0.02)]">
-                  <h3 className="font-bold text-[#1B3A5C] mb-2">NRO Account (Non-Repatriable)</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <h3 className="font-bold text-[var(--color-accent)] mb-2">NRO Account (Non-Repatriable)</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300">
                     Used to manage income earned <em>within</em> India (e.g., rent from an Indian property or dividends). <br/><br/>
                     <strong>The Catch:</strong> It is largely non-repatriable. Getting this money out of India and into a foreign account is subject to strict limits (usually $1 Million per year) and heavy documentation (Form 15CA/CB).
                   </p>
@@ -85,9 +85,9 @@ export default function SipForNRIsPage() {
             {/* Step 2: KYC */}
             <div className="glass-panel p-8">
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
-                <FileCheck className="w-6 h-6 text-[#059669]" /> 2. The NRI KYC Process
+                <FileCheck className="w-6 h-6 text-[var(--color-returns)]" /> 2. The NRI KYC Process
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 Before you can start a SIP, your KYC status must be updated to "NRI". If you had a standard resident KYC before moving abroad, you <strong>must</strong> file a KYC modification request. Doing SIPs on a Resident KYC while living abroad is a violation of FEMA regulations.
               </p>
               <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300 bg-[rgba(5,150,105,0.02)] p-5 rounded-lg border border-[rgba(5,150,105,0.1)]">
@@ -101,12 +101,12 @@ export default function SipForNRIsPage() {
             {/* Step 3: FATCA (The US/Canada Problem) */}
             <div className="glass-panel p-8 border-t-4 border-t-[#991B1B]">
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
-                <Globe className="w-6 h-6 text-[#991B1B]" /> 3. The FATCA Rule (For US & Canada NRIs)
+                <Globe className="w-6 h-6 text-[var(--color-loss)]" /> 3. The FATCA Rule (For US & Canada NRIs)
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 If you reside in the Middle East, UK, or Australia, you can invest in almost any Indian AMC. However, if you reside in the <strong>United States or Canada</strong>, the rules change drastically due to FATCA (Foreign Account Tax Compliance Act).
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 Because FATCA requires intense reporting to the IRS, many Indian mutual fund houses simply ban US and Canadian NRIs from investing to avoid the compliance headache.
               </p>
               <div className="bg-[rgba(153,27,27,0.05)] p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300">
@@ -121,7 +121,7 @@ export default function SipForNRIsPage() {
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
                 <DollarSign className="w-6 h-6 text-[#C4993C]" /> 4. Taxation & The TDS Trap
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 The actual tax rates (Capital Gains) for NRIs are exactly the same as for resident Indians:
               </p>
               <ul className="mb-4 text-sm text-gray-700 dark:text-gray-300 space-y-1">
@@ -133,7 +133,7 @@ export default function SipForNRIsPage() {
                 <h3 className="font-bold text-foreground flex items-center gap-2 mb-2">
                   <AlertCircle className="w-4 h-4 text-[#C4993C]" /> The TDS Problem
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   Unlike resident Indians, NRIs are subjected to <strong>TDS (Tax Deducted at Source)</strong>. When an NRI sells a mutual fund, the AMC will automatically deduct the maximum possible tax (e.g., 20% or 30% depending on the fund type) <em>before</em> sending the money to the bank account. <br/><br/>
                   If your actual tax liability is lower, you must file an Income Tax Return (ITR) in India to claim a refund for the excess TDS deducted.
                 </p>
@@ -145,19 +145,19 @@ export default function SipForNRIsPage() {
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
                 5. Advanced Wealth Creation Strategies for NRIs
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 When you invest in Indian Mutual Funds through SIPs as an NRI, you're tapping into one of the fastest-growing major economies in the world. However, to truly maximize your returns, you must understand the interplay between currency depreciation and market returns. Over the last decade, the Indian Rupee (INR) has depreciated against the US Dollar (USD) and other major currencies at an average rate of 4-5% per year. This means that if an Indian mutual fund generates a 15% CAGR in Rupee terms, your effective return in Dollar terms might be closer to 10-11%. Despite this currency risk, Indian equity markets have historically outperformed mature markets significantly enough to justify the investment.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 Let's consider a practical example. Suppose an NRI in Dubai (earning in AED, pegged to USD) starts a SIP of ₹50,000 per month (roughly $600). Over 15 years, the total invested amount is ₹90 Lakhs. If the Indian equity market delivers an annualized return of 12%, the corpus grows to approximately ₹2.52 Crores. Even accounting for a 4% annual depreciation in the Rupee, the purchasing power generated in the home country often exceeds what traditional fixed-income instruments or developed market index funds would yield. This compounding effect, measured in Crores rather than thousands, is the primary driver for NRI investments in India.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 Furthermore, NRIs should strategically allocate between NRE and NRO accounts. NRE accounts are ideal for repatriable investments—meaning if you plan to eventually bring the money back to the US, UK, or UAE, you should exclusively use NRE accounts for your SIPs. On the other hand, if you intend to retire in India or build a corpus for expenses within India (such as buying property or supporting parents), NRO accounts can be utilized effectively. Remember, once money goes into an NRO account, it loses its free repatriability, and pulling it back out requires navigating the $1 Million per financial year limit and obtaining a Chartered Accountant's certificate (Form 15CB).
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 Another critical aspect is the selection of mutual fund categories. For long-term wealth creation (10+ years), NRIs should lean heavily towards Flexi-Cap and Mid-Cap funds. These categories offer the agility to navigate the diverse Indian economic landscape, capturing growth across sectors like IT, Pharma, and Banking. Large-cap funds provide stability but may offer slightly lower alpha. For NRIs with a lower risk appetite, balanced advantage funds or aggressive hybrid funds can offer a smoother ride by dynamically adjusting equity and debt exposure based on market valuations. However, it's essential to consult with a SEBI-registered investment advisor to align the portfolio with your specific goals, tax residency, and risk tolerance.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 Lastly, never underestimate the power of starting early. The cost of delay in SIPs is exponential. An NRI delaying a ₹50,000 monthly SIP by just 5 years could lose out on over ₹1 Crore in potential wealth creation over a 20-year horizon. This is due to the non-linear nature of compounding, where the returns in the final years eclipse the total contributions made in the initial years. Therefore, prioritizing the completion of your NRI KYC and setting up the SIP mandate should be your top financial objective.
               </p>
             </div>

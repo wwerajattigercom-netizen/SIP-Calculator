@@ -364,7 +364,7 @@ export default function TargetCalculatorPage() {
                 businesswebsitestudio@gmail.com
               </a>
               <p className="text-gray-600 dark:text-gray-400 text-[10px] mt-4">For business queries, collaborations, or feedback</p>
-              <p className="text-gray-500 dark:text-gray-500 text-[10px] mt-2">© {new Date().getFullYear()} Rajat</p>
+              <p className="text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 text-[10px] mt-2">© {new Date().getFullYear()} Rajat</p>
             </div>
           </div>
         </section>

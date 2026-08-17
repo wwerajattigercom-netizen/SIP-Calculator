@@ -33,11 +33,11 @@ export default function DynamicSipPage() {
           <div className="glass-panel p-8 relative overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)] shadow-sm">
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-xs uppercase tracking-widest text-[#1B3A5C] font-bold mb-4 block">Advanced Strategy</span>
+              <span className="text-xs uppercase tracking-widest text-[var(--color-accent)] font-bold mb-4 block">Advanced Strategy</span>
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
-                What is a <span className="text-[#1B3A5C]">Dynamic SIP?</span> (The Smart SIP)
+                What is a <span className="text-[var(--color-accent)]">Dynamic SIP?</span> (The Smart SIP)
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 "Buy low, sell high." It's the oldest rule in investing, but human emotion makes it impossible to execute. A Dynamic SIP (or Smart SIP) hands this job over to an algorithm, automatically shifting your money based on how expensive or cheap the market is.
               </p>
               <div className="flex items-center gap-3">
@@ -55,7 +55,7 @@ export default function DynamicSipPage() {
           {/* Core Concept */}
           <div className="glass-panel p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">How Does a Dynamic SIP Work?</h2>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
               In a regular SIP, you invest exactly ₹10,000 every month, regardless of whether the market is crashing or hitting all-time highs. A Dynamic SIP, however, fluctuates the investment amount based on market valuations (usually the P/E or P/B ratio). When the Indian markets are euphoric and the Sensex is at an all-time high, a Dynamic SIP will reduce your investment to prevent you from buying expensive units. When there's a market crash and blood on the streets, the Dynamic SIP automatically steps up to buy more units. This creates a powerful long-term compounding machine that can help you reach a goal of ₹2 Crores or ₹5 Crores much faster than a regular, blind SIP. It is one of the most effective strategies for long-term wealth creation in India.
             </p>
             <div className="bg-[rgba(27,58,92,0.02)] border border-[rgba(27,58,92,0.1)] p-5 rounded-xl mb-6">
@@ -67,7 +67,7 @@ export default function DynamicSipPage() {
                 • Market is <strong>Undervalued</strong> (Crash): SIP doubles to ₹20,000.<br/>
               </p>
             </div>
-            <p className="text-sm text-gray-500 italic">
+            <p className="text-sm text-gray-500 dark:text-gray-400 italic">
               *The extra money (when the SIP drops to ₹5,000) isn't returned to your bank account. It is usually parked in a safe Liquid Fund, waiting to be deployed when the market crashes.
             </p>
           </div>
@@ -78,10 +78,10 @@ export default function DynamicSipPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="glass-panel p-6 border-t-4 border-t-[#059669]">
-                <h3 className="font-bold text-[#059669] flex items-center gap-2 mb-3">
+                <h3 className="font-bold text-[var(--color-returns)] flex items-center gap-2 mb-3">
                   <Brain className="w-5 h-5" /> Emotionless Investing
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   During a crash, fear takes over. You might be tempted to stop your SIP. The Dynamic algorithm does the exact opposite—it forcefully doubles your investment to buy units at a massive discount, completely bypassing human psychology.
                 </p>
               </div>
@@ -90,7 +90,7 @@ export default function DynamicSipPage() {
                 <h3 className="font-bold text-[var(--color-accent)] flex items-center gap-2 mb-3">
                   <Activity className="w-5 h-5" /> Higher Alpha
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   By accumulating far more units when prices are low, and buying fewer units when prices are dangerously high, Dynamic SIPs mathematically generate higher long-term returns (Alpha) compared to a standard, blind SIP.
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function DynamicSipPage() {
           {/* How to set it up */}
           <div className="glass-panel p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-black">
             <h2 className="text-2xl font-bold text-foreground mb-4">How to Start a Dynamic SIP</h2>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-6">
               Unlike a Step-Up SIP which is a feature of the brokerage platform, a Dynamic SIP is usually a specific feature built <em>directly by the AMC (Mutual Fund House)</em>.
             </p>
             
@@ -134,9 +134,9 @@ export default function DynamicSipPage() {
           {/* The Catch / Warning */}
           <div className="glass-panel p-6 border-l-4 border-[#991B1B] bg-[rgba(153,27,27,0.02)]">
             <h3 className="font-bold text-foreground flex items-center gap-2 mb-2">
-              <AlertCircle className="w-5 h-5 text-[#991B1B]" /> The Catch: Tax Implications
+              <AlertCircle className="w-5 h-5 text-[var(--color-loss)]" /> The Catch: Tax Implications
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
               Because the algorithm shifts your money between an Equity fund and a Liquid/Debt fund behind the scenes, these transactions trigger capital gains taxes. If the algorithm sells Equity to move to Debt during a high market, you may be liable for Short-Term Capital Gains (STCG) tax.
             </p>
           </div>

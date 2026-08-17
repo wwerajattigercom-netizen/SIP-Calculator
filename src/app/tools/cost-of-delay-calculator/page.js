@@ -288,7 +288,7 @@ export default function CostOfDelayCalculatorPage() {
 
                 {/* Start Late Card */}
                 <div className="glass-panel p-5 bg-gradient-to-br from-red-50 to-white border-red-100 flex flex-col justify-center items-center text-center">
-                  <div className="flex items-center text-[#991B1B] font-semibold mb-2">
+                  <div className="flex items-center text-[var(--color-loss)] font-semibold mb-2">
                     <Clock className="w-5 h-5 mr-2" /> Start {delay} Years Late
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Final Corpus</div>
@@ -299,19 +299,19 @@ export default function CostOfDelayCalculatorPage() {
               {/* Cost of Delay Highlight */}
               <div className="glass-panel p-6 text-center border-l-4 border-l-[#991B1B] bg-[#fffaf5]">
                 <div className="flex justify-center items-center mb-2">
-                  <AlertTriangle className="w-6 h-6 text-[#991B1B] mr-2" />
-                  <h3 className="text-lg font-bold text-[#991B1B]">Cost of Delay</h3>
+                  <AlertTriangle className="w-6 h-6 text-[var(--color-loss)] mr-2" />
+                  <h3 className="text-lg font-bold text-[var(--color-loss)]">Cost of Delay</h3>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">You lose <strong className="text-[#991B1B]">{wealthLostPct.toFixed(1)}%</strong> of your potential wealth.</p>
-                <div className="text-4xl md:text-5xl font-extrabold text-[#991B1B] drop-shadow-sm mb-4">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">You lose <strong className="text-[var(--color-loss)]">{wealthLostPct.toFixed(1)}%</strong> of your potential wealth.</p>
+                <div className="text-4xl md:text-5xl font-extrabold text-[var(--color-loss)] drop-shadow-sm mb-4">
                   {toLabel(costOfDelay)}
                 </div>
                 <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3 inline-block">
-                  <p className="text-sm text-gray-500 dark:text-gray-500">
-                    To catch up, you'd need to invest <strong className="text-[#059669]">₹{Math.round(extraSIP + monthlySIP).toLocaleString('en-IN')}</strong>/month instead.
+                  <p className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400">
+                    To catch up, you'd need to invest <strong className="text-[var(--color-returns)]">₹{Math.round(extraSIP + monthlySIP).toLocaleString('en-IN')}</strong>/month instead.
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    That's an extra <strong className="text-[#059669]">₹{Math.round(extraSIP).toLocaleString('en-IN')}</strong> every month!
+                    That's an extra <strong className="text-[var(--color-returns)]">₹{Math.round(extraSIP).toLocaleString('en-IN')}</strong> every month!
                   </p>
                 </div>
               </div>
@@ -356,14 +356,33 @@ export default function CostOfDelayCalculatorPage() {
               </div>
               <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3">
                 <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Wealth Lost</div>
-                <div className="text-lg font-bold text-[#991B1B]">{toLabel(costOfDelay)}</div>
+                <div className="text-lg font-bold text-[var(--color-loss)]">{toLabel(costOfDelay)}</div>
               </div>
               <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3">
                 <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Extra SIP Needed</div>
-                <div className="text-lg font-bold text-[#059669]">+{fmtINR(extraSIP)}/mo</div>
+                <div className="text-lg font-bold text-[var(--color-returns)]">+{fmtINR(extraSIP)}/mo</div>
               </div>
             </div>
           </div>
+
+          {/* ── How to Use ── */}
+          <section id="how-to-use" aria-label="How to use this calculator" className="mt-8">
+          <div className="flex items-center gap-3 mb-4">
+          <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
+          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          </div>
+          <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
+          </div>
+          <div className="glass-panel p-6">
+          <ol className="list-decimal ml-5 space-y-3 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+          </ol>
+          </div>
+          </section>
 
           {/* ── FAQ ── */}
           <section id="faq" aria-label="Cost of delay frequently asked questions" className="mt-10">

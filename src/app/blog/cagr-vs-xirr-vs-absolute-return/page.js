@@ -18,7 +18,7 @@ const COMPARISON = [
     bestFor: 'Short-term lumpsum investments (<1 year) or simple P&L checks. If you buy a stock today for ₹1000 and sell it next month for ₹1100, the absolute return is 10%. In short timeframes, annualising returns (CAGR) can lead to absurdly high numbers (like 120% per year) which are misleading. Hence, absolute return is the king of short-term tracking.',
     limitation: 'Ignores time entirely. Making 50% in 1 year looks mathematically identical to making 50% in 10 years, which is highly misleading. If it takes you 10 years to turn ₹1 Lakh into ₹1.5 Lakhs, that is a terrible investment that probably did not even beat Indian inflation. But the absolute return still proudly says 50%!',
     example: 'You invest ₹1,00,000 and it becomes ₹1,50,000. Your absolute return is exactly 50%. Whether this took 1 month, 1 year, or 10 years, the absolute return remains 50%. This is why you must never use this to compare two different mutual funds over different timeframes.',
-    color: 'text-[#059669]',
+    color: 'text-[var(--color-returns)]',
     border: 'border-emerald-400/20 bg-emerald-500/5',
   },
   {
@@ -68,9 +68,9 @@ export default function CAGRvsXIRRPage() {
             <div className="relative z-10">
               <span className="text-xs uppercase tracking-widest text-[#C4993C] font-bold mb-4 block">Return Metrics Masterclass</span>
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
-                <span className="text-[var(--color-accent)]">CAGR</span> vs <span className="text-[#C4993C]">XIRR</span> vs <span className="text-[#059669]">Absolute Return</span>: Which Should You Trust?
+                <span className="text-[var(--color-accent)]">CAGR</span> vs <span className="text-[#C4993C]">XIRR</span> vs <span className="text-[var(--color-returns)]">Absolute Return</span>: Which Should You Trust?
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 When you open your mutual fund portfolio on platforms like Groww, Zerodha Coin, or Upstox, you are bombarded with different percentage numbers. Which one actually represents how much money you made? This guide demystifies financial jargon and shows you exactly how to measure your wealth.
               </p>
               <div className="flex items-center gap-3">
@@ -91,10 +91,10 @@ export default function CAGRvsXIRRPage() {
               <CheckCircle className="w-5 h-5 text-[var(--color-accent)]" /> 
               The 30-Second Summary (TL;DR)
             </h2>
-            <ul className="space-y-3 text-sm md:text-base text-gray-600 dark:text-gray-300">
+            <ul className="space-y-3 text-sm md:text-base text-gray-600 dark:text-gray-400 dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#059669] mt-2 flex-shrink-0" />
-                <span><strong className="text-[#059669]">Absolute Return:</strong> Shows raw profit percentage. Use it for investments held for <strong>less than 1 year</strong>.</span>
+                <span><strong className="text-[var(--color-returns)]">Absolute Return:</strong> Shows raw profit percentage. Use it for investments held for <strong>less than 1 year</strong>.</span>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 flex-shrink-0" />
@@ -120,7 +120,7 @@ export default function CAGRvsXIRRPage() {
                 </h3>
                 
                 <div className="bg-white/50 dark:bg-black/20 rounded-xl px-4 py-3 font-mono text-sm text-gray-800 dark:text-gray-200 mb-5 border border-black/5 dark:border-white/5 shadow-inner overflow-x-auto">
-                  <span className="text-gray-500 text-xs uppercase tracking-wider block mb-1">Mathematical Formula:</span>
+                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider block mb-1">Mathematical Formula:</span>
                   {formula}
                 </div>
                 
@@ -137,7 +137,7 @@ export default function CAGRvsXIRRPage() {
                   </div>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-sm font-semibold text-[#991B1B] mb-1">The Critical Flaw</h4>
+                      <h4 className="text-sm font-semibold text-[var(--color-loss)] mb-1">The Critical Flaw</h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{limitation}</p>
                     </div>
                     <div>
@@ -153,19 +153,19 @@ export default function CAGRvsXIRRPage() {
           {/* Why CAGR can't be used for SIP */}
           <div className="glass-panel p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Why CAGR Fails Miserably for SIPs</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 mb-6 leading-relaxed">
               The most common mistake amateur investors make is comparing the XIRR of their 2-year old SIP against the 10-year CAGR of a mutual fund shown on Google. This is like comparing your marathon pace to a sprinter's 100m dash.
             </p>
             
             <div className="bg-[rgba(27,58,92,0.05)] border-l-4 border-[#1B3A5C] p-5 rounded-r-xl mb-6">
-              <h3 className="font-bold text-[#1B3A5C] dark:text-white mb-2">The Timing Problem</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+              <h3 className="font-bold text-[var(--color-accent)] dark:text-white mb-2">The Timing Problem</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                 CAGR assumes your entire capital was invested on Day 1. But in a SIP, you invest in monthly tranches. 
                 If you run a 5-year SIP, your very first ₹5,000 instalment compounds for a full 60 months. However, your <em>last</em> ₹5,000 instalment only compounds for 1 month!
               </p>
             </div>
             
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
               Because a large portion of your SIP capital spends very little time in the market, calculating a raw CAGR on the final amount will make your returns look artificially terrible. <strong>XIRR fixes this</strong> by applying a separate CAGR calculation to every single monthly instalment based on exactly how many days it stayed in the market.
             </p>
           </div>

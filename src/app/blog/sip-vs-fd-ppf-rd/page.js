@@ -26,7 +26,7 @@ function toLabel(v) {
 const FAQItem = ({ q, a }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <div className="border border-gray-200 rounded-lg bg-[var(--panel-bg)] overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
@@ -201,7 +201,7 @@ export default function SipVsFdPpfRd() {
               <div className="mt-4 bg-[rgba(5,150,105,0.05)] border border-[#059669]/20 p-4 rounded-xl text-center">
                 <p className="text-foreground text-sm">
                   By choosing <strong className="text-[var(--color-accent)]">Equity SIP</strong> over <strong className="text-[#C4993C]">PPF</strong>, 
-                  you generate an additional <strong className="text-[#059669] text-base">{fmtINR(results.sipFv - results.ppfFv)}</strong> in wealth over {years} years.
+                  you generate an additional <strong className="text-[var(--color-returns)] text-base">{fmtINR(results.sipFv - results.ppfFv)}</strong> in wealth over {years} years.
                 </p>
               </div>
             </div>

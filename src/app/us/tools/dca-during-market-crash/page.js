@@ -196,7 +196,7 @@ export default function SipDuringCrashPage() {
           <div className="glass-panel p-7 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(153,27,27,0.1)] to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <span className="text-[10px] uppercase tracking-widest text-[#991B1B] font-semibold mb-3 block">Simulation · Wealth Strategy</span>
+              <span className="text-[10px] uppercase tracking-widest text-[var(--color-loss)] font-semibold mb-3 block">Simulation · Wealth Strategy</span>
               <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight mb-3">
                 DCA During Market Crash:  Should You Stop or Continue?
               </h1>
@@ -238,7 +238,7 @@ export default function SipDuringCrashPage() {
               <div className="glass-panel p-6 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[rgba(196,153,60,0.05)] to-transparent pointer-events-none" />
                 <h3 className="text-foreground font-bold mb-4 relative z-10 flex items-center gap-2">
-                  <TrendingDown className="w-4 h-4 text-[#059669]" /> Crash Scenario
+                  <TrendingDown className="w-4 h-4 text-[var(--color-returns)]" /> Crash Scenario
                 </h3>
                 <div className="space-y-5 relative z-10">
                   <InputSlider
@@ -311,19 +311,19 @@ export default function SipDuringCrashPage() {
                   
                   {/* Extra Wealth */}
                   <div className="p-4 rounded-2xl border border-[#991B1B]/30 bg-[#991B1B]/10">
-                    <div className="text-[#991B1B] text-[10px] font-semibold uppercase tracking-wider mb-1">Wealth Lost By Stopping</div>
+                    <div className="text-[var(--color-loss)] text-[10px] font-semibold uppercase tracking-wider mb-1">Wealth Lost By Stopping</div>
                     <div className="text-xl font-bold text-foreground">{fmt(diff)}</div>
                   </div>
                   {/* Missed Investment */}
                   <div className="p-4 rounded-2xl border border-[#059669]/30 bg-[#059669]/10">
-                    <div className="text-[#059669] text-[10px] font-semibold uppercase tracking-wider mb-1">Idle Cash (Uninvested)</div>
+                    <div className="text-[var(--color-returns)] text-[10px] font-semibold uppercase tracking-wider mb-1">Idle Cash (Uninvested)</div>
                     <div className="text-xl font-bold text-foreground">{fmt(missedAmount)} <span className="text-xs font-normal text-gray-500 dark:text-gray-400">over {missedMonths} mo</span></div>
                   </div>
                 </div>
 
                 {/* Key Insight Callout */}
                 <div className="mb-6 bg-gradient-to-r from-[rgba(196,153,60,0.15)] to-[rgba(196,153,60,0.05)] border border-[#059669]/30 rounded-xl p-4 flex items-start gap-3">
-                  <AlertTriangle className="w-5 h-5 text-[#059669] flex-shrink-0 mt-0.5" />
+                  <AlertTriangle className="w-5 h-5 text-[var(--color-returns)] flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-sm font-bold text-foreground mb-1">The Magic of Continuing</h4>
                     <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -416,7 +416,7 @@ export default function SipDuringCrashPage() {
                   <tr className="border-b border-black/5">
                     <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Crash Event</th>
                     <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Year</th>
-                    <th className="py-2 pr-4 text-[#991B1B] font-semibold">S&P 500 Drop</th>
+                    <th className="py-2 pr-4 text-[var(--color-loss)] font-semibold">S&P 500 Drop</th>
                     <th className="py-2 pr-4 text-gray-500 dark:text-gray-400 font-semibold">Recovery Time</th>
                     <th className="py-2 text-[var(--color-accent)] font-semibold">DCA Outcome</th>
                   </tr>
@@ -425,28 +425,28 @@ export default function SipDuringCrashPage() {
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4 text-foreground">Dot-com bust</td>
                     <td className="py-3 pr-4">2000-01</td>
-                    <td className="py-3 pr-4 text-[#991B1B] font-semibold">−56%</td>
+                    <td className="py-3 pr-4 text-[var(--color-loss)] font-semibold">−56%</td>
                     <td className="py-3 pr-4">~3 years</td>
                     <td className="py-3">DCA investors 2.5× wealthier than those who stopped</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4 text-foreground">Global Financial Crisis</td>
                     <td className="py-3 pr-4">2008-09</td>
-                    <td className="py-3 pr-4 text-[#991B1B] font-semibold">−60%</td>
+                    <td className="py-3 pr-4 text-[var(--color-loss)] font-semibold">−60%</td>
                     <td className="py-3 pr-4">~18 months</td>
                     <td className="py-3">DCA investors recovered 6 months faster than lumpsum</td>
                   </tr>
                   <tr className="border-b border-[#E8E4DF]">
                     <td className="py-3 pr-4 text-foreground">COVID-19 Crash</td>
                     <td className="py-3 pr-4">2020</td>
-                    <td className="py-3 pr-4 text-[#991B1B] font-semibold">−38%</td>
+                    <td className="py-3 pr-4 text-[var(--color-loss)] font-semibold">−38%</td>
                     <td className="py-3 pr-4">~5 months</td>
                     <td className="py-3">DCA investors reached all-time high portfolio values within 9 months</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 text-foreground">Russia-Ukraine War</td>
                     <td className="py-3 pr-4">2022</td>
-                    <td className="py-3 pr-4 text-[#991B1B] font-semibold">−17%</td>
+                    <td className="py-3 pr-4 text-[var(--color-loss)] font-semibold">−17%</td>
                     <td className="py-3 pr-4">~4 months</td>
                     <td className="py-3">Minimal long-term impact; great accumulation opportunity</td>
                   </tr>
@@ -459,7 +459,7 @@ export default function SipDuringCrashPage() {
           <div className="glass-panel p-6 space-y-6">
             <div>
               <h2 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-[#991B1B]" /> Why Stopping DCA During a Crash is the Worst Mistake
+                <AlertTriangle className="w-5 h-5 text-[var(--color-loss)]" /> Why Stopping DCA During a Crash is the Worst Mistake
               </h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
                 When the stock market crashes, the natural human instinct is to stop investing to "prevent further losses". 
@@ -480,6 +480,20 @@ export default function SipDuringCrashPage() {
                 of long-term market returns. The best strategy is automation: let your DCA run regardless of market news.
               </p>
             </div>
+          </div>
+
+          {/* How to Use */}
+          <div className="glass-panel p-6 mt-8 mb-6">
+          <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg> How to Use This Calculator
+          </h2>
+          <ol className="list-decimal ml-5 space-y-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+          </ol>
           </div>
 
           {/* FAQs */}

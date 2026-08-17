@@ -83,19 +83,19 @@ export default function FireCalculatorPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#f8f2ea] p-4 md:p-8 font-sans">
+        <div className="min-h-screen bg-[var(--background)] p-4 md:p-8 font-sans">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-8">
-                    <h1 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-4">FIRE Calculator</h1>
-                    <p className="text-gray-500 max-w-2xl mx-auto">
+                    <h1 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">FIRE Calculator</h1>
+                    <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
                         Calculate the corpus required for Financial Independence and Retire Early (FIRE) and find out the monthly DCA needed to reach your goal.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     {/* Inputs Section */}
-                    <div className="lg:col-span-7 glass-panel p-6 md:p-8 rounded-2xl bg-white shadow-xl">
+                    <div className="lg:col-span-7 glass-panel p-6 md:p-8 rounded-2xl bg-[var(--panel-bg)] shadow-xl">
                         <div className="space-y-6">
                             <InputSlider
                                 label="Annual Expenses ($)"
@@ -164,14 +164,14 @@ export default function FireCalculatorPage() {
                             <div className="text-4xl font-bold mb-4">{formatCurrency(results.targetCorpus)}</div>
                             <div className="pt-4 border-t border-white/20">
                                 <p className="text-sm opacity-80 mb-1">Required Monthly DCA</p>
-                                <p className="text-2xl font-semibold text-[#059669] bg-white inline-block px-3 py-1 rounded-lg">
+                                <p className="text-2xl font-semibold text-[var(--color-returns)] bg-[var(--panel-bg)] inline-block px-3 py-1 rounded-lg">
                                     {formatCurrency(results.sipNeeded)}
                                 </p>
                             </div>
                         </div>
 
-                        <div className="glass-panel p-6 rounded-2xl bg-white shadow-xl">
-                            <h3 className="text-xl font-bold text-[#1F2937] mb-6">Investment Breakdown</h3>
+                        <div className="glass-panel p-6 rounded-2xl bg-[var(--panel-bg)] shadow-xl">
+                            <h3 className="text-xl font-bold text-[var(--foreground)] mb-6">Investment Breakdown</h3>
                             
                             <div className="w-48 h-48 mx-auto mb-6">
                                 <Pie 
@@ -187,22 +187,22 @@ export default function FireCalculatorPage() {
                             </div>
 
                             <div className="space-y-4">
-                                <div className="flex justify-between items-center p-3 bg-[#f8f2ea] rounded-lg">
+                                <div className="flex justify-between items-center p-3 bg-[var(--background)] rounded-lg">
                                     <div className="flex items-center gap-2">
                                         <div className="w-3 h-3 rounded-full bg-[#1B3A5C]"></div>
-                                        <span className="text-gray-600">Total Invested</span>
+                                        <span className="text-gray-600 dark:text-gray-400">Total Invested</span>
                                     </div>
-                                    <span className="font-semibold text-[#1B3A5C]">
+                                    <span className="font-semibold text-[var(--color-accent)]">
                                         {formatCurrency(results.totalInvested)}
                                     </span>
                                 </div>
                                 
-                                <div className="flex justify-between items-center p-3 bg-[#f8f2ea] rounded-lg">
+                                <div className="flex justify-between items-center p-3 bg-[var(--background)] rounded-lg">
                                     <div className="flex items-center gap-2">
                                         <div className="w-3 h-3 rounded-full bg-[#C4993C]"></div>
-                                        <span className="text-gray-600">Wealth Gained</span>
+                                        <span className="text-gray-600 dark:text-gray-400">Wealth Gained</span>
                                     </div>
-                                    <span className="font-semibold text-[#059669]">
+                                    <span className="font-semibold text-[var(--color-returns)]">
                                         {formatCurrency(results.wealthGained)}
                                     </span>
                                 </div>
@@ -211,15 +211,15 @@ export default function FireCalculatorPage() {
                     </div>
 
                 {/* SEO Educational Content Section */}
-                <div className="mt-16 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 max-w-4xl mx-auto">
-                    <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Mastering the FIRE Movement</h2>
+                <div className="mt-16 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+                    <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Mastering the FIRE Movement</h2>
                     
-                    <div className="space-y-6 text-gray-600 leading-relaxed">
+                    <div className="space-y-6 text-[#6B7280] leading-relaxed">
                         <p>
                             <strong>Financial Independence, Retire Early (FIRE)</strong> is more than just a financial goal—it&apos;s a lifestyle shift. By aggressively saving a high percentage of your income (often 50% or more) and investing it in low-cost index funds, you can build a massive portfolio that sustains your living expenses indefinitely.
                         </p>
 
-                        <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">The Math Behind FIRE: The 4% Rule</h3>
+                        <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">The Math Behind FIRE: The 4% Rule</h3>
                         <p>
                             The foundation of FIRE is the <em>4% Rule</em>, derived from the famous Trinity Study. It states that if you withdraw 4% of your total portfolio value in your first year of retirement, and adjust that amount for inflation each subsequent year, your portfolio is highly likely to last for at least 30 years without running out. 
                         </p>
@@ -227,23 +227,35 @@ export default function FireCalculatorPage() {
                             To find your FIRE number, simply divide your annual expenses by your Safe Withdrawal Rate (SWR). For a 4% SWR, this is equivalent to multiplying your annual expenses by 25. If you spend $60,000 a year, you need $1.5 million to retire ($60,000 × 25).
                         </p>
 
-                        <h3 className="text-xl font-semibold text-[#1F2937] mt-8 mb-4">Adjusting for Extreme Early Retirement</h3>
+                        <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">Adjusting for Extreme Early Retirement</h3>
                         <p>
                             If you plan to retire in your 30s or 40s, your money needs to last 40 to 50 years, not just 30. Because of this longer time horizon, many FIRE practitioners opt for a more conservative SWR of <strong>3.25% to 3.5%</strong>. This increases the required target corpus but provides a significantly higher margin of safety against prolonged market downturns.
                         </p>
                     </div>
                 </div>
 
+                {/* How to Use Section */}
+                <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+                <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">How to Use This Calculator</h2>
+                <div className="space-y-4 text-[#6B7280] leading-relaxed">
+                <ol className="list-decimal ml-5 space-y-3">
+                <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+                <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+                <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+                </ol>
+                </div>
+                </div>
+
                 {/* FAQ Section */}
                 <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
-                    <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Frequently Asked Questions</h2>
+                    <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Frequently Asked Questions</h2>
                     <div className="space-y-4">
                         {jsonLd.mainEntity.map((faq, i) => (
                             <div key={i} className="border-b border-[#E8E4DF] pb-4 last:border-0 last:pb-0">
                                 <h3 className="text-foreground font-medium text-base flex items-start gap-2">
-                                    <HelpCircle className="w-5 h-5 text-[#1B3A5C] flex-shrink-0 mt-0.5" /> {faq.name}
+                                    <HelpCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
                                 </h3>
-                                <p className="text-gray-500 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
                             </div>
                         ))}
                     </div>
@@ -251,12 +263,12 @@ export default function FireCalculatorPage() {
 
                 {/* Cross Links */}
                 <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[#1B3A5C]/10">
-                    <h2 className="text-xl font-bold text-[#1F2937] mb-4">Explore More Tools</h2>
+                    <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Explore More Tools</h2>
                     <div className="flex flex-wrap justify-center gap-3">
                         <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 bg-[#1B3A5C] hover:bg-[#112740] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
                             Savings vs DCA <ArrowRight className="w-4 h-4" />
                         </Link>
-                        <Link href="/us/tools/roth-ira-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[#1B3A5C] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                        <Link href="/us/tools/roth-ira-calculator" className="inline-flex items-center gap-2 border border-[#1B3A5C]/40 text-[var(--color-accent)] hover:border-[#1B3A5C] px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
                             Roth IRA Calculator
                         </Link>
                     </div>

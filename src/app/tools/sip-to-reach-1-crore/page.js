@@ -117,7 +117,7 @@ export default function SipTo1CrorePage() {
             </p>
             <div className="space-y-3">
               {STEPUP_DATA.map(({ label, sip, total, invested, gain }) => (
-                <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-2 p-4 rounded-xl bg-white border border-[#E8E4DF]">
+                <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-2 p-4 rounded-xl bg-[var(--panel-bg)] border border-[#E8E4DF]">
                   <p className="text-foreground text-sm font-medium sm:w-52 flex-shrink-0">{label}</p>
                   <div className="flex gap-4 text-xs flex-wrap">
                     <span className="text-gray-500 dark:text-gray-400">Starting SIP: <span className="text-[var(--color-accent)] font-bold">{fmt(sip)}/mo</span></span>
@@ -151,9 +151,9 @@ export default function SipTo1CrorePage() {
           {/* Warning */}
           <div className="glass-panel p-5 border border-amber-400/20">
             <div className="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
-              <AlertTriangle className="w-4 h-4 text-[#059669] flex-shrink-0 mt-0.5" />
+              <AlertTriangle className="w-4 h-4 text-[var(--color-returns)] flex-shrink-0 mt-0.5" />
               <p>
-                <strong className="text-[#059669]">Disclaimer:</strong> These figures assume a constant annual return rate,
+                <strong className="text-[var(--color-returns)]">Disclaimer:</strong> These figures assume a constant annual return rate,
                 which real markets do not provide. Actual SIP returns vary year to year. Consult a SEBI-registered
                 financial adviser before making investment decisions.
                 <Link href="/disclaimer" className="text-[var(--color-accent)] hover:underline ml-1">Read our full methodology →</Link>

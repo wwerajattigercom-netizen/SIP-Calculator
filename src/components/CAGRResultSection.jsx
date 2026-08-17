@@ -83,7 +83,7 @@ export default function CAGRResultSection({ results }) {
         </div>
 
         {isNegativeGain && (
-          <div className="mt-2 flex items-center gap-1.5 text-[#059669] text-xs">
+          <div className="mt-2 flex items-center gap-1.5 text-[var(--color-returns)] text-xs">
             <AlertTriangle className="w-3.5 h-3.5" />
             Loss — Final value is less than total invested
           </div>
@@ -122,7 +122,7 @@ export default function CAGRResultSection({ results }) {
             <Zap className="w-3 h-3 mr-1" />
             Gain ({gainPct}%)
           </div>
-          <div className={`text-sm font-extrabold ${isNegativeGain ? 'text-red-800' : 'text-[#059669]'}`}>
+          <div className={`text-sm font-extrabold ${isNegativeGain ? 'text-red-800' : 'text-[var(--color-returns)]'}`}>
             {isNegativeGain ? '' : '+'}{fmt(absoluteGain)}
           </div>
           <div className={`text-[9px] mt-0.5 tracking-wide ${isNegativeGain ? 'text-orange-500' : 'text-[#6B7280]'}`}>

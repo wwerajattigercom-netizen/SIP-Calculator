@@ -221,7 +221,7 @@ export default function RetirementSipCalculatorPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white border border-black/5 rounded-xl p-4 text-center">
+              <div className="bg-[var(--panel-bg)] border border-black/5 rounded-xl p-4 text-center">
                 <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold mb-1">Required Corpus</div>
                 <div className="text-2xl font-bold text-foreground">{formatToShortWords(requiredCorpus)}</div>
                 <div className="text-[10px] text-gray-500 dark:text-gray-400 mt-2">Based on 25x future annual expenses</div>
@@ -243,7 +243,7 @@ export default function RetirementSipCalculatorPage() {
             </div>
             
             <div className="mt-4 flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-              <Clock className="w-4 h-4 text-[#059669]" />
+              <Clock className="w-4 h-4 text-[var(--color-returns)]" />
               <span>Delaying your SIP by just 5 years means investing <strong>₹{Math.round(requiredSipDelayed - requiredSipNow).toLocaleString('en-IN')} more</strong> every month!</span>
             </div>
           </div>
@@ -264,9 +264,23 @@ export default function RetirementSipCalculatorPage() {
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
               Why does your required corpus look so huge? It's because of inflation. Over decades, the cost of living rises significantly.
             </p>
-            <div className="bg-white border border-[#E8E4DF] rounded-xl p-4 text-sm text-gray-600 dark:text-gray-400">
+            <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-4 text-sm text-gray-600 dark:text-gray-400">
               At a {inflationRate}% inflation rate, your current monthly expense of <strong>₹{monthlyExpenses.toLocaleString('en-IN')}</strong> will grow to <strong>₹{Math.round(futureMonthlyExpenses).toLocaleString('en-IN')}</strong> by the time you retire in {yearsToRetire} years. Your corpus must be large enough to support those inflated future expenses!
             </div>
+          </div>
+
+          {/* How to Use */}
+          <div className="glass-panel p-6 mt-8 mb-6">
+          <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg> How to Use This Calculator
+          </h2>
+          <ol className="list-decimal ml-5 space-y-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
+          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
+          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
+          </ol>
           </div>
 
           {/* FAQ */}

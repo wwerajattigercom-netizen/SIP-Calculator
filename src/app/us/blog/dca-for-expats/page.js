@@ -37,7 +37,7 @@ export default function SipForExpatsPage() {
               <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
                 DCA for <span className="text-[#C4993C]">Expats</span>: The Complete 2026 Guide
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 With the US stock market consistently outperforming global indices, millions of Non-Resident the USns (Expats) want a piece of the action. Investing in US Index Funds from abroad is entirely legal, but the paperwork (KYC, PFIC Rules, and NRE/NRO accounts) can be confusing. For expats earning in foreign currencies, the allure of US markets and the potential for a million-dollar portfolio is strong. However, navigating the complex web of international tax laws, banking regulations, and brokerage requirements can quickly become overwhelming. Many expats mistakenly believe that they are completely barred from participating in the US financial system while living abroad, or they fear that doing so will result in massive tax penalties. In reality, with the correct setup and a solid understanding of the rules, expats can seamlessly execute a Dollar Cost Averaging (DCA) strategy into US mutual funds or ETFs. This comprehensive guide will walk you through everything you need to know, from setting up the right type of bank accounts to managing your KYC status and understanding how the dreaded PFIC rules might affect your investments. By the time you finish reading, you'll be fully equipped to start building your long-term wealth in the US market, no matter where in the world you currently reside.
               </p>
               <div className="flex items-center gap-3">
@@ -57,24 +57,24 @@ export default function SipForExpatsPage() {
             {/* Step 1: NRE vs NRO */}
             <div className="glass-panel p-8">
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
-                <Landmark className="w-6 h-6 text-[#1B3A5C]" /> 1. The Foundation: NRE vs NRO Accounts
+                <Landmark className="w-6 h-6 text-[var(--color-accent)]" /> 1. The Foundation: NRE vs NRO Accounts
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-6">
                 You cannot invest in US mutual funds using a standard domestic savings account or a foreign bank account. You must open an Expat-specific bank account in the US. You have two choices:
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="border border-[rgba(27,58,92,0.15)] rounded-xl p-5 bg-[rgba(27,58,92,0.02)]">
-                  <h3 className="font-bold text-[#1B3A5C] mb-2">Domestic US Bank Account</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <h3 className="font-bold text-[var(--color-accent)] mb-2">Domestic US Bank Account</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300">
                     Used to deposit your foreign income (e.g., Dollars or Dirhams). <br/><br/>
                     <strong>The Superpower:</strong> It is fully repatriable. This means you can invest in an DCA, and when you sell 10 years later, you can transfer the entire principal and profit back to your foreign bank account without any RBI restrictions.
                   </p>
                 </div>
                 
                 <div className="border border-[rgba(27,58,92,0.15)] rounded-xl p-5 bg-[rgba(27,58,92,0.02)]">
-                  <h3 className="font-bold text-[#1B3A5C] mb-2">Foreign Bank Account</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <h3 className="font-bold text-[var(--color-accent)] mb-2">Foreign Bank Account</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300">
                     Used to manage income earned <em>within</em> the US (e.g., rent from an the USn property or dividends). <br/><br/>
                     <strong>The Catch:</strong> It is largely non-repatriable. Getting this money out of the US and into a foreign account is subject to strict limits (usually $1 Million per year) and heavy documentation (Form 15CA/CB).
                   </p>
@@ -85,9 +85,9 @@ export default function SipForExpatsPage() {
             {/* Step 2: KYC */}
             <div className="glass-panel p-8">
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
-                <FileCheck className="w-6 h-6 text-[#059669]" /> 2. The Expat KYC Process
+                <FileCheck className="w-6 h-6 text-[var(--color-returns)]" /> 2. The Expat KYC Process
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 Before you can start a DCA, your KYC status must be updated to "Expat". If you had a standard resident KYC before moving abroad, you <strong>must</strong> file a KYC modification request. Doing DCAs on a Resident KYC while living abroad is a violation of SEC regulations.
               </p>
               <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300 bg-[rgba(5,150,105,0.02)] p-5 rounded-lg border border-[rgba(5,150,105,0.1)]">
@@ -101,12 +101,12 @@ export default function SipForExpatsPage() {
             {/* Step 3: PFIC Rules (The US/Canada Problem) */}
             <div className="glass-panel p-8 border-t-4 border-t-[#991B1B]">
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
-                <Globe className="w-6 h-6 text-[#991B1B]" /> 3. The PFIC Rules Rule (For US & Canada Expats)
+                <Globe className="w-6 h-6 text-[var(--color-loss)]" /> 3. The PFIC Rules Rule (For US & Canada Expats)
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 If you reside in the Middle East, UK, or Australia, you can invest in almost any the USn Broker. However, if you reside in the <strong>United States or Canada</strong>, the rules change drastically due to PFIC Rules (Foreign Account Tax Compliance Act).
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 Because PFIC Rules requires intense reporting to the IRS, many the USn mutual fund houses simply ban US and Canadian Expats from investing to avoid the compliance headache.
               </p>
               <div className="bg-[rgba(153,27,27,0.05)] p-4 rounded-lg text-sm text-gray-700 dark:text-gray-300">
@@ -121,7 +121,7 @@ export default function SipForExpatsPage() {
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-4">
                 <DollarSign className="w-6 h-6 text-[#C4993C]" /> 4. Taxation & The Withholding Tax Trap
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed mb-4">
                 The actual tax rates (Capital Gains) for Expats are exactly the same as for resident the USns:
               </p>
               <ul className="mb-4 text-sm text-gray-700 dark:text-gray-300 space-y-1">
@@ -133,7 +133,7 @@ export default function SipForExpatsPage() {
                 <h3 className="font-bold text-foreground flex items-center gap-2 mb-2">
                   <AlertCircle className="w-4 h-4 text-[#C4993C]" /> The Withholding Tax Problem
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm text-gray-600 dark:text-gray-400 dark:text-gray-300 leading-relaxed">
                   Unlike resident the USns, Expats are subjected to <strong>Withholding Tax</strong>. When an Expat sells a mutual fund, the Broker will automatically deduct the maximum possible tax (e.g., 20% or 30% depending on the fund type) <em>before</em> sending the money to the bank account. <br/><br/>
                   If your actual tax liability is lower, you must file an Income Tax Return (Tax Return (1040)) in the US to claim a refund for the excess Withholding Tax deducted.
                 </p>
