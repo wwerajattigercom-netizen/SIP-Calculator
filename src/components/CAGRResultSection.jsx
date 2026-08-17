@@ -33,16 +33,16 @@ export default function CAGRResultSection({ results }) {
     : [initialInvestment, Math.max(0, absoluteGain)];
 
   const pieColors = monthlySip > 0
-    ? ['var(--color-accent)', '#325C8C', '#C4993C']
-    : ['var(--color-accent)', '#C4993C'];
+    ? ['#1B3A5C', '#325C8C', '#C4993C']
+    : ['#1B3A5C', '#C4993C'];
 
   const pieData = {
     labels: pieLabels,
     datasets: [{
       data:            pieRawData,
       backgroundColor: pieColors,
-      borderColor:     '#FFFFFF',
-      borderWidth:     4,
+      borderColor: 'transparent',
+      borderWidth: 0,
       hoverOffset:     6,
     }],
   };

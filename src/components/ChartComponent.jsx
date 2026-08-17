@@ -46,7 +46,7 @@ export default function ChartComponent({ results }) {
   const currentTheme = theme === 'system' ? systemTheme : theme;
   const isDark = mounted && currentTheme === 'dark';
 
-  const colorInvested = isDark ? '#3B82F6' : 'var(--color-accent)';
+  const colorInvested = '#1B3A5C';
   const colorReturns = '#C4993C';
   const colorGrid = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
   const colorText = isDark ? '#9CA3AF' : '#6B7280';
