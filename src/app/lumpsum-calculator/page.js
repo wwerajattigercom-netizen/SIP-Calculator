@@ -3,10 +3,11 @@ import { useTheme } from 'next-themes';
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { TrendingUp, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Layers, Coins } from 'lucide-react';
+import { TrendingUp, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Layers, Coins, CalendarClock, Info } from 'lucide-react';
 import InputSlider from '@/components/InputSlider';
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Breadcrumb from '@/components/Breadcrumb';
+import YearlyGrowthTable from '@/components/YearlyGrowthTable';
 import { Doughnut, Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS, ArcElement, Tooltip, Legend,
@@ -16,12 +17,21 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, Title);
 
 // ─── helpers ────────────────────────────────────────────────
+const currencyCode = 'INR';
+const locale = 'en-IN';
+const currencySymbol = '₹';
+
 const fmt = (v) =>
-  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
+  new Intl.NumberFormat(locale, { style: 'currency', currency: currencyCode, maximumFractionDigits: 0 }).format(v);
 
 function toLabel(v) {
-  if (v >= 1e7) return `₹${(v / 1e7).toFixed(2)} Cr`;
-  if (v >= 1e5) return `₹${(v / 1e5).toFixed(2)} L`;
+  if (currencyCode === 'INR') {
+    if (v >= 1e7) return `₹${(v / 1e7).toFixed(2)} Cr`;
+    if (v >= 1e5) return `₹${(v / 1e5).toFixed(2)} L`;
+  } else {
+    if (v >= 1e6) return `$${(v / 1e6).toFixed(2)} M`;
+    if (v >= 1e3) return `$${(v / 1e3).toFixed(1)} K`;
+  }
   return fmt(v);
 }
 
@@ -31,20 +41,12 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebApplication',
-      name: 'Lumpsum Calculator — One-Time Investment Returns Calculator Online Free',
-      description: 'Free lumpsum calculator to calculate future value of a one-time investment. Annual compounding, year-by-year table, CAGR, wealth multiple.',
-      url: 'https://stepupcalculator.com/lumpsum-calculator',
+      name: 'Lumpsum Calculator — One-Time Investment Returns Calculator',
+      description: 'Free lumpsum calculator to calculate future value of a one-time investment. Features annual compounding, year-by-year table, and scenario analysis.',
+      url: `https://stepupcalculator.com${false ? '/us' : ''}/lumpsum-calculator`,
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Any',
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-      featureList: [
-        'Lumpsum future value calculation',
-        'Year-by-year compounding growth table',
-        'CAGR & wealth multiple display',
-        'Absolute gain calculation',
-        'Inflation-adjusted real returns',
-        'Free lumpsum mutual fund calculator India',
-      ],
+      offers: { '@type': 'Offer', price: '0', priceCurrency: currencyCode },
     },
     {
       '@type': 'FAQPage',
@@ -54,7 +56,7 @@ const jsonLd = {
           name: 'What is a lumpsum investment?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'A lumpsum investment is a one-time, single investment made at once — as opposed to a SIP (Systematic Investment Plan) where you invest a fixed amount monthly. Lumpsum investing is common for windfalls like bonuses, inheritances, or proceeds from selling an asset.',
+            text: `A lumpsum investment is a single, one-time investment made all at once, as opposed to investing a fixed amount monthly (like a ${false ? 'DCA' : 'SIP'}). It is highly recommended for windfalls like bonuses, inheritances, or asset sales.`,
           },
         },
         {
@@ -62,33 +64,17 @@ const jsonLd = {
           name: 'How is lumpsum return calculated?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Lumpsum future value = P × (1 + r)^n, where P = initial investment, r = annual return rate, n = number of years. For example: ₹1 Lakh at 12% for 10 years = ₹1,00,000 × (1.12)^10 = ₹3,10,585.',
+            text: 'Lumpsum future value is calculated using compound interest: P × (1 + r)^n. P is the principal, r is the annual return rate, and n is the number of years.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Is lumpsum better than SIP?',
+          name: `Is lumpsum better than ${false ? 'DCA' : 'SIP'}?`,
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Neither is universally better. Lumpsum investing is better when markets are at a low point, as 100% of your capital compounds from day one. SIP is better when markets are volatile or at highs, as it spreads purchase price over time (rupee cost averaging). Most financial advisers recommend SIP for salaried investors and lumpsum for windfall amounts.',
+            text: 'Mathematically, lumpsum beats monthly investing about 66% of the time because your capital is exposed to the market longer and starts compounding immediately. However, spreading investments out reduces volatility risk.',
           },
-        },
-        {
-          '@type': 'Question',
-          name: 'What is a good return for a lumpsum investment in India?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Nifty 50 index has delivered approximately 12–14% CAGR over 15–20 year periods. Large-cap equity mutual funds typically deliver 10–13% CAGR. Mid and small-cap funds have historically provided 14–18% over long periods. FDs and debt funds offer 6–8% CAGR.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How much does ₹1 Lakh grow in 10 years at 12%?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: '₹1 Lakh invested as a lumpsum at 12% annual return for 10 years grows to approximately ₹3,10,585. This is a 3.1x wealth multiple with an absolute gain of ₹2,10,585 (210% absolute return).',
-          },
-        },
+        }
       ],
     },
   ],
@@ -97,27 +83,19 @@ const jsonLd = {
 const FAQS = [
   {
     q: 'What is a lumpsum investment?',
-    a: 'A lumpsum investment is a single one-time investment — unlike SIP where you invest monthly. It\'s ideal for windfalls like bonuses, property sale proceeds, or inheritances. 100% of the capital starts compounding immediately from day one.',
+    a: `A lumpsum investment is a single one-time investment — unlike ${false ? 'DCA' : 'SIP'} where you invest monthly. It's ideal for windfalls like bonuses, property sale proceeds, or inheritances. 100% of the capital starts compounding immediately from day one.`,
   },
   {
     q: 'How is lumpsum return calculated?',
-    a: 'Future Value = P × (1 + r)^n. Where P = principal, r = annual rate, n = years. Example: ₹1 Lakh at 12% p.a. for 10 years = ₹1,00,000 × (1.12)^10 = ₹3,10,585. Simple annual compounding.',
+    a: `Future Value = P × (1 + r)^n. Where P = principal, r = annual rate, n = years. Example: ${currencySymbol}100,000 at 12% p.a. for 10 years = ${currencySymbol}100,000 × (1.12)^10 = ${currencySymbol}310,585. Simple annual compounding.`,
   },
   {
-    q: 'Is lumpsum better than SIP?',
-    a: 'Lumpsum beats SIP when you invest at market lows — since 100% of capital compounds immediately. SIP wins when markets are volatile or at peaks — rupee cost averaging reduces risk. Practically: use SIP for salary savings, lumpsum for windfalls.',
+    q: `Is lumpsum better than ${false ? 'DCA' : 'SIP'}?`,
+    a: `Lumpsum mathematically beats ${false ? 'DCA' : 'SIP'} in rising markets because 100% of your capital starts compounding immediately. ${false ? 'DCA' : 'SIP'} is mathematically safer in volatile or falling markets. Most advisors recommend investing windfalls immediately as a lumpsum rather than trying to time the market.`,
   },
   {
-    q: 'What is a good return on lumpsum investment in India?',
-    a: 'Nifty 50 index has delivered ~12–14% CAGR over 15–20 year periods. Large-cap equity funds: 10–13%. Mid/small-cap: 14–18% historically. Debt funds: 6–8%. FDs: 6–7.5%. Use 10–12% as a conservative assumption for equity lumpsum in India.',
-  },
-  {
-    q: 'How much does ₹1 Lakh grow in 10 years at 12%?',
-    a: '₹1 Lakh at 12% p.a. for 10 years = ₹3,10,585. That\'s a 3.1x wealth multiple, 210% absolute return, and a CAGR of 12%. At 15% it becomes ₹4,04,556 — showing how even 3% extra rate compounds significantly over time.',
-  },
-  {
-    q: 'What is the Rule of 72 for lumpsum investments?',
-    a: 'Divide 72 by the annual return rate to estimate how many years it takes for your lumpsum to double. At 12% → 6 years. At 8% → 9 years. At 18% → 4 years. Quick mental check before you calculate the full projection.',
+    q: 'What is the Rule of 72?',
+    a: 'Divide 72 by the annual return rate to estimate how many years it takes for your lumpsum to double. At 12% → 6 years. At 8% → 9 years. At 18% → 4 years. It is a quick mental check.',
   },
 ];
 
@@ -135,23 +113,33 @@ export default function LumpsumCalculatorPage() {
   const [openFaq, setOpenFaq]     = useState(null);
   const [chartTab, setChartTab]   = useState('pie');
 
-  const fmtINR = (v) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
-
   // Calculate
   const { futureValue, gain, yearlyData, rule72 } = useMemo(() => {
     const r = rate / 100;
     const fv = principal * Math.pow(1 + r, years);
     const g  = fv - principal;
     const r72 = r > 0 ? (72 / rate).toFixed(1) : '∞';
-    const data = Array.from({ length: years }, (_, i) => ({
-      year: i + 1,
-      invested: principal,
-      value: principal * Math.pow(1 + r, i + 1),
-    }));
+    const data = Array.from({ length: years }, (_, i) => {
+      const yearBalance = principal * Math.pow(1 + r, i + 1);
+      return {
+        year: i + 1,
+        invested: principal,
+        balance: yearBalance,
+        gains: yearBalance - principal,
+      };
+    });
     return { futureValue: fv, gain: g, yearlyData: data, rule72: r72 };
   }, [principal, rate, years]);
 
-  // ── Pie chart (same colours as SIP tab) ──
+  // Scenario Analysis: Waiting 5 years vs Investing Now
+  const scenarioWait = useMemo(() => {
+    if (years <= 5) return null;
+    const r = rate / 100;
+    const fvWait = principal * Math.pow(1 + r, years - 5);
+    return futureValue - fvWait;
+  }, [principal, rate, years, futureValue]);
+
+  // ── Pie chart ──
   const pieData = {
     labels: ['Invested Amount', 'Est. Returns'],
     datasets: [{
@@ -166,7 +154,7 @@ export default function LumpsumCalculatorPage() {
     responsive: true, maintainAspectRatio: false, cutout: '75%',
     plugins: {
       legend: { display: false },
-      tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${fmtINR(ctx.raw)}` } },
+      tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${fmt(ctx.raw)}` } },
     },
   };
 
@@ -175,16 +163,16 @@ export default function LumpsumCalculatorPage() {
     labels: yearlyData.map(d => `Yr ${d.year}`),
     datasets: [
       { label: 'Invested', data: yearlyData.map(d => d.invested), borderColor: 'var(--color-accent)', backgroundColor: 'var(--color-accent)', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
-      { label: 'Wealth Value', data: yearlyData.map(d => d.value), borderColor: '#C4993C', backgroundColor: '#C4993C', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
+      { label: 'Wealth Value', data: yearlyData.map(d => d.balance), borderColor: '#C4993C', backgroundColor: '#C4993C', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
     ],
   };
   const lineOptions = {
     responsive: true, maintainAspectRatio: false,
     interaction: { mode: 'index', intersect: false },
-    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ₹${ctx.raw.toLocaleString('en-IN')}` } } },
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${fmt(ctx.raw)}` } } },
     scales: {
       x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#e2e8f0', maxTicksLimit: 6 } },
-      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#e2e8f0', callback: (v) => `₹${(v/100000).toFixed(1)}L` } },
+      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#e2e8f0', callback: (v) => toLabel(v) } },
     },
   };
 
@@ -203,8 +191,8 @@ export default function LumpsumCalculatorPage() {
             <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-foreground mb-2">
               Lumpsum Calculator — One-Time Investment Returns
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 max-w-3xl">
-              Calculate the future value of your one-time investment with compounding interest.
+            <p className="text-[#6B7280] max-w-3xl">
+              Calculate the future wealth generated by a one-time investment. Discover how compounding interest turns a single windfall into a massive corpus over time.
             </p>
           </div>
 
@@ -213,32 +201,44 @@ export default function LumpsumCalculatorPage() {
 
             {/* Inputs */}
             <div className="lg:col-span-5 glass-panel p-4 lg:p-5">
-              <InputSlider label="Lumpsum Investment Amount" value={principal} onChange={setPrincipal} min={1000} max={100000000} step={1000} prefix="₹" />
+              <InputSlider label="Lumpsum Investment Amount" value={principal} onChange={setPrincipal} min={1000} max={100000000} step={1000} prefix={currencySymbol} />
               <InputSlider label="Expected Annual Return Rate" value={rate} onChange={setRate} min={1} max={30} step={0.1} suffix="%" />
               <InputSlider label="Investment Duration" value={years} onChange={setYears} min={1} max={50} step={1} suffix="Yr" />
 
               {/* Labels */}
               <div className="mt-5 space-y-2 text-xs text-gray-500 dark:text-gray-400">
                 {[
-                  { label: 'Investment', val: toLabel(principal) },
-                  { label: 'Duration', val: `${years} years` },
-                  { label: 'Return rate', val: `${rate}% p.a.` },
+                  { label: 'Initial Investment', val: fmt(principal) },
+                  { label: 'Time Horizon', val: `${years} years` },
+                  { label: 'Assumed Growth', val: `${rate}% p.a.` },
                 ].map(({ label, val }) => (
-                  <div key={label} className="flex justify-between border-b border-[#E8E4DF] pb-1">
+                  <div key={label} className="flex justify-between border-b border-[var(--panel-border)] pb-1">
                     <span>{label}</span>
-                    <span className="text-gray-600 dark:text-gray-400 font-medium">{val}</span>
+                    <span className="text-foreground font-medium">{val}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Results — same design as SIP tab */}
+            {/* Results */}
             <div className="lg:col-span-7">
+              
+              {/* Dynamic Result Banner */}
+              <div className="glass-panel p-5 mb-6 flex gap-4 items-center bg-[var(--color-accent)]/5 border-[var(--color-accent)]/20">
+                <div className="hidden sm:flex bg-[var(--color-accent)]/10 p-3 rounded-full">
+                   <TrendingUp className="w-8 h-8 text-[var(--color-accent)]" />
+                </div>
+                <div>
+                   <h3 className="text-lg font-bold text-foreground">
+                     Your ${toLabel(principal)} will grow to <span className="text-[var(--color-returns)]">${toLabel(futureValue)}</span>
+                   </h3>
+                   <p className="text-sm text-[#6B7280]">
+                     By investing your capital today and leaving it untouched for ${years} years, you will earn <strong>${toLabel(gain)}</strong> in pure compound interest.
+                   </p>
+                </div>
+              </div>
+
               <div className="glass-panel p-4 lg:p-5 flex flex-col h-full relative overflow-hidden">
-
-                {/* Decorative glow — matches SIP tab */}
-                
-
                 {/* Chart tab strip */}
                 <div className="flex bg-[rgba(0,0,0,0.03)] p-1 rounded-lg mb-3 w-full max-w-[240px] mx-auto relative z-10">
                   {[{ key: 'pie', label: 'Pie Chart' }, { key: 'line', label: 'Line Chart' }].map(({ key, label }) => (
@@ -253,13 +253,13 @@ export default function LumpsumCalculatorPage() {
                 </div>
 
                 {/* Chart area */}
-                <div className="relative flex-1 min-h-[180px] flex justify-center items-center overflow-hidden relative z-10 mb-4">
+                <div className="relative flex-1 min-h-[220px] flex justify-center items-center overflow-hidden relative z-10 mb-4">
                   {chartTab === 'pie' && (
                     <>
                       <Doughnut data={pieData} options={pieOptions} />
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                        <span className="text-xs text-gray-500 dark:text-gray-400">Future Value</span>
-                        <span className="text-lg md:text-xl font-bold text-foreground">{fmtINR(futureValue)}</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">Total Value</span>
+                        <span className="text-lg md:text-xl font-bold text-foreground">{fmt(futureValue)}</span>
                         <span className="text-[10px] text-[#6B7280]">{toLabel(futureValue)}</span>
                       </div>
                     </>
@@ -269,13 +269,13 @@ export default function LumpsumCalculatorPage() {
                   )}
                 </div>
 
-                {/* Breakdown cards — same as SIP tab */}
+                {/* Breakdown cards */}
                 <div className="grid grid-cols-3 gap-2 relative z-10">
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold font-medium">
-                      <Coins className="w-3 h-3 mr-1" />Future Value
+                      <Coins className="w-3 h-3 mr-1" />Total Value
                     </div>
-                    <div className="text-sm font-extrabold text-foreground">{fmtINR(futureValue)}</div>
+                    <div className="text-sm font-extrabold text-foreground">{fmt(futureValue)}</div>
                     <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{toLabel(futureValue)}</div>
                   </div>
 
@@ -283,45 +283,85 @@ export default function LumpsumCalculatorPage() {
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
                       <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mr-1.5" />Invested</div>
           <div className="text-sm font-extrabold text-[var(--color-accent)]">
-                  {fmtINR(principal)}</div>
+                  {fmt(principal)}</div>
                     <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{toLabel(principal)}</div>
                   </div>
 
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
-                      <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Earned</div>
-          <div className="text-sm font-extrabold text-[var(--color-returns)]">+{fmtINR(gain)}</div>
+                      <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Total Gains</div>
+          <div className="text-sm font-extrabold text-[var(--color-returns)]">+{fmt(gain)}</div>
                     <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{toLabel(gain)}</div>
                   </div>
 
-                  {/* Rule of 72 — full width strip */}
-                  <div className="col-span-3 mt-1 bg-black/5 dark:bg-white/5 rounded-lg px-3 py-2 flex items-center gap-2">
-                    <TrendingUp className="w-3.5 h-3.5 text-[var(--color-accent)] flex-shrink-0" />
-                    <span className="text-[10px] text-gray-500 dark:text-gray-400">At <strong className="text-foreground">{rate}%</strong>, doubles every <strong className="text-[var(--color-accent)]">{rule72} yrs</strong> · Wealth multiple: <strong className="text-foreground">{(futureValue/principal).toFixed(2)}×</strong></span>
+                  {/* Rule of 72 */}
+                  <div className="col-span-3 mt-1 bg-black/5 dark:bg-white/5 rounded-lg px-3 py-2 flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                       <TrendingUp className="w-3.5 h-3.5 text-[var(--color-accent)] flex-shrink-0" />
+                       <span className="text-xs text-[#6B7280]">Wealth Multiplier: <strong className="text-foreground">{Math.max(1, (futureValue/principal)).toFixed(2)}x</strong> your money</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                       <CalendarClock className="w-3.5 h-3.5 text-[var(--color-accent)] flex-shrink-0" />
+                       <span className="text-xs text-[#6B7280]">Rule of 72: Money doubles every <strong className="text-[var(--color-accent)]">{rule72} years</strong> at {rate}%</span>
+                    </div>
                   </div>
                 </div>
 
               </div>
             </div>
           </div>
+          
+          {/* ── Scenario Analysis: Cost of Waiting ── */}
+          {scenarioWait && (
+            <section className="mt-8">
+              <div className="glass-panel p-6 bg-[#C4993C]/5 border-[#C4993C]/30 flex flex-col sm:flex-row items-start gap-4">
+                 <div className="bg-[#C4993C]/20 p-3 rounded-full flex-shrink-0">
+                    <Info className="w-6 h-6 text-[#C4993C]" />
+                 </div>
+                 <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">The Cost of Waiting</h3>
+                    <p className="text-sm text-[#6B7280]">
+                      If you delay investing your {toLabel(principal)} by just <strong>5 years</strong>, you would lose out on <strong className="text-[var(--color-loss)]">{fmt(scenarioWait)}</strong> in compound interest over your {years}-year horizon. Time in the market is critical for lumpsum investments because the entire amount starts compounding from day one.
+                    </p>
+                 </div>
+              </div>
+            </section>
+          )}
 
-          {/* ── How to Use ── */}
-          <section id="how-to-use" aria-label="How to use this calculator" className="mt-8">
-          <div className="flex items-center gap-3 mb-4">
-          <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
-          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          </div>
-          <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
-          </div>
-          <div className="glass-panel p-6">
-          <ol className="list-decimal ml-5 space-y-3 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
-          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
-          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
-          </ol>
-          </div>
+          {/* ── Yearly Growth Table ── */}
+          <section className="mt-8">
+             <YearlyGrowthTable yearlyData={yearlyData} targetAmount={futureValue} goalTotalMonths={years * 12} />
+          </section>
+
+          {/* ── Educational Content ── */}
+          <section id="methodology" className="mt-8 glass-panel p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">How Lumpsum Compounding Works</h2>
+            <div className="space-y-4 text-sm text-[#6B7280] leading-relaxed">
+               <p>
+                 A lumpsum investment is simply a single, one-time deposit of capital. When you invest a lumpsum amount into an appreciating asset (like an equity mutual fund, index fund, or stock market portfolio), your money grows through the power of <strong>compound interest</strong>.
+               </p>
+               <h3 className="text-lg font-bold text-foreground mt-6 mb-2">The Mathematical Formula</h3>
+               <p>
+                 The future value of a lumpsum is calculated using the standard compound interest formula:
+               </p>
+               <div className="bg-black/5 dark:bg-white/5 p-4 rounded-xl font-mono text-center text-foreground">
+                  FV = P × (1 + r)^n
+               </div>
+               <ul className="list-disc ml-5 space-y-2 mt-4">
+                 <li><strong>FV</strong>: Future Value (Your final corpus)</li>
+                 <li><strong>P</strong>: Principal Amount (Your initial {fmt(principal)} deposit)</li>
+                 <li><strong>r</strong>: Annual interest rate (Your {rate}% expected return)</li>
+                 <li><strong>n</strong>: Number of years (Your {years}-year horizon)</li>
+               </ul>
+               
+               <h3 className="text-lg font-bold text-foreground mt-6 mb-2">Lumpsum vs Systematic Investment Plan (SIP)</h3>
+               <p>
+                 A common dilemma is whether to invest a large windfall (like a bonus) all at once (Lumpsum) or spread it out over several months (SIP). 
+               </p>
+               <p>
+                 Mathematically, research shows that <strong>lumpsum investing beats spreading it out roughly 66% of the time</strong>. This is because markets go up more often than they go down. By investing the lumpsum immediately, 100% of your capital begins earning returns on day one. When you spread it out, the uninvested cash sitting in your bank account is experiencing an "opportunity cost" by missing out on potential market gains.
+               </p>
+            </div>
           </section>
 
           {/* ── FAQ ── */}
@@ -345,7 +385,7 @@ export default function LumpsumCalculatorPage() {
                     <ChevronDown className={`w-4 h-4 text-[var(--color-accent)] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
                   </button>
                   {openFaq === i && (
-                    <div className="px-4 pb-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed border-t border-black/5 dark:border-white/10 pt-3">{a}</div>
+                    <div className="px-4 pb-4 text-[#6B7280] text-sm leading-relaxed border-t border-[var(--panel-border)] pt-3">{a}</div>
                   )}
                 </div>
               ))}
@@ -356,20 +396,19 @@ export default function LumpsumCalculatorPage() {
           <section id="related-calculators" aria-label="Related free financial calculators" className="mt-8 mb-6">
             <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
               <h2 className="text-lg font-bold text-foreground mb-1 text-center">More Free Financial Calculators</h2>
-              <p className="text-gray-500 dark:text-gray-400 text-xs text-center mb-4">All tools free, real-time, no sign-up.</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
                 {[
-                  { href: '/', icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Step-Up SIP Calculator', desc: 'Monthly SIP with step-up & inflation' },
-                  { href: '/target-amount-calculator', icon: <Target className="w-4 h-4 text-[var(--color-accent)]" />, label: 'SIP Goal Calculator', desc: 'Time to reach ₹1 Crore with SIP' },
-                  { href: '/cagr-calculator', icon: <TrendingUp className="w-4 h-4 text-[#0D9488]" />, label: 'CAGR Calculator', desc: 'Compound annual growth rate calculator' },
+                  { href: `/`, icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: `Step-Up SIP Calculator`, desc: `Monthly SIP with step-up & inflation` },
+                  { href: `/target-amount-calculator`, icon: <Target className="w-4 h-4 text-[var(--color-accent)]" />, label: `Goal Calculator`, desc: `Time to reach your goal target` },
+                  { href: `/cagr-calculator`, icon: <TrendingUp className="w-4 h-4 text-[#0D9488]" />, label: 'CAGR Calculator', desc: 'Compound annual growth rate' },
                 ].map(({ href, icon, label, desc }) => (
                   <Link key={href} href={href} className="flex items-start gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
                     <div className="bg-[rgba(27,58,92,0.15)] p-2 rounded-lg flex-shrink-0">{icon}</div>
                     <div>
                       <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">{label}</p>
-                      <p className="text-gray-500 dark:text-gray-400 text-xs">{desc}</p>
+                      <p className="text-[#6B7280] text-xs">{desc}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-[var(--color-accent)] ml-auto transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-[var(--color-accent)] ml-auto transition-colors flex-shrink-0" />
                   </Link>
                 ))}
               </div>
