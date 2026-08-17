@@ -113,8 +113,8 @@ export default function TimeToGoalDisplay({ results }) {
           <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold font-medium">
             <Coins className="w-3 h-3 mr-1" />Goal Corpus
           </div>
-          <div className="text-sm font-extrabold text-black">{formatCurrency(balanceAtGoal, locale, currencyCode)}</div>
-          <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{formatToShortWords(balanceAtGoal, isUS)}</div>
+          <div className="text-sm font-extrabold text-foreground">{formatCurrency(balanceAtGoal, locale, currencyCode)}</div>
+          <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(balanceAtGoal, isUS)}</div>
         </div>
 
         <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
