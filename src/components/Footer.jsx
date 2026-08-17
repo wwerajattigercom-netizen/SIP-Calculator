@@ -50,7 +50,7 @@ export default function Footer() {
             <Link href={isUS ? "/us/dca-calculator" : "/"} className="inline-block">
               <span className="text-xl font-extrabold text-white tracking-tight">StepupCalculator</span>
             </Link>
-            <p className="text-[#94A3B8] text-sm leading-relaxed pr-4">
+            <p className="text-[#94A3B8] dark:text-blue-100 text-sm leading-relaxed pr-4">
               Free, transparent, and highly accurate financial calculators. We help you plan your investments and build wealth without jargon or sign-ups.
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {col.links.map((link, j) => (
                   <li key={j}>
-                    <Link href={link.href} className="group flex items-start gap-2 text-[#94A3B8] hover:text-white transition-colors text-sm">
+                    <Link href={link.href} className="group flex items-start gap-2 text-[#94A3B8] dark:text-blue-100 hover:text-white transition-colors text-sm">
                       <link.icon className="w-4 h-4 mt-0.5 opacity-70 group-hover:opacity-100 group-hover:text-[#3B82F6] transition-all" />
                       <span className="leading-snug">{link.label}</span>
                     </Link>
@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#64748B]">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#64748B] dark:text-blue-200">
           <p>© {new Date().getFullYear()} StepupCalculator. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href={isUS ? "/us/about" : "/about"} className="hover:text-white transition-colors">About Us</Link>

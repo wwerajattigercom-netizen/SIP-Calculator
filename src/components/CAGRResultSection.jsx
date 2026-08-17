@@ -6,11 +6,17 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { TrendingUp, Coins, Zap, AlertTriangle } from 'lucide-react';
 import { formatCurrency, formatToShortWords } from '../utils/formatters';
 import { useRegion } from '../context/RegionContext';
+import { useTheme } from 'next-themes';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function CAGRResultSection({ results }) {
   const { locale, currencyCode, isUS } = useRegion();
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+  const isDark = mounted && currentTheme === 'dark';
   const fmt = (v) => formatCurrency(v, locale, currencyCode);
   const {
     cagr, cagrPct, absoluteGain, gainPct,
@@ -32,9 +38,10 @@ export default function CAGRResultSection({ results }) {
     ? [initialInvestment, sipContributions, Math.max(0, absoluteGain)]
     : [initialInvestment, Math.max(0, absoluteGain)];
 
+  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
   const pieColors = monthlySip > 0
-    ? ['var(--color-accent)', '#325C8C', '#C4993C']
-    : ['var(--color-accent)', '#C4993C'];
+    ? [accentColor, '#325C8C', '#C4993C']
+    : [accentColor, '#C4993C'];
 
   const pieData = {
     labels: pieLabels,

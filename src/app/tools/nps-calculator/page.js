@@ -79,7 +79,7 @@ export default function NpsCalculatorPage() {
     datasets: [
       {
         data: [totalInvested, totalGains],
-        backgroundColor: ['var(--color-accent)', '#C4993C'],
+        backgroundColor: ['#1B3A5C', '#C4993C'],
         borderWidth: 0,
       },
     ],

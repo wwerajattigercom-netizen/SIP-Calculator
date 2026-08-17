@@ -76,7 +76,7 @@ export default function FireCalculatorPage() {
         datasets: [
             {
                 data: [results.totalInvested, results.wealthGained > 0 ? results.wealthGained : 0],
-                backgroundColor: ['var(--color-accent)', '#C4993C'], // Navy and Gold
+                backgroundColor: ['#1B3A5C', '#C4993C'], // Navy and Gold
                 borderWidth: 0,
             },
         ],
