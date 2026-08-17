@@ -21,6 +21,12 @@ const jsonLd = {
 };
 
 export default function RetirementAccountCalculatorPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
+  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+
   const [monthlyContribution, setMonthlyContribution] = useState(500);
   const [currentAge, setCurrentAge] = useState(30);
   const [retirementAge, setRetirementAge] = useState(65);
@@ -81,7 +87,7 @@ export default function RetirementAccountCalculatorPage() {
     datasets: [
       {
         data: [totalInvested, totalGains > 0 ? totalGains : 0],
-        backgroundColor: ['#1B3A5C', '#C4993C'],
+        backgroundColor: [accentColor, '#C4993C'],
         borderWidth: 0,
       },
     ],

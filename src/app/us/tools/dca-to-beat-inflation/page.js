@@ -29,6 +29,12 @@ const jsonLd = {
 };
 
 export default function SipBeatInflationPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
+  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+
   const [sipAmount, setSipAmount] = useState(10000);
   const [duration, setDuration] = useState(20);
   const [returnRate, setReturnRate] = useState(12);
@@ -73,7 +79,7 @@ export default function SipBeatInflationPage() {
 
   const nominalChartData = {
     labels: ['Total Invested', 'Nominal Gains'],
-    datasets: [{ data: [results.totalInvested, results.nominalGains], backgroundColor: ['#1B3A5C', '#C4993C'] }]
+    datasets: [{ data: [results.totalInvested, results.nominalGains], backgroundColor: [accentColor, '#C4993C'] }]
   };
 
   const realChartData = {

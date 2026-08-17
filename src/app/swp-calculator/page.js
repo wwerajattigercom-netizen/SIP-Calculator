@@ -118,6 +118,12 @@ const FAQS = [
 
 // ─── Main Page ───────────────────────────────────────────────
 export default function SWPCalculatorPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
+  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+
   const [corpus, setCorpus] = useState(5000000);
   const [monthlyWithdrawal, setMonthlyWithdrawal] = useState(30000);
   const [rate, setRate] = useState(10);
@@ -167,7 +173,7 @@ export default function SWPCalculatorPage() {
     labels: ['Total Withdrawn', 'Remaining Corpus'],
     datasets: [{
       data: [totalWithdrawn, finalRemaining],
-      backgroundColor: ['#1B3A5C', '#C4993C'],
+      backgroundColor: [accentColor, '#C4993C'],
       borderColor: ['transparent', 'transparent'], borderWidth: 0,
       borderWidth: 4,
       hoverOffset: 4,

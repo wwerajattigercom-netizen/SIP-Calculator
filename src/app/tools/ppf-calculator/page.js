@@ -21,6 +21,12 @@ const jsonLd = {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function PpfCalculatorPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
+  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+
   const [yearlyInvestment, setYearlyInvestment] = useState(150000);
   const [years, setYears] = useState(15);
   const interestRate = 7.1; // Fixed PPF rate
@@ -51,7 +57,7 @@ export default function PpfCalculatorPage() {
     datasets: [
       {
         data: [results.invested, results.returns],
-        backgroundColor: ['#1B3A5C', '#C4993C'],
+        backgroundColor: [accentColor, '#C4993C'],
         borderWidth: 0,
       },
     ],

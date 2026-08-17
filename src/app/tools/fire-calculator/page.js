@@ -21,6 +21,12 @@ const jsonLd = {
 };
 
 export default function FireCalculatorPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
+  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+
     const [annualExpenses, setAnnualExpenses] = useState(1200000);
     const [swr, setSwr] = useState(4);
     const [currentAge, setCurrentAge] = useState(30);
@@ -76,7 +82,7 @@ export default function FireCalculatorPage() {
         datasets: [
             {
                 data: [results.totalInvested, results.wealthGained > 0 ? results.wealthGained : 0],
-                backgroundColor: ['#1B3A5C', '#C4993C'], // Navy and Gold
+                backgroundColor: [accentColor, '#C4993C'], // Navy and Gold
                 borderWidth: 0,
             },
         ],
