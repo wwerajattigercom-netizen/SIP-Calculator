@@ -1,4 +1,5 @@
 "use client";
+import { useTheme } from 'next-themes';
 import CalculatorTabs from '@/components/CalculatorTabs';
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';

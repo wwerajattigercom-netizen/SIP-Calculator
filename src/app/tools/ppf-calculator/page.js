@@ -1,4 +1,5 @@
 "use client";
+import { useTheme } from 'next-themes';
 
 import React, { useState, useEffect } from 'react';
 import InputSlider from '@/components/InputSlider';

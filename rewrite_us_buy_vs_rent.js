@@ -1,4 +1,9 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const targetPath = path.join(__dirname, 'src', 'app', 'us', 'tools', 'buy-vs-rent-calculator', 'page.js');
+
+const newContent = `"use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
 import InputSlider from '@/components/InputSlider';
@@ -35,8 +40,8 @@ const jsonLd = {
   mainEntity: [
     { '@type': 'Question', name: 'Is it always better to buy a house than to rent?', acceptedAnswer: { '@type': 'Answer', text: 'No. The decision depends heavily on how long you plan to stay in the home, the local housing market, and mortgage rates. Buying involves significant sunk costs (closing costs, maintenance, property taxes, interest) that can outweigh the equity gained if you move within 5-7 years.' } },
     { '@type': 'Question', name: 'What is the opportunity cost of a down payment?', acceptedAnswer: { '@type': 'Answer', text: 'When you put 20% down on a house, that money is tied up in the home. If you had rented instead and invested that same 20% down payment into an S&P 500 index fund, it would likely compound at 8-10% annually. This lost investment growth is the opportunity cost of buying.' } },
-    { '@type': 'Question', name: 'How do property taxes and HOA fees affect the Buy vs Rent calculation?', acceptedAnswer: { '@type': 'Answer', text: 'Property taxes, HOA fees, and maintenance are ongoing, unrecoverable costs of homeownership. They typically average 1.5-2.5% of the home\'s value annually. In a true Buy vs Rent calculation, these costs must be factored into your monthly outlay to find your true net worth.' } },
-    { '@type': 'Question', name: 'What is the 5% Rule in real estate?', acceptedAnswer: { '@type': 'Answer', text: 'The 5% Rule is a quick rule of thumb for estimating the unrecoverable costs of homeownership. It estimates that property tax (1%), maintenance/HOA (1%), and cost of capital/interest (3%) will cost about 5% of the home\'s value each year. If your annual rent is strictly less than 5% of the home\'s value, renting may be better financially.' } }
+    { '@type': 'Question', name: 'How do property taxes and HOA fees affect the Buy vs Rent calculation?', acceptedAnswer: { '@type': 'Answer', text: 'Property taxes, HOA fees, and maintenance are ongoing, unrecoverable costs of homeownership. They typically average 1.5-2.5% of the home\\'s value annually. In a true Buy vs Rent calculation, these costs must be factored into your monthly outlay to find your true net worth.' } },
+    { '@type': 'Question', name: 'What is the 5% Rule in real estate?', acceptedAnswer: { '@type': 'Answer', text: 'The 5% Rule is a quick rule of thumb for estimating the unrecoverable costs of homeownership. It estimates that property tax (1%), maintenance/HOA (1%), and cost of capital/interest (3%) will cost about 5% of the home\\'s value each year. If your annual rent is strictly less than 5% of the home\\'s value, renting may be better financially.' } }
   ]
 };
 
@@ -100,7 +105,7 @@ export default function BuyVsRentPageUS() {
     let breakEvenYear = null;
 
     for (let year = 1; year <= loanTerm; year++) {
-      labels.push(`Year ${year}`);
+      labels.push(\`Year \${year}\`);
       
       const currentPropertyValue = propertyValue * Math.pow(1 + propertyAppreciation / 100, year);
       const monthlyPropertyTax = (currentPropertyValue * (propertyTaxPercent / 100)) / 12;
@@ -288,7 +293,7 @@ export default function BuyVsRentPageUS() {
                   max={50}
                   step={1}
                   onChange={setDownPaymentPercent}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
                 <InputSlider
                   label="Mortgage Rate (%)"
@@ -297,7 +302,7 @@ export default function BuyVsRentPageUS() {
                   max={12}
                   step={0.1}
                   onChange={setMortgageRate}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
                 <InputSlider
                   label="Loan Term (Years)"
@@ -306,7 +311,7 @@ export default function BuyVsRentPageUS() {
                   max={30}
                   step={1}
                   onChange={setLoanTerm}
-                  formatValue={(v) => `${v} Yrs`}
+                  formatValue={(v) => \`\${v} Yrs\`}
                 />
                 <InputSlider
                   label="Property Appreciation (Yearly %)"
@@ -315,7 +320,7 @@ export default function BuyVsRentPageUS() {
                   max={15}
                   step={0.5}
                   onChange={setPropertyAppreciation}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
               </div>
             </div>
@@ -330,7 +335,7 @@ export default function BuyVsRentPageUS() {
                   max={3}
                   step={0.1}
                   onChange={setPropertyTaxPercent}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
                 <InputSlider
                   label="HOA / Maintenance (Yearly %)"
@@ -339,7 +344,7 @@ export default function BuyVsRentPageUS() {
                   max={5}
                   step={0.1}
                   onChange={setMaintenancePercent}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
                 <InputSlider
                   label="Buying Closing Costs (%)"
@@ -348,7 +353,7 @@ export default function BuyVsRentPageUS() {
                   max={10}
                   step={0.5}
                   onChange={setBuyingClosingCostsPercent}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
                 <InputSlider
                   label="Selling Closing Costs / Realtor (%)"
@@ -357,7 +362,7 @@ export default function BuyVsRentPageUS() {
                   max={10}
                   step={0.5}
                   onChange={setSellingClosingCostsPercent}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
               </div>
             </div>
@@ -381,7 +386,7 @@ export default function BuyVsRentPageUS() {
                   max={15}
                   step={1}
                   onChange={setRentEscalation}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
                 <InputSlider
                   label="Investment Portfolio Returns (%)"
@@ -390,7 +395,7 @@ export default function BuyVsRentPageUS() {
                   max={20}
                   step={0.5}
                   onChange={setEquityReturns}
-                  formatValue={(v) => `${v}%`}
+                  formatValue={(v) => \`\${v}%\`}
                 />
               </div>
             </div>
@@ -400,13 +405,13 @@ export default function BuyVsRentPageUS() {
           <div className="lg:col-span-7 space-y-6">
             
             {/* Break Even Banner */}
-            <div className={`p-5 rounded-2xl border flex items-center gap-4 ${results.breakEvenYear !== null ? 'bg-[var(--color-accent)]/10 border-[var(--color-accent)]/30' : 'bg-[#C4993C]/10 border-[#C4993C]/30'}`}>
+            <div className={\`p-5 rounded-2xl border flex items-center gap-4 \${results.breakEvenYear !== null ? 'bg-[var(--color-accent)]/10 border-[var(--color-accent)]/30' : 'bg-[#C4993C]/10 border-[#C4993C]/30'}\`}>
               <div className="hidden sm:block">
                  {results.breakEvenYear !== null ? <CheckCircle2 className="w-10 h-10 text-[var(--color-accent)]" /> : <XCircle className="w-10 h-10 text-[#C4993C]" />}
               </div>
               <div>
                 <h3 className="text-lg font-bold text-[var(--foreground)]">
-                  {results.breakEvenYear !== null ? `Buying becomes better in Year ${results.breakEvenYear}` : `Renting remains better for all ${loanTerm} years`}
+                  {results.breakEvenYear !== null ? \`Buying becomes better in Year \${results.breakEvenYear}\` : \`Renting remains better for all \${loanTerm} years\`}
                 </h3>
                 <p className="text-sm text-[#6B7280]">
                   {results.breakEvenYear !== null 
@@ -580,3 +585,7 @@ export default function BuyVsRentPageUS() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync(targetPath, newContent);
+console.log('Successfully rewrote US Buy vs Rent calculator.');

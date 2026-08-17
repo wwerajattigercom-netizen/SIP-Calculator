@@ -1,4 +1,5 @@
 "use client";
+import { useTheme } from 'next-themes';
 
 import React, { useState, useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';

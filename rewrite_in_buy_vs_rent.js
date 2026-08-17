@@ -1,4 +1,9 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const targetPath = path.join(__dirname, 'src', 'app', 'tools', 'buy-vs-rent-calculator', 'page.js');
+
+const newContent = `"use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
 import InputSlider from '@/components/InputSlider';
@@ -35,8 +40,8 @@ const jsonLd = {
   mainEntity: [
     { '@type': 'Question', name: 'Is it always better to buy a house than to rent?', acceptedAnswer: { '@type': 'Answer', text: 'No. The decision depends heavily on how long you plan to stay in the home, the local housing market, and interest rates. Buying involves significant sunk costs (closing costs, maintenance, property taxes, interest) that can outweigh the equity gained if you move within 5-7 years.' } },
     { '@type': 'Question', name: 'What is the opportunity cost of a down payment?', acceptedAnswer: { '@type': 'Answer', text: 'When you put 20% down on a house, that money is tied up in the home. If you had rented instead and invested that same 20% down payment into a NIFTY 50 index fund, it would likely compound at 10-12% annually. This lost investment growth is the opportunity cost of buying.' } },
-    { '@type': 'Question', name: 'How do property taxes and maintenance affect the Buy vs Rent calculation?', acceptedAnswer: { '@type': 'Answer', text: 'Property taxes and maintenance are ongoing, unrecoverable costs of homeownership. They typically average 1-2% of the home\'s value annually. In a Buy vs Rent calculation, these costs must be subtracted from the total equity gained to find your true net worth.' } },
-    { '@type': 'Question', name: 'What is the 5% Rule in real estate?', acceptedAnswer: { '@type': 'Answer', text: 'The 5% Rule is a quick rule of thumb for estimating the unrecoverable costs of homeownership. It estimates that property tax (1%), maintenance (1%), and cost of capital/interest (3%) will cost about 5% of the home\'s value each year. If your annual rent is less than 5% of the home\'s value, renting may be better financially.' } }
+    { '@type': 'Question', name: 'How do property taxes and maintenance affect the Buy vs Rent calculation?', acceptedAnswer: { '@type': 'Answer', text: 'Property taxes and maintenance are ongoing, unrecoverable costs of homeownership. They typically average 1-2% of the home\\'s value annually. In a Buy vs Rent calculation, these costs must be subtracted from the total equity gained to find your true net worth.' } },
+    { '@type': 'Question', name: 'What is the 5% Rule in real estate?', acceptedAnswer: { '@type': 'Answer', text: 'The 5% Rule is a quick rule of thumb for estimating the unrecoverable costs of homeownership. It estimates that property tax (1%), maintenance (1%), and cost of capital/interest (3%) will cost about 5% of the home\\'s value each year. If your annual rent is less than 5% of the home\\'s value, renting may be better financially.' } }
   ]
 };
 
@@ -100,7 +105,7 @@ export default function BuyVsRentPage() {
     let breakEvenYear = null;
 
     for (let year = 1; year <= loanTenure; year++) {
-      labels.push(`Year ${year}`);
+      labels.push(\`Year \${year}\`);
       
       const currentPropertyValue = propertyValue * Math.pow(1 + propertyAppreciation / 100, year);
       const monthlyPropertyTax = (currentPropertyValue * (propertyTaxPercent / 100)) / 12;
@@ -287,7 +292,7 @@ export default function BuyVsRentPage() {
                 max={90}
                 step={1}
                 onChange={setDownPaymentPercent}
-                formatValue={(v) => `${v}%`}
+                formatValue={(v) => \`\${v}%\`}
               />
               <InputSlider
                 label="Home Loan Rate (%)"
@@ -296,7 +301,7 @@ export default function BuyVsRentPage() {
                 max={15}
                 step={0.1}
                 onChange={setHomeLoanRate}
-                formatValue={(v) => `${v}%`}
+                formatValue={(v) => \`\${v}%\`}
               />
               <InputSlider
                 label="Loan Tenure (Years)"
@@ -305,7 +310,7 @@ export default function BuyVsRentPage() {
                 max={30}
                 step={1}
                 onChange={setLoanTenure}
-                formatValue={(v) => `${v} Yrs`}
+                formatValue={(v) => \`\${v} Yrs\`}
               />
               <InputSlider
                 label="Property Appreciation (Yearly %)"
@@ -314,7 +319,7 @@ export default function BuyVsRentPage() {
                 max={15}
                 step={0.5}
                 onChange={setPropertyAppreciation}
-                formatValue={(v) => `${v}%`}
+                formatValue={(v) => \`\${v}%\`}
               />
             </div>
           </div>
@@ -329,7 +334,7 @@ export default function BuyVsRentPage() {
                 max={3}
                 step={0.1}
                 onChange={setPropertyTaxPercent}
-                formatValue={(v) => `${v}%`}
+                formatValue={(v) => \`\${v}%\`}
               />
               <InputSlider
                 label="Maintenance / Society Fees (Yearly %)"
@@ -338,7 +343,7 @@ export default function BuyVsRentPage() {
                 max={5}
                 step={0.1}
                 onChange={setMaintenancePercent}
-                formatValue={(v) => `${v}%`}
+                formatValue={(v) => \`\${v}%\`}
               />
               <InputSlider
                 label="Buying Closing Costs (Stamp Duty, etc. %)"
@@ -347,7 +352,7 @@ export default function BuyVsRentPage() {
                 max={15}
                 step={0.5}
                 onChange={setBuyingClosingCostsPercent}
-                formatValue={(v) => `${v}%`}
+                formatValue={(v) => \`\${v}%\`}
               />
             </div>
           </div>
@@ -371,7 +376,7 @@ export default function BuyVsRentPage() {
                 max={15}
                 step={1}
                 onChange={setRentEscalation}
-                formatValue={(v) => `${v}%`}
+                formatValue={(v) => \`\${v}%\`}
               />
               <InputSlider
                 label="Equity Investment Returns (%)"
@@ -380,7 +385,7 @@ export default function BuyVsRentPage() {
                 max={20}
                 step={0.5}
                 onChange={setEquityReturns}
-                formatValue={(v) => `${v}%`}
+                formatValue={(v) => \`\${v}%\`}
               />
             </div>
           </div>
@@ -390,13 +395,13 @@ export default function BuyVsRentPage() {
         <div className="lg:col-span-7 space-y-6">
           
           {/* Break Even Banner */}
-          <div className={`p-5 rounded-2xl border flex items-center gap-4 ${results.breakEvenYear !== null ? 'bg-[var(--color-accent)]/10 border-[var(--color-accent)]/30' : 'bg-[#C4993C]/10 border-[#C4993C]/30'}`}>
+          <div className={\`p-5 rounded-2xl border flex items-center gap-4 \${results.breakEvenYear !== null ? 'bg-[var(--color-accent)]/10 border-[var(--color-accent)]/30' : 'bg-[#C4993C]/10 border-[#C4993C]/30'}\`}>
             <div className="hidden sm:block">
                {results.breakEvenYear !== null ? <CheckCircle2 className="w-10 h-10 text-[var(--color-accent)]" /> : <XCircle className="w-10 h-10 text-[#C4993C]" />}
             </div>
             <div>
               <h3 className="text-lg font-bold text-[var(--foreground)]">
-                {results.breakEvenYear !== null ? `Buying becomes better in Year ${results.breakEvenYear}` : `Renting remains better for all ${loanTenure} years`}
+                {results.breakEvenYear !== null ? \`Buying becomes better in Year \${results.breakEvenYear}\` : \`Renting remains better for all \${loanTenure} years\`}
               </h3>
               <p className="text-sm text-[#6B7280]">
                 {results.breakEvenYear !== null 
@@ -569,3 +574,7 @@ export default function BuyVsRentPage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync(targetPath, newContent);
+console.log('Successfully rewrote IN Buy vs Rent calculator.');
