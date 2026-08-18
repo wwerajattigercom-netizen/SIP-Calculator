@@ -1,9 +1,8 @@
 "use client";
-import { useTheme } from 'next-themes';
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { TrendingUp, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Coins, AlertCircle } from 'lucide-react';
+import { TrendingUp, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Coins, AlertCircle, Info, Layers } from 'lucide-react';
 import InputSlider from '@/components/InputSlider';
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -15,18 +14,15 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, Title);
 
-
-// ─── helpers ────────────────────────────────────────────────
-const fmt = (v) =>
+const formatCurrency = (v) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
 
-function toLabel(v) {
+function formatToShortWords(v) {
   if (v >= 1e7) return `₹${(v / 1e7).toFixed(2)} Cr`;
   if (v >= 1e5) return `₹${(v / 1e5).toFixed(2)} L`;
-  return fmt(v);
+  return formatCurrency(v);
 }
 
-// ─── JSON-LD ─────────────────────────────────────────────────
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -44,6 +40,19 @@ const jsonLd = {
         'Total withdrawn vs Remaining corpus chart',
         'Year-by-year balance tracking',
         'Free SWP mutual fund calculator India',
+      ],
+    },
+    {
+      '@type': 'HowTo',
+      name: 'How to Calculate SWP Returns Online',
+      description: 'Step-by-step guide to calculating Systematic Withdrawal Plan payouts and corpus longevity using the StepupCalculator SWP Calculator.',
+      step: [
+        { '@type': 'HowToStep', name: 'Enter Total Corpus', text: 'Enter the total accumulated corpus available for withdrawal. Range: ₹5 Lakh to ₹100 Crore.' },
+        { '@type': 'HowToStep', name: 'Enter Monthly Withdrawal', text: 'Enter the fixed amount you want to withdraw every month.' },
+        { '@type': 'HowToStep', name: 'Set Expected Return Rate', text: 'Enter the realistic annual return rate expected on the remaining corpus.' },
+        { '@type': 'HowToStep', name: 'Set Duration', text: 'Enter the number of years you plan to withdraw for (1–40 years).' },
+        { '@type': 'HowToStep', name: 'Analyze Longevity', text: 'Check the status message to see if your corpus lasts the entire duration or if it depletes early.' },
+        { '@type': 'HowToStep', name: 'Review Year-by-Year Table', text: 'See exactly how the investment balance changes each year after withdrawals and returns.' },
       ],
     },
     {
@@ -94,6 +103,15 @@ const jsonLd = {
   ],
 };
 
+const HOW_TO_STEPS = [
+  { step: '1', title: 'Enter Total Corpus', desc: 'The accumulated amount you have available for withdrawals. Range: ₹5 Lakh to ₹100 Crore.' },
+  { step: '2', title: 'Enter Monthly Withdrawal', desc: 'The fixed amount you wish to withdraw every month.' },
+  { step: '3', title: 'Set Return Rate', desc: 'The annual percentage return you expect on the remaining corpus.' },
+  { step: '4', title: 'Set Duration', desc: 'The number of years you want to withdraw for (1–40 years).' },
+  { step: '5', title: 'Check Longevity', desc: 'The calculator instantly shows if your corpus lasts the full duration or depletes early.' },
+  { step: '6', title: 'Review Year-by-Year Table', desc: 'See your end-of-year balance, yearly withdrawals, and returns earned.' },
+];
+
 const FAQS = [
   {
     q: 'What is a Systematic Withdrawal Plan (SWP)?',
@@ -117,22 +135,13 @@ const FAQS = [
   },
 ];
 
-// ─── Main Page ───────────────────────────────────────────────
 export default function SWPCalculatorPage() {
-  const { theme, systemTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
-  const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
-  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
-
   const [corpus, setCorpus] = useState(5000000);
   const [monthlyWithdrawal, setMonthlyWithdrawal] = useState(30000);
   const [rate, setRate] = useState(10);
   const [years, setYears] = useState(20);
   const [openFaq, setOpenFaq] = useState(null);
   const [chartTab, setChartTab] = useState('pie');
-
-  const fmtINR = (v) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(v);
 
   // Calculate
   const { totalWithdrawn, finalRemaining, totalReturns, yearlyData, depletedMonthTotal } = useMemo(() => {
@@ -142,16 +151,23 @@ export default function SWPCalculatorPage() {
     let depMonth = null;
     const data = [];
 
-    data.push({ year: 0, balance: balance });
+    data.push({ year: 0, balance: balance, yearlyWithdrawn: 0, yearlyReturns: 0 });
 
     for (let y = 1; y <= years; y++) {
+      let yearlyW = 0;
+      let yearlyR = 0;
       for (let m = 1; m <= 12; m++) {
         if (balance > 0) {
-          balance += balance * mRate;
+          const mReturn = balance * mRate;
+          yearlyR += mReturn;
+          balance += mReturn;
+          
           if (balance >= monthlyWithdrawal) {
             balance -= monthlyWithdrawal;
+            yearlyW += monthlyWithdrawal;
             tWithdrawn += monthlyWithdrawal;
           } else {
+            yearlyW += balance;
             tWithdrawn += balance;
             balance = 0;
             if (depMonth === null) {
@@ -160,7 +176,7 @@ export default function SWPCalculatorPage() {
           }
         }
       }
-      data.push({ year: y, balance: balance });
+      data.push({ year: y, balance: balance, yearlyWithdrawn: yearlyW, yearlyReturns: yearlyR });
     }
 
     const tReturns = (tWithdrawn + balance) - corpus;
@@ -174,8 +190,8 @@ export default function SWPCalculatorPage() {
     labels: ['Total Withdrawn', 'Remaining Corpus'],
     datasets: [{
       data: [totalWithdrawn, finalRemaining],
-      backgroundColor: [accentColor, '#C4993C'],
-      borderColor: ['transparent', 'transparent'], borderWidth: 0,
+      backgroundColor: ['#1B3A5C', '#C4993C'],
+      borderColor: ['transparent', 'transparent'],
       borderWidth: 4,
       hoverOffset: 4,
     }],
@@ -184,7 +200,7 @@ export default function SWPCalculatorPage() {
     responsive: true, maintainAspectRatio: false, cutout: '75%',
     plugins: {
       legend: { display: false },
-      tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${fmtINR(ctx.raw)}` } },
+      tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${formatCurrency(ctx.raw)}` } },
     },
   };
 
@@ -192,7 +208,7 @@ export default function SWPCalculatorPage() {
   const lineData = {
     labels: yearlyData.map(d => `Yr ${d.year}`),
     datasets: [
-      { label: 'Corpus Balance', data: yearlyData.map(d => d.balance), borderColor: 'var(--color-accent)', backgroundColor: 'transparent', tension: 0.4, pointRadius: 0, pointHitRadius: 10, fill: false },
+      { label: 'Corpus Balance', data: yearlyData.map(d => d.balance), borderColor: '#1B3A5C', backgroundColor: 'transparent', tension: 0.4, pointRadius: 0, pointHitRadius: 10, fill: false },
     ],
   };
   const lineOptions = {
@@ -200,8 +216,8 @@ export default function SWPCalculatorPage() {
     interaction: { mode: 'index', intersect: false },
     plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ₹${ctx.raw.toLocaleString('en-IN')}` } } },
     scales: {
-      x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#e2e8f0', maxTicksLimit: 6 } },
-      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#e2e8f0', callback: (v) => `₹${(v/100000).toFixed(1)}L` } },
+      x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280', maxTicksLimit: 6 } },
+      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#6B7280', callback: (v) => `₹${(v/100000).toFixed(1)}L` } },
     },
   };
 
@@ -211,7 +227,7 @@ export default function SWPCalculatorPage() {
     const dMonths = depletedMonthTotal % 12;
     longevityMessage = `Your corpus will last ${dYears} years ${dMonths} months`;
   } else {
-    longevityMessage = `Your corpus survives the full duration with ${fmtINR(finalRemaining)} remaining`;
+    longevityMessage = `Your corpus survives the full duration with ${formatCurrency(finalRemaining)} remaining`;
   }
 
   return (
@@ -238,30 +254,51 @@ export default function SWPCalculatorPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
 
             {/* Inputs */}
-            <div className="lg:col-span-5 glass-panel p-4 lg:p-5">
+            <div className="lg:col-span-5 glass-panel p-4 lg:p-5 relative">
               <InputSlider label="Total Corpus" value={corpus} onChange={setCorpus} min={500000} max={1000000000} step={10000} prefix="₹" />
               <InputSlider label="Monthly Withdrawal" value={monthlyWithdrawal} onChange={setMonthlyWithdrawal} min={5000} max={1000000} step={1000} prefix="₹" />
               <InputSlider label="Expected Return Rate" value={rate} onChange={setRate} min={4} max={18} step={0.1} suffix="%" />
               <InputSlider label="Withdrawal Duration" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yr" />
 
               {/* Labels */}
-              <div className="mt-5 space-y-2 text-xs text-gray-500 dark:text-gray-400">
+              <div className="mt-5 space-y-2 text-xs text-gray-500 dark:text-gray-400 border-b border-[#E8E4DF] pb-4">
                 {[
-                  { label: 'Corpus', val: toLabel(corpus) },
-                  { label: 'Withdrawal', val: `${fmtINR(monthlyWithdrawal)}/mo` },
+                  { label: 'Corpus', val: formatToShortWords(corpus) },
+                  { label: 'Withdrawal', val: `${formatCurrency(monthlyWithdrawal)}/mo` },
                   { label: 'Duration', val: `${years} years` },
                   { label: 'Return rate', val: `${rate}% p.a.` },
                 ].map(({ label, val }) => (
-                  <div key={label} className="flex justify-between border-b border-[#E8E4DF] pb-1">
+                  <div key={label} className="flex justify-between pb-1">
                     <span>{label}</span>
                     <span className="text-gray-600 dark:text-gray-400 font-medium">{val}</span>
                   </div>
                 ))}
               </div>
+
+              {/* Internal backlinks */}
+              <div className="mt-4 pt-1 space-y-2">
+                <p className="text-gray-500 dark:text-gray-400 text-xs mb-1">Also try:</p>
+                <Link
+                  href="/"
+                  className="flex items-center gap-2 text-[#1B3A5C] text-xs hover:text-foreground transition-colors group"
+                >
+                  <Calculator className="w-3.5 h-3.5" />
+                  <span>SIP + Step-Up Calculator — grow wealth month by month</span>
+                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <Link
+                  href="/cagr-calculator"
+                  className="flex items-center gap-2 text-[#1B3A5C] text-xs hover:text-foreground transition-colors group"
+                >
+                  <TrendingUp className="w-3.5 h-3.5" />
+                  <span>CAGR Calculator — calculate effective growth rate</span>
+                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </div>
             </div>
 
             {/* Results */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 h-full lg:sticky lg:top-8">
               <div className="glass-panel p-4 lg:p-5 flex flex-col h-full relative overflow-hidden">
 
                 {/* Chart tab strip */}
@@ -271,21 +308,21 @@ export default function SWPCalculatorPage() {
                       key={key}
                       onClick={() => setChartTab(key)}
                       className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
-                        chartTab === key ? 'bg-[var(--color-accent)] text-white shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-foreground'
+                        chartTab === key ? 'bg-[#1B3A5C] text-white shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-foreground'
                       }`}
                     >{label}</button>
                   ))}
                 </div>
 
                 {/* Chart area */}
-                <div className="relative flex-1 min-h-[180px] flex justify-center items-center overflow-hidden relative z-10 mb-4">
+                <div className="relative flex-1 min-h-[220px] flex justify-center items-center overflow-hidden relative z-10 mb-4">
                   {chartTab === 'pie' && (
                     <>
                       <Doughnut data={pieData} options={pieOptions} />
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                         <span className="text-xs text-gray-500 dark:text-gray-400">Total Withdrawn</span>
-                        <span className="text-lg md:text-xl font-bold text-foreground">{fmtINR(totalWithdrawn)}</span>
-                        <span className="text-[10px] text-[#6B7280]">{toLabel(totalWithdrawn)}</span>
+                        <span className="text-lg md:text-xl font-bold text-[#1F2937]">{formatCurrency(totalWithdrawn)}</span>
+                        <span className="text-[10px] text-[#6B7280]">{formatToShortWords(totalWithdrawn)}</span>
                       </div>
                     </>
                   )}
@@ -295,39 +332,39 @@ export default function SWPCalculatorPage() {
                 </div>
 
                 {/* Breakdown cards */}
-                <div className="grid grid-cols-3 gap-2 relative z-10">
+                <div className="grid grid-cols-3 gap-2 relative z-10 mt-auto">
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold font-medium">
-                      <Coins className="w-3 h-3 mr-1" />Total Withdrawn
+                      <div className="w-2 h-2 rounded-full bg-[#1B3A5C] mr-1.5" />Withdrawn
                     </div>
-                    <div className="text-sm font-extrabold text-foreground">{fmtINR(totalWithdrawn)}</div>
-                    <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{toLabel(totalWithdrawn)}</div>
+                    <div className="text-sm font-extrabold text-[#1B3A5C]">{formatCurrency(totalWithdrawn)}</div>
+                    <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{formatToShortWords(totalWithdrawn)}</div>
                   </div>
 
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
                       <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Rem. Corpus</div>
-                    <div className="text-sm font-extrabold text-[var(--color-accent)]">
-                      {fmtINR(finalRemaining)}</div>
-                    <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{toLabel(finalRemaining)}</div>
+                    <div className="text-sm font-extrabold text-[#1F2937]">
+                      {formatCurrency(finalRemaining)}</div>
+                    <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(finalRemaining)}</div>
                   </div>
 
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
-                      <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Returns</div>
-                    <div className={`text-sm font-extrabold ${totalReturns >= 0 ? 'text-[var(--color-returns)]' : 'text-[var(--color-loss)]'}`}>
-                      {totalReturns >= 0 ? '+' : ''}{fmtINR(totalReturns)}</div>
-                    <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{toLabel(totalReturns)}</div>
+                      <div className="w-2 h-2 rounded-full bg-transparent border border-[#059669] mr-1.5" />Returns</div>
+                    <div className={`text-sm font-extrabold ${totalReturns >= 0 ? 'text-[#059669]' : 'text-[#991B1B]'}`}>
+                      {totalReturns >= 0 ? '+' : ''}{formatCurrency(totalReturns)}</div>
+                    <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(totalReturns)}</div>
                   </div>
 
                   {/* Longevity Indicator */}
                   <div className="col-span-3 mt-1 bg-black/5 dark:bg-white/5 rounded-lg px-3 py-2 flex items-center gap-2">
                     {depletedMonthTotal ? (
-                      <AlertCircle className="w-3.5 h-3.5 text-[var(--color-loss)] flex-shrink-0" />
+                      <AlertCircle className="w-3.5 h-3.5 text-[#991B1B] flex-shrink-0" />
                     ) : (
-                      <TrendingUp className="w-3.5 h-3.5 text-[var(--color-accent)] flex-shrink-0" />
+                      <TrendingUp className="w-3.5 h-3.5 text-[#059669] flex-shrink-0" />
                     )}
-                    <span className={`text-[11px] font-medium ${depletedMonthTotal ? 'text-[var(--color-loss)]' : 'text-foreground'}`}>
+                    <span className={`text-[11px] font-medium ${depletedMonthTotal ? 'text-[#991B1B]' : 'text-[#1F2937]'}`}>
                       {longevityMessage}
                     </span>
                   </div>
@@ -336,80 +373,235 @@ export default function SWPCalculatorPage() {
               </div>
             </div>
           </div>
-
-          {/* ── How to Use ── */}
-          <section id="how-to-use" aria-label="How to use this calculator" className="mt-8">
-          <div className="flex items-center gap-3 mb-4">
-          <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
-          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          </div>
-          <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
-          </div>
-          <div className="glass-panel p-6">
-          <ol className="list-decimal ml-5 space-y-3 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
-          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
-          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
-          </ol>
-          </div>
-          </section>
-
-          {/* ── FAQ ── */}
-          <section id="faq" aria-label="SWP calculator frequently asked questions" className="mt-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
-                <HelpCircle className="w-5 h-5 text-[var(--color-accent)]" />
-              </div>
-              <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
-            </div>
-            <div className="space-y-3">
-              {FAQS.map(({ q, a }, i) => (
-                <div key={i} className="glass-panel overflow-hidden">
-                  <button
-                    className="w-full flex items-center justify-between p-4 text-left"
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    id={`swp-faq-${i}`}
-                    aria-expanded={openFaq === i}
-                  >
-                    <span className="text-foreground font-medium text-sm pr-4">{q}</span>
-                    <ChevronDown className={`w-4 h-4 text-[var(--color-accent)] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
-                  </button>
-                  {openFaq === i && (
-                    <div className="px-4 pb-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed border-t border-black/5 dark:border-white/10 pt-3">{a}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── Related Tools ── */}
-          <section id="related-calculators" aria-label="Related free financial calculators" className="mt-8 mb-6">
-            <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
-              <h2 className="text-lg font-bold text-foreground mb-1 text-center">More Free Financial Calculators</h2>
-              <p className="text-gray-500 dark:text-gray-400 text-xs text-center mb-4">All tools free, real-time, no sign-up.</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[
-                  { href: '/lumpsum-calculator', icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Lumpsum Calculator', desc: 'One-time investment returns' },
-                  { href: '/', icon: <Calculator className="w-4 h-4 text-[var(--color-accent)]" />, label: 'SIP Calculator', desc: 'Monthly SIP returns' },
-                  { href: '/cagr-calculator', icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'CAGR Calculator', desc: 'Compound annual growth rate' },
-                ].map(({ href, icon, label, desc }) => (
-                  <Link key={href} href={href} className="flex items-start gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
-                    <div className="bg-[rgba(27,58,92,0.15)] p-2 rounded-lg flex-shrink-0">{icon}</div>
-                    <div>
-                      <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">{label}</p>
-                      <p className="text-gray-500 dark:text-gray-400 text-xs">{desc}</p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-[var(--color-accent)] ml-auto transition-colors flex-shrink-0" />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-
         </div>
       </main>
+
+      {/* ── BELOW THE FOLD ── */}
+      <div className="max-w-6xl w-full mx-auto px-4 pb-16 space-y-10 mt-6">
+
+        {/* ── YEAR-BY-YEAR TABLE ── */}
+        <section id="yearly-table" aria-label="Year by year SWP tracking">
+          <div className="glass-panel overflow-hidden">
+            <div className="px-5 py-4 border-b border-black/5 dark:border-white/10">
+              <h2 className="text-foreground font-bold text-base">Year-by-Year SWP Tracking</h2>
+              <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">
+                Starting corpus {formatCurrency(corpus)} with {formatCurrency(monthlyWithdrawal)}/mo withdrawals at {rate}% p.a.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs min-w-[500px]">
+                <thead>
+                  <tr className="bg-[rgba(27,58,92,0.12)] border-b border-black/5 dark:border-white/10">
+                    <th className="text-left   text-[#6B7280] font-semibold py-3 px-4">Year</th>
+                    <th className="text-right  text-gray-500 dark:text-gray-400 font-semibold py-3 px-3">Yearly Withdrawn</th>
+                    <th className="text-right  text-[#059669] font-semibold py-3 px-3">Yearly Returns</th>
+                    <th className="text-right  text-[#6B7280] font-semibold py-3 px-4">End of Year Balance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {yearlyData.map(({ year, balance, yearlyWithdrawn, yearlyReturns }, i) => {
+                    const progress = corpus > 0 ? Math.min(100, (balance / corpus) * 100) : 0;
+                    const isLast   = year === years;
+                    const isDepleted = balance === 0;
+
+                    if (year === 0) return null; // Skip year 0 for table to keep it clean
+
+                    return (
+                      <tr
+                        key={year}
+                        className={`border-b border-black/5 dark:border-white/10 transition-colors ${
+                          isLast || isDepleted
+                            ? 'bg-[rgba(27,58,92,0.18)]'
+                            : i % 2 === 0
+                            ? 'bg-[rgba(0,0,0,0.03)]'
+                            : ''
+                        }`}
+                      >
+                        <td className="py-2.5 px-4">
+                          <div className="flex items-center gap-2">
+                            <span className={`font-semibold ${isLast ? 'text-[#1B3A5C]' : 'text-gray-600 dark:text-gray-400'}`}>
+                              Year {year}
+                            </span>
+                            {isDepleted && !isLast && (
+                              <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#991B1B] text-white">
+                                Depleted
+                              </span>
+                            )}
+                            {isLast && !isDepleted && (
+                              <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#1B3A5C] text-white">
+                                Final
+                              </span>
+                            )}
+                          </div>
+                          <div className="mt-1 w-full h-1 bg-[var(--panel-bg)] bg-opacity-10 rounded-full overflow-hidden">
+                            <div
+                              className="h-full rounded-full transition-all duration-500"
+                              style={{
+                                width: `${progress}%`,
+                                background: isDepleted ? '#991B1B' : '#C4993C',
+                              }}
+                            />
+                          </div>
+                        </td>
+                        <td className="py-2.5 px-3 text-right text-gray-500 dark:text-gray-400">
+                          <div>{formatCurrency(yearlyWithdrawn)}</div>
+                        </td>
+                        <td className="py-2.5 px-3 text-right text-[#059669]">
+                          {yearlyReturns > 0 ? `+${formatCurrency(yearlyReturns)}` : '—'}
+                        </td>
+                        <td className="py-2.5 px-4 text-right">
+                          <div className={`font-bold ${isDepleted ? 'text-[#991B1B]' : 'text-[#1F2937]'}`}>
+                            {formatCurrency(balance)}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* ── HOW TO USE ── */}
+        <section id="how-to-use" aria-label="How to use the SWP calculator">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[#1B3A5C]" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {HOW_TO_STEPS.map(({ step, title, desc }) => (
+              <div key={step} className="glass-panel p-5 flex gap-4">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                  {step}
+                </div>
+                <div>
+                  <p className="text-foreground font-semibold mb-1 text-sm">{title}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section id="faq" aria-label="SWP calculator frequently asked questions">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
+              <HelpCircle className="w-5 h-5 text-[#1B3A5C]" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
+          </div>
+          <div className="space-y-3">
+            {FAQS.map(({ q, a }, i) => (
+              <div key={i} className="glass-panel overflow-hidden">
+                <button
+                  className="w-full flex items-center justify-between p-4 text-left"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  id={`swp-faq-${i}`}
+                  aria-expanded={openFaq === i}
+                >
+                  <span className="text-foreground font-medium text-sm pr-4">{q}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-[#1B3A5C] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openFaq === i && (
+                  <div className="px-4 pb-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed border-t border-black/5 dark:border-white/10 pt-3">
+                    {a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── FORMULA SECTION ── */}
+        <section id="swp-formula" aria-label="SWP formula and methodology" className="mt-2">
+          <div className="glass-panel p-6">
+            <h2 className="text-xl font-bold text-foreground mb-4">SWP Calculation Methodology</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Formula */}
+              <div>
+                <h3 className="text-[#1B3A5C] font-semibold text-sm mb-3 uppercase tracking-wider">The Concept</h3>
+                <div className="bg-[rgba(27,58,92,0.1)] border border-[rgba(27,58,92,0.25)] rounded-xl p-4 font-mono text-center">
+                  <p className="text-foreground text-sm font-bold mb-1">Remaining = (Previous Bal + Monthly Return) - Withdrawal</p>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-left space-y-1">
+                    <p>Unlike simple interest, the corpus continuously earns returns while you withdraw.</p>
+                    <p>If <strong className="text-[#059669]">Monthly Return &gt; Withdrawal</strong>, the corpus grows indefinitely.</p>
+                    <p>If <strong className="text-[#991B1B]">Monthly Return &lt; Withdrawal</strong>, the corpus eventually depletes.</p>
+                  </div>
+                </div>
+              </div>
+              {/* Worked example */}
+              <div>
+                <h3 className="text-[#1B3A5C] font-semibold text-sm mb-3 uppercase tracking-wider">Worked Example (Month 1)</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between text-gray-500 dark:text-gray-400 border-b border-[#E8E4DF] pb-1">
+                    <span>Starting Corpus</span>
+                    <span className="text-foreground font-medium">₹50,00,000</span>
+                  </div>
+                  <div className="flex justify-between text-gray-500 dark:text-gray-400 border-b border-[#E8E4DF] pb-1">
+                    <span>Return (e.g. 12% p.a. = 1% per month)</span>
+                    <span className="text-[#059669] font-medium">+ ₹50,000</span>
+                  </div>
+                  <div className="flex justify-between text-gray-500 dark:text-gray-400 border-b border-[#E8E4DF] pb-1">
+                    <span>Withdrawal</span>
+                    <span className="text-[#991B1B] font-medium">- ₹30,000</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-1">
+                    <span className="text-gray-500 dark:text-gray-400">End of Month 1 Balance</span>
+                    <span className="text-[#1F2937] font-bold text-base">₹50,20,000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── RELATED TOOLS ── */}
+        <section id="related-calculators" aria-label="Related free financial calculators India">
+          <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
+            <h2 className="text-lg font-bold text-foreground mb-1 text-center">More Free Financial Calculators</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-xs text-center mb-4">All tools are free, real-time, and require no sign-up.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <Link href="/" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+                <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-lg flex-shrink-0">
+                  <Calculator className="w-4 h-4 text-[#1B3A5C]" />
+                </div>
+                <div>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">Step-Up SIP</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">Standard Calculator</p>
+                </div>
+              </Link>
+              
+              <Link href="/lumpsum-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+                <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-lg flex-shrink-0">
+                  <Layers className="w-4 h-4 text-[#1B3A5C]" />
+                </div>
+                <div>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">Lumpsum Returns</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">One-time investments</p>
+                </div>
+              </Link>
+
+              <Link href="/target-amount-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+                <div className="bg-[rgba(13,148,136,0.2)] border border-[rgba(13,148,136,0.3)] p-2 rounded-lg flex-shrink-0">
+                  <Target className="w-4 h-4 text-[#0D9488]" />
+                </div>
+                <div>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[#0D9488] transition-colors">Goal Calculator</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">Time to reach target</p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+      </div>
     </>
   );
 }
