@@ -186,6 +186,35 @@ export default function RetirementAccountCalculatorPage() {
                 <div className="bg-[var(--background)] p-4 rounded-xl text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                   <strong className="text-[var(--color-accent)]">2024 IRS Contribution Limits:</strong> 401(k): $23,000/yr ($1,917/mo). With catch-up (50+): $30,500/yr. IRA: $7,000/yr. These limits are not enforced by this calculator — it is for illustrative purposes only.
                 </div>
+
+                {/* Cost of Waiting Scenario */}
+                {(() => {
+                  const delayYears = 5;
+                  const yearsWithDelay = Math.max(0, retirementAge - (currentAge + delayYears));
+                  if (yearsWithDelay <= 0 || expectedReturn === 0) return null;
+                  
+                  const monthsToInvestDelay = yearsWithDelay * 12;
+                  const monthlyRate = expectedReturn / 12 / 100;
+                  const delayedFutureValue = monthlyContribution * ((Math.pow(1 + monthlyRate, monthsToInvestDelay) - 1) / monthlyRate) * (1 + monthlyRate);
+                  
+                  const costOfDelay = totalCorpus - delayedFutureValue;
+                  
+                  if (costOfDelay > 0) {
+                    return (
+                      <div className="bg-[rgba(153,27,27,0.05)] border border-[rgba(153,27,27,0.2)] p-5 rounded-xl">
+                        <div className="flex items-center gap-2 mb-2">
+                          <AlertTriangle className="w-5 h-5 text-[#991B1B]" />
+                          <span className="text-[#991B1B] font-bold text-sm">The High Cost of Waiting</span>
+                        </div>
+                        <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
+                          If you wait just <strong>{delayYears} years</strong> to begin saving this amount, your retirement nest egg will drop to <strong>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(delayedFutureValue)}</strong>. 
+                          That {delayYears}-year delay will cost you <strong>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(costOfDelay)}</strong> in lost compounded growth!
+                        </p>
+                      </div>
+                    );
+                  }
+                  return null;
+                })()}
               </div>
             </div>
           </div>
