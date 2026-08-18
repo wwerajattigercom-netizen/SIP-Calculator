@@ -2,7 +2,7 @@
 import CalculatorTabs from '@/components/CalculatorTabs';
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { ArrowRight, HelpCircle, TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { ArrowRight, HelpCircle, TrendingUp, TrendingDown, Minus, Info } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 import InputSlider from '@/components/InputSlider';
 import {
@@ -454,19 +454,45 @@ export default function SipVsLumpsumPage() {
             </div>
           </div>
 
-          {/* How to Use */}
-          <div className="glass-panel p-6 mt-8 mb-6">
-          <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-          <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg> How to Use This Calculator
-          </h2>
-          <ol className="list-decimal ml-5 space-y-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
-          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
-          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
-          </ol>
+          
+        {/* ── HOW TO USE ── */}
+        <section id="how-to-use" aria-label="How to use the calculator" className="mt-12 w-full glass-panel p-6 md:p-8 rounded-3xl mb-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="bg-[var(--color-accent)] bg-opacity-20 dark:bg-opacity-10 border border-[var(--color-accent)] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[var(--color-accent)]" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                1
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Adjust the inputs</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Use the sliders or text boxes to enter your specific financial numbers.</p>
+              </div>
+            </div>
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                2
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Review the charts</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</p>
+              </div>
+            </div>
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                3
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Analyze the results</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
           {/* FAQs */}
           <div className="glass-panel p-6">
