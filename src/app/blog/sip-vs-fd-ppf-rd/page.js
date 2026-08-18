@@ -210,6 +210,25 @@ export default function SipVsFdPpfRd() {
 
           {/* EDUCATIONAL SECTION */}
           <section className="mt-12 w-full max-w-5xl mx-auto">
+            
+            <div className="glass-panel p-6 md:p-8 mb-10">
+              <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+                <Info className="w-6 h-6 text-[var(--color-accent)]" />
+                Why Equity SIP Outperforms Safe Investments
+              </h2>
+              <div className="space-y-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p>
+                  Many investors struggle to decide where to park their hard-earned money. Should you prioritize the absolute safety and guaranteed returns of a Bank FD or PPF? Or should you take on some market risk with an Equity SIP strategy in pursuit of higher long-term growth?
+                </p>
+                <p>
+                  The answer largely depends on your time horizon and risk tolerance. While traditional safe investments provide peace of mind and protect your principal, they often fail to outpace inflation, meaning your purchasing power slowly erodes over time.
+                </p>
+                <p>
+                  On the other hand, an Equity SIP strategy allows you to harness the power of compound interest and market growth, potentially turning consistent monthly contributions into a multi-crore portfolio. By using this comparison tool, you can visualize the dramatic difference in final wealth corpus over periods of 10, 20, or even 30 years. Understanding these differences is the first step toward building a robust, inflation-beating financial plan that secures your future.
+                </p>
+              </div>
+            </div>
+
             <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
               <BarChart3 className="w-6 h-6 text-[var(--color-accent)]" />
               Detailed Comparison Guide
