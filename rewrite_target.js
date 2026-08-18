@@ -1,4 +1,20 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const targetPathIN = path.join(__dirname, 'src', 'app', 'target-amount-calculator', 'page.js');
+const targetPathUS = path.join(__dirname, 'src', 'app', 'us', 'target-amount-calculator', 'page.js');
+
+const generateContent = (isUS) => {
+  const primaryLabel = isUS ? 'DCA' : 'SIP';
+  const currency = isUS ? '$' : '₹';
+  const currencyName = isUS ? 'Dollars' : 'Rupees';
+  const bigTarget = isUS ? '$1 Million' : '₹1 Crore';
+  const bigTargetVal = isUS ? '1 Million' : '1 Crore';
+  const exampleAmount = isUS ? '$10,000' : '₹10,000';
+  const exampleLumpSum = isUS ? '$50,000' : '₹5 Lakh';
+  const targetUrl = isUS ? 'https://www.stepupcalculator.com/us/target-amount-calculator' : 'https://www.stepupcalculator.com/target-amount-calculator';
+
+  return `"use client";
 
 import React from 'react';
 import Link from 'next/link';
@@ -15,17 +31,17 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebApplication",
-      "name": "Goal Based SIP Calculator — How Long to Reach ₹1 Crore?",
-      "description": "Find out exactly how long your monthly SIP will take to reach ₹1 Crore or any financial goal. Includes step-up SIP, lump sum, and inflation. Free goal-based SIP duration calculator.",
-      "url": "https://www.stepupcalculator.com/target-amount-calculator",
+      "name": "Goal Based ${primaryLabel} Calculator — How Long to Reach ${bigTarget}?",
+      "description": "Find out exactly how long your monthly ${primaryLabel} will take to reach ${bigTarget} or any financial goal. Includes step-up ${primaryLabel}, lump sum, and inflation. Free goal-based ${primaryLabel} duration calculator.",
+      "url": "${targetUrl}",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "${isUS ? 'USD' : 'INR'}" },
       "featureList": [
         "Time to reach financial goal",
-        "Goal based SIP duration calculator",
-        "How long to reach 1 Crore SIP",
-        "Step-up SIP goal timeline",
+        "Goal based ${primaryLabel} duration calculator",
+        "How long to reach ${bigTargetVal} ${primaryLabel}",
+        "Step-up ${primaryLabel} goal timeline",
         "Year-by-year wealth growth table",
         "Inflation-adjusted goal planning"
       ]
@@ -35,26 +51,26 @@ const jsonLd = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How long does it take ₹10,000/month SIP to reach ₹1 Crore?",
+          "name": "How long does it take ${exampleAmount}/month ${primaryLabel} to reach ${bigTarget}?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "At 12% annual return with no step-up, a ₹10,000/month SIP takes approximately 20 years to reach ₹1 Crore. With a 10% annual step-up, the same starting SIP reaches ₹1 Crore in about 16-17 years. Adding a lump sum further reduces the time. Use the calculator above for exact results based on your specific inputs."
+            "text": "At 12% annual return with no step-up, a ${exampleAmount}/month ${primaryLabel} takes approximately 20 years to reach ${bigTarget}. With a 10% annual step-up, the same starting ${primaryLabel} reaches ${bigTarget} in about 16-17 years. Adding a lump sum further reduces the time. Use the calculator above for exact results based on your specific inputs."
           }
         },
         {
           "@type": "Question",
-          "name": "How much SIP is required to reach ₹1 Crore in 10 years?",
+          "name": "How much ${primaryLabel} is required to reach ${bigTarget} in 10 years?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "To reach ₹1 Crore in 10 years at 12% annual return with no step-up, you need approximately ₹43,000/month SIP. With a 10% annual step-up, the required starting SIP drops to about ₹30,000/month. Use the calculator on this page — enter ₹1 Crore as target and slide the monthly SIP to see how the duration changes in real time."
+            "text": "To reach ${bigTarget} in 10 years at 12% annual return with no step-up, you need approximately ${isUS ? '$43,000' : '₹43,000'}/month ${primaryLabel}. With a 10% annual step-up, the required starting ${primaryLabel} drops to about ${isUS ? '$30,000' : '₹30,000'}/month. Use the calculator on this page — enter ${bigTarget} as target and slide the monthly ${primaryLabel} to see how the duration changes in real time."
           }
         },
         {
           "@type": "Question",
-          "name": "How does step-up SIP reduce the time to reach my goal?",
+          "name": "How does step-up ${primaryLabel} reduce the time to reach my goal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A step-up SIP increases your monthly contribution by a fixed % every year (e.g. 10% annually). Higher contributions in later years contribute significantly more to the corpus, helping you reach your financial goal months or even years earlier than a flat SIP. The compounding effect on higher contributions in later years is disproportionately powerful."
+            "text": "A step-up ${primaryLabel} increases your monthly contribution by a fixed % every year (e.g. 10% annually). Higher contributions in later years contribute significantly more to the corpus, helping you reach your financial goal months or even years earlier than a flat ${primaryLabel}. The compounding effect on higher contributions in later years is disproportionately powerful."
           }
         },
         {
@@ -62,7 +78,7 @@ const jsonLd = {
           "name": "How does a lump sum shorten the time to reach my goal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "An initial lump sum compounds from Day 1. For example, ₹5 Lakh invested at 12% grows significantly entirely on its own over 10 to 15 years. This head-start significantly reduces the number of months your SIP needs to cover, shortening the overall time to reach your goal."
+            "text": "An initial lump sum compounds from Day 1. For example, ${exampleLumpSum} invested at 12% grows significantly entirely on its own over 10 to 15 years. This head-start significantly reduces the number of months your ${primaryLabel} needs to cover, shortening the overall time to reach your goal."
           }
         },
         {
@@ -70,7 +86,7 @@ const jsonLd = {
           "name": "What does 'Goal not reachable in 50 years' mean?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This means your current monthly SIP is too low relative to the target goal at the given return rate. To fix it: increase your monthly SIP amount, add a lump sum, raise the expected return rate, increase the annual step-up %, or lower the target goal. The calculator simulates up to 50 years."
+            "text": "This means your current monthly ${primaryLabel} is too low relative to the target goal at the given return rate. To fix it: increase your monthly ${primaryLabel} amount, add a lump sum, raise the expected return rate, increase the annual step-up %, or lower the target goal. The calculator simulates up to 50 years."
           }
         }
       ]
@@ -79,26 +95,26 @@ const jsonLd = {
 };
 
 const HOW_TO_STEPS = [
-  { step: "1", title: "Set your Target Goal Amount", desc: "Enter the corpus you want to build — e.g. ₹1 Crore. The label shows the amount in words so large numbers are easy to understand." },
-  { step: "2", title: "Enter your Monthly SIP Amount", desc: "How much can you invest every month? Slide this to instantly see how the required time changes. This is the key driver of the result." },
+  { step: "1", title: "Set your Target Goal Amount", desc: "Enter the corpus you want to build — e.g. ${bigTarget}. The label shows the amount in words so large numbers are easy to understand." },
+  { step: "2", title: "Enter your Monthly ${primaryLabel} Amount", desc: "How much can you invest every month? Slide this to instantly see how the required time changes. This is the key driver of the result." },
   { step: "3", title: "Set Expected Annual Return", desc: "Equity index funds historically return 10–12% over the long term. Use a conservative rate for long-term goals." },
   { step: "4", title: "Add an Initial Lump Sum (optional)", desc: "Any existing savings you can deploy now? A lump sum gives a powerful head start — it compounds from Day 1 and reduces time to goal." },
-  { step: "5", title: "Set Annual Step-Up %", desc: "Planning to increase your SIP every year as your income grows? Even a 10% annual step-up shaves several years off your timeline." },
+  { step: "5", title: "Set Annual Step-Up %", desc: "Planning to increase your ${primaryLabel} every year as your income grows? Even a 10% annual step-up shaves several years off your timeline." },
   { step: "6", title: "Adjust Inflation Rate", desc: "See what your goal is actually worth in today's purchasing power. Essential for realistic retirement and education planning." },
 ];
 
 const FAQS = [
   {
-    q: "How long does ₹10,000/month SIP take to reach ₹1 Crore?",
-    a: "At 12% annual return with no step-up: ≈20 years. With 10% annual step-up: ≈17 years. Adding a ₹5 Lakh lump sum at start: ≈15 years. Slide the inputs above to see your exact result instantly."
+    q: "How long does ${exampleAmount}/month ${primaryLabel} take to reach ${bigTarget}?",
+    a: "At 12% annual return with no step-up: ≈20 years. With 10% annual step-up: ≈17 years. Adding a ${exampleLumpSum} lump sum at start: ≈15 years. Slide the inputs above to see your exact result instantly."
   },
   {
-    q: "How much SIP do I need to reach ₹1 Crore in 10 years?",
-    a: "At 12% return with no step-up, you need ≈₹43,000/month. With 10% annual step-up, the starting SIP drops to ≈₹30,000/month. Set Target = ₹1 Crore and Time to Goal will tell you the exact duration for any SIP amount you choose."
+    q: "How much ${primaryLabel} do I need to reach ${bigTarget} in 10 years?",
+    a: "At 12% return with no step-up, you need ≈${isUS ? '$43,000' : '₹43,000'}/month. With 10% annual step-up, the starting ${primaryLabel} drops to ≈${isUS ? '$30,000' : '₹30,000'}/month. Set Target = ${bigTarget} and Time to Goal will tell you the exact duration for any ${primaryLabel} amount you choose."
   },
   {
     q: "Why does adding step-up reduce the time to reach the goal?",
-    a: "A step-up SIP increases your monthly contribution by a fixed % every year. This means in years 5–10–15, you're investing significantly more per month. These larger later-year contributions compound powerfully and help you cross your target much faster."
+    a: "A step-up ${primaryLabel} increases your monthly contribution by a fixed % every year. This means in years 5–10–15, you're investing significantly more per month. These larger later-year contributions compound powerfully and help you cross your target much faster."
   },
   {
     q: "What does the circular arc on the right represent?",
@@ -134,7 +150,7 @@ export default function TargetCalculatorPage() {
               Goal & Target Amount Calculator
             </h1>
             <p className="text-gray-600 dark:text-gray-400 max-w-3xl">
-              Enter your monthly SIP & target goal to see exactly how many years it takes to reach ₹1 Crore or any financial target.
+              Enter your monthly ${primaryLabel} & target goal to see exactly how many years it takes to reach ${bigTarget} or any financial target.
             </p>
           </div>
 
@@ -148,16 +164,16 @@ export default function TargetCalculatorPage() {
                 min={100000}
                 max={10000000000}
                 step={100000}
-                prefix="₹"
+                prefix="${currency}"
               />
               <InputSlider
-                label="Monthly SIP Amount"
+                label="Monthly ${primaryLabel} Amount"
                 value={state.monthlySip}
                 onChange={setters.setMonthlySip}
                 min={500}
                 max={5000000}
                 step={500}
-                prefix="₹"
+                prefix="${currency}"
               />
               <InputSlider
                 label="Expected Return Rate (p.a.)"
@@ -175,7 +191,7 @@ export default function TargetCalculatorPage() {
                 min={0}
                 max={100000000}
                 step={10000}
-                prefix="₹"
+                prefix="${currency}"
               />
               <InputSlider
                 label="Annual Step-Up %"
@@ -200,11 +216,11 @@ export default function TargetCalculatorPage() {
               <div className="mt-4 pt-4 border-t border-black/5 dark:border-white/10">
                 <p className="text-gray-500 dark:text-gray-400 text-xs mb-2">Also try:</p>
                 <Link
-                  href="/"
+                  href="${isUS ? '/us/dca-calculator' : '/'}"
                   className="flex items-center gap-2 text-[var(--color-accent)] text-xs hover:text-foreground transition-colors group"
                 >
                   <Calculator className="w-3.5 h-3.5" />
-                  <span>Step-Up SIP Calculator — See how your wealth grows</span>
+                  <span>Step-Up ${primaryLabel} Calculator — See how your wealth grows</span>
                   <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </div>
@@ -262,7 +278,7 @@ export default function TargetCalculatorPage() {
              <div>
                <h2 className="text-xl font-bold text-foreground mb-3">Understanding the Timeline to Your Financial Goal</h2>
                <p className="mb-4">
-                 Planning for retirement, a child's education, or buying a house requires knowing exactly <strong>when</strong> you will have the necessary funds. The Time-to-Goal SIP Calculator helps you reverse-engineer your financial future. Instead of guessing what your investments will be worth in 10 years, you enter your target corpus, and the calculator determines the exact number of years and months required to reach it based on your current savings rate.
+                 Planning for retirement, a child's education, or buying a house requires knowing exactly <strong>when</strong> you will have the necessary funds. The Time-to-Goal ${primaryLabel} Calculator helps you reverse-engineer your financial future. Instead of guessing what your investments will be worth in 10 years, you enter your target corpus, and the calculator determines the exact number of years and months required to reach it based on your current savings rate.
                </p>
                <p>
                  This tool factors in the mathematical reality of <strong>compounding interest</strong>, where the returns you generate begin generating returns of their own. Because compounding is exponential, the final years of your investment timeline generate the most dramatic portfolio growth.
@@ -273,13 +289,13 @@ export default function TargetCalculatorPage() {
                <div className="glass-panel p-5 bg-[rgba(27,58,92,0.02)]">
                  <h3 className="text-lg font-bold text-foreground mb-2">The Power of the "Step-Up"</h3>
                  <p className="text-sm">
-                   A flat SIP assumes your income never grows. By utilizing a <strong>Step-Up SIP</strong> (increasing your monthly contribution by a fixed percentage annually, usually inline with salary hikes), you can dramatically compress your timeline. Even a modest 10% annual step-up can shave 3 to 5 years off a 20-year financial goal, getting you to ₹1 Crore much sooner without putting a strain on your current budget.
+                   A flat ${primaryLabel} assumes your income never grows. By utilizing a <strong>Step-Up ${primaryLabel}</strong> (increasing your monthly contribution by a fixed percentage annually, usually inline with salary hikes), you can dramatically compress your timeline. Even a modest 10% annual step-up can shave 3 to 5 years off a 20-year financial goal, getting you to ${bigTarget} much sooner without putting a strain on your current budget.
                  </p>
                </div>
                <div className="glass-panel p-5 bg-[rgba(27,58,92,0.02)]">
                  <h3 className="text-lg font-bold text-foreground mb-2">The Lump Sum Accelerator</h3>
                  <p className="text-sm">
-                   If you have an existing corpus, entering it into the <strong>Initial Lump Sum</strong> field reveals how it accelerates your journey. Because a lump sum compounds over the entire duration of your goal timeline, it acts as a massive tailwind, significantly reducing the monthly SIP burden required to reach the target amount.
+                   If you have an existing corpus, entering it into the <strong>Initial Lump Sum</strong> field reveals how it accelerates your journey. Because a lump sum compounds over the entire duration of your goal timeline, it acts as a massive tailwind, significantly reducing the monthly ${primaryLabel} burden required to reach the target amount.
                  </p>
                </div>
              </div>
@@ -287,19 +303,19 @@ export default function TargetCalculatorPage() {
              <div>
                <h3 className="text-lg font-bold text-foreground mb-3">The Mathematical Formula Behind the Goal Calculator</h3>
                <p className="mb-3">
-                 To determine the Future Value (FV) of a standard SIP, we use the formula for the future value of an annuity due. If you are calculating the time (n) required to reach a specific FV, the formula must be algebraically rearranged to solve for n. The base FV formula is:
+                 To determine the Future Value (FV) of a standard ${primaryLabel}, we use the formula for the future value of an annuity due. If you are calculating the time (n) required to reach a specific FV, the formula must be algebraically rearranged to solve for n. The base FV formula is:
                </p>
                <div className="bg-white/50 dark:bg-black/20 p-4 rounded-lg font-mono text-center text-sm md:text-base border border-gray-200 dark:border-gray-800 my-4 shadow-sm">
                   FV = P × [((1 + r)ⁿ - 1) / r] × (1 + r)
                </div>
                <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600 dark:text-gray-400">
                  <li><strong>FV</strong>: Future Value (Your Target Goal)</li>
-                 <li><strong>P</strong>: Periodic investment (Monthly SIP)</li>
+                 <li><strong>P</strong>: Periodic investment (Monthly ${primaryLabel})</li>
                  <li><strong>r</strong>: Periodic interest rate (Annual Rate / 12 / 100)</li>
                  <li><strong>n</strong>: Number of periods (Total Months)</li>
                </ul>
                <p className="mt-4 text-sm">
-                 <em>Note: When calculating a Step-Up SIP, the formula becomes significantly more complex, requiring iterative calculations or geometric progression formulas to accurately plot the compounding curve on increasing principal amounts. Our calculator handles this heavy lifting for you instantly.</em>
+                 <em>Note: When calculating a Step-Up ${primaryLabel}, the formula becomes significantly more complex, requiring iterative calculations or geometric progression formulas to accurately plot the compounding curve on increasing principal amounts. Our calculator handles this heavy lifting for you instantly.</em>
                </p>
              </div>
              
@@ -320,12 +336,12 @@ export default function TargetCalculatorPage() {
                 <button
                   className="w-full flex items-center justify-between p-4 text-left group"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  id={`goal-faq-${i}`}
+                  id={\`goal-faq-\${i}\`}
                   aria-expanded={openFaq === i}
                 >
                   <span className="text-foreground font-medium text-sm pr-4">{q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[var(--color-accent)] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
+                    className={\`w-4 h-4 text-[var(--color-accent)] flex-shrink-0 transition-transform duration-200 \${openFaq === i ? 'rotate-180' : ''}\`}
                   />
                 </button>
                 {openFaq === i && (
@@ -343,17 +359,17 @@ export default function TargetCalculatorPage() {
           <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-foreground mb-4 text-center">More Free Financial Calculators</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <Link href="/" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+              <Link href="${isUS ? '/us/dca-calculator' : '/'}" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
                 <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
                   <Calculator className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Step-Up SIP</p>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Step-Up ${primaryLabel}</p>
                   <p className="text-gray-500 dark:text-gray-400 text-xs">Standard Calculator</p>
                 </div>
               </Link>
               
-              <Link href="/lumpsum-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+              <Link href="${isUS ? '/us/lumpsum-calculator' : '/lumpsum-calculator'}" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
                 <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
                   <Layers className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
@@ -363,7 +379,7 @@ export default function TargetCalculatorPage() {
                 </div>
               </Link>
 
-              <Link href="/cagr-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+              <Link href="${isUS ? '/us/cagr-calculator' : '/cagr-calculator'}" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
                 <div className="bg-[rgba(13,148,136,0.2)] border border-[rgba(13,148,136,0.3)] p-2 rounded-lg flex-shrink-0">
                   <TrendingUp className="w-4 h-4 text-[#0D9488]" />
                 </div>
@@ -380,3 +396,9 @@ export default function TargetCalculatorPage() {
     </>
   );
 }
+`;
+};
+
+fs.writeFileSync(targetPathIN, generateContent(false));
+fs.writeFileSync(targetPathUS, generateContent(true));
+console.log('Successfully generated Target Amount Calculator pages.');

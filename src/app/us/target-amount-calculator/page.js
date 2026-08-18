@@ -8,7 +8,7 @@ import TimeToGoalDisplay from '@/components/TimeToGoalDisplay';
 import YearlyGrowthTable from '@/components/YearlyGrowthTable';
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Breadcrumb from '@/components/Breadcrumb';
-import { Target, Mail, Info, HelpCircle, ChevronDown, ArrowRight, Calculator } from 'lucide-react';
+import { Target, Info, HelpCircle, ChevronDown, ArrowRight, Calculator, TrendingUp, Layers } from 'lucide-react';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -17,14 +17,14 @@ const jsonLd = {
       "@type": "WebApplication",
       "name": "Goal Based DCA Calculator — How Long to Reach $1 Million?",
       "description": "Find out exactly how long your monthly DCA will take to reach $1 Million or any financial goal. Includes step-up DCA, lump sum, and inflation. Free goal-based DCA duration calculator.",
-      "url": "https://stepupcalculator.com/us/target-amount-calculator",
+      "url": "https://www.stepupcalculator.com/us/target-amount-calculator",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "featureList": [
         "Time to reach financial goal",
         "Goal based DCA duration calculator",
-        "How long to reach 1 crore DCA",
+        "How long to reach 1 Million DCA",
         "Step-up DCA goal timeline",
         "Year-by-year wealth growth table",
         "Inflation-adjusted goal planning"
@@ -62,7 +62,7 @@ const jsonLd = {
           "name": "How does a lump sum shorten the time to reach my goal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "An initial lump sum compounds from Day 1. For example, $50,000 invested at 12% grows to ~$155,000 in 10 years and ~$274,000 in 15 years — entirely on its own. This head-start significantly reduces the monthly DCA needed and shortens the overall time to reach your goal."
+            "text": "An initial lump sum compounds from Day 1. For example, $50,000 invested at 12% grows significantly entirely on its own over 10 to 15 years. This head-start significantly reduces the number of months your DCA needs to cover, shortening the overall time to reach your goal."
           }
         },
         {
@@ -71,22 +71,6 @@ const jsonLd = {
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "This means your current monthly DCA is too low relative to the target goal at the given return rate. To fix it: increase your monthly DCA amount, add a lump sum, raise the expected return rate, increase the annual step-up %, or lower the target goal. The calculator simulates up to 50 years."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the year-by-year table showing?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The year-by-year table shows how your investment portfolio grows each year — breaking it into Total Invested (what you put in), Gains Earned (returns from market), and Portfolio Value. The row where your goal amount is first reached is highlighted in purple. A progress bar in each row shows how close you are to the target."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much time does it take to reach 1 crore through DCA with step-up?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "At 12% annual return: $5,000/month DCA with 15% step-up reaches $1 Million in about 19 years. $10,000/month DCA with 10% step-up reaches $1 Million in about 17 years. $20,000/month DCA with 10% step-up reaches $1 Million in about 14 years. Use the real-time calculator above to see the exact duration for your specific inputs."
           }
         }
       ]
@@ -97,9 +81,9 @@ const jsonLd = {
 const HOW_TO_STEPS = [
   { step: "1", title: "Set your Target Goal Amount", desc: "Enter the corpus you want to build — e.g. $1 Million. The label shows the amount in words so large numbers are easy to understand." },
   { step: "2", title: "Enter your Monthly DCA Amount", desc: "How much can you invest every month? Slide this to instantly see how the required time changes. This is the key driver of the result." },
-  { step: "3", title: "Set Expected Annual Return", desc: "Equity mutual funds historically return 10–12% globally. Use a conservative rate for long-term goals." },
+  { step: "3", title: "Set Expected Annual Return", desc: "Equity index funds historically return 10–12% over the long term. Use a conservative rate for long-term goals." },
   { step: "4", title: "Add an Initial Lump Sum (optional)", desc: "Any existing savings you can deploy now? A lump sum gives a powerful head start — it compounds from Day 1 and reduces time to goal." },
-  { step: "5", title: "Set Annual Step-Up %", desc: "Planning to increase your DCA every year as your income grows? Even a 10% annual step-up saves several years off your timeline." },
+  { step: "5", title: "Set Annual Step-Up %", desc: "Planning to increase your DCA every year as your income grows? Even a 10% annual step-up shaves several years off your timeline." },
   { step: "6", title: "Adjust Inflation Rate", desc: "See what your goal is actually worth in today's purchasing power. Essential for realistic retirement and education planning." },
 ];
 
@@ -123,11 +107,7 @@ const FAQS = [
   {
     q: "What is the year-by-year table below?",
     a: "The table shows how your corpus grows each year — Total Invested (what you put in), Gains Earned (returns), and Portfolio Value. The year your goal is first reached is highlighted in purple with a 'GOAL REACHED' badge. A progress bar in each row shows your progress toward the target."
-  },
-  {
-    q: "Is this calculator different from the DCA Calculator on the home page?",
-    a: "Yes. The DCA Calculator on the home page answers: 'I invest $X/month — what will it grow to?' This calculator answers: 'I invest $X/month — how long will it take to reach my goal?' Two perspectives, equally important for financial planning."
-  },
+  }
 ];
 
 export default function TargetCalculatorPage() {
@@ -141,7 +121,6 @@ export default function TargetCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ── CALCULATOR ── */}
       <main className="py-6 px-2 md:px-4 flex flex-col items-center">
         <div className="max-w-6xl w-full mx-auto">
 
@@ -152,10 +131,10 @@ export default function TargetCalculatorPage() {
           {/* Header */}
           <div className="flex flex-col mb-6 mt-4">
             <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-foreground mb-2">
-              Time to Goal DCA Calculator
+              Goal & Target Amount Calculator
             </h1>
             <p className="text-gray-600 dark:text-gray-400 max-w-3xl">
-              Enter your monthly DCA & target goal to see exactly how many years it takes to reach $1 Million or any amount.
+              Enter your monthly DCA & target goal to see exactly how many years it takes to reach $1 Million or any financial target.
             </p>
           </div>
 
@@ -223,10 +202,9 @@ export default function TargetCalculatorPage() {
                 <Link
                   href="/us/dca-calculator"
                   className="flex items-center gap-2 text-[var(--color-accent)] text-xs hover:text-foreground transition-colors group"
-                  id="link-dca-calculator"
                 >
                   <Calculator className="w-3.5 h-3.5" />
-                  <span>DCA & Step-Up Calculator — See how your DCA grows</span>
+                  <span>Step-Up DCA Calculator — See how your wealth grows</span>
                   <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </div>
@@ -255,7 +233,7 @@ export default function TargetCalculatorPage() {
         )}
 
         {/* ── HOW TO USE ── */}
-        <section id="how-to-use" aria-label="How to use the goal based DCA calculator">
+        <section id="how-to-use" aria-label="How to use the goal based calculator">
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
               <Info className="w-5 h-5 text-[var(--color-accent)]" />
@@ -275,13 +253,61 @@ export default function TargetCalculatorPage() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed border border-gray-700 rounded-lg px-4 py-3">
-            ⚠️ <strong className="text-gray-500 dark:text-gray-400">Disclaimer:</strong> This calculator provides illustrative projections only. Actual mutual fund returns are subject to market risk and are not guaranteed. Please consult a SEBI-registered financial advisor before making investment decisions.
-          </p>
+        </section>
+        
+        {/* ── EDUCATIONAL SEO CONTENT ── */}
+        <section className="glass-panel p-6 md:p-8 space-y-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed border-t-4 border-t-[var(--color-accent)]">
+           <div className="max-w-4xl mx-auto space-y-8">
+             
+             <div>
+               <h2 className="text-xl font-bold text-foreground mb-3">Understanding the Timeline to Your Financial Goal</h2>
+               <p className="mb-4">
+                 Planning for retirement, a child's education, or buying a house requires knowing exactly <strong>when</strong> you will have the necessary funds. The Time-to-Goal DCA Calculator helps you reverse-engineer your financial future. Instead of guessing what your investments will be worth in 10 years, you enter your target corpus, and the calculator determines the exact number of years and months required to reach it based on your current savings rate.
+               </p>
+               <p>
+                 This tool factors in the mathematical reality of <strong>compounding interest</strong>, where the returns you generate begin generating returns of their own. Because compounding is exponential, the final years of your investment timeline generate the most dramatic portfolio growth.
+               </p>
+             </div>
+
+             <div className="grid md:grid-cols-2 gap-6">
+               <div className="glass-panel p-5 bg-[rgba(27,58,92,0.02)]">
+                 <h3 className="text-lg font-bold text-foreground mb-2">The Power of the "Step-Up"</h3>
+                 <p className="text-sm">
+                   A flat DCA assumes your income never grows. By utilizing a <strong>Step-Up DCA</strong> (increasing your monthly contribution by a fixed percentage annually, usually inline with salary hikes), you can dramatically compress your timeline. Even a modest 10% annual step-up can shave 3 to 5 years off a 20-year financial goal, getting you to $1 Million much sooner without putting a strain on your current budget.
+                 </p>
+               </div>
+               <div className="glass-panel p-5 bg-[rgba(27,58,92,0.02)]">
+                 <h3 className="text-lg font-bold text-foreground mb-2">The Lump Sum Accelerator</h3>
+                 <p className="text-sm">
+                   If you have an existing corpus, entering it into the <strong>Initial Lump Sum</strong> field reveals how it accelerates your journey. Because a lump sum compounds over the entire duration of your goal timeline, it acts as a massive tailwind, significantly reducing the monthly DCA burden required to reach the target amount.
+                 </p>
+               </div>
+             </div>
+
+             <div>
+               <h3 className="text-lg font-bold text-foreground mb-3">The Mathematical Formula Behind the Goal Calculator</h3>
+               <p className="mb-3">
+                 To determine the Future Value (FV) of a standard DCA, we use the formula for the future value of an annuity due. If you are calculating the time (n) required to reach a specific FV, the formula must be algebraically rearranged to solve for n. The base FV formula is:
+               </p>
+               <div className="bg-white/50 dark:bg-black/20 p-4 rounded-lg font-mono text-center text-sm md:text-base border border-gray-200 dark:border-gray-800 my-4 shadow-sm">
+                  FV = P × [((1 + r)ⁿ - 1) / r] × (1 + r)
+               </div>
+               <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                 <li><strong>FV</strong>: Future Value (Your Target Goal)</li>
+                 <li><strong>P</strong>: Periodic investment (Monthly DCA)</li>
+                 <li><strong>r</strong>: Periodic interest rate (Annual Rate / 12 / 100)</li>
+                 <li><strong>n</strong>: Number of periods (Total Months)</li>
+               </ul>
+               <p className="mt-4 text-sm">
+                 <em>Note: When calculating a Step-Up DCA, the formula becomes significantly more complex, requiring iterative calculations or geometric progression formulas to accurately plot the compounding curve on increasing principal amounts. Our calculator handles this heavy lifting for you instantly.</em>
+               </p>
+             </div>
+             
+           </div>
         </section>
 
         {/* ── FAQ ── */}
-        <section id="faq" aria-label="Frequently Asked Questions about time to reach goal DCA">
+        <section id="faq" aria-label="Frequently Asked Questions about time to reach goal">
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
               <HelpCircle className="w-5 h-5 text-[var(--color-accent)]" />
@@ -315,56 +341,37 @@ export default function TargetCalculatorPage() {
         {/* ── CTA BACKLINKS ── */}
         <section id="related-calculators" aria-label="Related financial calculators">
           <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
-            <h2 className="text-lg font-bold text-foreground mb-4 text-center">Related Tools</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Link
-                href="/us/dca-calculator"
-                id="cta-dca-calculator"
-                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
-              >
+            <h2 className="text-lg font-bold text-foreground mb-4 text-center">More Free Financial Calculators</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <Link href="/us/dca-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
                 <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
                   <Calculator className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Step-Up DCA Calculator</p>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">See how much your monthly DCA grows over time</p>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Step-Up DCA</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">Standard Calculator</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-[var(--color-accent)] ml-auto flex-shrink-0 transition-colors" />
               </Link>
-              <div className="flex items-center gap-3 glass-panel p-4 opacity-50 rounded-xl">
-                <div className="bg-[rgba(27,58,92,0.2)] border border-[rgba(27,58,92,0.3)] p-2 rounded-lg flex-shrink-0">
-                  <Target className="w-4 h-4 text-[var(--color-accent)]" />
+              
+              <Link href="/us/lumpsum-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+                <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
+                  <Layers className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold text-sm">CAGR / Returns Calculator</p>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">Coming soon</p>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Lumpsum Returns</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">One-time investments</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
+              </Link>
 
-        {/* ── ABOUT ── */}
-        <section id="about" aria-label="About the creator">
-          <div className="glass-panel p-8 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.08)] to-transparent pointer-events-none" />
-            <div className="relative z-10">
-              <div className="w-12 h-12 rounded-full bg-[var(--color-accent)] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-white shadow-sm">
-                R
-              </div>
-              <h2 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Built by <span className="text-[var(--color-accent)] font-bold text-sm">Rajat</span></h2>
-              <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
-                A free tool built for Global investors — goal-based DCA planning with step-up, lump sum, and inflation in one place.
-              </p>
-              <a
-                href="mailto:businesswebsitestudio@gmail.com"
-                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
-              >
-                <Mail className="w-4 h-4" />
-                businesswebsitestudio@gmail.com
-              </a>
-              <p className="text-gray-600 dark:text-gray-400 text-[10px] mt-4">For business queries, collaborations, or feedback</p>
-              <p className="text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 text-[10px] mt-2">© {new Date().getFullYear()} Rajat</p>
+              <Link href="/us/cagr-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+                <div className="bg-[rgba(13,148,136,0.2)] border border-[rgba(13,148,136,0.3)] p-2 rounded-lg flex-shrink-0">
+                  <TrendingUp className="w-4 h-4 text-[#0D9488]" />
+                </div>
+                <div>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[#0D9488] transition-colors">CAGR Calculator</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">Calculate growth rate</p>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
