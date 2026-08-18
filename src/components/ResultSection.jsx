@@ -38,10 +38,10 @@ export default function ResultSection({ results }) {
 
         <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
           <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
-            <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mr-1.5"></div>
+            <div className="w-2 h-2 rounded-full bg-[#1B3A5C] mr-1.5"></div>
             Invested
           </div>
-          <div className="text-sm font-extrabold text-[var(--color-accent)]">
+          <div className="text-sm font-extrabold text-[#1B3A5C]">
             {formatCurrency(results.totalInvested, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">
@@ -51,10 +51,10 @@ export default function ResultSection({ results }) {
 
         <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
           <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
-            <div className="w-2 h-2 rounded-full bg-[var(--color-invested)] mr-1.5"></div>
+            <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5"></div>
             Earned
           </div>
-          <div className="text-sm font-extrabold text-[var(--color-returns)]">
+          <div className="text-sm font-extrabold text-[#059669]">
             +{formatCurrency(results.amountEarned, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">

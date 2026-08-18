@@ -247,37 +247,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── ABOUT ── */}
-        <section id="about" aria-label="About the creator">
-          <div className="glass-panel p-8 text-center relative overflow-hidden">
-            {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)] to-transparent opacity-10 pointer-events-none" />
-
-            <div className="relative z-10">
-              <div className="w-12 h-12 rounded-full bg-[var(--color-accent)] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-white shadow-sm">
-                R
-              </div>
-              <h2 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Built by <span className="text-[var(--color-accent)] font-bold text-sm">Rajat</span></h2>
-              <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
-                Built to fill a gap — one free calculator combining DCA, step-up, lump sum, and inflation adjustment on a single page, updating in real time.
-              </p>
-              <a
-                href="mailto:businesswebsitestudio@gmail.com"
-                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white hover:opacity-90 transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
-              >
-                <Mail className="w-4 h-4" />
-                businesswebsitestudio@gmail.com
-              </a>
-              <p className="text-gray-600 dark:text-gray-400 text-[10px] mt-4">
-                For business queries, collaborations, or feedback
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 text-[10px] mt-2">
-                © {new Date().getFullYear()} Rajat
-              </p>
-            </div>
-          </div>
-        </section>
-
       </div>
     </>
   );

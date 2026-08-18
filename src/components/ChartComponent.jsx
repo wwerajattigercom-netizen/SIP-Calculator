@@ -237,10 +237,10 @@ export default function ChartComponent({ results }) {
                             </td>
                             <td className="py-2 pl-2 pr-2 text-right">
                               {isSlowest && milestones.length > 1 && (
-                                <span className="text-[9px] text-[var(--color-returns)] font-medium">Slowest</span>
+                                <span className="text-[9px] text-[#991B1B] font-medium">Slowest</span>
                               )}
                               {isFastest && (
-                                <span className="text-[9px] text-[var(--color-returns)] font-medium flex items-center justify-end gap-0.5">
+                                <span className="text-[9px] text-[#059669] font-medium flex items-center justify-end gap-0.5">
                                   <Zap className="w-2.5 h-2.5" />Fastest
                                 </span>
                               )}
