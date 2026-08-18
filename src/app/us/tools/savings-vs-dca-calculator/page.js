@@ -269,7 +269,7 @@ export default function SavingsVsDcaPage() {
       </div>
 
       {/* SEO Educational Content Section */}
-      <div className="mt-16 bg-[var(--panel-bg)] rounded-3xl p-8 shadow-sm border border-gray-100 max-w-4xl mx-auto">
+      <div className="mt-16 bg-[var(--panel-bg)] rounded-3xl p-8 shadow-sm border border-gray-100 w-full">
         <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Why You Should Compare Savings vs DCA</h2>
         
         <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">

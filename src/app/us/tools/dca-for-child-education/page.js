@@ -2,7 +2,7 @@
 import CalculatorTabs from '@/components/CalculatorTabs';
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { ArrowRight, HelpCircle, GraduationCap, AlertTriangle, TrendingUp } from 'lucide-react';
+import { ArrowRight, HelpCircle, GraduationCap, AlertTriangle, TrendingUp, Info } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 import InputSlider from '@/components/InputSlider';
 import {
@@ -115,7 +115,7 @@ export default function SipForChildEducationPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
-        <article className="max-w-4xl w-full mx-auto space-y-8">
+        <article className="max-w-6xl w-full mx-auto space-y-8">
 
           <CalculatorTabs />
           <Breadcrumb items={[{ label: 'Tools', href: '/us' }, { label: 'DCA for Child Education' }]} />
@@ -324,17 +324,45 @@ export default function SipForChildEducationPage() {
             </div>
           </div>
 
-          {/* How to Use Section */}
-          <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
-          <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">How to Use This Calculator</h2>
-          <div className="space-y-4 text-[#6B7280] leading-relaxed">
-          <ol className="list-decimal ml-5 space-y-3">
-          <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
-          <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
-          <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
-          </ol>
+          
+        {/* ── HOW TO USE ── */}
+        <section id="how-to-use" aria-label="How to use the calculator" className="mt-12 w-full glass-panel p-6 md:p-8 rounded-3xl">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="bg-[var(--color-accent)] bg-opacity-20 dark:bg-opacity-10 border border-[var(--color-accent)] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[var(--color-accent)]" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                1
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Adjust the inputs</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Use the sliders or text boxes to enter your specific financial numbers.</p>
+              </div>
+            </div>
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                2
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Review the charts</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</p>
+              </div>
+            </div>
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                3
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Analyze the results</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</p>
+              </div>
+            </div>
           </div>
+        </section>
 
           {/* FAQ Section */}
           <div className="glass-panel p-6">

@@ -499,7 +499,7 @@ export default function BuyVsRentPage() {
       </div>
 
       {/* SEO Educational Content Section */}
-      <div className="mt-16 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+      <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">The Buy vs. Rent Dilemma (Math over Myth)</h2>
           
           <div className="space-y-6 text-[#6B7280] leading-relaxed">
@@ -539,7 +539,7 @@ export default function BuyVsRentPage() {
       </div>
 
       {/* FAQ Section */}
-      <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+      <div className="mt-12 glass-panel p-8 w-full rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4">
               {jsonLd.mainEntity.map((faq, i) => (
@@ -554,7 +554,7 @@ export default function BuyVsRentPage() {
       </div>
 
       {/* Cross Links */}
-      <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[var(--color-accent)]/10">
+      <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] w-full rounded-3xl border border-[var(--color-accent)]/10">
           <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Explore More Tools</h2>
           <div className="flex flex-wrap justify-center gap-3">
               <Link href="/tools/sip-for-house-down-payment" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">

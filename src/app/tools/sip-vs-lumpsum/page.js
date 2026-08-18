@@ -209,7 +209,7 @@ export default function SipVsLumpsumPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
-        <article className="max-w-4xl w-full mx-auto space-y-8">
+        <article className="max-w-6xl w-full mx-auto space-y-8">
 
           <CalculatorTabs />
           <Breadcrumb items={[{ label: 'Tools', href: '/tools' }, { label: 'SIP vs Lumpsum' }]} />

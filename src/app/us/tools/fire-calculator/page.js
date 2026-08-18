@@ -6,7 +6,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import InputSlider from '@/components/InputSlider';
 import Link from 'next/link';
-import { ArrowRight, HelpCircle } from 'lucide-react';
+import { ArrowRight, HelpCircle, Info } from 'lucide-react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -218,7 +218,7 @@ export default function FireCalculatorPage() {
                     </div>
 
                 {/* SEO Educational Content Section */}
-                <div className="mt-16 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+                <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
                     <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Mastering the FIRE Movement</h2>
                     
                     <div className="space-y-6 text-[#6B7280] leading-relaxed">
@@ -241,20 +241,48 @@ export default function FireCalculatorPage() {
                     </div>
                 </div>
 
-                {/* How to Use Section */}
-                <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
-                <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">How to Use This Calculator</h2>
-                <div className="space-y-4 text-[#6B7280] leading-relaxed">
-                <ol className="list-decimal ml-5 space-y-3">
-                <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
-                <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>
-                <li><strong>Analyze the results:</strong> Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</li>
-                </ol>
-                </div>
-                </div>
+                
+        {/* ── HOW TO USE ── */}
+        <section id="how-to-use" aria-label="How to use the calculator" className="mt-12 w-full glass-panel p-6 md:p-8 rounded-3xl">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="bg-[var(--color-accent)] bg-opacity-20 dark:bg-opacity-10 border border-[var(--color-accent)] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[var(--color-accent)]" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                1
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Adjust the inputs</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Use the sliders or text boxes to enter your specific financial numbers.</p>
+              </div>
+            </div>
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                2
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Review the charts</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</p>
+              </div>
+            </div>
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">
+              <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                3
+              </div>
+              <div>
+                <p className="text-foreground font-semibold mb-1 text-sm">Analyze the results</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Look at the summary cards and tables to understand your total invested amount, estimated returns, and final corpus.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
                 {/* FAQ Section */}
-                <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
+                <div className="mt-12 glass-panel p-8 w-full rounded-3xl">
                     <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Frequently Asked Questions</h2>
                     <div className="space-y-4">
                         {jsonLd.mainEntity.map((faq, i) => (
@@ -269,7 +297,7 @@ export default function FireCalculatorPage() {
                 </div>
 
                 {/* Cross Links */}
-                <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] max-w-4xl mx-auto rounded-3xl border border-[var(--color-accent)]/10">
+                <div className="mt-12 glass-panel p-8 text-center bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.05)] w-full rounded-3xl border border-[var(--color-accent)]/10">
                     <h2 className="text-xl font-bold text-[var(--foreground)] mb-4">Explore More Tools</h2>
                     <div className="flex flex-wrap justify-center gap-3">
                         <Link href="/us/tools/savings-vs-dca-calculator" className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white shadow-sm px-5 py-2.5 rounded-xl text-sm font-semibold transition-all">
