@@ -24,9 +24,9 @@ export default function Footer() {
     {
       title: "Interactive Tools",
       links: [
-        { href: isUS ? '/us/blog/cost-of-delay-calculator' : '/blog/cost-of-delay-calculator', label: 'Cost of Delay Calculator', icon: Clock },
-        { href: isUS ? '/us/blog/retirement-dca-calculator' : '/blog/retirement-sip-calculator', label: `Retirement ${primaryLabel} Calculator`, icon: Shield },
-        { href: isUS ? '/us/blog/dca-vs-lumpsum' : '/blog/sip-vs-lumpsum', label: `${primaryLabel} vs Lumpsum Simulator`, icon: BarChart3 },
+        { href: isUS ? '/us/tools/cost-of-delay-calculator' : '/tools/cost-of-delay-calculator', label: 'Cost of Delay Calculator', icon: Clock },
+        { href: isUS ? '/us/tools/retirement-dca-calculator' : '/tools/retirement-sip-calculator', label: `Retirement ${primaryLabel} Calculator`, icon: Shield },
+        { href: isUS ? '/us/tools/dca-vs-lumpsum' : '/tools/sip-vs-lumpsum', label: `${primaryLabel} vs Lumpsum Simulator`, icon: BarChart3 },
       ]
     },
     {

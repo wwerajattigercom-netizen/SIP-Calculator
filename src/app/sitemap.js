@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const base = 'https://stepupcalculator.com';
+  const base = 'https://www.stepupcalculator.com';
   const now = new Date();
 
   // Define the core paths (excluding blog)

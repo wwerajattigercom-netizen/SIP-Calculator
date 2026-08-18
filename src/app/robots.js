@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://stepupcalculator.com/sitemap.xml',
+    sitemap: 'https://www.stepupcalculator.com/sitemap.xml',
   };
 }
