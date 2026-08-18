@@ -7,7 +7,7 @@ import InputSlider from '@/components/InputSlider';
 import CAGRResultSection from '@/components/CAGRResultSection';
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Breadcrumb from '@/components/Breadcrumb';
-import { TrendingUp, Mail, Info, HelpCircle, ChevronDown, ArrowRight, Calculator, Target } from 'lucide-react';
+import { TrendingUp, Mail, Info, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Layers } from 'lucide-react';
 import { formatToShortWords } from '@/utils/formatters';
 
 const formatCurrency = (v) =>
@@ -517,62 +517,36 @@ export default function CAGRCalculatorPage() {
           <div className="glass-panel p-6 bg-gradient-to-r from-[rgba(27,58,92,0.1)] to-[rgba(27,58,92,0.08)]">
             <h2 className="text-lg font-bold text-foreground mb-1 text-center">More Free Financial Calculators</h2>
             <p className="text-gray-500 dark:text-gray-400 text-xs text-center mb-4">All tools are free, real-time, and require no sign-up.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Link
-                href="/"
-                id="cta-sip-calculator-from-cagr"
-                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
-              >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <Link href="/" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
                 <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
                   <Calculator className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Step-Up SIP Calculator</p>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">SIP with annual step-up, inflation &amp; lump sum — free online tool</p>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Step-Up SIP</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">Standard Calculator</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-[var(--color-accent)] ml-auto transition-colors" />
               </Link>
-              <Link
-                href="/target-amount-calculator"
-                id="cta-goal-sip-calculator-from-cagr"
-                className="flex items-center gap-3 glass-panel p-4 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl"
-              >
-                <div className="bg-[rgba(27,58,92,0.2)] border border-[rgba(27,58,92,0.3)] p-2 rounded-lg flex-shrink-0">
-                  <Target className="w-4 h-4 text-[var(--color-accent)]" />
+              
+              <Link href="/lumpsum-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+                <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
+                  <Layers className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">SIP Goal / Time-to-Target Calculator</p>
-                  <p className="text-gray-500 dark:text-gray-400 text-xs">How long to reach ₹1 Crore? Find SIP needed for any goal.</p>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Lumpsum Returns</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">One-time investments</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-[var(--color-accent)] ml-auto transition-colors" />
               </Link>
-            </div>
-          </div>
-        </section>
 
-        {/* ── ABOUT ── */}
-        <section id="about" aria-label="About the creator">
-          <div className="glass-panel p-8 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.08)] to-transparent pointer-events-none" />
-            <div className="relative z-10">
-              <div className="w-12 h-12 rounded-full bg-[var(--color-accent)] flex items-center justify-center mx-auto mb-3 text-lg font-bold text-white shadow-sm">
-                R
-              </div>
-              <h2 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
-                Built by <span className="text-[var(--color-accent)] font-bold text-sm">Rajat</span>
-              </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg mx-auto mb-5 leading-relaxed">
-                Free financial calculators for Indian investors — SIP, Step-Up, Goal Planning, and CAGR, all in one place.
-              </p>
-              <a
-                href="mailto:businesswebsitestudio@gmail.com"
-                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] transition-all px-5 py-2.5 rounded-xl text-xs font-medium shadow-sm"
-              >
-                <Mail className="w-4 h-4" />
-                businesswebsitestudio@gmail.com
-              </a>
-              <p className="text-gray-600 dark:text-gray-400 text-[10px] mt-4">For business queries, collaborations, or feedback</p>
-              <p className="text-gray-500 dark:text-gray-400 dark:text-gray-500 dark:text-gray-400 text-[10px] mt-2">© {new Date().getFullYear()} Rajat</p>
+              <Link href="/target-amount-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
+                <div className="bg-[rgba(13,148,136,0.2)] border border-[rgba(13,148,136,0.3)] p-2 rounded-lg flex-shrink-0">
+                  <Target className="w-4 h-4 text-[#0D9488]" />
+                </div>
+                <div>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[#0D9488] transition-colors">Goal Calculator</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs">Time to reach target</p>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
