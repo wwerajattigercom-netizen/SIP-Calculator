@@ -177,3 +177,8 @@ Various one-time fix scripts exist in the root (e.g., `fix_blog_themes.js`, `fix
    - Retirement accounts: PPF/EPF/NPS (India) vs 401(k)/Roth IRA (US)
 3. **SEO Structure Parity**: Both regions MUST have identically structured JSON-LD schemas, FAQs, "How to Use" sections, and educational content. 
 4. **Theme Parity**: Never leave one region with a generic `bg-white` theme while the other uses the beautiful `glass-panel` layout. Both regions must use identical HTML structures and CSS classes for their SEO blocks.
+
+
+## 10. Content Tracking (No Duplication)
+
+> ?? **CRITICAL**: Before brainstorming or researching new topics, you MUST read \CONTENT_TRACKER.md\ in the root of the project to see what topics and calculators already exist. Do not suggest or write duplicate content.
