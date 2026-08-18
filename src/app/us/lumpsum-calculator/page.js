@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes';
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { TrendingUp, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Layers, Coins, CalendarClock, Info } from 'lucide-react';
+import { TrendingUp, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Layers, Coins, CalendarClock, Info, BookOpen } from 'lucide-react';
 import InputSlider from '@/components/InputSlider';
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -206,7 +206,7 @@ export default function LumpsumCalculatorPage() {
               <InputSlider label="Investment Duration" value={years} onChange={setYears} min={1} max={50} step={1} suffix="Yr" />
 
               {/* Labels */}
-              <div className="mt-5 space-y-2 text-xs text-gray-500 dark:text-gray-400">
+              <div className="mt-5 space-y-2 text-xs text-gray-500 dark:text-gray-400 mb-6">
                 {[
                   { label: 'Initial Investment', val: fmt(principal) },
                   { label: 'Time Horizon', val: `${years} years` },
@@ -218,6 +218,21 @@ export default function LumpsumCalculatorPage() {
                   </div>
                 ))}
               </div>
+
+              {/* ── Scenario Analysis: Cost of Waiting ── */}
+              {scenarioWait && (
+                <div className="bg-[#C4993C]/5 border border-[#C4993C]/30 rounded-xl p-4 flex flex-col items-start gap-3 mt-auto">
+                   <div className="flex items-center gap-2">
+                     <div className="bg-[#C4993C]/20 p-1.5 rounded-full flex-shrink-0">
+                        <Info className="w-4 h-4 text-[#C4993C]" />
+                     </div>
+                     <h3 className="text-sm font-bold text-foreground">The Cost of Waiting</h3>
+                   </div>
+                   <p className="text-xs text-[#6B7280] leading-relaxed">
+                     If you delay investing your {toLabel(principal)} by just <strong>5 years</strong>, you would lose out on <strong className="text-[var(--color-loss)]">{fmt(scenarioWait)}</strong> in compound interest over your {years}-year horizon.
+                   </p>
+                </div>
+              )}
             </div>
 
             {/* Results */}
@@ -230,10 +245,10 @@ export default function LumpsumCalculatorPage() {
                 </div>
                 <div>
                    <h3 className="text-lg font-bold text-foreground">
-                     Your ${toLabel(principal)} will grow to <span className="text-[var(--color-returns)]">${toLabel(futureValue)}</span>
+                     Your {toLabel(principal)} will grow to <span className="text-[var(--color-returns)]">{toLabel(futureValue)}</span>
                    </h3>
                    <p className="text-sm text-[#6B7280]">
-                     By investing your capital today and leaving it untouched for ${years} years, you will earn <strong>${toLabel(gain)}</strong> in pure compound interest.
+                     By investing your capital today and leaving it untouched for {years} years, you will earn <strong>{toLabel(gain)}</strong> in pure compound interest.
                    </p>
                 </div>
               </div>
@@ -311,23 +326,6 @@ export default function LumpsumCalculatorPage() {
             </div>
           </div>
           
-          {/* ── Scenario Analysis: Cost of Waiting ── */}
-          {scenarioWait && (
-            <section className="mt-8">
-              <div className="glass-panel p-6 bg-[#C4993C]/5 border-[#C4993C]/30 flex flex-col sm:flex-row items-start gap-4">
-                 <div className="bg-[#C4993C]/20 p-3 rounded-full flex-shrink-0">
-                    <Info className="w-6 h-6 text-[#C4993C]" />
-                 </div>
-                 <div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">The Cost of Waiting</h3>
-                    <p className="text-sm text-[#6B7280]">
-                      If you delay investing your {toLabel(principal)} by just <strong>5 years</strong>, you would lose out on <strong className="text-[var(--color-loss)]">{fmt(scenarioWait)}</strong> in compound interest over your {years}-year horizon. Time in the market is critical for lumpsum investments because the entire amount starts compounding from day one.
-                    </p>
-                 </div>
-              </div>
-            </section>
-          )}
-
           {/* ── Yearly Growth Table ── */}
           <section className="mt-8">
              <YearlyGrowthTable yearlyData={yearlyData} targetAmount={futureValue} goalTotalMonths={years * 12} />
@@ -335,7 +333,12 @@ export default function LumpsumCalculatorPage() {
 
           {/* ── Educational Content ── */}
           <section id="methodology" className="mt-8 glass-panel p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">How Lumpsum Compounding Works</h2>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
+                <BookOpen className="w-5 h-5 text-[var(--color-accent)]" />
+              </div>
+              <h2 className="text-2xl font-bold text-foreground">How Lumpsum Compounding Works</h2>
+            </div>
             <div className="space-y-4 text-sm text-[#6B7280] leading-relaxed">
                <p>
                  A lumpsum investment is simply a single, one-time deposit of capital. When you invest a lumpsum amount into an appreciating asset (like an equity mutual fund, index fund, or stock market portfolio), your money grows through the power of <strong>compound interest</strong>.
