@@ -31,7 +31,7 @@ const FAQItem = ({ q, a }) => {
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center p-4 text-left focus:outline-none"
       >
-        <h3 className="font-semibold text-gray-800 pr-4">{q}</h3>
+        <h3 className="font-semibold text-gray-800 dark:text-gray-200 pr-4">{q}</h3>
         <ChevronDown className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
@@ -221,10 +221,10 @@ export default function SipVsFdPpfRd() {
                   <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" /> Equity SIP
                 </h3>
                 <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-                  <li>• <strong className="text-gray-800">Returns:</strong> Market-linked (High, 12-15%)</li>
-                  <li>• <strong className="text-gray-800">Risk:</strong> High in short term, Low in long term</li>
-                  <li>• <strong className="text-gray-800">Lock-in:</strong> None (unless ELSS which is 3 years)</li>
-                  <li>• <strong className="text-gray-800">Taxation:</strong> 12.5% LTCG on gains above ₹1.25L</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Returns:</strong> Market-linked (High, 12-15%)</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Risk:</strong> High in short term, Low in long term</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Lock-in:</strong> None (unless ELSS which is 3 years)</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Taxation:</strong> 12.5% LTCG on gains above ₹1.25L</li>
                 </ul>
               </div>
               
@@ -233,10 +233,10 @@ export default function SipVsFdPpfRd() {
                   <ShieldCheck className="w-5 h-5 text-[#C4993C]" /> PPF
                 </h3>
                 <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-                  <li>• <strong className="text-gray-800">Returns:</strong> Fixed by Govt (Moderate, ~7.1%)</li>
-                  <li>• <strong className="text-gray-800">Risk:</strong> Zero (Sovereign guarantee)</li>
-                  <li>• <strong className="text-gray-800">Lock-in:</strong> 15 years</li>
-                  <li>• <strong className="text-gray-800">Taxation:</strong> Completely Tax-Free (EEE)</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Returns:</strong> Fixed by Govt (Moderate, ~7.1%)</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Risk:</strong> Zero (Sovereign guarantee)</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Lock-in:</strong> 15 years</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Taxation:</strong> Completely Tax-Free (EEE)</li>
                 </ul>
               </div>
               
@@ -245,10 +245,10 @@ export default function SipVsFdPpfRd() {
                   <Landmark className="w-5 h-5 text-[#60A5FA]" /> Bank RD
                 </h3>
                 <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-                  <li>• <strong className="text-gray-800">Returns:</strong> Fixed by Bank (Low, ~6-7%)</li>
-                  <li>• <strong className="text-gray-800">Risk:</strong> Very Low</li>
-                  <li>• <strong className="text-gray-800">Lock-in:</strong> Flexible (1-10 years)</li>
-                  <li>• <strong className="text-gray-800">Taxation:</strong> Fully taxable at income slab rate</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Returns:</strong> Fixed by Bank (Low, ~6-7%)</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Risk:</strong> Very Low</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Lock-in:</strong> Flexible (1-10 years)</li>
+                  <li>• <strong className="text-gray-800 dark:text-gray-200">Taxation:</strong> Fully taxable at income slab rate</li>
                 </ul>
               </div>
             </div>

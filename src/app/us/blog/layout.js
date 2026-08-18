@@ -7,12 +7,6 @@ export const metadata = {
     'cagr explained', 'investment articles', 'dca tips',
     'how to reach 1 million', 'mutual fund returns explained',
   ],
-  alternates: { canonical: 'https://stepupcalculator.com/us/blog',
-    languages: {
-      'en-IN': 'https://stepupcalculator.com/blog',
-      'en-US': 'https://stepupcalculator.com/us/blog',
-      'x-default': 'https://stepupcalculator.com/blog'
-    } },
   openGraph: {
     title: 'Investment Guides — StepupCalculator',
     description: 'Free investment guides for Global investors — DCA, CAGR, mutual funds explained simply.',

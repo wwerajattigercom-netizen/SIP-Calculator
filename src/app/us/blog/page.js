@@ -19,7 +19,7 @@ const ARTICLES = [
     highlightColor: 'text-[#C4993C]',
   },
   {
-    href: '/us/blog/cost-of-delay-calculator',
+    href: '/us/tools/cost-of-delay-calculator',
     tag: 'Cost of Delay',
     tagColor: 'text-[var(--color-loss)] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
     title: 'Cost of Delay Calculator — See What Waiting Costs You',
@@ -32,7 +32,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-loss)]',
   },
   {
-    href: '/us/blog/dca-based-on-salary',
+    href: '/us/tools/dca-based-on-salary',
     tag: 'DCA Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much DCA Should I Do Based on My Salary?',
@@ -45,7 +45,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/us/blog/retirement-dca-calculator',
+    href: '/us/tools/retirement-dca-calculator',
     tag: 'Retirement',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.1)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much DCA Do I Need to Retire?',
@@ -58,7 +58,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/us/blog/dca-vs-lumpsum',
+    href: '/us/tools/dca-vs-lumpsum',
     tag: 'Comparison',
     tagColor: 'text-[var(--color-returns)] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'DCA vs Lump Sum — Which Is Better? Interactive Comparison',
@@ -71,7 +71,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-returns)]',
   },
   {
-    href: '/us/blog/dca-to-beat-inflation',
+    href: '/us/tools/dca-to-beat-inflation',
     tag: 'Inflation',
     tagColor: 'text-[var(--color-returns)] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'How Much DCA to Beat Inflation? Real vs Nominal Returns',
@@ -84,7 +84,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-returns)]',
   },
   {
-    href: '/us/blog/dca-to-reach-1-million',
+    href: '/us/tools/dca-to-reach-1-million',
     tag: 'DCA Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much DCA to Reach $1 Million in 10, 15 & 20 Years?',
@@ -97,7 +97,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/us/blog/dca-for-child-education',
+    href: '/us/tools/dca-for-child-education',
     tag: 'Goal Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'DCA for Child Education — Education Goal Calculator',
@@ -110,7 +110,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/us/blog/dca-for-house-down-payment',
+    href: '/us/tools/dca-for-house-down-payment',
     tag: 'Goal Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'DCA for House Down Payment — Save for Your Dream Home',
@@ -123,7 +123,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/us/blog/dca-during-market-crash',
+    href: '/us/tools/dca-during-market-crash',
     tag: 'Market Strategy',
     tagColor: 'text-[var(--color-loss)] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
     title: 'DCA During Market Crash — Should You Stop or Continue?',
@@ -260,7 +260,7 @@ const CALCULATORS = [
   { href: '/us/target-amount-calculator', icon: <Target     className="w-4 h-4 text-[var(--color-accent)]"  />, label: 'DCA Goal Calculator',      desc: 'Time to reach $1 Million'                 },
   { href: '/us/cagr-calculator',          icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'CAGR Calculator',          desc: 'Compound annual growth rate'             },
   { href: '/us/swp-calculator',           icon: <Wallet     className="w-4 h-4 text-[var(--color-accent)]" />, label: 'SWP Calculator',           desc: 'Monthly withdrawal planning'             },
-  { href: '/us/blog/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[var(--color-loss)]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
+  { href: '/us/tools/cost-of-delay-calculator', icon: <Clock      className="w-4 h-4 text-[var(--color-loss)]" />, label: 'Cost of Delay Calculator', desc: 'See what waiting costs you'              },
   { href: '/us/tools/savings-vs-dca-calculator', icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'Savings vs DCA Calculator', desc: 'Compare Savings Account with DCA' },
   { href: '/us/tools/fire-calculator', icon: <Target className="w-4 h-4 text-[var(--color-accent)]" />, label: 'FIRE Calculator', desc: 'Early retirement planner' },
   { href: '/us/tools/xirr-calculator', icon: <TrendingUp className="w-4 h-4 text-[var(--color-accent)]" />, label: 'XIRR Calculator', desc: 'Calculate investment XIRR' },
@@ -272,15 +272,15 @@ const CALCULATORS = [
 
 const TOOL_HREFS = [
   '/us/blog/dca-vs-fd-ppf-rd',
-  '/us/blog/cost-of-delay-calculator',
-  '/us/blog/dca-based-on-salary',
-  '/us/blog/retirement-dca-calculator',
-  '/us/blog/dca-vs-lumpsum',
-  '/us/blog/dca-to-beat-inflation',
-  '/us/blog/dca-during-market-crash',
-  '/us/blog/dca-to-reach-1-million',
-  '/us/blog/dca-for-child-education',
-  '/us/blog/dca-for-house-down-payment'
+  '/us/tools/cost-of-delay-calculator',
+  '/us/tools/dca-based-on-salary',
+  '/us/tools/retirement-dca-calculator',
+  '/us/tools/dca-vs-lumpsum',
+  '/us/tools/dca-to-beat-inflation',
+  '/us/tools/dca-during-market-crash',
+  '/us/tools/dca-to-reach-1-million',
+  '/us/tools/dca-for-child-education',
+  '/us/tools/dca-for-house-down-payment'
 ];
 
 export default function BlogIndexPage() {

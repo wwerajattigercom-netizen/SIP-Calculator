@@ -27,8 +27,7 @@ export const metadata = {
     title: "DCA Calculator with Step Up, Inflation & Lump Sum",
     description: "Free online DCA calculator with step-up, lump sum & inflation. Designed for US investors.",
   },
-  alternates: { 
-    canonical: '/us/dca-calculator',
+  alternates: {
     languages: {
       'en-IN': '/',
       'en-US': '/us/dca-calculator',

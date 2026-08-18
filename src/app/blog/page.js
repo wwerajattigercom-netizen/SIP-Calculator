@@ -19,7 +19,7 @@ const ARTICLES = [
     highlightColor: 'text-[#C4993C]',
   },
   {
-    href: '/blog/cost-of-delay-calculator',
+    href: '/tools/cost-of-delay-calculator',
     tag: 'Cost of Delay',
     tagColor: 'text-[var(--color-loss)] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
     title: 'Cost of Delay Calculator — See What Waiting Costs You',
@@ -32,7 +32,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-loss)]',
   },
   {
-    href: '/blog/sip-based-on-salary',
+    href: '/tools/sip-based-on-salary',
     tag: 'SIP Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much SIP Should I Do Based on My Salary?',
@@ -45,7 +45,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/retirement-sip-calculator',
+    href: '/tools/retirement-sip-calculator',
     tag: 'Retirement',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.1)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much SIP Do I Need to Retire in India?',
@@ -58,7 +58,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/sip-vs-lumpsum',
+    href: '/tools/sip-vs-lumpsum',
     tag: 'Comparison',
     tagColor: 'text-[var(--color-returns)] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'SIP vs Lump Sum — Which Is Better? Interactive Comparison',
@@ -71,7 +71,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-returns)]',
   },
   {
-    href: '/blog/sip-to-beat-inflation',
+    href: '/tools/sip-to-beat-inflation',
     tag: 'Inflation',
     tagColor: 'text-[var(--color-returns)] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
     title: 'How Much SIP to Beat Inflation? Real vs Nominal Returns',
@@ -84,7 +84,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-returns)]',
   },
   {
-    href: '/blog/sip-to-reach-1-crore',
+    href: '/tools/sip-to-reach-1-crore',
     tag: 'SIP Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.12)] border-[rgba(27,58,92,0.25)]',
     title: 'How Much SIP to Reach ₹1 Crore in 10, 15 & 20 Years?',
@@ -97,7 +97,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/sip-for-child-education',
+    href: '/tools/sip-for-child-education',
     tag: 'Goal Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'SIP for Child Education — Education Goal Calculator India',
@@ -110,7 +110,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/sip-for-house-down-payment',
+    href: '/tools/sip-for-house-down-payment',
     tag: 'Goal Planning',
     tagColor: 'text-[var(--color-accent)] bg-[rgba(27,58,92,0.10)] border-[rgba(27,58,92,0.25)]',
     title: 'SIP for House Down Payment — Save for Your Dream Home',
@@ -123,7 +123,7 @@ const ARTICLES = [
     highlightColor: 'text-[var(--color-accent)]',
   },
   {
-    href: '/blog/sip-during-market-crash',
+    href: '/tools/sip-during-market-crash',
     tag: 'Market Strategy',
     tagColor: 'text-[var(--color-loss)] bg-[rgba(153,27,27,0.1)] border-[rgba(153,27,27,0.25)]',
     title: 'SIP During Market Crash — Should You Stop or Continue?',
@@ -272,15 +272,15 @@ const CALCULATORS = [
 
 const TOOL_HREFS = [
   '/blog/sip-vs-fd-ppf-rd',
-  '/blog/cost-of-delay-calculator',
-  '/blog/sip-based-on-salary',
-  '/blog/retirement-sip-calculator',
-  '/blog/sip-vs-lumpsum',
-  '/blog/sip-to-beat-inflation',
-  '/blog/sip-during-market-crash',
-  '/blog/sip-to-reach-1-crore',
-  '/blog/sip-for-child-education',
-  '/blog/sip-for-house-down-payment'
+  '/tools/cost-of-delay-calculator',
+  '/tools/sip-based-on-salary',
+  '/tools/retirement-sip-calculator',
+  '/tools/sip-vs-lumpsum',
+  '/tools/sip-to-beat-inflation',
+  '/tools/sip-during-market-crash',
+  '/tools/sip-to-reach-1-crore',
+  '/tools/sip-for-child-education',
+  '/tools/sip-for-house-down-payment'
 ];
 
 export default function BlogIndexPage() {
