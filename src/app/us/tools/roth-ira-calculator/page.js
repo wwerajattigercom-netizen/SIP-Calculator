@@ -6,7 +6,7 @@ import InputSlider from '@/components/InputSlider';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import Link from 'next/link';
-import { ArrowRight, HelpCircle } from 'lucide-react';
+import { ArrowRight, HelpCircle, ShieldCheck } from 'lucide-react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -156,6 +156,18 @@ export default function RothIraCalculatorPage() {
                 suffix="%"
                 colorTheme="navy"
               />
+
+              {/* Tax-Free Advantage Callout to fill empty space */}
+              <div className="bg-[rgba(5,150,105,0.05)] border border-[rgba(5,150,105,0.2)] p-5 rounded-xl">
+                <div className="flex items-center gap-2 mb-2">
+                  <ShieldCheck className="w-5 h-5 text-[#059669]" />
+                  <span className="text-[#059669] font-bold text-sm">The 100% Tax-Free Advantage</span>
+                </div>
+                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                  In a standard taxable brokerage account, you could owe roughly <strong>{formatCurrency(results.returns * 0.15)}</strong> in long-term capital gains taxes (assuming a 15% rate) on these earnings. 
+                  Because you are using a Roth IRA, your entire <strong>{formatCurrency(results.returns)}</strong> in gains is completely tax-free upon withdrawal in retirement.
+                </p>
+              </div>
             </div>
 
             {/* Results Section */}
