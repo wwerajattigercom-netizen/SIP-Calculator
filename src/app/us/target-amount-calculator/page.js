@@ -233,14 +233,17 @@ export default function TargetCalculatorPage() {
         )}
 
         {/* ── HOW TO USE ── */}
-        <section id="how-to-use" aria-label="How to use the goal based calculator">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
-              <Info className="w-5 h-5 text-[var(--color-accent)]" />
+        <section id="how-to-use" aria-label="How to use the goal based DCA calculator" className="w-full">
+           <div className="max-w-6xl mx-auto space-y-8 mt-12">
+            
+            <div className="flex items-center gap-3">
+              <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
+                <Info className="w-5 h-5 text-[var(--color-accent)]" />
+              </div>
+              <h2 className="text-2xl font-bold text-foreground">How to Use This Goal DCA Calculator</h2>
             </div>
-            <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {HOW_TO_STEPS.map(({ step, title, desc }) => (
               <div key={step} className="glass-panel p-5 flex gap-4">
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
@@ -253,11 +256,11 @@ export default function TargetCalculatorPage() {
               </div>
             ))}
           </div>
+          </div>
         </section>
         
         {/* ── EDUCATIONAL SEO CONTENT ── */}
-        <section className="glass-panel p-6 md:p-8 space-y-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed border-t-4 border-t-[var(--color-accent)]">
-           <div className="max-w-4xl mx-auto space-y-8">
+        <section className="glass-panel p-6 md:p-8 space-y-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed border-t-4 border-t-[var(--color-accent)] mt-12 w-full max-w-6xl mx-auto">
              
              <div>
                <h2 className="text-xl font-bold text-foreground mb-3">Understanding the Timeline to Your Financial Goal</h2>
@@ -303,7 +306,6 @@ export default function TargetCalculatorPage() {
                </p>
              </div>
              
-           </div>
         </section>
 
         {/* ── FAQ ── */}

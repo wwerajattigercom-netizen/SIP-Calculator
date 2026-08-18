@@ -185,7 +185,7 @@ export default function Home() {
       </main>
 
       {/* ── BELOW THE FOLD ── */}
-      <div className="max-w-4xl w-full mx-auto px-4 pb-16 space-y-16">
+      <div className="max-w-6xl w-full mx-auto px-4 pb-16 space-y-16 mt-12">
 
         {/* ── HOW TO USE ── */}
         <section id="how-to-use" aria-label="How to use the DCA calculator">
@@ -195,7 +195,7 @@ export default function Home() {
             </div>
             <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {HOW_TO_STEPS.map(({ step, title, desc }) => (
               <div key={step} className="glass-panel p-5 flex gap-4">
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">

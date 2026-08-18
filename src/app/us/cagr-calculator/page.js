@@ -392,7 +392,7 @@ export default function CAGRCalculatorPage() {
             </div>
             <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {HOW_TO_STEPS.map(({ step, title, desc }) => (
               <div key={step} className="glass-panel p-5 flex gap-4">
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
