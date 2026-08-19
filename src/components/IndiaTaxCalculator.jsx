@@ -112,7 +112,7 @@ export default function IndiaTaxCalculator() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
             
             {/* New Regime Card */}
-            <div className={\`glass-panel p-5 flex flex-col justify-between transition-all \${results.winner === 'New Regime' ? 'ring-2 ring-[var(--color-accent)] shadow-[0_0_15px_rgba(27,58,92,0.2)] dark:shadow-[0_0_15px_rgba(96,165,250,0.15)]' : 'opacity-80'}\`}>
+            <div className={`glass-panel p-5 flex flex-col justify-between transition-all ${results.winner === 'New Regime' ? 'ring-2 ring-[var(--color-accent)] shadow-[0_0_15px_rgba(27,58,92,0.2)] dark:shadow-[0_0_15px_rgba(96,165,250,0.15)]' : 'opacity-80'}`}>
                 <div>
                     <div className="flex items-center justify-between mb-4 border-b border-black/5 dark:border-white/10 pb-2">
                         <h3 className="font-bold text-foreground">New Regime</h3>
@@ -141,7 +141,7 @@ export default function IndiaTaxCalculator() {
 
                 <div className="bg-black/5 dark:bg-white/5 rounded-xl p-4 flex flex-col items-center justify-center text-center">
                     <span className="text-[11px] text-gray-500 dark:text-gray-400 font-semibold mb-1 uppercase tracking-wider">Total Tax Payable</span>
-                    <span className={\`text-2xl font-extrabold \${results.winner === 'New Regime' ? 'text-[var(--color-accent)]' : 'text-foreground'}\`}>
+                    <span className={`text-2xl font-extrabold ${results.winner === 'New Regime' ? 'text-[var(--color-accent)]' : 'text-foreground'}`}>
                         {formatCurrency(results.totalTaxNew, 'en-IN', 'INR')}
                     </span>
                     {results.totalTaxNew === 0 && <span className="text-[10px] text-[#059669] mt-1 font-bold">Tax Free! (Rebate 87A)</span>}
@@ -149,7 +149,7 @@ export default function IndiaTaxCalculator() {
             </div>
 
             {/* Old Regime Card */}
-            <div className={\`glass-panel p-5 flex flex-col justify-between transition-all \${results.winner === 'Old Regime' ? 'ring-2 ring-[var(--color-accent)] shadow-[0_0_15px_rgba(27,58,92,0.2)] dark:shadow-[0_0_15px_rgba(96,165,250,0.15)]' : 'opacity-80'}\`}>
+            <div className={`glass-panel p-5 flex flex-col justify-between transition-all ${results.winner === 'Old Regime' ? 'ring-2 ring-[var(--color-accent)] shadow-[0_0_15px_rgba(27,58,92,0.2)] dark:shadow-[0_0_15px_rgba(96,165,250,0.15)]' : 'opacity-80'}`}>
                 <div>
                     <div className="flex items-center justify-between mb-4 border-b border-black/5 dark:border-white/10 pb-2">
                         <h3 className="font-bold text-foreground">Old Regime</h3>
@@ -178,7 +178,7 @@ export default function IndiaTaxCalculator() {
 
                 <div className="bg-black/5 dark:bg-white/5 rounded-xl p-4 flex flex-col items-center justify-center text-center">
                     <span className="text-[11px] text-gray-500 dark:text-gray-400 font-semibold mb-1 uppercase tracking-wider">Total Tax Payable</span>
-                    <span className={\`text-2xl font-extrabold \${results.winner === 'Old Regime' ? 'text-[var(--color-accent)]' : 'text-foreground'}\`}>
+                    <span className={`text-2xl font-extrabold ${results.winner === 'Old Regime' ? 'text-[var(--color-accent)]' : 'text-foreground'}`}>
                         {formatCurrency(results.totalTaxOld, 'en-IN', 'INR')}
                     </span>
                     {results.totalTaxOld === 0 && <span className="text-[10px] text-[#059669] mt-1 font-bold">Tax Free! (Rebate 87A)</span>}
