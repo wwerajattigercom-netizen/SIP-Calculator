@@ -13,6 +13,7 @@ _These are interactive tools that perform calculations._
 - [x] fd-vs-sip-calculator
 - [x] fire-calculator
 - [x] home-loan-calculator
+- [x] income-tax-calculator
 - [x] nps-calculator
 - [x] ppf-calculator
 - [x] retirement-sip-calculator
@@ -31,6 +32,8 @@ _These are interactive tools that perform calculations._
 - [x] cost-of-delay-calculator
 - [x] dca-based-on-salary
 - [x] emi-calculator
+- [x] fire-calculator
+- [x] income-tax-calculator
 - [x] mortgage-calculator
 - [x] dca-during-market-crash
 - [x] dca-for-child-education

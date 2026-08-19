@@ -58,6 +58,7 @@ export default function Header() {
    { href: isUS ? '/us/tools/emi-calculator' : '/tools/emi-calculator', label: 'EMI Calculator', icon: Calculator },
    { href: isUS ? '/us/tools/mortgage-calculator' : '/tools/home-loan-calculator', label: isUS ? 'Mortgage Calculator' : 'Home Loan EMI', icon: HomeIcon },
    { href: isUS ? '/us/tools/auto-loan-calculator' : '/tools/car-loan-calculator', label: isUS ? 'Auto Loan Calculator' : 'Car Loan EMI', icon: Car },
+   { href: isUS ? '/us/tools/income-tax-calculator' : '/tools/income-tax-calculator', label: isUS ? 'Income Tax Calc' : 'Tax Regime Calc', icon: Wallet },
    { href: isUS ? '/us/swp-calculator' : '/swp-calculator', label: 'SWP Calculator', icon: Wallet },
    { href: isUS ? '/us/cagr-calculator' : '/cagr-calculator', label: 'CAGR Calculator', icon: TrendingUp },
    { href: isUS ? '/us/target-amount-calculator' : '/target-amount-calculator', label: 'Goal Calculator', icon: Target },
