@@ -7,9 +7,12 @@ _These are interactive tools that perform calculations._
 
 ### Indian Region (`/tools/*`)
 - [x] buy-vs-rent-calculator
+- [x] car-loan-calculator
 - [x] cost-of-delay-calculator
+- [x] emi-calculator
 - [x] fd-vs-sip-calculator
 - [x] fire-calculator
+- [x] home-loan-calculator
 - [x] nps-calculator
 - [x] ppf-calculator
 - [x] retirement-sip-calculator
@@ -23,9 +26,12 @@ _These are interactive tools that perform calculations._
 - [x] xirr-calculator
 
 ### US Region (`/us/tools/*`)
+- [x] auto-loan-calculator
 - [x] buy-vs-rent-calculator
 - [x] cost-of-delay-calculator
 - [x] dca-based-on-salary
+- [x] emi-calculator
+- [x] mortgage-calculator
 - [x] dca-during-market-crash
 - [x] dca-for-child-education
 - [x] dca-for-house-down-payment
