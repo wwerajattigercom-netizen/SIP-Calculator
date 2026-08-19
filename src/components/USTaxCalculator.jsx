@@ -17,9 +17,11 @@ const BRACKETS_2024 = [
 
 export default function USTaxCalculator() {
   const [income, setIncome] = useState(85000);
-  const [deductions, setDeductions] = useState(14600); // 2024 Single Standard Deduction
+  const [deductionType, setDeductionType] = useState('standard');
+  const [itemizedDeductions, setItemizedDeductions] = useState(15000);
 
   const results = useMemo(() => {
+    const deductions = deductionType === 'standard' ? 14600 : itemizedDeductions;
     const taxable = Math.max(0, income - deductions);
     let remaining = taxable;
     let totalTax = 0;
@@ -58,7 +60,7 @@ export default function USTaxCalculator() {
       breakdown,
       takeHome: income - totalTax
     };
-  }, [income, deductions]);
+  }, [income, deductionType, itemizedDeductions]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start w-full">
@@ -71,7 +73,28 @@ export default function USTaxCalculator() {
         </div>
         
         <InputSlider label="Gross Annual Income" value={income} onChange={setIncome} min={10000} max={1000000} step={5000} prefix="$" />
-        <InputSlider label="Deductions (Standard or Itemized)" value={deductions} onChange={setDeductions} min={0} max={100000} step={1000} prefix="$" />
+        
+        <div className="flex flex-col gap-1.5 mt-2 mb-2">
+            <label className="text-xs font-semibold text-gray-700 dark:text-gray-300">Deduction Type</label>
+            <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-lg">
+                <button 
+                    className={`flex-1 text-xs font-semibold py-2 rounded-md transition-colors ${deductionType === 'standard' ? 'bg-white dark:bg-[#1f2937] text-foreground shadow-sm' : 'text-gray-500'}`}
+                    onClick={() => setDeductionType('standard')}
+                >
+                    Standard ($14,600)
+                </button>
+                <button 
+                    className={`flex-1 text-xs font-semibold py-2 rounded-md transition-colors ${deductionType === 'itemized' ? 'bg-white dark:bg-[#1f2937] text-foreground shadow-sm' : 'text-gray-500'}`}
+                    onClick={() => setDeductionType('itemized')}
+                >
+                    Itemized
+                </button>
+            </div>
+        </div>
+
+        {deductionType === 'itemized' && (
+            <InputSlider label="Itemized Deductions" value={itemizedDeductions} onChange={setItemizedDeductions} min={0} max={100000} step={1000} prefix="$" />
+        )}
         
         <div className="mt-4 p-3 bg-black/5 dark:bg-white/5 rounded-lg border border-black/10 dark:border-white/10 flex items-start gap-2">
             <AlertCircle className="w-4 h-4 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
@@ -104,9 +127,14 @@ export default function USTaxCalculator() {
                 </div>
             </div>
             
-            <div className="relative z-10 mt-6 pt-4 border-t border-white/20 flex justify-between items-center text-sm">
-                <span className="text-white/80">Estimated Take Home:</span>
-                <span className="font-bold">{formatCurrency(results.takeHome, 'en-US', 'USD')}</span>
+            <div className="relative z-10 mt-6 pt-4 border-t border-white/20">
+                <div className="flex justify-between items-center text-sm">
+                    <span className="text-white/80">After Federal Income Tax:</span>
+                    <span className="font-bold">{formatCurrency(results.takeHome, 'en-US', 'USD')}</span>
+                </div>
+                <p className="text-white/60 text-[10px] mt-2 leading-relaxed">
+                    Excludes Social Security, Medicare (FICA), state/local taxes, credits, and other deductions.
+                </p>
             </div>
         </div>
 
