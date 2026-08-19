@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import { Menu, X, Moon, Sun, ChevronDown, Calculator, TrendingUp, Target, Layers, Wallet, BookOpen, Clock, AlertTriangle, GraduationCap, Home as HomeIcon, Car } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown, Calculator, TrendingUp, Target, Layers, Wallet, BookOpen, Clock, AlertTriangle, GraduationCap, Home as HomeIcon, Car, Landmark } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { usePathname, useRouter } from 'next/navigation';
@@ -72,6 +72,7 @@ export default function Header() {
   ];
 
  const tools = [
+  { href: isUS ? '/us/tools/net-worth-calculator' : '/tools/net-worth-calculator', label: 'Net Worth Tracker', icon: Landmark },
   { href: isUS ? '/us/tools/cost-of-delay-calculator' : '/tools/cost-of-delay-calculator', label: 'Cost of Delay', icon: Clock },
   { href: isUS ? '/us/tools/dca-based-on-salary' : '/tools/sip-based-on-salary', label: '50-30-20 Rule Planner', icon: Wallet },
   { href: isUS ? '/us/tools/retirement-dca-calculator' : '/tools/retirement-sip-calculator', label: 'Retirement Planner', icon: Target },

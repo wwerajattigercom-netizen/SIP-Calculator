@@ -30,6 +30,7 @@ export default function sitemap() {
   const inTools = [
     '/tools/buy-vs-rent-calculator',
     '/tools/car-loan-calculator',
+    '/tools/net-worth-calculator',
     '/tools/cost-of-delay-calculator',
     '/tools/emi-calculator',
     '/tools/fd-vs-sip-calculator',
@@ -53,6 +54,7 @@ export default function sitemap() {
   const usTools = [
     '/us/tools/auto-loan-calculator',
     '/us/tools/buy-vs-rent-calculator',
+    '/us/tools/net-worth-calculator',
     '/us/tools/cost-of-delay-calculator',
     '/us/tools/dca-based-on-salary',
     '/us/tools/dca-during-market-crash',
