@@ -29,9 +29,12 @@ export default function sitemap() {
   // Interactive Tools (India)
   const inTools = [
     '/tools/buy-vs-rent-calculator',
+    '/tools/car-loan-calculator',
     '/tools/cost-of-delay-calculator',
+    '/tools/emi-calculator',
     '/tools/fd-vs-sip-calculator',
     '/tools/fire-calculator',
+    '/tools/home-loan-calculator',
     '/tools/nps-calculator',
     '/tools/ppf-calculator',
     '/tools/retirement-sip-calculator',
@@ -47,6 +50,7 @@ export default function sitemap() {
 
   // Interactive Tools (US)
   const usTools = [
+    '/us/tools/auto-loan-calculator',
     '/us/tools/buy-vs-rent-calculator',
     '/us/tools/cost-of-delay-calculator',
     '/us/tools/dca-based-on-salary',
@@ -56,7 +60,9 @@ export default function sitemap() {
     '/us/tools/dca-to-beat-inflation',
     '/us/tools/dca-to-reach-1-million',
     '/us/tools/dca-vs-lumpsum',
+    '/us/tools/emi-calculator',
     '/us/tools/fire-calculator',
+    '/us/tools/mortgage-calculator',
     '/us/tools/retirement-account-calculator',
     '/us/tools/retirement-dca-calculator',
     '/us/tools/roth-ira-calculator',
