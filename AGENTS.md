@@ -63,3 +63,9 @@ Located in the project root. It lists every single calculator and blog guide tha
 - **Build command**: `next build` (Turbopack)
 - **To deploy**: `git add . ; git commit -m "message" ; git push`
 - **Shell Commands**: The OS is Windows (PowerShell). Do not use `sed`. Do not use `cat << EOF`. Use the `write_to_file` tool API for writing multi-line scripts. Do not use `cd` commands.
+
+
+## 6. Development Rules (Dark Mode & Regions)
+
+1. **Dark/Light Mode is MANDATORY:** Every single feature, component, guide, or calculator you build MUST natively support both Light Mode and Dark Mode. You must use Tailwind `dark:` variants for all backgrounds, borders, and text colors. You do not need to be told this by the user; it is a permanent requirement.
+2. **US & IN Parity is MANDATORY:** When you build a new tool or guide, you MUST build it for BOTH the Indian region (`/tools` or `/blog`) and the US region (`/us/tools` or `/us/blog`). You must localize currency (? vs $) and terminology (e.g., PPF vs 401k) automatically.
