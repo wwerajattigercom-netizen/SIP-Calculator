@@ -17,7 +17,7 @@ const jsonLd = {
       "@type": "WebApplication",
       "name": "Goal Based DCA Calculator — How Long to Reach $1 Million?",
       "description": "Find out exactly how long your monthly DCA will take to reach $1 Million or any financial goal. Includes step-up DCA, lump sum, and inflation. Free goal-based DCA duration calculator.",
-      "url": "https://www.stepupcalculator.com/us/target-amount-calculator",
+      "url": "https://stepupcalculator.com/us/target-amount-calculator",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },

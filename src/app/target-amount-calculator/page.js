@@ -17,7 +17,7 @@ const jsonLd = {
       "@type": "WebApplication",
       "name": "Goal Based SIP Calculator — How Long to Reach ₹1 Crore?",
       "description": "Find out exactly how long your monthly SIP will take to reach ₹1 Crore or any financial goal. Includes step-up SIP, lump sum, and inflation. Free goal-based SIP duration calculator.",
-      "url": "https://www.stepupcalculator.com/target-amount-calculator",
+      "url": "https://stepupcalculator.com/target-amount-calculator",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },

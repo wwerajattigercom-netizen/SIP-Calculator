@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://www.stepupcalculator.com"),
+  metadataBase: new URL("https://stepupcalculator.com"),
   title: "SIP Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",
   description: "Free SIP calculator with step-up & inflation. Calculate monthly SIP returns, add lump sum, apply annual step-up and inflation adjustment — all in real time. Works for India and globally (DCA / RSP / AIP).",
   keywords: [
@@ -38,7 +38,7 @@ export const metadata = {
     title: "SIP Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",
     description: "Free SIP calculator with step-up, lump sum, inflation adjustment — all in one page, real-time sliders. Works globally for SIP / DCA / RSP / AIP investors.",
     type: "website",
-        url: "https://www.stepupcalculator.com",
+        url: "https://stepupcalculator.com",
     locale: "en_IN",
     siteName: "StepupCalculator",
     images: [
