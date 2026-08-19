@@ -72,6 +72,7 @@ export default function Header() {
   ];
 
  const tools = [
+  { href: isUS ? '/us/tools/goal-planner' : '/tools/goal-planner', label: 'Goal Planner Hub', icon: Target },
   { href: isUS ? '/us/tools/net-worth-calculator' : '/tools/net-worth-calculator', label: 'Net Worth Tracker', icon: Landmark },
   { href: isUS ? '/us/tools/cost-of-delay-calculator' : '/tools/cost-of-delay-calculator', label: 'Cost of Delay', icon: Clock },
   { href: isUS ? '/us/tools/dca-based-on-salary' : '/tools/sip-based-on-salary', label: '50-30-20 Rule Planner', icon: Wallet },

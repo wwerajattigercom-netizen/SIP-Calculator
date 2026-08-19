@@ -12,6 +12,7 @@ _These are interactive tools that perform calculations._
 - [x] emi-calculator
 - [x] fd-vs-sip-calculator
 - [x] fire-calculator
+- [x] goal-planner
 - [x] home-loan-calculator
 - [x] income-tax-calculator
 - [x] net-worth-calculator
@@ -34,6 +35,7 @@ _These are interactive tools that perform calculations._
 - [x] dca-based-on-salary
 - [x] emi-calculator
 - [x] fire-calculator
+- [x] goal-planner
 - [x] income-tax-calculator
 - [x] mortgage-calculator
 - [x] net-worth-calculator
