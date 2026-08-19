@@ -35,6 +35,8 @@ export default function Header() {
    if (pathname === '/us/tools/retirement-account-calculator') newPath = '/tools/nps-calculator';
    if (pathname === '/us/tools/roth-ira-calculator') newPath = '/tools/ppf-calculator';
    if (pathname === '/us/tools/savings-vs-dca-calculator') newPath = '/tools/fd-vs-sip-calculator';
+   if (pathname === '/us/tools/mortgage-calculator') newPath = '/tools/home-loan-calculator';
+   if (pathname === '/us/tools/auto-loan-calculator') newPath = '/tools/car-loan-calculator';
    router.push(newPath);
   } else {
    document.cookie = "preferred_region=US; path=/; max-age=31536000";
@@ -45,6 +47,8 @@ export default function Header() {
    if (pathname === '/tools/nps-calculator') newPath = '/us/tools/retirement-account-calculator';
    if (pathname === '/tools/ppf-calculator') newPath = '/us/tools/roth-ira-calculator';
    if (pathname === '/tools/fd-vs-sip-calculator') newPath = '/us/tools/savings-vs-dca-calculator';
+   if (pathname === '/tools/home-loan-calculator') newPath = '/us/tools/mortgage-calculator';
+   if (pathname === '/tools/car-loan-calculator') newPath = '/us/tools/auto-loan-calculator';
    router.push(newPath);
   }
  };
