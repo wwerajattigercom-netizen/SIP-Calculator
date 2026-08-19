@@ -1,5 +1,6 @@
 "use client";
 
+import { Info } from 'lucide-react';
 import React, { useState, useMemo } from 'react';
 import {
   Chart as ChartJS,
