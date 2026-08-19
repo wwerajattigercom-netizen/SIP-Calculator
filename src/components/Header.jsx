@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import { Menu, X, Moon, Sun, ChevronDown, Calculator, TrendingUp, Target, Layers, Wallet, BookOpen, Clock, AlertTriangle, GraduationCap, Home as HomeIcon } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown, Calculator, TrendingUp, Target, Layers, Wallet, BookOpen, Clock, AlertTriangle, GraduationCap, Home as HomeIcon, Car } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { usePathname, useRouter } from 'next/navigation';
@@ -49,19 +49,22 @@ export default function Header() {
   }
  };
 
- const calculators = [
-  { href: isUS ? '/us/dca-calculator' : '/', label: isUS ? 'DCA Calculator' : 'SIP Calculator', icon: Calculator },
-  { href: isUS ? '/us/swp-calculator' : '/swp-calculator', label: 'SWP Calculator', icon: Wallet },
-  { href: isUS ? '/us/cagr-calculator' : '/cagr-calculator', label: 'CAGR Calculator', icon: TrendingUp },
-  { href: isUS ? '/us/target-amount-calculator' : '/target-amount-calculator', label: 'Goal Calculator', icon: Target },
-  { href: isUS ? '/us/lumpsum-calculator' : '/lumpsum-calculator', label: 'Lumpsum Calculator', icon: Layers },
-  { href: isUS ? '/us/tools/savings-vs-dca-calculator' : '/tools/fd-vs-sip-calculator', label: isUS ? 'Savings vs DCA' : 'FD vs SIP', icon: TrendingUp },
-  { href: isUS ? '/us/tools/fire-calculator' : '/tools/fire-calculator', label: 'FIRE Calculator', icon: Target },
-  { href: isUS ? '/us/tools/xirr-calculator' : '/tools/xirr-calculator', label: 'XIRR Calculator', icon: TrendingUp },
-  { href: isUS ? '/us/tools/retirement-account-calculator' : '/tools/nps-calculator', label: isUS ? '401k/IRA Calculator' : 'NPS Calculator', icon: Wallet },
-  { href: isUS ? '/us/tools/roth-ira-calculator' : '/tools/ppf-calculator', label: isUS ? 'Roth IRA Calculator' : 'PPF Calculator', icon: Wallet },
-  { href: isUS ? '/us/tools/buy-vs-rent-calculator' : '/tools/buy-vs-rent-calculator', label: 'Buy vs Rent', icon: HomeIcon },
- ];
+  const calculators = [
+   { href: isUS ? '/us/dca-calculator' : '/', label: isUS ? 'DCA Calculator' : 'SIP Calculator', icon: Calculator },
+   { href: isUS ? '/us/tools/emi-calculator' : '/tools/emi-calculator', label: 'EMI Calculator', icon: Calculator },
+   { href: isUS ? '/us/tools/mortgage-calculator' : '/tools/home-loan-calculator', label: isUS ? 'Mortgage Calculator' : 'Home Loan EMI', icon: HomeIcon },
+   { href: isUS ? '/us/tools/auto-loan-calculator' : '/tools/car-loan-calculator', label: isUS ? 'Auto Loan Calculator' : 'Car Loan EMI', icon: Car },
+   { href: isUS ? '/us/swp-calculator' : '/swp-calculator', label: 'SWP Calculator', icon: Wallet },
+   { href: isUS ? '/us/cagr-calculator' : '/cagr-calculator', label: 'CAGR Calculator', icon: TrendingUp },
+   { href: isUS ? '/us/target-amount-calculator' : '/target-amount-calculator', label: 'Goal Calculator', icon: Target },
+   { href: isUS ? '/us/lumpsum-calculator' : '/lumpsum-calculator', label: 'Lumpsum Calculator', icon: Layers },
+   { href: isUS ? '/us/tools/savings-vs-dca-calculator' : '/tools/fd-vs-sip-calculator', label: isUS ? 'Savings vs DCA' : 'FD vs SIP', icon: TrendingUp },
+   { href: isUS ? '/us/tools/fire-calculator' : '/tools/fire-calculator', label: 'FIRE Calculator', icon: Target },
+   { href: isUS ? '/us/tools/xirr-calculator' : '/tools/xirr-calculator', label: 'XIRR Calculator', icon: TrendingUp },
+   { href: isUS ? '/us/tools/retirement-account-calculator' : '/tools/nps-calculator', label: isUS ? '401k/IRA Calculator' : 'NPS Calculator', icon: Wallet },
+   { href: isUS ? '/us/tools/roth-ira-calculator' : '/tools/ppf-calculator', label: isUS ? 'Roth IRA Calculator' : 'PPF Calculator', icon: Wallet },
+   { href: isUS ? '/us/tools/buy-vs-rent-calculator' : '/tools/buy-vs-rent-calculator', label: 'Buy vs Rent', icon: HomeIcon },
+  ];
 
  const tools = [
   { href: isUS ? '/us/tools/cost-of-delay-calculator' : '/tools/cost-of-delay-calculator', label: 'Cost of Delay', icon: Clock },
