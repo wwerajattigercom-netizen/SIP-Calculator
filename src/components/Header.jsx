@@ -85,7 +85,22 @@ export default function Header() {
  return (
   <header className="site-header relative z-[100] dark:bg-background dark:border-b dark:border-white/10">
    <div className="site-header-inner flex justify-between items-center w-full">
-    <Link href={isUS ? "/us/dca-calculator" : "/"} className="site-logo" aria-label="StepupCalculator Home">
+    <Link href={isUS ? "/us/dca-calculator" : "/"} className="site-logo flex items-center gap-2" aria-label="StepupCalculator Home">
+     <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#1B3A5C' }}>
+      <svg
+       width="20"
+       height="20"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="#C4993C"
+       strokeWidth="3.5"
+       strokeLinecap="round"
+       strokeLinejoin="round"
+      >
+       <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+       <polyline points="16 7 22 7 22 13" />
+      </svg>
+     </div>
      <span className="site-logo-text dark:text-[#E5E7EB]">
       StepupCalculator
      </span>
