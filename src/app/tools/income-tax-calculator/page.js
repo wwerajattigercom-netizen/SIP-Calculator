@@ -31,7 +31,7 @@ export default function IncomeTaxCalculatorPage() {
           
           <div className="flex flex-col mb-6 mt-4">
             <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-foreground mb-2">
-              Old vs New Tax Regime Calculator (FY 2024-25)
+              Old vs New Tax Regime Calculator (FY 2025-26)
             </h1>
             <p className="text-gray-600 dark:text-gray-400 max-w-3xl">
               Compare both tax regimes side-by-side to find out which one saves you more money on your salary.
@@ -55,7 +55,7 @@ export default function IncomeTaxCalculatorPage() {
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">1</div>
               <div>
                 <p className="text-foreground font-semibold mb-1 text-sm">Understand the New Regime</p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">The New Regime offers lower tax rates but you must give up almost all exemptions (like HRA) and deductions (like 80C). The ₹50,000 standard deduction is available in both.</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">The New Regime offers lower tax rates but you must give up almost all exemptions (like HRA) and deductions (like 80C). The standard deduction is ₹75,000 for the New Regime and ₹50,000 for the Old Regime.</p>
               </div>
             </div>
             <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 flex gap-4 shadow-sm">

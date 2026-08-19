@@ -54,6 +54,8 @@ Located in the project root. It lists every single calculator and blog guide tha
 2. **Schemas**: FAQ sections MUST use `application/ld+json` structured data.
 3. **Breadcrumbs**: Blog articles must use breadcrumbs via `Breadcrumb.jsx`.
 
+4. **Canonical Domain (non-www)**: The official verified GSC property and canonical domain is `https://stepupcalculator.com` (no www). ALWAYS use this exact domain in `metadataBase`, `OG urls`, `sitemap.js`, `robots.js`, and JSON-LD structured data. NEVER use `www.stepupcalculator.com` as it causes duplicate content indexation errors.
+
 ---
 
 ## 5. Deployment & Tools

@@ -32,19 +32,20 @@ export default function IndiaTaxCalculator() {
     const cessOld = taxOld * 0.04;
     const totalTaxOld = taxOld + cessOld;
 
-    // New Regime (FY 2024-25)
-    // No exemptions or deductions allowed except Standard Deduction
-    const taxableNew = Math.max(0, salary - stdDeduction);
+    // New Regime (FY 2025-26)
+    const stdDeductionNew = 75000;
+    const taxableNew = Math.max(0, salary - stdDeductionNew);
     let taxNew = 0;
     
-    if (taxableNew <= 700000) {
-        taxNew = 0; // Rebate 87A up to 7L
+    if (taxableNew <= 1200000) {
+        taxNew = 0; // Rebate 87A up to 12L
     } else {
-        if (taxableNew > 300000) taxNew += Math.min(300000, taxableNew - 300000) * 0.05;
-        if (taxableNew > 600000) taxNew += Math.min(300000, taxableNew - 600000) * 0.10;
-        if (taxableNew > 900000) taxNew += Math.min(300000, taxableNew - 900000) * 0.15;
-        if (taxableNew > 1200000) taxNew += Math.min(300000, taxableNew - 1200000) * 0.20;
-        if (taxableNew > 1500000) taxNew += (taxableNew - 1500000) * 0.30;
+        if (taxableNew > 400000) taxNew += Math.min(400000, taxableNew - 400000) * 0.05;
+        if (taxableNew > 800000) taxNew += Math.min(400000, taxableNew - 800000) * 0.10;
+        if (taxableNew > 1200000) taxNew += Math.min(400000, taxableNew - 1200000) * 0.15;
+        if (taxableNew > 1600000) taxNew += Math.min(400000, taxableNew - 1600000) * 0.20;
+        if (taxableNew > 2000000) taxNew += Math.min(400000, taxableNew - 2000000) * 0.25;
+        if (taxableNew > 2400000) taxNew += (taxableNew - 2400000) * 0.30;
     }
     
     const cessNew = taxNew * 0.04;
@@ -78,7 +79,7 @@ export default function IndiaTaxCalculator() {
         <div className="mt-4 p-3 bg-black/5 dark:bg-white/5 rounded-lg border border-black/10 dark:border-white/10 flex items-start gap-2">
             <AlertCircle className="w-4 h-4 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
             <p className="text-[10px] text-gray-600 dark:text-gray-400 leading-relaxed">
-                Standard Deduction of ₹50,000 is automatically applied to both regimes. The New Tax Regime does not allow most deductions (like 80C) or exemptions (like HRA).
+                Standard Deduction of ₹75,000 applies to the New Regime (₹50,000 for Old Regime). The New Tax Regime does not allow most deductions (like 80C) or exemptions (like HRA). Under FY 2025-26 rules, income up to ₹12 Lakh is tax-free in the New Regime due to rebate 87A.
             </p>
         </div>
       </div>
@@ -126,7 +127,7 @@ export default function IndiaTaxCalculator() {
                         </div>
                         <div className="flex justify-between items-center text-xs">
                             <span className="text-gray-500 dark:text-gray-400">Standard Deduction</span>
-                            <span className="text-foreground font-medium">-₹50,000</span>
+                            <span className="text-foreground font-medium">-₹75,000</span>
                         </div>
                         <div className="flex justify-between items-center text-xs">
                             <span className="text-gray-500 dark:text-gray-400">Deductions/Exemptions</span>
