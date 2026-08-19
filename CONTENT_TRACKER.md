@@ -14,6 +14,7 @@ _These are interactive tools that perform calculations._
 - [x] fire-calculator
 - [x] home-loan-calculator
 - [x] income-tax-calculator
+- [x] net-worth-calculator
 - [x] nps-calculator
 - [x] ppf-calculator
 - [x] retirement-sip-calculator
@@ -35,6 +36,7 @@ _These are interactive tools that perform calculations._
 - [x] fire-calculator
 - [x] income-tax-calculator
 - [x] mortgage-calculator
+- [x] net-worth-calculator
 - [x] dca-during-market-crash
 - [x] dca-for-child-education
 - [x] dca-for-house-down-payment
