@@ -57,9 +57,9 @@ export default function ChartComponent({ results }) {
       {
         data: [results.totalInvested, results.amountEarned],
         backgroundColor: [colorInvested, colorReturns],
-        borderColor: 'transparent', borderWidth: 0,
-        borderWidth: 4,
-        hoverOffset: 4,
+        borderColor: 'transparent',
+        borderWidth: 0,
+        hoverOffset: 0,
       },
     ],
   };
@@ -68,6 +68,9 @@ export default function ChartComponent({ results }) {
     responsive: true,
     maintainAspectRatio: false,
     cutout: '75%',
+    layout: {
+      padding: 10
+    },
     plugins: {
       legend: { display: false },
       tooltip: {

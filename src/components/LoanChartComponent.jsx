@@ -56,7 +56,7 @@ export default function LoanChartComponent({ results }) {
         backgroundColor: [colorPrincipal, colorInterest],
         borderColor: 'transparent',
         borderWidth: 0,
-        hoverOffset: 4,
+        hoverOffset: 0,
       },
     ],
   };

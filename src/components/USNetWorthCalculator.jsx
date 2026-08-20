@@ -37,7 +37,7 @@ export default function USNetWorthCalculator() {
         data: [realEstate, investments, liquidCash, otherAssets],
         backgroundColor: ['#1B3A5C', '#059669', '#C4993C', '#6B7280'],
         borderWidth: 0,
-        hoverOffset: 4
+        hoverOffset: 0,
       }
     ]
   };

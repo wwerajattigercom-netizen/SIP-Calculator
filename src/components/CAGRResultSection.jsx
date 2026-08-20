@@ -50,7 +50,7 @@ export default function CAGRResultSection({ results }) {
       backgroundColor: pieColors,
       borderColor: 'transparent',
       borderWidth: 0,
-      hoverOffset:     6,
+      hoverOffset: 0,
     }],
   };
 

@@ -193,7 +193,7 @@ export default function SWPCalculatorPage() {
       backgroundColor: ['#1B3A5C', '#C4993C'],
       borderColor: ['transparent', 'transparent'],
       borderWidth: 4,
-      hoverOffset: 4,
+      hoverOffset: 0,
     }],
   };
   const pieOptions = {

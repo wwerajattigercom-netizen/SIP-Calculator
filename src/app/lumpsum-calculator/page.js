@@ -147,7 +147,7 @@ export default function LumpsumCalculatorPage() {
       backgroundColor: [accentColor, '#C4993C'],
       borderColor: ['transparent', 'transparent'], borderWidth: 0,
       borderWidth: 4,
-      hoverOffset: 4,
+      hoverOffset: 0,
     }],
   };
   const pieOptions = {
