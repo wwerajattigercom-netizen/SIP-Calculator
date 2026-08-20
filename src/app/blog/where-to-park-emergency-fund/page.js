@@ -193,6 +193,42 @@ export default function EmergencyFundGuide() {
               </div>
             </div>
 
+            <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">Potential Improvements & Blind Spots</h2>
+            <p>
+              While the proposed "3-Bucket Strategy" is theoretically excellent, it overlooks a few practical realities that an investor needs to know:
+            </p>
+            <ul className="space-y-4">
+              <li><strong>Insta-Redemption Constraints:</strong> The guide mentions instant ₹50,000 withdrawals for Liquid Funds but omits that the rule is strictly ₹50,000 or 90% of the invested amount, whichever is lower, per day. For a severe medical emergency requiring a large upfront hospital deposit, this daily cap can be a severe bottleneck.</li>
+              <li><strong>Arbitrage Short-Term Volatility:</strong> Arbitrage funds are technically equity funds. While they are very low-risk over a 12-month period, they can occasionally deliver flat or mildly negative returns over a 1-to-3-month horizon depending on market futures premiums. They must strictly remain in the final "Deep" bucket.</li>
+              <li><strong>Auto-Sweep LIFO Mechanics:</strong> Many banks process auto-sweep FD withdrawals using a Last-In-First-Out (LIFO) method. If your account sweeps ₹20,000 into an FD today, and you break it via ATM withdrawal next week, it earns negligible interest and may still incur a small premature penalty, effectively acting just like a savings account.</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">Hypothetical Implementation</h2>
+            <p>
+              Assuming a baseline monthly expense of ₹50,000 and an investor in the 30% tax bracket, here is how the math for this strategy plays out in reality:
+            </p>
+            
+            <div className="space-y-4 my-8">
+              <div className="glass-panel p-5 rounded-xl border border-gray-100 dark:border-white/5">
+                <h4 className="font-bold text-foreground m-0 mb-1">Bucket 1 (1 Month - ₹50,000)</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 m-0">
+                  Kept in a standard Savings Account. It sacrifices yield for absolute 24/7 liquidity.
+                </p>
+              </div>
+              <div className="glass-panel p-5 rounded-xl border border-gray-100 dark:border-white/5">
+                <h4 className="font-bold text-foreground m-0 mb-1">Bucket 2 (2 Months - ₹1,00,000)</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 m-0">
+                  Parked in a Liquid Mutual Fund. Assuming a 6.5% return taxed at the 30% slab rate, the effective post-tax return drops to roughly 4.5%.
+                </p>
+              </div>
+              <div className="glass-panel p-5 rounded-xl border border-gray-100 dark:border-white/5">
+                <h4 className="font-bold text-foreground m-0 mb-1">Bucket 3 (3 Months - ₹1,50,000)</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 m-0">
+                  Parked in an Arbitrage Fund. Assuming a 6.5% return held for over one year, the ₹9,750 gain falls under the ₹1.25L tax-free equity threshold, yielding a true 6.5% post-tax return.
+                </p>
+              </div>
+            </div>
+
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-6 border-t border-black/5 dark:border-white/10 pt-8">
               Debt Mutual Fund Taxation Update (2023)
             </h2>
