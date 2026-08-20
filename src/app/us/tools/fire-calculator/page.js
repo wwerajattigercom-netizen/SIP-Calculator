@@ -229,6 +229,7 @@ export default function FireCalculatorPage() {
                             </div>
                         </div>
                     </div>
+                </div>
 
                 {/* SEO Educational Content Section */}
                 <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
@@ -323,7 +324,6 @@ export default function FireCalculatorPage() {
                 </div>
 
             </div>
-        </div>
         </div>
     );
 }
