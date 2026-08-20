@@ -2,6 +2,7 @@
 
 import { Info } from 'lucide-react';
 import React, { useState, useMemo } from 'react';
+import { useTheme } from 'next-themes';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,6 +27,11 @@ ChartJS.register(
 );
 
 export default function SavingsVsDcaPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
+
   const [monthlyInvestment, setMonthlyInvestment] = useState(500);
   const [years, setYears] = useState(10);
   const [fdRate, setFdRate] = useState(4.5);
@@ -68,8 +74,8 @@ export default function SavingsVsDcaPage() {
           {
             label: 'DCA Value',
             data: dcaData,
-            borderColor: 'var(--color-accent)',
-            backgroundColor: 'var(--color-accent)',
+            borderColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'),
+            backgroundColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'),
             borderWidth: 2,
             pointRadius: 0,
             pointHitRadius: 10,

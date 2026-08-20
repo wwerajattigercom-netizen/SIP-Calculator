@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { AlertTriangle, TrendingUp, HelpCircle, ChevronDown, ArrowRight, BarChart3, Info, Landmark, ShieldCheck, Wallet } from 'lucide-react';
 import InputSlider from '@/components/InputSlider';
@@ -44,6 +45,11 @@ const FAQItem = ({ q, a }) => {
 };
 
 export default function SipVsFdPpfRd() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
+
   const [monthly, setMonthly] = useState(1000);
   const [years, setYears] = useState(12);
   
@@ -99,7 +105,7 @@ export default function SipVsFdPpfRd() {
     plugins: {
       legend: { display: false },
       tooltip: {
-        backgroundColor: 'rgba(27,58,92,0.9)',
+        backgroundColor: (typeof isDark !== 'undefined' && isDark ? 'rgba(26,115,232,0.9)' : 'rgba(27,58,92,0.9)'),
         padding: 12,
         titleFont: { size: 14, family: 'sans-serif' },
         bodyFont: { size: 14, weight: 'bold', family: 'sans-serif' },

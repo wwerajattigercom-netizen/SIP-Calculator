@@ -1,6 +1,7 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import React, { useState, useMemo } from 'react';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { ArrowRight, HelpCircle, TrendingUp, TrendingDown, Minus, Info } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -127,6 +128,11 @@ const SCENARIO_META = {
 };
 
 export default function SipVsLumpsumPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
+
   const [totalAmount, setTotalAmount] = useState(500000);
   const [returnRate, setReturnRate] = useState(10);
   const [duration, setDuration] = useState(10);
@@ -185,8 +191,8 @@ export default function SipVsLumpsumPage() {
           {
             label: 'DCA Value',
             data: sipData,
-            borderColor: 'var(--color-accent)',
-            backgroundColor: 'rgba(27,58,92,0.08)',
+            borderColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'),
+            backgroundColor: (typeof isDark !== 'undefined' && isDark ? 'rgba(26,115,232,0.08)' : 'rgba(27,58,92,0.08)'),
             borderWidth: 2.5,
             pointRadius: 0,
             fill: false,

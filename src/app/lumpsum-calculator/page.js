@@ -162,7 +162,7 @@ export default function LumpsumCalculatorPage() {
   const lineData = {
     labels: yearlyData.map(d => `Yr ${d.year}`),
     datasets: [
-      { label: 'Invested', data: yearlyData.map(d => d.invested), borderColor: 'var(--color-accent)', backgroundColor: 'var(--color-accent)', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
+      { label: 'Invested', data: yearlyData.map(d => d.invested), borderColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'), backgroundColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'), tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
       { label: 'Wealth Value', data: yearlyData.map(d => d.balance), borderColor: '#C4993C', backgroundColor: '#C4993C', tension: 0.4, pointRadius: 0, pointHitRadius: 10 },
     ],
   };

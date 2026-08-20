@@ -1,6 +1,7 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import React, { useState, useMemo } from 'react';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { ArrowRight, HelpCircle, GraduationCap, AlertTriangle, TrendingUp, Info } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -48,6 +49,11 @@ function getStepUpFvFactor(years, monthlyRate, stepUpRate) {
 }
 
 export default function SipForChildEducationPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
+
   const [currentAge, setCurrentAge] = useState(3);
   const [targetAge, setTargetAge] = useState(18);
   const [todayCost, setTodayCost] = useState(2000000);
@@ -100,7 +106,7 @@ export default function SipForChildEducationPage() {
           {
             label: 'Total Invested',
             data: investedData,
-            backgroundColor: 'var(--color-accent)',
+            backgroundColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'),
           },
           {
             label: 'Estimated Gains',

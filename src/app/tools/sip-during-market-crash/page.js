@@ -1,6 +1,7 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import React, { useState, useMemo } from 'react';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { ArrowRight, HelpCircle, AlertTriangle, TrendingUp, TrendingDown, Info } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -65,6 +66,11 @@ const jsonLd = {
 };
 
 export default function SipDuringCrashPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
+
   const [monthlySip, setMonthlySip] = useState(10000);
   const [duration, setDuration] = useState(15);
   
@@ -138,8 +144,8 @@ export default function SipDuringCrashPage() {
           {
             label: 'Continued SIP',
             data: valueAData,
-            borderColor: 'var(--color-accent)',
-            backgroundColor: 'rgba(27,58,92,0.08)',
+            borderColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'),
+            backgroundColor: (typeof isDark !== 'undefined' && isDark ? 'rgba(26,115,232,0.08)' : 'rgba(27,58,92,0.08)'),
             borderWidth: 2.5,
             pointRadius: 0,
             fill: false,
@@ -148,8 +154,8 @@ export default function SipDuringCrashPage() {
           {
             label: 'Stopped SIP During Crash',
             data: valueBData,
-            borderColor: '#991B1B',
-            backgroundColor: 'rgba(153,27,27,0.08)',
+            borderColor: (typeof isDark !== 'undefined' && isDark ? '#EF4444' : '#991B1B'),
+            backgroundColor: (typeof isDark !== 'undefined' && isDark ? 'rgba(239,68,68,0.08)' : 'rgba(153,27,27,0.08)'),
             borderWidth: 2.5,
             pointRadius: 0,
             fill: false,

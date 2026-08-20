@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { AlertTriangle, TrendingUp, Clock, HelpCircle, ChevronDown, ArrowRight, Calculator, Target, Info } from 'lucide-react';
 import InputSlider from '@/components/InputSlider';
@@ -106,6 +107,11 @@ const FAQS = [
 
 // ─── Main Page ───────────────────────────────────────────────
 export default function CostOfDelayCalculatorPage() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
+
   const [monthlySIP, setMonthlySIP] = useState(10000);
   const [rate, setRate]             = useState(12);
   const [years, setYears]           = useState(20);
@@ -165,7 +171,7 @@ export default function CostOfDelayCalculatorPage() {
       {
         label: 'Start Now',
         data: [fvStartNow],
-        backgroundColor: 'var(--color-accent)',
+        backgroundColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'),
         borderRadius: 4,
       },
       {
@@ -196,8 +202,8 @@ export default function CostOfDelayCalculatorPage() {
       {
         label: 'Start Now',
         data: yearlyData.map(d => d.startNow),
-        borderColor: 'var(--color-accent)',
-        backgroundColor: 'var(--color-accent)',
+        borderColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'),
+        backgroundColor: (typeof isDark !== 'undefined' && isDark ? '#1A73E8' : '#1B3A5C'),
         tension: 0.4,
         pointRadius: 0,
         pointHitRadius: 10,
