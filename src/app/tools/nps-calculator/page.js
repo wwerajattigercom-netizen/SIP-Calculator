@@ -254,7 +254,7 @@ export default function NpsCalculatorPage() {
                 </div>
 
                 {/* Chart */}
-                <div className="relative h-64 w-full flex items-center justify-center my-4">
+                <div className="relative h-[256px] min-h-[256px] max-h-[256px] w-full my-4 flex-shrink-0">
                   <Pie data={chartData} options={chartOptions} />
                 </div>
 
