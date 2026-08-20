@@ -205,7 +205,7 @@ export default function PpfCalculatorPage() {
       <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Maximizing Your PPF Account</h2>
           
-          <div className="space-y-6 text-[#6B7280] leading-relaxed">
+          <div className="space-y-6 text-[#6B7280] dark:text-[#8B95A5] leading-relaxed">
               <p>
                   The <strong>Public Provident Fund (PPF)</strong> is one of the most powerful wealth-building and tax-saving tools available to Indian investors. Its primary advantage is its EEE status, allowing your investments to compound completely tax-free over a 15-year horizon.
               </p>
@@ -271,7 +271,7 @@ export default function PpfCalculatorPage() {
                       <h3 className="text-[var(--foreground)] font-medium text-base flex items-start gap-2">
                           <HelpCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
                       </h3>
-                      <p className="text-[#6B7280] text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                      <p className="text-[#6B7280] dark:text-[#8B95A5] text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
                   </div>
               ))}
           </div>

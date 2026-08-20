@@ -26,10 +26,10 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
         <table className="w-full text-xs min-w-[480px]">
           <thead>
             <tr className="bg-[rgba(27,58,92,0.12)] border-b border-black/5 dark:border-white/10">
-              <th className="text-left text-[#6B7280] font-semibold py-3 px-4">Year</th>
+              <th className="text-left text-[#6B7280] dark:text-[#8B95A5] font-semibold py-3 px-4">Year</th>
               <th className="text-right text-gray-500 dark:text-gray-400 font-semibold py-3 px-3">Total Invested</th>
               <th className="text-right text-[#0D9488] font-semibold py-3 px-3">Gains Earned</th>
-              <th className="text-right text-[#6B7280] font-semibold py-3 px-4">Portfolio Value</th>
+              <th className="text-right text-[#6B7280] dark:text-[#8B95A5] font-semibold py-3 px-4">Portfolio Value</th>
             </tr>
           </thead>
           <tbody>
@@ -87,7 +87,7 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
                     <div className={`font-bold ${isGoalYear ? 'text-[var(--color-accent)]' : 'text-white'}`}>
                       {formatCurrency(balance, locale, currencyCode)}
                     </div>
-                    <div className={`text-[9px] mt-0.5 ${isGoalYear ? 'text-[#6B7280]' : 'text-gray-500 dark:text-gray-400'}`}>
+                    <div className={`text-[9px] mt-0.5 ${isGoalYear ? 'text-[#6B7280] dark:text-[#8B95A5]' : 'text-gray-500 dark:text-gray-400'}`}>
                       {formatToShortWords(balance, isUS)}
                     </div>
                   </td>

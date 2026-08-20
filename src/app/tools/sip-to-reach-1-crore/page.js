@@ -85,7 +85,7 @@ export default function SipTo1CrorePage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-[#6B7280] border-b border-black/5 text-xs uppercase tracking-wider">
+                  <tr className="text-[#6B7280] dark:text-[#8B95A5] border-b border-black/5 text-xs uppercase tracking-wider">
                     <th className="text-left py-2 pr-4">Duration</th>
                     <th className="text-right py-2 pr-4">At 10% p.a.</th>
                     <th className="text-right py-2 pr-4">At 12% p.a.</th>

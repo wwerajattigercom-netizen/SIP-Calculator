@@ -217,7 +217,7 @@ export default function RothIraCalculatorPage() {
         <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Maximizing Your Roth IRA</h2>
           
-          <div className="space-y-6 text-[#6B7280] leading-relaxed">
+          <div className="space-y-6 text-[#6B7280] dark:text-[#8B95A5] leading-relaxed">
                 <p>
                     A <strong>Roth IRA</strong> (Individual Retirement Account) is one of the most powerful wealth-building tools available to US investors. Its primary advantage is that it allows your investments to compound completely tax-free over time.
                 </p>

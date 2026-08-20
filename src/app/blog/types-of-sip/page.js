@@ -58,7 +58,7 @@ export default function TypesOfSipPage() {
             <div className="glass-panel p-6 border-l-4 border-l-[#6B7280]">
               <div className="flex justify-between items-start mb-2">
                 <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-[#6B7280]" /> 1. Regular SIP (The Standard)
+                  <ShieldCheck className="w-5 h-5 text-[#6B7280] dark:text-[#8B95A5]" /> 1. Regular SIP (The Standard)
                 </h2>
                 <span className="text-xs font-bold px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full">Beginner Friendly</span>
               </div>

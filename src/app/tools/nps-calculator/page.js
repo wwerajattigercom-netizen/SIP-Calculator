@@ -296,7 +296,7 @@ export default function NpsCalculatorPage() {
       <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Mastering NPS Investing</h2>
           
-          <div className="space-y-6 text-[#6B7280] leading-relaxed">
+          <div className="space-y-6 text-[#6B7280] dark:text-[#8B95A5] leading-relaxed">
               <p>
                   Building a secure retirement requires consistent saving and taking advantage of retirement-focused accounts like the <strong>National Pension System (NPS)</strong>. 
                   However, be aware of recent tax changes: If you opt for the <strong>Old Tax Regime</strong>, NPS provides an exclusive ₹50,000 tax deduction under Section 80CCD(1B), saving you up to ₹15,600 annually in the 30% bracket. <strong>If you use the New Tax Regime (the default for most), this ₹50,000 deduction is NO LONGER available.</strong> Only employer contributions (up to 14% of basic salary) remain tax-exempt under the new regime.
@@ -363,7 +363,7 @@ export default function NpsCalculatorPage() {
                       <h3 className="text-[var(--foreground)] font-medium text-base flex items-start gap-2">
                           <HelpCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
                       </h3>
-                      <p className="text-[#6B7280] text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                      <p className="text-[#6B7280] dark:text-[#8B95A5] text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
                   </div>
               ))}
           </div>

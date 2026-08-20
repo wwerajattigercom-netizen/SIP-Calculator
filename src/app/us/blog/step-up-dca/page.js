@@ -206,7 +206,7 @@ export default function StepUpSipPage() {
           {/* How to Use Section */}
           <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">How to Use This Calculator</h2>
-          <div className="space-y-4 text-[#6B7280] leading-relaxed">
+          <div className="space-y-4 text-[#6B7280] dark:text-[#8B95A5] leading-relaxed">
           <ol className="list-decimal ml-5 space-y-3">
           <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
           <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>

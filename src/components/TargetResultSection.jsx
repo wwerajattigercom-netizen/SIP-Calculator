@@ -30,7 +30,7 @@ export default function TargetResultSection({ results }) {
           <div className="text-sm font-extrabold text-foreground">
             {formatCurrency(results.requiredSip, locale, currencyCode)}
           </div>
-          <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">
+          <div className="text-[9px] text-[#6B7280] dark:text-[#8B95A5] mt-0.5 tracking-wide">
             {formatToShortWords(results.requiredSip, isUS)}
           </div>
         </div>

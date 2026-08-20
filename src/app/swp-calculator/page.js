@@ -322,7 +322,7 @@ export default function SWPCalculatorPage() {
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                         <span className="text-xs text-gray-500 dark:text-gray-400">Total Withdrawn</span>
                         <span className="text-lg md:text-xl font-bold text-[#1F2937]">{formatCurrency(totalWithdrawn)}</span>
-                        <span className="text-[10px] text-[#6B7280]">{formatToShortWords(totalWithdrawn)}</span>
+                        <span className="text-[10px] text-[#6B7280] dark:text-[#8B95A5]">{formatToShortWords(totalWithdrawn)}</span>
                       </div>
                     </>
                   )}
@@ -338,7 +338,7 @@ export default function SWPCalculatorPage() {
                       <div className="w-2 h-2 rounded-full bg-[#1B3A5C] mr-1.5" />Withdrawn
                     </div>
                     <div className="text-sm font-extrabold text-[#1B3A5C]">{formatCurrency(totalWithdrawn)}</div>
-                    <div className="text-[9px] text-[#6B7280] mt-0.5 tracking-wide">{formatToShortWords(totalWithdrawn)}</div>
+                    <div className="text-[9px] text-[#6B7280] dark:text-[#8B95A5] mt-0.5 tracking-wide">{formatToShortWords(totalWithdrawn)}</div>
                   </div>
 
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
@@ -393,10 +393,10 @@ export default function SWPCalculatorPage() {
               <table className="w-full text-xs min-w-[500px]">
                 <thead>
                   <tr className="bg-[rgba(27,58,92,0.12)] border-b border-black/5 dark:border-white/10">
-                    <th className="text-left   text-[#6B7280] font-semibold py-3 px-4">Year</th>
+                    <th className="text-left   text-[#6B7280] dark:text-[#8B95A5] font-semibold py-3 px-4">Year</th>
                     <th className="text-right  text-gray-500 dark:text-gray-400 font-semibold py-3 px-3">Yearly Withdrawn</th>
                     <th className="text-right  text-[#059669] font-semibold py-3 px-3">Yearly Returns</th>
-                    <th className="text-right  text-[#6B7280] font-semibold py-3 px-4">End of Year Balance</th>
+                    <th className="text-right  text-[#6B7280] dark:text-[#8B95A5] font-semibold py-3 px-4">End of Year Balance</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -312,10 +312,10 @@ export default function CAGRCalculatorPage() {
               <table className="w-full text-xs min-w-[400px]">
                 <thead>
                   <tr className="bg-[rgba(27,58,92,0.12)] border-b border-black/5 dark:border-white/10">
-                    <th className="text-left   text-[#6B7280] font-semibold py-3 px-4">Year</th>
+                    <th className="text-left   text-[#6B7280] dark:text-[#8B95A5] font-semibold py-3 px-4">Year</th>
                     <th className="text-right  text-gray-500 dark:text-gray-400  font-semibold py-3 px-3">Total Invested</th>
                     <th className="text-right  text-[#0D9488] font-semibold py-3 px-3">Gain Earned</th>
-                    <th className="text-right  text-[#6B7280] font-semibold py-3 px-4">Portfolio Value</th>
+                    <th className="text-right  text-[#6B7280] dark:text-[#8B95A5] font-semibold py-3 px-4">Portfolio Value</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -368,7 +368,7 @@ export default function CAGRCalculatorPage() {
                           <div className={`font-bold ${isLast ? 'text-[var(--color-accent)]' : 'text-white'}`}>
                             {formatCurrency(value)}
                           </div>
-                          <div className={`text-[9px] mt-0.5 ${isLast ? 'text-[#6B7280]' : 'text-gray-500 dark:text-gray-400'}`}>
+                          <div className={`text-[9px] mt-0.5 ${isLast ? 'text-[#6B7280] dark:text-[#8B95A5]' : 'text-gray-500 dark:text-gray-400'}`}>
                             {formatToShortWords(value)}
                           </div>
                         </td>
@@ -450,9 +450,9 @@ export default function CAGRCalculatorPage() {
                 <div className="bg-[rgba(27,58,92,0.1)] border border-[rgba(27,58,92,0.25)] rounded-xl p-4 font-mono text-center">
                   <p className="text-foreground text-sm font-bold mb-1">CAGR = (FV ÷ PV) ^ (1 ÷ n) − 1</p>
                   <div className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-left space-y-1">
-                    <p><span className="text-[#6B7280]">FV</span> = Final Value (ending portfolio value)</p>
-                    <p><span className="text-[#6B7280]">PV</span> = Present Value (initial investment)</p>
-                    <p><span className="text-[#6B7280]">n</span> = Number of years</p>
+                    <p><span className="text-[#6B7280] dark:text-[#8B95A5]">FV</span> = Final Value (ending portfolio value)</p>
+                    <p><span className="text-[#6B7280] dark:text-[#8B95A5]">PV</span> = Present Value (initial investment)</p>
+                    <p><span className="text-[#6B7280] dark:text-[#8B95A5]">n</span> = Number of years</p>
                   </div>
                 </div>
               </div>
@@ -485,7 +485,7 @@ export default function CAGRCalculatorPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
-                    <tr className="text-[#6B7280] border-b border-black/5">
+                    <tr className="text-[#6B7280] dark:text-[#8B95A5] border-b border-black/5">
                       <th className="text-left py-2 pr-4">Investment</th>
                       <th className="text-right py-2 pr-4">Absolute Return</th>
                       <th className="text-right py-2">CAGR</th>

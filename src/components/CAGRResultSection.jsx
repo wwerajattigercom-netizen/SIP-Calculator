@@ -105,7 +105,7 @@ export default function CAGRResultSection({ results }) {
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
             <span className="text-[10px] text-gray-500 dark:text-gray-400">Final Value</span>
             <span className="text-base font-extrabold text-foreground leading-tight">{fmt(finalValue)}</span>
-            <span className="text-[9px] text-[#6B7280]">{formatToShortWords(finalValue, isUS)}</span>
+            <span className="text-[9px] text-[#6B7280] dark:text-[#8B95A5]">{formatToShortWords(finalValue, isUS)}</span>
           </div>
         </div>
 
@@ -132,7 +132,7 @@ export default function CAGRResultSection({ results }) {
           <div className={`text-sm font-extrabold ${isNegativeGain ? 'text-red-800' : 'text-[var(--color-returns)]'}`}>
             {isNegativeGain ? '' : '+'}{fmt(absoluteGain)}
           </div>
-          <div className={`text-[9px] mt-0.5 tracking-wide ${isNegativeGain ? 'text-orange-500' : 'text-[#6B7280]'}`}>
+          <div className={`text-[9px] mt-0.5 tracking-wide ${isNegativeGain ? 'text-orange-500' : 'text-[#6B7280] dark:text-[#8B95A5]'}`}>
             {formatToShortWords(Math.abs(absoluteGain), isUS)}
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function CAGRResultSection({ results }) {
             </div>
             <div className="text-right">
               <div className="text-sm font-bold text-foreground">{fmt(sipContributions)}</div>
-              <div className="text-[9px] text-[#6B7280]">{formatToShortWords(sipContributions, isUS)}</div>
+              <div className="text-[9px] text-[#6B7280] dark:text-[#8B95A5]">{formatToShortWords(sipContributions, isUS)}</div>
             </div>
           </div>
         )}

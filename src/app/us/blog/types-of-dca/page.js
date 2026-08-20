@@ -58,7 +58,7 @@ export default function TypesOfSipPage() {
             <div className="glass-panel p-6 border-l-4 border-l-[#6B7280]">
               <div className="flex justify-between items-start mb-2">
                 <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-[#6B7280]" /> 1. Regular DCA (The Standard)
+                  <ShieldCheck className="w-5 h-5 text-[#6B7280] dark:text-[#8B95A5]" /> 1. Regular DCA (The Standard)
                 </h2>
                 <span className="text-xs font-bold px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full">Beginner Friendly</span>
               </div>
@@ -178,7 +178,7 @@ export default function TypesOfSipPage() {
           {/* How to Use Section */}
           <div className="mt-12 glass-panel p-8 max-w-4xl mx-auto rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">How to Use This Calculator</h2>
-          <div className="space-y-4 text-[#6B7280] leading-relaxed">
+          <div className="space-y-4 text-[#6B7280] dark:text-[#8B95A5] leading-relaxed">
           <ol className="list-decimal ml-5 space-y-3">
           <li><strong>Adjust the inputs:</strong> Use the sliders or text boxes to enter your specific financial numbers.</li>
           <li><strong>Review the charts:</strong> The interactive charts will update immediately, showing a visual breakdown of your investments and returns.</li>

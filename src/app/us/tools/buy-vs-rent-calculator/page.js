@@ -261,7 +261,7 @@ export default function BuyVsRentPageUS() {
           <h1 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
             Buy vs Rent Calculator (True Cost)
           </h1>
-          <p className="text-[#6B7280] max-w-2xl mx-auto">
+          <p className="text-[#6B7280] dark:text-[#8B95A5] max-w-2xl mx-auto">
             Compare the true financial impact of buying a home versus renting. We factor in <strong>property taxes, HOA/maintenance, closing costs, and opportunity cost</strong> to give you a mathematically accurate comparison.
           </p>
         </div>
@@ -408,7 +408,7 @@ export default function BuyVsRentPageUS() {
                 <h3 className="text-lg font-bold text-[var(--foreground)]">
                   {results.breakEvenYear !== null ? `Buying becomes better in Year ${results.breakEvenYear}` : `Renting remains better for all ${loanTerm} years`}
                 </h3>
-                <p className="text-sm text-[#6B7280]">
+                <p className="text-sm text-[#6B7280] dark:text-[#8B95A5]">
                   {results.breakEvenYear !== null 
                     ? "If you plan to sell the property before this year, you are mathematically better off renting."
                     : "Due to the high sunk costs of buying, renting and investing the difference yields a higher net worth."}
@@ -421,14 +421,14 @@ export default function BuyVsRentPageUS() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="bg-[var(--background)] p-4 rounded-xl border border-[var(--panel-border)]">
-                  <p className="text-sm text-[#6B7280] mb-1">Final Net Worth (Buying)</p>
+                  <p className="text-sm text-[#6B7280] dark:text-[#8B95A5] mb-1">Final Net Worth (Buying)</p>
                   <p className="text-2xl font-bold text-[var(--color-accent)]">{formatCurrency(results.finalBuyNW)}</p>
-                  <p className="text-xs text-[#6B7280] mt-2">Initial Monthly Mortgage: {formatCurrency(results.monthlyMortgage)}</p>
+                  <p className="text-xs text-[#6B7280] dark:text-[#8B95A5] mt-2">Initial Monthly Mortgage: {formatCurrency(results.monthlyMortgage)}</p>
                 </div>
                 <div className="bg-[var(--background)] p-4 rounded-xl border border-[#C4993C]/30">
-                  <p className="text-sm text-[#6B7280] mb-1">Final Net Worth (Renting)</p>
+                  <p className="text-sm text-[#6B7280] dark:text-[#8B95A5] mb-1">Final Net Worth (Renting)</p>
                   <p className="text-2xl font-bold text-[#C4993C]">{formatCurrency(results.finalRentNW)}</p>
-                  <p className="text-xs text-[#6B7280] mt-2">Initial DCA: {formatCurrency(results.monthlyMortgage + ((propertyValue * (propertyTaxPercent/100))/12) + ((propertyValue * (maintenancePercent/100))/12) - monthlyRent)}</p>
+                  <p className="text-xs text-[#6B7280] dark:text-[#8B95A5] mt-2">Initial DCA: {formatCurrency(results.monthlyMortgage + ((propertyValue * (propertyTaxPercent/100))/12) + ((propertyValue * (maintenancePercent/100))/12) - monthlyRent)}</p>
                 </div>
               </div>
 
@@ -456,10 +456,10 @@ export default function BuyVsRentPageUS() {
             {/* Sunk Costs Table */}
             <div className="glass-panel p-6 bg-[var(--background)] rounded-2xl">
               <h2 className="text-xl font-bold text-[var(--foreground)] mb-2">The True "Throwing Money Away" Comparison</h2>
-              <p className="text-sm text-[#6B7280] mb-6">A breakdown of the unrecoverable costs (sunk costs) over {loanTerm} years.</p>
+              <p className="text-sm text-[#6B7280] dark:text-[#8B95A5] mb-6">A breakdown of the unrecoverable costs (sunk costs) over {loanTerm} years.</p>
               
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm text-[#6B7280]">
+                <table className="w-full text-left text-sm text-[#6B7280] dark:text-[#8B95A5]">
                   <thead className="text-xs text-[var(--foreground)] uppercase bg-[var(--panel-border)]/50">
                     <tr>
                       <th className="px-4 py-3 rounded-tl-lg">Sunk Cost Category</th>
@@ -512,7 +512,7 @@ export default function BuyVsRentPageUS() {
         <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
             <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">The Buy vs. Rent Dilemma (Math over Myth)</h2>
             
-            <div className="space-y-6 text-[#6B7280] leading-relaxed">
+            <div className="space-y-6 text-[#6B7280] dark:text-[#8B95A5] leading-relaxed">
                 <p>
                     The phrase <em>&quot;renting is throwing money away&quot;</em> is one of the most pervasive myths in personal finance. In reality, both buying and renting involve throwing money away on <strong>unrecoverable costs</strong>. 
                 </p>
@@ -557,7 +557,7 @@ export default function BuyVsRentPageUS() {
                         <h3 className="text-[var(--foreground)] font-medium text-base flex items-start gap-2">
                             <HelpCircle className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" /> {faq.name}
                         </h3>
-                        <p className="text-[#6B7280] text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                        <p className="text-[#6B7280] dark:text-[#8B95A5] text-sm mt-2 ml-7 leading-relaxed">{faq.acceptedAnswer.text}</p>
                     </div>
                 ))}
             </div>

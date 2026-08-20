@@ -275,7 +275,7 @@ export default function RetirementAccountCalculatorPage() {
       <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Mastering 401(k) and IRA Investing</h2>
           
-          <div className="space-y-6 text-[#6B7280] leading-relaxed">
+          <div className="space-y-6 text-[#6B7280] dark:text-[#8B95A5] leading-relaxed">
                 <p>
                     Building a secure retirement requires consistent saving and taking advantage of tax-advantaged accounts like <strong>401(k)s and IRAs</strong>. These accounts allow your money to grow either tax-deferred (Traditional) or tax-free (Roth), saving you significant amounts of money over a lifetime of investing.
                 </p>

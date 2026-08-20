@@ -135,7 +135,7 @@ export default function XirrCalculatorPage() {
               </div>
 
               <div className="space-y-4">
-                <div className="grid grid-cols-12 gap-4 text-sm font-medium text-[#6B7280] px-2">
+                <div className="grid grid-cols-12 gap-4 text-sm font-medium text-[#6B7280] dark:text-[#8B95A5] px-2">
                   <div className="col-span-5 md:col-span-4">Date</div>
                   <div className="col-span-5 md:col-span-6">Amount ($)</div>
                   <div className="col-span-2 text-center">Action</div>
@@ -176,7 +176,7 @@ export default function XirrCalculatorPage() {
               
               <div className="mt-6 bg-[var(--color-accent)]/5 p-4 rounded-xl flex items-start gap-3">
                 <Info className="w-5 h-5 text-[var(--color-accent)] shrink-0 mt-0.5" />
-                <p className="text-sm text-[#6B7280]">
+                <p className="text-sm text-[#6B7280] dark:text-[#8B95A5]">
                   <strong>Tip:</strong> Enter investments as <span className="text-[var(--color-loss)] font-medium">negative</span> numbers (e.g. -10,000) and withdrawals or current valuation as <span className="text-[var(--color-returns)] font-medium">positive</span> numbers (e.g. 15,000).
                 </p>
               </div>
@@ -190,7 +190,7 @@ export default function XirrCalculatorPage() {
               {result ? (
                 <div className="space-y-6">
                   <div className="text-center p-6 bg-[var(--background)] rounded-xl border border-[var(--panel-border)]">
-                    <p className="text-[#6B7280] text-sm font-medium mb-1">Annualized Return (XIRR)</p>
+                    <p className="text-[#6B7280] dark:text-[#8B95A5] text-sm font-medium mb-1">Annualized Return (XIRR)</p>
                     <p className={`text-4xl font-bold ${parseFloat(result.xirr) >= 0 ? 'text-[var(--color-returns)]' : 'text-[var(--color-loss)]'}`}>
                       {result.xirr}%
                     </p>
@@ -198,17 +198,17 @@ export default function XirrCalculatorPage() {
 
                   <div className="space-y-4">
                     <div className="flex justify-between items-center pb-4 border-b border-[var(--panel-border)]">
-                      <span className="text-[#6B7280]">Total Invested</span>
+                      <span className="text-[#6B7280] dark:text-[#8B95A5]">Total Invested</span>
                       <span className="font-bold text-[var(--color-accent)]">{formatCurrency(result.totalInvested)}</span>
                     </div>
                     
                     <div className="flex justify-between items-center pb-4 border-b border-[var(--panel-border)]">
-                      <span className="text-[#6B7280]">Current Value</span>
+                      <span className="text-[#6B7280] dark:text-[#8B95A5]">Current Value</span>
                       <span className="font-bold text-[var(--foreground)]">{formatCurrency(result.currentValuation)}</span>
                     </div>
                     
                     <div className="flex justify-between items-center">
-                      <span className="text-[#6B7280]">Total Returns</span>
+                      <span className="text-[#6B7280] dark:text-[#8B95A5]">Total Returns</span>
                       <span className={`font-bold ${result.netGain >= 0 ? 'text-[var(--color-returns)]' : 'text-[var(--color-loss)]'}`}>
                         {result.netGain > 0 ? '+' : ''}{formatCurrency(result.netGain)}
                       </span>
@@ -217,7 +217,7 @@ export default function XirrCalculatorPage() {
                 </div>
               ) : (
                 <div className="text-center p-8 bg-[var(--background)] rounded-xl border border-[var(--panel-border)] flex flex-col items-center justify-center min-h-[200px]">
-                  <p className="text-[#6B7280]">
+                  <p className="text-[#6B7280] dark:text-[#8B95A5]">
                     Enter at least one investment (negative) and one return (positive) amount to calculate XIRR.
                   </p>
                 </div>
@@ -231,7 +231,7 @@ export default function XirrCalculatorPage() {
       <div className="mt-16 glass-panel p-8 w-full rounded-3xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">Understanding XIRR in Investing</h2>
           
-          <div className="space-y-6 text-[#6B7280] leading-relaxed">
+          <div className="space-y-6 text-[#6B7280] dark:text-[#8B95A5] leading-relaxed">
               <p>
                   When you invest in the stock market, you rarely just drop a lump sum into an account and never touch it again. Most people invest a little bit from every paycheck, make occasional bonus deposits, and sometimes withdraw money for large purchases. Because these cash flows happen at <strong>irregular intervals</strong>, standard return metrics like absolute return or CAGR are wildly inaccurate.
               </p>
