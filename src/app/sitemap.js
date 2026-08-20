@@ -87,6 +87,7 @@ export default function sitemap() {
     '/blog/sip-vs-stp',
     '/blog/sip-vs-ulip',
     '/blog/step-up-sip',
+    '/blog/where-to-park-emergency-fund',
     '/blog/swp-vs-sip',
     '/blog/trigger-sip',
     '/blog/types-of-sip'
@@ -103,6 +104,7 @@ export default function sitemap() {
     '/us/blog/dynamic-dca',
     '/us/blog/flexi-dca',
     '/us/blog/step-up-dca',
+    '/us/blog/where-to-park-emergency-fund',
     '/us/blog/swp-vs-dca',
     '/us/blog/trigger-dca',
     '/us/blog/types-of-dca'

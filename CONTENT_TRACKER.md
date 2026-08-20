@@ -66,6 +66,7 @@ _These are reading materials and concepts._
 - [x] sip-vs-stp
 - [x] sip-vs-ulip
 - [x] step-up-sip
+- [x] where-to-park-emergency-fund
 - [x] swp-vs-sip
 - [x] trigger-sip
 - [x] types-of-sip
@@ -80,6 +81,7 @@ _These are reading materials and concepts._
 - [x] dynamic-dca
 - [x] flexi-dca
 - [x] step-up-dca
+- [x] where-to-park-emergency-fund
 - [x] swp-vs-dca
 - [x] trigger-dca
 - [x] types-of-dca
