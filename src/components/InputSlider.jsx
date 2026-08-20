@@ -34,20 +34,25 @@ export default function InputSlider({
     }
   }, [value]);
 
-  // ── Clamp + snap to step ──────────────────────────────────────────
-  const clamp = useCallback((raw) => {
+  // ── Clamp + snap to step (for slider) ─────────────────────────────
+  const sliderClamp = useCallback((raw) => {
     const clamped  = Math.max(min, Math.min(max, raw));
     const snapped  = Math.round((clamped - min) / step) * step + min;
     return Math.max(min, Math.min(max, parseFloat(snapped.toFixed(10))));
   }, [min, max, step]);
+
+  // ── Clamp only to min/max (for manual input) ───────────────────────
+  const inputClamp = useCallback((raw) => {
+    return Math.max(min, Math.min(max, raw));
+  }, [min, max]);
 
   // ── Convert pixel position → value ───────────────────────────────
   const pixelToValue = useCallback((clientX) => {
     const rect = trackRef.current?.getBoundingClientRect();
     if (!rect) return localValue;
     const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    return clamp(min + ratio * (max - min));
-  }, [clamp, min, max, localValue]);
+    return sliderClamp(min + ratio * (max - min));
+  }, [sliderClamp, min, max, localValue]);
 
   // ── Pointer events on the track wrapper ──────────────────────────
   const handlePointerDown = useCallback((e) => {
@@ -83,7 +88,7 @@ export default function InputSlider({
   };
 
   const handleInputBlur = () => {
-    const clamped = clamp(isNaN(Number(inputValue)) ? min : Number(inputValue));
+    const clamped = inputClamp(isNaN(Number(inputValue)) ? min : Number(inputValue));
     setInputValue(clamped.toString());
     onChange(clamped);
   };
