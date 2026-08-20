@@ -35,7 +35,7 @@ export default function USNetWorthCalculator() {
     datasets: [
       {
         data: [realEstate, investments, liquidCash, otherAssets],
-        backgroundColor: ['#1B3A5C', '#059669', '#C4993C', '#6B7280'],
+        backgroundColor: ['var(--color-accent)', '#059669', '#C4993C', '#6B7280'],
         borderWidth: 0,
         hoverOffset: 0,
       }
@@ -103,7 +103,7 @@ export default function USNetWorthCalculator() {
       <div className="xl:col-span-5 h-full flex flex-col gap-4">
         
         {/* Main Net Worth Card */}
-        <div className={`glass-panel p-6 rounded-2xl text-white shadow-lg relative overflow-hidden ${results.netWorth >= 0 ? 'bg-gradient-to-br from-[#1B3A5C] to-[#112740]' : 'bg-gradient-to-br from-[#991B1B] to-[#7f1d1d]'}`}>
+        <div className={`glass-panel p-6 rounded-2xl text-white shadow-lg relative overflow-hidden ${results.netWorth >= 0 ? 'bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-hover)]' : 'bg-gradient-to-br from-[#991B1B] to-[#7f1d1d]'}`}>
             <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Wallet className="w-24 h-24" />
             </div>
@@ -130,7 +130,7 @@ export default function USNetWorthCalculator() {
         {results.totalAssets > 0 && (
           <div className="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center relative">
             <h3 className="text-sm font-bold text-foreground mb-6 self-start flex items-center gap-2">
-              <PieChart className="w-4 h-4 text-[#1B3A5C]" /> Asset Breakdown
+              <PieChart className="w-4 h-4 text-[var(--color-accent)]" /> Asset Breakdown
             </h3>
             <div className="w-48 h-48 relative">
               <Doughnut data={chartData} options={chartOptions} />
@@ -138,7 +138,7 @@ export default function USNetWorthCalculator() {
             
             <div className="w-full grid grid-cols-2 gap-4 mt-8">
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#1B3A5C]"></div>
+                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)]"></div>
                 <div className="text-xs">
                   <p className="text-gray-500 dark:text-gray-400">Real Estate</p>
                   <p className="font-semibold text-foreground">{((realEstate / results.totalAssets) * 100).toFixed(1)}%</p>

@@ -26,7 +26,7 @@ export default function RetirementAccountCalculatorPage() {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
   const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
-  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+  const accentColor = 'var(--color-accent)';
 
   const [monthlyContribution, setMonthlyContribution] = useState(500);
   const [currentAge, setCurrentAge] = useState(30);
@@ -258,7 +258,7 @@ export default function RetirementAccountCalculatorPage() {
                     <p className="font-bold text-[var(--color-returns)] text-lg">{formatCurrency(monthlyIncome4Pct)}<span className="text-xs text-gray-400">/mo</span></p>
                   </div>
 
-                  <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm border border-l-4 border-l-[#1B3A5C]">
+                  <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm border border-l-4 border-l-[var(--color-accent)]">
                     <div>
                       <p className="text-sm font-medium text-[var(--color-accent)]">6% Withdrawal (Aggressive)</p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">Higher income, faster depletion</p>

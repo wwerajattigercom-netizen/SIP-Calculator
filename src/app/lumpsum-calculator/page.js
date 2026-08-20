@@ -105,7 +105,7 @@ export default function LumpsumCalculatorPage() {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
   const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
-  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+  const accentColor = 'var(--color-accent)';
 
   const [principal, setPrincipal] = useState(100000);
   const [rate, setRate]           = useState(12);

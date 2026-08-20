@@ -14,7 +14,7 @@ export default function GoalHub() {
       desc: 'Calculate how much you need to invest monthly to reach any specific financial target.',
       icon: Target,
       href: isUS ? '/us/target-amount-calculator' : '/target-amount-calculator',
-      color: '#1B3A5C'
+      color: 'var(--color-accent)'
     },
     {
       title: isUS ? 'Reach $1 Million' : 'Reach ₹1 Crore',
@@ -42,7 +42,7 @@ export default function GoalHub() {
       desc: 'Calculate the total nest egg you need to maintain your lifestyle after you stop working.',
       icon: Wallet,
       href: isUS ? '/us/tools/retirement-dca-calculator' : '/tools/retirement-sip-calculator',
-      color: '#1B3A5C'
+      color: 'var(--color-accent)'
     },
     {
       title: 'F.I.R.E Calculator',

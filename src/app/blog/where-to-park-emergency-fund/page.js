@@ -30,8 +30,8 @@ const OPTIONS = [
     tax: 'Taxed entirely at your income tax slab rate. TDS applies if interest > ₹40,000.',
     verdict: 'Good for 2-3 months of expenses. Look for Auto-Sweep FDs to avoid manual breaking.',
     icon: Landmark,
-    color: 'text-[#1B3A5C]',
-    bg: 'bg-[#1B3A5C]/10'
+    color: 'text-[var(--color-accent)]',
+    bg: 'bg-[var(--color-accent)]/10'
   },
   {
     title: 'Liquid Mutual Funds',
@@ -259,7 +259,7 @@ export default function EmergencyFundGuide() {
             </div>
 
             <div className="glass-panel p-8 rounded-3xl mt-12 mb-6 border border-black/5 dark:border-white/10 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#1B3A5C]"></div>
+              <div className="absolute top-0 left-0 w-2 h-full bg-[var(--color-accent)]"></div>
               <h2 className="text-2xl font-bold text-foreground mt-0 mb-4">
                 Debt Mutual Fund Taxation Update (2023)
               </h2>
@@ -277,7 +277,7 @@ export default function EmergencyFundGuide() {
               </div>
             </div>
 
-            <div className="mt-12 p-8 glass-panel rounded-3xl text-center bg-gradient-to-br from-[var(--color-accent)] to-[#112740] text-white border-0 shadow-lg relative overflow-hidden">
+            <div className="mt-12 p-8 glass-panel rounded-3xl text-center bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white border-0 shadow-lg relative overflow-hidden">
               <div className="relative z-10">
                 <h2 className="text-2xl font-bold text-white mb-4 mt-0">Ready to start planning your finances?</h2>
                 <p className="text-white/80 mb-6">

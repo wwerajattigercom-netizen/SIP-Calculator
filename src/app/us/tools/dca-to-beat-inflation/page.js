@@ -34,7 +34,7 @@ export default function SipBeatInflationPage() {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
   const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
-  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+  const accentColor = 'var(--color-accent)';
 
   const [sipAmount, setSipAmount] = useState(1000);
   const [duration, setDuration] = useState(20);

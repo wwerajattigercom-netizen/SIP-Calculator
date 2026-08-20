@@ -15,7 +15,7 @@ export default function LoanResultSection({ results }) {
   return (
     <div className="glass-panel p-4 lg:p-5 flex flex-col h-full relative overflow-hidden">
       {/* EMI Banner */}
-      <div className="bg-[#1B3A5C] text-white rounded-xl p-4 mb-4 flex items-center justify-between shadow-lg">
+      <div className="bg-[var(--color-accent)] text-white rounded-xl p-4 mb-4 flex items-center justify-between shadow-lg">
         <div className="flex flex-col">
           <span className="text-white/80 text-xs font-medium flex items-center gap-1.5 mb-1">
             <CalendarDays className="w-4 h-4" />
@@ -36,10 +36,10 @@ export default function LoanResultSection({ results }) {
       <div className="grid grid-cols-3 gap-2 relative z-10">
         <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
           <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
-            <div className="w-2 h-2 rounded-full bg-[#1B3A5C] mr-1.5"></div>
+            <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mr-1.5"></div>
             Principal
           </div>
-          <div className="text-sm font-extrabold text-[#1B3A5C]">
+          <div className="text-sm font-extrabold text-[var(--color-accent)]">
             {formatCurrency(results.loanAmount, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">

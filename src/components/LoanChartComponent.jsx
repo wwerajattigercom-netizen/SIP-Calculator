@@ -41,7 +41,7 @@ export default function LoanChartComponent({ results }) {
   const currentTheme = theme === 'system' ? systemTheme : theme;
   const isDark = mounted && currentTheme === 'dark';
 
-  const colorPrincipal = isDark ? '#1A73E8' : '#1B3A5C';
+  const colorPrincipal = 'var(--color-accent)';
   const colorInterest = '#991B1B'; // Dark Red
   const colorGrid = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
   const colorText = isDark ? '#9CA3AF' : '#6B7280';
@@ -173,7 +173,7 @@ export default function LoanChartComponent({ results }) {
                 <thead className="sticky top-0 bg-[var(--background)] z-10">
                   <tr className="border-b border-black/5 dark:border-white/10">
                     <th className="text-left text-gray-500 dark:text-gray-400 font-medium py-2 pr-2 pl-2">Year</th>
-                    <th className="text-right text-[#1B3A5C] font-medium py-2 px-2">Principal</th>
+                    <th className="text-right text-[var(--color-accent)] font-medium py-2 px-2">Principal</th>
                     <th className="text-right text-[#991B1B] font-medium py-2 px-2">Interest</th>
                     <th className="text-right text-gray-500 dark:text-gray-400 font-medium py-2 pl-2 pr-2">Balance</th>
                   </tr>
@@ -185,7 +185,7 @@ export default function LoanChartComponent({ results }) {
                       className="border-b border-black/5 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                     >
                       <td className="py-2 pr-2 pl-2 text-foreground font-semibold">{row.year}</td>
-                      <td className="py-2 px-2 text-right text-[#1B3A5C]">{formatCurrency(row.principalPaid, locale, currencyCode)}</td>
+                      <td className="py-2 px-2 text-right text-[var(--color-accent)]">{formatCurrency(row.principalPaid, locale, currencyCode)}</td>
                       <td className="py-2 px-2 text-right text-[#991B1B]">{formatCurrency(row.interestPaid, locale, currencyCode)}</td>
                       <td className="py-2 pl-2 pr-2 text-right text-foreground font-medium">{formatCurrency(row.remainingBalance, locale, currencyCode)}</td>
                     </tr>

@@ -185,12 +185,12 @@ export default function SWPCalculatorPage() {
   }, [corpus, monthlyWithdrawal, rate, years]);
 
   // ── Pie chart ──
-  // Doughnut/Pie chart: Total Withdrawn (Navy #1B3A5C) vs Remaining Corpus (Gold #C4993C)
+  // Doughnut/Pie chart: Total Withdrawn (Navy var(--color-accent)) vs Remaining Corpus (Gold #C4993C)
   const pieData = {
     labels: ['Total Withdrawn', 'Remaining Corpus'],
     datasets: [{
       data: [totalWithdrawn, finalRemaining],
-      backgroundColor: ['#1B3A5C', '#C4993C'],
+      backgroundColor: ['var(--color-accent)', '#C4993C'],
       borderColor: ['transparent', 'transparent'],
       borderWidth: 4,
       hoverOffset: 0,
@@ -208,7 +208,7 @@ export default function SWPCalculatorPage() {
   const lineData = {
     labels: yearlyData.map(d => `Yr ${d.year}`),
     datasets: [
-      { label: 'Corpus Balance', data: yearlyData.map(d => d.balance), borderColor: '#1B3A5C', backgroundColor: 'transparent', tension: 0.4, pointRadius: 0, pointHitRadius: 10, fill: false },
+      { label: 'Corpus Balance', data: yearlyData.map(d => d.balance), borderColor: 'var(--color-accent)', backgroundColor: 'transparent', tension: 0.4, pointRadius: 0, pointHitRadius: 10, fill: false },
     ],
   };
   const lineOptions = {
@@ -280,7 +280,7 @@ export default function SWPCalculatorPage() {
                 <p className="text-gray-500 dark:text-gray-400 text-xs mb-1">Also try:</p>
                 <Link
                   href="/us/dca-calculator"
-                  className="flex items-center gap-2 text-[#1B3A5C] text-xs hover:text-foreground transition-colors group"
+                  className="flex items-center gap-2 text-[var(--color-accent)] text-xs hover:text-foreground transition-colors group"
                 >
                   <Calculator className="w-3.5 h-3.5" />
                   <span>DCA + Step-Up Calculator — grow wealth month by month</span>
@@ -288,7 +288,7 @@ export default function SWPCalculatorPage() {
                 </Link>
                 <Link
                   href="/us/cagr-calculator"
-                  className="flex items-center gap-2 text-[#1B3A5C] text-xs hover:text-foreground transition-colors group"
+                  className="flex items-center gap-2 text-[var(--color-accent)] text-xs hover:text-foreground transition-colors group"
                 >
                   <TrendingUp className="w-3.5 h-3.5" />
                   <span>CAGR Calculator — calculate effective growth rate</span>
@@ -308,7 +308,7 @@ export default function SWPCalculatorPage() {
                       key={key}
                       onClick={() => setChartTab(key)}
                       className={`flex-1 py-1.5 rounded-md text-xs font-medium transition-all ${
-                        chartTab === key ? 'bg-[#1B3A5C] text-white shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-foreground'
+                        chartTab === key ? 'bg-[var(--color-accent)] text-white shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-foreground'
                       }`}
                     >{label}</button>
                   ))}
@@ -335,9 +335,9 @@ export default function SWPCalculatorPage() {
                 <div className="grid grid-cols-3 gap-2 relative z-10 mt-auto">
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold font-medium">
-                      <div className="w-2 h-2 rounded-full bg-[#1B3A5C] mr-1.5" />Withdrawn
+                      <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mr-1.5" />Withdrawn
                     </div>
-                    <div className="text-sm font-extrabold text-[#1B3A5C]">{formatCurrency(totalWithdrawn)}</div>
+                    <div className="text-sm font-extrabold text-[var(--color-accent)]">{formatCurrency(totalWithdrawn)}</div>
                     <div className="text-[9px] text-[#6B7280] dark:text-[#8B95A5] mt-0.5 tracking-wide">{formatToShortWords(totalWithdrawn)}</div>
                   </div>
 
@@ -420,7 +420,7 @@ export default function SWPCalculatorPage() {
                       >
                         <td className="py-2.5 px-4">
                           <div className="flex items-center gap-2">
-                            <span className={`font-semibold ${isLast ? 'text-[#1B3A5C]' : 'text-gray-600 dark:text-gray-400'}`}>
+                            <span className={`font-semibold ${isLast ? 'text-[var(--color-accent)]' : 'text-gray-600 dark:text-gray-400'}`}>
                               Year {year}
                             </span>
                             {isDepleted && !isLast && (
@@ -429,7 +429,7 @@ export default function SWPCalculatorPage() {
                               </span>
                             )}
                             {isLast && !isDepleted && (
-                              <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#1B3A5C] text-white">
+                              <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[var(--color-accent)] text-white">
                                 Final
                               </span>
                             )}
@@ -467,15 +467,15 @@ export default function SWPCalculatorPage() {
         {/* ── HOW TO USE ── */}
         <section id="how-to-use" aria-label="How to use the SWP calculator">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
-              <Info className="w-5 h-5 text-[#1B3A5C]" />
+            <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[var(--color-accent)]" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">How to Use This Calculator</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {HOW_TO_STEPS.map(({ step, title, desc }) => (
               <div key={step} className="glass-panel p-5 flex gap-4">
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white shadow-sm font-bold text-sm">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white shadow-sm font-bold text-sm">
                   {step}
                 </div>
                 <div>
@@ -490,8 +490,8 @@ export default function SWPCalculatorPage() {
         {/* ── FAQ ── */}
         <section id="faq" aria-label="SWP calculator frequently asked questions">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-xl">
-              <HelpCircle className="w-5 h-5 text-[#1B3A5C]" />
+            <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-xl">
+              <HelpCircle className="w-5 h-5 text-[var(--color-accent)]" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
           </div>
@@ -506,7 +506,7 @@ export default function SWPCalculatorPage() {
                 >
                   <span className="text-foreground font-medium text-sm pr-4">{q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#1B3A5C] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
+                    className={`w-4 h-4 text-[var(--color-accent)] flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`}
                   />
                 </button>
                 {openFaq === i && (
@@ -526,7 +526,7 @@ export default function SWPCalculatorPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Formula */}
               <div>
-                <h3 className="text-[#1B3A5C] font-semibold text-sm mb-3 uppercase tracking-wider">The Concept</h3>
+                <h3 className="text-[var(--color-accent)] font-semibold text-sm mb-3 uppercase tracking-wider">The Concept</h3>
                 <div className="bg-[rgba(27,58,92,0.1)] border border-[rgba(27,58,92,0.25)] rounded-xl p-4 font-mono text-center">
                   <p className="text-foreground text-sm font-bold mb-1">Remaining = (Previous Bal + Monthly Return) - Withdrawal</p>
                   <div className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-left space-y-1">
@@ -538,7 +538,7 @@ export default function SWPCalculatorPage() {
               </div>
               {/* Worked example */}
               <div>
-                <h3 className="text-[#1B3A5C] font-semibold text-sm mb-3 uppercase tracking-wider">Worked Example (Month 1)</h3>
+                <h3 className="text-[var(--color-accent)] font-semibold text-sm mb-3 uppercase tracking-wider">Worked Example (Month 1)</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between text-gray-500 dark:text-gray-400 border-b border-[#E8E4DF] pb-1">
                     <span>Starting Corpus</span>
@@ -569,21 +569,21 @@ export default function SWPCalculatorPage() {
             <p className="text-gray-500 dark:text-gray-400 text-xs text-center mb-4">All tools are free, real-time, and require no sign-up.</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <Link href="/us/dca-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
-                <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-lg flex-shrink-0">
-                  <Calculator className="w-4 h-4 text-[#1B3A5C]" />
+                <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
+                  <Calculator className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">Step-Up DCA</p>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Step-Up DCA</p>
                   <p className="text-gray-500 dark:text-gray-400 text-xs">Standard Calculator</p>
                 </div>
               </Link>
               
               <Link href="/us/lumpsum-calculator" className="flex items-center gap-3 glass-panel p-3 hover:bg-[rgba(27,58,92,0.15)] transition-all group rounded-xl">
-                <div className="bg-[#1B3A5C] bg-opacity-20 border border-[#1B3A5C] p-2 rounded-lg flex-shrink-0">
-                  <Layers className="w-4 h-4 text-[#1B3A5C]" />
+                <div className="bg-[var(--color-accent)] bg-opacity-20 border border-[var(--color-accent)] p-2 rounded-lg flex-shrink-0">
+                  <Layers className="w-4 h-4 text-[var(--color-accent)]" />
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold text-sm group-hover:text-[#1B3A5C] transition-colors">Lumpsum Returns</p>
+                  <p className="text-foreground font-semibold text-sm group-hover:text-[var(--color-accent)] transition-colors">Lumpsum Returns</p>
                   <p className="text-gray-500 dark:text-gray-400 text-xs">One-time investments</p>
                 </div>
               </Link>

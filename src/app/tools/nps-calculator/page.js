@@ -26,7 +26,7 @@ export default function NpsCalculatorPage() {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
   const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
-  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
+  const accentColor = 'var(--color-accent)';
 
   const [monthlyContribution, setMonthlyContribution] = useState(5000);
   const [currentAge, setCurrentAge] = useState(30);
@@ -270,7 +270,7 @@ export default function NpsCalculatorPage() {
                     <p className="font-bold text-[var(--foreground)] text-lg">{formatCurrency(lumpSumAmount)}</p>
                   </div>
 
-                  <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm border border-l-4 border-l-[#1B3A5C]">
+                  <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm border border-l-4 border-l-[var(--color-accent)]">
                     <div>
                       <p className="text-sm font-medium text-[var(--color-accent)]">Nominal Monthly Pension</p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">Future value at age 60</p>

@@ -108,7 +108,7 @@ export default function USTaxCalculator() {
       <div className="lg:col-span-7 h-full flex flex-col gap-4">
         
         {/* Banner */}
-        <div className="glass-panel p-5 bg-[#1B3A5C] text-white border-0 shadow-lg relative overflow-hidden flex flex-col justify-center">
+        <div className="glass-panel p-5 bg-[var(--color-accent)] text-white border-0 shadow-lg relative overflow-hidden flex flex-col justify-center">
             <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Landmark className="w-24 h-24" />
             </div>

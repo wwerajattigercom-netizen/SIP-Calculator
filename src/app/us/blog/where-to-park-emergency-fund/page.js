@@ -30,8 +30,8 @@ const OPTIONS = [
     tax: 'Interest is taxed as ordinary income.',
     verdict: 'Good for building a "CD Ladder" for months 3-6 of your emergency fund to lock in rates.',
     icon: Landmark,
-    color: 'text-[#1B3A5C]',
-    bg: 'bg-[#1B3A5C]/10'
+    color: 'text-[var(--color-accent)]',
+    bg: 'bg-[var(--color-accent)]/10'
   },
   {
     title: 'Money Market Account (MMA)',
@@ -193,7 +193,7 @@ export default function EmergencyFundGuideUS() {
               </div>
             </div>
 
-            <div className="mt-12 p-8 glass-panel rounded-3xl text-center bg-gradient-to-br from-[var(--color-accent)] to-[#112740] text-white border-0 shadow-lg relative overflow-hidden">
+            <div className="mt-12 p-8 glass-panel rounded-3xl text-center bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white border-0 shadow-lg relative overflow-hidden">
               <div className="relative z-10">
                 <h2 className="text-2xl font-bold text-white mb-4 mt-0">Ready to start planning your finances?</h2>
                 <p className="text-white/80 mb-6">
