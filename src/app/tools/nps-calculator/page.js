@@ -42,6 +42,7 @@ export default function NpsCalculatorPage() {
   const [annuityAmount, setAnnuityAmount] = useState(0);
   const [monthlyPension, setMonthlyPension] = useState(0);
   const [inflationAdjustedPension, setInflationAdjustedPension] = useState(0);
+  const [costOfDelay, setCostOfDelay] = useState(0);
 
   useEffect(() => {
     calculateNps();
@@ -61,6 +62,19 @@ export default function NpsCalculatorPage() {
         futureValue = monthlyContribution * ((Math.pow(1 + monthlyRate, monthsToInvest) - 1) / monthlyRate) * (1 + monthlyRate);
       }
     }
+
+    // Cost of Delay Calculation (Delaying by 5 years)
+    let delayedFutureValue = 0;
+    const delayedYears = Math.max(0, yearsToInvest - 5);
+    const delayedMonths = delayedYears * 12;
+    if (delayedMonths > 0) {
+      if (expectedReturn === 0) {
+        delayedFutureValue = monthlyContribution * delayedMonths;
+      } else {
+        delayedFutureValue = monthlyContribution * ((Math.pow(1 + monthlyRate, delayedMonths) - 1) / monthlyRate) * (1 + monthlyRate);
+      }
+    }
+    const wealthLost = Math.max(0, futureValue - delayedFutureValue);
     
     const invested = monthlyContribution * (monthsToInvest > 0 ? monthsToInvest : 0);
     const gains = futureValue - invested;
@@ -78,6 +92,7 @@ export default function NpsCalculatorPage() {
     setAnnuityAmount(Math.round(annuity));
     setMonthlyPension(Math.round(pension));
     setInflationAdjustedPension(Math.round(adjustedPension));
+    setCostOfDelay(Math.round(wealthLost));
   };
 
   const formatCurrency = (value) => {
@@ -203,6 +218,16 @@ export default function NpsCalculatorPage() {
                   id="expected-inflation"
                 />
               </div>
+
+              {/* Dynamic Insight Block */}
+              {costOfDelay > 0 && (
+                <div className="mt-8 p-5 bg-[#991B1B]/10 border border-[#991B1B]/20 rounded-xl">
+                  <h4 className="text-[#991B1B] font-bold mb-2">The Cost of Delay</h4>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    If you delay starting this NPS investment by just <strong>5 years</strong>, you will lose out on <strong className="text-[#991B1B]">{formatCurrency(costOfDelay)}</strong> from your final retirement corpus due to lost compound interest.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
