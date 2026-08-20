@@ -188,7 +188,7 @@ export default function EmergencyFundGuide() {
                 <h4 className="font-bold text-foreground text-lg m-0 mb-1">Bucket 3: The "Deep" Fund (3-6 Months)</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400 m-0">
                   <strong>Where:</strong> Arbitrage Funds or traditional FDs.<br/>
-                  <strong>Why:</strong> This is for major life events (job loss). If you are in the 30% tax bracket, Arbitrage funds held for >1 year are taxed at just 12.5% LTCG, heavily outperforming FDs post-tax.
+                  <strong>Why:</strong> This is for major life events (job loss). If you are in the 30% tax bracket, Arbitrage funds held for &gt;1 year are taxed at just 12.5% LTCG, heavily outperforming FDs post-tax.
                 </p>
               </div>
             </div>
