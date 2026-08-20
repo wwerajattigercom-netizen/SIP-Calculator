@@ -33,6 +33,7 @@ export default function FireCalculatorPage() {
     const [currentAge, setCurrentAge] = useState(30);
     const [retirementAge, setRetirementAge] = useState(45);
     const [expectedReturn, setExpectedReturn] = useState(12);
+    const [inflationRate, setInflationRate] = useState(6);
     const [currentSavings, setCurrentSavings] = useState(0);
 
     const [results, setResults] = useState({
@@ -43,8 +44,10 @@ export default function FireCalculatorPage() {
     });
 
     useEffect(() => {
-        const corpus = annualExpenses / (swr / 100);
         const years = Math.max(0, retirementAge - currentAge);
+        const inflatedExpenses = annualExpenses * Math.pow(1 + (inflationRate / 100), years);
+        const corpus = inflatedExpenses / (swr / 100);
+        
         const months = years * 12;
         const r = expectedReturn / 12 / 100;
         
@@ -68,7 +71,7 @@ export default function FireCalculatorPage() {
             totalInvested: invested,
             wealthGained: gained
         });
-    }, [annualExpenses, swr, currentAge, retirementAge, expectedReturn, currentSavings]);
+    }, [annualExpenses, swr, currentAge, retirementAge, expectedReturn, currentSavings, inflationRate]);
 
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('en-IN', {
@@ -148,6 +151,16 @@ export default function FireCalculatorPage() {
                                 onChange={setExpectedReturn}
                                 min={1}
                                 max={30}
+                                step={0.5}
+                                suffix="%"
+                            />
+
+                            <InputSlider
+                                label="Expected Inflation (%)"
+                                value={inflationRate}
+                                onChange={setInflationRate}
+                                min={0}
+                                max={15}
                                 step={0.5}
                                 suffix="%"
                             />
