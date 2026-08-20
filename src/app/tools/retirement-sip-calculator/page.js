@@ -182,7 +182,7 @@ export default function RetirementSipCalculatorPage() {
               </div>
               <div className="h-3 w-full bg-[rgba(0,0,0,0.05)] rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-gradient-to-r from-[var(--color-accent)] to-[#C4993C]"
+                  className="h-full bg-gradient-to-r from-[#1B3A5C] dark:from-[#1A73E8] to-[#C4993C]"
                   style={{ width: '100%' }}
                 ></div>
               </div>

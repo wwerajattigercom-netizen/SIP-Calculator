@@ -72,7 +72,7 @@ export default function AboutPage() {
         <div className="glass-panel p-8 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.1)] to-transparent pointer-events-none" />
           <div className="relative z-10">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent)] flex items-center justify-center mx-auto mb-4 shadow-sm">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1B3A5C] dark:from-[#1A73E8] to-[#1B3A5C] dark:to-[#1A73E8] flex items-center justify-center mx-auto mb-4 shadow-sm">
               <TrendingUp className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl font-extrabold text-foreground mb-2">

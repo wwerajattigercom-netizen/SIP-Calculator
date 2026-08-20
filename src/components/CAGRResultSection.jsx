@@ -38,7 +38,7 @@ export default function CAGRResultSection({ results }) {
     ? [initialInvestment, sipContributions, Math.max(0, absoluteGain)]
     : [initialInvestment, Math.max(0, absoluteGain)];
 
-  const accentColor = 'var(--color-accent)';
+  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
   const pieColors = monthlySip > 0
     ? [accentColor, '#325C8C', '#C4993C']
     : [accentColor, '#C4993C'];

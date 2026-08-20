@@ -128,7 +128,7 @@ export default function TypesOfSipPage() {
             </div>
 
             {/* 5. Perpetual SIP */}
-            <div className="glass-panel p-6 border-l-4 border-l-[var(--color-accent)]">
+            <div className="glass-panel p-6 border-l-4 border-l-[#1B3A5C]">
               <div className="flex justify-between items-start mb-2">
                 <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
                   <Infinity className="w-5 h-5 text-[var(--color-accent)]" /> 5. Perpetual SIP

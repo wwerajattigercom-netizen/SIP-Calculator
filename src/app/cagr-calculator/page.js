@@ -349,7 +349,7 @@ export default function CAGRCalculatorPage() {
                               className="h-full rounded-full transition-all duration-500"
                               style={{
                                 width:      `${progress}%`,
-                                background: isLast ? 'var(--color-accent)' : 'linear-gradient(90deg, var(--color-accent), var(--color-accent))',
+                                background: isLast ? 'var(--color-accent)' : 'linear-gradient(90deg, #1B3A5C, #1B3A5C)',
                               }}
                             />
                           </div>

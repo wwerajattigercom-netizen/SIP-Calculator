@@ -45,7 +45,7 @@ export default function BuyVsRentPage() {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
   const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
-  const accentColor = 'var(--color-accent)';
+  const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
 
   // State
   const [propertyValue, setPropertyValue] = useState(10000000);

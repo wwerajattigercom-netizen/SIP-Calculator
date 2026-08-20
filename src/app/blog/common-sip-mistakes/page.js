@@ -97,7 +97,7 @@ export default function CommonSipMistakesPage() {
             </div>
 
             {/* Mistake 4 */}
-            <div className="glass-panel p-6 border-l-4 border-l-[var(--color-accent)]">
+            <div className="glass-panel p-6 border-l-4 border-l-[#1B3A5C]">
               <h2 className="text-xl font-bold text-foreground flex items-center gap-3 mb-3">
                 <ShieldAlert className="w-6 h-6 text-[var(--color-accent)]" />
                 4. Over-Diversification (Owning 10+ Funds)
@@ -139,7 +139,7 @@ export default function CommonSipMistakesPage() {
             </div>
 
             {/* Mistake 7 */}
-            <div className="glass-panel p-6 border-l-4 border-l-[var(--color-accent)]">
+            <div className="glass-panel p-6 border-l-4 border-l-[#1B3A5C]">
               <h2 className="text-xl font-bold text-foreground flex items-center gap-3 mb-3">
                 <Percent className="w-6 h-6 text-[var(--color-accent)]" />
                 7. Ignoring the "Regular" vs "Direct" Trap

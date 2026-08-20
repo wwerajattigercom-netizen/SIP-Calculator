@@ -148,7 +148,7 @@ export default function XirrCalculatorPage() {
                         type="date" 
                         value={cf.date}
                         onChange={(e) => updateCashFlow(cf.id, 'date', e.target.value)}
-                        className="w-full bg-[var(--panel-bg)] border border-[var(--panel-border)] rounded-lg px-3 py-2 text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20"
+                        className="w-full bg-[var(--panel-bg)] border border-[var(--panel-border)] rounded-lg px-3 py-2 text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[#1B3A5C] dark:ring-[#1A73E8]/20"
                       />
                     </div>
                     <div className="col-span-5 md:col-span-6">
@@ -157,7 +157,7 @@ export default function XirrCalculatorPage() {
                         value={cf.amount}
                         onChange={(e) => updateCashFlow(cf.id, 'amount', e.target.value)}
                         placeholder="e.g. -10000 for investment"
-                        className={`w-full bg-[var(--panel-bg)] border border-[var(--panel-border)] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 ${parseFloat(cf.amount) < 0 ? 'text-[var(--color-loss)]' : 'text-[var(--color-returns)]'}`}
+                        className={`w-full bg-[var(--panel-bg)] border border-[var(--panel-border)] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1B3A5C] dark:ring-[#1A73E8]/20 ${parseFloat(cf.amount) < 0 ? 'text-[var(--color-loss)]' : 'text-[var(--color-returns)]'}`}
                       />
                     </div>
                     <div className="col-span-2 flex justify-center">

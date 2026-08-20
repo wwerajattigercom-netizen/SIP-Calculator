@@ -70,7 +70,7 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
                             ? 'var(--color-accent)'
                             : isGoalCrossed
                             ? '#0D9488'
-                            : `linear-gradient(90deg, var(--color-accent), var(--color-accent))`,
+                            : `linear-gradient(90deg, #1B3A5C, #1B3A5C)`,
                         }}
                       />
                     </div>

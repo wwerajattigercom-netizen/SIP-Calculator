@@ -234,7 +234,7 @@ export default function SipForChildEducationPage() {
                     <span>College (Age {targetAge})</span>
                   </div>
                   <div className="h-2 w-full bg-[var(--panel-bg)] rounded-full overflow-hidden flex">
-                    <div className="h-full bg-gradient-to-r from-[var(--color-accent)] to-[#C4993C] w-full relative">
+                    <div className="h-full bg-gradient-to-r from-[#1B3A5C] dark:from-[#1A73E8] to-[#C4993C] w-full relative">
                        <div className="absolute top-0 right-0 h-full w-full bg-[linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.1)_50%,transparent_100%)] animate-[shimmer_2s_infinite]" style={{ backgroundSize: '200% 100%' }}></div>
                     </div>
                   </div>

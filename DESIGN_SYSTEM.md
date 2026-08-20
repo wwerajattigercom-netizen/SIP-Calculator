@@ -14,7 +14,7 @@
 ### Primary Colors
 | Purpose | Color Name | Hex | Usage |
 |---------|------------|-----|-------|
-| Primary | Dark Navy | `var(--color-accent)` | Invested amounts, slider fills, buttons, dot indicators, pie chart invested slice |
+| Primary | Dark Navy | `#1B3A5C` | Invested amounts, slider fills, buttons, dot indicators, pie chart invested slice |
 | Returns | Emerald | `#059669` | Earned/gains amount text. *Never use teal (`#0D9488`)* |
 | Gains (Chart) | Dark Gold | `#C4993C` | Pie chart returns slice, line chart secondary lines |
 | Text | Charcoal | `#1F2937` | Headings, labels, total amounts |
@@ -24,13 +24,13 @@
 ### Amount Text Rules
 When rendering calculated numbers, the text color must correspond to the semantic meaning:
 - **Total Corpus / Future Value**: `text-foreground` or `text-[#1F2937]` (Black/Charcoal)
-- **Invested Amount**: `text-[var(--color-accent)]` or `text-[var(--color-accent)]` (Navy Blue)
+- **Invested Amount**: `text-[var(--color-accent)]` or `text-[#1B3A5C]` (Navy Blue)
 - **Earned Returns / Wealth Gained**: `text-[var(--color-returns)]` or `text-[#059669]` (Green)
 - **Loss / Cost of Delay**: `text-[var(--color-loss)]` or `text-[#991B1B]` (Dark Red)
 
 ### Buttons
-- **Primary**: `bg-[var(--color-accent)] text-white hover:bg-[#112740]`
-- **Secondary**: `border border-[var(--color-accent)]/40 text-[var(--color-accent)]`
+- **Primary**: `bg-[#1B3A5C] text-white hover:bg-[#112740]`
+- **Secondary**: `border border-[#1B3A5C]/40 text-[#1B3A5C]`
 - **Rule**: Whenever there is a blue background, text MUST be white.
 
 ---
