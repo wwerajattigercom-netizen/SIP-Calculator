@@ -145,7 +145,7 @@ export default function IndiaTaxCalculator() {
                     <span className={`text-2xl font-extrabold ${results.winner === 'New Regime' ? 'text-[var(--color-accent)]' : 'text-foreground'}`}>
                         {formatCurrency(results.totalTaxNew, 'en-IN', 'INR')}
                     </span>
-                    {results.totalTaxNew === 0 && <span className="text-[10px] text-[#059669] mt-1 font-bold">Tax Free! (Rebate 87A)</span>}
+                    {results.totalTaxNew === 0 && <span className="text-[10px] text-[var(--color-returns)] mt-1 font-bold">Tax Free! (Rebate 87A)</span>}
                 </div>
             </div>
 
@@ -182,7 +182,7 @@ export default function IndiaTaxCalculator() {
                     <span className={`text-2xl font-extrabold ${results.winner === 'Old Regime' ? 'text-[var(--color-accent)]' : 'text-foreground'}`}>
                         {formatCurrency(results.totalTaxOld, 'en-IN', 'INR')}
                     </span>
-                    {results.totalTaxOld === 0 && <span className="text-[10px] text-[#059669] mt-1 font-bold">Tax Free! (Rebate 87A)</span>}
+                    {results.totalTaxOld === 0 && <span className="text-[10px] text-[var(--color-returns)] mt-1 font-bold">Tax Free! (Rebate 87A)</span>}
                 </div>
             </div>
 

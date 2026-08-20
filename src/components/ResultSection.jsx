@@ -54,7 +54,7 @@ export default function ResultSection({ results }) {
             <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5"></div>
             Earned
           </div>
-          <div className="text-sm font-extrabold text-[#059669]">
+          <div className="text-sm font-extrabold text-[var(--color-returns)]">
             +{formatCurrency(results.amountEarned, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">

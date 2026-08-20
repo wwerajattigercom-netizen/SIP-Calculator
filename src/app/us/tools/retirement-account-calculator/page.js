@@ -203,8 +203,8 @@ export default function RetirementAccountCalculatorPage() {
                     return (
                       <div className="bg-[rgba(153,27,27,0.05)] border border-[rgba(153,27,27,0.2)] p-5 rounded-xl">
                         <div className="flex items-center gap-2 mb-2">
-                          <AlertTriangle className="w-5 h-5 text-[#991B1B]" />
-                          <span className="text-[#991B1B] font-bold text-sm">The High Cost of Waiting</span>
+                          <AlertTriangle className="w-5 h-5 text-[var(--color-loss)]" />
+                          <span className="text-[var(--color-loss)] font-bold text-sm">The High Cost of Waiting</span>
                         </div>
                         <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
                           If you wait just <strong>{delayYears} years</strong> to begin saving this amount, your retirement nest egg will drop to <strong>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(delayedFutureValue)}</strong>. 

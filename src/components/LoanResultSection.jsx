@@ -52,7 +52,7 @@ export default function LoanResultSection({ results }) {
             <div className="w-2 h-2 rounded-full bg-[#991B1B] mr-1.5"></div>
             Total Interest
           </div>
-          <div className="text-sm font-extrabold text-[#991B1B]">
+          <div className="text-sm font-extrabold text-[var(--color-loss)]">
             {formatCurrency(results.totalInterest, locale, currencyCode)}
           </div>
           <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">

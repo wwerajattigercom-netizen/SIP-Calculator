@@ -165,7 +165,7 @@ export default function USTaxCalculator() {
                                 <td className="py-2.5 text-right font-medium text-gray-700 dark:text-gray-300">
                                     {formatCurrency(b.amount, 'en-US', 'USD')}
                                 </td>
-                                <td className="py-2.5 text-right font-bold text-[#991B1B]">
+                                <td className="py-2.5 text-right font-bold text-[var(--color-loss)]">
                                     {formatCurrency(b.tax, 'en-US', 'USD')}
                                 </td>
                             </tr>

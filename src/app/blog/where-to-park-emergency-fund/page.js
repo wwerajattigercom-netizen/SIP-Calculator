@@ -106,7 +106,7 @@ export default function EmergencyFundGuide() {
             
             <div className="glass-panel p-6 rounded-2xl mb-10 border-l-4 border-[#991B1B]">
               <div className="flex items-start gap-4">
-                <AlertTriangle className="w-8 h-8 text-[#991B1B] flex-shrink-0" />
+                <AlertTriangle className="w-8 h-8 text-[var(--color-loss)] flex-shrink-0" />
                 <div>
                   <h3 className="text-lg font-bold text-foreground m-0 mb-2">The Two Golden Rules of Emergency Funds</h3>
                   <ul className="m-0 pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
@@ -152,7 +152,7 @@ export default function EmergencyFundGuide() {
                   
                   <div className="mt-4 pt-4 border-t border-black/5 dark:border-white/5">
                     <div className="flex gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#059669] flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-[var(--color-returns)] flex-shrink-0 mt-0.5" />
                       <p className="text-sm font-medium text-gray-700 dark:text-gray-300 m-0 leading-snug">
                         {opt.verdict}
                       </p>
@@ -194,7 +194,7 @@ export default function EmergencyFundGuide() {
             </div>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-6 flex items-center gap-2 border-b border-black/5 dark:border-white/10 pb-4">
-              <AlertTriangle className="w-6 h-6 text-[#991B1B]" />
+              <AlertTriangle className="w-6 h-6 text-[var(--color-loss)]" />
               Potential Improvements & Blind Spots
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -203,7 +203,7 @@ export default function EmergencyFundGuide() {
             
             <div className="space-y-4 mb-10">
               <div className="glass-panel p-5 rounded-xl border border-black/5 dark:border-white/5 bg-[#991B1B]/5">
-                <h4 className="font-bold text-[#991B1B] text-lg m-0 mb-2">1. Insta-Redemption Constraints</h4>
+                <h4 className="font-bold text-[var(--color-loss)] text-lg m-0 mb-2">1. Insta-Redemption Constraints</h4>
                 <p className="text-sm text-gray-700 dark:text-gray-300 m-0 leading-relaxed">
                   The guide mentions instant ₹50,000 withdrawals for Liquid Funds but omits that the rule is strictly <strong>₹50,000 or 90% of the invested amount</strong>, whichever is lower, per day. For a severe medical emergency requiring a large upfront hospital deposit at 2 AM, this daily cap can be a severe bottleneck. Always keep Bucket 1 properly funded.
                 </p>
@@ -225,7 +225,7 @@ export default function EmergencyFundGuide() {
             </div>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-6 flex items-center gap-2 border-b border-black/5 dark:border-white/10 pb-4">
-              <TrendingUp className="w-6 h-6 text-[#059669]" />
+              <TrendingUp className="w-6 h-6 text-[var(--color-returns)]" />
               Hypothetical Implementation
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -250,7 +250,7 @@ export default function EmergencyFundGuide() {
               </div>
 
               <div className="glass-panel p-5 rounded-xl border-t-4 border-t-[#059669] flex flex-col h-full shadow-sm hover:-translate-y-1 transition-transform">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#059669] mb-1">Bucket 3 (3 Months)</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-[var(--color-returns)] mb-1">Bucket 3 (3 Months)</div>
                 <h4 className="font-bold text-foreground text-xl m-0 mb-3">₹1,50,000</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400 m-0 flex-1">
                   Parked in an Arbitrage Fund. Assuming a 6.5% return held for over one year, the ₹9,750 gain falls under the ₹1.25L tax-free equity threshold, yielding a true 6.5% post-tax return.

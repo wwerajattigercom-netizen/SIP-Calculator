@@ -325,7 +325,7 @@ export default function SWPCalculatorPage() {
                       <Doughnut data={pieData} options={pieOptions} />
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                         <span className="text-xs text-gray-500 dark:text-gray-400">Total Withdrawn</span>
-                        <span className="text-lg md:text-xl font-bold text-[#1F2937]">{formatCurrency(totalWithdrawn)}</span>
+                        <span className="text-lg md:text-xl font-bold text-foreground">{formatCurrency(totalWithdrawn)}</span>
                         <span className="text-[10px] text-[#6B7280] dark:text-[#8B95A5]">{formatToShortWords(totalWithdrawn)}</span>
                       </div>
                     </>
@@ -348,7 +348,7 @@ export default function SWPCalculatorPage() {
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
                       <div className="w-2 h-2 rounded-full bg-[#C4993C] mr-1.5" />Rem. Corpus</div>
-                    <div className="text-sm font-extrabold text-[#1F2937]">
+                    <div className="text-sm font-extrabold text-foreground">
                       {formatCurrency(finalRemaining)}</div>
                     <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(finalRemaining)}</div>
                   </div>
@@ -356,7 +356,7 @@ export default function SWPCalculatorPage() {
                   <div className="bg-black/5 dark:bg-white/5 rounded-lg p-2 flex flex-col justify-center">
                     <div className="flex items-center text-foreground text-[11px] mb-0.5 font-semibold">
                       <div className="w-2 h-2 rounded-full bg-transparent border border-[#059669] mr-1.5" />Returns</div>
-                    <div className={`text-sm font-extrabold ${totalReturns >= 0 ? 'text-[#059669]' : 'text-[#991B1B]'}`}>
+                    <div className={`text-sm font-extrabold ${totalReturns >= 0 ? 'text-[var(--color-returns)]' : 'text-[var(--color-loss)]'}`}>
                       {totalReturns >= 0 ? '+' : ''}{formatCurrency(totalReturns)}</div>
                     <div className="text-[9px] text-gray-500 dark:text-gray-400 mt-0.5 tracking-wide">{formatToShortWords(totalReturns)}</div>
                   </div>
@@ -364,11 +364,11 @@ export default function SWPCalculatorPage() {
                   {/* Longevity Indicator */}
                   <div className="col-span-3 mt-1 bg-black/5 dark:bg-white/5 rounded-lg px-3 py-2 flex items-center gap-2">
                     {depletedMonthTotal ? (
-                      <AlertCircle className="w-3.5 h-3.5 text-[#991B1B] flex-shrink-0" />
+                      <AlertCircle className="w-3.5 h-3.5 text-[var(--color-loss)] flex-shrink-0" />
                     ) : (
-                      <TrendingUp className="w-3.5 h-3.5 text-[#059669] flex-shrink-0" />
+                      <TrendingUp className="w-3.5 h-3.5 text-[var(--color-returns)] flex-shrink-0" />
                     )}
-                    <span className={`text-[11px] font-medium ${depletedMonthTotal ? 'text-[#991B1B]' : 'text-[#1F2937]'}`}>
+                    <span className={`text-[11px] font-medium ${depletedMonthTotal ? 'text-[var(--color-loss)]' : 'text-foreground'}`}>
                       {longevityMessage}
                     </span>
                   </div>
@@ -399,7 +399,7 @@ export default function SWPCalculatorPage() {
                   <tr className="bg-[rgba(27,58,92,0.12)] border-b border-black/5 dark:border-white/10">
                     <th className="text-left   text-[#6B7280] dark:text-[#8B95A5] font-semibold py-3 px-4">Year</th>
                     <th className="text-right  text-gray-500 dark:text-gray-400 font-semibold py-3 px-3">Yearly Withdrawn</th>
-                    <th className="text-right  text-[#059669] font-semibold py-3 px-3">Yearly Returns</th>
+                    <th className="text-right  text-[var(--color-returns)] font-semibold py-3 px-3">Yearly Returns</th>
                     <th className="text-right  text-[#6B7280] dark:text-[#8B95A5] font-semibold py-3 px-4">End of Year Balance</th>
                   </tr>
                 </thead>
@@ -451,11 +451,11 @@ export default function SWPCalculatorPage() {
                         <td className="py-2.5 px-3 text-right text-gray-500 dark:text-gray-400">
                           <div>{formatCurrency(yearlyWithdrawn)}</div>
                         </td>
-                        <td className="py-2.5 px-3 text-right text-[#059669]">
+                        <td className="py-2.5 px-3 text-right text-[var(--color-returns)]">
                           {yearlyReturns > 0 ? `+${formatCurrency(yearlyReturns)}` : '—'}
                         </td>
                         <td className="py-2.5 px-4 text-right">
-                          <div className={`font-bold ${isDepleted ? 'text-[#991B1B]' : 'text-[#1F2937]'}`}>
+                          <div className={`font-bold ${isDepleted ? 'text-[var(--color-loss)]' : 'text-foreground'}`}>
                             {formatCurrency(balance)}
                           </div>
                         </td>
@@ -535,8 +535,8 @@ export default function SWPCalculatorPage() {
                   <p className="text-foreground text-sm font-bold mb-1">Remaining = (Previous Bal + Monthly Return) - Withdrawal</p>
                   <div className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-left space-y-1">
                     <p>Unlike simple interest, the corpus continuously earns returns while you withdraw.</p>
-                    <p>If <strong className="text-[#059669]">Monthly Return &gt; Withdrawal</strong>, the corpus grows indefinitely.</p>
-                    <p>If <strong className="text-[#991B1B]">Monthly Return &lt; Withdrawal</strong>, the corpus eventually depletes.</p>
+                    <p>If <strong className="text-[var(--color-returns)]">Monthly Return &gt; Withdrawal</strong>, the corpus grows indefinitely.</p>
+                    <p>If <strong className="text-[var(--color-loss)]">Monthly Return &lt; Withdrawal</strong>, the corpus eventually depletes.</p>
                   </div>
                 </div>
               </div>
@@ -550,15 +550,15 @@ export default function SWPCalculatorPage() {
                   </div>
                   <div className="flex justify-between text-gray-500 dark:text-gray-400 border-b border-[#E8E4DF] pb-1">
                     <span>Return (e.g. 12% p.a. = 1% per month)</span>
-                    <span className="text-[#059669] font-medium">+ $5,000</span>
+                    <span className="text-[var(--color-returns)] font-medium">+ $5,000</span>
                   </div>
                   <div className="flex justify-between text-gray-500 dark:text-gray-400 border-b border-[#E8E4DF] pb-1">
                     <span>Withdrawal</span>
-                    <span className="text-[#991B1B] font-medium">- $3,000</span>
+                    <span className="text-[var(--color-loss)] font-medium">- $3,000</span>
                   </div>
                   <div className="flex justify-between items-center pt-1">
                     <span className="text-gray-500 dark:text-gray-400">End of Month 1 Balance</span>
-                    <span className="text-[#1F2937] font-bold text-base">$502,000</span>
+                    <span className="text-foreground font-bold text-base">$502,000</span>
                   </div>
                 </div>
               </div>

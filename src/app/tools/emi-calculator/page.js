@@ -155,7 +155,7 @@ export default function EmiCalculator() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className={`p-2 rounded-xl bg-opacity-20 dark:bg-opacity-10 border ${isHighInterest ? 'bg-[#991B1B] border-[#991B1B]' : 'bg-[var(--color-accent)] border-[var(--color-accent)]'}`}>
-                  <AlertTriangle className={`w-5 h-5 ${isHighInterest ? 'text-[#991B1B]' : 'text-[var(--color-accent)]'}`} />
+                  <AlertTriangle className={`w-5 h-5 ${isHighInterest ? 'text-[var(--color-loss)]' : 'text-[var(--color-accent)]'}`} />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">The True Cost of Debt</h3>
               </div>
@@ -166,7 +166,7 @@ export default function EmiCalculator() {
             </div>
             <div className="mt-4 p-4 rounded-xl bg-[var(--background)] border border-gray-100 dark:border-white/5 shadow-sm">
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Total Interest Paid</p>
-              <p className={`text-2xl font-bold ${isHighInterest ? 'text-[#991B1B]' : 'text-foreground'}`}>
+              <p className={`text-2xl font-bold ${isHighInterest ? 'text-[var(--color-loss)]' : 'text-foreground'}`}>
                 {currencySymbol}{results.totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               </p>
             </div>
@@ -178,7 +178,7 @@ export default function EmiCalculator() {
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-xl bg-[#059669] bg-opacity-20 dark:bg-opacity-10 border border-[#059669]">
-                    <Lightbulb className="w-5 h-5 text-[#059669]" />
+                    <Lightbulb className="w-5 h-5 text-[var(--color-returns)]" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground">The Prepayment Magic</h3>
                 </div>
@@ -196,7 +196,7 @@ export default function EmiCalculator() {
                   </div>
                   <div className="text-right">
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Interest Saved</p>
-                    <p className="text-xl font-bold text-[#059669]">
+                    <p className="text-xl font-bold text-[var(--color-returns)]">
                       {currencySymbol}{prepaymentResults.savedInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                     </p>
                   </div>

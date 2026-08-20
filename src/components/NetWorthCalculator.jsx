@@ -80,7 +80,7 @@ export default function NetWorthCalculator() {
         {/* Assets Panel */}
         <div className="glass-panel p-5 relative flex flex-col gap-3 rounded-2xl border-t-4 border-t-[#059669]">
           <div className="flex items-center gap-2 mb-2">
-            <Landmark className="w-5 h-5 text-[#059669]" />
+            <Landmark className="w-5 h-5 text-[var(--color-returns)]" />
             <h2 className="text-lg font-bold text-foreground">Your Assets (What you own)</h2>
           </div>
           <InputSlider label="Real Estate (Property value)" value={realEstate} onChange={setRealEstate} min={0} max={50000000} step={100000} prefix="₹" />
@@ -92,7 +92,7 @@ export default function NetWorthCalculator() {
         {/* Liabilities Panel */}
         <div className="glass-panel p-5 relative flex flex-col gap-3 rounded-2xl border-t-4 border-t-[#991B1B]">
           <div className="flex items-center gap-2 mb-2">
-            <ShieldAlert className="w-5 h-5 text-[#991B1B]" />
+            <ShieldAlert className="w-5 h-5 text-[var(--color-loss)]" />
             <h2 className="text-lg font-bold text-foreground">Your Liabilities (What you owe)</h2>
           </div>
           <InputSlider label="Home Loan Outstanding" value={homeLoan} onChange={setHomeLoan} min={0} max={50000000} step={100000} prefix="₹" />

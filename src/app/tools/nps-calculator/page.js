@@ -222,9 +222,9 @@ export default function NpsCalculatorPage() {
               {/* Dynamic Insight Block */}
               {costOfDelay > 0 && (
                 <div className="mt-8 p-5 bg-[#991B1B]/10 border border-[#991B1B]/20 rounded-xl">
-                  <h4 className="text-[#991B1B] font-bold mb-2">The Cost of Delay</h4>
+                  <h4 className="text-[var(--color-loss)] font-bold mb-2">The Cost of Delay</h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    If you delay starting this NPS investment by just <strong>5 years</strong>, you will lose out on <strong className="text-[#991B1B]">{formatCurrency(costOfDelay)}</strong> from your final retirement corpus due to lost compound interest.
+                    If you delay starting this NPS investment by just <strong>5 years</strong>, you will lose out on <strong className="text-[var(--color-loss)]">{formatCurrency(costOfDelay)}</strong> from your final retirement corpus due to lost compound interest.
                   </p>
                 </div>
               )}
@@ -280,10 +280,10 @@ export default function NpsCalculatorPage() {
 
                   <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm border border-l-4 border-l-[#991B1B]">
                     <div>
-                      <p className="text-sm font-medium text-[#991B1B]">Inflation-Adjusted Pension</p>
+                      <p className="text-sm font-medium text-[var(--color-loss)]">Inflation-Adjusted Pension</p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">True purchasing power in today's money</p>
                     </div>
-                    <p className="font-bold text-[#991B1B] text-xl">{formatCurrency(inflationAdjustedPension)}</p>
+                    <p className="font-bold text-[var(--color-loss)] text-xl">{formatCurrency(inflationAdjustedPension)}</p>
                   </div>
                 </div>
               </div>

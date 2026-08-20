@@ -399,12 +399,12 @@ export default function SipVsLumpsumPage() {
           <div className="glass-panel p-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-[#991B1B] bg-opacity-10 border border-[#991B1B]/20 p-2 rounded-xl">
-                <TrendingDown className="w-5 h-5 text-[#991B1B]" />
+                <TrendingDown className="w-5 h-5 text-[var(--color-loss)]" />
               </div>
               <h2 className="text-xl font-bold text-foreground">Market Crash Buffer Analysis</h2>
             </div>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-              Imagine a sudden <strong>20% market crash</strong> tomorrow. If you invested your entire <strong>{formatToShortWords(totalAmount)}</strong> as a lumpsum today, you would immediately face a paper loss of <strong className="text-[#991B1B]">{formatToShortWords(totalAmount * 0.20)}</strong>.
+              Imagine a sudden <strong>20% market crash</strong> tomorrow. If you invested your entire <strong>{formatToShortWords(totalAmount)}</strong> as a lumpsum today, you would immediately face a paper loss of <strong className="text-[var(--color-loss)]">{formatToShortWords(totalAmount * 0.20)}</strong>.
             </p>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mt-2">
               However, with <strong>DCA</strong>, you only expose a small fraction of your capital to the immediate drop. More importantly, your future monthly installments will automatically buy units at the new 20% discount, significantly lowering your average cost per unit and accelerating your recovery when the market rebounds.

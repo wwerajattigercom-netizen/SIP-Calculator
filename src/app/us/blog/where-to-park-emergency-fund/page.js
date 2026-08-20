@@ -106,7 +106,7 @@ export default function EmergencyFundGuideUS() {
             
             <div className="glass-panel p-6 rounded-2xl mb-10 border-l-4 border-[#991B1B]">
               <div className="flex items-start gap-4">
-                <AlertTriangle className="w-8 h-8 text-[#991B1B] flex-shrink-0" />
+                <AlertTriangle className="w-8 h-8 text-[var(--color-loss)] flex-shrink-0" />
                 <div>
                   <h3 className="text-lg font-bold text-foreground m-0 mb-2">The Two Golden Rules of Emergency Funds</h3>
                   <ul className="m-0 pl-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
@@ -152,7 +152,7 @@ export default function EmergencyFundGuideUS() {
                   
                   <div className="mt-4 pt-4 border-t border-black/5 dark:border-white/5">
                     <div className="flex gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#059669] flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-[var(--color-returns)] flex-shrink-0 mt-0.5" />
                       <p className="text-sm font-medium text-gray-700 dark:text-gray-300 m-0 leading-snug">
                         {opt.verdict}
                       </p>

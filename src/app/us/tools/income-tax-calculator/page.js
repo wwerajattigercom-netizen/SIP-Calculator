@@ -79,7 +79,7 @@ export default function USIncomeTaxCalculatorPage() {
         <section id="strategy-deductions" aria-label="Standard vs Itemized Deductions" className="w-full glass-panel p-6 md:p-8 rounded-3xl mb-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="bg-[#059669] bg-opacity-20 dark:bg-opacity-10 border border-[#059669] p-2 rounded-xl">
-              <Info className="w-5 h-5 text-[#059669]" />
+              <Info className="w-5 h-5 text-[var(--color-returns)]" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">Strategy: Standard vs Itemized</h2>
           </div>
