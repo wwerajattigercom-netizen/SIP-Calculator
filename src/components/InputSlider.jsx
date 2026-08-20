@@ -83,12 +83,17 @@ export default function InputSlider({
   // ── Text box handlers ─────────────────────────────────────────────
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    const num = Number(e.target.value);
+    const rawStr = e.target.value.replace(/,/g, '');
+    const num = Number(rawStr);
     if (!isNaN(num) && num >= min && num <= max) onChange(num);
   };
 
   const handleInputBlur = () => {
-    const clamped = inputClamp(isNaN(Number(inputValue)) ? min : Number(inputValue));
+    const rawStr = inputValue.toString().replace(/,/g, '');
+    let num = Number(rawStr);
+    if (isNaN(num)) num = min;
+    
+    const clamped = inputClamp(num);
     setInputValue(clamped.toString());
     onChange(clamped);
   };
