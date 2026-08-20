@@ -17,7 +17,7 @@ export default function ResultSection({ results }) {
 
 
       {/* Chart Area */}
-      <div className="h-[250px] min-h-[250px] max-h-[250px] w-full mb-4 relative z-10 flex-shrink-0">
+      <div className="w-full mb-4 relative z-10 flex-shrink-0">
         <ChartComponent results={results} />
       </div>
 
