@@ -19,7 +19,7 @@ export default function YearlyGrowthTable({ yearlyData, targetAmount, goalTotalM
     <div className="glass-panel overflow-hidden">
       <div className="px-5 py-4 border-b border-black/5 dark:border-white/10">
         <h2 className="text-foreground font-bold text-base">Year-by-Year Wealth Growth</h2>
-        <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">How your portfolio compounds toward {currencySymbol}{formatToShortWords(targetAmount, isUS)}</p>
+        <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">How your portfolio compounds toward {formatToShortWords(targetAmount, isUS)}</p>
       </div>
 
       <div className="overflow-x-auto">

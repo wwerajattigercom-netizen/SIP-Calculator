@@ -4,25 +4,26 @@ export function formatCurrency(value, locale = 'en-IN', currencyCode = 'INR') {
 }
 
 export function formatToShortWords(num, isUS = false) {
-  if (num === undefined || num === null || num === 0) return "Zero";
+  const sym = isUS ? "$" : "₹";
+  if (num === undefined || num === null || num === 0) return `${sym}0`;
   
   if (isUS) {
     if (num >= 1000000000) {
-      return (num / 1000000000).toFixed(2).replace(/\.?0+$/, '') + " Billion";
+      return sym + (num / 1000000000).toFixed(2).replace(/\.?0+$/, '') + " Billion";
     } else if (num >= 1000000) {
-      return (num / 1000000).toFixed(2).replace(/\.?0+$/, '') + " Million";
+      return sym + (num / 1000000).toFixed(2).replace(/\.?0+$/, '') + " Million";
     } else if (num >= 1000) {
-      return (num / 1000).toFixed(2).replace(/\.?0+$/, '') + "k";
+      return sym + (num / 1000).toFixed(2).replace(/\.?0+$/, '') + "k";
     }
   } else {
     if (num >= 10000000) {
-      return (num / 10000000).toFixed(2).replace(/\.?0+$/, '') + " Crore";
+      return sym + (num / 10000000).toFixed(2).replace(/\.?0+$/, '') + " Crore";
     } else if (num >= 100000) {
-      return (num / 100000).toFixed(2).replace(/\.?0+$/, '') + " Lakh";
+      return sym + (num / 100000).toFixed(2).replace(/\.?0+$/, '') + " Lakh";
     } else if (num >= 1000) {
-      return (num / 1000).toFixed(2).replace(/\.?0+$/, '') + " Thousand";
+      return sym + (num / 1000).toFixed(2).replace(/\.?0+$/, '') + " Thousand";
     }
   }
   
-  return num.toString();
+  return sym + num.toString();
 }
