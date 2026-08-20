@@ -193,55 +193,89 @@ export default function EmergencyFundGuide() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">Potential Improvements & Blind Spots</h2>
-            <p>
+            <h2 className="text-2xl font-bold text-foreground mt-12 mb-6 flex items-center gap-2 border-b border-black/5 dark:border-white/10 pb-4">
+              <AlertTriangle className="w-6 h-6 text-[#991B1B]" />
+              Potential Improvements & Blind Spots
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
               While the proposed "3-Bucket Strategy" is theoretically excellent, it overlooks a few practical realities that an investor needs to know:
             </p>
-            <ul className="space-y-4">
-              <li><strong>Insta-Redemption Constraints:</strong> The guide mentions instant ₹50,000 withdrawals for Liquid Funds but omits that the rule is strictly ₹50,000 or 90% of the invested amount, whichever is lower, per day. For a severe medical emergency requiring a large upfront hospital deposit, this daily cap can be a severe bottleneck.</li>
-              <li><strong>Arbitrage Short-Term Volatility:</strong> Arbitrage funds are technically equity funds. While they are very low-risk over a 12-month period, they can occasionally deliver flat or mildly negative returns over a 1-to-3-month horizon depending on market futures premiums. They must strictly remain in the final "Deep" bucket.</li>
-              <li><strong>Auto-Sweep LIFO Mechanics:</strong> Many banks process auto-sweep FD withdrawals using a Last-In-First-Out (LIFO) method. If your account sweeps ₹20,000 into an FD today, and you break it via ATM withdrawal next week, it earns negligible interest and may still incur a small premature penalty, effectively acting just like a savings account.</li>
-            </ul>
+            
+            <div className="space-y-4 mb-10">
+              <div className="glass-panel p-5 rounded-xl border border-black/5 dark:border-white/5 bg-[#991B1B]/5">
+                <h4 className="font-bold text-[#991B1B] text-lg m-0 mb-2">1. Insta-Redemption Constraints</h4>
+                <p className="text-sm text-gray-700 dark:text-gray-300 m-0 leading-relaxed">
+                  The guide mentions instant ₹50,000 withdrawals for Liquid Funds but omits that the rule is strictly <strong>₹50,000 or 90% of the invested amount</strong>, whichever is lower, per day. For a severe medical emergency requiring a large upfront hospital deposit at 2 AM, this daily cap can be a severe bottleneck. Always keep Bucket 1 properly funded.
+                </p>
+              </div>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">Hypothetical Implementation</h2>
-            <p>
+              <div className="glass-panel p-5 rounded-xl border border-black/5 dark:border-white/5 bg-[var(--color-accent)]/5">
+                <h4 className="font-bold text-[var(--color-accent)] text-lg m-0 mb-2">2. Arbitrage Short-Term Volatility</h4>
+                <p className="text-sm text-gray-700 dark:text-gray-300 m-0 leading-relaxed">
+                  Arbitrage funds are technically equity funds. While they are very low-risk over a 12-month period, they can occasionally deliver flat or mildly negative returns over a 1-to-3-month horizon depending on market futures premiums. They must strictly remain in the final "Deep" bucket and should not be relied upon for next-week cash needs.
+                </p>
+              </div>
+
+              <div className="glass-panel p-5 rounded-xl border border-black/5 dark:border-white/5 bg-gray-500/5">
+                <h4 className="font-bold text-gray-700 dark:text-gray-300 text-lg m-0 mb-2">3. Auto-Sweep LIFO Mechanics</h4>
+                <p className="text-sm text-gray-700 dark:text-gray-300 m-0 leading-relaxed">
+                  Many banks process auto-sweep FD withdrawals using a Last-In-First-Out (LIFO) method. If your account sweeps ₹20,000 into an FD today, and you break it via ATM withdrawal next week, it earns negligible interest and may still incur a small premature penalty, effectively acting just like a 0% savings account.
+                </p>
+              </div>
+            </div>
+
+            <h2 className="text-2xl font-bold text-foreground mt-12 mb-6 flex items-center gap-2 border-b border-black/5 dark:border-white/10 pb-4">
+              <TrendingUp className="w-6 h-6 text-[#059669]" />
+              Hypothetical Implementation
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
               Assuming a baseline monthly expense of ₹50,000 and an investor in the 30% tax bracket, here is how the math for this strategy plays out in reality:
             </p>
             
-            <div className="space-y-4 my-8">
-              <div className="glass-panel p-5 rounded-xl border border-gray-100 dark:border-white/5">
-                <h4 className="font-bold text-foreground m-0 mb-1">Bucket 1 (1 Month - ₹50,000)</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 m-0">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+              <div className="glass-panel p-5 rounded-xl border-t-4 border-t-gray-500 flex flex-col h-full shadow-sm hover:-translate-y-1 transition-transform">
+                <div className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Bucket 1 (1 Month)</div>
+                <h4 className="font-bold text-foreground text-xl m-0 mb-3">₹50,000</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 m-0 flex-1">
                   Kept in a standard Savings Account. It sacrifices yield for absolute 24/7 liquidity.
                 </p>
               </div>
-              <div className="glass-panel p-5 rounded-xl border border-gray-100 dark:border-white/5">
-                <h4 className="font-bold text-foreground m-0 mb-1">Bucket 2 (2 Months - ₹1,00,000)</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 m-0">
+
+              <div className="glass-panel p-5 rounded-xl border-t-4 border-t-[var(--color-accent)] flex flex-col h-full shadow-sm hover:-translate-y-1 transition-transform">
+                <div className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-1">Bucket 2 (2 Months)</div>
+                <h4 className="font-bold text-foreground text-xl m-0 mb-3">₹1,00,000</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 m-0 flex-1">
                   Parked in a Liquid Mutual Fund. Assuming a 6.5% return taxed at the 30% slab rate, the effective post-tax return drops to roughly 4.5%.
                 </p>
               </div>
-              <div className="glass-panel p-5 rounded-xl border border-gray-100 dark:border-white/5">
-                <h4 className="font-bold text-foreground m-0 mb-1">Bucket 3 (3 Months - ₹1,50,000)</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 m-0">
+
+              <div className="glass-panel p-5 rounded-xl border-t-4 border-t-[#059669] flex flex-col h-full shadow-sm hover:-translate-y-1 transition-transform">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#059669] mb-1">Bucket 3 (3 Months)</div>
+                <h4 className="font-bold text-foreground text-xl m-0 mb-3">₹1,50,000</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 m-0 flex-1">
                   Parked in an Arbitrage Fund. Assuming a 6.5% return held for over one year, the ₹9,750 gain falls under the ₹1.25L tax-free equity threshold, yielding a true 6.5% post-tax return.
                 </p>
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-6 border-t border-black/5 dark:border-white/10 pt-8">
-              Debt Mutual Fund Taxation Update (2023)
-            </h2>
-            <p>
-              Prior to April 1, 2023, Liquid Funds enjoyed indexation benefits, making them significantly better than FDs for long-term holding. However, <strong>under the new tax rules, all gains from debt mutual funds (including Liquid Funds) are taxed at your income tax slab rate</strong>, irrespective of the holding period.
-            </p>
-            <p>
-              Does this mean Liquid funds are useless? No. They still offer two massive advantages over FDs:
-            </p>
-            <ul>
-              <li><strong>No Tax Deducted at Source (TDS):</strong> FDs deduct 10% TDS every year if interest exceeds ₹40k, reducing the power of compounding. Liquid funds only tax you upon withdrawal.</li>
-              <li><strong>No Premature Penalty:</strong> Breaking an FD early incurs a 0.5% to 1% penalty. Liquid funds have zero exit load after 7 days.</li>
-            </ul>
+            <div className="glass-panel p-8 rounded-3xl mt-12 mb-6 border border-black/5 dark:border-white/10 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#1B3A5C]"></div>
+              <h2 className="text-2xl font-bold text-foreground mt-0 mb-4">
+                Debt Mutual Fund Taxation Update (2023)
+              </h2>
+              <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4">
+                <p className="m-0">
+                  Prior to April 1, 2023, Liquid Funds enjoyed indexation benefits, making them significantly better than FDs for long-term holding. However, <strong>under the new tax rules, all gains from debt mutual funds (including Liquid Funds) are taxed at your income tax slab rate</strong>, irrespective of the holding period.
+                </p>
+                <p className="m-0">
+                  Does this mean Liquid funds are useless? No. They still offer two massive advantages over FDs:
+                </p>
+                <ul className="m-0 pl-5 space-y-2">
+                  <li><strong>No Tax Deducted at Source (TDS):</strong> FDs deduct 10% TDS every year if interest exceeds ₹40k, severely reducing the power of compounding. Liquid funds only tax you upon withdrawal.</li>
+                  <li><strong>No Premature Penalty:</strong> Breaking an FD early incurs a 0.5% to 1% penalty. Liquid funds have zero exit load after 7 days.</li>
+                </ul>
+              </div>
+            </div>
 
             <div className="mt-12 p-8 glass-panel rounded-3xl text-center bg-gradient-to-br from-[var(--color-accent)] to-[#112740] text-white border-0 shadow-lg relative overflow-hidden">
               <div className="relative z-10">
