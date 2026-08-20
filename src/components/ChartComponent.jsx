@@ -57,8 +57,8 @@ export default function ChartComponent({ results }) {
       {
         data: [results.totalInvested, results.amountEarned],
         backgroundColor: [colorInvested, colorReturns],
-        borderColor: 'transparent',
-        borderWidth: 0,
+        borderColor: 'transparent', borderWidth: 0,
+        borderWidth: 4,
         hoverOffset: 0,
       },
     ],
@@ -68,9 +68,6 @@ export default function ChartComponent({ results }) {
     responsive: true,
     maintainAspectRatio: false,
     cutout: '75%',
-    layout: {
-      padding: 10
-    },
     plugins: {
       legend: { display: false },
       tooltip: {
@@ -142,7 +139,7 @@ export default function ChartComponent({ results }) {
   const milestones = results.milestones || [];
 
   return (
-    <div className="w-full flex flex-col items-center justify-center">
+    <div className="w-full h-full flex flex-col items-center justify-center">
       {/* Tab bar */}
       <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-lg mb-2 w-full max-w-[320px]">
         {[
@@ -165,28 +162,26 @@ export default function ChartComponent({ results }) {
       </div>
 
       {/* Content area */}
-      <div className="relative w-full h-[220px]">
+      <div className="relative w-full flex-1 min-h-[180px] flex justify-center items-center overflow-hidden">
 
         {chartType === 'pie' && (
-          <div className="w-full h-full pb-2 relative">
+          <>
             <Doughnut data={pieData} options={pieOptions} />
-            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pb-2">
+            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
               <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">Total Value</span>
               <span className="text-lg md:text-xl font-bold text-foreground">
                 {formatCurrency(results.actualAmount, locale, currencyCode)}
               </span>
             </div>
-          </div>
+          </>
         )}
 
         {chartType === 'line' && (
-          <div className="w-full h-full pb-2 relative">
-            <Line data={lineData} options={lineOptions} />
-          </div>
+          <Line data={lineData} options={lineOptions} />
         )}
 
         {chartType === 'milestones' && (
-          <div className="w-full h-full flex flex-col px-1 py-1">
+          <div className="w-full h-full absolute inset-0 flex flex-col px-1 py-1">
             {milestones.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center text-gray-500 dark:text-gray-400 text-sm">
                 <Zap className="w-8 h-8 mb-2 text-gray-600 dark:text-gray-400" />
