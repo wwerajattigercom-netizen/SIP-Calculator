@@ -13,7 +13,7 @@ const jsonLd = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'What is the National Pension System (NPS)?', acceptedAnswer: { '@type': 'Answer', text: 'NPS is a voluntary, long-term retirement savings scheme managed by the PFRDA and Government of India. It allows you to invest in a mix of equity, corporate bonds, and government securities to build a retirement corpus.' } },
-    { '@type': 'Question', name: 'How much tax can I save with NPS?', acceptedAnswer: { '@type': 'Answer', text: 'NPS offers an exclusive additional tax deduction of ₹50,000 under Section 80CCD(1B), over and above the ₹1.5 Lakh limit under Section 80C. This makes it an excellent tax-saving tool for higher bracket earners.' } },
+    { '@type': 'Question', name: 'How much tax can I save with NPS?', acceptedAnswer: { '@type': 'Answer', text: 'If you opt for the Old Tax Regime, NPS offers an exclusive additional tax deduction of ₹50,000 under Section 80CCD(1B). However, under the default New Tax Regime, this ₹50,000 deduction is no longer available, and only employer contributions remain tax-exempt.' } },
     { '@type': 'Question', name: 'What happens at maturity (Age 60) in NPS?', acceptedAnswer: { '@type': 'Answer', text: 'At age 60, you can withdraw up to 60% of your total accumulated corpus completely tax-free as a lump sum. The remaining 40% MUST be used to purchase an Annuity plan, which provides a regular monthly pension that is taxable as per your income slab.' } },
     { '@type': 'Question', name: 'Can I withdraw money from NPS before age 60?', acceptedAnswer: { '@type': 'Answer', text: 'NPS is highly illiquid by design. You can make partial withdrawals up to 25% of your own contributions for specific reasons (children\'s education, marriage, house purchase, critical illness) after completing 3 years. Premature exit before 60 requires 80% to go to annuity.' } }
   ]
@@ -32,6 +32,7 @@ export default function NpsCalculatorPage() {
   const [currentAge, setCurrentAge] = useState(30);
   const [expectedReturn, setExpectedReturn] = useState(10);
   const [annuityReturn, setAnnuityReturn] = useState(6);
+  const [expectedInflation, setExpectedInflation] = useState(6);
   
   // Results
   const [totalInvested, setTotalInvested] = useState(0);
@@ -40,14 +41,16 @@ export default function NpsCalculatorPage() {
   const [lumpSumAmount, setLumpSumAmount] = useState(0);
   const [annuityAmount, setAnnuityAmount] = useState(0);
   const [monthlyPension, setMonthlyPension] = useState(0);
+  const [inflationAdjustedPension, setInflationAdjustedPension] = useState(0);
 
   useEffect(() => {
     calculateNps();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [monthlyContribution, currentAge, expectedReturn, annuityReturn]);
+  }, [monthlyContribution, currentAge, expectedReturn, annuityReturn, expectedInflation]);
 
   const calculateNps = () => {
-    const monthsToInvest = (60 - currentAge) * 12;
+    const yearsToInvest = 60 - currentAge;
+    const monthsToInvest = yearsToInvest * 12;
     const monthlyRate = expectedReturn / 12 / 100;
     
     let futureValue = 0;
@@ -64,6 +67,9 @@ export default function NpsCalculatorPage() {
     const lumpSum = futureValue * 0.6;
     const annuity = futureValue * 0.4;
     const pension = (annuity * (annuityReturn / 100)) / 12;
+    
+    // Calculate the purchasing power of this pension in today's money
+    const adjustedPension = pension / Math.pow(1 + (expectedInflation / 100), yearsToInvest);
 
     setTotalInvested(Math.round(invested));
     setTotalCorpus(Math.round(futureValue));
@@ -71,6 +77,7 @@ export default function NpsCalculatorPage() {
     setLumpSumAmount(Math.round(lumpSum));
     setAnnuityAmount(Math.round(annuity));
     setMonthlyPension(Math.round(pension));
+    setInflationAdjustedPension(Math.round(adjustedPension));
   };
 
   const formatCurrency = (value) => {
@@ -184,6 +191,17 @@ export default function NpsCalculatorPage() {
                   suffix="%"
                   id="annuity-return"
                 />
+
+                <InputSlider
+                  label="Expected Inflation Rate"
+                  value={expectedInflation}
+                  min={2}
+                  max={10}
+                  step={0.5}
+                  onChange={setExpectedInflation}
+                  suffix="%"
+                  id="expected-inflation"
+                />
               </div>
             </div>
           </div>
@@ -229,10 +247,18 @@ export default function NpsCalculatorPage() {
 
                   <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm border border-l-4 border-l-[#1B3A5C]">
                     <div>
-                      <p className="text-sm font-medium text-[var(--color-accent)]">Monthly Pension</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">From 40% Annuity ({annuityReturn}%)</p>
+                      <p className="text-sm font-medium text-[var(--color-accent)]">Nominal Monthly Pension</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Future value at age 60</p>
                     </div>
                     <p className="font-bold text-[var(--color-returns)] text-xl">{formatCurrency(monthlyPension)}</p>
+                  </div>
+
+                  <div className="flex justify-between items-center p-3 bg-[var(--panel-bg)] rounded-lg shadow-sm border border-l-4 border-l-[#991B1B]">
+                    <div>
+                      <p className="text-sm font-medium text-[#991B1B]">Inflation-Adjusted Pension</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">True purchasing power in today's money</p>
+                    </div>
+                    <p className="font-bold text-[#991B1B] text-xl">{formatCurrency(inflationAdjustedPension)}</p>
                   </div>
                 </div>
               </div>
@@ -247,12 +273,13 @@ export default function NpsCalculatorPage() {
           
           <div className="space-y-6 text-[#6B7280] leading-relaxed">
               <p>
-                  Building a secure retirement requires consistent saving and taking advantage of tax-advantaged accounts like the <strong>National Pension System (NPS)</strong>. NPS allows your money to grow while providing an exclusive ₹50,000 tax deduction, saving you up to ₹15,600 in taxes annually if you are in the 30% bracket.
+                  Building a secure retirement requires consistent saving and taking advantage of retirement-focused accounts like the <strong>National Pension System (NPS)</strong>. 
+                  However, be aware of recent tax changes: If you opt for the <strong>Old Tax Regime</strong>, NPS provides an exclusive ₹50,000 tax deduction under Section 80CCD(1B), saving you up to ₹15,600 annually in the 30% bracket. <strong>If you use the New Tax Regime (the default for most), this ₹50,000 deduction is NO LONGER available.</strong> Only employer contributions (up to 14% of basic salary) remain tax-exempt under the new regime.
               </p>
 
               <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">Tier I vs Tier II Accounts</h3>
               <p>
-                  The NPS comes with two account types. The <strong>Tier I account</strong> is the mandatory retirement account. It offers the tax deductions but comes with strict lock-in rules until age 60. The <strong>Tier II account</strong> is a voluntary investment account with no lock-in (you can withdraw anytime), but it offers no tax benefits.
+                  The NPS comes with two account types. The <strong>Tier I account</strong> is the mandatory retirement account with strict lock-in rules until age 60. The <strong>Tier II account</strong> is a voluntary investment account with no lock-in (you can withdraw anytime), but it offers no tax benefits whatsoever.
               </p>
 
               <h3 className="text-xl font-semibold text-[var(--foreground)] mt-8 mb-4">The 60/40 Rule at Maturity</h3>
