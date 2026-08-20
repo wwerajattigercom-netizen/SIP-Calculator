@@ -6,11 +6,11 @@ import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { useTheme } from 'next-themes';
 
-ChartJS.register(ArcElement, Tooltip);
 import Link from 'next/link';
 import { ArrowRight, HelpCircle, Home, TrendingUp } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 import InputSlider from '@/components/InputSlider';
+
 
 function fmt(val) {
   if (val >= 10000000) return `₹${(val / 10000000).toFixed(2)} Cr`;
@@ -45,7 +45,7 @@ export default function SipForHousePage() {
 
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
+  React.useEffect(() => { setMounted(true); ChartJS.register(ArcElement, Tooltip); }, []);
   const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
   const colorInvested = isDark ? '#1A73E8' : '#1B3A5C';
   const [currentPrice, setCurrentPrice] = useState(8000000);
@@ -78,6 +78,18 @@ export default function SipForHousePage() {
     const initialStepUpSip = requiredDownPayment / fvFactorStepUp;
 
     
+return {
+      futurePrice,
+      requiredDownPayment,
+      requiredSip,
+      totalInvested,
+      gainsFromSip,
+      remainingLoan,
+      emi,
+      initialStepUpSip
+    };
+  }, [currentPrice, appreciation, yearsToBuy, downPaymentPct, returnRate]);
+
   const pieData = {
     labels: ['Total Invested', 'Est. Returns'],
     datasets: [{
@@ -94,17 +106,6 @@ export default function SipForHousePage() {
     maintainAspectRatio: false,
     plugins: { tooltip: { backgroundColor: '#1F2937', titleColor: '#F3F4F6', bodyColor: '#D1D5DB' } }
   };
-return {
-      futurePrice,
-      requiredDownPayment,
-      requiredSip,
-      totalInvested,
-      gainsFromSip,
-      remainingLoan,
-      emi,
-      initialStepUpSip
-    };
-  }, [currentPrice, appreciation, yearsToBuy, downPaymentPct, returnRate]);
 
   return (
     <>
