@@ -162,22 +162,24 @@ export default function ChartComponent({ results }) {
       </div>
 
       {/* Content area */}
-      <div className="relative w-full flex-1 min-h-[180px] flex justify-center items-center overflow-hidden">
+      <div className="relative w-full flex-1 min-h-[180px]">
 
         {chartType === 'pie' && (
-          <>
+          <div className="absolute inset-0 pb-2">
             <Doughnut data={pieData} options={pieOptions} />
-            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pb-2">
               <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">Total Value</span>
               <span className="text-lg md:text-xl font-bold text-foreground">
                 {formatCurrency(results.actualAmount, locale, currencyCode)}
               </span>
             </div>
-          </>
+          </div>
         )}
 
         {chartType === 'line' && (
-          <Line data={lineData} options={lineOptions} />
+          <div className="absolute inset-0 pb-2">
+            <Line data={lineData} options={lineOptions} />
+          </div>
         )}
 
         {chartType === 'milestones' && (
