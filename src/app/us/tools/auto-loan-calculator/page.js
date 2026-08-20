@@ -1,7 +1,7 @@
 
 "use client";
 import React, { useState, useMemo } from 'react';
-import { Info } from 'lucide-react';
+import { Info, AlertTriangle, Lightbulb } from 'lucide-react';
 import InputSlider from '@/components/InputSlider';
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -75,6 +75,47 @@ export default function AutoLoanCalculator() {
     };
   }, [loanAmount, rate, years]);
 
+  const prepaymentResults = useMemo(() => {
+    if (!results || results.emi === 0) return null;
+    const p = loanAmount;
+    const r = (rate / 12) / 100;
+    const emi = results.emi;
+    
+    let balance = p;
+    let months = 0;
+    let totalInterestPaid = 0;
+    
+    while (balance > 0 && months < 1200) {
+      months++;
+      const interest = balance * r;
+      totalInterestPaid += interest;
+      let payment = emi;
+      if (months % 12 === 0) {
+        payment += emi;
+      }
+      const principal = payment - interest;
+      balance -= principal;
+      if (balance < 0) balance = 0;
+    }
+    
+    const savedMonths = (years * 12) - months;
+    const savedYears = Math.floor(savedMonths / 12);
+    const savedMonthsRemainder = savedMonths % 12;
+    const savedInterest = results.totalInterest - totalInterestPaid;
+    
+    return {
+      newTenureMonths: months,
+      savedMonths,
+      savedYears,
+      savedMonthsRemainder,
+      savedInterest,
+      totalInterestPaid
+    };
+  }, [loanAmount, rate, years, results]);
+
+  const interestRatio = loanAmount > 0 ? (results.totalInterest / loanAmount) * 100 : 0;
+  const isHighInterest = interestRatio >= 40;
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -107,6 +148,64 @@ export default function AutoLoanCalculator() {
       </main>
 
       <div className="max-w-6xl w-full mx-auto px-4 pb-16 space-y-16 mt-12">
+        {/* Dynamic Educational Blocks */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* The True Cost of Debt */}
+          <div className="glass-panel p-6 md:p-8 rounded-3xl flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`p-2 rounded-xl bg-opacity-20 dark:bg-opacity-10 border ${isHighInterest ? 'bg-[#991B1B] border-[#991B1B]' : 'bg-[var(--color-accent)] border-[var(--color-accent)]'}`}>
+                  <AlertTriangle className={`w-5 h-5 ${isHighInterest ? 'text-[#991B1B]' : 'text-[var(--color-accent)]'}`} />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">The True Cost of Debt</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                For a loan of {currencySymbol}{loanAmount.toLocaleString()}, you will pay back a total of {currencySymbol}{results.totalPayable.toLocaleString(undefined, { maximumFractionDigits: 0 })}. 
+                That means your total interest is <span className="font-bold text-foreground">{interestRatio.toFixed(1)}%</span> of your principal.
+              </p>
+            </div>
+            <div className="mt-4 p-4 rounded-xl bg-[var(--background)] border border-gray-100 dark:border-white/5 shadow-sm">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Total Interest Paid</p>
+              <p className={`text-2xl font-bold ${isHighInterest ? 'text-[#991B1B]' : 'text-foreground'}`}>
+                {currencySymbol}{results.totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+              </p>
+            </div>
+          </div>
+
+          {/* The Prepayment Magic */}
+          {prepaymentResults && (
+            <div className="glass-panel p-6 md:p-8 rounded-3xl flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-xl bg-[#059669] bg-opacity-20 dark:bg-opacity-10 border border-[#059669]">
+                    <Lightbulb className="w-5 h-5 text-[#059669]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">The Prepayment Magic</h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                  Making just <span className="font-bold text-foreground">1 extra EMI per year</span> can cut your loan tenure and save you money on interest.
+                </p>
+              </div>
+              <div className="mt-4 p-4 rounded-xl bg-[var(--background)] border border-gray-100 dark:border-white/5 shadow-sm">
+                <div className="flex justify-between items-end">
+                  <div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Time Saved</p>
+                    <p className="text-xl font-bold text-foreground">
+                      {prepaymentResults.savedYears > 0 ? `${prepaymentResults.savedYears} Yr ` : ''}{prepaymentResults.savedMonthsRemainder} Mo
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Interest Saved</p>
+                    <p className="text-xl font-bold text-[#059669]">
+                      {currencySymbol}{prepaymentResults.savedInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
         <section id="how-to-use" aria-label="How to use the calculator" className="w-full glass-panel p-6 md:p-8 rounded-3xl mb-8">
           <div className="flex items-center gap-3 mb-8">
             <div className="bg-[var(--color-accent)] bg-opacity-20 dark:bg-opacity-10 border border-[var(--color-accent)] p-2 rounded-xl">

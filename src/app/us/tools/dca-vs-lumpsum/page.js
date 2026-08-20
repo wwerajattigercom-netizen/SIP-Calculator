@@ -395,6 +395,38 @@ export default function SipVsLumpsumPage() {
             </div>
           </div>
 
+          {/* Market Crash Buffer (Dynamic Insight) */}
+          <div className="glass-panel p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-[#991B1B] bg-opacity-10 border border-[#991B1B]/20 p-2 rounded-xl">
+                <TrendingDown className="w-5 h-5 text-[#991B1B]" />
+              </div>
+              <h2 className="text-xl font-bold text-foreground">Market Crash Buffer Analysis</h2>
+            </div>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              Imagine a sudden <strong>20% market crash</strong> tomorrow. If you invested your entire <strong>{formatToShortWords(totalAmount)}</strong> as a lumpsum today, you would immediately face a paper loss of <strong className="text-[#991B1B]">{formatToShortWords(totalAmount * 0.20)}</strong>.
+            </p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mt-2">
+              However, with <strong>DCA</strong>, you only expose a small fraction of your capital to the immediate drop. More importantly, your future monthly installments will automatically buy units at the new 20% discount, significantly lowering your average cost per unit and accelerating your recovery when the market rebounds.
+            </p>
+          </div>
+
+          {/* Hybrid Approach / STP */}
+          <div className="glass-panel p-6">
+            <h2 className="text-xl font-bold text-foreground mb-3">The Hybrid Approach: DCA from Cash (STP)</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
+              What if you just received a large windfall (like a bonus, inheritance, or property sale)? Leaving it in a low-interest checking account while you slowly DCA over 3 years means losing out to inflation. But investing it all at once (Lumpsum) exposes you to bad market timing.
+            </p>
+            <div className="bg-[var(--background)] p-5 rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+              <h4 className="text-foreground font-semibold text-sm mb-3">The Solution:</h4>
+              <ul className="list-disc list-outside ml-5 text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                <li>Park the entire <strong>{formatToShortWords(totalAmount)}</strong> in a relatively safe, yield-bearing asset (like a High-Yield Savings Account or Money Market Fund).</li>
+                <li>Set up an automated monthly transfer (often called a Systematic Transfer Plan) to move a fixed amount from this safe asset into your target equity index fund.</li>
+                <li><strong>Result:</strong> Your uninvested cash earns 4-5% yield safely, while your equity investments still benefit from Dollar Cost Averaging.</li>
+              </ul>
+            </div>
+          </div>
+
           {/* Quick-reference table */}
           <div className="glass-panel p-6">
             <h2 className="text-xl font-bold text-foreground mb-4">When Does Each Strategy Win?</h2>

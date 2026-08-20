@@ -74,6 +74,26 @@ export default function USIncomeTaxCalculatorPage() {
             </div>
           </div>
         </section>
+
+        {/* ── STRATEGY SECTION ── */}
+        <section id="strategy-deductions" aria-label="Standard vs Itemized Deductions" className="w-full glass-panel p-6 md:p-8 rounded-3xl mb-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-[#059669] bg-opacity-20 dark:bg-opacity-10 border border-[#059669] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[#059669]" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">Strategy: Standard vs Itemized</h2>
+          </div>
+          <div className="bg-[var(--background)] p-6 rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              When filing your federal taxes, you have a choice to either take the <strong>Standard Deduction</strong> or to <strong>Itemize</strong> your deductions. The goal is to choose the option that reduces your taxable income the most.
+            </p>
+            <ul className="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-400 text-sm">
+              <li><strong>The Standard Deduction:</strong> For 2024, the standard deduction is <strong>$14,600</strong> for single filers. This is a flat, no-questions-asked reduction of your taxable income.</li>
+              <li><strong>Itemized Deductions:</strong> These include specific out-of-pocket expenses like mortgage interest, state and local taxes (SALT, up to $10,000), large medical expenses, and charitable contributions.</li>
+              <li><strong>The Breakeven Rule:</strong> You should only itemize if your total eligible expenses add up to <em>more</em> than <strong>$14,600</strong>. If they fall below this amount, simply taking the standard deduction will save you more money and make filing much simpler.</li>
+            </ul>
+          </div>
+        </section>
       </div>
     </>
   );

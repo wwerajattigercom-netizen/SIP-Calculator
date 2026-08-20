@@ -74,6 +74,26 @@ export default function IncomeTaxCalculatorPage() {
             </div>
           </div>
         </section>
+
+        {/* ── STRATEGY SECTION ── */}
+        <section id="strategy-breakeven" aria-label="The Breakeven Threshold" className="w-full glass-panel p-6 md:p-8 rounded-3xl mb-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-[#059669] bg-opacity-20 dark:bg-opacity-10 border border-[#059669] p-2 rounded-xl">
+              <Info className="w-5 h-5 text-[#059669]" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">Strategy: The Breakeven Threshold</h2>
+          </div>
+          <div className="bg-[var(--background)] p-6 rounded-xl border border-gray-100 dark:border-white/5 shadow-sm">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Choosing between the Old and New Tax Regimes depends on your salary and eligible deductions. The <strong>Breakeven Threshold</strong> is the exact amount of deductions you need to claim for the Old Regime to be more beneficial.
+            </p>
+            <ul className="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-400 text-sm">
+              <li><strong>Up to ₹7,00,000 Salary:</strong> The New Regime is always better because you pay zero tax due to the Section 87A rebate.</li>
+              <li><strong>₹10,00,000 Salary:</strong> You need roughly <strong>₹2,62,500</strong> in total deductions (like 80C, HRA, Health Insurance) to make the Old Regime worthwhile.</li>
+              <li><strong>₹15,00,000+ Salary:</strong> The breakeven threshold rises to <strong>₹3,75,000</strong>. If your actual deductions exceed this number, choose the Old Regime. Otherwise, stick with the New Regime.</li>
+            </ul>
+          </div>
+        </section>
       </div>
     </>
   );
