@@ -138,7 +138,9 @@ const FAQS = [
 
 export default function SWPCalculatorPage() {
   const { theme, systemTheme } = useTheme();
-  const isDark = theme === 'dark' || (theme === 'system' && systemTheme === 'dark');
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
 
   const [corpus, setCorpus] = useState(500000);
   const [monthlyWithdrawal, setMonthlyWithdrawal] = useState(2500);

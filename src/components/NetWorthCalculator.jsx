@@ -12,7 +12,9 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function NetWorthCalculator() {
   const { theme, systemTheme } = useTheme();
-  const isDark = theme === 'dark' || (theme === 'system' && systemTheme === 'dark');
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
 
   // Assets
   const [realEstate, setRealEstate] = useState(5000000);
