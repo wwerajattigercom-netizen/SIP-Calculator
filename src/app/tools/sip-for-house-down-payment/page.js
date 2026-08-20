@@ -1,6 +1,12 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import React, { useState, useMemo } from 'react';
+
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+import { useTheme } from 'next-themes';
+
+ChartJS.register(ArcElement, Tooltip);
 import Link from 'next/link';
 import { ArrowRight, HelpCircle, Home, TrendingUp } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -36,6 +42,12 @@ function getStepUpFvFactor(years, monthlyRate, stepUpRate) {
 }
 
 export default function SipForHousePage() {
+
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const isDark = mounted && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'));
+  const colorInvested = isDark ? '#1A73E8' : '#1B3A5C';
   const [currentPrice, setCurrentPrice] = useState(8000000);
   const [appreciation, setAppreciation] = useState(7);
   const [yearsToBuy, setYearsToBuy] = useState(7);
@@ -65,7 +77,24 @@ export default function SipForHousePage() {
     const fvFactorStepUp = getStepUpFvFactor(yearsToBuy, monthlyRate, 0.10);
     const initialStepUpSip = requiredDownPayment / fvFactorStepUp;
 
-    return {
+    
+  const pieData = {
+    labels: ['Total Invested', 'Est. Returns'],
+    datasets: [{
+      data: [results.totalInvested, results.gainsFromSip],
+      backgroundColor: [colorInvested, '#C4993C'],
+      borderColor: ['transparent', 'transparent'],
+      borderWidth: 0,
+      hoverOffset: 0
+    }]
+  };
+  const pieOptions = {
+    cutout: '75%',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { tooltip: { backgroundColor: '#1F2937', titleColor: '#F3F4F6', bodyColor: '#D1D5DB' } }
+  };
+return {
       futurePrice,
       requiredDownPayment,
       requiredSip,
@@ -169,7 +198,7 @@ export default function SipForHousePage() {
                     { step: '5', text: 'Start the SIP shown and increase it 10% every year to reach your goal comfortably.' },
                   ].map(({ step, text }) => (
                     <li key={step} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[rgba(27,58,92,0.05)] border border-[var(--color-accent)]/20 text-[var(--color-accent)] text-[10px] font-bold flex items-center justify-center mt-0.5">{step}</span>
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--color-accent)]/5 dark:bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 dark:border-[var(--color-accent)]/30 text-[var(--color-accent)] text-[10px] font-bold flex items-center justify-center mt-0.5">{step}</span>
                       <span className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">{text}</span>
                     </li>
                   ))}
@@ -179,7 +208,7 @@ export default function SipForHousePage() {
 
             {/* Results */}
             <div className="md:col-span-7 space-y-4">
-              <div className="glass-panel p-6 h-full flex flex-col justify-between">
+              <div className="glass-panel p-6 h-full flex flex-col gap-6">
                 
                 {/* Main Highlight */}
                 <div className="text-center mb-6">
@@ -190,15 +219,15 @@ export default function SipForHousePage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-4">
+                  <div className="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl p-4">
                     <p className="text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1">Future Prop. Price</p>
                     <p className="text-foreground font-bold text-lg">{fmt(results.futurePrice)}</p>
                   </div>
-                  <div className="bg-[rgba(27,58,92,0.05)] border border-[var(--color-accent)]/20 rounded-xl p-4">
+                  <div className="bg-[var(--color-accent)]/5 dark:bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 dark:border-[var(--color-accent)]/30 rounded-xl p-4">
                     <p className="text-foreground text-[10px] uppercase tracking-wider mb-1 font-semibold">Down Payment Needed</p>
                     <p className="text-foreground font-bold text-lg">{fmt(results.requiredDownPayment)}</p>
                   </div>
-                  <div className="bg-[var(--panel-bg)] border border-[#E8E4DF] rounded-xl p-4">
+                  <div className="bg-white/50 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl p-4">
                     <p className="text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-wider mb-1">Total SIP Invested</p>
                     <p className="text-foreground font-bold text-lg">{fmt(results.totalInvested)}</p>
                   </div>
@@ -206,6 +235,16 @@ export default function SipForHousePage() {
                     <p className="text-[var(--color-returns)]/80 text-[10px] uppercase tracking-wider mb-1">Approx EMI (20 Yrs)</p>
                     <p className="text-[var(--color-returns)] font-bold text-lg">{fmt(results.emi)}</p>
                   </div>
+                </div>
+
+                
+                {/* Donut Chart */}
+                <div className="relative flex-1 min-h-[160px] flex justify-center items-center overflow-hidden z-10 mb-6 mt-2">
+                    <Doughnut data={pieData} options={pieOptions} />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest font-semibold mb-0.5">Down Payment</span>
+                      <span className="text-xl font-bold text-foreground">{fmt(results.requiredDownPayment)}</span>
+                    </div>
                 </div>
 
                 {/* Property Timeline Visual */}
@@ -228,7 +267,7 @@ export default function SipForHousePage() {
                 </div>
 
                 {/* Step-up Alternative */}
-                <div className="bg-[rgba(27,58,92,0.05)] border border-[var(--color-accent)]/20 rounded-xl p-4 flex items-center justify-between">
+                <div className="bg-[var(--color-accent)]/5 dark:bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 dark:border-[var(--color-accent)]/30 rounded-xl p-4 flex items-center justify-between">
                   <div>
                     <h4 className="text-foreground text-sm font-semibold flex items-center gap-2"><TrendingUp className="w-4 h-4 text-[var(--color-accent)]" /> 10% Step-Up SIP</h4>
                     <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">Increase SIP yearly as salary grows.</p>
