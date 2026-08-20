@@ -64,16 +64,16 @@ const jsonLd = {
 };
 
 export default function SipDuringCrashPage() {
-  const [monthlySip, setMonthlySip] = useState(10000);
-  const [duration, setDuration] = useState(15);
+  const [monthlySip, setMonthlySip] = useState(1000);
+  const [duration, setDuration] = useState(12);
   
   // Dynamic max for crash start year
   const maxCrashStart = Math.max(2, duration - 2);
   const [crashStartYear, setCrashStartYear] = useState(4);
-  const [crashDuration, setCrashDuration] = useState(12);
+  const [crashDuration, setCrashDuration] = useState(10);
   const [crashSeverity, setCrashSeverity] = useState(40);
-  const [preCrashReturn, setPreCrashReturn] = useState(12);
-  const [postCrashReturn, setPostCrashReturn] = useState(15);
+  const [preCrashReturn, setPreCrashReturn] = useState(10);
+  const [postCrashReturn, setPostCrashReturn] = useState(12);
 
   // Ensure crash start is valid if duration changes
   const safeCrashStartYear = Math.min(crashStartYear, maxCrashStart);

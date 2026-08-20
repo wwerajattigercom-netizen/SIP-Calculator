@@ -50,8 +50,8 @@ export default function SipForChildEducationPage() {
   const [currentAge, setCurrentAge] = useState(3);
   const [targetAge, setTargetAge] = useState(18);
   const [todayCost, setTodayCost] = useState(80000);
-  const [educationInflation, setEducationInflation] = useState(6);
-  const [returnRate, setReturnRate] = useState(12);
+  const [educationInflation, setEducationInflation] = useState(3);
+  const [returnRate, setReturnRate] = useState(10);
 
   const results = useMemo(() => {
     const years = Math.max(1, targetAge - currentAge);

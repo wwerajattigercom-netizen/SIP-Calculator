@@ -106,8 +106,8 @@ const FAQS = [
 
 // ─── Main Page ───────────────────────────────────────────────
 export default function CostOfDelayCalculatorPage() {
-  const [monthlySIP, setMonthlySIP] = useState(10000);
-  const [rate, setRate]             = useState(12);
+  const [monthlySIP, setMonthlySIP] = useState(1000);
+  const [rate, setRate]             = useState(10);
   const [years, setYears]           = useState(20);
   const [delay, setDelay]           = useState(5);
   const [openFaq, setOpenFaq]       = useState(null);

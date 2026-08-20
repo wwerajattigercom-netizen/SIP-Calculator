@@ -36,10 +36,10 @@ export default function SipBeatInflationPage() {
   const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
   const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
 
-  const [sipAmount, setSipAmount] = useState(10000);
+  const [sipAmount, setSipAmount] = useState(1000);
   const [duration, setDuration] = useState(20);
-  const [returnRate, setReturnRate] = useState(12);
-  const [inflationRate, setInflationRate] = useState(6);
+  const [returnRate, setReturnRate] = useState(10);
+  const [inflationRate, setInflationRate] = useState(3);
 
   const results = useMemo(() => {
     const months = duration * 12;

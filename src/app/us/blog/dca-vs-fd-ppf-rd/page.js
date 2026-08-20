@@ -44,10 +44,10 @@ const FAQItem = ({ q, a }) => {
 };
 
 export default function SipVsFdPpfRd() {
-  const [monthly, setMonthly] = useState(10000);
-  const [years, setYears] = useState(15);
+  const [monthly, setMonthly] = useState(1000);
+  const [years, setYears] = useState(12);
   
-  const [sipRate, setSipRate] = useState(12);
+  const [sipRate, setSipRate] = useState(10);
   const [ppfRate, setPpfRate] = useState(7.1);
   const [rdRate, setRdRate] = useState(7);
 

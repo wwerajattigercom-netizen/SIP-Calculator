@@ -8,12 +8,13 @@ import { useMemo, useState } from 'react';
  * The primary output is the duration (years + months).
  */
 export function useTimeToGoalCalculator() {
-  const [targetAmount, setTargetAmount]         = useState(10000000);  // ₹1 Crore
-  const [monthlySip, setMonthlySip]             = useState(10000);     // ₹10,000
-  const [returnRate, setReturnRate]             = useState(12);
+  const { isUS } = useRegion();
+  const [targetAmount, setTargetAmount]         = useState(isUS ? 1000000 : 10000000);  // ₹1 Crore
+  const [monthlySip, setMonthlySip]             = useState(isUS ? 1000 : 10000);     // ₹10,000
+  const [returnRate, setReturnRate]             = useState(isUS ? 10 : 12);
   const [initialInvestment, setInitialInvestment] = useState(0);
   const [stepUp, setStepUp]                     = useState(0);
-  const [inflationRate, setInflationRate]       = useState(6);
+  const [inflationRate, setInflationRate]       = useState(isUS ? 3 : 6);
 
   const results = useMemo(() => {
     const r = returnRate / 12 / 100;

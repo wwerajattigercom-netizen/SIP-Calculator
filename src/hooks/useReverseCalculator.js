@@ -1,12 +1,13 @@
 import { useMemo, useState } from 'react';
 
 export function useReverseCalculator() {
-  const [targetAmount, setTargetAmount] = useState(10000000); // 1 Crore default
+  const { isUS } = useRegion();
+  const [targetAmount, setTargetAmount] = useState(isUS ? 1000000 : 10000000); // 1 Crore default
   const [timePeriod, setTimePeriod] = useState(10);
-  const [returnRate, setReturnRate] = useState(12);
+  const [returnRate, setReturnRate] = useState(isUS ? 10 : 12);
   const [initialInvestment, setInitialInvestment] = useState(0);
   const [stepUp, setStepUp] = useState(0);
-  const [inflationRate, setInflationRate] = useState(6);
+  const [inflationRate, setInflationRate] = useState(isUS ? 3 : 6);
 
   const results = useMemo(() => {
     const r = returnRate / 12 / 100;

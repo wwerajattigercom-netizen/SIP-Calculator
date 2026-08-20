@@ -39,7 +39,7 @@ export default function SipForHousePage() {
   const [appreciation, setAppreciation] = useState(7);
   const [yearsToBuy, setYearsToBuy] = useState(7);
   const [downPaymentPct, setDownPaymentPct] = useState(20);
-  const [returnRate, setReturnRate] = useState(12);
+  const [returnRate, setReturnRate] = useState(10);
 
   const results = useMemo(() => {
     const months = yearsToBuy * 12;

@@ -128,7 +128,7 @@ const SCENARIO_META = {
 
 export default function SipVsLumpsumPage() {
   const [totalAmount, setTotalAmount] = useState(500000);
-  const [returnRate, setReturnRate] = useState(12);
+  const [returnRate, setReturnRate] = useState(10);
   const [duration, setDuration] = useState(10);
   const [scenario, setScenario] = useState('bull');
 

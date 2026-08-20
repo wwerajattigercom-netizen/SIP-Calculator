@@ -1,3 +1,4 @@
+import { useRegion } from '../context/RegionContext';
 import { useState, useMemo } from 'react';
 
 /**
@@ -14,9 +15,10 @@ import { useState, useMemo } from 'react';
  *               (this matches the "Expected Return %" input on the SIP page)
  */
 export function useCAGRCalculator() {
-  const [initialInvestment, setInitialInvestment] = useState(100000);   // ₹1 Lakh
+  const { isUS } = useRegion();
+  const [initialInvestment, setInitialInvestment] = useState(isUS ? 10000 : 100000);   // ₹1 Lakh
   const [monthlySip,        setMonthlySip]        = useState(0);        // optional
-  const [finalValue,        setFinalValue]        = useState(500000);   // ₹5 Lakh
+  const [finalValue,        setFinalValue]        = useState(isUS ? 50000 : 500000);   // ₹5 Lakh
   const [duration,          setDuration]          = useState(10);       // years
 
   const results = useMemo(() => {

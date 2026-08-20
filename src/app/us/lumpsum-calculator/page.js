@@ -107,8 +107,8 @@ export default function LumpsumCalculatorPage() {
   const isDark = mounted && (theme === 'system' ? systemTheme : theme) === 'dark';
   const accentColor = isDark ? '#1A73E8' : '#1B3A5C';
 
-  const [principal, setPrincipal] = useState(10000);
-  const [rate, setRate]           = useState(12);
+  const [principal, setPrincipal] = useState(1000);
+  const [rate, setRate]           = useState(10);
   const [years, setYears]         = useState(10);
   const [openFaq, setOpenFaq]     = useState(null);
   const [chartTab, setChartTab]   = useState('pie');

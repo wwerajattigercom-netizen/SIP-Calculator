@@ -1,12 +1,14 @@
 "use client";
 
+import { useRegion } from '../context/RegionContext';
 import { useState, useEffect, useMemo } from 'react';
 
 export function useCalculator() {
+  const { isUS } = useRegion();
   // Default values matching the requirements
-  const [monthlySip, setMonthlySip] = useState(10000);
+  const [monthlySip, setMonthlySip] = useState(isUS ? 1000 : 10000);
   const [timePeriod, setTimePeriod] = useState(30);
-  const [returnRate, setReturnRate] = useState(12);
+  const [returnRate, setReturnRate] = useState(isUS ? 10 : 12);
   const [initialInvestment, setInitialInvestment] = useState(0);
   const [stepUp, setStepUp] = useState(0);
   const [inflationRate, setInflationRate] = useState(0);
