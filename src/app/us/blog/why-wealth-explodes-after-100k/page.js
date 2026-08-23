@@ -139,12 +139,12 @@ export default function WhyWealthExplodesUS() {
             As you approach and cross the $100k mark, a critical psychological shift must happen. In the beginning, your goal was purely aggressive accumulation. But once you have $100k, your primary job shifts to <strong>protecting your compounding engine.</strong>
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-            Many investors fall into the trap of treating a portion of their newly accumulated wealth as "play money." They start taking high-risk bets in penny stocks, options trading, or speculative crypto in hopes of doubling their money quickly. A 30% loss on a $10,000 portfolio is a $3,000 setback—you can recover that with a few paychecks. But a 30% loss on a $100,000 portfolio is a $30,000 setback. That can wipe out 2 to 3 years of hard compounding. Once you reach the $100k mark, boring is beautiful.
+            Many investors fall into the trap of treating a portion of their newly accumulated wealth as &quot;play money.&quot; They start taking high-risk bets in penny stocks, options trading, or speculative crypto in hopes of doubling their money quickly. A 30% loss on a $10,000 portfolio is a $3,000 setback—you can recover that with a few paychecks. But a 30% loss on a $100,000 portfolio is a $30,000 setback. That can wipe out 2 to 3 years of hard compounding. Once you reach the $100k mark, boring is beautiful.
           </p>
 
           <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">5. The 7-Step Blueprint to Reach Your First $100k Faster</h2>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-            If you want to accelerate the brutal "Grind Phase," you need to maximize the gap between your income and your expenses. Here is a 7-step blueprint to get there faster:
+            If you want to accelerate the brutal &quot;Grind Phase,&quot; you need to maximize the gap between your income and your expenses. Here is a 7-step blueprint to get there faster:
           </p>
 
           <ul className="space-y-6 mb-12">
@@ -154,7 +154,7 @@ export default function WhyWealthExplodesUS() {
               </div>
               <div>
                 <strong className="text-foreground block mb-1">Step 1: Increase Your Primary Income (The Best ROI)</strong>
-                <span className="text-gray-600 dark:text-gray-400">There is a limit to how much you can cut expenses, but no limit to how much you can earn. Become a "learning machine." Upskill yourself, learn digital marketing, programming, or get a new certification. Switching jobs or aggressively pursuing promotions is the fastest way to increase your DCA amounts.</span>
+                <span className="text-gray-600 dark:text-gray-400">There is a limit to how much you can cut expenses, but no limit to how much you can earn. Become a &quot;learning machine.&quot; Upskill yourself, learn digital marketing, programming, or get a new certification. Switching jobs or aggressively pursuing promotions is the fastest way to increase your DCA amounts.</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
@@ -172,7 +172,7 @@ export default function WhyWealthExplodesUS() {
               </div>
               <div>
                 <strong className="text-foreground block mb-1">Step 3: Step-Up Your Investments</strong>
-                <span className="text-gray-600 dark:text-gray-400">As your income grows, avoid "lifestyle creep." When you get a 10% salary hike, immediately step-up your investments by 10%. Using a &quot;Step-Up DCA&quot; strategy can shave years off your journey to $100k.</span>
+                <span className="text-gray-600 dark:text-gray-400">As your income grows, avoid &quot;lifestyle creep.&quot; When you get a 10% salary hike, immediately step-up your investments by 10%. Using a &quot;Step-Up DCA&quot; strategy can shave years off your journey to $100k.</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
@@ -208,7 +208,7 @@ export default function WhyWealthExplodesUS() {
               </div>
               <div>
                 <strong className="text-foreground block mb-1">Step 7: Build a Second Income Stream</strong>
-                <span className="text-gray-600 dark:text-gray-400">Don't rely solely on your 9-to-5. Start a side hustle—freelance writing, graphic design, a YouTube channel, consulting, or selling goods online. Dedicate 2-3 extra hours a day to this. This active secondary income can eventually turn into passive income, massively accelerating your journey.</span>
+                <span className="text-gray-600 dark:text-gray-400">Don&apos;t rely solely on your 9-to-5. Start a side hustle—freelance writing, graphic design, a YouTube channel, consulting, or selling goods online. Dedicate 2-3 extra hours a day to this. This active secondary income can eventually turn into passive income, massively accelerating your journey.</span>
               </div>
             </li>
           </ul>
