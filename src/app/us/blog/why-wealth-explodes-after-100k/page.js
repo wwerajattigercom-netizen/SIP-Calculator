@@ -3,7 +3,7 @@ import { Target, TrendingUp, AlertTriangle, CheckCircle, Wallet, ArrowRight, Zap
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata = {
-  title: "Why the First $100k is the Hardest (Charlie Munger's Wealth Secret)",
+  title: "Why the First $100k is the Hardest (Charlie Munger&apos;s Wealth Secret)",
   description: "Charlie Munger famously said the first $100k is a b*tch. Discover the math behind why wealth explodes after $100k and how compounding takes over.",
   alternates: {
     canonical: 'https://stepupcalculator.com/us/blog/why-wealth-explodes-after-100k',
@@ -65,7 +65,7 @@ export default function WhyWealthExplodesUS() {
             Why the First $100k is the Hardest (And Why Wealth Explodes After)
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-            Billionaire investor Charlie Munger famously said: <span className="italic">"The first $100,000 is a b*tch, but you gotta do it."</span> Here is the exact mathematical reason why the beginning is so brutal, and why your wealth truly explodes after crossing this milestone.
+            Billionaire investor Charlie Munger famously said: <span className="italic">&quot;The first $100,000 is a b*tch, but you gotta do it.&quot;</span> Here is the exact mathematical reason why the beginning is so brutal, and why your wealth truly explodes after crossing this milestone.
           </p>
           <div className="flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400">
             <span>By StepupCalculator</span>
@@ -75,12 +75,12 @@ export default function WhyWealthExplodesUS() {
         </header>
 
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">1. The "Invisible" Phase of Wealth Building</h2>
+          <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">1. The &quot;Invisible&quot; Phase of Wealth Building</h2>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-            When you first start investing, the magic of compounding is practically invisible. Let's say you aggressively save and invest your first $10,000 in an S&P 500 index fund, and it earns a solid 10% return in one year.
+            When you first start investing, the magic of compounding is practically invisible. Let&apos;s say you aggressively save and invest your first $10,000 in an S&P 500 index fund, and it earns a solid 10% return in one year.
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-            Congratulations, you made <strong>$1,000</strong>. That's barely $83 a month. While nice, it doesn't change your life. It doesn't pay your rent. If you worked a few extra shifts, got a minor promotion, or started a weekend side hustle, you could likely generate that extra $1,000 much faster than waiting for the stock market.
+            Congratulations, you made <strong>$1,000</strong>. That&apos;s barely $83 a month. While nice, it doesn&apos;t change your life. It doesn&apos;t pay your rent. If you worked a few extra shifts, got a minor promotion, or started a weekend side hustle, you could likely generate that extra $1,000 much faster than waiting for the stock market.
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
             This is exactly why the first $100k is so brutal. <strong>Your portfolio is simply too small to do the heavy lifting.</strong> The vast majority of your net worth growth in the first 5 to 7 years comes from your brute-force savings and frugality, not investment returns. You are pushing a massive snowball up a steep hill entirely on your own strength.
@@ -88,7 +88,7 @@ export default function WhyWealthExplodesUS() {
 
           <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">2. Myth vs. Reality: The Mathematical Explosion</h2>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-            There is a common myth that $100,000 is a "magic number" where the mathematical laws of compounding suddenly change. They don't. Compounding works at the exact same percentage rate whether you have $10,000 or $100,000. A 10% return is a 10% return.
+            There is a common myth that $100,000 is a &quot;magic number&quot; where the mathematical laws of compounding suddenly change. They don&apos;t. Compounding works at the exact same percentage rate whether you have $10,000 or $100,000. A 10% return is a 10% return.
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
             <strong>So why does it feel like an explosion?</strong> Because human psychology notices absolute numbers, not percentages. 
@@ -163,7 +163,7 @@ export default function WhyWealthExplodesUS() {
               </div>
               <div>
                 <strong className="text-foreground block mb-1">Step 2: Better Control Over Finances</strong>
-                <span className="text-gray-600 dark:text-gray-400">Your income minus your spending equals your investable savings. You don't need to live in absolute austerity, but making informed choices between your "needs" and "wants" directly fuels your compounding engine.</span>
+                <span className="text-gray-600 dark:text-gray-400">Your income minus your spending equals your investable savings. You don&apos;t need to live in absolute austerity, but making informed choices between your &quot;needs&quot; and &quot;wants&quot; directly fuels your compounding engine.</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
@@ -172,7 +172,7 @@ export default function WhyWealthExplodesUS() {
               </div>
               <div>
                 <strong className="text-foreground block mb-1">Step 3: Step-Up Your Investments</strong>
-                <span className="text-gray-600 dark:text-gray-400">As your income grows, avoid "lifestyle creep." When you get a 10% salary hike, immediately step-up your investments by 10%. Using a "Step-Up DCA" strategy can shave years off your journey to $100k.</span>
+                <span className="text-gray-600 dark:text-gray-400">As your income grows, avoid "lifestyle creep." When you get a 10% salary hike, immediately step-up your investments by 10%. Using a &quot;Step-Up DCA&quot; strategy can shave years off your journey to $100k.</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
@@ -214,7 +214,7 @@ export default function WhyWealthExplodesUS() {
           </ul>
 
           <div className="bg-[var(--color-accent)]/5 border border-[var(--color-accent)]/20 rounded-2xl p-8 text-center mt-12">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Want to know exactly when you'll hit $1 Million?</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">Want to know exactly when you&apos;ll hit $1 Million?</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-xl mx-auto">
               Use our dedicated calculator to find out exactly how much you need to invest monthly, and the exact year you will cross the $1 Million milestone.
             </p>

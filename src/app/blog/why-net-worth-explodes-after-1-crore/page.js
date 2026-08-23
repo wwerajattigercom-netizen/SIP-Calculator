@@ -65,7 +65,7 @@ export default function WhyNetWorthExplodes() {
             Why the First ₹1 Crore is the Hardest (And Why Net Worth Explodes After)
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-            Billionaire investor Charlie Munger famously said: <span className="italic">"The first $100,000 (roughly ₹1 Crore today) is a b*tch, but you gotta do it."</span> Here is the exact mathematical reason why the beginning is so brutal, and why your wealth truly explodes after crossing this milestone.
+            Billionaire investor Charlie Munger famously said: <span className="italic">&quot;The first $100,000 (roughly ₹1 Crore today) is a b*tch, but you gotta do it.&quot;</span> Here is the exact mathematical reason why the beginning is so brutal, and why your wealth truly explodes after crossing this milestone.
           </p>
           <div className="flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400">
             <span>By StepupCalculator</span>
@@ -75,12 +75,12 @@ export default function WhyNetWorthExplodes() {
         </header>
 
         <article className="prose prose-lg dark:prose-invert max-w-none">
-          <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">1. The "Invisible" Phase of Wealth Building</h2>
+          <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">1. The &quot;Invisible&quot; Phase of Wealth Building</h2>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-            When you first start investing, the magic of compounding is practically invisible. Let's say you aggressively save and invest your first ₹1 Lakh in an index fund, and it earns a solid 12% return in one year.
+            When you first start investing, the magic of compounding is practically invisible. Let&apos;s say you aggressively save and invest your first ₹1 Lakh in an index fund, and it earns a solid 12% return in one year.
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-            Congratulations, you made <strong>₹12,000</strong>. That's barely ₹1,000 a month. While nice, it doesn't change your life. It doesn't pay your rent. If you worked overtime, got a minor promotion, or started a weekend side hustle, you could likely generate that extra ₹12,000 much faster than waiting for the stock market.
+            Congratulations, you made <strong>₹12,000</strong>. That&apos;s barely ₹1,000 a month. While nice, it doesn&apos;t change your life. It doesn&apos;t pay your rent. If you worked overtime, got a minor promotion, or started a weekend side hustle, you could likely generate that extra ₹12,000 much faster than waiting for the stock market.
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
             This is exactly why the first ₹1 Crore is so brutal. <strong>Your portfolio is simply too small to do the heavy lifting.</strong> The vast majority of your net worth growth in the first 5 to 7 years comes from your brute-force savings and frugality, not investment returns. You are pushing a massive snowball up a steep hill entirely on your own strength.
@@ -88,7 +88,7 @@ export default function WhyNetWorthExplodes() {
 
           <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">2. Myth vs. Reality: The Mathematical Explosion</h2>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-            There is a common myth that ₹1 Crore is a "magic number" where the mathematical laws of compounding suddenly change. They don't. Compounding works at the exact same percentage rate whether you have ₹1 Lakh or ₹1 Crore. A 12% return is a 12% return.
+            There is a common myth that ₹1 Crore is a &quot;magic number&quot; where the mathematical laws of compounding suddenly change. They don&apos;t. Compounding works at the exact same percentage rate whether you have ₹1 Lakh or ₹1 Crore. A 12% return is a 12% return.
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
             <strong>So why does it feel like an explosion?</strong> Because human psychology notices absolute numbers, not percentages. 
@@ -139,7 +139,7 @@ export default function WhyNetWorthExplodes() {
             As you approach and cross the ₹1 Crore mark, a critical psychological shift must happen. In the beginning, your goal was purely aggressive accumulation. But once you have ₹1 Crore, your primary job shifts to <strong>protecting your compounding engine.</strong>
           </p>
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-            Many investors fall into the trap of treating a portion of their newly accumulated wealth as "play money." They start taking high-risk bets in Futures and Options (F&O), intraday trading, or speculative crypto in hopes of doubling their money quickly. A 30% loss on a ₹1 Lakh portfolio is a ₹30,000 setback—you can recover that with one month's salary. But a 30% loss on a ₹1 Crore portfolio is a ₹30 Lakh setback. That can wipe out 3 to 4 years of hard compounding. Once you reach the 1 Crore mark, boring is beautiful.
+            Many investors fall into the trap of treating a portion of their newly accumulated wealth as "play money." They start taking high-risk bets in Futures and Options (F&O), intraday trading, or speculative crypto in hopes of doubling their money quickly. A 30% loss on a ₹1 Lakh portfolio is a ₹30,000 setback—you can recover that with one month&apos;s salary. But a 30% loss on a ₹1 Crore portfolio is a ₹30 Lakh setback. That can wipe out 3 to 4 years of hard compounding. Once you reach the 1 Crore mark, boring is beautiful.
           </p>
 
           <h2 className="text-2xl font-bold text-foreground mt-12 mb-6">5. The 7-Step Blueprint to Reach Your First Crore Faster</h2>
@@ -163,7 +163,7 @@ export default function WhyNetWorthExplodes() {
               </div>
               <div>
                 <strong className="text-foreground block mb-1">Step 2: Better Control Over Finances</strong>
-                <span className="text-gray-600 dark:text-gray-400">Your income minus your spending equals your investable savings. You don't need to live in absolute austerity, but making informed choices between your "needs" and "wants" directly fuels your compounding engine.</span>
+                <span className="text-gray-600 dark:text-gray-400">Your income minus your spending equals your investable savings. You don&apos;t need to live in absolute austerity, but making informed choices between your &quot;needs&quot; and &quot;wants&quot; directly fuels your compounding engine.</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
@@ -172,7 +172,7 @@ export default function WhyNetWorthExplodes() {
               </div>
               <div>
                 <strong className="text-foreground block mb-1">Step 3: Step-Up Your Investments</strong>
-                <span className="text-gray-600 dark:text-gray-400">As your income grows, avoid "lifestyle creep." When you get a 10% salary hike, immediately step-up your SIPs by 10%. Using a "Step-Up SIP" can shave years off your journey to ₹1 Crore.</span>
+                <span className="text-gray-600 dark:text-gray-400">As your income grows, avoid "lifestyle creep." When you get a 10% salary hike, immediately step-up your SIPs by 10%. Using a &quot;Step-Up SIP&quot; can shave years off your journey to ₹1 Crore.</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
@@ -214,7 +214,7 @@ export default function WhyNetWorthExplodes() {
           </ul>
 
           <div className="bg-[var(--color-accent)]/5 border border-[var(--color-accent)]/20 rounded-2xl p-8 text-center mt-12">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Want to know exactly when you'll hit ₹1 Crore?</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">Want to know exactly when you&apos;ll hit ₹1 Crore?</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-xl mx-auto">
               Use our dedicated calculator to find out exactly how much SIP you need, and the exact year you will cross the 1 Crore milestone.
             </p>
