@@ -56,6 +56,9 @@ Located in the project root. It lists every single calculator and blog guide tha
 
 4. **Canonical Domain (non-www)**: The official verified GSC property and canonical domain is `https://stepupcalculator.com` (no www). ALWAYS use this exact domain in `metadataBase`, `OG urls`, `sitemap.js`, `robots.js`, and JSON-LD structured data. NEVER use `www.stepupcalculator.com` as it causes duplicate content indexation errors.
 
+5. **Metadata & Canonicals for Client Components (CRITICAL)**: If you create a page using `"use client";`, it CANNOT export `metadata`. Therefore, you MUST ALWAYS create a sibling `layout.js` file in that folder to export the `metadata` object (Title, Description, and `alternates: { canonical: '...' }`). If you do not do this, the client component will inherit the root metadata, causing duplicate title and canonical indexing errors in Google Search Console. Furthermore, always ensure `hreflang` paths point to their final destination, avoiding redirects.
+
+
 ---
 
 ## 5. Deployment & Tools
