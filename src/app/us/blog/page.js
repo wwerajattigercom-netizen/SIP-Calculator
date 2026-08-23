@@ -6,6 +6,18 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/us/blog/why-wealth-explodes-after-100k',
+    tag: 'Wealth Building',
+    tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',
+    title: 'Why the First $100k is the Hardest (Charlie Munger\'s Wealth Secret)',
+    excerpt: 'Charlie Munger famously said the first $100k is a b*tch. Discover the math behind why wealth explodes after $100k and how compounding takes over.',
+    readTime: '5 min read',
+    cta: 'Read Guide',
+    icon: <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />,
+    highlight: 'Trending',
+    highlightColor: 'text-[var(--color-accent)]',
+  },
+  {
     href: '/us/blog/dca-vs-fd-ppf-rd',
     tag: 'Comparison Tool',
     tagColor: 'text-[#C4993C] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',

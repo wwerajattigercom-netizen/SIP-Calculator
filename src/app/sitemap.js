@@ -88,6 +88,7 @@ export default function sitemap() {
     '/blog/sip-vs-ulip',
     '/blog/step-up-sip',
     '/blog/where-to-park-emergency-fund',
+    '/blog/why-net-worth-explodes-after-1-crore',
     '/blog/swp-vs-sip',
     '/blog/trigger-sip',
     '/blog/types-of-sip'
@@ -105,6 +106,7 @@ export default function sitemap() {
     '/us/blog/flexi-dca',
     '/us/blog/step-up-dca',
     '/us/blog/where-to-park-emergency-fund',
+    '/us/blog/why-wealth-explodes-after-100k',
     '/us/blog/swp-vs-dca',
     '/us/blog/trigger-dca',
     '/us/blog/types-of-dca'

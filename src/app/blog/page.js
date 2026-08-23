@@ -6,6 +6,18 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/blog/why-net-worth-explodes-after-1-crore',
+    tag: 'Wealth Building',
+    tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',
+    title: 'Why the First 1 Crore is the Hardest (And Why Net Worth Explodes After)',
+    excerpt: 'Discover the math and psychology behind why reaching your first 1 crore is the hardest part of investing, and how the power of compounding takes over afterward.',
+    readTime: '5 min read',
+    cta: 'Read Guide',
+    icon: <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />,
+    highlight: 'Trending',
+    highlightColor: 'text-[var(--color-accent)]',
+  },
+  {
     href: '/blog/sip-vs-fd-ppf-rd',
     tag: 'Comparison Tool',
     tagColor: 'text-[#C4993C] bg-[rgba(196,153,60,0.1)] border-[rgba(196,153,60,0.25)]',
