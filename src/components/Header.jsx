@@ -37,6 +37,7 @@ export default function Header() {
    if (pathname === '/us/tools/savings-vs-dca-calculator') newPath = '/tools/fd-vs-sip-calculator';
    if (pathname === '/us/tools/mortgage-calculator') newPath = '/tools/home-loan-calculator';
    if (pathname === '/us/tools/auto-loan-calculator') newPath = '/tools/car-loan-calculator';
+   if (pathname === '/us/blog/why-wealth-explodes-after-100k') newPath = '/blog/why-net-worth-explodes-after-1-crore';
    router.push(newPath);
   } else {
    document.cookie = "preferred_region=US; path=/; max-age=31536000";
@@ -49,6 +50,7 @@ export default function Header() {
    if (pathname === '/tools/fd-vs-sip-calculator') newPath = '/us/tools/savings-vs-dca-calculator';
    if (pathname === '/tools/home-loan-calculator') newPath = '/us/tools/mortgage-calculator';
    if (pathname === '/tools/car-loan-calculator') newPath = '/us/tools/auto-loan-calculator';
+   if (pathname === '/blog/why-net-worth-explodes-after-1-crore') newPath = '/us/blog/why-wealth-explodes-after-100k';
    router.push(newPath);
   }
  };
