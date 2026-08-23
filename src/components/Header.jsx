@@ -38,6 +38,7 @@ export default function Header() {
    if (pathname === '/us/tools/mortgage-calculator') newPath = '/tools/home-loan-calculator';
    if (pathname === '/us/tools/auto-loan-calculator') newPath = '/tools/car-loan-calculator';
    if (pathname === '/us/blog/why-wealth-explodes-after-100k') newPath = '/blog/why-net-worth-explodes-after-1-crore';
+   if (pathname === '/us/blog/home-loan-with-low-credit-score') newPath = '/blog/home-loan-with-low-cibil-score';
    router.push(newPath);
   } else {
    document.cookie = "preferred_region=US; path=/; max-age=31536000";
@@ -51,6 +52,7 @@ export default function Header() {
    if (pathname === '/tools/home-loan-calculator') newPath = '/us/tools/mortgage-calculator';
    if (pathname === '/tools/car-loan-calculator') newPath = '/us/tools/auto-loan-calculator';
    if (pathname === '/blog/why-net-worth-explodes-after-1-crore') newPath = '/us/blog/why-wealth-explodes-after-100k';
+   if (pathname === '/blog/home-loan-with-low-cibil-score') newPath = '/us/blog/home-loan-with-low-credit-score';
    router.push(newPath);
   }
  };

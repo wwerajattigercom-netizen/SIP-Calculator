@@ -6,6 +6,18 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/blog/home-loan-with-low-cibil-score',
+    tag: 'Home Loan Planning',
+    tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',
+    title: 'How to Get a Home Loan with a Low CIBIL Score',
+    excerpt: 'Having a low CIBIL score doesn\'t mean you can\'t buy a home. Learn the exact strategies to secure a home loan even with a score below 750.',
+    readTime: '6 min read',
+    cta: 'Read Guide',
+    icon: <Home className="w-5 h-5 text-[var(--color-accent)]" />,
+    highlight: 'New',
+    highlightColor: 'text-[var(--color-accent)]',
+  },
+  {
     href: '/blog/why-net-worth-explodes-after-1-crore',
     tag: 'Wealth Building',
     tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',

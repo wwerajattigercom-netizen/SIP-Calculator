@@ -6,6 +6,18 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/us/blog/home-loan-with-low-credit-score',
+    tag: 'Mortgage Planning',
+    tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',
+    title: 'How to Get a Mortgage with a Low Credit Score',
+    excerpt: 'Having a low FICO score doesn\'t mean you can\'t buy a home. Learn the exact strategies to secure a mortgage even with a score below 650.',
+    readTime: '6 min read',
+    cta: 'Read Guide',
+    icon: <Home className="w-5 h-5 text-[var(--color-accent)]" />,
+    highlight: 'New',
+    highlightColor: 'text-[var(--color-accent)]',
+  },
+  {
     href: '/us/blog/why-wealth-explodes-after-100k',
     tag: 'Wealth Building',
     tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',
