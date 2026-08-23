@@ -20,9 +20,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/sip-to-reach-1-crore',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/sip-to-reach-1-crore',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-to-reach-1-million',
-      'x-default': 'https://stepupcalculator.com/blog/sip-to-reach-1-crore'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-to-reach-1-crore',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-to-reach-1-million',
+      'x-default': 'https://stepupcalculator.com/tools/sip-to-reach-1-crore'
     } },
 };
 export default function BlogLayout({ children }) { return children; }

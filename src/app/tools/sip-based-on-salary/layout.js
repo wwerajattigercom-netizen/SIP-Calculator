@@ -15,9 +15,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/sip-based-on-salary',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/sip-based-on-salary',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-based-on-salary',
-      'x-default': 'https://stepupcalculator.com/blog/sip-based-on-salary'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-based-on-salary',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-based-on-salary',
+      'x-default': 'https://stepupcalculator.com/tools/sip-based-on-salary'
     } },
 };
 export default function Layout({ children }) { return children; }

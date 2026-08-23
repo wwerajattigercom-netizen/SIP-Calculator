@@ -14,9 +14,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/sip-during-market-crash',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/sip-during-market-crash',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-during-market-crash',
-      'x-default': 'https://stepupcalculator.com/blog/sip-during-market-crash'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-during-market-crash',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-during-market-crash',
+      'x-default': 'https://stepupcalculator.com/tools/sip-during-market-crash'
     } },
 };
 export default function Layout({ children }) { return children; }

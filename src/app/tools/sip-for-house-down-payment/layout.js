@@ -14,9 +14,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/sip-for-house-down-payment',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/sip-for-house-down-payment',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-for-house-down-payment',
-      'x-default': 'https://stepupcalculator.com/blog/sip-for-house-down-payment'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-for-house-down-payment',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-for-house-down-payment',
+      'x-default': 'https://stepupcalculator.com/tools/sip-for-house-down-payment'
     } },
 };
 export default function Layout({ children }) { return children; }

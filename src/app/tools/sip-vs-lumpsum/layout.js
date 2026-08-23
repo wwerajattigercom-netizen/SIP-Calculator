@@ -16,9 +16,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/sip-vs-lumpsum',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/sip-vs-lumpsum',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-vs-lumpsum',
-      'x-default': 'https://stepupcalculator.com/blog/sip-vs-lumpsum'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-vs-lumpsum',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-vs-lumpsum',
+      'x-default': 'https://stepupcalculator.com/tools/sip-vs-lumpsum'
     } },
 };
 

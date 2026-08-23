@@ -11,9 +11,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/cost-of-delay-calculator',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/cost-of-delay-calculator',
-      'en-US': 'https://stepupcalculator.com/us/blog/cost-of-delay-calculator',
-      'x-default': 'https://stepupcalculator.com/blog/cost-of-delay-calculator'
+      'en-IN': 'https://stepupcalculator.com/tools/cost-of-delay-calculator',
+      'en-US': 'https://stepupcalculator.com/us/tools/cost-of-delay-calculator',
+      'x-default': 'https://stepupcalculator.com/tools/cost-of-delay-calculator'
     } },
 };
 

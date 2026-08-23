@@ -14,9 +14,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/sip-for-child-education',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/sip-for-child-education',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-for-child-education',
-      'x-default': 'https://stepupcalculator.com/blog/sip-for-child-education'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-for-child-education',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-for-child-education',
+      'x-default': 'https://stepupcalculator.com/tools/sip-for-child-education'
     } },
 };
 export default function Layout({ children }) { return children; }

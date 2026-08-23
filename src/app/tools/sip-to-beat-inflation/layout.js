@@ -16,9 +16,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/sip-to-beat-inflation',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/sip-to-beat-inflation',
-      'en-US': 'https://stepupcalculator.com/us/blog/dca-to-beat-inflation',
-      'x-default': 'https://stepupcalculator.com/blog/sip-to-beat-inflation'
+      'en-IN': 'https://stepupcalculator.com/tools/sip-to-beat-inflation',
+      'en-US': 'https://stepupcalculator.com/us/tools/dca-to-beat-inflation',
+      'x-default': 'https://stepupcalculator.com/tools/sip-to-beat-inflation'
     } },
 };
 

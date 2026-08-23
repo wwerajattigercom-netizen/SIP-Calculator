@@ -15,9 +15,9 @@ export const metadata = {
   },
   alternates: { canonical: 'https://stepupcalculator.com/tools/retirement-sip-calculator',
     languages: {
-      'en-IN': 'https://stepupcalculator.com/blog/retirement-sip-calculator',
-      'en-US': 'https://stepupcalculator.com/us/blog/retirement-dca-calculator',
-      'x-default': 'https://stepupcalculator.com/blog/retirement-sip-calculator'
+      'en-IN': 'https://stepupcalculator.com/tools/retirement-sip-calculator',
+      'en-US': 'https://stepupcalculator.com/us/tools/retirement-dca-calculator',
+      'x-default': 'https://stepupcalculator.com/tools/retirement-sip-calculator'
     } },
 };
 export default function Layout({ children }) { return children; }
