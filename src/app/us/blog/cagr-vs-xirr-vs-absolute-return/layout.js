@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'CAGR vs XIRR vs Absolute Return — What\',
+  title: 'CAGR vs XIRR vs Absolute Return - The Ultimate Guide | StepupCalculator',
   description: 'Understand the difference between CAGR, XIRR, and Absolute Return for mutual fund investments globally. Which metric should you use for DCA vs lumpsum? Complete guide with examples.',
   robots: 'index, follow',
   authors: [{ name: 'Rajat' }],

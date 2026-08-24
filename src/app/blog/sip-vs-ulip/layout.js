@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'SIP vs ULIP — Which is Better for Long Term? India',
-  description: 'Compare Mutual Fund SIPs vs Unit-Linked Insurance Plans (ULIP). Learn about the 5-year lock-in, mortality charges, and tax benefits.',
+  title: 'SIP vs ULIP: Which is the Better Investment? | StepupCalculator',
+  description: 'SIP vs ULIP comparison guide for Indian investors. Understand the real difference in returns, costs, and flexibility between Mutual Fund SIPs and ULIPs.',
   robots: 'index, follow',
   authors: [{ name: 'Rajat' }],
   alternates: {
@@ -12,8 +12,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'SIP vs ULIP — Which is Better for Long Term? India',
-    description: 'Compare Mutual Fund SIPs vs Unit-Linked Insurance Plans (ULIP). Learn about the 5-year lock-in, mortality charges, and tax benefits.',
+    title: 'SIP vs ULIP: Which is Better? | StepupCalculator',
+    description: 'The definitive SIP vs ULIP comparison for India — costs, returns, flexibility explained simply.',
     url: 'https://stepupcalculator.com/blog/sip-vs-ulip',
     type: 'article',
     locale: 'en_IN',

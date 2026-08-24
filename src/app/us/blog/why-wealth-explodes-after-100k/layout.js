@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Why Wealth Explodes After $100k (Charlie Munger's Secret) | StepupCalculator',
-  description: 'Charlie Munger famously said the first $100k is a b*tch. Discover the math behind why wealth explodes after $100k and how compounding takes over.',
+  title: "Why Wealth Explodes After $100k (Charlie Munger's Secret) | StepupCalculator",
+  description: "Charlie Munger famously said the first $100k is a b*tch. Discover the math behind why wealth explodes after $100k and how compounding takes over.",
   robots: 'index, follow',
   authors: [{ name: 'Rajat' }],
   alternates: {
@@ -12,8 +12,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'Why Wealth Explodes After $100k (Charlie Munger's Secret) | StepupCalculator',
-    description: 'Charlie Munger famously said the first $100k is a b*tch. Discover the math behind why wealth explodes after $100k and how compounding takes over.',
+    title: "Why Wealth Explodes After $100k | StepupCalculator",
+    description: "The math behind why wealth explodes after $100k and how compounding takes over.",
     url: 'https://stepupcalculator.com/us/blog/why-wealth-explodes-after-100k',
     type: 'article',
     locale: 'en_US',
