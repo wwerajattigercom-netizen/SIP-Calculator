@@ -12,8 +12,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'CAGR vs XIRR vs Absolute Return — What\',
-    description: 'Understand the difference between CAGR, XIRR, and Absolute Return for mutual fund investments in India. Which metric should you use for SIP vs lumpsum? Complete guide with examples.',
+    title: 'CAGR vs XIRR vs Absolute Return - Complete Guide | StepupCalculator',
+    description: 'Which return metric should you use? CAGR for lumpsum, XIRR for SIP. Complete guide with worked examples.',
     url: 'https://stepupcalculator.com/blog/cagr-vs-xirr-vs-absolute-return',
     type: 'article',
     locale: 'en_IN',

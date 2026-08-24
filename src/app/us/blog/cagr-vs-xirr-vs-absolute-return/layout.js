@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'CAGR vs XIRR vs Absolute Return - The Ultimate Guide | StepupCalculator',
-  description: 'Understand the difference between CAGR, XIRR, and Absolute Return for mutual fund investments globally. Which metric should you use for DCA vs lumpsum? Complete guide with examples.',
+  description: 'Understand the difference between CAGR, XIRR, and Absolute Return for global investors. Which metric should you use for DCA vs lumpsum? Complete guide with examples.',
   robots: 'index, follow',
   authors: [{ name: 'Rajat' }],
   alternates: {
@@ -12,8 +12,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'CAGR vs XIRR vs Absolute Return — What\',
-    description: 'Understand the difference between CAGR, XIRR, and Absolute Return for mutual fund investments globally. Which metric should you use for DCA vs lumpsum? Complete guide with examples.',
+    title: 'CAGR vs XIRR vs Absolute Return - Complete Guide | StepupCalculator',
+    description: 'Which return metric should you use? CAGR for lumpsum, XIRR for DCA. Complete guide with worked examples.',
     url: 'https://stepupcalculator.com/us/blog/cagr-vs-xirr-vs-absolute-return',
     type: 'article',
     locale: 'en_US',
