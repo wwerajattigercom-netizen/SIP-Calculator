@@ -34,11 +34,19 @@ export const metadata = {
   ],
   authors: [{ name: "Rajat" }],
   robots: "index, follow",
+  alternates: {
+    canonical: "https://stepupcalculator.com",
+    languages: {
+      "en-IN": "https://stepupcalculator.com",
+      "en-US": "https://stepupcalculator.com/us/dca-calculator",
+      "x-default": "https://stepupcalculator.com",
+    },
+  },
   openGraph: {
     title: "SIP Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",
     description: "Free SIP calculator with step-up, lump sum, inflation adjustment — all in one page, real-time sliders. Works globally for SIP / DCA / RSP / AIP investors.",
     type: "website",
-        url: "https://stepupcalculator.com",
+    url: "https://stepupcalculator.com",
     locale: "en_IN",
     siteName: "StepupCalculator",
     images: [
