@@ -60,6 +60,9 @@ _These are reading materials and concepts._
 - [x] cagr-vs-xirr-vs-absolute-return
 - [x] common-sip-mistakes
 - [x] direct-vs-regular-mutual-fund
+- [x] elss-vs-ppf-vs-nps
+- [x] index-fund-vs-active-fund
+- [x] mutual-fund-taxation-guide
 - [x] dynamic-sip
 - [x] flexi-sip
 - [x] sip-for-nris
@@ -77,6 +80,9 @@ _These are reading materials and concepts._
 - [x] common-dca-mistakes
 - [x] dca-for-expats
 - [x] direct-vs-regular-plan
+- [x] 401k-vs-roth-ira-vs-traditional
+- [x] capital-gains-tax-investments
+- [x] index-fund-vs-actively-managed
 - [x] dca-vs-fd-ppf-rd
 - [x] dca-vs-stp
 - [x] dca-vs-ulip

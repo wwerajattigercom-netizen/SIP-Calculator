@@ -40,6 +40,9 @@ export default function Header() {
    if (pathname === '/us/blog/why-wealth-explodes-after-100k') newPath = '/blog/why-net-worth-explodes-after-1-crore';
    if (pathname === '/us/blog/home-loan-with-low-credit-score') newPath = '/blog/home-loan-with-low-cibil-score';
    if (pathname === '/us/blog/direct-vs-regular-plan') newPath = '/blog/direct-vs-regular-mutual-fund';
+   if (pathname === '/us/blog/index-fund-vs-actively-managed') newPath = '/blog/index-fund-vs-active-fund';
+   if (pathname === '/us/blog/capital-gains-tax-investments') newPath = '/blog/mutual-fund-taxation-guide';
+   if (pathname === '/us/blog/401k-vs-roth-ira-vs-traditional') newPath = '/blog/elss-vs-ppf-vs-nps';
    router.push(newPath);
   } else {
    document.cookie = "preferred_region=US; path=/; max-age=31536000";
@@ -55,6 +58,9 @@ export default function Header() {
    if (pathname === '/blog/why-net-worth-explodes-after-1-crore') newPath = '/us/blog/why-wealth-explodes-after-100k';
    if (pathname === '/blog/home-loan-with-low-cibil-score') newPath = '/us/blog/home-loan-with-low-credit-score';
    if (pathname === '/blog/direct-vs-regular-mutual-fund') newPath = '/us/blog/direct-vs-regular-plan';
+   if (pathname === '/blog/index-fund-vs-active-fund') newPath = '/us/blog/index-fund-vs-actively-managed';
+   if (pathname === '/blog/mutual-fund-taxation-guide') newPath = '/us/blog/capital-gains-tax-investments';
+   if (pathname === '/blog/elss-vs-ppf-vs-nps') newPath = '/us/blog/401k-vs-roth-ira-vs-traditional';
    router.push(newPath);
   }
  };
