@@ -43,6 +43,8 @@ export default function Header() {
    if (pathname === '/us/blog/index-fund-vs-actively-managed') newPath = '/blog/index-fund-vs-active-fund';
    if (pathname === '/us/blog/capital-gains-tax-investments') newPath = '/blog/mutual-fund-taxation-guide';
    if (pathname === '/us/blog/401k-vs-roth-ira-vs-traditional') newPath = '/blog/elss-vs-ppf-vs-nps';
+   if (pathname === '/us/blog/large-cap-vs-small-cap-funds') newPath = '/blog/large-cap-vs-mid-cap-vs-small-cap';
+   if (pathname === '/us/blog/how-to-build-3-fund-portfolio') newPath = '/blog/how-to-build-mutual-fund-portfolio';
    router.push(newPath);
   } else {
    document.cookie = "preferred_region=US; path=/; max-age=31536000";
@@ -61,6 +63,8 @@ export default function Header() {
    if (pathname === '/blog/index-fund-vs-active-fund') newPath = '/us/blog/index-fund-vs-actively-managed';
    if (pathname === '/blog/mutual-fund-taxation-guide') newPath = '/us/blog/capital-gains-tax-investments';
    if (pathname === '/blog/elss-vs-ppf-vs-nps') newPath = '/us/blog/401k-vs-roth-ira-vs-traditional';
+   if (pathname === '/blog/large-cap-vs-mid-cap-vs-small-cap') newPath = '/us/blog/large-cap-vs-small-cap-funds';
+   if (pathname === '/blog/how-to-build-mutual-fund-portfolio') newPath = '/us/blog/how-to-build-3-fund-portfolio';
    router.push(newPath);
   }
  };

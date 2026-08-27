@@ -1,10 +1,34 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle, Globe } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle, Globe, PieChart } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
+  {
+    href: '/us/blog/how-to-build-3-fund-portfolio',
+    tag: 'Portfolio Strategy',
+    tagColor: 'text-[#059669] bg-[#059669]/10 border-[#059669]/20',
+    title: 'How to Build a Bogleheads 3-Fund Portfolio',
+    excerpt: 'Simplify your retirement. Learn how to allocate Total US, Total International, and Total Bond funds based on your age and risk tolerance.',
+    readTime: '9 min read',
+    cta: 'Read Guide',
+    icon: <PieChart className="w-5 h-5 text-[#059669]" />,
+    highlight: 'Trending',
+    highlightColor: 'text-[#059669]',
+  },
+  {
+    href: '/us/blog/large-cap-vs-small-cap-funds',
+    tag: 'Fund Selection',
+    tagColor: 'text-[#1B3A5C] bg-[#1B3A5C]/10 border-[#1B3A5C]/20',
+    title: 'Large Cap vs Small Cap Funds: Risk and Reward',
+    excerpt: 'Compare the S&P 500 (Large Cap) with the Russell 2000 (Small Cap). Learn about the small-cap risk premium, historical drawdowns, and portfolio allocation.',
+    readTime: '8 min read',
+    cta: 'Read Guide',
+    icon: <Layers className="w-5 h-5 text-[#1B3A5C]" />,
+    highlight: 'New',
+    highlightColor: 'text-[#1B3A5C]',
+  },
   {
     href: '/us/blog/capital-gains-tax-investments',
     tag: 'Tax Guide 2026',

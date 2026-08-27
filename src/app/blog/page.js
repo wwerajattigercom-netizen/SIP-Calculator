@@ -1,10 +1,34 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle, Globe } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle, Globe, PieChart } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
+  {
+    href: '/blog/how-to-build-mutual-fund-portfolio',
+    tag: 'Portfolio Strategy',
+    tagColor: 'text-[#059669] bg-[#059669]/10 border-[#059669]/20',
+    title: 'How to Build a Mutual Fund Portfolio (Core & Satellite)',
+    excerpt: 'Stop buying 15 different mutual funds. Learn the Core and Satellite strategy to build a robust portfolio with just 4 funds while avoiding overlap.',
+    readTime: '9 min read',
+    cta: 'Read Guide',
+    icon: <PieChart className="w-5 h-5 text-[#059669]" />,
+    highlight: 'Trending',
+    highlightColor: 'text-[#059669]',
+  },
+  {
+    href: '/blog/large-cap-vs-mid-cap-vs-small-cap',
+    tag: 'Fund Selection',
+    tagColor: 'text-[#1B3A5C] bg-[#1B3A5C]/10 border-[#1B3A5C]/20',
+    title: 'Large Cap vs Mid Cap vs Small Cap: Where to Invest?',
+    excerpt: 'SEBI classifies stocks into 3 categories. Learn the risk-reward ratio of each, their historical drawdowns, and how to allocate based on your age.',
+    readTime: '8 min read',
+    cta: 'Read Guide',
+    icon: <Layers className="w-5 h-5 text-[#1B3A5C]" />,
+    highlight: 'New',
+    highlightColor: 'text-[#1B3A5C]',
+  },
   {
     href: '/blog/mutual-fund-taxation-guide',
     tag: 'Tax Guide 2026',

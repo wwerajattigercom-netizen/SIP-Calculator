@@ -61,7 +61,9 @@ _These are reading materials and concepts._
 - [x] common-sip-mistakes
 - [x] direct-vs-regular-mutual-fund
 - [x] elss-vs-ppf-vs-nps
+- [x] how-to-build-mutual-fund-portfolio
 - [x] index-fund-vs-active-fund
+- [x] large-cap-vs-mid-cap-vs-small-cap
 - [x] mutual-fund-taxation-guide
 - [x] dynamic-sip
 - [x] flexi-sip
@@ -82,7 +84,9 @@ _These are reading materials and concepts._
 - [x] direct-vs-regular-plan
 - [x] 401k-vs-roth-ira-vs-traditional
 - [x] capital-gains-tax-investments
+- [x] how-to-build-3-fund-portfolio
 - [x] index-fund-vs-actively-managed
+- [x] large-cap-vs-small-cap-funds
 - [x] dca-vs-fd-ppf-rd
 - [x] dca-vs-stp
 - [x] dca-vs-ulip
