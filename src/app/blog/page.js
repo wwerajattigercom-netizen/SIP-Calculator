@@ -6,6 +6,30 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/blog/what-is-expense-ratio',
+    tag: 'Hidden Fees',
+    tagColor: 'text-[#991B1B] bg-[#991B1B]/10 border-[#991B1B]/20',
+    title: 'What is Expense Ratio? How 1% Costs You Lakhs',
+    excerpt: 'Understand how mutual funds deduct expenses daily from your NAV, and why switching to Direct plans is the easiest way to save money.',
+    readTime: '6 min read',
+    cta: 'Read Guide',
+    icon: <AlertTriangle className="w-5 h-5 text-[#991B1B]" />,
+    highlight: 'Essential',
+    highlightColor: 'text-[#991B1B]',
+  },
+  {
+    href: '/blog/when-to-exit-mutual-fund',
+    tag: 'Exit Strategy',
+    tagColor: 'text-[#C4993C] bg-[#C4993C]/10 border-[#C4993C]/20',
+    title: 'When Should You Exit a Mutual Fund?',
+    excerpt: 'Don\'t panic sell during a market crash. Learn the 4 logical reasons to redeem your mutual funds, including goal achievement and consistent underperformance.',
+    readTime: '7 min read',
+    cta: 'Read Guide',
+    icon: <Settings2 className="w-5 h-5 text-[#C4993C]" />,
+    highlight: 'Strategy',
+    highlightColor: 'text-[#C4993C]',
+  },
+  {
     href: '/blog/how-to-build-mutual-fund-portfolio',
     tag: 'Portfolio Strategy',
     tagColor: 'text-[#059669] bg-[#059669]/10 border-[#059669]/20',

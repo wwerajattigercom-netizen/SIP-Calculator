@@ -45,6 +45,8 @@ export default function Header() {
    if (pathname === '/us/blog/401k-vs-roth-ira-vs-traditional') newPath = '/blog/elss-vs-ppf-vs-nps';
    if (pathname === '/us/blog/large-cap-vs-small-cap-funds') newPath = '/blog/large-cap-vs-mid-cap-vs-small-cap';
    if (pathname === '/us/blog/how-to-build-3-fund-portfolio') newPath = '/blog/how-to-build-mutual-fund-portfolio';
+   if (pathname === '/us/blog/what-is-expense-ratio') newPath = '/blog/what-is-expense-ratio';
+   if (pathname === '/us/blog/when-to-sell-mutual-fund') newPath = '/blog/when-to-exit-mutual-fund';
    router.push(newPath);
   } else {
    document.cookie = "preferred_region=US; path=/; max-age=31536000";
@@ -65,6 +67,8 @@ export default function Header() {
    if (pathname === '/blog/elss-vs-ppf-vs-nps') newPath = '/us/blog/401k-vs-roth-ira-vs-traditional';
    if (pathname === '/blog/large-cap-vs-mid-cap-vs-small-cap') newPath = '/us/blog/large-cap-vs-small-cap-funds';
    if (pathname === '/blog/how-to-build-mutual-fund-portfolio') newPath = '/us/blog/how-to-build-3-fund-portfolio';
+   if (pathname === '/blog/what-is-expense-ratio') newPath = '/us/blog/what-is-expense-ratio';
+   if (pathname === '/blog/when-to-exit-mutual-fund') newPath = '/us/blog/when-to-sell-mutual-fund';
    router.push(newPath);
   }
  };

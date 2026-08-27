@@ -65,6 +65,8 @@ _These are reading materials and concepts._
 - [x] index-fund-vs-active-fund
 - [x] large-cap-vs-mid-cap-vs-small-cap
 - [x] mutual-fund-taxation-guide
+- [x] what-is-expense-ratio
+- [x] when-to-exit-mutual-fund
 - [x] dynamic-sip
 - [x] flexi-sip
 - [x] sip-for-nris
@@ -87,6 +89,8 @@ _These are reading materials and concepts._
 - [x] how-to-build-3-fund-portfolio
 - [x] index-fund-vs-actively-managed
 - [x] large-cap-vs-small-cap-funds
+- [x] what-is-expense-ratio
+- [x] when-to-sell-mutual-fund
 - [x] dca-vs-fd-ppf-rd
 - [x] dca-vs-stp
 - [x] dca-vs-ulip

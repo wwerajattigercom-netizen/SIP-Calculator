@@ -6,6 +6,30 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/us/blog/what-is-expense-ratio',
+    tag: 'Hidden Fees',
+    tagColor: 'text-[#991B1B] bg-[#991B1B]/10 border-[#991B1B]/20',
+    title: 'What is an Expense Ratio? How Fees Destroy Wealth',
+    excerpt: 'Understand how Wall Street deducts 12b-1 fees and management costs from your portfolio, and how to stop the bleed with low-cost index funds.',
+    readTime: '6 min read',
+    cta: 'Read Guide',
+    icon: <AlertTriangle className="w-5 h-5 text-[#991B1B]" />,
+    highlight: 'Essential',
+    highlightColor: 'text-[#991B1B]',
+  },
+  {
+    href: '/us/blog/when-to-sell-mutual-fund',
+    tag: 'Exit Strategy',
+    tagColor: 'text-[#C4993C] bg-[#C4993C]/10 border-[#C4993C]/20',
+    title: 'When Should You Sell a Mutual Fund or ETF?',
+    excerpt: 'Avoid panic selling during market corrections. Learn the logical reasons to sell, including tax-loss harvesting, style drift, and rebalancing.',
+    readTime: '7 min read',
+    cta: 'Read Guide',
+    icon: <Settings2 className="w-5 h-5 text-[#C4993C]" />,
+    highlight: 'Strategy',
+    highlightColor: 'text-[#C4993C]',
+  },
+  {
     href: '/us/blog/how-to-build-3-fund-portfolio',
     tag: 'Portfolio Strategy',
     tagColor: 'text-[#059669] bg-[#059669]/10 border-[#059669]/20',
