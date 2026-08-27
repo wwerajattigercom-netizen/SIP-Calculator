@@ -6,6 +6,18 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/us/blog/direct-vs-regular-plan',
+    tag: 'Index Fund Guide',
+    tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',
+    title: 'Low-Cost vs High-Fee Funds: The 1% That Costs You $165,000',
+    excerpt: 'Both low-cost index funds and high-fee active funds invest in the market. But a 1% expense ratio difference will silently cost you $165,000+ over 30 years.',
+    readTime: '7 min read',
+    cta: 'Read Guide',
+    icon: <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />,
+    highlight: 'New',
+    highlightColor: 'text-[var(--color-accent)]',
+  },
+  {
     href: '/us/blog/home-loan-with-low-credit-score',
     tag: 'Mortgage Planning',
     tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',

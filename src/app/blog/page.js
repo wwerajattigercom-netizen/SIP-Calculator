@@ -6,6 +6,18 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [
   {
+    href: '/blog/direct-vs-regular-mutual-fund',
+    tag: 'Mutual Fund Guide',
+    tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',
+    title: 'Direct vs Regular Mutual Fund: The 1% That Costs You Lakhs',
+    excerpt: 'Both plans invest in the same portfolio. But the Regular plan silently eats 0.5-1.5% of your returns every year. Over 20 years, that costs you Rs 13+ Lakhs.',
+    readTime: '7 min read',
+    cta: 'Read Guide',
+    icon: <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />,
+    highlight: 'New',
+    highlightColor: 'text-[var(--color-accent)]',
+  },
+  {
     href: '/blog/home-loan-with-low-cibil-score',
     tag: 'Home Loan Planning',
     tagColor: 'text-[var(--color-accent)] bg-[var(--color-accent)]/10 border-[var(--color-accent)]/20',

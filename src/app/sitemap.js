@@ -80,6 +80,7 @@ export default function sitemap() {
   const inGuides = [
     '/blog/cagr-vs-xirr-vs-absolute-return',
     '/blog/common-sip-mistakes',
+    '/blog/direct-vs-regular-mutual-fund',
     '/blog/dynamic-sip',
     '/blog/flexi-sip',
     '/blog/home-loan-with-low-cibil-score',
@@ -100,6 +101,7 @@ export default function sitemap() {
     '/us/blog/cagr-vs-xirr-vs-absolute-return',
     '/us/blog/common-dca-mistakes',
     '/us/blog/dca-for-expats',
+    '/us/blog/direct-vs-regular-plan',
     '/us/blog/dca-vs-fd-ppf-rd',
     '/us/blog/dca-vs-stp',
     '/us/blog/dca-vs-ulip',
