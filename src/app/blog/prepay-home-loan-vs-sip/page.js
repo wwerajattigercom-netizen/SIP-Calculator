@@ -151,6 +151,68 @@ export default function PrepayHomeLoanVsSipPage() {
             </div>
           </div>
 
+          {/* The Psychological Burden of Debt vs Mathematical Logic */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">The Psychological Burden of Debt vs Mathematical Logic</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              It is easy to look at a spreadsheet and declare that investing is the absolute winner because a 12% return beats a 9% loan. But personal finance is more &quot;personal&quot; than &quot;finance.&quot; The psychological weight of a massive home loan hanging over your head for two decades cannot be fully quantified in a spreadsheet.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              When you prepay your home loan, you are buying peace of mind. You are eliminating a fixed monthly obligation, which gives you immense freedom. If you decide to take a sabbatical, start a business, or if you face an unexpected job loss, not having a ₹50,000 EMI hovering over you is a massive relief. This emotional security often drives people to aggressively clear their loans, even if they understand they might be leaving some money on the table mathematically.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              On the other hand, the mathematical logic of the <Link href="/tools/cost-of-delay-calculator" className="text-[var(--color-accent)] hover:underline font-medium">Cost of Delay</Link> in investing is brutal. Every year you delay your SIP to pay off a 9% loan, you lose out on the exponential compounding curve of equity markets. By the time you finish paying off your house and start investing, you might have lost a decade of compound interest, requiring you to invest significantly more just to catch up. 
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              This creates a tug-of-war between the emotional comfort of being debt-free and the logical pursuit of maximum wealth creation. The key is understanding your own risk tolerance and job stability.
+            </p>
+          </div>
+
+          {/* Real Numbers: 20-Year Loan vs Mutual Fund Corpus */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Real Numbers: 20-Year Loan vs Building a Mutual Fund Corpus</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Let us look at a concrete example to illustrate the impact. Suppose you have a home loan of ₹50 Lakhs at 9% interest for a tenure of 20 years. Your standard EMI is approximately ₹44,986. Over 20 years, you will pay a staggering ₹57.9 Lakhs in interest alone, making your total outflow over ₹1.07 Crores.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Now, imagine you have an extra ₹10,000 every month. What happens if you use it for prepayment vs a Step-Up SIP?
+            </p>
+            <div className="space-y-6 mt-6 mb-6">
+              <div className="p-5 border-l-4 border-[#1B3A5C] bg-[rgba(27,58,92,0.02)] rounded-r-xl">
+                <h3 className="font-bold text-foreground mb-2">Scenario A: Aggressive Prepayment</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  By adding ₹10,000 to your EMI every month (totaling ₹54,986), you drastically reduce your principal. Your 20-year loan is paid off in just over <strong>12 years</strong>. You save roughly ₹26 Lakhs in interest payments. After 12 years, you own your home outright. If you then take that entire ₹54,986 and invest it for the remaining 8 years at 12%, you will accumulate around ₹85 Lakhs.
+                </p>
+              </div>
+              <div className="p-5 border-l-4 border-[#059669] bg-[rgba(5,150,105,0.02)] rounded-r-xl">
+                <h3 className="font-bold text-foreground mb-2">Scenario B: The Step-Up SIP Route</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  You pay the standard ₹44,986 EMI and invest the extra ₹10,000 in an equity mutual fund via a SIP, stepping it up by 10% each year as your income grows. After 20 years, your house is paid off on schedule. However, that ₹10,000 Step-Up SIP at 12% compounding will have grown into a staggering corpus of <strong>₹1.3 Crores</strong>. You have your house, plus a massive liquid portfolio.
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              The math is clear: keeping the cheap debt and compounding your surplus cash creates significantly more net worth over two decades. You can use our <Link href="/tools/emi-calculator" className="text-[var(--color-accent)] hover:underline font-medium">EMI Calculator</Link> to run these exact numbers for your own loan amount.
+            </p>
+          </div>
+
+          {/* Inflation's Effect on Fixed-Rate Debt */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Inflation: The Silent Savior of Fixed-Rate Debt</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              One of the most misunderstood concepts in personal finance is the impact of inflation on long-term debt. We often view inflation as a wealth killer because it reduces purchasing power. However, when you hold a fixed-rate loan (or a loan where the rate increases slower than your income), inflation is actually your best friend.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              When you take a 20-year home loan, your EMI is fixed at roughly ₹45,000. Today, that ₹45,000 might represent 40% of your monthly salary. It feels like a heavy burden. But fast forward 10 years: due to annual increments and inflation, your salary has likely doubled. Yet, your EMI remains ₹45,000. That same EMI now represents only 20% of your income. It has effectively shrunk in real terms.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              You are paying back the bank with &quot;future rupees&quot; which are worth much less than the rupees you borrowed. If inflation averages 6% a year, the real cost of your 9% debt is actually much closer to 3%. When you factor in the tax deductions under Section 24b, your real interest rate might even be negative. 
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              By aggressively prepaying this loan, you are effectively taking hard-earned, highly valuable &quot;present-day rupees&quot; and giving them to the bank to clear a debt that inflation would have naturally eroded over time. Instead, those valuable present-day rupees could be deployed into equity markets, where they will grow faster than inflation, compounding your wealth exponentially.
+            </p>
+          </div>
+
           {/* The Golden Middle Path */}
           <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 border-t-4 border-t-[var(--color-accent)]">
             <h2 className="text-2xl font-bold text-foreground mb-4">The Golden Strategy: The 50-50 Split</h2>

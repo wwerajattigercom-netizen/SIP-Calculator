@@ -194,6 +194,73 @@ export default function AutoLoanVsDcaPage() {
             </p>
           </div>
 
+          {/* Section: Deep Mathematical Case Study */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Deep Mathematical Case Study: The 10-Year Horizon</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              To truly understand the devastation an auto loan wreaks on your wealth, we need to look beyond the 5-year loan term. Let&apos;s project the numbers over a 10-year horizon, encompassing the typical ownership lifecycle of a modern vehicle in the US.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Imagine two friends, Alex and Jordan. Both are 28 years old and have $800 in monthly disposable income.
+            </p>
+            <ul className="space-y-4 mb-6">
+              <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                <div className="w-2 h-2 rounded-full bg-[var(--color-loss)] mt-2 flex-shrink-0" />
+                <span><strong>Alex (The Borrower):</strong> Alex buys a brand new SUV worth $45,000. He makes a $5,000 down payment and takes a $40,000 auto loan at 7% interest for 60 months. His monthly payment is exactly $792. After 5 years, the car is fully paid off, and he keeps driving it for another 5 years.</span>
+              </li>
+              <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                <div className="w-2 h-2 rounded-full bg-[var(--color-returns)] mt-2 flex-shrink-0" />
+                <span><strong>Jordan (The Investor):</strong> Jordan decides to buy a reliable 5-year-old used sedan for $12,000 in cash (using his savings). He then takes the exact same $792 that Alex pays to the bank and invests it into an S&P 500 Index Fund via DCA every month for the next 10 years.</span>
+              </li>
+            </ul>
+            <h3 className="text-xl font-bold text-foreground mb-4">The 10-Year Result</h3>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Fast forward 10 years to when both are 38 years old. Alex&apos;s 10-year-old SUV is now heavily depreciated. According to Kelley Blue Book values, a 10-year-old vehicle retains only about 15-20% of its original MSRP. His SUV is worth perhaps $7,000 to $9,000. That is his entire net worth from this automotive decision.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Jordan, on the other hand, diligently invested $792 every month. Assuming a historically realistic 10% annualized return in the US equity markets, Jordan&apos;s DCA strategy has ballooned into a massive portfolio. His total investment of $95,040 has grown to a staggering <strong>$161,400</strong>. You can verify this math using our <Link href="/us/tools/dca-calculator" className="text-[var(--color-accent)] hover:underline font-semibold">DCA Calculator</Link>.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-semibold">
+              The difference in their net worth is over $150,000. Alex bought a depreciating metal box; Jordan bought financial freedom. This is the compound interest engine working in reverse when you take an auto loan, and working in overdrive when you choose Dollar-Cost Averaging.
+            </p>
+          </div>
+
+          {/* Section: Historical Depreciation Curves */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Historical Auto Depreciation Curves in the US</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              The American automotive market is brutal when it comes to resale value. While certain trucks or high-demand brands like Toyota and Honda might hold their value slightly better than average, the fundamental laws of depreciation apply to all vehicles.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Why do cars depreciate so fast? It&apos;s a combination of physical wear and tear, technological obsolescence (new models having better infotainment, safety sensors, or EV range), and market perception. The moment a vehicle moves from &quot;new&quot; to &quot;pre-owned,&quot; it instantly loses 10% to 15% of its monetary value simply because the next buyer is not the first owner.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Historically, luxury European cars depreciate even faster than budget commuter cars. A $70,000 luxury sedan might lose 60% of its value in just 4 years, meaning a loss of $42,000 in pure depreciation. That&apos;s $10,500 vanishing into thin air every single year, regardless of how meticulously the car is maintained in the garage. When you add an 8% loan interest rate on top of this depreciation, you are funding a financial black hole.
+            </p>
+          </div>
+
+          {/* Section: The Psychological Factors */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Psychological Factors: Why We Buy Cars We Can&apos;t Afford</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              If the math is so overwhelmingly against auto loans, why do millions of intelligent Americans sign up for 72-month and 84-month loans every year? The answer lies in behavioral psychology and relentless marketing.
+            </p>
+            <ol className="space-y-4 text-gray-700 dark:text-gray-300 list-decimal pl-5">
+              <li className="pl-2">
+                <strong className="text-foreground">The Status Signaling Effect:</strong> In modern society, a car is rarely just a mode of transportation; it is a status symbol. It signals to peers, family, and neighbors that you have &quot;made it.&quot; We are biologically wired to seek social status, and car manufacturers exploit this by marketing vehicles as an extension of your identity.
+              </li>
+              <li className="pl-2">
+                <strong className="text-foreground">Temporal Discounting:</strong> Human brains struggle to intuitively grasp exponential compounding. We highly value the immediate reward (driving off the lot in a brand new car today) and heavily discount the future penalty (having significantly less retirement money in 20 years). The pain of the loan is spread out into small, manageable monthly chunks, masking the colossal total cost.
+              </li>
+              <li className="pl-2">
+                <strong className="text-foreground">The &quot;Four-Square&quot; Illusion:</strong> Dealerships are masters of the &quot;four-square&quot; negotiation method. They rarely focus on the out-the-door price of the car. Instead, they ask, &quot;What monthly payment are you looking for?&quot; Once they know your budget, they manipulate the loan term—stretching it from 48 months to 72 or even 84 months—to fit a much more expensive car into your monthly limit. You feel like you won, but the financing company is laughing all the way to the bank.
+              </li>
+            </ol>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mt-6">
+              Breaking free from this cycle requires immense financial discipline. It means redefining success. True wealth is what you don&apos;t see—it&apos;s the brokerage account growing silently in the background, not the depreciating asset parked in the driveway. Try using a <Link href="/us/tools/goal-planner" className="text-[var(--color-accent)] hover:underline font-semibold">Goal Planner</Link> to visualize how much faster you could reach financial independence by avoiding bad debt.
+            </p>
+          </div>
+
           {/* Section 4 */}
           <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">How to Avoid the Trap: Smart Car Buying Rules</h2>

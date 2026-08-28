@@ -174,6 +174,62 @@ export default function StepUpDcaLateStarters() {
           </ol>
         </div>
 
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Age 35 vs. Age 45: The Mathematics of Delay
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            To truly understand the urgency of stepping up your investments, let&apos;s compare two individuals: Emma (35) and Michael (45). Both want to accumulate $1 Million by the time they are 60. Both expect a 9% annualized return from their broad-market index fund portfolios. This head-to-head comparison reveals exactly how the mathematics of compounding penalizes procrastination, and more importantly, how a step-up structure offers a vital lifeline.
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Emma has 25 years until retirement. If she uses a standard DCA strategy without any step-up, she needs to invest roughly $890 every month. While substantial, this is an achievable figure for a mid-career professional. However, if she commits to a 10% annual step-up, her starting monthly contribution drops drastically to just $280 per month! The step-up structure does the heavy lifting in her later years when her salary is substantially higher and her debt obligations, like student loans, are likely lower. It allows her to ease into wealth building without suffocating her current lifestyle.
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Michael, on the other hand, has only 15 years left. The cost of a 10-year delay is absolutely brutal. For a standard flat-rate DCA, Michael must invest a staggering $2,700 per month to reach the exact same $1 Million goal. For most families, suddenly finding $2,700 of disposable income every month is near impossible. But what if Michael uses a step-up approach? With a 10% annual increase, his starting contribution needs to be around $1,250 per month. If he pushes harder with an aggressive 15% annual step-up, his starting contribution drops further to just $850. 
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            The mathematical trajectory shows us two crucial lessons. First, delay severely punishes your monthly cash flow requirements, forcing you to allocate absurd amounts of current income to secure your future. Second, a step-up mechanism is the only realistic, psychologically sustainable way for someone like Michael to catch up. Trying to find $2,700 every month right now might lead to immediate failure, but starting with $850 and aggressively increasing it by 15% as his income grows is a much more achievable reality that doesn&apos;t trigger financial panic.
+          </p>
+        </div>
+
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            The Impact of 10% vs 15% Annual Step-Ups
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            When calculating long-term trajectories over multiple decades, a mere 5% difference in your step-up rate can completely alter your financial destiny. It might not feel like much in year one or year two, but the back-end explosion of capital is breathtaking. Let&apos;s look at a late starter who begins with a $1,000 monthly contribution for a period of 20 years, assuming a 9% return.
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <strong>At a 10% Step-Up:</strong> In year 20, the final monthly contribution will be around $6,100. The total amount invested over the two decades will be roughly $687,000. The final wealth accumulated? An impressive $1.52 Million. This is a highly respectable retirement corpus that ensures financial dignity in old age.
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <strong>At a 15% Step-Up:</strong> In year 20, the monthly contribution skyrockets to $14,200. The total invested capital becomes $1.23 Million. But the final wealth accumulated? A jaw-dropping $2.31 Million. This isn&apos;t just retirement money; this is generational wealth.
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            By stretching your annual increment by just 5 extra percentage points, you create an additional $790,000 in net worth. This happens because the step-up forces a massive amount of capital into the market during your peak earning years. While the late-stage compounding isn&apos;t as mathematically powerful as money invested in year one, the sheer volume of capital injected into the portfolio in years 10 through 20 ensures your total net worth explodes just before retirement. 
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            This aggressive scaling is why financial planners strongly advocate for linking your contribution increases directly to your annual bonuses and salary hikes. If you receive a 5% raise, ensure your investment contributions go up by at least 10-15%. By intentionally living below your means and funneling salary bumps directly into your portfolio, you create an automated wealth-generation machine. This slight discomfort in the short term translates into massive multi-million dollar comfort in the long term, effectively buying back the years you lost by starting late.
+          </p>
+        </div>
+
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Catching Up on FIRE (Financial Independence, Retire Early)
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Many late starters falsely assume that the FIRE movement is entirely out of reach for them. If you didn&apos;t start investing at 22 and living out of a van, the idea of retiring at 45 or 50 seems like a mathematical impossibility. However, while extreme early FIRE (like retiring at 30) might be off the table, hitting Financial Independence by 50 or 55 is entirely possible with a relentless, militant step-up strategy. You can calculate your exact numbers using our <Link href="/us/tools/fire-calculator" className="text-[var(--color-accent)] hover:underline font-medium">FIRE Calculator</Link>.
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            The core mathematical principle of FIRE is achieving a high savings rate, typically between 50% to 70%. For a late starter in their late 30s with dependents and a mortgage, achieving a 50% savings rate overnight is a recipe for extreme burnout and severe lifestyle disruption. Instead, the Step-Up DCA provides a stealthy, incremental pathway to FIRE. By starting with a modest 20% savings rate and employing a 15% to 20% annual step-up, your savings rate will naturally converge toward the coveted 50% mark over 5 to 7 years, provided you fiercely combat lifestyle inflation.
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            For example, let&apos;s assume you earn $8,000 per month and currently save $1,600 (a 20% rate). If your income grows at an average of 5% per year, but you step up your investments by 20% per year, your savings will consume an increasingly larger slice of your incoming cash flow. By year 7, your income will be roughly $10,700, and your contribution will be around $4,800—pushing your savings rate to a phenomenal 44%. By year 10, your savings rate will easily cross the magical 50% threshold. 
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            This forced, automated escalation means that while you may have started late, the last decade of your career becomes an intensive, hyper-focused accumulation phase. You will systematically generate more wealth in those final 10 years than most people do in 30 years of stagnant, unoptimized saving. It requires extreme discipline, a willingness to completely ignore peer pressure regarding luxury lifestyle upgrades, and an unwavering, non-negotiable commitment to your step-up mandate. But the math is undeniable: a high step-up rate is the ultimate equalizer in the pursuit of Financial Independence, giving late starters a legitimate roadmap to freedom.
+          </p>
+        </div>
         {/* CTA Section */}
         <div className="bg-gradient-to-br from-[#1B3A5C] to-[#112740] rounded-3xl p-8 sm:p-12 text-center shadow-xl mb-12">
           <h2 className="text-3xl font-bold text-white mb-4">Run the Numbers Yourself</h2>

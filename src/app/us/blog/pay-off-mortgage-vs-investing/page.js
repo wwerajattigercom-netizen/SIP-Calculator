@@ -151,6 +151,68 @@ export default function PayOffMortgageVsInvestingPage() {
             </div>
           </div>
 
+          {/* The Psychological Burden of Debt vs Mathematical Logic */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">The Psychological Burden of Debt vs Mathematical Logic</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              It is easy to look at a spreadsheet and declare that investing is the absolute winner because a 10% average return beats a 6% mortgage. But personal finance is more &quot;personal&quot; than &quot;finance.&quot; The psychological weight of a massive 30-year mortgage hanging over your head cannot be fully quantified in a simple spreadsheet.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              When you prepay your mortgage, you are buying peace of mind. You are working towards eliminating your largest fixed monthly obligation, which gives you immense freedom. If you decide to switch careers, start a business, or if you face an unexpected job loss or medical emergency, not having a $2,500 mortgage payment hovering over you is a massive relief. This emotional security often drives people to aggressively clear their loans, even if they understand they might be leaving some money on the table mathematically.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              On the other hand, the mathematical logic of the <Link href="/us/tools/cost-of-delay-calculator" className="text-[var(--color-accent)] hover:underline font-medium">Cost of Delay</Link> in investing is brutal. Every year you delay your DCA strategy to pay off a fixed-rate mortgage, you lose out on the exponential compounding curve of the stock market. By the time you finish paying off your house and start investing heavily, you might have lost a decade or more of compound interest, requiring you to invest significantly larger sums just to catch up to where you would have been.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              This creates a tug-of-war between the emotional comfort of being debt-free and the logical pursuit of maximum wealth creation. The key is understanding your own risk tolerance and job stability.
+            </p>
+          </div>
+
+          {/* Real Numbers: 30-Year Mortgage vs Index Fund Corpus */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Real Numbers: 30-Year Mortgage vs Building an Index Fund Corpus</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Let us look at a concrete example to illustrate the impact. Suppose you have a mortgage of $400,000 at a 6% interest rate for a tenure of 30 years. Your standard principal and interest payment is approximately $2,398. Over 30 years, you will pay a staggering $463,000 in interest alone, making your total outflow over $863,000.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              Now, imagine you have an extra $1,000 every month. What happens if you use it for prepayment vs investing in the S&amp;P 500?
+            </p>
+            <div className="space-y-6 mt-6 mb-6">
+              <div className="p-5 border-l-4 border-[#1B3A5C] bg-[rgba(27,58,92,0.02)] rounded-r-xl">
+                <h3 className="font-bold text-foreground mb-2">Scenario A: Aggressive Prepayment</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  By adding $1,000 to your payment every month (totaling $3,398), you drastically reduce your principal. Your 30-year loan is paid off in just under <strong>15 years</strong>. You save roughly $250,000 in interest payments. After 15 years, you own your home outright. If you then take that entire $3,398 and invest it for the remaining 15 years at an 8% return, you will accumulate around $1.18 Million.
+                </p>
+              </div>
+              <div className="p-5 border-l-4 border-[#059669] bg-[rgba(5,150,105,0.02)] rounded-r-xl">
+                <h3 className="font-bold text-foreground mb-2">Scenario B: The DCA Route</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  You pay the standard $2,398 mortgage and invest the extra $1,000 in an S&amp;P 500 index fund every month. After 30 years, your house is paid off on schedule. However, that $1,000 monthly investment at an 8% average return will have grown into a staggering corpus of <strong>$1.49 Million</strong>. You have your house, plus a massive liquid portfolio that far exceeds the prepayment strategy.
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              The math is clear: keeping the fixed-rate debt and compounding your surplus cash in the market creates significantly more net worth over the long term. You can use our <Link href="/us/tools/mortgage-calculator" className="text-[var(--color-accent)] hover:underline font-medium">Mortgage Calculator</Link> to run these exact numbers for your own loan balance.
+            </p>
+          </div>
+
+          {/* Inflation's Effect on Fixed-Rate Debt */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Inflation: The Silent Savior of Fixed-Rate Mortgages</h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              One of the most misunderstood concepts in personal finance is the impact of inflation on long-term debt. We often view inflation as a wealth killer because it reduces the purchasing power of our savings. However, when you hold a 30-year fixed-rate mortgage, inflation is actually your greatest ally.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              When you take out a mortgage, your payment is fixed at roughly $2,400. Today, that $2,400 might represent 30% of your monthly take-home pay. It feels like a heavy burden. But fast forward 15 years: due to annual raises, career growth, and general inflation, your salary has likely increased substantially. Yet, your mortgage payment remains exactly $2,400. That same payment now represents a much smaller fraction of your income. It has effectively shrunk in real terms.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+              You are paying back the bank with &quot;future dollars&quot; which have far less purchasing power than the dollars you originally borrowed. If inflation averages 3% a year, the real cost of your 6% debt is effectively halved. When you factor in the mortgage interest tax deduction, your real, inflation-adjusted interest rate might be close to zero.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              By aggressively prepaying a fixed-rate mortgage, you are taking hard-earned, highly valuable &quot;present-day dollars&quot; and giving them to the bank to clear a debt that inflation would have naturally eroded over time. Instead, those valuable present-day dollars could be deployed into the stock market, where companies traditionally pass inflation costs onto consumers, allowing your investments to grow faster than inflation and compound your wealth exponentially.
+            </p>
+          </div>
+
           {/* The Golden Middle Path */}
           <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 border-t-4 border-t-[var(--color-accent)]">
             <h2 className="text-2xl font-bold text-foreground mb-4">The Golden Strategy: The 50-50 Split</h2>

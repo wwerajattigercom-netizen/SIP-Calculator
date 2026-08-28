@@ -148,6 +148,42 @@ export default function SgbVsNiftySIP() {
           </div>
 
           <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">15-Year Historical Rolling Returns: The Real Picture</h2>
+            <p className="mb-4">
+              When analyzing investments, simply looking at point-to-point returns can be deeply misleading. Point-to-point returns are heavily skewed by the start and end dates chosen. Instead, financial professionals rely on <strong>rolling returns</strong> to understand the consistency and probability of generating wealth over time. If we analyze the 15-year rolling returns of the Nifty 50 Index compared to Gold (and by proxy, SGBs), a distinct pattern emerges.
+            </p>
+            <p className="mb-4">
+              Over a 15-year horizon, the Nifty 50 index has historically delivered a robust 12% to 14% Compound Annual Growth Rate (CAGR) in the vast majority of rolling periods. This means an investor who persistently ran a Nifty 50 SIP, enduring the market&apos;s ups and downs, almost always beat inflation by a substantial margin. On the flip side, gold&apos;s 15-year rolling returns in INR terms generally hover around 8% to 10% (when combining price appreciation and the 2.5% SGB interest). While gold successfully preserves purchasing power against inflation, it does not exponentially multiply wealth in the same manner as holding shares in India&apos;s top 50 corporate giants.
+            </p>
+            <p className="mb-4">
+              However, the 2000-2010 decade serves as a sobering reminder: during that specific global stagnation, equity returns were heavily suppressed while gold prices skyrocketed. This historical context emphasizes why blindly chasing the highest historical return can leave a portfolio vulnerable to extended macroeconomic shifts.
+            </p>
+          </div>
+
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">The Cash Flow Dilemma: Dividends vs. Sterile Assets</h2>
+            <p className="mb-4">
+              A fundamental difference between equities and physical gold lies in cash flow generation. The companies comprising the Nifty 50 index are living, breathing entities. They manufacture goods, provide services, innovate, and crucially, they generate profits. A portion of these profits is distributed back to shareholders as <strong>dividends</strong>. When you invest in a Nifty 50 SIP, you are acquiring productive assets. Over decades, the compounding effect of reinvested dividends can account for a massive portion of your total returns.
+            </p>
+            <p className="mb-4">
+              Conversely, physical gold is often described by legendary investor Warren Buffett as a &quot;sterile asset.&quot; It does not produce anything, it does not pay dividends, and it does not generate earnings. You buy it hoping someone else will pay more for it in the future. Sovereign Gold Bonds (SGBs) beautifully bridge this gap by offering a fixed 2.5% annual interest on the initial investment, making them vastly superior to holding physical bars or coins. Yet, even with this interest, the yield pales in comparison to the dynamic earnings growth potential of a booming corporate sector.
+            </p>
+          </div>
+
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Modern Portfolio Theory: Strategic Asset Allocation</h2>
+            <p className="mb-4">
+              Pioneered by Harry Markowitz, <strong>Modern Portfolio Theory (MPT)</strong> mathematically proves that an investor can construct a portfolio that maximizes expected return for a given level of risk. The secret sauce of MPT is <em>diversification through non-correlated assets</em>. Gold and equities are the textbook example of this principle in action. They often exhibit a negative or zero correlation; when equities plunge during a financial panic, gold typically surges as a safe-haven asset.
+            </p>
+            <p className="mb-4">
+              By holding both Nifty 50 SIPs and SGBs, you create a portfolio that experiences smaller drawdowns during bear markets. This smoother ride prevents panic selling. If your equity allocation plummets, your gold allocation acts as a shock absorber. You can track this delicate balance effectively using our <Link href="/tools/net-worth-calculator" className="text-[#1B3A5C] dark:text-[#C4993C] font-semibold hover:underline">Net Worth Calculator</Link>, ensuring your overall financial health remains robust even when one asset class underperforms.
+            </p>
+            <p className="mb-4">
+              Furthermore, during annual portfolio rebalancing, this non-correlation allows you to sell high and buy low automatically. If equities have a spectacular bull run and exceed your target allocation (e.g., growing from 80% to 90% of your portfolio), you sell the excess equity and buy more gold. If a market crash reduces your equity allocation, you sell some gold to buy cheaper equities. This mechanical rebalancing is the hallmark of professional wealth management.
+            </p>
+          </div>
+
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">The Case for Allocation: Why You Need Both</h2>
             <p className="mb-4">
               It is a mistake to view SGBs and Nifty 50 SIPs as mutually exclusive options. The most resilient portfolios utilize them in tandem. This strategy is rooted in the concept of non-correlation. Gold and equities often have an inverse or non-correlated relationship. When the stock market crashes, gold acts as a parachute, reducing the overall drawdown of your portfolio.
