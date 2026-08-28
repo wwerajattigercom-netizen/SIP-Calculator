@@ -78,3 +78,11 @@ Located in the project root. It lists every single calculator and blog guide tha
 3. **No Orphan Pages (Update Header):** Whenever you create a new calculator or tool, you MUST add it to the navigation dropdown in `src/components/Header.jsx` (for both IN and US regions). Do not just create the file and leave it inaccessible.
 4. **End-to-End Execution (The SEO & Integration Rule):** When asked to build a new feature or page, you MUST handle ALL integration steps yourself. You must: (A) Create the pages for both US and IN. (B) Update the navigation dropdown in `Header.jsx`. (C) Update the region toggle mapping inside `Header.jsx` so users can switch regions without hitting a 404. (D) Add internal backlinks to other calculators. (E) Update `CONTENT_TRACKER.md`. (F) Update `src/app/sitemap.js`. Do not wait for the user to ask for these steps; they are mandatory for every new page.
 5. **CRITICAL: JSX Template Literal Escaping Bug:** When writing dynamic Tailwind classes using template literals (e.g., `className={\`glass-panel \${condition ? 'active' : ''}\`}`), **do not escape the backticks** when writing via API tools. Escaping them as `{\\\`...\`}` causes fatal `Parsing ecmascript source code failed` errors during the Next.js production build. Write raw backticks.
+
+## 7. Array Injection & Windows CRLF Safety (CRITICAL)
+
+When appending new guides or calculators to the `ARTICLES` or `CALCULATORS` arrays in `src/app/blog/page.js` or `src/app/us/blog/page.js`:
+1. **Never use regex `replace` or basic string matching** (like `content.replace('}\n];', ...)`). Windows uses CRLF (`\r\n`) line endings, which causes regex to fail silently and swallow the update.
+2. **Use exact line numbers:** Always view the file first to find the exact line numbers of the bottom of the array (`} ];`), then use the `replace_file_content` tool with explicit `StartLine` and `EndLine` targeting.
+3. **Double-check the array:** Ensure you are inserting into the `ARTICLES` array for guides, NOT the `CALCULATORS` array.
+4. **Numbering:** Simply appending to the bottom of the `ARTICLES` array preserves the automatic `#id` badging in the UI.
