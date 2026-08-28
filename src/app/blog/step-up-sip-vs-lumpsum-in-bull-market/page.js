@@ -39,7 +39,7 @@ export default function StepUpSipVsLumpsumInBullMarket() {
 
   return (
     <div className="max-w-6xl w-full mx-auto pb-16">
-      <Breadcrumb />
+      <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'Step-Up vs Lumpsum in Bull Market' }]} />
       
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 mt-6">
         <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
