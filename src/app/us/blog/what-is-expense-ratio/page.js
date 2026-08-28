@@ -199,7 +199,28 @@ export default function ExpenseRatioUSGuide() {
         </div>
 
         {/* ── FAQ SECTION ── */}
-        <section id="faq" className="mt-12 mb-16">
+        
+        {/* Calculator CTA */}
+        <section className="max-w-6xl w-full mx-auto mt-12 mb-12">
+          <div className="glass-panel p-8 rounded-3xl bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent border border-[rgba(27,58,92,0.1)] flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-bold text-foreground mb-2">Run the Numbers Yourself</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                Ready to see how compounding works in real life? Use our free calculators to project your wealth, account for inflation, and plan your goals.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+              <Link href="/us/dca-calculator" className="px-6 py-3 bg-[var(--color-accent)] text-white font-semibold rounded-xl hover:bg-[#152e4d] transition-all shadow-md text-center">
+                DCA Calculator
+              </Link>
+              <Link href="/us/lumpsum-calculator" className="px-6 py-3 bg-white dark:bg-gray-800 text-[var(--color-accent)] font-semibold rounded-xl border border-[var(--color-accent)] hover:bg-gray-50 transition-all text-center">
+                Lumpsum Calculator
+              </Link>
+            </div>
+          </div>
+        </section>
+
+<section id="faq" className="mt-12 mb-16">
           <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Frequently Asked Questions</h2>
           <div className="space-y-4 max-w-4xl mx-auto">
             

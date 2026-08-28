@@ -268,7 +268,28 @@ export default function WhenToExitMutualFundIN() {
               </div>
             </section>
 
-            <section className="glass-panel p-6 sm:p-8 rounded-3xl mb-12">
+            
+        {/* Calculator CTA */}
+        <section className="max-w-6xl w-full mx-auto mt-12 mb-12">
+          <div className="glass-panel p-8 rounded-3xl bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent border border-[rgba(27,58,92,0.1)] flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-bold text-foreground mb-2">Run the Numbers Yourself</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                Ready to see how compounding works in real life? Use our free calculators to project your wealth, account for inflation, and plan your goals.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+              <Link href="/" className="px-6 py-3 bg-[var(--color-accent)] text-white font-semibold rounded-xl hover:bg-[#152e4d] transition-all shadow-md text-center">
+                Step-Up SIP Calculator
+              </Link>
+              <Link href="/lumpsum-calculator" className="px-6 py-3 bg-white dark:bg-gray-800 text-[var(--color-accent)] font-semibold rounded-xl border border-[var(--color-accent)] hover:bg-gray-50 transition-all text-center">
+                Lumpsum Calculator
+              </Link>
+            </div>
+          </div>
+        </section>
+
+<section className="glass-panel p-6 sm:p-8 rounded-3xl mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-[var(--color-accent)] bg-opacity-20 dark:bg-opacity-10 border border-[var(--color-accent)] p-2 rounded-xl">
                   <Info className="w-5 h-5 text-[var(--color-accent)]" />
