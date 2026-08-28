@@ -106,6 +106,44 @@ export default function AiTradingVsSipIN() {
       </div>
 
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Historical Case Study: AI Bots During a Market Crash</h2>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          When examining the resilience of automated trading versus Systematic Investment Plans, historical market crashes offer the most illuminating data points. Consider the massive liquidity events and sudden &quot;flash crashes&quot; that periodically rattle the National Stock Exchange (NSE) or global markets. In a typical flash crash, algorithmic bots, which are primarily programmed to react to momentum and volume spikes, often trigger a cascading failure. When the price of an asset drops below a moving average threshold, hundreds of bots simultaneously execute sell orders. This hyper-correlated behavior accelerates the crash, creating a self-fulfilling prophecy of liquidity drain. 
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          For the retail investor running a bot, this environment is catastrophic. The algorithms execute market orders at increasingly worse prices due to severe slippage. What the backtest showed as a 2% stop-loss might execute as a 10% or 15% real-world loss because there are simply no buyers on the other side of the trade at the desired price level. Furthermore, after exiting the market in a panic, these bots are often programmed to stay out until volatility subsides. Consequently, they miss the inevitable aggressive V-shaped recovery that typically follows a flash crash.
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          Contrast this chaotic sequence with the serene mechanics of an ongoing SIP into the Nifty 50. During a severe market downturn, the SIP investor does not panic-sell. Instead, the automated monthly deduction acts as a natural contrarian mechanism. When the market is down 20%, your fixed ₹10,000 monthly investment simply buys 20% more units of the index fund. You are essentially accumulating premium assets at a steep discount. 
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          This process of buying more units when prices are low is the bedrock of Rupee Cost Averaging. Over a 10- or 15-year horizon, these accumulated units supercharge your portfolio&apos;s recovery when the bull market returns. The SIP investor actively benefits from the volatility that destroys the short-term algorithmic trader, proving that time in the market is fundamentally more robust than timing the market.
+        </p>
+      </div>
+
+      <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+        <h2 className="text-2xl font-bold text-foreground mb-4">The Hidden Costs of Algo Trading</h2>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          The marketing materials for AI trading bots generally highlight gross historical returns, conveniently omitting the relentless friction costs that devour retail traders&apos; capital. While institutional quantitative hedge funds have billions of dollars to amortize their infrastructure costs, retail traders face a disproportionate burden of fixed and variable expenses.
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          <strong>1. Software Subscriptions and Signal Fees:</strong> Quality algorithmic software isn&apos;t free. Investors often pay anywhere from ₹2,000 to ₹10,000 per month just to license the bot or receive its trading signals. If you are starting with a portfolio of ₹1,00,000, a ₹5,000 monthly fee represents an immediate 5% monthly drawdown on your capital. The bot has to generate a 5% return every single month just to break even, a nearly impossible feat over a prolonged period.
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          <strong>2. Infrastructure and API Latency:</strong> To trade effectively, especially on lower timeframes, your bot requires a stable, ultra-low latency connection to the broker&apos;s API. Retail investors often have to rent Virtual Private Servers (VPS) hosted near the exchange to reduce ping times. This adds another recurring monthly cost. Even with a VPS, retail infrastructure is inherently slower than institutional co-location setups. By the time your bot receives a price signal and sends an order, institutional bots have already front-run the trade, leaving you with worse execution prices.
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          <strong>3. Bid-Ask Spread Erosion:</strong> High-frequency trading relies on exploiting small price movements multiple times a day. However, every time you buy and sell, you cross the bid-ask spread. In highly liquid stocks, this spread might be small, but it still adds up. If a bot makes 10 trades a day, paying a 0.05% spread on each, it loses 0.5% of its capital daily just to market makers. Over a year with 250 trading days, spread erosion alone can wipe out a massive portion of the portfolio.
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          <strong>4. Slippage on Execution:</strong> Backtests assume that you can always buy and sell at the exact closing price of a candle. Reality is far messier. When momentum shifts rapidly, the price can jump past your bot&apos;s limit orders, forcing it to use market orders that execute at worse prices. This &quot;slippage&quot; is the silent killer of backtested strategies, turning hypothetical alpha into real-world negative returns.
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+          When you compare this gauntlet of hidden fees&mdash;subscriptions, VPS costs, API latency, spreads, and slippage&mdash;to the near-zero friction of a modern direct mutual fund SIP (which might have an expense ratio as low as 0.20% per year), the mathematical advantage of the SIP becomes undeniable. You aren&apos;t constantly bleeding capital to the market infrastructure; instead, 99.8% of your money goes straight toward buying productive assets.
+        </p>
+      </div>
+
+      <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
         <h2 className="text-2xl font-bold text-foreground mb-4">Hidden Risks of AI Trading Bots</h2>
         <ul className="list-disc pl-6 space-y-4 text-gray-500 dark:text-gray-400">
           <li>
