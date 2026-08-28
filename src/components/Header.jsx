@@ -48,6 +48,12 @@ export default function Header() {
    if (pathname === '/us/blog/what-is-expense-ratio') newPath = '/blog/what-is-expense-ratio';
    if (pathname === '/us/blog/when-to-sell-mutual-fund') newPath = '/blog/when-to-exit-mutual-fund';
    if (pathname === '/us/blog/ai-trading-bots-vs-dca') newPath = '/blog/ai-trading-bots-vs-sip';
+   if (pathname === '/us/blog/pay-off-mortgage-vs-investing') newPath = '/blog/prepay-home-loan-vs-sip';
+   if (pathname === '/us/blog/auto-loan-vs-dca') newPath = '/blog/car-loan-emi-vs-sip';
+   if (pathname === '/us/blog/dca-at-all-time-highs') newPath = '/blog/sip-at-all-time-highs';
+   if (pathname === '/us/blog/step-up-dca-for-late-starters') newPath = '/blog/step-up-sip-for-late-starters';
+   if (pathname === '/us/blog/gold-vs-sp500-dca') newPath = '/blog/gold-sgb-vs-nifty-50-sip';
+
    router.push(newPath);
   } else {
    document.cookie = "preferred_region=US; path=/; max-age=31536000";
@@ -71,6 +77,12 @@ export default function Header() {
    if (pathname === '/blog/what-is-expense-ratio') newPath = '/us/blog/what-is-expense-ratio';
    if (pathname === '/blog/when-to-exit-mutual-fund') newPath = '/us/blog/when-to-sell-mutual-fund';
    if (pathname === '/blog/ai-trading-bots-vs-sip') newPath = '/us/blog/ai-trading-bots-vs-dca';
+   if (pathname === '/blog/prepay-home-loan-vs-sip') newPath = '/us/blog/pay-off-mortgage-vs-investing';
+   if (pathname === '/blog/car-loan-emi-vs-sip') newPath = '/us/blog/auto-loan-vs-dca';
+   if (pathname === '/blog/sip-at-all-time-highs') newPath = '/us/blog/dca-at-all-time-highs';
+   if (pathname === '/blog/step-up-sip-for-late-starters') newPath = '/us/blog/step-up-dca-for-late-starters';
+   if (pathname === '/blog/gold-sgb-vs-nifty-50-sip') newPath = '/us/blog/gold-vs-sp500-dca';
+
    router.push(newPath);
   }
  };
