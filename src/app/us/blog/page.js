@@ -1,7 +1,7 @@
 "use client";
 import CalculatorTabs from '@/components/CalculatorTabs';
 import Link from 'next/link';
-import { BookOpen, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle, Globe, PieChart } from 'lucide-react';
+import { BookOpen, Briefcase, LineChart, Clock, ArrowRight, Calculator, TrendingUp, Target, Layers, Wallet, Shield, BarChart3, Flame, GraduationCap, Home, Zap, Settings2, ArrowUpCircle, AlertTriangle, XCircle, Globe, PieChart } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const ARTICLES = [{
@@ -438,6 +438,114 @@ const ARTICLES = [{
     readTime: '8 min read',
     cta: 'Read Guide',
     icon: <Shield className="w-5 h-5 text-[#C4993C]" />,
+  },
+  {
+    href: '/us/blog/step-up-dca-for-freelancers',
+    tag: 'Gig Economy',
+    tagColor: 'text-[#1B3A5C] bg-[#1B3A5C]/10 border-[#1B3A5C]/20',
+    title: 'Step-Up DCA Strategy for Freelancers & Independent Contractors',
+    excerpt: 'How to successfully build a massive retirement corpus using Step-Up DCA even when your monthly 1099 income fluctuates wildly.',
+    readTime: '8 min read',
+    cta: 'Read Guide',
+    icon: <Briefcase className="w-5 h-5 text-[#1B3A5C]" />,
+    highlight: 'New',
+    highlightColor: 'text-[#1B3A5C]',
+  },
+  {
+    href: '/us/blog/investing-annual-raise-step-up-dca',
+    tag: 'Career Growth',
+    tagColor: 'text-[#059669] bg-[#059669]/10 border-[#059669]/20',
+    title: 'How to Invest Your Annual Raise: The 50% Step-Up Rule',
+    excerpt: 'Beat lifestyle creep mathematically. See what happens when you commit exactly 50% of your annual raise to your Step-Up DCA.',
+    readTime: '7 min read',
+    cta: 'Read Guide',
+    icon: <TrendingUp className="w-5 h-5 text-[#059669]" />
+  },
+  {
+    href: '/us/blog/step-up-dca-to-beat-college-tuition-inflation',
+    tag: 'Goal Planning',
+    tagColor: 'text-[#991B1B] bg-[#991B1B]/10 border-[#991B1B]/20',
+    title: 'Using Step-Up DCA to Outpace 8% College Tuition Inflation',
+    excerpt: 'A flat DCA will fail to fund your child\'s college degree. Learn how aggressive Step-Up DCA bridges the 8% tuition inflation gap.',
+    readTime: '9 min read',
+    cta: 'Read Guide',
+    icon: <GraduationCap className="w-5 h-5 text-[#991B1B]" />,
+    highlight: 'Essential',
+    highlightColor: 'text-[#991B1B]',
+  },
+  {
+    href: '/us/blog/10-10-10-rule-investing-vs-step-up-dca',
+    tag: 'Finance Rules',
+    tagColor: 'text-[#C4993C] bg-[#C4993C]/10 border-[#C4993C]/20',
+    title: 'The 10-10-10 Rule of Investing: Upgraded with Step-Up DCA',
+    excerpt: 'We mathematically deconstruct the viral 10-10-10 investing rule of thumb and prove why adding a 10% annual Step-Up crushes it.',
+    readTime: '7 min read',
+    cta: 'Read Guide',
+    icon: <Calculator className="w-5 h-5 text-[#C4993C]" />
+  },
+  {
+    href: '/us/blog/step-up-dca-vs-lumpsum-in-bull-market',
+    tag: 'Market Strategy',
+    tagColor: 'text-[#1B3A5C] bg-[#1B3A5C]/10 border-[#1B3A5C]/20',
+    title: 'Step-Up DCA vs Lumpsum: What Works Best in a Bull Market?',
+    excerpt: 'When markets are euphoric, should you deploy cash in a lump sum or use a highly aggressive Step-Up DCA? The data might surprise you.',
+    readTime: '8 min read',
+    cta: 'Read Guide',
+    icon: <LineChart className="w-5 h-5 text-[#1B3A5C]" />
+  },
+  {
+    href: '/us/blog/step-up-dca-for-freelancers',
+    tag: 'Gig Economy',
+    tagColor: 'text-[#1B3A5C] bg-[#1B3A5C]/10 border-[#1B3A5C]/20',
+    title: 'Step-Up DCA Strategy for Freelancers & Independent Contractors',
+    excerpt: 'How to successfully build a massive retirement corpus using Step-Up DCA even when your monthly 1099 income fluctuates wildly.',
+    readTime: '8 min read',
+    cta: 'Read Guide',
+    icon: <Briefcase className="w-5 h-5 text-[#1B3A5C]" />,
+    highlight: 'New',
+    highlightColor: 'text-[#1B3A5C]',
+  },
+  {
+    href: '/us/blog/investing-annual-raise-step-up-dca',
+    tag: 'Career Growth',
+    tagColor: 'text-[#059669] bg-[#059669]/10 border-[#059669]/20',
+    title: 'How to Invest Your Annual Raise: The 50% Step-Up Rule',
+    excerpt: 'Beat lifestyle creep mathematically. See what happens when you commit exactly 50% of your annual raise to your Step-Up DCA.',
+    readTime: '7 min read',
+    cta: 'Read Guide',
+    icon: <TrendingUp className="w-5 h-5 text-[#059669]" />
+  },
+  {
+    href: '/us/blog/step-up-dca-to-beat-college-tuition-inflation',
+    tag: 'Goal Planning',
+    tagColor: 'text-[#991B1B] bg-[#991B1B]/10 border-[#991B1B]/20',
+    title: 'Using Step-Up DCA to Outpace 8% College Tuition Inflation',
+    excerpt: 'A flat DCA will fail to fund your child\'s college degree. Learn how aggressive Step-Up DCA bridges the 8% tuition inflation gap.',
+    readTime: '9 min read',
+    cta: 'Read Guide',
+    icon: <GraduationCap className="w-5 h-5 text-[#991B1B]" />,
+    highlight: 'Essential',
+    highlightColor: 'text-[#991B1B]',
+  },
+  {
+    href: '/us/blog/10-10-10-rule-investing-vs-step-up-dca',
+    tag: 'Finance Rules',
+    tagColor: 'text-[#C4993C] bg-[#C4993C]/10 border-[#C4993C]/20',
+    title: 'The 10-10-10 Rule of Investing: Upgraded with Step-Up DCA',
+    excerpt: 'We mathematically deconstruct the viral 10-10-10 investing rule of thumb and prove why adding a 10% annual Step-Up crushes it.',
+    readTime: '7 min read',
+    cta: 'Read Guide',
+    icon: <Calculator className="w-5 h-5 text-[#C4993C]" />
+  },
+  {
+    href: '/us/blog/step-up-dca-vs-lumpsum-in-bull-market',
+    tag: 'Market Strategy',
+    tagColor: 'text-[#1B3A5C] bg-[#1B3A5C]/10 border-[#1B3A5C]/20',
+    title: 'Step-Up DCA vs Lumpsum: What Works Best in a Bull Market?',
+    excerpt: 'When markets are euphoric, should you deploy cash in a lump sum or use a highly aggressive Step-Up DCA? The data might surprise you.',
+    readTime: '8 min read',
+    cta: 'Read Guide',
+    icon: <LineChart className="w-5 h-5 text-[#1B3A5C]" />
   }
 ];
 

@@ -73,6 +73,12 @@ _These are reading materials and concepts._
 - [x] sip-at-all-time-highs
 - [x] step-up-sip-for-late-starters
 - [x] gold-sgb-vs-nifty-50-sip
+- [x] step-up-sip-for-freelancers
+- [x] investing-salary-hike-in-step-up-sip
+- [x] step-up-sip-to-beat-education-inflation
+- [x] 15-15-15-rule-mutual-funds-vs-step-up-sip
+- [x] step-up-sip-vs-lumpsum-in-bull-market
+
 
 - [x] dynamic-sip
 - [x] flexi-sip
@@ -104,6 +110,12 @@ _These are reading materials and concepts._
 - [x] dca-at-all-time-highs
 - [x] step-up-dca-for-late-starters
 - [x] gold-vs-sp500-dca
+- [x] step-up-dca-for-freelancers
+- [x] investing-annual-raise-step-up-dca
+- [x] step-up-dca-to-beat-college-tuition-inflation
+- [x] 10-10-10-rule-investing-vs-step-up-dca
+- [x] step-up-dca-vs-lumpsum-in-bull-market
+
 
 - [x] dca-vs-fd-ppf-rd
 - [x] dca-vs-stp

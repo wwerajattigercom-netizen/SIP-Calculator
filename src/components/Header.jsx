@@ -48,6 +48,12 @@ export default function Header() {
    if (pathname === '/us/blog/what-is-expense-ratio') newPath = '/blog/what-is-expense-ratio';
    if (pathname === '/us/blog/when-to-sell-mutual-fund') newPath = '/blog/when-to-exit-mutual-fund';
    if (pathname === '/us/blog/ai-trading-bots-vs-dca') newPath = '/blog/ai-trading-bots-vs-sip';
+   if (pathname === '/us/blog/step-up-dca-for-freelancers') newPath = '/blog/step-up-sip-for-freelancers';
+   if (pathname === '/us/blog/investing-annual-raise-step-up-dca') newPath = '/blog/investing-salary-hike-in-step-up-sip';
+   if (pathname === '/us/blog/step-up-dca-to-beat-college-tuition-inflation') newPath = '/blog/step-up-sip-to-beat-education-inflation';
+   if (pathname === '/us/blog/10-10-10-rule-investing-vs-step-up-dca') newPath = '/blog/15-15-15-rule-mutual-funds-vs-step-up-sip';
+   if (pathname === '/us/blog/step-up-dca-vs-lumpsum-in-bull-market') newPath = '/blog/step-up-sip-vs-lumpsum-in-bull-market';
+
    if (pathname === '/us/blog/pay-off-mortgage-vs-investing') newPath = '/blog/prepay-home-loan-vs-sip';
    if (pathname === '/us/blog/auto-loan-vs-dca') newPath = '/blog/car-loan-emi-vs-sip';
    if (pathname === '/us/blog/dca-at-all-time-highs') newPath = '/blog/sip-at-all-time-highs';
@@ -77,6 +83,12 @@ export default function Header() {
    if (pathname === '/blog/what-is-expense-ratio') newPath = '/us/blog/what-is-expense-ratio';
    if (pathname === '/blog/when-to-exit-mutual-fund') newPath = '/us/blog/when-to-sell-mutual-fund';
    if (pathname === '/blog/ai-trading-bots-vs-sip') newPath = '/us/blog/ai-trading-bots-vs-dca';
+   if (pathname === '/blog/step-up-sip-for-freelancers') newPath = '/us/blog/step-up-dca-for-freelancers';
+   if (pathname === '/blog/investing-salary-hike-in-step-up-sip') newPath = '/us/blog/investing-annual-raise-step-up-dca';
+   if (pathname === '/blog/step-up-sip-to-beat-education-inflation') newPath = '/us/blog/step-up-dca-to-beat-college-tuition-inflation';
+   if (pathname === '/blog/15-15-15-rule-mutual-funds-vs-step-up-sip') newPath = '/us/blog/10-10-10-rule-investing-vs-step-up-dca';
+   if (pathname === '/blog/step-up-sip-vs-lumpsum-in-bull-market') newPath = '/us/blog/step-up-dca-vs-lumpsum-in-bull-market';
+
    if (pathname === '/blog/prepay-home-loan-vs-sip') newPath = '/us/blog/pay-off-mortgage-vs-investing';
    if (pathname === '/blog/car-loan-emi-vs-sip') newPath = '/us/blog/auto-loan-vs-dca';
    if (pathname === '/blog/sip-at-all-time-highs') newPath = '/us/blog/dca-at-all-time-highs';
