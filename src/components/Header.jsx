@@ -47,6 +47,7 @@ export default function Header() {
    if (pathname === '/us/blog/how-to-build-3-fund-portfolio') newPath = '/blog/how-to-build-mutual-fund-portfolio';
    if (pathname === '/us/blog/what-is-expense-ratio') newPath = '/blog/what-is-expense-ratio';
    if (pathname === '/us/blog/when-to-sell-mutual-fund') newPath = '/blog/when-to-exit-mutual-fund';
+   if (pathname === '/us/blog/ai-trading-bots-vs-dca') newPath = '/blog/ai-trading-bots-vs-sip';
    router.push(newPath);
   } else {
    document.cookie = "preferred_region=US; path=/; max-age=31536000";
@@ -69,6 +70,7 @@ export default function Header() {
    if (pathname === '/blog/how-to-build-mutual-fund-portfolio') newPath = '/us/blog/how-to-build-3-fund-portfolio';
    if (pathname === '/blog/what-is-expense-ratio') newPath = '/us/blog/what-is-expense-ratio';
    if (pathname === '/blog/when-to-exit-mutual-fund') newPath = '/us/blog/when-to-sell-mutual-fund';
+   if (pathname === '/blog/ai-trading-bots-vs-sip') newPath = '/us/blog/ai-trading-bots-vs-dca';
    router.push(newPath);
   }
  };

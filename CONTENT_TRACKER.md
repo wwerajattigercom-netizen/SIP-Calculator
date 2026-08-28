@@ -67,6 +67,7 @@ _These are reading materials and concepts._
 - [x] mutual-fund-taxation-guide
 - [x] what-is-expense-ratio
 - [x] when-to-exit-mutual-fund
+- [x] ai-trading-bots-vs-sip
 - [x] dynamic-sip
 - [x] flexi-sip
 - [x] sip-for-nris
@@ -91,6 +92,7 @@ _These are reading materials and concepts._
 - [x] large-cap-vs-small-cap-funds
 - [x] what-is-expense-ratio
 - [x] when-to-sell-mutual-fund
+- [x] ai-trading-bots-vs-dca
 - [x] dca-vs-fd-ppf-rd
 - [x] dca-vs-stp
 - [x] dca-vs-ulip

@@ -370,6 +370,18 @@ const ARTICLES = [{
     icon: <BarChart3 className="w-5 h-5 text-[#C4993C]" />,
     highlight: 'Deep Dive',
     highlightColor: 'text-[#C4993C]',
+  },
+  {
+    href: '/blog/ai-trading-bots-vs-sip',
+    tag: 'AI & Finance',
+    tagColor: 'text-[#991B1B] bg-[#991B1B]/10 border-[#991B1B]/20',
+    title: 'AI Trading Bots vs SIP Compounding: The Math Behind the Hype',
+    excerpt: 'Can AI predict the stock market? Discover why complex algorithmic trading often loses to the boring, tax-free compounding of a Nifty 50 SIP.',
+    readTime: '8 min read',
+    cta: 'Read Guide',
+    icon: <Settings2 className="w-5 h-5 text-[#991B1B]" />,
+    highlight: 'New',
+    highlightColor: 'text-[#991B1B]',
   }
 ];
 
