@@ -2,8 +2,39 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Info, AlertTriangle, TrendingUp, GraduationCap, ChevronDown } from 'lucide-react';
+import { ArrowRight, Info, AlertTriangle, TrendingUp, GraduationCap, ChevronDown, Briefcase, Landmark, BookOpen } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
+
+
+const FUNDING_STRATEGIES = [
+  {
+    type: 'The "Wait and See" Approach',
+    icon: <Briefcase className="w-6 h-6 text-red-500" />,
+    cost: 'High Interest Rates (10-12%)',
+    result: 'Forces the child into taking massive Education Loans, starting their career with crushing debt. Or forces parents to liquidate their retirement corpus.',
+    verdict: 'Disastrous for generational wealth.',
+    color: 'text-red-600 dark:text-red-400',
+    border: 'border-red-400/20 bg-red-500/5',
+  },
+  {
+    type: 'The Traditional Savings (FDs)',
+    icon: <Landmark className="w-6 h-6 text-amber-500" />,
+    cost: 'Low Yield (6-7% post-tax)',
+    result: 'Fails to beat the 10-12% education inflation. You save ₹25L but the actual degree costs ₹1.36 Cr. Huge shortfall at age 18.',
+    verdict: 'Mathematically insufficient.',
+    color: 'text-amber-600 dark:text-amber-400',
+    border: 'border-amber-400/20 bg-amber-500/5',
+  },
+  {
+    type: 'The Step-Up SIP Engine',
+    icon: <GraduationCap className="w-6 h-6 text-emerald-500" />,
+    cost: 'Equity Compounding (12-15%)',
+    result: 'Comfortably beats 12% education inflation. By stepping up contributions 10% annually alongside salary growth, you easily hit the inflated target corpus.',
+    verdict: 'The mathematically optimal path.',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    border: 'border-emerald-400/20 bg-emerald-500/5',
+  }
+];
 
 export default function StepUpSipEducationInflation() {
   const jsonLd = {
@@ -52,17 +83,64 @@ export default function StepUpSipEducationInflation() {
           ]} 
         />
         
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6 leading-tight">
-            How to Use a Step-Up SIP to Beat the Hidden Monster of Education Inflation
+        {/* Hero Section */}
+      <div className="glass-panel p-8 relative overflow-hidden rounded-3xl border border-[rgba(27,58,92,0.15)] shadow-sm mb-8">
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+        <div className="relative z-10">
+          <span className="text-xs uppercase tracking-widest text-[#1B3A5C] font-bold mb-4 block">Education Planning</span>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4">
+            How to Use a Step-Up SIP to Beat the Hidden Monster of <span className="text-[#991B1B]">Education Inflation</span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            While general inflation hovers around 6%, education inflation in India is roaring at 10-12%. Here is the comprehensive guide on why standard savings fail and how a Step-Up SIP is the ultimate wealth creation engine for your child&apos;s future.
+          <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+            While general inflation hovers around 6%, education inflation in India is roaring at 10-12%. Here is the comprehensive guide on why standard savings fail and how a Step-Up SIP is the ultimate wealth creation engine for your child's future.
           </p>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">
+              R
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator • 8 min read</p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
-          <h2 className="text-2xl font-bold text-[#1B3A5C] dark:text-[#60a5fa] mb-4 flex items-center gap-2">
+        
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold text-center mb-8 text-foreground">College Funding Strategies Compared</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {FUNDING_STRATEGIES.map((strat, i) => (
+            <div key={i} className={`glass-panel rounded-3xl p-6 border ${strat.border} hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full`}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-white dark:bg-gray-800 rounded-2xl shadow-sm">
+                  {strat.icon}
+                </div>
+                <h3 className={`font-bold ${strat.color}`}>{strat.type}</h3>
+              </div>
+              <div className="space-y-4 flex-grow">
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Growth Mechanism</p>
+                  <p className="text-sm text-foreground font-medium">{strat.cost}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">The Reality</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{strat.result}</p>
+                </div>
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Verdict</p>
+                  <p className={`text-sm font-bold ${strat.color}`}>
+                    {strat.verdict}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+        <h2 className="text-2xl font-bold text-[#1B3A5C] dark:text-[#60a5fa] mb-4 flex items-center gap-2">
             <AlertTriangle className="w-6 h-6 text-[#991B1B]" />
             The Silent Wealth Destroyer: What is Education Inflation?
           </h2>
@@ -263,7 +341,7 @@ export default function StepUpSipEducationInflation() {
           </div>
         </div>
 
-      </div>
-    </div>
+      </article>
+    </main>
   );
 }

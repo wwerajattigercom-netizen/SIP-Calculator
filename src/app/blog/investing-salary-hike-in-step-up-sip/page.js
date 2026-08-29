@@ -2,8 +2,36 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Calculator, TrendingUp, Info, ChevronRight, ShieldAlert, Target, Lightbulb, Wallet, ArrowRight } from 'lucide-react';
+import { Calculator, TrendingUp, Info, ChevronRight, ShieldAlert, Target, Lightbulb, Wallet, ArrowRight, TrendingDown, DollarSign, Scale } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
+
+
+const HABITS = [
+  {
+    type: 'The Lifestyle Inflator (0% Rule)',
+    icon: <TrendingDown className="w-6 h-6 text-red-500" />,
+    description: 'Every time a raise hits, they upgrade their car, move to a bigger house, and increase dining out.',
+    savings: 'Savings rate drops or stagnates. Corpus fails to beat true inflation.',
+    color: 'text-red-600 dark:text-red-400',
+    border: 'border-red-400/20 bg-red-500/5',
+  },
+  {
+    type: 'The Balanced Optimizer (50% Rule)',
+    icon: <Scale className="w-6 h-6 text-emerald-500" />,
+    description: 'When they get a 10% raise, they use 5% to upgrade their lifestyle and invest the other 5% via Step-Up.',
+    savings: 'Savings rate automatically increases every year. Reaches FIRE 5-10 years earlier.',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    border: 'border-emerald-400/20 bg-emerald-500/5',
+  },
+  {
+    type: 'The Frugal Extremist (100% Rule)',
+    icon: <Wallet className="w-6 h-6 text-amber-500" />,
+    description: 'They save and invest 100% of every raise, never allowing their lifestyle to improve.',
+    savings: 'Massive wealth accumulation, but often leads to burnout and deprivation.',
+    color: 'text-amber-600 dark:text-amber-400',
+    border: 'border-amber-400/20 bg-amber-500/5',
+  }
+];
 
 export default function InvestingSalaryHikeInStepUpSip() {
   const faqSchema = {
@@ -38,7 +66,8 @@ export default function InvestingSalaryHikeInStepUpSip() {
   };
 
   return (
-    <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+    <main className="py-8 px-2 md:px-4 flex flex-col items-center">
+      <article className="max-w-4xl w-full mx-auto space-y-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -52,19 +81,59 @@ export default function InvestingSalaryHikeInStepUpSip() {
         ]} 
       />
 
-      <header className="mb-10 mt-6">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-          The 50% Rule: Investing Your Salary Hikes in Step-Up SIP
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          Discover how applying the 50% rule to your annual appraisals can help you avoid lifestyle creep, aggressively grow your wealth, and reach financial freedom years ahead of schedule.
-        </p>
-      </header>
+      {/* Hero Section */}
+      <div className="glass-panel p-8 relative overflow-hidden rounded-3xl border border-[rgba(27,58,92,0.15)] shadow-sm mb-8">
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+        <div className="relative z-10">
+          <span className="text-xs uppercase tracking-widest text-[#059669] font-bold mb-4 block">Wealth Strategy</span>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4">
+            The 50% Rule: Investing Your <span className="text-[#059669]">Salary Hikes</span> in Step-Up SIP
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+            Discover how applying the 50% rule to your annual appraisals can help you avoid lifestyle creep, aggressively grow your wealth, and reach financial freedom years ahead of schedule.
+          </p>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">
+              R
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator • 8 min read</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <article className="prose dark:prose-invert max-w-none">
+      
         
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
-          <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+        
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold text-center mb-8 text-foreground">The Three Types of Earners</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {HABITS.map((habit, i) => (
+            <div key={i} className={`glass-panel rounded-3xl p-6 border ${habit.border} hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full`}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-white dark:bg-gray-800 rounded-2xl shadow-sm">
+                  {habit.icon}
+                </div>
+                <h3 className={`font-bold ${habit.color}`}>{habit.type}</h3>
+              </div>
+              <div className="space-y-4 flex-grow">
+                <p className="text-sm text-foreground font-medium">{habit.description}</p>
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Result</p>
+                  <p className={`text-sm font-bold ${habit.color}`}>
+                    {habit.savings}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+        <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
             <ShieldAlert className="w-6 h-6 text-[#1B3A5C] dark:text-blue-400" />
             The Silent Wealth Killer: Lifestyle Creep
           </h2>

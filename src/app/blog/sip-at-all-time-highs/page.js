@@ -1,6 +1,37 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
-import { ChevronDown, Calculator } from 'lucide-react';
+import { ChevronDown, Calculator, TrendingUp, AlertTriangle, ShieldCheck, CheckCircle, ArrowRight } from 'lucide-react';
+
+
+const STRATEGIES = [
+  {
+    type: 'The "Wait for a Crash" Strategy',
+    icon: <AlertTriangle className="w-6 h-6 text-red-500" />,
+    action: 'Sitting in cash or FDs while waiting for a 20% correction.',
+    result: 'High probability of missing massive bull runs. The eventual "bottom" of the crash is often higher than the price you refused to pay today.',
+    verdict: 'Mathematically flawed. Leads to "Cash Drag".',
+    color: 'text-red-600 dark:text-red-400',
+    border: 'border-red-400/20 bg-red-500/5',
+  },
+  {
+    type: 'The "Lumpsum at Peak" Strategy',
+    icon: <TrendingUp className="w-6 h-6 text-amber-500" />,
+    action: 'Deploying all capital at once when markets are euphoric.',
+    result: 'Generates great returns if the bull run continues, but causes severe psychological stress and temporary portfolio drawdown if a correction hits immediately.',
+    verdict: 'High Risk, High Reward.',
+    color: 'text-amber-600 dark:text-amber-400',
+    border: 'border-amber-400/20 bg-amber-500/5',
+  },
+  {
+    type: 'The "Disciplined SIP" Strategy',
+    icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
+    action: 'Starting a SIP immediately, completely ignoring the "all-time high" noise.',
+    result: 'Automatically buys fewer units at the top, and accumulates massively when the inevitable correction happens, averaging out the cost flawlessly.',
+    verdict: 'The Ultimate Wealth Creator.',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    border: 'border-emerald-400/20 bg-emerald-500/5',
+  }
+];
 
 export default function SipAtAllTimeHighs() {
   const faqSchema = {
@@ -55,6 +86,40 @@ export default function SipAtAllTimeHighs() {
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
           The Nifty 50 and Sensex have continually pushed boundaries, repeatedly establishing new all-time highs. The financial news cycle is relentlessly saturated with warnings of overvaluation, looming market corrections, and imminent macroeconomic catastrophes. As an ambitious investor with hard-earned savings ready to deploy, you might be feeling intense anxiety and hesitation. Is this the absolute top of the market cycle? Should you strategically wait for a 10% or 20% correction before finally initiating your Systematic Investment Plan (SIP)? The mathematical, historical, and empirical answer is a resounding, unambiguous no. Let&apos;s dive deep into the intricate mechanics, behavioral psychology, and decades of historical market data to definitively prove why waiting for a correction is often the most astronomically expensive mistake a long-term investor can possibly make. The cost of standing on the sidelines is far greater than the temporary pain of a market dip.
         </p>
+      </div>
+
+      
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold text-center mb-8 text-foreground">Analyzing the Three Investor Strategies</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {STRATEGIES.map((strat, i) => (
+            <div key={i} className={`glass-panel rounded-3xl p-6 border ${strat.border} hover:-translate-y-1 transition-transform duration-300`}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-white dark:bg-gray-800 rounded-2xl shadow-sm">
+                  {strat.icon}
+                </div>
+                <h3 className={`font-bold ${strat.color}`}>{strat.type}</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">The Action</p>
+                  <p className="text-sm text-foreground font-medium">{strat.action}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">The Result</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{strat.result}</p>
+                </div>
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Verdict</p>
+                  <p className={`text-sm font-bold ${strat.color} flex items-center gap-1`}>
+                    <CheckCircle className="w-4 h-4" />
+                    {strat.verdict}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
