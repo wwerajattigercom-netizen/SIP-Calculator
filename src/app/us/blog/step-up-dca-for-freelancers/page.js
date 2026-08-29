@@ -2,6 +2,37 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { Calculator, TrendingUp, AlertTriangle, Lightbulb, Wallet, BarChart3, ShieldCheck, ArrowRight } from 'lucide-react';
 
+
+const FREELANCER_MODELS = [
+  {
+    type: 'The Ad-hoc Investor',
+    icon: <AlertTriangle className="w-6 h-6 text-red-500" />,
+    action: 'Invests only when a big client pays, skips months when income is low.',
+    result: 'Zero discipline. Misses out on compounding during market dips. Often spends the surplus instead of investing.',
+    verdict: 'High stress, inconsistent wealth creation.',
+    color: 'text-red-600 dark:text-red-400',
+    border: 'border-red-400/20 bg-red-500/5',
+  },
+  {
+    type: 'The Static DCA Investor',
+    icon: <Wallet className="w-6 h-6 text-amber-500" />,
+    action: 'Starts a fixed DCA based on their lowest-earning month and never increases it.',
+    result: 'Builds discipline, but drastically under-invests as their freelancing business grows over the years.',
+    verdict: 'Good start, but mathematically insufficient.',
+    color: 'text-amber-600 dark:text-amber-400',
+    border: 'border-amber-400/20 bg-amber-500/5',
+  },
+  {
+    type: 'The Step-Up DCA Pro',
+    icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
+    action: 'Sets a baseline DCA, but commits to a 10-15% automatic annual step-up as their average income rises.',
+    result: 'Captures the upside of business growth without manual intervention. Beats inflation effortlessly.',
+    verdict: 'The ultimate path to financial freedom.',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    border: 'border-emerald-400/20 bg-emerald-500/5',
+  }
+];
+
 export default function StepUpDcaForFreelancers() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -71,7 +102,39 @@ export default function StepUpDcaForFreelancers() {
             </div>
           </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+        
+      <div className="mb-12 mt-8">
+        <h2 className="text-3xl font-bold text-center mb-8 text-foreground">Freelancer Investment Strategies Compared</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {FREELANCER_MODELS.map((model, i) => (
+            <div key={i} className={`glass-panel rounded-3xl p-6 border ${model.border} hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full`}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-white dark:bg-gray-800 rounded-2xl shadow-sm">
+                  {model.icon}
+                </div>
+                <h3 className={`font-bold ${model.color}`}>{model.type}</h3>
+              </div>
+              <div className="space-y-4 flex-grow">
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">The Approach</p>
+                  <p className="text-sm text-foreground font-medium">{model.action}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">The Reality</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{model.result}</p>
+                </div>
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Verdict</p>
+                  <p className={`text-sm font-bold ${model.color}`}>
+                    {model.verdict}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+<div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
           <p className="text-xl text-foreground font-medium leading-relaxed">
             The freelance economy is booming across the US, offering unprecedented freedom and flexibility. However, this freedom comes at a significant cost: the dreaded variable income. For gig workers, consultants, and independent 1099 contractors, predicting monthly cash flow can be like forecasting the weather. Some months bring a flood of client payments, while others present a dry spell that tests your financial resilience. In such an unpredictable environment, traditional investing advice—like committing a fixed 20% of your paycheck to a 401(k)—often falls completely flat. 
           </p>

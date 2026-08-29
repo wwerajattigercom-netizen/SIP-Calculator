@@ -97,3 +97,14 @@ If a calculator has empty visual space, fill it with dynamic educational blocks 
 
 ### 3.3 FAQ Sections
 FAQ sections must use `<details>` or custom accordion buttons (like `ChevronDown` from Lucide), and must ALWAYS be paired with `application/ld+json` structured schema data injected via `dangerouslySetInnerHTML`.
+
+### 3.4 Rich Visual Elements for Guides (No Boring Walls of Text)
+When generating blog posts and guides, DO NOT output long, monotonous walls of text. You MUST inject interactive, structured visual elements to break up the reading experience. 
+
+Use the **Comparison Grid Pattern**: Define an array of objects (e.g., \STRATEGIES\, \HABITS\, \SCENARIOS\) and map over them to render visually distinct \glass-panel\ cards. Use different semantic colors for different outcomes:
+- Bad Outcome (Red): \	ext-red-600 dark:text-red-400\, \order-red-400/20 bg-red-500/5\, \AlertTriangle\ icon.
+- Neutral/Warning (Amber): \	ext-amber-600 dark:text-amber-400\, \order-amber-400/20 bg-amber-500/5\, \TrendingUp\ icon.
+- Good/Optimal Outcome (Emerald): \	ext-emerald-600 dark:text-emerald-400\, \order-emerald-400/20 bg-emerald-500/5\, \CheckCircle\ or \ShieldCheck\ icon.
+
+These grids should be placed shortly after the introductory hero section of the guide.
+

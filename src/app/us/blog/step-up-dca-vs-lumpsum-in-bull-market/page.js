@@ -3,7 +3,38 @@
 import React from 'react';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
-import { ChevronDown, ArrowRight, Calculator } from 'lucide-react';
+import { ChevronDown, ArrowRight, Calculator, TrendingUp, AlertTriangle, CheckCircle } from 'lucide-react';
+
+
+const BULL_MARKET_STRATEGIES = [
+  {
+    type: 'The Market Timer',
+    icon: <AlertTriangle className="w-6 h-6 text-red-500" />,
+    action: 'Sits in cash waiting for a 20% crash before investing.',
+    result: 'Misses out on 40% growth while waiting. The eventual "discounted" price is often higher than today\'s peak.',
+    verdict: 'Mathematically devastating. Causes Cash Drag.',
+    color: 'text-red-600 dark:text-red-400',
+    border: 'border-red-400/20 bg-red-500/5',
+  },
+  {
+    type: 'The Peak Lumpsum',
+    icon: <TrendingUp className="w-6 h-6 text-amber-500" />,
+    action: 'Dumps all available capital into the market exactly at the all-time high.',
+    result: 'Generates great returns if the bull run continues, but exposes the investor to severe psychological stress if a correction hits immediately.',
+    verdict: 'High Risk, High Stress.',
+    color: 'text-amber-600 dark:text-amber-400',
+    border: 'border-amber-400/20 bg-amber-500/5',
+  },
+  {
+    type: 'The Step-Up DCA Hybrid',
+    icon: <CheckCircle className="w-6 h-6 text-emerald-500" />,
+    action: 'Starts a monthly DCA and commits to increasing it annually, completely ignoring market valuations.',
+    result: 'Averages out the cost beautifully. Buys fewer units at the top, and automatically buys more during the inevitable corrections.',
+    verdict: 'The Ultimate Wealth Creator.',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    border: 'border-emerald-400/20 bg-emerald-500/5',
+  }
+];
 
 export default function StepUpDcaVsLumpsumInBullMarket() {
   const faqSchema = {
@@ -53,7 +84,39 @@ export default function StepUpDcaVsLumpsumInBullMarket() {
         </p>
       </div>
 
-      <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+      
+      <div className="mb-12 mt-8">
+        <h2 className="text-3xl font-bold text-center mb-8 text-foreground">Bull Market Strategies Compared</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {BULL_MARKET_STRATEGIES.map((strat, i) => (
+            <div key={i} className={`glass-panel rounded-3xl p-6 border ${strat.border} hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full`}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-white dark:bg-gray-800 rounded-2xl shadow-sm">
+                  {strat.icon}
+                </div>
+                <h3 className={`font-bold ${strat.color}`}>{strat.type}</h3>
+              </div>
+              <div className="space-y-4 flex-grow">
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">The Approach</p>
+                  <p className="text-sm text-foreground font-medium">{strat.action}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">The Reality</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{strat.result}</p>
+                </div>
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Verdict</p>
+                  <p className={`text-sm font-bold ${strat.color}`}>
+                    {strat.verdict}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+<div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
         <h2 className="text-2xl font-bold text-foreground mb-4">The Dilemma of a Roaring Market</h2>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
           A bull market is formally characterized by widespread optimism, robust economic fundamentals, rising corporate earnings, and consistently increasing asset prices. In the US, prolonged structural bull markets—such as the massive 2010s run driven by massive technological innovation and quantitative easing, or the post-2020 recovery fueled by AI expansion and liquidity—have historically created immense multi-generational wealth for disciplined investors. 
