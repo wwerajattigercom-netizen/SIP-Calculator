@@ -43,22 +43,28 @@ export default function InvestingSalaryHikeInStepUpSip() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      
+
       <Breadcrumb 
         items={[
           { label: 'Home', href: '/' },
           { label: 'Blog', href: '/blog' },
           { label: 'The 50% Rule for Salary Hikes', href: '/blog/investing-salary-hike-in-step-up-sip' }
         ]} 
-      />
+      /><div className="mt-6 mb-10">
+        <h1
+          className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">The 50% Rule: Investing Your Salary Hikes in Step-Up SIP
+                  </h1>
+        <p
+          className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">Discover how applying the 50% rule to your annual appraisals can help you avoid lifestyle creep, aggressively grow your wealth, and reach financial freedom years ahead of schedule.
+                  </p>
+        <div className="flex items-center gap-3 mb-8"><div
+            className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                        </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+      </div>
 
       <header className="mb-10 mt-6">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-          The 50% Rule: Investing Your Salary Hikes in Step-Up SIP
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          Discover how applying the 50% rule to your annual appraisals can help you avoid lifestyle creep, aggressively grow your wealth, and reach financial freedom years ahead of schedule.
-        </p>
+
+
       </header>
 
       <article className="prose dark:prose-invert max-w-none">

@@ -63,15 +63,21 @@ export default function LargeCapVsMidCapVsSmallCap() {
           { label: "Blog", href: "/blog" },
           { label: "Large Cap vs Mid Cap vs Small Cap", href: "/blog/large-cap-vs-mid-cap-vs-small-cap" }
         ]}
-      />
+      /><div className="mt-6 mb-10">
+        <h1
+          className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Large Cap vs Mid Cap vs Small Cap Mutual Funds in India: A Comprehensive Guide
+                  </h1>
+        <p
+          className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">When you start investing in mutual funds in India, one of the first categorizations you encounter is market capitalization. Mutual funds are typically divided into Large Cap, Mid Cap, and Small Cap funds. But what do these terms mean, and more importantly, which one is right for your investment portfolio? Navigating the Indian stock market requires a clear understanding of these categories, as they directly dictate the volatility and potential returns of your investments over the long term.
+                  </p>
+        <div className="flex items-center gap-3 mb-8"><div
+            className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                        </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+      </div>
 
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 mt-6">
-        <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-          Large Cap vs Mid Cap vs Small Cap Mutual Funds in India: A Comprehensive Guide
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
-          When you start investing in mutual funds in India, one of the first categorizations you encounter is market capitalization. Mutual funds are typically divided into Large Cap, Mid Cap, and Small Cap funds. But what do these terms mean, and more importantly, which one is right for your investment portfolio? Navigating the Indian stock market requires a clear understanding of these categories, as they directly dictate the volatility and potential returns of your investments over the long term.
-        </p>
+
+
         <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
           The Securities and Exchange Board of India (SEBI) has clearly defined these categories to ensure transparency and consistency across all mutual fund houses. Before 2017, AMCs had varied definitions, creating confusion for retail investors. Today, the rules are uniform and standardized. Understanding these definitions is crucial because market capitalization directly impacts the risk and return profile of your investments. 
         </p>
@@ -292,7 +298,7 @@ export default function LargeCapVsMidCapVsSmallCap() {
           </div>
         </div>
       </div>
-      
+
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">Taxation Implications</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">

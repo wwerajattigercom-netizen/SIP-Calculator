@@ -50,15 +50,21 @@ export default function USCapitalGainsTax() {
             { label: 'Blog', href: '/us/blog' },
             { label: 'Capital Gains Tax Guide' },
           ]}
-        />
+        /><div className="mt-6 mb-10">
+          <h1
+            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">The Complete Guide to Capital Gains Tax on Mutual Funds & ETFs (2026)
+                      </h1>
+          <p
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">A comprehensive, deep-dive guide into US taxation for retail investors. Learn how short-term rates, long-term rates, dividend taxes, and tax-loss harvesting impact your take-home returns.
+                      </p>
+          <div className="flex items-center gap-3 mb-8"><div
+              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+        </div>
 
         <div className="text-center space-y-4 mb-10">
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight">
-            The Complete Guide to Capital Gains Tax on Mutual Funds & ETFs (2026)
-          </h1>
-          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-            A comprehensive, deep-dive guide into US taxation for retail investors. Learn how short-term rates, long-term rates, dividend taxes, and tax-loss harvesting impact your take-home returns.
-          </p>
+
+
         </div>
 
         {/* Intro */}
@@ -197,7 +203,7 @@ export default function USCapitalGainsTax() {
         </section>
 
         {/* FAQ with Schema */}
-        
+
         {/* Calculator CTA */}
         <section className="max-w-6xl w-full mx-auto mt-12 mb-12">
           <div className="glass-panel p-8 rounded-3xl bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent border border-[rgba(27,58,92,0.1)] flex flex-col md:flex-row items-center justify-between gap-6">
@@ -218,51 +224,51 @@ export default function USCapitalGainsTax() {
           </div>
         </section>
 
-<section className="glass-panel p-6 sm:p-8 rounded-3xl space-y-6">
-          <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-          />
-          <div className="space-y-4 mt-6">
-            <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
-              <summary className="flex justify-between items-center font-medium text-foreground">
-                What is the difference between short-term and long-term capital gains tax?
-                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                Short-term capital gains apply to assets held for one year or less and are taxed at your ordinary income tax rates (up to 37%). Long-term capital gains apply to assets held for more than one year and benefit from lower preferential tax rates of 0%, 15%, or 20%, depending on your taxable income.
-              </p>
-            </details>
-            <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
-              <summary className="flex justify-between items-center font-medium text-foreground">
-                How does tax-loss harvesting work in the US?
-                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                Tax-loss harvesting involves selling investments at a loss to offset capital gains realized in other investments. If your losses exceed your gains, you can use up to $3,000 of the excess loss to offset ordinary income per year, and carry forward any remaining losses to future tax years.
-              </p>
-            </details>
-            <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
-              <summary className="flex justify-between items-center font-medium text-foreground">
-                What is the Wash-Sale Rule?
-                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                The IRS Wash-Sale Rule prohibits you from claiming a tax deduction for a loss if you buy the same or a &quot;substantially identical&quot; investment within 30 days before or after the sale. Violating this rule disallows the loss deduction and adds the loss to the cost basis of the new purchase.
-              </p>
-            </details>
-            <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
-              <summary className="flex justify-between items-center font-medium text-foreground">
-                Are mutual fund dividends taxed even if they are reinvested?
-                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                Yes. In a taxable brokerage account, dividends distributed by a mutual fund or ETF are taxable in the year they are distributed, even if you automatically reinvest them into more shares of the fund.
-              </p>
-            </details>
-          </div>
-        </section>
+        <section className="glass-panel p-6 sm:p-8 rounded-3xl space-y-6">
+                  <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
+                  <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                  />
+                  <div className="space-y-4 mt-6">
+                    <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
+                      <summary className="flex justify-between items-center font-medium text-foreground">
+                        What is the difference between short-term and long-term capital gains tax?
+                        <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        Short-term capital gains apply to assets held for one year or less and are taxed at your ordinary income tax rates (up to 37%). Long-term capital gains apply to assets held for more than one year and benefit from lower preferential tax rates of 0%, 15%, or 20%, depending on your taxable income.
+                      </p>
+                    </details>
+                    <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
+                      <summary className="flex justify-between items-center font-medium text-foreground">
+                        How does tax-loss harvesting work in the US?
+                        <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        Tax-loss harvesting involves selling investments at a loss to offset capital gains realized in other investments. If your losses exceed your gains, you can use up to $3,000 of the excess loss to offset ordinary income per year, and carry forward any remaining losses to future tax years.
+                      </p>
+                    </details>
+                    <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
+                      <summary className="flex justify-between items-center font-medium text-foreground">
+                        What is the Wash-Sale Rule?
+                        <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        The IRS Wash-Sale Rule prohibits you from claiming a tax deduction for a loss if you buy the same or a &quot;substantially identical&quot; investment within 30 days before or after the sale. Violating this rule disallows the loss deduction and adds the loss to the cost basis of the new purchase.
+                      </p>
+                    </details>
+                    <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
+                      <summary className="flex justify-between items-center font-medium text-foreground">
+                        Are mutual fund dividends taxed even if they are reinvested?
+                        <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        Yes. In a taxable brokerage account, dividends distributed by a mutual fund or ETF are taxable in the year they are distributed, even if you automatically reinvest them into more shares of the fund.
+                      </p>
+                    </details>
+                  </div>
+                </section>
 
       </div>
     </div>

@@ -86,20 +86,26 @@ export default function EmergencyFundGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="min-h-screen pt-24 pb-16">
         <div className="max-w-4xl w-full mx-auto px-4">
-          
-          <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'Where to Park Emergency Fund' }]} />
+
+          <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'Where to Park Emergency Fund' }]} /><div className="mt-6 mb-10">
+            <h1
+              className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Where to Park Your Emergency Fund in India?
+                          </h1>
+            <p
+              className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">An emergency fund isn't an investment to make you rich—it is insurance to keep you from going broke. However, leaving 6 months of your salary in a 3% savings account is financial suicide due to inflation. Here is the ultimate breakdown of where you should park your emergency cash.
+                          </p>
+            <div className="flex items-center gap-3 mb-8"><div
+                className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                            </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+          </div>
 
           {/* Header */}
           <div className="mb-10 mt-6">
             <div className="inline-block bg-[var(--color-accent)] bg-opacity-10 text-[var(--color-accent)] font-semibold px-3 py-1 rounded-full text-xs mb-4">
               Financial Planning
             </div>
-            <h1 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6 leading-tight">
-              Where to Park Your Emergency Fund in India?
-            </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              An emergency fund isn't an investment to make you rich—it is insurance to keep you from going broke. However, leaving 6 months of your salary in a 3% savings account is financial suicide due to inflation. Here is the ultimate breakdown of where you should park your emergency cash.
-            </p>
+
+
           </div>
 
           <article className="prose prose-lg dark:prose-invert max-w-none">

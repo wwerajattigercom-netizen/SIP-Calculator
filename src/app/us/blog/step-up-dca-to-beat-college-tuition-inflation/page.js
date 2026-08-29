@@ -50,15 +50,21 @@ export default function StepUpDcaEducationInflation() {
             { label: 'Blog', href: '/us/blog' },
             { label: 'Step-Up DCA for College Tuition', href: '/us/blog/step-up-dca-to-beat-college-tuition-inflation' }
           ]} 
-        />
-        
+        /><div className="mt-6 mb-10">
+          <h1
+            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">How to Use Step-Up DCA to Outpace America's College Tuition Inflation
+                      </h1>
+          <p
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">With US college tuition skyrocketing at 8-12% annually, traditional savings accounts are a guaranteed path to student debt. Discover how a Step-Up Dollar-Cost Averaging strategy can secure your child's financial and academic future.
+                      </p>
+          <div className="flex items-center gap-3 mb-8"><div
+              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+        </div>
+
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6 leading-tight">
-            How to Use Step-Up DCA to Outpace America&apos;s College Tuition Inflation
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            With US college tuition skyrocketing at 8-12% annually, traditional savings accounts are a guaranteed path to student debt. Discover how a Step-Up Dollar-Cost Averaging strategy can secure your child&apos;s financial and academic future.
-          </p>
+
+
         </div>
 
         <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">

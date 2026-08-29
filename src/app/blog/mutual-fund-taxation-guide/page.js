@@ -50,15 +50,21 @@ export default function MutualFundTaxationIN() {
             { label: 'Blog', href: '/blog' },
             { label: 'Mutual Fund Taxation Guide' },
           ]}
-        />
+        /><div className="mt-6 mb-10">
+          <h1
+            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">The Ultimate Guide to Mutual Fund Taxation in India (2026 Updated)
+                      </h1>
+          <p
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">A comprehensive, deep-dive guide into the latest taxation rules for Equity, Debt, and Hybrid Mutual Funds. Learn exactly how your STCG and LTCG returns are taxed to maximize your take-home wealth.
+                      </p>
+          <div className="flex items-center gap-3 mb-8"><div
+              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+        </div>
 
         <div className="text-center space-y-4 mb-10">
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight">
-            The Ultimate Guide to Mutual Fund Taxation in India (2026 Updated)
-          </h1>
-          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-            A comprehensive, deep-dive guide into the latest taxation rules for Equity, Debt, and Hybrid Mutual Funds. Learn exactly how your STCG and LTCG returns are taxed to maximize your take-home wealth.
-          </p>
+
+
         </div>
 
         {/* Intro */}
@@ -231,7 +237,7 @@ export default function MutualFundTaxationIN() {
         </section>
 
         {/* FAQ with Schema */}
-        
+
         {/* Calculator CTA */}
         <section className="max-w-6xl w-full mx-auto mt-12 mb-12">
           <div className="glass-panel p-8 rounded-3xl bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent border border-[rgba(27,58,92,0.1)] flex flex-col md:flex-row items-center justify-between gap-6">
@@ -252,51 +258,51 @@ export default function MutualFundTaxationIN() {
           </div>
         </section>
 
-<section className="glass-panel p-6 sm:p-8 rounded-3xl space-y-6">
-          <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-          />
-          <div className="space-y-4 mt-6">
-            <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
-              <summary className="flex justify-between items-center font-medium text-foreground">
-                What is the STCG and LTCG tax rate on equity mutual funds in 2026?
-                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                Short-Term Capital Gains (STCG) on equity mutual funds is taxed at a flat rate of 20%. Long-Term Capital Gains (LTCG) is taxed at 12.5% on gains exceeding ₹1.25 Lakhs per financial year.
-              </p>
-            </details>
-            <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
-              <summary className="flex justify-between items-center font-medium text-foreground">
-                How are debt mutual funds taxed now?
-                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                Debt mutual funds (holding less than 35% domestic equity) are taxed entirely according to your income tax slab rate, regardless of the holding period. The distinction between short-term and long-term capital gains has been removed for these funds, and the indexation benefit is no longer available.
-              </p>
-            </details>
-            <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
-              <summary className="flex justify-between items-center font-medium text-foreground">
-                What is the holding period to qualify for LTCG in equity funds?
-                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                For equity mutual funds, the holding period to qualify for Long-Term Capital Gains (LTCG) is 12 months (1 year). Any units sold before 12 months attract Short-Term Capital Gains (STCG) tax.
-              </p>
-            </details>
-            <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
-              <summary className="flex justify-between items-center font-medium text-foreground">
-                Is the ₹1.25 Lakh exemption available on debt funds?
-                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
-              </summary>
-              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                No, the ₹1.25 Lakh exemption limit applies exclusively to Long-Term Capital Gains (LTCG) from equity-oriented mutual funds and direct equity shares. It does not apply to debt mutual funds.
-              </p>
-            </details>
-          </div>
-        </section>
+        <section className="glass-panel p-6 sm:p-8 rounded-3xl space-y-6">
+                  <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
+                  <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                  />
+                  <div className="space-y-4 mt-6">
+                    <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
+                      <summary className="flex justify-between items-center font-medium text-foreground">
+                        What is the STCG and LTCG tax rate on equity mutual funds in 2026?
+                        <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        Short-Term Capital Gains (STCG) on equity mutual funds is taxed at a flat rate of 20%. Long-Term Capital Gains (LTCG) is taxed at 12.5% on gains exceeding ₹1.25 Lakhs per financial year.
+                      </p>
+                    </details>
+                    <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
+                      <summary className="flex justify-between items-center font-medium text-foreground">
+                        How are debt mutual funds taxed now?
+                        <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        Debt mutual funds (holding less than 35% domestic equity) are taxed entirely according to your income tax slab rate, regardless of the holding period. The distinction between short-term and long-term capital gains has been removed for these funds, and the indexation benefit is no longer available.
+                      </p>
+                    </details>
+                    <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
+                      <summary className="flex justify-between items-center font-medium text-foreground">
+                        What is the holding period to qualify for LTCG in equity funds?
+                        <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        For equity mutual funds, the holding period to qualify for Long-Term Capital Gains (LTCG) is 12 months (1 year). Any units sold before 12 months attract Short-Term Capital Gains (STCG) tax.
+                      </p>
+                    </details>
+                    <details className="group bg-[var(--background)] p-4 rounded-xl border border-gray-100 dark:border-white/5 cursor-pointer">
+                      <summary className="flex justify-between items-center font-medium text-foreground">
+                        Is the ₹1.25 Lakh exemption available on debt funds?
+                        <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        No, the ₹1.25 Lakh exemption limit applies exclusively to Long-Term Capital Gains (LTCG) from equity-oriented mutual funds and direct equity shares. It does not apply to debt mutual funds.
+                      </p>
+                    </details>
+                  </div>
+                </section>
 
       </div>
     </div>

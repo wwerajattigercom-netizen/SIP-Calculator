@@ -63,15 +63,21 @@ export default function LargeCapVsSmallCapFundsUS() {
           { label: "Blog", href: "/us/blog" },
           { label: "Large Cap vs Small Cap Funds", href: "/us/blog/large-cap-vs-small-cap-funds" }
         ]}
-      />
+      /><div className="mt-6 mb-10">
+        <h1
+          className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Large Cap vs Mid Cap vs Small Cap Funds: Navigating US Equity Markets
+                  </h1>
+        <p
+          className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">When constructing a robust investment portfolio in the United States, understanding market capitalization (market cap) is paramount. The US equity market is vast, comprising thousands of publicly traded companies, from global tech behemoths to niche regional manufacturers. To make sense of this massive ecosystem, Wall Street categorizes stocks primarily into three buckets: Large Cap, Mid Cap, and Small Cap. 
+                  </p>
+        <div className="flex items-center gap-3 mb-8"><div
+            className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                        </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+      </div>
 
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 mt-6">
-        <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-          Large Cap vs Mid Cap vs Small Cap Funds: Navigating US Equity Markets
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
-          When constructing a robust investment portfolio in the United States, understanding market capitalization (market cap) is paramount. The US equity market is vast, comprising thousands of publicly traded companies, from global tech behemoths to niche regional manufacturers. To make sense of this massive ecosystem, Wall Street categorizes stocks primarily into three buckets: Large Cap, Mid Cap, and Small Cap. 
-        </p>
+
+
         <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
           Market cap is simply calculated by multiplying a company&apos;s current share price by its total number of outstanding shares. However, this metric represents much more than just size—it is fundamentally tied to a company&apos;s growth trajectory, its resilience during economic downturns, and the level of risk it brings to your investment portfolio. 
         </p>

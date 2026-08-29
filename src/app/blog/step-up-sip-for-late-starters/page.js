@@ -36,19 +36,25 @@ export default function StepUpSipLateStarters() {
 
   return (
     <main className="max-w-4xl w-full mx-auto py-8 sm:py-12 px-4 sm:px-6 md:px-8">
-      <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'Step-Up SIP for Late Starters' }]} />
-      
+      <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'Step-Up SIP for Late Starters' }]} /><div className="mt-6 mb-10">
+        <h1
+          className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Step-Up SIP vs Regular SIP for Late Starters (Age 35+)
+                  </h1>
+        <p
+          className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">Starting your investment journey in your late 30s or 40s? Discover why a Step-Up SIP is the ultimate wealth-building strategy to catch up on retirement and close the gap on lost compounding years.
+                  </p>
+        <div className="flex items-center gap-3 mb-8"><div
+            className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                        </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+      </div>
+
       <header className="mb-10 sm:mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-medium text-sm mb-4">
           <TrendingUp className="w-4 h-4" />
           Retirement Planning
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
-          Step-Up SIP vs Regular SIP for Late Starters (Age 35+)
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-          Starting your investment journey in your late 30s or 40s? Discover why a Step-Up SIP is the ultimate wealth-building strategy to catch up on retirement and close the gap on lost compounding years.
-        </p>
+
+
       </header>
 
       <article className="prose prose-lg dark:prose-invert max-w-none w-full">

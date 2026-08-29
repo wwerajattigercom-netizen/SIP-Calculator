@@ -49,16 +49,22 @@ export default function HowToBuildThreeFundPortfolio() {
 
   return (
     <main className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <Breadcrumb items={breadcrumbs} />
-      
+      <Breadcrumb items={breadcrumbs} /><div className="mt-6 mb-10">
+        <h1
+          className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">How to Build a 3-Fund Portfolio: The Ultimate Bogleheads Guide
+                    </h1>
+        <p
+          className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">Discover the beauty of simplicity. Learn how to construct a robust, tax-efficient, low-cost investment portfolio using just three broad-market index funds to secure your financial independence.
+                    </p>
+        <div className="flex items-center gap-3 mb-8"><div
+            className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                        </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+      </div>
+
       <article>
         <header className="mb-10 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1F2937] dark:text-white mb-4 leading-tight">
-            How to Build a 3-Fund Portfolio: The Ultimate Bogleheads Guide
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Discover the beauty of simplicity. Learn how to construct a robust, tax-efficient, low-cost investment portfolio using just three broad-market index funds to secure your financial independence.
-          </p>
+
+
         </header>
 
         {/* Intro */}

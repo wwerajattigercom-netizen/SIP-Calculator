@@ -59,15 +59,21 @@ export default function ExpenseRatioIndiaGuide() {
       />
 
       <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'What is Expense Ratio', href: '/blog/what-is-expense-ratio' }]} />
+        <Breadcrumb items={[{ label: 'Blog', href: '/blog' }, { label: 'What is Expense Ratio', href: '/blog/what-is-expense-ratio' }]} /><div className="mt-6 mb-10">
+          <h1
+            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">What is Expense Ratio in Mutual Funds? SEBI Limits, Calculation, & Impact
+                      </h1>
+          <p
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">When you invest in a mutual fund in India, the Asset Management Company (AMC) charges a fee for managing your money. This fee is known as the Total Expense Ratio (TER). While it might seem like a tiny percentage, a high expense ratio can silently eat away a massive chunk of your wealth over a 15 to 20-year investing journey.
+                      </p>
+          <div className="flex items-center gap-3 mb-8"><div
+              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+        </div>
 
         <div className="mt-8">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 leading-tight">
-            What is Expense Ratio in Mutual Funds? SEBI Limits, Calculation, & Impact
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
-            When you invest in a mutual fund in India, the Asset Management Company (AMC) charges a fee for managing your money. This fee is known as the Total Expense Ratio (TER). While it might seem like a tiny percentage, a high expense ratio can silently eat away a massive chunk of your wealth over a 15 to 20-year investing journey.
-          </p>
+
+
         </div>
 
         <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-12">
@@ -262,7 +268,7 @@ export default function ExpenseRatioIndiaGuide() {
         </div>
 
         {/* ── FAQ SECTION ── */}
-        
+
         {/* Calculator CTA */}
         <section className="max-w-6xl w-full mx-auto mt-12 mb-12">
           <div className="glass-panel p-8 rounded-3xl bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent border border-[rgba(27,58,92,0.1)] flex flex-col md:flex-row items-center justify-between gap-6">
@@ -283,72 +289,72 @@ export default function ExpenseRatioIndiaGuide() {
           </div>
         </section>
 
-<section id="faq" className="mt-12 mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Frequently Asked Questions</h2>
-          <div className="space-y-4 max-w-4xl mx-auto">
-            
-            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                How often is the expense ratio deducted from my mutual fund?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                The expense ratio is deducted on a daily basis. The Asset Management Company (AMC) calculates the annual fee, divides it by 365 (or 366 in a leap year), and deducts this tiny fraction from the fund&apos;s total assets before declaring the daily Net Asset Value (NAV).
-              </p>
-            </details>
+        <section id="faq" className="mt-12 mb-16">
+                  <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Frequently Asked Questions</h2>
+                  <div className="space-y-4 max-w-4xl mx-auto">
+                    
+                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                        How often is the expense ratio deducted from my mutual fund?
+                        <span className="transition group-open:rotate-180">
+                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                      </summary>
+                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        The expense ratio is deducted on a daily basis. The Asset Management Company (AMC) calculates the annual fee, divides it by 365 (or 366 in a leap year), and deducts this tiny fraction from the fund&apos;s total assets before declaring the daily Net Asset Value (NAV).
+                      </p>
+                    </details>
 
-            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                Is the expense ratio deducted from my bank account?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                No, the expense ratio is never deducted directly from your bank account or your invested capital. It is automatically adjusted within the Net Asset Value (NAV) of the mutual fund. The NAV you see and track already has the expense ratio accounted for.
-              </p>
-            </details>
+                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                        Is the expense ratio deducted from my bank account?
+                        <span className="transition group-open:rotate-180">
+                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                      </summary>
+                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        No, the expense ratio is never deducted directly from your bank account or your invested capital. It is automatically adjusted within the Net Asset Value (NAV) of the mutual fund. The NAV you see and track already has the expense ratio accounted for.
+                      </p>
+                    </details>
 
-            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                What is the SEBI maximum limit for expense ratios in India?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                SEBI has mandated that the maximum Total Expense Ratio (TER) an equity mutual fund can charge is 2.25%, and for a debt mutual fund, it is 2.00%. However, as the Asset Under Management (AUM) of the fund increases, the maximum allowable limit decreases in a tiered manner.
-              </p>
-            </details>
+                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                        What is the SEBI maximum limit for expense ratios in India?
+                        <span className="transition group-open:rotate-180">
+                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                      </summary>
+                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        SEBI has mandated that the maximum Total Expense Ratio (TER) an equity mutual fund can charge is 2.25%, and for a debt mutual fund, it is 2.00%. However, as the Asset Under Management (AUM) of the fund increases, the maximum allowable limit decreases in a tiered manner.
+                      </p>
+                    </details>
 
-            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                Why do regular plans have higher expense ratios than direct plans?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Regular plans have a higher expense ratio because they include distributor commissions and broker fees. When you invest through a broker or a bank, the AMC pays them a trailing commission every year, which is recovered from your investment via the higher expense ratio. Direct plans bypass the middleman, hence they are cheaper.
-              </p>
-            </details>
+                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                        Why do regular plans have higher expense ratios than direct plans?
+                        <span className="transition group-open:rotate-180">
+                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                      </summary>
+                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Regular plans have a higher expense ratio because they include distributor commissions and broker fees. When you invest through a broker or a bank, the AMC pays them a trailing commission every year, which is recovered from your investment via the higher expense ratio. Direct plans bypass the middleman, hence they are cheaper.
+                      </p>
+                    </details>
 
-            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                Does a higher expense ratio mean better fund performance?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                No. There is no evidence suggesting that mutual funds with higher expense ratios generate better returns. In fact, a high expense ratio acts as a drag on your compounding over the long term. Many low-cost index funds often outperform expensive actively managed funds over a 10 to 15-year horizon.
-              </p>
-            </details>
+                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                        Does a higher expense ratio mean better fund performance?
+                        <span className="transition group-open:rotate-180">
+                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                      </summary>
+                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        No. There is no evidence suggesting that mutual funds with higher expense ratios generate better returns. In fact, a high expense ratio acts as a drag on your compounding over the long term. Many low-cost index funds often outperform expensive actively managed funds over a 10 to 15-year horizon.
+                      </p>
+                    </details>
 
-          </div>
-        </section>
+                  </div>
+                </section>
 
       </div>
     </div>

@@ -89,30 +89,21 @@ export default function ElssPpfNpsPage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-3xl w-full mx-auto space-y-8">
 
-          <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'ELSS vs PPF vs NPS' }]} />
+          <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'ELSS vs PPF vs NPS' }]} /><div className="mt-6 mb-10">
+          <h1
+            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">
+            <span className="text-[var(--color-accent)]">ELSS</span>vs <span className="text-[#C4993C]">PPF</span>vs <span className="text-[var(--color-returns)]">NPS</span>: The Ultimate Tax-Saving Showdown
+                          </h1>
+          <p
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">Every year between January and March, Indian investors panic and rush to save tax under Section 80C. You have ₹1.5 Lakhs of tax deductions available. Where should you put it? Should you lock it up safely in PPF, chase high returns with ELSS, or secure your retirement with NPS? This exhaustive 1000+ word guide gives you the definitive answer.
+                          </p>
+          <div className="flex items-center gap-3 mb-8"><div
+              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+        </div>
 
-          {/* Hero Section */}
-          <div className="glass-panel p-6 sm:p-8 relative overflow-hidden rounded-3xl border border-[rgba(27,58,92,0.15)] shadow-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
-            <div className="relative z-10">
-              <span className="text-xs uppercase tracking-widest text-[#C4993C] font-bold mb-4 block">Section 80C Masterclass</span>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
-                <span className="text-[var(--color-accent)]">ELSS</span> vs <span className="text-[#C4993C]">PPF</span> vs <span className="text-[var(--color-returns)]">NPS</span>: The Ultimate Tax-Saving Showdown
-              </h1>
-              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
-                Every year between January and March, Indian investors panic and rush to save tax under Section 80C. You have ₹1.5 Lakhs of tax deductions available. Where should you put it? Should you lock it up safely in PPF, chase high returns with ELSS, or secure your retirement with NPS? This exhaustive 1000+ word guide gives you the definitive answer.
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
-                  R
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator · 8 min read</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            {/* Hero Section */}
+            
 
           {/* BLUF (Bottom Line Up Front) */}
           <div className="glass-panel p-6 sm:p-8 rounded-3xl border-l-4 border-l-[var(--color-accent)] bg-[rgba(27,58,92,0.02)]">

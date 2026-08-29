@@ -50,15 +50,21 @@ export default function StepUpSipEducationInflation() {
             { label: 'Blog', href: '/blog' },
             { label: 'Step-Up SIP for Education Inflation', href: '/blog/step-up-sip-to-beat-education-inflation' }
           ]} 
-        />
-        
+        /><div className="mt-6 mb-10">
+          <h1
+            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">How to Use a Step-Up SIP to Beat the Hidden Monster of Education Inflation
+                      </h1>
+          <p
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">While general inflation hovers around 6%, education inflation in India is roaring at 10-12%. Here is the comprehensive guide on why standard savings fail and how a Step-Up SIP is the ultimate wealth creation engine for your child's future.
+                      </p>
+          <div className="flex items-center gap-3 mb-8"><div
+              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+        </div>
+
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6 leading-tight">
-            How to Use a Step-Up SIP to Beat the Hidden Monster of Education Inflation
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            While general inflation hovers around 6%, education inflation in India is roaring at 10-12%. Here is the comprehensive guide on why standard savings fail and how a Step-Up SIP is the ultimate wealth creation engine for your child&apos;s future.
-          </p>
+
+
         </div>
 
         <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">

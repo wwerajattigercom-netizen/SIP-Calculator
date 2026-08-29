@@ -27,30 +27,21 @@ export default function SipVsStpPage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-3xl w-full mx-auto space-y-8">
           
-          <Breadcrumb items={[{ label: 'Guides', href: '/us/blog' }, { label: 'DCA vs STP' }]} />
-          
-          {/* Hero Section */}
-          <div className="glass-panel p-8 relative overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)] shadow-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
-            <div className="relative z-10">
-              <span className="text-xs uppercase tracking-widest text-[#C4993C] font-bold mb-4 block">Lump Sum Strategy</span>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
-                <span className="text-[var(--color-accent)]">DCA</span> vs <span className="text-[#C4993C]">STP</span>: How to Invest a Massive Bonus Safely
-              </h1>
-              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
-                You just received a $50,000 bonus, or sold a property. Should you dump it all into the stock market today? No. Enter the Systematic Transfer Plan (STP) — the professional investor's tool for risk-free market entry.
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
-                  R
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator · 5 min read</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Breadcrumb items={[{ label: 'Guides', href: '/us/blog' }, { label: 'DCA vs STP' }]} /><div className="mt-6 mb-10">
+          <h1
+            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">
+            <span className="text-[var(--color-accent)]">DCA</span>vs <span className="text-[#C4993C]">STP</span>: How to Invest a Massive Bonus Safely
+                          </h1>
+          <p
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">You just received a $50,000 bonus, or sold a property. Should you dump it all into the stock market today? No. Enter the Systematic Transfer Plan (STP) — the professional investor's tool for risk-free market entry.
+                          </p>
+          <div className="flex items-center gap-3 mb-8"><div
+              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 5 min read</p></div></div>
+        </div>
+            
+            {/* Hero Section */}
+            
 
           {/* BLUF */}
           <div className="glass-panel p-6 border-l-4 border-l-[#C4993C] bg-[rgba(196,153,60,0.03)]">

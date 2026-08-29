@@ -38,15 +38,21 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <Breadcrumb items={breadcrumbItems} />
-        
+        <Breadcrumb items={breadcrumbItems} /><div className="mt-6 mb-10">
+          <h1
+            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">The 10-10-10 Rule vs Step-Up DCA
+                      </h1>
+          <p
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">A Mathematical Deconstruction of Wealth Acceleration
+                      </p>
+          <div className="flex items-center gap-3 mb-8"><div
+              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
+                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
+        </div>
+
         <header className="mb-10 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-blue-900 dark:text-blue-100 mb-4">
-            The 10-10-10 Rule vs Step-Up DCA
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            A Mathematical Deconstruction of Wealth Acceleration
-          </p>
+
+
         </header>
 
         <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
@@ -119,7 +125,7 @@ export default function Page() {
             It is the ultimate "set it and forget it" wealth-building mechanism. It turns willpower—a finite and unreliable resource—into an automated algorithm.
           </p>
         </div>
-        
+
         <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
           <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Institutional Validation</h2>
           <p className="mb-4 leading-relaxed">
