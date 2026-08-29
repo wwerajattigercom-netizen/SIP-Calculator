@@ -3,6 +3,11 @@ export const metadata = {
   description: "Learn how to use Step-Up DCA to outpace the soaring 8-12% college tuition inflation in the US. Secure your child's education funding.",
   alternates: {
     canonical: 'https://stepupcalculator.com/us/blog/step-up-dca-to-beat-college-tuition-inflation',
+    languages: {
+      'en-IN': 'https://stepupcalculator.com/blog/step-up-sip-to-beat-education-inflation',
+      'en-US': 'https://stepupcalculator.com/us/blog/step-up-dca-to-beat-college-tuition-inflation',
+      'x-default': 'https://stepupcalculator.com/us/blog/step-up-dca-to-beat-college-tuition-inflation',
+    },
   },
 };
 
