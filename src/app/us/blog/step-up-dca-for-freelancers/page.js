@@ -210,7 +210,7 @@ export default function StepUpDcaForFreelancers() {
         {/* ── CTA BLOCK ── */}
         <div className="mt-12 bg-gradient-to-br from-[#1B3A5C] to-[#112740] rounded-3xl p-8 sm:p-12 text-center text-white shadow-xl mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Run the Numbers Yourself</h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
             Don&apos;t just guess your future wealth. Use our dedicated Step-Up DCA Calculator to visualize how a conservative baseline combined with a yearly percentage increase can build your multi-million dollar freelancer portfolio.
           </p>
           <Link href="/us/tools/step-up-dca-calculator" className="inline-flex items-center justify-center gap-2 bg-[#059669] hover:bg-[#047857] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">

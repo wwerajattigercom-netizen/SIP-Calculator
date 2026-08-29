@@ -163,7 +163,7 @@ export default function StepUpDcaEducationInflation() {
                 <GraduationCap className="w-6 h-6" />
                 Run the Numbers Yourself
               </h2>
-              <p className="text-blue-100 max-w-xl">
+              <p className="text-gray-600 dark:text-gray-300 max-w-xl">
                 Ready to protect your child from the student debt crisis? Use our interactive DCA calculator to map out the exact step-up strategy required to fund their college tuition.
               </p>
             </div>

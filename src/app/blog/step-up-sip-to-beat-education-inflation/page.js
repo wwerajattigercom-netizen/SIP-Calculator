@@ -170,7 +170,7 @@ export default function StepUpSipEducationInflation() {
                 <GraduationCap className="w-6 h-6" />
                 Run the Numbers Yourself
               </h2>
-              <p className="text-blue-100 max-w-xl">
+              <p className="text-gray-600 dark:text-gray-300 max-w-xl">
                 Don&apos;t leave your child&apos;s future to guesswork. Use our dedicated calculator to map out exactly how much you need to start investing today to beat education inflation.
               </p>
             </div>

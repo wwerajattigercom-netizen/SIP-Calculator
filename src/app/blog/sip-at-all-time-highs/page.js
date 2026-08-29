@@ -139,7 +139,7 @@ export default function SipAtAllTimeHighs() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-2xl font-bold mb-2">Run the Numbers Yourself</h2>
-            <p className="text-blue-100 mb-4">
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
               Stop guessing, stop fearing, and start planning. See exactly how much your wealth can exponentially grow by boldly starting a SIP today, completely regardless of current market highs.
             </p>
           </div>
