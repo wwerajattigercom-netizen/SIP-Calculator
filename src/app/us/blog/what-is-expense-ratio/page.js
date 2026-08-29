@@ -59,21 +59,15 @@ export default function ExpenseRatioUSGuide() {
       />
 
       <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <Breadcrumb items={[{ label: 'Blog', href: '/us/blog' }, { label: 'What is Expense Ratio', href: '/us/blog/what-is-expense-ratio' }]} /><div className="mt-6 mb-10">
-          <h1
-            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">What is an Expense Ratio? Fees, 12b-1, & The Impact on Returns
-                      </h1>
-          <p
-            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">Whether you are investing through a 401(k), a Roth IRA, or a standard brokerage account, you are paying fees. The most critical fee you need to understand is the Expense Ratio. Over a 30-year investing horizon, ignoring expense ratios can easily cost you hundreds of thousands of dollars in lost retirement wealth.
-                      </p>
-          <div className="flex items-center gap-3 mb-8"><div
-              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
-        </div>
+        <Breadcrumb items={[{ label: 'Blog', href: '/us/blog' }, { label: 'What is Expense Ratio', href: '/us/blog/what-is-expense-ratio' }]} />
 
         <div className="mt-8">
-
-
+          <h1 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 leading-tight">
+            What is an Expense Ratio? Fees, 12b-1, & The Impact on Returns
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
+            Whether you are investing through a 401(k), a Roth IRA, or a standard brokerage account, you are paying fees. The most critical fee you need to understand is the Expense Ratio. Over a 30-year investing horizon, ignoring expense ratios can easily cost you hundreds of thousands of dollars in lost retirement wealth.
+          </p>
         </div>
 
         <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-12">
@@ -205,7 +199,7 @@ export default function ExpenseRatioUSGuide() {
         </div>
 
         {/* ── FAQ SECTION ── */}
-
+        
         {/* Calculator CTA */}
         <section className="max-w-6xl w-full mx-auto mt-12 mb-12">
           <div className="glass-panel p-8 rounded-3xl bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent border border-[rgba(27,58,92,0.1)] flex flex-col md:flex-row items-center justify-between gap-6">
@@ -226,72 +220,72 @@ export default function ExpenseRatioUSGuide() {
           </div>
         </section>
 
-        <section id="faq" className="mt-12 mb-16">
-                  <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Frequently Asked Questions</h2>
-                  <div className="space-y-4 max-w-4xl mx-auto">
-                    
-                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                        What is a 12b-1 fee in a mutual fund?
-                        <span className="transition group-open:rotate-180">
-                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                      </summary>
-                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        A 12b-1 fee is an annual marketing or distribution fee on a mutual fund. It is included in the fund&apos;s expense ratio and is used to pay brokers and advertise the fund. It provides no direct benefit to the investor and merely acts as a drag on your overall returns.
-                      </p>
-                    </details>
+<section id="faq" className="mt-12 mb-16">
+          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Frequently Asked Questions</h2>
+          <div className="space-y-4 max-w-4xl mx-auto">
+            
+            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                What is a 12b-1 fee in a mutual fund?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                A 12b-1 fee is an annual marketing or distribution fee on a mutual fund. It is included in the fund&apos;s expense ratio and is used to pay brokers and advertise the fund. It provides no direct benefit to the investor and merely acts as a drag on your overall returns.
+              </p>
+            </details>
 
-                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                        How is the expense ratio deducted from my investments?
-                        <span className="transition group-open:rotate-180">
-                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                      </summary>
-                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        You do not receive a bill for the expense ratio. Instead, the fund company calculates the annual fee, divides it by the number of days in the year, and deducts that fraction from the fund&apos;s total assets every single day before publishing the Net Asset Value (NAV).
-                      </p>
-                    </details>
+            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                How is the expense ratio deducted from my investments?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                You do not receive a bill for the expense ratio. Instead, the fund company calculates the annual fee, divides it by the number of days in the year, and deducts that fraction from the fund&apos;s total assets every single day before publishing the Net Asset Value (NAV).
+              </p>
+            </details>
 
-                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                        What is the difference between Gross and Net Expense Ratio?
-                        <span className="transition group-open:rotate-180">
-                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                      </summary>
-                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        The Gross Expense Ratio is the total percentage of fund assets used to run the fund. The Net Expense Ratio is what you actually pay after the fund manager applies any temporary fee waivers or reimbursements to keep the fund competitive. Always check the Net Expense Ratio.
-                      </p>
-                    </details>
+            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                What is the difference between Gross and Net Expense Ratio?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                The Gross Expense Ratio is the total percentage of fund assets used to run the fund. The Net Expense Ratio is what you actually pay after the fund manager applies any temporary fee waivers or reimbursements to keep the fund competitive. Always check the Net Expense Ratio.
+              </p>
+            </details>
 
-                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                        What is considered a good expense ratio?
-                        <span className="transition group-open:rotate-180">
-                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                      </summary>
-                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        For passive index funds and ETFs (like those tracking the S&amp;P 500), a good expense ratio is between 0.03% and 0.10%. For actively managed mutual funds, a reasonable expense ratio is between 0.50% and 0.75%. Anything over 1.00% is generally considered high and should be avoided.
-                      </p>
-                    </details>
+            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                What is considered a good expense ratio?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                For passive index funds and ETFs (like those tracking the S&amp;P 500), a good expense ratio is between 0.03% and 0.10%. For actively managed mutual funds, a reasonable expense ratio is between 0.50% and 0.75%. Anything over 1.00% is generally considered high and should be avoided.
+              </p>
+            </details>
 
-                    <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
-                      <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
-                        Do ETFs have lower expense ratios than Mutual Funds?
-                        <span className="transition group-open:rotate-180">
-                          <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                      </summary>
-                      <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        Generally, yes. Exchange-Traded Funds (ETFs) are mostly passively managed and do not require heavy administrative costs since they trade on an exchange like normal stocks. As a result, standard ETFs usually have much lower expense ratios compared to traditional active mutual funds.
-                      </p>
-                    </details>
+            <details className="glass-panel p-5 rounded-2xl group cursor-pointer">
+              <summary className="text-lg font-semibold text-foreground list-none flex justify-between items-center">
+                Do ETFs have lower expense ratios than Mutual Funds?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                Generally, yes. Exchange-Traded Funds (ETFs) are mostly passively managed and do not require heavy administrative costs since they trade on an exchange like normal stocks. As a result, standard ETFs usually have much lower expense ratios compared to traditional active mutual funds.
+              </p>
+            </details>
 
-                  </div>
-                </section>
+          </div>
+        </section>
 
       </div>
     </div>

@@ -46,21 +46,15 @@ export default function SipAtAllTimeHighs() {
           { label: 'Blog', href: '/blog' },
           { label: 'SIP at All-Time Highs', href: '/blog/sip-at-all-time-highs' },
         ]}
-      /><div className="mt-6 mb-10">
-        <h1
-          className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Starting a SIP at Nifty All-Time Highs vs Waiting for a Crash
-                  </h1>
-        <p
-          className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">The Nifty 50 and Sensex have continually pushed boundaries, repeatedly establishing new all-time highs. The financial news cycle is relentlessly saturated with warnings of overvaluation, looming market corrections, and imminent macroeconomic catastrophes. As an ambitious investor with hard-earned savings ready to deploy, you might be feeling intense anxiety and hesitation. Is this the absolute top of the market cycle? Should you strategically wait for a 10% or 20% correction before finally initiating your Systematic Investment Plan (SIP)? The mathematical, historical, and empirical answer is a resounding, unambiguous no. Let's dive deep into the intricate mechanics, behavioral psychology, and decades of historical market data to definitively prove why waiting for a correction is often the most astronomically expensive mistake a long-term investor can possibly make. The cost of standing on the sidelines is far greater than the temporary pain of a market dip.
-                  </p>
-        <div className="flex items-center gap-3 mb-8"><div
-            className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                        </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
-      </div>
-
+      />
+      
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 mt-8">
-
-
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground mb-6 leading-tight">
+          Starting a SIP at Nifty All-Time Highs vs Waiting for a Crash
+        </h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+          The Nifty 50 and Sensex have continually pushed boundaries, repeatedly establishing new all-time highs. The financial news cycle is relentlessly saturated with warnings of overvaluation, looming market corrections, and imminent macroeconomic catastrophes. As an ambitious investor with hard-earned savings ready to deploy, you might be feeling intense anxiety and hesitation. Is this the absolute top of the market cycle? Should you strategically wait for a 10% or 20% correction before finally initiating your Systematic Investment Plan (SIP)? The mathematical, historical, and empirical answer is a resounding, unambiguous no. Let&apos;s dive deep into the intricate mechanics, behavioral psychology, and decades of historical market data to definitively prove why waiting for a correction is often the most astronomically expensive mistake a long-term investor can possibly make. The cost of standing on the sidelines is far greater than the temporary pain of a market dip.
+        </p>
       </div>
 
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">

@@ -39,21 +39,15 @@ export default function StepUpSipVsLumpsumInBullMarket() {
 
   return (
     <div className="max-w-6xl w-full mx-auto pb-16">
-      <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'Step-Up vs Lumpsum in Bull Market' }]} /><div className="mt-6 mb-10">
-        <h1
-          className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Step-Up SIP vs Lumpsum in a Bull Market: Which Strategy Wins?
-                  </h1>
-        <p
-          className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">When the Nifty 50 or Sensex scales new peaks and financial headlines scream "all-time highs," a psychological paralysis often sets in among retail investors. You might have a significant amount of capital ready to deploy, perhaps from an annual bonus, a real estate sale, or accumulated savings. But the fear of an impending market correction makes you hesitate. Should you commit a lumpsum now, risking a sudden drop that obliterates your initial capital, or should you start a Step-Up Systematic Investment Plan (SIP) to gradually average your way in? 
-                  </p>
-        <div className="flex items-center gap-3 mb-8"><div
-            className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                        </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
-      </div>
-
+      <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'Step-Up vs Lumpsum in Bull Market' }]} />
+      
       <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 mt-6">
-
-
+        <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+          Step-Up SIP vs Lumpsum in a Bull Market: Which Strategy Wins?
+        </h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+          When the Nifty 50 or Sensex scales new peaks and financial headlines scream &quot;all-time highs,&quot; a psychological paralysis often sets in among retail investors. You might have a significant amount of capital ready to deploy, perhaps from an annual bonus, a real estate sale, or accumulated savings. But the fear of an impending market correction makes you hesitate. Should you commit a lumpsum now, risking a sudden drop that obliterates your initial capital, or should you start a Step-Up Systematic Investment Plan (SIP) to gradually average your way in? 
+        </p>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
           Let&apos;s break down the complex mathematics, the historical backtesting data, and the behavioral psychology of investing during a roaring bull market to definitively answer which wealth creation engine is superior for your specific financial profile.
         </p>

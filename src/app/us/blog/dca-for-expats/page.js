@@ -27,20 +27,30 @@ export default function SipForExpatsPage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-3xl w-full mx-auto space-y-8">
           
-          <Breadcrumb items={[{ label: 'Guides', href: '/us/blog' }, { label: 'DCA for Expats' }]} /><div className="mt-6 mb-10">
-          <h1
-            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">DCA for <span className="text-[#C4993C]">Expats</span>: The Complete 2026 Guide
-                          </h1>
-          <p
-            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">With the US stock market consistently outperforming global indices, millions of Non-Resident the USns (Expats) want a piece of the action. Investing in US Index Funds from abroad is entirely legal, but the paperwork (KYC, PFIC Rules, and NRE/NRO accounts) can be confusing. For expats earning in foreign currencies, the allure of US markets and the potential for a million-dollar portfolio is strong. However, navigating the complex web of international tax laws, banking regulations, and brokerage requirements can quickly become overwhelming. Many expats mistakenly believe that they are completely barred from participating in the US financial system while living abroad, or they fear that doing so will result in massive tax penalties. In reality, with the correct setup and a solid understanding of the rules, expats can seamlessly execute a Dollar Cost Averaging (DCA) strategy into US mutual funds or ETFs. This comprehensive guide will walk you through everything you need to know, from setting up the right type of bank accounts to managing your KYC status and understanding how the dreaded PFIC rules might affect your investments. By the time you finish reading, you'll be fully equipped to start building your long-term wealth in the US market, no matter where in the world you currently reside.
-                          </p>
-          <div className="flex items-center gap-3 mb-8"><div
-              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 5 min read</p></div></div>
-        </div>
-            
-            {/* Hero Section */}
-            
+          <Breadcrumb items={[{ label: 'Guides', href: '/us/blog' }, { label: 'DCA for Expats' }]} />
+          
+          {/* Hero Section */}
+          <div className="glass-panel p-8 relative overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)] shadow-sm">
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+            <div className="relative z-10">
+              <span className="text-xs uppercase tracking-widest text-[#C4993C] font-bold mb-4 block">Global Investing</span>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
+                DCA for <span className="text-[#C4993C]">Expats</span>: The Complete 2026 Guide
+              </h1>
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                With the US stock market consistently outperforming global indices, millions of Non-Resident the USns (Expats) want a piece of the action. Investing in US Index Funds from abroad is entirely legal, but the paperwork (KYC, PFIC Rules, and NRE/NRO accounts) can be confusing. For expats earning in foreign currencies, the allure of US markets and the potential for a million-dollar portfolio is strong. However, navigating the complex web of international tax laws, banking regulations, and brokerage requirements can quickly become overwhelming. Many expats mistakenly believe that they are completely barred from participating in the US financial system while living abroad, or they fear that doing so will result in massive tax penalties. In reality, with the correct setup and a solid understanding of the rules, expats can seamlessly execute a Dollar Cost Averaging (DCA) strategy into US mutual funds or ETFs. This comprehensive guide will walk you through everything you need to know, from setting up the right type of bank accounts to managing your KYC status and understanding how the dreaded PFIC rules might affect your investments. By the time you finish reading, you'll be fully equipped to start building your long-term wealth in the US market, no matter where in the world you currently reside.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
+                  R
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator · 5 min read</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="space-y-8">
             

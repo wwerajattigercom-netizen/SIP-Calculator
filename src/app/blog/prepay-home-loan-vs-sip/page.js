@@ -51,20 +51,30 @@ export default function PrepayHomeLoanVsSipPage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-3xl w-full mx-auto space-y-8">
           
-          <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'Home Loan Prepayment vs SIP' }]} /><div className="mt-6 mb-10">
-          <h1
-            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Prepaying Home Loan vs <span className="text-[var(--color-returns)]">Step-Up SIP</span>: The Ultimate Guide
-                          </h1>
-          <p
-            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">You have an extra ₹10,000 every month. Should you use it to aggressively prepay your 9% home loan to become debt-free faster, or should you start a 12% Step-Up SIP in an equity mutual fund? Let's decode the math and the psychology behind this classic dilemma.
-                          </p>
-          <div className="flex items-center gap-3 mb-8"><div
-              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
-        </div>
-            
-            {/* Hero Section */}
-            
+          <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'Home Loan Prepayment vs SIP' }]} />
+          
+          {/* Hero Section */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 relative overflow-hidden border border-[rgba(27,58,92,0.15)] shadow-sm">
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+            <div className="relative z-10">
+              <span className="text-xs uppercase tracking-widest text-[var(--color-returns)] font-bold mb-4 block">Personal Finance Dilemma</span>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
+                Prepaying Home Loan vs <span className="text-[var(--color-returns)]">Step-Up SIP</span>: The Ultimate Guide
+              </h1>
+              <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+                You have an extra ₹10,000 every month. Should you use it to aggressively prepay your 9% home loan to become debt-free faster, or should you start a 12% Step-Up SIP in an equity mutual fund? Let&apos;s decode the math and the psychology behind this classic dilemma.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
+                  R
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator · 8 min read</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* The Core Mathematics */}
           <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">

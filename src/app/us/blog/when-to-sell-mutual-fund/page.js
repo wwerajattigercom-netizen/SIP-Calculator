@@ -49,22 +49,16 @@ export default function WhenToSellMutualFundUS() {
               { label: 'Blog', href: '/us/blog' },
               { label: 'When to Sell a Mutual Fund or ETF', href: '/us/blog/when-to-sell-mutual-fund' },
             ]}
-          /><div className="mt-6 mb-10">
-            <h1
-              className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">When to Sell a Mutual Fund or ETF in the US (Complete Guide)
-                            </h1>
-            <p
-              className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">Knowing exactly when to sell a mutual fund or ETF is critical for long-term wealth building in the US. Discover when to sell for tax-loss harvesting, how to spot style drift, managing retirement glide paths, and navigating IRS wash-sale rules without panic selling.
-                            </p>
-            <div className="flex items-center gap-3 mb-8"><div
-                className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                            </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
-          </div>
+          />
 
           <article>
             <div className="mb-12">
-
-
+              <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+                When to Sell a Mutual Fund or ETF in the US (Complete Guide)
+              </h1>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                Knowing exactly when to sell a mutual fund or ETF is critical for long-term wealth building in the US. Discover when to sell for tax-loss harvesting, how to spot style drift, managing retirement glide paths, and navigating IRS wash-sale rules without panic selling.
+              </p>
             </div>
 
             <section className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">

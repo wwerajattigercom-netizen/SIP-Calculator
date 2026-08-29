@@ -22,7 +22,6 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
-    "jscodeshift": "^17.4.0",
     "tailwindcss": "^4"
   }
 }

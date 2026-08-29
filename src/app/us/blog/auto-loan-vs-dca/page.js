@@ -39,20 +39,30 @@ export default function AutoLoanVsDcaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-4xl w-full mx-auto space-y-8">
-          <Breadcrumb items={[{ label: 'Guides', href: '/us/blog' }, { label: 'Auto Loan vs DCA' }]} /><div className="mt-6 mb-10">
-          <h1
-            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Auto Loan vs DCA: The <span className="text-[var(--color-loss)]">Hidden Opportunity Cost</span>That Keeps You Poor
-                          </h1>
-          <p
-            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">Buying a new car feels like an achievement, but financing it through a 5-to-7 year auto loan might be the single biggest wealth-destroying decision of your 20s and 30s. Discover the brutal mathematics behind car depreciation and the explosive opportunity cost of choosing a loan over Dollar-Cost Averaging (DCA).
-                          </p>
-          <div className="flex items-center gap-3 mb-8"><div
-              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
-        </div>
+          <Breadcrumb items={[{ label: 'Guides', href: '/us/blog' }, { label: 'Auto Loan vs DCA' }]} />
 
-            {/* Hero Section */}
-            
+          {/* Hero Section */}
+          <div className="glass-panel p-8 relative overflow-hidden rounded-3xl border border-[rgba(27,58,92,0.15)] shadow-sm mb-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+            <div className="relative z-10">
+              <span className="text-xs uppercase tracking-widest text-[var(--color-loss)] font-bold mb-4 block">The Lifestyle Trap</span>
+              <h1 className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4">
+                Auto Loan vs DCA: The <span className="text-[var(--color-loss)]">Hidden Opportunity Cost</span> That Keeps You Poor
+              </h1>
+              <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+                Buying a new car feels like an achievement, but financing it through a 5-to-7 year auto loan might be the single biggest wealth-destroying decision of your 20s and 30s. Discover the brutal mathematics behind car depreciation and the explosive opportunity cost of choosing a loan over Dollar-Cost Averaging (DCA).
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
+                  R
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert · 8 min read</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* BLUF (Bottom Line Up Front) */}
           <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 border-l-4 border-l-[var(--color-loss)] bg-[rgba(153,27,27,0.03)] dark:bg-[rgba(153,27,27,0.1)]">

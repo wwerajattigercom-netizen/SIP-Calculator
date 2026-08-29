@@ -27,20 +27,30 @@ export default function SipForNRIsPage() {
       <main className="py-8 px-2 md:px-4 flex flex-col items-center">
         <article className="max-w-3xl w-full mx-auto space-y-8">
           
-          <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'SIP for NRIs' }]} /><div className="mt-6 mb-10">
-          <h1
-            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">SIP for <span className="text-[#C4993C]">NRIs</span>: The Complete 2026 Guide
-                          </h1>
-          <p
-            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">With the Indian stock market consistently outperforming global indices, millions of Non-Resident Indians (NRIs) want a piece of the action. Investing in Indian Mutual Funds from abroad is entirely legal, but the paperwork (KYC, FATCA, and NRE/NRO accounts) can be confusing.
-                          </p>
-          <div className="flex items-center gap-3 mb-8"><div
-              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 5 min read</p></div></div>
-        </div>
-            
-            {/* Hero Section */}
-            
+          <Breadcrumb items={[{ label: 'Guides', href: '/blog' }, { label: 'SIP for NRIs' }]} />
+          
+          {/* Hero Section */}
+          <div className="glass-panel p-8 relative overflow-hidden rounded-2xl border border-[rgba(27,58,92,0.15)] shadow-sm">
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+            <div className="relative z-10">
+              <span className="text-xs uppercase tracking-widest text-[#C4993C] font-bold mb-4 block">Global Investing</span>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-4">
+                SIP for <span className="text-[#C4993C]">NRIs</span>: The Complete 2026 Guide
+              </h1>
+              <p className="text-gray-600 dark:text-gray-400 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                With the Indian stock market consistently outperforming global indices, millions of Non-Resident Indians (NRIs) want a piece of the action. Investing in Indian Mutual Funds from abroad is entirely legal, but the paperwork (KYC, FATCA, and NRE/NRO accounts) can be confusing.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-sm">
+                  R
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator · 5 min read</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="space-y-8">
             

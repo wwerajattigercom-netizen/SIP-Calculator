@@ -45,21 +45,15 @@ export default function SgbVsNiftySIP() {
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
-        <Breadcrumb items={breadcrumbItems} /><div className="mt-6 mb-10">
-          <h1
-            className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4 mt-6">Sovereign Gold Bonds (SGB) vs Nifty 50 SIP: Which is the Ultimate Inflation Hedge?
-                      </h1>
-          <p
-            className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">A comprehensive analysis of India's two most popular investment avenues. Discover how to balance the aggressive growth of equity with the protective stability of gold in your portfolio.
-                      </p>
-          <div className="flex items-center gap-3 mb-8"><div
-              className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">R
-                          </div><div><p className="text-sm font-semibold text-foreground">Written by Rajat</p><p className="text-xs text-gray-500 dark:text-gray-400">Personal Finance Expert • 8 min read</p></div></div>
-        </div>
-
+        <Breadcrumb items={breadcrumbItems} />
+        
         <header className="mb-10 mt-6">
-
-
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+            Sovereign Gold Bonds (SGB) vs Nifty 50 SIP: Which is the Ultimate Inflation Hedge?
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400">
+            A comprehensive analysis of India&apos;s two most popular investment avenues. Discover how to balance the aggressive growth of equity with the protective stability of gold in your portfolio.
+          </p>
         </header>
 
         <article className="prose prose-lg dark:prose-invert max-w-none">
