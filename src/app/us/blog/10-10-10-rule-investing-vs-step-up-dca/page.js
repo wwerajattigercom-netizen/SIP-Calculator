@@ -32,25 +32,39 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <main className="py-8 px-2 md:px-4 flex flex-col items-center">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <article className="max-w-4xl w-full mx-auto space-y-8">
         <Breadcrumb items={breadcrumbItems} />
         
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-blue-900 dark:text-blue-100 mb-4">
-            The 10-10-10 Rule vs Step-Up DCA
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            A Mathematical Deconstruction of Wealth Acceleration
-          </p>
-        </header>
+        {/* Hero Section */}
+            <div className="glass-panel p-8 relative overflow-hidden rounded-3xl border border-[rgba(27,58,92,0.15)] shadow-sm mb-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+              <div className="relative z-10">
+                <span className="text-xs uppercase tracking-widest text-[#C4993C] font-bold mb-4 block">Finance Rules</span>
+                <h1 className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4">
+                  The <span className="text-[#C4993C]">10-10-10 Rule</span> vs Step-Up DCA
+                </h1>
+                <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+                  We mathematically deconstruct the 10-10-10 investing rule of thumb and prove why adding an annual Step-Up crushes it.
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">
+                    R
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator • 7 min read</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Deconstructing the 10-10-10 Paradigm</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Deconstructing the 10-10-10 Paradigm</h2>
           <p className="mb-4 leading-relaxed">
             In the American personal finance landscape, variations of the 10-10-10 rule frequently circulate on social media and financial blogs. The core premise is straightforward: invest $10,000 a year, for 10 years, and assume a historical S&P 500 average return of 10%. 
           </p>
@@ -65,8 +79,8 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">The Mathematics of Stagnation</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">The Mathematics of Stagnation</h2>
           <p className="mb-4 leading-relaxed">
             Let&apos;s look at the math behind static contributions. Suppose you begin your career earning $60,000 and max out an IRA with some 401(k) matching to hit that $10,000/year mark. Five years later, you might be earning $85,000. Ten years later, perhaps $110,000. 
           </p>
@@ -84,8 +98,8 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">The Power of Step-Up DCA</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">The Power of Step-Up DCA</h2>
           <p className="mb-4 leading-relaxed">
             Step-Up DCA (often called Auto-Escalation in 401(k) plans) requires you to increase your investment amount periodically—usually annually—by a set percentage or fixed dollar amount. It mirrors your career progression and standard wage inflation.
           </p>
@@ -104,8 +118,8 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Behavioral Economics & Automation</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Behavioral Economics & Automation</h2>
           <p className="mb-4 leading-relaxed">
             The mathematical superiority of Step-Up DCA is clear, but its true genius lies in behavioral economics. Human beings are incredibly susceptible to lifestyle creep—the tendency to increase spending as income rises.
           </p>
@@ -120,8 +134,8 @@ export default function Page() {
           </p>
         </div>
         
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Institutional Validation</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Institutional Validation</h2>
           <p className="mb-4 leading-relaxed">
             The power of auto-escalation is not a fringe theory; it is backed by institutional research. Following the Pension Protection Act of 2006, many US employers adopted automatic enrollment and auto-escalation in 401(k) plans.
           </p>
@@ -136,8 +150,8 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Actionable Takeaways</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Actionable Takeaways</h2>
           <p className="mb-4 leading-relaxed">
             1. **Audit Your Current DCA:** Are you investing a flat dollar amount every month? If you&apos;ve been investing the same $500/month for three years despite receiving raises, you are falling behind.
           </p>
@@ -155,21 +169,21 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-8 rounded-3xl mb-12 bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800 text-center">
-          <h3 className="text-3xl font-bold mb-4 text-emerald-800 dark:text-emerald-200">Run the Numbers Yourself</h3>
-          <p className="text-lg mb-6 text-emerald-700 dark:text-emerald-300">
+        <div className="glass-panel p-8 rounded-3xl mb-12  text-center">
+          <h3 className="text-3xl font-bold mb-4 text-foreground">Run the Numbers Yourself</h3>
+          <p className="text-lg mb-6 text-foreground">
             Stop guessing. Use our advanced calculator to see exactly how much faster a Step-Up DCA strategy will accelerate your retirement compared to a standard fixed investment.
           </p>
           <Link 
             href="/us/tools/step-up-dca-calculator"
-            className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-full transition-transform hover:scale-105 shadow-lg"
+            className="inline-block bg-[#059669] hover:bg-[#047857] text-white font-bold py-3 px-8 rounded-full transition-transform hover:scale-105 shadow-lg"
           >
             Open Step-Up DCA Calculator
           </Link>
         </div>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-navy dark:text-white text-center">Frequently Asked Questions</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+          <h2 className="text-3xl font-bold mb-6 text-foreground text-center">Frequently Asked Questions</h2>
           <div className="space-y-4">
             <div className="glass-panel p-6 rounded-2xl">
               <h3 className="text-xl font-semibold mb-2">What is the 10-10-10 rule in investing?</h3>
@@ -180,9 +194,9 @@ export default function Page() {
               <p className="text-gray-700 dark:text-gray-300">Step-Up DCA increases your investment contributions annually, perfectly mirroring career salary growth and mitigating the long-term compounding destruction caused by inflation.</p>
             </div>
           </div>
-        </section>
+        </div>
 
-      </main>
-    </div>
+      </article>
+    </main>
   );
 }

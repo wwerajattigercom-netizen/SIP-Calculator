@@ -32,25 +32,39 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <main className="py-8 px-2 md:px-4 flex flex-col items-center">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <article className="max-w-4xl w-full mx-auto space-y-8">
         <Breadcrumb items={breadcrumbItems} />
         
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-blue-900 dark:text-blue-100 mb-4">
-            The Viral 15x15x15 Rule vs Step-Up SIP
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            A Mathematical Deconstruction of Wealth Creation
-          </p>
-        </header>
+        {/* Hero Section */}
+            <div className="glass-panel p-8 relative overflow-hidden rounded-3xl border border-[rgba(27,58,92,0.15)] shadow-sm mb-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-[rgba(27,58,92,0.05)] to-transparent pointer-events-none" />
+              <div className="relative z-10">
+                <span className="text-xs uppercase tracking-widest text-[#C4993C] font-bold mb-4 block">Finance Rules</span>
+                <h1 className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-4">
+                  The <span className="text-[#C4993C]">15x15x15 Rule</span> is Broken: Why You Need a Step-Up SIP
+                </h1>
+                <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+                  We mathematically deconstruct India's most viral investing rule of thumb and prove why adding a 10% annual Step-Up crushes it.
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white font-bold text-sm">
+                    R
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Written by Rajat</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Founder, StepupCalculator • 7 min read</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Introduction to the 15x15x15 Rule</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Introduction to the 15x15x15 Rule</h2>
           <p className="mb-4 leading-relaxed">
             The 15x15x15 rule has taken the Indian financial world by storm. It&apos;s simple, catchy, and promises a straightforward path to becoming a crorepati. The premise is elegant: invest ₹15,000 every month, for 15 years, at an expected compound annual growth rate (CAGR) of 15%, and you will accumulate ₹1 Crore.
           </p>
@@ -62,8 +76,8 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">The Mathematics of 15x15x15</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">The Mathematics of 15x15x15</h2>
           <p className="mb-4 leading-relaxed">
             Let&apos;s break down the math behind the viral rule. The formula for the future value of a SIP is an application of the future value of an annuity formula. 
             When you invest ₹15,000 monthly, your total investment over 15 years (180 months) is ₹27,00,000 (27 Lakhs).
@@ -82,8 +96,8 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Enter the Step-Up SIP</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Enter the Step-Up SIP</h2>
           <p className="mb-4 leading-relaxed">
             A Step-Up SIP (or Top-Up SIP) is the antidote to the limitations of the 15x15x15 rule. It aligns your investments with your income trajectory. Instead of freezing your monthly contribution at ₹15,000, you pledge to increase it by a certain percentage—say, 10%—every year.
           </p>
@@ -101,8 +115,8 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Psychological and Practical Advantages</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Psychological and Practical Advantages</h2>
           <p className="mb-4 leading-relaxed">
             Beyond the raw mathematics, the Step-Up strategy offers profound psychological benefits. When you commit to a flat ₹15,000 SIP, lifestyle inflation often consumes your annual raises. You upgrade your car, buy a bigger TV, or take more expensive vacations, while your future self gets left behind.
           </p>
@@ -117,8 +131,8 @@ export default function Page() {
           </p>
         </div>
         
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Deep Dive: Case Studies</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Deep Dive: Case Studies</h2>
           <p className="mb-4 leading-relaxed">
             To truly understand the power of the Step-Up, let&apos;s examine historical market data. If you started a ₹15,000 SIP in the NIFTY 50 index in January 2005, the next 15 years included massive bull runs and the catastrophic 2008 global financial crisis. 
           </p>
@@ -133,8 +147,8 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Advanced Step-Up Strategies</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 ">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">Advanced Step-Up Strategies</h2>
           <p className="mb-4 leading-relaxed">
             While an annual percentage increase is the most common Step-Up method, advanced investors often employ tactical Step-Ups. 
           </p>
@@ -158,21 +172,21 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="glass-panel p-8 rounded-3xl mb-12 bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800 text-center">
-          <h3 className="text-3xl font-bold mb-4 text-emerald-800 dark:text-emerald-200">Run the Numbers Yourself</h3>
-          <p className="text-lg mb-6 text-emerald-700 dark:text-emerald-300">
+        <div className="glass-panel p-8 rounded-3xl mb-12  text-center">
+          <h3 className="text-3xl font-bold mb-4 text-foreground">Run the Numbers Yourself</h3>
+          <p className="text-lg mb-6 text-foreground">
             Stop guessing. Use our advanced calculator to see exactly how much faster a Step-Up SIP will make you a Crorepati compared to a standard SIP.
           </p>
           <Link 
             href="/tools/step-up-sip-calculator"
-            className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-full transition-transform hover:scale-105 shadow-lg"
+            className="inline-block bg-[#059669] hover:bg-[#047857] text-white font-bold py-3 px-8 rounded-full transition-transform hover:scale-105 shadow-lg"
           >
             Open Step-Up SIP Calculator
           </Link>
         </div>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-navy dark:text-white text-center">Frequently Asked Questions</h2>
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8">
+          <h2 className="text-3xl font-bold mb-6 text-foreground text-center">Frequently Asked Questions</h2>
           <div className="space-y-4">
             <div className="glass-panel p-6 rounded-2xl">
               <h3 className="text-xl font-semibold mb-2">What is the 15x15x15 rule in mutual funds?</h3>
@@ -183,9 +197,9 @@ export default function Page() {
               <p className="text-gray-700 dark:text-gray-300">By increasing your SIP amount each year (Step-Up), you account for income growth and inflation. This drastically reduces the time needed to reach your financial goals compared to a flat SIP.</p>
             </div>
           </div>
-        </section>
+        </div>
 
-      </main>
-    </div>
+      </article>
+    </main>
   );
 }
