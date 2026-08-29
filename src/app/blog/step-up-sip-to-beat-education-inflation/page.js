@@ -69,12 +69,12 @@ export default function StepUpSipEducationInflation() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] py-12 px-4 sm:px-6 lg:px-8">
+    <main className="py-8 px-2 md:px-4 flex flex-col items-center">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="max-w-6xl w-full mx-auto">
+      <article className="max-w-4xl w-full mx-auto space-y-8">
         <Breadcrumb 
           items={[
             { label: 'Home', href: '/' },

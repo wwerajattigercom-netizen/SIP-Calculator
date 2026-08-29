@@ -360,6 +360,6 @@ export default function InvestingSalaryHikeInStepUpSip() {
         </div>
 
       </article>
-    </div>
+    </main>
   );
 }

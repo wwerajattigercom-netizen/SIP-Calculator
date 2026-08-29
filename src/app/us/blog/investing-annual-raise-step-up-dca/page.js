@@ -360,6 +360,6 @@ export default function InvestingAnnualRaiseStepUpDca() {
         </div>
 
       </article>
-    </div>
+    </main>
   );
 }
