@@ -83,7 +83,7 @@ export default function HowToBuildMutualFundPortfolio() {
             <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">The Foundation: Asset Allocation</h2>
           </div>
           
-          <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
+          <p className="text-gray-700 dark:mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
             Before selecting specific mutual funds, you must decide your asset allocation—the mix of equity (stocks) and debt (bonds/fixed income) in your portfolio. Asset allocation is the primary driver of your portfolio&apos;s overall risk and return. It dictates how your investments will behave during extreme market volatility.
           </p>
 
@@ -125,7 +125,7 @@ export default function HowToBuildMutualFundPortfolio() {
             <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">The Core &amp; Satellite Strategy</h2>
           </div>
           
-          <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
+          <p className="text-gray-700 dark:mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
             The Core and Satellite strategy is an institutional-grade portfolio design that blends stability with the opportunity for alpha (market-beating returns). It structurally divides your mutual fund investments into two distinct compartments.
           </p>
 
@@ -168,7 +168,7 @@ export default function HowToBuildMutualFundPortfolio() {
           <p className="text-gray-700 dark:text-gray-200 mb-4 leading-relaxed">
             One of the most dangerous illusions in investing is believing that buying 10 different mutual funds gives you superior diversification. If you buy three different Large-Cap equity funds (e.g., an SBI Large Cap, an HDFC Large Cap, and an ICICI Large Cap), you are likely buying the exact same underlying stocks—Reliance, HDFC Bank, Infosys, TCS, etc.
           </p>
-          <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
+          <p className="text-gray-700 dark:mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
             This phenomenon is known as <strong>Mutual Fund Overlap</strong>. When your funds overlap significantly (e.g., above 30-40%), you are not reducing risk; you are merely duplicating your holdings, cluttering your portfolio, and paying multiple fund managers to do the exact same job, thereby increasing your total expense ratio.
           </p>
 
@@ -211,11 +211,11 @@ export default function HowToBuildMutualFundPortfolio() {
             <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">Portfolio Rebalancing</h2>
           </div>
           
-          <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
+          <p className="text-gray-700 dark:mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
             Asset allocation is not a &quot;set it and forget it&quot; exercise. As markets move, your portfolio&apos;s weights will drift. For example, if you start with a 70% Equity and 30% Debt allocation, a massive bull run in the stock market might push your equity portion up to 85%. Suddenly, your portfolio is far riskier than you originally intended. If a crash happens, you will experience severe <span className="text-[#991B1B] font-bold">drawdowns and losses</span>.
           </p>
           
-          <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
+          <p className="text-gray-700 dark:mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
             Rebalancing is the process of realigning your portfolio back to its target asset allocation. It inherently forces you to follow the golden rule of investing: &quot;Buy Low, Sell High.&quot;
           </p>
 
@@ -236,7 +236,7 @@ export default function HowToBuildMutualFundPortfolio() {
             <h2 className="text-2xl font-bold text-[#1F2937] dark:text-white">Historical Return Scenarios &amp; Risk Profiles</h2>
           </div>
           
-          <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
+          <p className="text-gray-700 dark:mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
             Understanding how different portfolios have performed historically helps set realistic expectations. Here is a breakdown of typical portfolio structures and their theoretical behavior based on historical Indian market data over 10+ year horizons.
           </p>
 
@@ -264,7 +264,7 @@ export default function HowToBuildMutualFundPortfolio() {
 
             {/* Balanced */}
             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 ring-2 ring-[#1B3A5C] dark:ring-[#3B82F6] relative">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#1B3A5C] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 border-l-4 border-[#1B3A5C] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                 Most Popular
               </div>
               <h3 className="text-lg font-bold text-[#1F2937] dark:text-white mb-2">Balanced (Growth)</h3>

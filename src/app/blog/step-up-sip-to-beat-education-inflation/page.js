@@ -163,7 +163,7 @@ export default function StepUpSipEducationInflation() {
           </div>
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-[#1B3A5C] text-white">
+        <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 border-l-4 border-[#1B3A5C]">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
@@ -176,7 +176,7 @@ export default function StepUpSipEducationInflation() {
             </div>
             <Link 
               href="/tools/sip-for-child-education" 
-              className="bg-white text-[#1B3A5C] px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-gray-50 transition-all flex items-center gap-2 whitespace-nowrap"
+              className="bg-[var(--background)] text-foreground border border-gray-200 dark:border-white/10 px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-gray-50 transition-all flex items-center gap-2 whitespace-nowrap"
             >
               Open Education SIP Calculator
               <ArrowRight className="w-5 h-5" />

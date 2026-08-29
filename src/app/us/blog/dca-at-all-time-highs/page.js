@@ -138,7 +138,7 @@ export default function DcaAtAllTimeHighs() {
         </ul>
       </div>
 
-      <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-[#1B3A5C] text-white">
+      <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 border-l-4 border-[#1B3A5C]">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-2xl font-bold mb-2">Run the Numbers Yourself</h2>

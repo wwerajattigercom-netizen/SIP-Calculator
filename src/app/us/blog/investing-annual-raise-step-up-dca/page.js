@@ -249,7 +249,7 @@ export default function InvestingAnnualRaiseStepUpDca() {
             </div>
             <Link 
               href="/us/tools/dca-based-on-salary"
-              className="flex-shrink-0 flex items-center justify-center gap-2 px-6 py-3 bg-[#1B3A5C] text-white rounded-xl font-semibold hover:bg-[#112740] transition-colors w-full md:w-auto"
+              className="flex-shrink-0 flex items-center justify-center gap-2 px-6 py-3 border-l-4 border-[#1B3A5C] rounded-xl font-semibold hover:bg-[#112740] transition-colors w-full md:w-auto"
             >
               Open Calculator
               <ArrowRight className="w-4 h-4" />

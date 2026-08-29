@@ -190,7 +190,7 @@ export default function StepUpSipVsLumpsumInBullMarket() {
               Stop guessing and start mathematically planning. Use our specialized calculator to strictly compare a Lumpsum investment against a dynamic Step-Up SIP utilizing historical or projected return metrics. Visualize exactly how much absolute wealth you could build.
             </p>
           </div>
-          <Link href="/tools/sip-vs-lumpsum" className="flex-shrink-0 bg-[#1B3A5C] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#112740] transition-colors flex items-center gap-2">
+          <Link href="/tools/sip-vs-lumpsum" className="flex-shrink-0 border-l-4 border-[#1B3A5C] px-6 py-3 rounded-xl font-semibold hover:bg-[#112740] transition-colors flex items-center gap-2">
             Compare SIP vs Lumpsum <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

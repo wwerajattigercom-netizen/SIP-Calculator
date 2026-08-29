@@ -199,19 +199,19 @@ export default function SgbVsNiftySIP() {
             </ul>
           </div>
 
-          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 bg-[#1B3A5C] text-white">
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl mb-8 border-l-4 border-[#1B3A5C]">
             <div className="flex items-center gap-4 mb-4">
               <Calculator className="w-8 h-8 text-[#C4993C]" />
-              <h2 className="text-2xl font-bold m-0 text-white">Run the Numbers Yourself</h2>
+              <h2 className="text-2xl font-bold m-0 text-foreground">Run the Numbers Yourself</h2>
             </div>
-            <p className="mb-6 text-gray-200">
+            <p className="mb-6 text-gray-600 dark:text-gray-300">
               Ready to see how different asset classes can shape your financial future? Use our interactive calculators to model your SIP returns, track your net worth, and plan your goals with precision.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/" className="inline-flex items-center gap-2 bg-[#C4993C] text-white px-6 py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-colors">
                 Try the SIP Calculator <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/tools/goal-planner" className="inline-flex items-center gap-2 bg-white text-[#1B3A5C] px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
+              <Link href="/tools/goal-planner" className="inline-flex items-center gap-2 bg-[var(--background)] text-foreground border border-gray-200 dark:border-white/10 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
                 Goal Planner Hub <Target className="w-4 h-4" />
               </Link>
             </div>

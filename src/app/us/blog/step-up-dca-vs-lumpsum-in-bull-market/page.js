@@ -190,7 +190,7 @@ export default function StepUpDcaVsLumpsumInBullMarket() {
               Stop guessing and start mathematically planning. Use our specialized calculator to strictly compare a Lumpsum investment against a dynamic Step-Up DCA utilizing historical or projected return metrics. Visualize exactly how much absolute wealth you could build.
             </p>
           </div>
-          <Link href="/us/tools/dca-vs-lumpsum" className="flex-shrink-0 bg-[#1B3A5C] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#112740] transition-colors flex items-center gap-2">
+          <Link href="/us/tools/dca-vs-lumpsum" className="flex-shrink-0 border-l-4 border-[#1B3A5C] px-6 py-3 rounded-xl font-semibold hover:bg-[#112740] transition-colors flex items-center gap-2">
             Compare DCA vs Lumpsum <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
