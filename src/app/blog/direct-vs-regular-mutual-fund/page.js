@@ -69,7 +69,7 @@ export default function DirectVsRegularMutualFund() {
           <div className="flex items-center justify-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400">
             <span>By StepupCalculator</span>
             <span>&bull;</span>
-            <span>7 min read</span>
+            <span>4 min read</span>
           </div>
         </header>
 

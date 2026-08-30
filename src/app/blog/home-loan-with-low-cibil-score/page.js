@@ -16,7 +16,7 @@ export default function HomeLoanLowCibilScore() {
           <div className="flex items-center justify-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400">
             <span>By StepupCalculator</span>
             <span>•</span>
-            <span>6 min read</span>
+            <span>3 min read</span>
           </div>
         </header>
 

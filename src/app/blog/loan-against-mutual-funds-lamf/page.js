@@ -97,7 +97,7 @@ export default function GuidePage() {
             <div className="flex items-center gap-4 text-sm text-gray-500">
               <span className="font-medium text-foreground">Written by Rajat - Founder, StepupCalculator</span>
               <span>•</span>
-              <span>10 min read</span>
+              <span>5 min read</span>
             </div>
           </div>
         </div>
