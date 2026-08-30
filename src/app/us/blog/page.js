@@ -492,7 +492,7 @@ const ARTICLES = [{
     readTime: '8 min read',
     cta: 'Read Guide',
     icon: <LineChart className="w-5 h-5 text-[#1B3A5C]" />
-  ,
+  },
   {
     href: '/us/blog/portfolio-line-of-credit-ploc',
     tag: 'Advanced Strategy',
