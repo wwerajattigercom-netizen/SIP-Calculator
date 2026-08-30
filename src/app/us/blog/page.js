@@ -492,6 +492,18 @@ const ARTICLES = [{
     readTime: '8 min read',
     cta: 'Read Guide',
     icon: <LineChart className="w-5 h-5 text-[#1B3A5C]" />
+  ,
+  {
+    href: '/us/blog/portfolio-line-of-credit-ploc',
+    tag: 'Advanced Strategy',
+    tagColor: 'text-[#1B3A5C] bg-[#1B3A5C]/10 border-[#1B3A5C]/20',
+    title: 'Portfolio Line of Credit (PLOC): The Billionaire Strategy',
+    excerpt: 'Learn how the ultra-wealthy use the Buy, Borrow, Die strategy. Secure low-interest capital for emergencies without stopping your compounding.',
+    readTime: '10 min read',
+    cta: 'Read Guide',
+    icon: <Landmark className="w-5 h-5 text-[#1B3A5C]" />,
+    highlight: 'New',
+    highlightColor: 'text-[#1B3A5C]',
   }
 ];
 
