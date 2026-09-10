@@ -2,6 +2,13 @@
 const nextConfig = {
   async redirects() {
     return [
+      // www → non-www canonical redirect (fixes GSC "Alternative page with proper canonical tag")
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.stepupcalculator.com' }],
+        destination: 'https://stepupcalculator.com/:path*',
+        permanent: true,
+      },
       // India Tools
       { source: '/blog/cost-of-delay-calculator', destination: '/tools/cost-of-delay-calculator', permanent: true },
       { source: '/blog/sip-based-on-salary', destination: '/tools/sip-based-on-salary', permanent: true },
