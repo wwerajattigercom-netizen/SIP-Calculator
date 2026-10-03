@@ -36,11 +36,6 @@ export const metadata = {
   robots: "index, follow",
   alternates: {
     canonical: "https://stepupcalculator.com",
-    languages: {
-      "en-IN": "https://stepupcalculator.com",
-      "en-US": "https://stepupcalculator.com/us/dca-calculator",
-      "x-default": "https://stepupcalculator.com",
-    },
   },
   openGraph: {
     title: "SIP Calculator with Step Up, Inflation & Lump Sum | Free Online Tool",

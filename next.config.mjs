@@ -9,6 +9,10 @@ const nextConfig = {
         destination: 'https://stepupcalculator.com/:path*',
         permanent: true,
       },
+      // Fix 404s: bare /us and /us/cost-of-delay-calculator
+      { source: '/us', destination: '/us/dca-calculator', permanent: true },
+      { source: '/us/', destination: '/us/dca-calculator', permanent: true },
+      { source: '/us/cost-of-delay-calculator', destination: '/us/tools/cost-of-delay-calculator', permanent: true },
       // India Tools
       { source: '/blog/cost-of-delay-calculator', destination: '/tools/cost-of-delay-calculator', permanent: true },
       { source: '/blog/sip-based-on-salary', destination: '/tools/sip-based-on-salary', permanent: true },
